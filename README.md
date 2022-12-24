@@ -9,4 +9,12 @@
 
 **Language:** Python (Jupyter Notebook)
 
-### College Majors and Salaries (Pending)
+### College Majors and Salaries 
+
+
+
+### Pokemon Pokedex, Data Engineering Project
+
+**Purpose:** This project focused on building a sucessful database from scratch in under 2 weeks.
+
+**Summary:**
