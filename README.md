@@ -11,10 +11,18 @@
 
 ### College Majors and Salaries 
 
+**Purpose**
+
+**Summary**
+
+**Language** R (Rstudio + RShiny)
+
 
 
 ### Pokemon Pokedex, Data Engineering Project
 
-**Purpose:** This project focused on building a sucessful database from scratch in under 2 weeks.
+**Purpose:** This project focused on building a sucessful database from scratch in under 2 weeks, and by applying ETL methodology. 
 
-**Summary:**
+**Summary:** What is the best base stat pokemon type? I was intrigued by this question and sought to answer it using some data engineering. First, I used the "Pokémon of Kanto, Johto, and Hoenn Region" dataset to help design and structure my database. Second, I established the database and imported the dataset. Then, I used a few queries and built an new dataset for analysis. Using R, I analyzed and determined that the "Ghost" type was the best base type.
+
+**Languages:** Postgresql and R (RStudio)
