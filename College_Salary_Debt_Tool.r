@@ -10,7 +10,6 @@ library(shinyWidgets)
 library(scales)
 library(ggplot2)
 
-
 #read the files in from github
 allAgesDf <- read_csv("https://raw.githubusercontent.com/bobbyjy/test/master/all-ages.csv")
 tuition_cost <- read_csv("https://raw.githubusercontent.com/bobbyjy/test/master/tuition_income.csv")
@@ -303,9 +302,7 @@ server <- function(input, output) {
       theme(axis.text.y = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.y = element_blank())
-      
   })
-  
   
 }
 
