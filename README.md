@@ -10,7 +10,7 @@
 **Language:** Python (Jupyter Notebook)
 
 ### College Majors and Salaries Project
-Collaboration With Corey Cassell
+**Collaboration with Corey Cassell**
 
 **Purpose:** How do we inform a prospective college student about their potential career salary and student debt? We built an interactive tool to solve that problem. While simple and limited in scope, it helped us dive into the interactive visualizations using R Shiny. 
 
