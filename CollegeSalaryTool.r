@@ -1,4 +1,3 @@
-```r
 library(shiny)
 library(tidyverse)
 library(showtext)
@@ -312,4 +311,3 @@ server <- function(input, output) {
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-```
