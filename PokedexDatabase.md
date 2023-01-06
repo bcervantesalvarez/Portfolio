@@ -1,4 +1,4 @@
-# Data 503 Final Project
+# Pokedex Project
 
 ## Use this code for your own pokemon adventure! 
 
