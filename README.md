@@ -9,7 +9,7 @@
 
 **Language:** Python (Jupyter Notebook)
 
-### College Majors and Salaries Project
+### College Majors and Salaries
 **Collaboration with Corey Cassell**
 
 **Purpose:** How do we inform a prospective college student about their potential career salary and student debt? We built an interactive tool to solve that problem. While simple and limited in scope, it helped us dive into the interactive visualizations using R Shiny. 
@@ -20,7 +20,7 @@
 
 
 
-### Pokemon Pokedex, Data Engineering Project
+### Pokemon Pokedex, Data Engineering
 
 **Purpose:** This project focused on building a sucessful database from scratch in under 2 weeks, and by applying ETL methodology. 
 
