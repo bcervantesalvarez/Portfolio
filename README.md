@@ -1,5 +1,10 @@
 # Portfolio
 
+## Data Scientist Projects
+
+###
+
+
 ## Data Analysis Projects
 
 ### U.S. Medical Insurance Costs
@@ -38,7 +43,3 @@
 
 **Languages:** Postgresql and R (RStudio)
 
-
-## Data Scientist Projects
-
-###
