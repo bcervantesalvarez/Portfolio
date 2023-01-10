@@ -31,6 +31,6 @@ Direct Link: https://bcervantesalvarez.shinyapps.io/FinalProjectData502/
 **Summary:** What is the best base stat pokemon type? I was intrigued by this question and sought to answer it using some data engineering. First, I used the "Pokémon of Kanto, Johto, and Hoenn Region" dataset to help design and structure my database. Second, I established the database and imported the dataset. Then, I used a few queries and built an new dataset for analysis. Using R, I analyzed and determined that the "Ghost" type was the best base type.
 
 Presentation PDF: https://github.com/bcervantesalvarez/Portfolio/blob/main/Pokemon%20Pokedex.pdf
-Code: 
+Postgresql Code: https://github.com/bcervantesalvarez/Portfolio/blob/main/PokedexDatabase.md
 
 **Languages:** Postgresql and R (RStudio)
