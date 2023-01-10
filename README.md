@@ -14,7 +14,7 @@
 
 **Purpose:** How do we inform a prospective college student about their potential career salary and student debt? We built an interactive tool to solve that problem. While simple and limited in scope, it helped us dive into the interactive visualizations using R Shiny. 
 
-**Summary:** 
+**Summary:** The interactive visualization has 4 parts to it. The salary, tuition, debt estimators, and debt calculator. The first one explores the majors their potential salaries. A prospective student may want to see their choices and what their salary could line up during their career. Next, the tuition estimator explores a generalized tuition cost for the students exploring their major in their state of choice. Thirdly, the debt estimator looks into your potential 4-year degree debt based on your family's income. It is an average of all the students for each university, but it still is a good indicator of how much debt a student will accumulate for their 4 years. Lastly, the final tool looks at how long a student will be in debt according to their major category of choice. In this visual, you can also see how long their projected student debts will last. In essense, this tool is another great tool to help out students in high school who are interested in going into higher education.
 
 **Language** R (Rstudio + RShiny)
 
