@@ -2,7 +2,13 @@
 
 ## Data Scientist Projects
 
-###
+### Healthcare Spending
+
+**Purpose:** 
+
+**Summary:** 
+
+**Language:** R (RStudio)
 
 ## Data Engineering Projects
 
