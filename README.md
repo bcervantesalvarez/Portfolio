@@ -6,7 +6,9 @@
 
 **Purpose:** 
 
-**Summary:** 
+**Summary:** U.S. Healthcare costs have more than quintupled from 1980 to 2014. There are trends throughout each region that show no clear indication of healthcare spending going down. While some regions are not as expensive as others, they are still growing at the same pace nationally. Following the trend, personal health care spending averaged approximately $10,000 in 1980, but has substantially increased to nearly $80,000 in 2014.
+
+Direct Link: 
 
 **Language:** R (RStudio)
 
