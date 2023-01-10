@@ -19,6 +19,7 @@
 **Summary:** The interactive visualization has 4 parts to it. The salary, tuition, debt estimators, and debt calculator. The first one explores the majors their potential salaries. A prospective student may want to see their choices and what their salary could line up during their career. Next, the tuition estimator explores a generalized tuition cost for the students exploring their major in their state of choice. Thirdly, the debt estimator looks into your potential 4-year degree debt based on your family's income. It is an average of all the students for each university, but it still is a good indicator of how much debt a student will accumulate for their 4 years. Lastly, the final tool looks at how long a student will be in debt according to their major category of choice. In this visual, you can also see how long their projected student debts will last. In essense, this tool is another great tool to help out students in high school who are interested in going into higher education.
 
 **Direct Link:** https://bcervantesalvarez.shinyapps.io/FinalProjectData502/
+
 **Corey Cassell:** https://www.linkedin.com/in/corey-cassell/
 
 **Language** R (Rstudio + RShiny)
@@ -32,6 +33,7 @@
 **Summary:** What is the best base stat pokemon type? I was intrigued by this question and sought to answer it using some data engineering. First, I used the "Pokémon of Kanto, Johto, and Hoenn Region" dataset to help design and structure my database. Second, I established the database and imported the dataset. Then, I used a few queries and built an new dataset for analysis. Using R, I analyzed and determined that the "Ghost" type was the best base type.
 
 **Presentation PDF:** https://github.com/bcervantesalvarez/Portfolio/blob/main/Pokemon%20Pokedex.pdf
+
 **Postgresql Code:** https://github.com/bcervantesalvarez/Portfolio/blob/main/PokedexDatabase.md
 
 **Languages:** Postgresql and R (RStudio)
