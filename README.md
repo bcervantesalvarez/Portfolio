@@ -37,3 +37,8 @@
 **Postgresql Code:** https://github.com/bcervantesalvarez/Portfolio/blob/main/PokedexDatabase.md
 
 **Languages:** Postgresql and R (RStudio)
+
+
+## Data Scientist Projects
+
+###
