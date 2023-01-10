@@ -22,7 +22,7 @@
 
 **Corey Cassell:** https://www.linkedin.com/in/corey-cassell/
 
-**Language** R (Rstudio + RShiny)
+**Language:** R (Rstudio + RShiny)
 
 
 
