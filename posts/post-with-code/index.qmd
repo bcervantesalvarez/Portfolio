@@ -1,13 +1,7 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
-date: "2023-02-08"
-categories: [news, code, analysis]
-image: "image.jpg"
+title: "U.S. Medical Insurance Costs"
+author: "Brian Cervantes Alvarez"
+date: "2022-07-14"
+categories: [python, healthcare, analysis, stats]
+image: "health_ins.jepg"
 ---
-
-This is a post with executable code.
-
-```{r}
-1 + 1
-```
