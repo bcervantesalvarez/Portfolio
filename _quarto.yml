@@ -2,18 +2,21 @@ project:
   type: website
 
 website:
-  title: "Portoflio"
+  title: "Brian Cervantes Alvarez"
   navbar:
     right:
+      - index.qmd
       - about.qmd
+      - resume.qmd
       - icon: github
         href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+      - icon: linkedin
+        href: LinkedIn
 format:
   html:
-    theme: cosmo
+    theme: lux
     css: styles.css
+    mainfont: Futura
 
 editor: visual
 
