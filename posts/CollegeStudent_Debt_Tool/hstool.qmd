@@ -4,20 +4,40 @@ author: "Brian Cervantes Alvarez, Corey Cassell"
 date: "12-02-2023"
 image: uni.jpeg
 output: html_document
+code-fold: true
+categories: [R, interactive, informative, shiny]
 runtime: shiny
 ---
+
 ```{r}
 #| include: FALSE
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "/Users/briancervantesalvarez/Documents/GitHub/Portflio/posts/CollegeStudent_Debt_Tool")
 ```
 
+![](uni.jpeg)
+
+## Purpose:
+
+How do we inform a prospective college student about their potential career salary and student debt? We built an interactive tool to solve that problem. While simple and open to improvement, it helped us dive into the interactive visualizations using R Shiny.
+
+## Summary:
+
+The interactive visualization has 4 parts to it. The salary, tuition, debt estimators, and debt calculator. The first one explores the majors their potential salaries. A prospective student may want to see their choices and what their salary could line up during their career. Next, the tuition estimator explores a generalized tuition cost for the students exploring their major in their state of choice. Thirdly, the debt estimator looks into your potential 4-year degree debt based on your family's income. It is an average of all the students for each university, but it still is a good indicator of how much debt a student will accumulate for their 4 years. Lastly, the final tool looks at how long a student will be in debt according to their major category of choice. In this visual, you can also see how long their projected student debts will last. In essense, this tool is another great tool to help out students in high school who are interested in going into higher education.
+
+## Shiny Interactive Tool
+
+Click this image to be transported to another world[![FunnyLink](student_debt.jpeg)](https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/)
+
+When quarto introduces a method of adding shiny apps into quarto, I will update this, eventually.
+
+## Setup
+
 ```{r}
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Setup + Wrangling"
 
-#quarto comment should go right above here
 library(shiny)
 library(tidyverse)
 library(showtext)
@@ -87,12 +107,10 @@ df <- df %>% rename("Room and Board" = room_expenses,
 
 ```
 
-## Salary Estimator
-
 ```{r}
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Color Theme"
 
 #vars  
   title = 25
@@ -136,12 +154,12 @@ CoreyPlotTheme <- theme(
   )
 ```
 
-
+## Plot Sidebar Inputs
 
 ```{r}
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Salary Estimator Selectors"
 
 #INPUT FOR PLOT 1
 
@@ -157,11 +175,10 @@ input1 <- inputPanel(
 )
 ```
 
-
 ```{r}
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Tuition Estimator Options"
 
 #INPUT FOR PLOT 2
 
@@ -177,11 +194,10 @@ input2 <- inputPanel(
 )
 ```
 
-
 ```{r}
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Debt Estimator Levels"
 
 #INPUT FOR PLOT 3
 
@@ -205,11 +221,10 @@ input3 <- inputPanel(
 )
 ```
 
-
 ```{r}
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Debt Calculator Choices"
 
 #INPUT FOR PLOT 4
 
@@ -224,13 +239,12 @@ input4 <- inputPanel(
 
 ```
 
+## Plots
 
-```{r, echo=FALSE}
-#| context: server
-#| echo: FALSE
+```{r}
 #| warning: FALSE
 #| message: FALSE
-
+#| code-summary: "Salary Estimator"
 
 #PLOT1
 plot1 <- renderPlot({
@@ -254,12 +268,10 @@ plot1 <- renderPlot({
 })
 ```
 
-
-```{r, echo=FALSE}
-#| context: server
-#| echo: FALSE
+```{r}
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Tuition Estimator"
 
 #PLOT2
 plot2 <- renderPlot({
@@ -285,12 +297,10 @@ plot2 <- renderPlot({
 })
 ```
 
-
-```{r, echo=FALSE}
-#| context: server
-#| echo: FALSE
+```{r}
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Debt Estimator"
 
 #PLOT3
 plot3 <- renderPlot({
@@ -315,12 +325,10 @@ plot3 <- renderPlot({
 })
 ```
 
-
-```{r, echo=FALSE}
-#| context: server
-#| echo: FALSE
+```{r}
 #| warning: FALSE
 #| message: FALSE
+#| code-summary: "Debt Calculator"
 
 #PlOT4
 plot4 <- renderPlot({
@@ -346,26 +354,28 @@ plot4 <- renderPlot({
 
 ```
 
+## Plots Don't Render, Go to Link Below
+
+Here: https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/
+
+
 ```{r}
-#| context: server
-#| echo: FALSE
 #| warning: FALSE
 #| message: FALSE
 
 #Salary Estimator
-input1
-plot1
+#input1
+#plot1
 
 #Tuition Estimator
-input2
-plot2
+#input2
+#plot2
 
 #Debt Estimator
-input3
-plot3
+#input3
+#plot3
 
 #Debt Calculator
-input4
-plot4
+#input4
+#plot4
 ```
-
