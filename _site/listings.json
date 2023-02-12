@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/welcome/index.html",
-      "/posts/US_HealthIns_Costs/US_Medical_Insurance_Costs.html"
+      "/posts/CollegeStudent_Debt_Tool/index.html",
+      "/posts/CollegeStudent_Debt_Tool/shinyTest.html",
+      "/posts/US_HealthIns_Costs/US_Medical_Insurance_Costs.html",
+      "/posts/CollegeStudent_Debt_Tool/test.html"
     ]
   }
 ]
