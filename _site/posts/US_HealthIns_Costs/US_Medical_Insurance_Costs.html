@@ -221,13 +221,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>U.S. Medical Insurance Costs</h1>
 <section id="purpose-of-this-project" class="level2">
 <h2 class="anchored" data-anchor-id="purpose-of-this-project">Purpose of this Project</h2>
-<p>This is a portolifo project for the medical industry to demonstrate the ability to provide visualizations and statistical inferences when given a cleaned up data set. In this case, I am looking into the U.S. Medical Insurance Costs sample data set that was provided by Codecademy’s Data Scientist: Inference Specialist Path: https://www.kaggle.com/datasets/mirichoi0218/insurance</p>
+<p>This project focuses on the medical insurance industry. I demonstrate the ability to provide visualizations and statistical inferences when given a cleaned up data set. Here is the data set source: https://www.kaggle.com/datasets/mirichoi0218/insurance</p>
 <p>Here are a few questions I formulated before diving into the data set: <em>What single component causes the most increase in insurance costs? What variables play a role in increasing or decreasing insurance costs? What would be the ideal individual to minimize the cost of medical insurance?</em></p>
-<p>I immediately identified <strong>smoker</strong> as being a key variable to analyze their individual costs. Plus, I dive into the difference of between male and female insurance costs for both smokers and nonsmokers.</p>
+<p>I look into <strong>smokers</strong> as being a variable of interest. Additionally, I dive into the difference of between male and female insurance costs for both smokers and nonsmokers.</p>
 <p><strong>If you wish to skip towards the results portion, feel free to scroll down and have a quick read! Interesting results were found.</strong></p>
 <section id="set-up-and-importing-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="set-up-and-importing-the-data">Set Up and Importing the Data</h3>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Smoker Count: 274</li>
 <li>Nonsmoker Count: 1064</li>
 </ul>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#while a histogram is not necessary, it can really show in the visual count of smokers vs nonsmokers</span></span>
@@ -278,10 +278,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Exact number of nonsmokers: {num_nonsmokers}".format(num_nonsmokers = num_nonsmokers))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-3-output-1.png" width="676" height="523"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The interquartile range is $20,125.33. Very high spread from the first and third interquartiles.</p>
 <p>Now, notice that we have a bimodal distribution. This means that there is a variable in the data set that is drastically affecting the insurance cost. Since there is two “humps” we must identify the component that causes a further jump in insurance costs for those who smoke.</p>
 <p>What could cause this? - Region? - Bmi? - Sex? - Children? - Age?</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_smokers <span class="op">=</span> df[df.smoker <span class="op">==</span> <span class="st">'yes'</span>]</span>
@@ -315,10 +315,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-4-output-1.png" width="1577" height="819"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -326,27 +326,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="insurance-cost-statistics-for-smokers">Insurance Cost Statistics for Smokers</h3>
 <p>Summary Stats: - Mean: $32,050.23 - Median: $34,456.35 - Max: $63,770.43 - Min: $12,829.46 - Standard Deviation: $11,520.47 - Variance: 132721153.14</p>
 <p>Given the distribution, we can say that the mean represents the true average insurance cost for smokers.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for smokers</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>smoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_smokers.charges), <span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The average insurance cost for being a smoker: $</span><span class="sc">{mean}</span><span class="st">'</span>.<span class="bu">format</span>(mean <span class="op">=</span> smoker_mean))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#find median of insurance cost for smokers</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>smoker_median <span class="op">=</span> <span class="bu">round</span>(np.median(df_smokers.charges), <span class="dv">2</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The median insurance cost for being a smoker: $</span><span class="sc">{median}</span><span class="st">'</span>.<span class="bu">format</span>(median <span class="op">=</span> smoker_median))</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#find standard deviation...</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>smoker_std <span class="op">=</span> <span class="bu">round</span>(np.std(df_smokers.charges),<span class="dv">2</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The standard deviation is: $</span><span class="sc">{std}</span><span class="st">'</span>.<span class="bu">format</span>(std <span class="op">=</span> smoker_std))</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#let's see the variance</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>smoker_var <span class="op">=</span> <span class="bu">round</span>(np.var(df_smokers.charges),<span class="dv">2</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The variance is: </span><span class="sc">{var}</span><span class="st">'</span>.<span class="bu">format</span>(var <span class="op">=</span> smoker_var))</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>smoker_max <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">max</span>(df_smokers.charges), <span class="dv">2</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The maximum insurance cost for being a smoker is: $</span><span class="sc">{max}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">max</span> <span class="op">=</span> smoker_max))</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">#minimum cost</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>smoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_smokers.charges), <span class="dv">2</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The minimum insurance cost for being a smoker is: $</span><span class="sc">{min}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">min</span> <span class="op">=</span> smoker_min))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The average insurance cost for being a smoker: ${mean}'.format(mean = smoker_mean))</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#find median of insurance cost for smokers</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>smoker_median <span class="op">=</span> <span class="bu">round</span>(np.median(df_smokers.charges), <span class="dv">2</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The median insurance cost for being a smoker: ${median}'.format(median = smoker_median))</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#find standard deviation...</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>smoker_std <span class="op">=</span> <span class="bu">round</span>(np.std(df_smokers.charges),<span class="dv">2</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The standard deviation is: ${std}'.format(std = smoker_std))</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#let's see the variance</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>smoker_var <span class="op">=</span> <span class="bu">round</span>(np.var(df_smokers.charges),<span class="dv">2</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The variance is: {var}'.format(var = smoker_var))</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>smoker_max <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">max</span>(df_smokers.charges), <span class="dv">2</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The maximum insurance cost for being a smoker is: ${max}'.format(max = smoker_max))</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#minimum cost</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>smoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_smokers.charges), <span class="dv">2</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The minimum insurance cost for being a smoker is: ${min}'.format(min = smoker_min))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The average insurance cost for being a smoker: $32050.23
@@ -371,7 +376,7 @@ The minimum insurance cost for being a smoker is: $12829.46</code></pre>
 <p>Graph Four: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual’s insurance cost will increase as expected.</p>
 <p>Graph Five: Barplot of Average Cost per Region - No valuable insights can be drawn.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers’ insurance cost.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male smokers from the main data set</span></span>
@@ -438,17 +443,17 @@ The minimum insurance cost for being a smoker is: $12829.46</code></pre>
 <span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-6-output-1.png" width="3460" height="2320"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="bmi-graph-highlighted" class="level3">
 <h3 class="anchored" data-anchor-id="bmi-graph-highlighted">BMI Graph Highlighted</h3>
 <p>As mentioned above, the reason why the cost distribution had two clusters was due to the difference in BMI in each male smoker. Male smokers with a BMI &gt;= 30 will that their expense increase by approximately 47%.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight BMI graph</span></span>
@@ -463,34 +468,34 @@ The minimum insurance cost for being a smoker is: $12829.46</code></pre>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">1.0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fa969be80d0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f8cf840f7f0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-7-output-2.png" width="1349" height="553"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>male_df_bmi <span class="op">=</span> df_male_smoker[df_male_smoker.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>male_avg_cost <span class="op">=</span> <span class="bu">round</span>(np.mean(male_df_bmi.charges, axis <span class="op">=</span> <span class="dv">0</span>),<span class="dv">2</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for male smokers with a BMI of less than 30 equates to: $</span><span class="sc">{charge}</span><span class="st">"</span>.<span class="bu">format</span>(charge <span class="op">=</span> male_avg_cost))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The average insurance cost for male smokers with a BMI of less than 30 equates to: ${charge}".format(charge = male_avg_cost))</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &gt;= 30</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>male_df2_bmi <span class="op">=</span> df_male_smoker[df_male_smoker.bmi <span class="op">&gt;=</span> <span class="dv">30</span>]</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>male_avg_cost_2 <span class="op">=</span> <span class="bu">round</span>(np.mean(male_df2_bmi.charges, axis <span class="op">=</span> <span class="dv">0</span>),<span class="dv">2</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for male smokers with a BMI of greater than or equal to 30 equates to: $</span><span class="sc">{charge}</span><span class="st">"</span>.<span class="bu">format</span>(charge <span class="op">=</span> male_avg_cost_2))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The average insurance cost for male smokers with a BMI of greater than or equal to 30 equates to: ${charge}".format(charge = male_avg_cost_2))</span></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Difference of Insurance Cost</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>male_diff_cost <span class="op">=</span> male_avg_cost_2 <span class="op">-</span> male_avg_cost</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The difference in insurance cost from being at or over 30 BMI compared to being under 30 BMI for males is: $</span><span class="sc">{diff}</span><span class="st">"</span>.<span class="bu">format</span>(diff <span class="op">=</span> male_diff_cost))</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The difference in insurance cost from being at or over 30 BMI compared to being under 30 BMI for males is: ${diff}".format(diff = male_diff_cost))</span></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>male_diff_cost_percent <span class="op">=</span> <span class="dv">100</span><span class="op">*</span><span class="bu">round</span>(male_diff_cost <span class="op">/</span> male_avg_cost_2, <span class="dv">2</span>)</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'A male smoker will suffer an increase of </span><span class="sc">{percent}% i</span><span class="st">n their insurance cost by being obese (BMI &gt;= 30)'</span>.<span class="bu">format</span>(percent <span class="op">=</span> male_diff_cost_percent))</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#print('A male smoker will suffer an increase of {percent}% in their insurance cost by being obese (BMI &gt;= 30)'.format(percent = male_diff_cost_percent))</span></span>
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -512,7 +517,7 @@ A male smoker will suffer an increase of 47.0% in their insurance cost by being 
 <p>Graph Five: Barplot of Average Cost per Region - No valuable insights can be drawn.</p>
 <p>Graph Six: Boxplot of Female Smoker Insurance Cost - Noteworthy to see the spread of female smokers’ insurance cost.</p>
 <p>Given that the Insurane Cost vs BMI is essentially the same as male smokers, the stated results will apply here.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="19">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female smokers from the main data set</span></span>
@@ -575,30 +580,30 @@ A male smoker will suffer an increase of 47.0% in their insurance cost by being 
 <span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-9-output-1.png" width="3448" height="2372"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="20">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>female_df_bmi <span class="op">=</span> df_female_smoker[df_female_smoker.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>female_avg_cost <span class="op">=</span> <span class="bu">round</span>(np.mean(female_df_bmi.charges, axis <span class="op">=</span> <span class="dv">0</span>),<span class="dv">2</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for female smokers with a BMI of less than 30 equates to: $</span><span class="sc">{charge}</span><span class="st">"</span>.<span class="bu">format</span>(charge <span class="op">=</span> female_avg_cost))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The average insurance cost for female smokers with a BMI of less than 30 equates to: ${charge}".format(charge = female_avg_cost))</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &gt;= 30</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>female_df2_bmi <span class="op">=</span> df_female_smoker[df_female_smoker.bmi <span class="op">&gt;=</span> <span class="dv">30</span>]</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>female_avg_cost_2 <span class="op">=</span> <span class="bu">round</span>(np.mean(female_df2_bmi.charges, axis <span class="op">=</span> <span class="dv">0</span>),<span class="dv">2</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for female smokers with a BMI of greater than or equal to 30 equates to: $</span><span class="sc">{charge}</span><span class="st">"</span>.<span class="bu">format</span>(charge <span class="op">=</span> female_avg_cost_2))</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The average insurance cost for female smokers with a BMI of greater than or equal to 30 equates to: ${charge}".format(charge = female_avg_cost_2))</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Difference of Insurance Cost</span></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>female_diff_cost <span class="op">=</span> female_avg_cost_2 <span class="op">-</span> female_avg_cost</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The difference in cost from being at or over 30 BMI compared to being under 30 BMI for females is: $</span><span class="sc">{diff}</span><span class="st">"</span>.<span class="bu">format</span>(diff <span class="op">=</span> female_diff_cost))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The difference in cost from being at or over 30 BMI compared to being under 30 BMI for females is: ${diff}".format(diff = female_diff_cost))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The average insurance cost for female smokers with a BMI of less than 30 equates to: $21070.04
@@ -610,7 +615,7 @@ The difference in cost from being at or over 30 BMI compared to being under 30 B
 <section id="average-insurance-cost-comparision-of-male-and-female-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="average-insurance-cost-comparision-of-male-and-female-smokers">Average Insurance Cost Comparision of Male and Female Smokers</h3>
 <p>Noteworthy mention: - Male smokers pay approximately 1.34% more than their female counterparts when their BMI less than 30. - Male smokers pay approximately 1.42% less than their female counterparts when their BMI greater than or equal to 30.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="21">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot average insurance cost for male and female </span></span>
@@ -628,7 +633,7 @@ The difference in cost from being at or over 30 BMI compared to being under 30 B
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>diff_por <span class="op">=</span> <span class="bu">round</span>((por_male_less_30 <span class="op">-</span> por_female_less_30), <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Male smokers are expected to pay approximately </span><span class="sc">{diff_por}</span><span class="st">% more than their female counterparts when their BMI &lt; 30 "</span>.<span class="bu">format</span>(diff_por <span class="op">=</span> diff_por))</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Male smokers are expected to pay approximately {diff_por}% more than their female counterparts when their BMI &lt; 30 ".format(diff_por = diff_por))</span></span>
 <span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>df_bmi_greater_than_or_equal_30 <span class="op">=</span> df_smokers[df_smokers.bmi <span class="op">&gt;=</span> <span class="dv">30</span>]</span>
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>df_two <span class="op">=</span> df_bmi_greater_than_or_equal_30.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
@@ -643,7 +648,7 @@ The difference in cost from being at or over 30 BMI compared to being under 30 B
 <span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>diff_por_greq <span class="op">=</span> <span class="bu">round</span>((por_male_greq_30 <span class="op">-</span> por_female_greq_30), <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>diff_por_greq <span class="op">=</span> <span class="bu">abs</span>(<span class="bu">round</span>(diff_por_greq, <span class="dv">4</span>))</span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Male smokers are expected to pay approximately </span><span class="sc">{diff_por_greq}% le</span><span class="st">ss than their female counterparts when their BMI &gt;= 30"</span>.<span class="bu">format</span>(diff_por_greq <span class="op">=</span> diff_por_greq))</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Male smokers are expected to pay approximately {diff_por_greq}% less than their female counterparts when their BMI &gt;= 30".format(diff_por_greq = diff_por_greq))</span></span>
 <span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_one)</span></span>
 <span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_two)</span></span>
@@ -679,9 +684,9 @@ The difference in cost from being at or over 30 BMI compared to being under 30 B
 Male smokers are expected to pay approximately 1.42% less than their female counterparts when their BMI &gt;= 30</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-11-output-2.png" width="2009" height="864"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>&lt;function matplotlib.pyplot.clf()&gt;</code></pre>
 </div>
 </div>
@@ -692,7 +697,7 @@ Male smokers are expected to pay approximately 1.42% less than their female coun
 <p>Now, notice that we have a right-skewed distribution.</p>
 <p>What could cause this? - Region? - Bmi? - Sex? - Children? - Age?</p>
 <p>Keep in mind, there is a chance that we may not be able to determine the cause of those outliers.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="22">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> stats.iqr(df_nonsmokers.charges, interpolation <span class="op">=</span> <span class="st">'midpoint'</span>)</span>
@@ -720,10 +725,10 @@ Male smokers are expected to pay approximately 1.42% less than their female coun
 <pre><code>7378.07</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-12-output-2.png" width="1637" height="865"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -732,29 +737,34 @@ Male smokers are expected to pay approximately 1.42% less than their female coun
 <h2 class="anchored" data-anchor-id="analyzing-the-insurance-cost-of-nonsmokers">Analyzing the insurance cost of nonsmokers</h2>
 <p>Now let’s look at the nonsmokers.</p>
 <p>Summary Stats: - Mean: $8,434.27 - Median: $7,345.41 - Max: $39,910.61 - Min: $1,121.87 - Standard Deviation: $5,990.96 - Variance: 35891656</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="23">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for nonsmokers</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The nonsmoker average insurance cost for being a smoker: $</span><span class="sc">{mean}</span><span class="st">'</span>.<span class="bu">format</span>(mean <span class="op">=</span> nonsmoker_mean))</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#find median of insurance cost for nonsmokers</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>nonsmoker_median <span class="op">=</span> <span class="bu">round</span>(np.median(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The nonsmoker median insurance cost for being a smoker: $</span><span class="sc">{median}</span><span class="st">'</span>.<span class="bu">format</span>(median <span class="op">=</span> nonsmoker_median))</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#find standard deviation...</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>nonsmoker_std <span class="op">=</span> <span class="bu">round</span>(np.std(df_nonsmokers.charges),<span class="dv">2</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The nonsmoker standard deviation is: $</span><span class="sc">{std}</span><span class="st">'</span>.<span class="bu">format</span>(std <span class="op">=</span> nonsmoker_std))</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#let's see the variance</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>nonsmoker_var <span class="op">=</span> <span class="bu">round</span>(np.var(df_nonsmokers.charges),<span class="dv">2</span>)</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The nonsmoker variance is: </span><span class="sc">{var}</span><span class="st">'</span>.<span class="bu">format</span>(var <span class="op">=</span> nonsmoker_var))</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>nonsmoker_max <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">max</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The nonsmoker maximum insurance cost is: $</span><span class="sc">{max}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">max</span> <span class="op">=</span> nonsmoker_max))</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">#minimum cost</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>nonsmoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The nonsmoker minimum insurance cost is: $</span><span class="sc">{min}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">min</span> <span class="op">=</span> nonsmoker_min))</span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co">#For explaination a high standard deviation tells us that here are other reasons the cost is so high since it varies signifcantly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker average insurance cost for being a smoker: ${mean}'.format(mean = nonsmoker_mean))</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#find median of insurance cost for nonsmokers</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>nonsmoker_median <span class="op">=</span> <span class="bu">round</span>(np.median(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker median insurance cost for being a smoker: ${median}'.format(median = nonsmoker_median))</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#find standard deviation...</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>nonsmoker_std <span class="op">=</span> <span class="bu">round</span>(np.std(df_nonsmokers.charges),<span class="dv">2</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker standard deviation is: ${std}'.format(std = nonsmoker_std))</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#let's see the variance</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>nonsmoker_var <span class="op">=</span> <span class="bu">round</span>(np.var(df_nonsmokers.charges),<span class="dv">2</span>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker variance is: {var}'.format(var = nonsmoker_var))</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>nonsmoker_max <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">max</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker maximum insurance cost is: ${max}'.format(max = nonsmoker_max))</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co">#minimum cost</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>nonsmoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker minimum insurance cost is: ${min}'.format(min = nonsmoker_min))</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="co">#For explaination a high standard deviation tells us that here are other reasons the cost is so high since it varies signifcantly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The nonsmoker average insurance cost for being a smoker: $8434.27
@@ -773,7 +783,7 @@ The nonsmoker minimum insurance cost is: $1121.87</code></pre>
 <p>Graph Four: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.</p>
 <p>Graph Five: Barplot of Average Cost per Region - No valuable insights can be drawn. - Some regions are simply cheaper than others.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers’ insurance cost.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="24">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male nonsmokers from the main data set</span></span>
@@ -833,13 +843,13 @@ The nonsmoker minimum insurance cost is: $1121.87</code></pre>
 <span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-14-output-1.png" width="3125" height="2343"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="25">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight scatter plot for linear trend</span></span>
@@ -859,10 +869,10 @@ The nonsmoker minimum insurance cost is: $1121.87</code></pre>
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co">#people with more children see a slightly higher cost overall </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-15-output-1.png" width="1265" height="864"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -874,7 +884,7 @@ The nonsmoker minimum insurance cost is: $1121.87</code></pre>
 <p>Graph Four: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.</p>
 <p>Graph Five: Barplot of Average Cost per Region - There is a slight trend of region importance. - The northeast is more expensive on average than the southwest.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers’ insurance cost.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="26">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female nonsmokers from the main data set</span></span>
@@ -934,10 +944,10 @@ The nonsmoker minimum insurance cost is: $1121.87</code></pre>
 <span id="cb31-55"><a href="#cb31-55" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-16-output-1.png" width="3125" height="2343"></p>
+<p><img src="US_Medical_Insurance_Costs_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -945,7 +955,7 @@ The nonsmoker minimum insurance cost is: $1121.87</code></pre>
 </section>
 <section id="nonsmokers-vs-smokers" class="level1">
 <h1>Nonsmokers vs Smokers</h1>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="27">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Nonsmokers</span></span>
