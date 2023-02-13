@@ -10,9 +10,9 @@ website:
       - about.qmd
       - resume.qmd
       - icon: github
-        href: https://github.com/bcervantesalvarez
+        href: https://github.com/
       - icon: linkedin
-        href: https://www.linkedin.com/in/bcervantesalvarez/
+        href: LinkedIn
 format:
   html:
     theme: lux

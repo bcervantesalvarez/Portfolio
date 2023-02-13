@@ -61,6 +61,7 @@
     "title": "Resources for Prospective College Students",
     "section": "Plots Don’t Render, Go to Link Below",
     "text": "Plots Don’t Render, Go to Link Below\nHere: https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/\n\n\nCode\n#Salary Estimator\n#input1\n#plot1\n\n#Tuition Estimator\n#input2\n#plot2\n\n#Debt Estimator\n#input3\n#plot3\n\n#Debt Calculator\n#input4\n#plot4"
+<<<<<<< HEAD
   },
   {
     "objectID": "posts/US_HealthIns_Costs/index.html",
@@ -121,5 +122,7 @@
     "title": "Resources for Prospective College Students",
     "section": "Plots Don’t Render, Go to Link Below",
     "text": "Plots Don’t Render, Go to Link Below\nHere: https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/\n\n\nCode\n#Salary Estimator\n#input1\n#plot1\n\n#Tuition Estimator\n#input2\n#plot2\n\n#Debt Estimator\n#input3\n#plot3\n\n#Debt Calculator\n#input4\n#plot4"
+=======
+>>>>>>> parent of 6412497 (Massive Update: Fixed .ipynb to qmd)
   }
 ]
