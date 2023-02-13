@@ -37,13 +37,9 @@ import pandas as pd
 import seaborn as sns
 from scipy import stats
 
-
 #read in the csv file
 df = pd.read_csv('insurance.csv')
 print(df.head())
-
-plt.rcParams['font.size'] = 90
-
 ```
 
 ## Analyzing Smoker Insurance Costs
@@ -62,6 +58,7 @@ I take a look into how many smokers we have in this data set. Then, I take a qui
 plt.figure(figsize = (8, 6))
 sns.histplot(df.smoker)
 plt.title('Smoker vs Nonsmoker Count')
+plt.savefig('smoker_vs_nonsmoker_count.png')
 plt.show()
 plt.clf()
 
@@ -90,9 +87,7 @@ df_smokers = df[df.smoker == 'yes']
 IQR = stats.iqr(df_smokers.charges, interpolation = 'midpoint')
 #print(round(IQR,2))
 
-fig, (ax1, ax2) = plt.subplots(1,2,figsize=(6,4))
-
-
+fig, (ax1, ax2) = plt.subplots(1,2,figsize=(20,10))
 #boxplot
 sns.boxplot(y = df_smokers.charges, ax = ax1)
 ax1.set_ylabel('Insurance cost (USD)')
@@ -103,7 +98,7 @@ sns.histplot(df_smokers.charges, bins = 40, ax = ax2)
 ax2.set_xlabel('Insurance Cost (USD)')
 ax2.set_title('Insurance Cost Distribution for Smokers')
 
-fig.tight_layout()
+plt.savefig('smoker_charges_boxplot_histogram.png')
 plt.show()
 plt.clf()
 ```
@@ -179,16 +174,15 @@ Graph Six: Boxplot of Male Smoker Insurance Cost
 - Noteworthy to see the spread of male smokers' insurance cost. 
 
 ```{python}
-
 #seperate all male smokers from the main data set
 df_male_smoker = df_smokers[df_smokers.sex == 'male']
 df_nonsmokers = df[df.smoker == 'no']
 #print(df_nonsmokers.head())
 #print(df_male_smoker.head())
 
-fig, ax = plt.subplots(2,3,figsize=(10,8))
+fig, ax = plt.subplots(2,3,figsize=(40,30))
 sns.set_style('darkgrid')
-sns.set(font_scale = 0.4)
+sns.set(font_scale = 3)
 
 #histogram male smoker
 sns.histplot(df_male_smoker.charges, bins = 40, ax = ax[0,0])
@@ -208,7 +202,7 @@ ax[0,1].set_ylabel('Insurance Cost (USD)')
 sns.scatterplot(x = df_male_smoker.bmi, y = df_male_smoker.charges,
                 hue = df_male_smoker.region,
                 size = df_male_smoker.region,
-                sizes = (5, 25), ax = ax[0,2])
+                sizes = (75, 250), ax = ax[0,2])
 ax[0,2].axvline(x = 30, color = 'gray', label = 'Obese BMI')
 ax[0,2].set_title('Male Smoker Insurance Cost vs BMI')
 ax[0,2].set_xlabel('BMI')
@@ -218,7 +212,7 @@ ax[0,2].legend(bbox_to_anchor = (1.0, 1))
 #scatterplot for insurance cost of male smokers by age
 sns.scatterplot(x = df_male_smoker.age, y = df_male_smoker.charges,
                 hue = df_male_smoker.children,
-                size = df_male_smoker.children, sizes = (5,25),
+                size = df_male_smoker.children, sizes = (125,250),
                 ax = ax[1,0])
 ax[1,0].set_title('Male Smoker Insurance Cost vs Age')
 ax[1,0].set_xlabel('Age')
@@ -237,9 +231,6 @@ ax[1,1].set_ylabel('Insurance Cost (USD)')
 sns.boxplot(x = df_male_smoker.charges, ax = ax[1,2])
 ax[1,2].set_title('Male Smoker Insurance Cost Boxplot')
 ax[1,2].set_xlabel('Insurance Cost (USD)')
-
-
-fig.tight_layout()
 plt.savefig('male_smoker_charges_plots.png')
 plt.show()
 plt.clf()
@@ -326,7 +317,7 @@ df_female_smoker = df_smokers[df_smokers.sex == 'female']
 
 fig, ax = plt.subplots(2,3,figsize=(40,30))
 sns.set_style('darkgrid')
-sns.set(font_scale = 0.5)
+sns.set(font_scale = 2)
 
 #histogram male smoker
 sns.histplot(df_female_smoker.charges, bins = 40, ax = ax[0,0])
@@ -376,7 +367,6 @@ sns.boxplot(x = df_female_smoker.charges, ax = ax[1,2])
 ax[1,2].set_title('Female Smoker Insurance Cost Boxplot')
 ax[1,2].set_xlabel('Insurance Cost (USD)')
 
-fig.tight_layout()
 plt.savefig('female_smoker_charges_plots.png')
 plt.show()
 plt.clf()
@@ -447,7 +437,7 @@ diff_por_greq = abs(round(diff_por_greq, 4))
 
 fig, ax = plt.subplots(1,2,figsize=(25,10))
 sns.set_style('darkgrid')
-sns.set(font_scale = 0.5)
+sns.set(font_scale = 2)
 
 #BMI is less than 30
 sns.set_palette('bright')
@@ -464,8 +454,6 @@ ax[1].set_xlabel('Sex')
 ax[1].set_ylabel('Insurance Cost (USD)')
 ax[1].set_title('Average Smoker Insurance Cost with BMI >= 30')
 
-
-fig.tight_layout()
 plt.savefig('avg_insurance_cost_per_sex')
 plt.show()
 plt.clf
@@ -504,7 +492,6 @@ sns.histplot(df_nonsmokers.charges, bins = 40, ax = ax2)
 ax2.set_xlabel('Insurance Cost (USD)')
 ax2.set_title('Insurance Cost Distribution for Nonsmokers')
 
-fig.tight_layout()
 plt.savefig('nonsmoker_charges_boxplot_histogram.png')
 plt.show()
 plt.clf()
@@ -589,7 +576,7 @@ df_male_nonsmoker = df_nonsmokers[df_nonsmokers.sex == 'male']
 
 fig, ax = plt.subplots(2,3,figsize=(40,30))
 sns.set_style('darkgrid')
-sns.set(font_scale = 0.5)
+sns.set(font_scale = 2)
 
 #histogram male nonsmoker
 sns.histplot(df_male_nonsmoker.charges, bins = 40, ax = ax[0,0])
@@ -634,9 +621,6 @@ ax[1,1].set_ylabel('Insurance Cost (USD)')
 sns.boxplot(x = df_male_nonsmoker.charges, ax = ax[1,2])
 ax[1,2].set_title('Male Nonsmoker Insurance Cost Boxplot')
 ax[1,2].set_xlabel('Insurance Cost (USD)')
-
-
-fig.tight_layout()
 plt.savefig('male_nonsmoker_charges_plots.png')
 plt.show()
 plt.clf()
@@ -696,7 +680,7 @@ df_female_nonsmoker = df_nonsmokers[df_nonsmokers.sex == 'female']
 
 fig, ax = plt.subplots(2,3,figsize=(40,30))
 sns.set_style('darkgrid')
-sns.set(font_scale = 0.5)
+sns.set(font_scale = 2)
 
 #histogram Female nonsmoker
 sns.histplot(df_female_nonsmoker.charges, bins = 40, ax = ax[0,0])
@@ -741,8 +725,6 @@ ax[1,1].set_ylabel('Insurance Cost (USD)')
 sns.boxplot(x = df_male_nonsmoker.charges, ax = ax[1,2])
 ax[1,2].set_title('Male Nonsmoker Insurance Cost Boxplot')
 ax[1,2].set_xlabel('Insurance Cost (USD)')
-
-fig.tight_layout()
 plt.savefig('female_nonsmoker_charges_plots.png')
 plt.show()
 plt.clf()
