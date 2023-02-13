@@ -32,7 +32,7 @@
     "href": "posts/CollegeStudent_Debt_Tool/index.html#shiny-interactive-tool",
     "title": "Resources for Prospective College Students",
     "section": "Shiny Interactive Tool",
-    "text": "Shiny Interactive Tool\nClick this image to be transported to another world\nWhen quarto introduces a method of adding shiny apps into quarto, I will update this, eventually."
+    "text": "Shiny Interactive Tool\nClick this image to be transported to another world \nWhen quarto introduces a method of adding shiny apps into quarto, I will update this, eventually."
   },
   {
     "objectID": "posts/CollegeStudent_Debt_Tool/index.html#setup",
@@ -60,6 +60,20 @@
     "href": "posts/CollegeStudent_Debt_Tool/index.html#plots-dont-render-go-to-link-below",
     "title": "Resources for Prospective College Students",
     "section": "Plots Don’t Render, Go to Link Below",
-    "text": "Plots Don’t Render, Go to Link Below\nHere: https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/\n\n\nCode\n#Salary Estimator\n#input1\n#plot1\n\n#Tuition Estimator\n#input2\n#plot2\n\n#Debt Estimator\n#input3\n#plot3\n\n#Debt Calculator\n#input4\n#plot4"
+    "text": "Plots Don’t Render, Go to Link Below\nInteractive Tool\n\n\nCode\n#Salary Estimator\n#input1\n#plot1\n\n#Tuition Estimator\n#input2\n#plot2\n\n#Debt Estimator\n#input3\n#plot3\n\n#Debt Calculator\n#input4\n#plot4"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is who I am"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "This is who I am"
   }
 ]

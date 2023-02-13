@@ -27,7 +27,8 @@ The interactive visualization has 4 parts to it. The salary, tuition, debt estim
 
 ## Shiny Interactive Tool
 
-Click this image to be transported to another world[![FunnyLink](student_debt.jpeg)](https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/)
+Click this image to be transported to another world
+[![FunnyLink](student_debt.jpeg)](https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/)
 
 When quarto introduces a method of adding shiny apps into quarto, I will update this, eventually.
 
@@ -354,9 +355,9 @@ plot4 <- renderPlot({
 
 ```
 
-## Plots Don't Render, Go to Link Below
+## Plots Don't Render, Click "Interactive Tool"
 
-Here: https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/
+[Interactive Tool](https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/)
 
 ```{r}
 #| warning: FALSE
