@@ -16,9 +16,17 @@ I am a next generation Data Scientist who is staying up to date with the latest 
 
 ## Education
 
+<<<<<<< HEAD
 Willamette University, Salem, OR M.S. in Data Science \| Aug 2022 - Aug 2023
 
 Linfield University, McMinnville, OR B.A. in Mathematics \| Aug 2018 - May 2022
+=======
+Willamette University, McMinnville, OR
+M.S. in Data Science \| Aug 2022 - Aug 2023
+
+Linfield University, McMinnville, OR
+B.A. in Mathematics \| Aug 2018 - May 2022
+>>>>>>> 3baacf294ecac294bd5268a91009bea228a1a1b4
 
 ## Domain Experience
 
