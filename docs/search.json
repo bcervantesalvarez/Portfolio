@@ -65,9 +65,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Brian",
     "section": "",
-    "text": "This is who I am"
+    "text": "I am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science."
   },
   {
     "objectID": "resume.html",
@@ -75,5 +75,19 @@
     "title": "Resume",
     "section": "",
     "text": "This is who I am"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Brian",
+    "section": "Education",
+    "text": "Education\nWillamette University, McMinnville, OR M.S. in Data Science | Aug 2022 - Aug 2023\nLinfield University, McMinnville, OR B.A. in Mathematics | Aug 2018 - May 2022"
+  },
+  {
+    "objectID": "about.html#domain-experience",
+    "href": "about.html#domain-experience",
+    "title": "Brian",
+    "section": "Domain Experience",
+    "text": "Domain Experience\nThe North Face, a VF Company | Retail Specialist | Oct 2022 - present\nThe North Face, a VF Company | Sales Associate | Oct 2019 - June 2021"
   }
 ]

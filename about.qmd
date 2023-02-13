@@ -1,6 +1,29 @@
 ---
-title: "About"
-image: profile.jpeg
+title: "Brian"
+about:
+  template: trestles
+  image: profile.jpeg
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/bcervantesalvarez/
+    - icon: github
+      text: Github
+      href: https://github.com/bcervantesalvarez/
 ---
 
-This is who I am
+I am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science.
+
+## Education
+
+Willamette University, McMinnville, OR
+M.S. in Data Science \| Aug 2022 - Aug 2023
+
+Linfield University, McMinnville, OR
+B.A. in Mathematics \| Aug 2018 - May 2022
+
+## Domain Experience
+
+The North Face, a VF Company \| Retail Specialist \| Oct 2022 - present
+
+The North Face, a VF Company \| Sales Associate \| Oct 2019 - June 2021
