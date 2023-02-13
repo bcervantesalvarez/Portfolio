@@ -11,8 +11,6 @@ website:
       - resume.qmd
       - icon: github
         href: https://github.com/
-      - icon: linkedin
-        href: LinkedIn
 format:
   html:
     theme: lux
