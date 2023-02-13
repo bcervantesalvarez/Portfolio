@@ -358,7 +358,6 @@ plot4 <- renderPlot({
 
 Here: https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/
 
-
 ```{r}
 #| warning: FALSE
 #| message: FALSE
