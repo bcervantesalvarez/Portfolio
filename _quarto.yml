@@ -6,11 +6,16 @@ website:
   title: "Brian Cervantes Alvarez"
   navbar:
     right:
-      - index.qmd
-      - about.qmd
-      - resume.qmd
+      - text: "Portfolio"
+        file: index.qmd
+      - text: "Resume"
+        file: resume.qmd
+      - text: "About Me"
+        file: about.qmd
+      - icon: linkedin
+        href: https://www.linkedin.com/in/bcervantesalvarez/
       - icon: github
-        href: https://github.com/bcervantesalvarez
+        href: https://github.com/bcervantesalvarez/
 format:
   html:
     theme: lux
