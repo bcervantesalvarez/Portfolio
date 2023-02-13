@@ -236,12 +236,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<<<<<<< HEAD
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the csv file</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'insurance.csv'</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'font.size'</span>] <span class="op">=</span> <span class="dv">90</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the csv file</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'insurance.csv'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   age     sex     bmi  children smoker     region      charges
@@ -271,6 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(df.smoker)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Smoker vs Nonsmoker Count'</span>)</span>
+<<<<<<< HEAD
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
@@ -281,6 +288,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-3-output-1.png" width="656" height="509"></p>
+=======
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'smoker_vs_nonsmoker_count.png'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#num_smokers = df.smoker.value_counts()['yes']</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#num_nonsmokers = df.smoker.value_counts()['no']</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Exact number of smokers: {num_smokers}".format(num_smokers = num_smokers))</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Exact number of nonsmokers: {num_nonsmokers}".format(num_nonsmokers = num_nonsmokers))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-3-output-1.png" width="727" height="568"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -301,6 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> stats.iqr(df_smokers.charges, interpolation <span class="op">=</span> <span class="st">'midpoint'</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(round(IQR,2))</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<<<<<<< HEAD
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -320,6 +341,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-4-output-1.png" width="380" height="147"></p>
+=======
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y <span class="op">=</span> df_smokers.charges, ax <span class="op">=</span> ax1)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Insurance cost (USD)'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Insurance Cost Boxplot for Smokers'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_smokers.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax2)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Insurance Cost Distribution for Smokers'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'smoker_charges_boxplot_histogram.png'</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-4-output-1.png" width="1637" height="865"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -381,9 +421,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_nonsmokers.head())</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_male_smoker.head())</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<<<<<<< HEAD
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.4</span>)</span>
+=======
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">40</span>,<span class="dv">30</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="dv">3</span>)</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram male smoker</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_male_smoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
@@ -403,7 +449,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_smoker.bmi, y <span class="op">=</span> df_male_smoker.charges,</span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_smoker.region,</span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_smoker.region,</span>
+<<<<<<< HEAD
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="dv">5</span>, <span class="dv">25</span>), ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">2</span>])</span>
+=======
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="dv">75</span>, <span class="dv">250</span>), ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">2</span>])</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x <span class="op">=</span> <span class="dv">30</span>, color <span class="op">=</span> <span class="st">'gray'</span>, label <span class="op">=</span> <span class="st">'Obese BMI'</span>)</span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Smoker Insurance Cost vs BMI'</span>)</span>
 <span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'BMI'</span>)</span>
@@ -413,7 +463,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of male smokers by age</span></span>
 <span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_smoker.age, y <span class="op">=</span> df_male_smoker.charges,</span>
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_smoker.children,</span>
+<<<<<<< HEAD
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_smoker.children, sizes <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">25</span>),</span>
+=======
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_smoker.children, sizes <span class="op">=</span> (<span class="dv">125</span>,<span class="dv">250</span>),</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>                ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">0</span>])</span>
 <span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Male Smoker Insurance Cost vs Age'</span>)</span>
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Age'</span>)</span>
@@ -432,6 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_smoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
 <span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Smoker Insurance Cost Boxplot'</span>)</span>
 <span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<<<<<<< HEAD
 <span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
@@ -441,6 +496,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-6-output-1.png" width="966" height="775"></p>
+=======
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'male_smoker_charges_plots.png'</span>)</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="3525" height="2355"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -466,10 +529,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">1.0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="22">
+<<<<<<< HEAD
 <pre><code>&lt;matplotlib.legend.Legend at 0x143e9b460&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-7-output-2.png" width="804" height="430"></p>
+=======
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fc37a5d5130&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-7-output-2.png" width="1349" height="553"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 </div>
 <div class="cell" data-execution_count="7">
@@ -513,7 +583,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">40</span>,<span class="dv">30</span>))</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<<<<<<< HEAD
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+=======
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="dv">2</span>)</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram male smoker</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_female_smoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
@@ -563,6 +637,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Female Smoker Insurance Cost Boxplot'</span>)</span>
 <span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
 <span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
+<<<<<<< HEAD
 <span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
 <span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'female_smoker_charges_plots.png'</span>)</span>
 <span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
@@ -570,6 +645,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-9-output-1.png" width="3775" height="2882"></p>
+=======
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'female_smoker_charges_plots.png'</span>)</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-9-output-1.png" width="3448" height="2372"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -641,7 +724,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">25</span>,<span class="dv">10</span>))</span>
 <span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<<<<<<< HEAD
 <span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+=======
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="dv">2</span>)</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co">#BMI is less than 30</span></span>
 <span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>sns.set_palette(<span class="st">'bright'</span>)</span>
@@ -658,6 +745,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
 <span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Average Smoker Insurance Cost with BMI &gt;= 30'</span>)</span>
 <span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a></span>
+<<<<<<< HEAD
 <span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
 <span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'avg_insurance_cost_per_sex'</span>)</span>
@@ -666,6 +754,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-11-output-1.png" width="2403" height="965"></p>
+=======
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'avg_insurance_cost_per_sex'</span>)</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>plt.clf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-11-output-1.png" width="2009" height="864"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>&lt;function matplotlib.pyplot.clf()&gt;</code></pre>
@@ -697,17 +793,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
 <span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Insurance Cost Distribution for Nonsmokers'</span>)</span>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<<<<<<< HEAD
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'nonsmoker_charges_boxplot_histogram.png'</span>)</span>
 <span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
 <span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co">#right skewed distribution...explain potential causes:  Male and Female? BMI?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'nonsmoker_charges_boxplot_histogram.png'</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#right skewed distribution...explain potential causes:  Male and Female? BMI?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>7378.07</code></pre>
 </div>
 <div class="cell-output cell-output-display">
+<<<<<<< HEAD
 <p><img src="index_files/figure-html/cell-12-output-2.png" width="1923" height="965"></p>
+=======
+<p><img src="index_files/figure-html/cell-12-output-2.png" width="1637" height="865"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -767,7 +874,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">40</span>,<span class="dv">30</span>))</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<<<<<<< HEAD
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+=======
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="dv">2</span>)</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram male nonsmoker</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_male_nonsmoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
@@ -812,6 +923,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_nonsmoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
 <span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Boxplot'</span>)</span>
 <span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<<<<<<< HEAD
 <span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
@@ -821,6 +933,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-14-output-1.png" width="3843" height="2885"></p>
+=======
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'male_nonsmoker_charges_plots.png'</span>)</span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-14-output-1.png" width="3125" height="2343"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -846,7 +966,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#people with more children see a slightly higher cost overall </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
+<<<<<<< HEAD
 <p><img src="index_files/figure-html/cell-15-output-1.png" width="1181" height="805"></p>
+=======
+<p><img src="index_files/figure-html/cell-15-output-1.png" width="1265" height="864"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
@@ -871,7 +995,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">40</span>,<span class="dv">30</span>))</span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<<<<<<< HEAD
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+=======
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="dv">2</span>)</span>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram Female nonsmoker</span></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_female_nonsmoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
@@ -916,6 +1044,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_nonsmoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
 <span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Boxplot'</span>)</span>
 <span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<<<<<<< HEAD
 <span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
 <span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'female_nonsmoker_charges_plots.png'</span>)</span>
@@ -924,6 +1053,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-16-output-1.png" width="3843" height="2885"></p>
+=======
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'female_nonsmoker_charges_plots.png'</span>)</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-16-output-1.png" width="3125" height="2343"></p>
+>>>>>>> 6412497ab8c83bec74c4428600b337bf918ad5d6
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
