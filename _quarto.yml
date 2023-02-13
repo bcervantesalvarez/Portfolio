@@ -10,7 +10,7 @@ website:
       - about.qmd
       - resume.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/bcervantesalvarez
 format:
   html:
     theme: lux
