@@ -1,11 +1,11 @@
 ---
 title: "Pokédex Database"
 author: "Brian Cervantes Alvarez"
-date: "12-05-2023"
+date: "12-05-2022"
 image: pokemon.jpeg
 output: html_document
 code-fold: true
-categories: [postgreSQL, database, presentation, r, sql]
+categories: [postgreSQL, database, presentation, R, sql]
 ---
 
 # Pokédex Project
