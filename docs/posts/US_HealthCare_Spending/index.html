@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Cervantes Alvarez">
+<meta name="dcterms.date" content="2022-12-12">
+
+<title>Brian Cervantes Alvarez - Healthcare Spending Is Only Getting Worse</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Brian Cervantes Alvarez</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resume.html">
+ <span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bcervantesalvarez/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Healthcare Spending Is Only Getting Worse</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">linear regression</div>
+                <div class="quarto-category">stats</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Cervantes Alvarez </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 12, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<hr>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">ABSTRACT</h2>
+<p>U.S. Healthcare costs are increasing in every category since 1980. There are an unfiltered number of reasons for the rise of these costs. From population increase to doctor’s wages, they are but a few examples of the unforgiving healthcare spending increases that are observed in a yearly basis. This report examines the expenditure trends from 1980 to 2005 and up to 2014. The results show that each sector in the United States is experiencing an unprecedented increase in health care costs. Hence, the findings revealed in this report serve to provide context behind the United States’ status as one the most expensive health care nations in the world.</p>
+<hr>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">INTRODUCTION</h2>
+<p>Healthcare is a vital component to our lives. Without it, we cannot get the necessary help to live happy lives. Or worse, we could not live long enough to enjoy it. However, Healthcare spending continues to skyrocket in a year to year basis. This report reveals the frightening truth about the healthcare spending and visualizes each component. From the overall spending nationally, to showing each category and their individual trends, the spending remains increasingly constant.</p>
+</section>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">BACKGROUND</h2>
+<p>Now, the data set that was used for this report is called US Healthcare Spending Per Capita (source: Kaggle). The format of this data set was quite tricky. Instead of being in the long format, with few columns and lengthy rows, it was in the wide format, lots of columns and very few rows. Specifically, the years were in the format, “Y####” which made it very difficult to do any sort of analysis at first. Though, with some pivoting and string manipulation, the updated data set was ready to do some quirky analysis. The full step process is coming up next.</p>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">METHODOLOGY</h2>
+<p>Before jumping into the data, first start with seeing whether it is “wide” or “long”. Check out the number of rows and columns to allow some room to do some data wrangling.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 42
+   Code Item    Group Regio…¹ Regio…² State…³  Y1980  Y1981  Y1982  Y1983  Y1984
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     1 Person… Unit…       0 United… &lt;NA&gt;    216977 251789 283073 311677 341645
+2     1 Person… Regi…       1 New En… &lt;NA&gt;     12960  14845  16759  18429  20253
+3     1 Person… Regi…       2 Mideast &lt;NA&gt;     43479  49604  55406  61165  68154
+4     1 Person… Regi…       3 Great … &lt;NA&gt;     40658  46668  51440  55967  60776
+5     1 Person… Regi…       4 Plains  &lt;NA&gt;     16980  19682  21919  23940  25684
+# … with 31 more variables: Y1985 &lt;dbl&gt;, Y1986 &lt;dbl&gt;, Y1987 &lt;dbl&gt;, Y1988 &lt;dbl&gt;,
+#   Y1989 &lt;dbl&gt;, Y1990 &lt;dbl&gt;, Y1991 &lt;dbl&gt;, Y1992 &lt;dbl&gt;, Y1993 &lt;dbl&gt;,
+#   Y1994 &lt;dbl&gt;, Y1995 &lt;dbl&gt;, Y1996 &lt;dbl&gt;, Y1997 &lt;dbl&gt;, Y1998 &lt;dbl&gt;,
+#   Y1999 &lt;dbl&gt;, Y2000 &lt;dbl&gt;, Y2001 &lt;dbl&gt;, Y2002 &lt;dbl&gt;, Y2003 &lt;dbl&gt;,
+#   Y2004 &lt;dbl&gt;, Y2005 &lt;dbl&gt;, Y2006 &lt;dbl&gt;, Y2007 &lt;dbl&gt;, Y2008 &lt;dbl&gt;,
+#   Y2009 &lt;dbl&gt;, Y2010 &lt;dbl&gt;, Y2011 &lt;dbl&gt;, Y2012 &lt;dbl&gt;, Y2013 &lt;dbl&gt;,
+#   Y2014 &lt;dbl&gt;, Average_Annual_Percent_Growth &lt;dbl&gt;, and abbreviated …</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Number of rows: 660"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Number of cols: 42"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Code"                          "Item"                         
+ [3] "Group"                         "Region_Number"                
+ [5] "Region_Name"                   "State_Name"                   
+ [7] "Y1980"                         "Y1981"                        
+ [9] "Y1982"                         "Y1983"                        
+[11] "Y1984"                         "Y1985"                        
+[13] "Y1986"                         "Y1987"                        
+[15] "Y1988"                         "Y1989"                        
+[17] "Y1990"                         "Y1991"                        
+[19] "Y1992"                         "Y1993"                        
+[21] "Y1994"                         "Y1995"                        
+[23] "Y1996"                         "Y1997"                        
+[25] "Y1998"                         "Y1999"                        
+[27] "Y2000"                         "Y2001"                        
+[29] "Y2002"                         "Y2003"                        
+[31] "Y2004"                         "Y2005"                        
+[33] "Y2006"                         "Y2007"                        
+[35] "Y2008"                         "Y2009"                        
+[37] "Y2010"                         "Y2011"                        
+[39] "Y2012"                         "Y2013"                        
+[41] "Y2014"                         "Average_Annual_Percent_Growth"</code></pre>
+</div>
+</div>
+<p>As explained earlier, the data set was evidently in the wide format. So, using the “pivot_longer” function with the “tidyverse” package, the years columns were placed into one column called “Year” with their values in the another column called “Cost”. I used the “gsub” function to fix up my Year column and factored a few columns for later use.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Item                 Region_Name   State_Name  Year   Cost
+  &lt;fct&gt;                &lt;fct&gt;         &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+1 Personal Health Care United States &lt;NA&gt;        1980 216977
+2 Personal Health Care United States &lt;NA&gt;        1981 251789
+3 Personal Health Care United States &lt;NA&gt;        1982 283073
+4 Personal Health Care United States &lt;NA&gt;        1983 311677
+5 Personal Health Care United States &lt;NA&gt;        1984 341645
+6 Personal Health Care United States &lt;NA&gt;        1985 376376</code></pre>
+</div>
+</div>
+<section id="health-care-costs-have-increased" class="level3">
+<h3 class="anchored" data-anchor-id="health-care-costs-have-increased">Health Care Costs Have Increased</h3>
+<p>Diving straight into the first visual. It appears very clearly that Healthcare spending is in an upward trend and does not appear to slow down. The graph was filter from the years 1980 to 2005 to highlight this era of healthcare costs.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories" class="level3">
+<h3 class="anchored" data-anchor-id="personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories">Personal, Hospital and Physician &amp; Clinical Care Are The Dominate Spending Categories</h3>
+<p>Yikes. Personal health care went from about $10K to nearly $80K in that short time span. Hospital and Clinical Care are heavy hitters for spending. Though this graph shows the same trend for each category. Not very pleasant information.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="each-region-is-trending-the-same" class="level3">
+<h3 class="anchored" data-anchor-id="each-region-is-trending-the-same">Each Region Is Trending The Same</h3>
+<p>Terrible news, each region has not stopped increasing spending. Their trend lines all appear to be similar and proportionally alike to one and another. The highlights are that the Mideast is the most expensive and the Rocky Mountains is the cheapest. Note, this was looking at the spending up to 2005. Maybe things will change by 2014.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="the-trends-remain.-healthcare-spending-continues-to-raise-in-every-region-in-the-u.s." class="level3">
+<h3 class="anchored" data-anchor-id="the-trends-remain.-healthcare-spending-continues-to-raise-in-every-region-in-the-u.s.">The Trends Remain. Healthcare Spending Continues To Raise In Every Region In The U.S.</h3>
+<p>In the bar chart, you can distinguish more clearly each region and their overall spending. What stands out the most is that the Plains, New England and the Rocky Mountains are one of the lowest in terms of medical funding. In some cases, they are 1/3 the cost of the most expensive regions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="the-far-west-ranks-3rd-in-healthcare-spending" class="level3">
+<h3 class="anchored" data-anchor-id="the-far-west-ranks-3rd-in-healthcare-spending">The Far West Ranks 3rd In Healthcare Spending</h3>
+<p>For 2014, that is quite the jump. It can be assumed that all those states are heavy hitters in terms of spending, but that is proven quite wrong in the next graphic.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "$21.81M"
+[1] "$21.81M"</code></pre>
+</div>
+</div>
+</section>
+<section id="oregon-ranks-3rd-but-dont-be-fooled" class="level3">
+<h3 class="anchored" data-anchor-id="oregon-ranks-3rd-but-dont-be-fooled">Oregon Ranks 3rd, But Don’t Be Fooled!</h3>
+<p>Look, California takes the #1 spot in spending. You cannot deny the underlying reasons behind that, such as their ridicously population size. While this report did not look into it, you would probably push the Far West region closer to the Plains or New England in terms of spending.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "$1.41M"  "$53.64M" "$1.9M"   "$3.41M"  "$5.81M"  "$10.16M"
+[1] "$1.41M"  "$53.64M" "$1.9M"   "$3.41M"  "$5.81M"  "$10.16M"
+[1] "$5.81M"
+[1] "$5.81M"</code></pre>
+</div>
+</div>
+</section>
+<section id="a-linear-fit-is-not-the-right-model-for-this-data" class="level3">
+<h3 class="anchored" data-anchor-id="a-linear-fit-is-not-the-right-model-for-this-data">A Linear Fit Is Not The Right Model For This Data</h3>
+<p>Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      1 
+11072.4 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Cost ~ Region_Name + Year, data = regionHealthCareSince2005)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2683.8  -782.9  -279.8   597.7  4139.3 
+
+Coefficients:
+                             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                -680650.41   24479.29 -27.805  &lt; 2e-16 ***
+Region_NameGreat Lakes        1438.65     368.55   3.904 0.000130 ***
+Region_NameMideast            1657.50     368.55   4.497 1.17e-05 ***
+Region_NameNew England       -3909.68     368.55 -10.608  &lt; 2e-16 ***
+Region_NamePlains            -3830.75     368.55 -10.394  &lt; 2e-16 ***
+Region_NameRocky Mountains   -5106.26     368.55 -13.855  &lt; 2e-16 ***
+Region_NameSoutheast         -1231.18     368.55  -3.341 0.000998 ***
+Region_NameSouthwest          -849.93     368.55  -2.306 0.022133 *  
+Year                           344.83      12.29  28.069  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1329 on 199 degrees of freedom
+Multiple R-squared:   0.88, Adjusted R-squared:  0.8752 
+F-statistic: 182.4 on 8 and 199 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df    Sum Sq   Mean Sq F value Pr(&gt;F)    
+Region_Name   7 1.185e+09 1.693e+08    95.9 &lt;2e-16 ***
+Year          1 1.391e+09 1.391e+09   787.9 &lt;2e-16 ***
+Residuals   199 3.514e+08 1.766e+06                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="was-there-a-significant-difference-in-the-means-of-each-region" class="level3">
+<h3 class="anchored" data-anchor-id="was-there-a-significant-difference-in-the-means-of-each-region">Was there A Significant Difference In The Means Of Each Region?</h3>
+<p>I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The Average Spending In The Expensive Regions since 2005 = $5333.29"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The Average Spending In The Expensive Regions since 2014= $7724.45"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Difference: +$2391.16 | Percentage Increase: +18.31%"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The Average Spending In The Cheap Regions since 2005 = $2173.22"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The Average Spending In The Cheap Regions since 2014= $3142.21"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Difference: +$968.99 | Percentage Increase: 18.23%"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = mean)
+       Df F value    Pr(&gt;F)    
+group   7   12.03 8.727e-13 ***
+      200                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(&gt;F)    
+group   7  11.462 3.292e-12 ***
+      200                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = mean)
+       Df F value    Pr(&gt;F)    
+group   7  19.546 &lt; 2.2e-16 ***
+      272                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(&gt;F)    
+group   7  12.828 3.075e-14 ***
+      272                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df    Sum Sq   Mean Sq F value Pr(&gt;F)    
+Region_Name   7 1.185e+09 169337440   19.43 &lt;2e-16 ***
+Residuals   200 1.743e+09   8712933                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Cost ~ Region_Name, data = regionHealthCareSince2005)
+
+$Region_Name
+                                   diff         lwr           upr     p adj
+Great Lakes-Far West         1438.64777 -1069.19906  3946.4945990 0.6495584
+Mideast-Far West             1657.50100  -850.34583  4165.3478291 0.4679930
+New England-Far West        -3909.68132 -6417.52815 -1401.8344885 0.0000930
+Plains-Far West             -3830.75287 -6338.59970 -1322.9060420 0.0001417
+Rocky Mountains-Far West    -5106.25783 -7614.10466 -2598.4109954 0.0000001
+Southeast-Far West          -1231.18113 -3739.02796  1276.6657036 0.8046614
+Southwest-Far West           -849.92577 -3357.77260  1657.9210559 0.9679983
+Mideast-Great Lakes           218.85323 -2288.99360  2726.7000602 0.9999950
+New England-Great Lakes     -5348.32909 -7856.17592 -2840.4822574 0.0000000
+Plains-Great Lakes          -5269.40064 -7777.24747 -2761.5538109 0.0000000
+Rocky Mountains-Great Lakes -6544.90559 -9052.75242 -4037.0587643 0.0000000
+Southeast-Great Lakes       -2669.82890 -5177.67573  -161.9820653 0.0279871
+Southwest-Great Lakes       -2288.57354 -4796.42037   219.2732870 0.1019616
+New England-Mideast         -5567.18232 -8075.02915 -3059.3354875 0.0000000
+Plains-Mideast              -5488.25387 -7996.10070 -2980.4070410 0.0000000
+Rocky Mountains-Mideast     -6763.75882 -9271.60565 -4255.9119944 0.0000000
+Southeast-Mideast           -2888.68213 -5396.52896  -380.8352954 0.0119419
+Southwest-Mideast           -2507.42677 -5015.27360     0.4200569 0.0500724
+Plains-New England             78.92845 -2428.91838  2586.7752767 1.0000000
+Rocky Mountains-New England -1196.57651 -3704.42334  1311.2703233 0.8267302
+Southeast-New England        2678.50019   170.65336  5186.3470223 0.0270977
+Southwest-New England        3059.75554   551.90871  5567.6023746 0.0058329
+Rocky Mountains-Plains      -1275.50495 -3783.35178  1232.3418768 0.7745369
+Southeast-Plains             2599.57175    91.72492  5107.4185757 0.0361922
+Southwest-Plains             2980.82710   472.98027  5488.6739280 0.0081616
+Southeast-Rocky Mountains    3875.07670  1367.22987  6382.9235291 0.0001119
+Southwest-Rocky Mountains    4256.33205  1748.48522  6764.1788814 0.0000135
+Southwest-Southeast           381.25535 -2126.59148  2889.1021825 0.9997829</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">RESULTS</h2>
+<p>U.S. Healthcare costs have more than quintupled from 1980 to 2014. There are trends throughout each region that show no clear indication of healthcare spending going down. While some regions are not as expensive as others, they are still growing at the same pace nationally. Following the trend, personal health care spending averaged approximately $10,000 in 1980, but has substantially increased to nearly $80,000 in 2014. The top 3 most expensive regions as of 2014 are the Mideast, Great Lakes, and Far West. The top 3 least cheapest regions as of 2014 are the Rocky Mountains, New England, and Plains. In the Far West region, Oregon ranks 3rd in being the most expensive State in the region.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">CONCLUSION</h2>
+<p>The United States continues to spend more in their healthcare system. Though, in some categories such as Personal Health Care, you could argue that it is becoming increasingly unaffordable. A $70K difference in 35 years is quite off from inflation expectations. Speaking of inflation, this dataset would have had great potential if inflation adjusted values were given. In that sense, a deeper analysis could be made and more insight would have been gained. Now, one could explore this with even more in depth see if there is any statistical significance between each individual state and their spending habits. That is left and open for anyone to undertake in the future.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

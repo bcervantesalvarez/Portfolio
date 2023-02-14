@@ -1,0 +1,389 @@
+---
+title: "Healthcare Spending Is Only Getting Worse"  
+author: "Brian Cervantes Alvarez"
+date: "December 12, 2022"
+image: healthcareSpending.jpeg
+output: html_document
+code-fold: true
+categories: [R, linear regression, stats, analysis]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(skimr)
+library(car)
+library(moderndive)
+library(knitr)
+library(GGally)
+library(scales)
+library(RColorBrewer)
+ds <- read_csv("healthcareSpending.csv")
+```
+
+------------------------------------------------------------------------
+
+## ABSTRACT
+
+U.S. Healthcare costs are increasing in every category since 1980. There are an unfiltered number of reasons for the rise of these costs. From population increase to doctor's wages, they are but a few examples of the unforgiving healthcare spending increases that are observed in a yearly basis. This report examines the expenditure trends from 1980 to 2005 and up to 2014. The results show that each sector in the United States is experiencing an unprecedented increase in health care costs. Hence, the findings revealed in this report serve to provide context behind the United States' status as one the most expensive health care nations in the world.
+
+------------------------------------------------------------------------
+
+## INTRODUCTION
+
+Healthcare is a vital component to our lives. Without it, we cannot get the necessary help to live happy lives. Or worse, we could not live long enough to enjoy it. However, Healthcare spending continues to skyrocket in a year to year basis. This report reveals the frightening truth about the healthcare spending and visualizes each component. From the overall spending nationally, to showing each category and their individual trends, the spending remains increasingly constant.
+
+## BACKGROUND
+
+Now, the data set that was used for this report is called US Healthcare Spending Per Capita (source: Kaggle). The format of this data set was quite tricky. Instead of being in the long format, with few columns and lengthy rows, it was in the wide format, lots of columns and very few rows. Specifically, the years were in the format, "Y####" which made it very difficult to do any sort of analysis at first. Though, with some pivoting and string manipulation, the updated data set was ready to do some quirky analysis. The full step process is coming up next.
+
+## METHODOLOGY
+
+Before jumping into the data, first start with seeing whether it is "wide" or "long". Check out the number of rows and columns to allow some room to do some data wrangling.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+head(ds,5)
+print(paste0("Number of rows: ", nrow(ds)))
+print(paste0("Number of cols: ", ncol(ds)))
+names(ds)
+```
+
+As explained earlier, the data set was evidently in the wide format. So, using the "pivot_longer" function with the "tidyverse" package, the years columns were placed into one column called "Year" with their values in the another column called "Cost". I used the "gsub" function to fix up my Year column and factored a few columns for later use.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+#Pivot Y{Year} columns into it's own Year column
+ds_years <- ds %>% pivot_longer(!(c("Code", "Item", 
+                                  "Group", "Region_Number", 
+                                  "Region_Name", "State_Name", 
+                                  "Average_Annual_Percent_Growth")), 
+                                names_to = "Year",
+                                values_to = "Cost")
+#Get rid of "Y" symbol and make it numeric
+ds_years$Year <- as.numeric(gsub("Y","",ds_years$Year))
+ds_years$Item <- gsub(" \\(Millions of Dollars\\)","", ds_years$Item)
+
+
+ds_years$Item <- factor(ds_years$Item)
+ds_years$Region_Name <- factor(ds_years$Region_Name)
+ds_years$Group <- factor(ds_years$Group)
+ds_years$State_Name <- factor(ds_years$State_Name)
+
+ds_years <- ds_years %>% dplyr::select(Item, Region_Name, State_Name, Year, Cost)
+head(ds_years)
+```
+
+### Health Care Costs Have Increased
+
+Diving straight into the first visual. It appears very clearly that Healthcare spending is in an upward trend and does not appear to slow down. The graph was filter from the years 1980 to 2005 to highlight this era of healthcare costs.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+#Looking at overall U.S. healthcare costs since 2005
+usHealthCareSince2005 <- ds_years %>% 
+  filter((Year >= 1980 & Year <= 2005)) %>%
+  group_by(Year) %>%
+  summarise(Cost = mean(Cost))
+
+usHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
+  geom_line(size = 1.2, color = "#b32134") +
+  labs(x = "Year",
+       y = "Cost (USD)",
+       title = "U.S. Healthcare Spending Per Capita Since 2005",
+       subtitle = "For All Healthcare Categories") +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3)) +
+  theme_minimal()
+```
+
+### Personal, Hospital and Physician & Clinical Care Are The Dominate Spending Categories
+
+Yikes. Personal health care went from about \$10K to nearly \$80K in that short time span. Hospital and Clinical Care are heavy hitters for spending. Though this graph shows the same trend for each category. Not very pleasant information.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+#Now looking at per category spending
+usHealthCareSince2005 <- ds_years %>% 
+  filter((Year >= 1980 & Year <= 2005)) %>%
+  arrange(Cost) %>%
+  group_by(Item, Year) %>%
+  summarise(Cost = mean(Cost))
+
+usHealthCareSince2005$Item <- factor(usHealthCareSince2005$Item, 
+                                     levels = c("Personal Health Care", 
+                                                "Hospital Care", 
+                                            "Physician & Clinical Services", 
+                                            "Prescription Drugs", 
+                                            "Nursing Home Care", 
+                                            "Other Health, Residential, and Personal Care", 
+                                            "Dental Services", 
+                                            "Home Health Care", 
+                                            "Other Professional Services", 
+                                            "Other Non-durable Medical Products", 
+                                            "Durable Medical Products"))
+
+
+usHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
+  geom_line(color = "#b32134") +
+  facet_wrap(~Item, scales = "free_y") +
+  labs(x = "Year",
+       y = "Cost (USD)",
+       title = "U.S. Healthcare Spending Per Category Since 2005",
+       subtitle = "Per Capita") +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 4.2, face = "bold"),
+        title = element_text(size = 10, face = "bold"))
+  
+```
+
+### Each Region Is Trending The Same
+
+Terrible news, each region has not stopped increasing spending. Their trend lines all appear to be similar and proportionally alike to one and another. The highlights are that the Mideast is the most expensive and the Rocky Mountains is the cheapest. Note, this was looking at the spending up to 2005. Maybe things will change by 2014.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+regionHealthCareSince2005 <- ds_years %>% 
+  filter((Year >= 1980 & Year <= 2005) & Region_Name != "United States") %>%
+  arrange(Cost) %>%
+  group_by(Region_Name, Year) %>%
+  summarise(Cost = mean(Cost))
+
+
+regionHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
+  geom_line(color = "#b32134") +
+  facet_wrap(~Region_Name, scales = "free_y") +
+  labs(x = "Year",
+       y = "Cost (USD)",
+       title = "U.S. Healthcare Spending Per Region Since 2005") +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 8, face = "bold"),
+        title = element_text(size = 10, face = "bold"))
+```
+
+### The Trends Remain. Healthcare Spending Continues To Raise In Every Region In The U.S.
+
+In the bar chart, you can distinguish more clearly each region and their overall spending. What stands out the most is that the Plains, New England and the Rocky Mountains are one of the lowest in terms of medical funding. In some cases, they are 1/3 the cost of the most expensive regions.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+regionHealthCare2014 <- ds_years %>% 
+  filter((Year == 2014) & Region_Name != "United States") %>%
+  arrange(Cost) %>%
+  group_by(Region_Name) %>%
+  summarise(Cost = mean(Cost))
+
+
+regionHealthCare2014 %>% ggplot(aes(x = reorder(Region_Name, Cost), y = Cost, fill = reorder(Region_Name, Cost))) +
+  geom_col(color = "grey", show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Region",
+       y = "Cost (USD)",
+       title = "U.S. Healthcare Spending Per Region For 2014") +
+  scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"))+
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+  theme_minimal() +
+  theme(title = element_text(size = 10, face = "bold"))
+```
+
+### The Far West Ranks 3rd In Healthcare Spending
+
+For 2014, that is quite the jump. It can be assumed that all those states are heavy hitters in terms of spending, but that is proven quite wrong in the next graphic.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+
+farWestHealthCare2014 <- ds_years %>% 
+  filter((Year == 2014) & Region_Name == "Far West") %>%
+  arrange(Cost) %>%
+  group_by(Region_Name) %>%
+  summarise(Cost = mean(Cost))
+
+regionHealthCare2014 %>% ggplot(aes(x = reorder(Region_Name, Cost), y = Cost, fill = reorder(Region_Name, Cost))) +
+  geom_col(color = "grey", show.legend = FALSE) +
+  geom_col(data = farWestHealthCare2014, 
+           mapping = aes(x = reorder(Region_Name, Cost),y = Cost, fill = reorder(Region_Name, Cost)),
+           color = "black",
+           size = 1.2,
+           show.legend = FALSE) +
+  geom_label(data = farWestHealthCare2014, 
+             mapping = aes(x = reorder(Region_Name, Cost),
+                           y = Cost, 
+                           label = print(paste0("$", round(Cost/1000, 2), "M"))),
+             size = 3,
+             fill = "white",
+             color = "black",
+             hjust = 1.1,
+             show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Region",
+       y = "Cost (USD)",
+       title = "Far West Healthcare Spending For 2014") +
+  scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d")) +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+  theme_minimal() +
+  theme(title = element_text(size = 10, face = "bold"))
+```
+
+### Oregon Ranks 3rd, But Don't Be Fooled!
+
+Look, California takes the #1 spot in spending. You cannot deny the underlying reasons behind that, such as their ridicously population size. While this report did not look into it, you would probably push the Far West region closer to the Plains or New England in terms of spending.
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+
+farWestStatesHealthCare2014 <- ds_years %>% 
+  filter((Year == 2014) & (Region_Name == "Far West") & (State_Name != "NA")) %>%
+  arrange(Cost) %>%
+  group_by(State_Name, Year) %>%
+  summarise(Cost = mean(Cost))
+
+
+oregonHealthCare2014 <- ds_years %>% 
+  filter((Year == 2014) & (Region_Name == "Far West") & (State_Name == "Oregon")) %>%
+  arrange(Cost) %>%
+  group_by(State_Name, Year) %>%
+  summarise(Cost = mean(Cost))
+
+farWestStatesHealthCare2014 %>% 
+  ggplot(aes(x = reorder(State_Name, Cost),
+             y = Cost, 
+             fill = reorder(State_Name, Cost))) +
+  geom_col(aes(x = reorder(State_Name, Cost),
+               y = Cost, 
+               fill = reorder(State_Name, Cost)),
+           color = "grey", 
+           show.legend = FALSE) +
+  geom_col(data = oregonHealthCare2014, 
+           aes(x = reorder(State_Name, Cost),
+               y = Cost, 
+               fill = reorder(State_Name, Cost)),
+           color = "black",
+           fill = "#154733",
+           size = 1.5,
+           show.legend = FALSE) +
+  geom_label(aes(label = print(paste0("$", round(Cost/1000, 2), "M"))),
+             fill = "white",
+             size = 3) +
+  geom_label(data = oregonHealthCare2014, aes(label = print(paste0("$", round(Cost/1000, 2), "M"))),
+             fill = "#FEE123",
+             size = 3) +
+  labs(x = "State",
+       y = "Cost (USD)",
+       title = "How Oregon Compares To The Far West States For Healthcare Costs") +
+  scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c")) +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ","),
+                     breaks = c(10000, 20000, 30000, 40000, 50000)) +
+  theme_minimal() +
+  theme(title = element_text(size = 10, face = "bold"))
+```
+### A Linear Fit Is Not The Right Model For This Data
+
+Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data. 
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+#Question: Are there no significant differences in spending for each region?
+regionHealthCareSince2005 <- ds_years %>% 
+  filter((Year >= 1980 & Year <= 2005) & Region_Name != "United States") %>%
+  arrange(Cost) %>%
+  group_by(Region_Name, Year) %>%
+  summarise(Cost = mean(Cost))
+
+regionHealthCareSince2005 %>% ggplot(aes(x = Region_Name, y = Cost, color = Region_Name)) +
+  geom_boxplot(color = "#b32134", size = 0.5, bins = 40) +
+  labs(x = "Year",
+       y = "Cost (USD)",
+       title = "U.S. Healthcare Spending Distribution Per Region Since 2005") +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 6.5, face = "bold"),
+        title = element_text(size = 10, face = "bold"))
+
+
+regionHealthCareSince2014 <- ds_years %>% 
+  filter(Region_Name != "United States") %>%
+  arrange(Cost) %>%
+  group_by(Region_Name, Year) %>%
+  summarise(Cost = mean(Cost))
+
+regionHealthCareSince2014 %>% ggplot(aes(x = Region_Name, y = Cost, color = Region_Name)) +
+  geom_boxplot(color = "#b32134", size = 0.5, bins = 40) +
+  labs(x = "Year",
+       y = "Cost (USD)",
+       title = "U.S. Healthcare Spending Distribution Per Region Since 2014") +
+  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90),
+        strip.text = element_text(size = 6.5, face = "bold"),
+        title = element_text(size = 10, face = "bold"))
+
+model <- lm(data = regionHealthCareSince2005, Cost ~ Region_Name + Year)
+plot(model)
+
+
+test <- data.frame(Region_Name = "Far West", Year = 2006)
+
+prediction <- predict(model, test)
+prediction
+
+summary(model)
+summary.aov(model)
+
+```
+
+### Was there A Significant Difference In The Means Of Each Region?
+
+
+I wished to explore if it was statistically significant on where each region's mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+
+expensiveRegions2005 <- regionHealthCareSince2005 %>% filter(Region_Name != c("New England", "Plains", "Rocky Mountains"))
+expensiveRegions2014 <- regionHealthCareSince2014 %>% filter(Region_Name != c("New England", "Plains", "Rocky Mountains"))
+cheapRegions2005 <- regionHealthCareSince2005 %>% filter(Region_Name == c("New England", "Plains", "Rocky Mountains"))
+cheapRegions2014 <- regionHealthCareSince2014 %>% filter(Region_Name == c("New England", "Plains", "Rocky Mountains"))
+
+
+exp2005 <- round(mean(expensiveRegions2005$Cost),2)
+exp2014 <- round(mean(expensiveRegions2014$Cost),2)
+chp2005 <- round(mean(cheapRegions2005$Cost),2)
+chp2014 <- round(mean(cheapRegions2014$Cost),2)
+
+print(paste0("The Average Spending In The Expensive Regions since 2005 = $", exp2005))
+print(paste0("The Average Spending In The Expensive Regions since 2014= $", exp2014))
+print(paste0("Difference: +$", exp2014 - exp2005, " | Percentage Increase: +", round(((exp2014 - exp2005)/(exp2014 + exp2005))*100, 2), "%"))
+
+print(paste0("The Average Spending In The Cheap Regions since 2005 = $", chp2005))
+print(paste0("The Average Spending In The Cheap Regions since 2014= $", chp2014))
+print(paste0("Difference: +$", chp2014 - chp2005, " | Percentage Increase: ", round(((chp2014 - chp2005)/(chp2014 + chp2005))*100, 2), "%"))
+
+
+
+#Levene’s test
+leveneTest(Cost~Region_Name,data=regionHealthCareSince2005,center=mean)
+#Brown-Forsythe test
+leveneTest(Cost~Region_Name,data=regionHealthCareSince2005,center=median)
+
+#Levene’s test
+leveneTest(Cost~Region_Name,data=regionHealthCareSince2014,center=mean)
+#Brown-Forsythe test
+leveneTest(Cost~Region_Name,data=regionHealthCareSince2014,center=median)
+
+#Given both tests yield an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. 
+
+#one way anova model
+model <- aov(Cost~Region_Name, data=regionHealthCareSince2005)
+summary(model)
+
+#Let's do a TukeyHSD test to confirm this.
+
+TukeyHSD(model, conf.level=.95)
+
+plot(TukeyHSD(model, conf.level=.95), las = 2)
+
+
+#New England, Plains and Rocky Mountains spend much lower on average. Despite that, they are following the trend of growth with an 18% since 2005.
+```
+
+## RESULTS
+
+U.S. Healthcare costs have more than quintupled from 1980 to 2014. There are trends throughout each region that show no clear indication of healthcare spending going down. While some regions are not as expensive as others, they are still growing at the same pace nationally. Following the trend, personal health care spending averaged approximately \$10,000 in 1980, but has substantially increased to nearly \$80,000 in 2014. The top 3 most expensive regions as of 2014 are the Mideast, Great Lakes, and Far West. The top 3 least cheapest regions as of 2014 are the Rocky Mountains, New England, and Plains. In the Far West region, Oregon ranks 3rd in being the most expensive State in the region.
+
+## CONCLUSION
+
+The United States continues to spend more in their healthcare system. Though, in some categories such as Personal Health Care, you could argue that it is becoming increasingly unaffordable. A \$70K difference in 35 years is quite off from inflation expectations. Speaking of inflation, this dataset would have had great potential if inflation adjusted values were given. In that sense, a deeper analysis could be made and more insight would have been gained. Now, one could explore this with even more in depth see if there is any statistical significance between each individual state and their spending habits. That is left and open for anyone to undertake in the future.
+
