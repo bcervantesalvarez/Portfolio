@@ -16,6 +16,8 @@ website:
         href: https://www.linkedin.com/in/bcervantesalvarez/
       - icon: github
         href: https://github.com/bcervantesalvarez/
+      - icon: envelope
+        href: mailto:briancervantesalvarez@gmail.com
 format:
   html:
     theme: lux
