@@ -6,3 +6,11 @@ freeze: true
 
 # Enable banner style title blocks
 title-block-banner: true
+
+format:
+  html:
+    theme: 
+      light: lux
+      dark: cyborg
+    css: styles.css
+    mainfont: Futura
