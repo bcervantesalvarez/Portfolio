@@ -20,7 +20,9 @@ website:
         href: mailto:briancervantesalvarez@gmail.com
 format:
   html:
-    theme: lux
+    theme: 
+      light: lux
+      dark: cyborg
     css: styles.css
     mainfont: Futura
 
