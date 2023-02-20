@@ -4,7 +4,11 @@
     "href": "index.html",
     "title": "Portfolio",
     "section": "",
+<<<<<<< HEAD
     "text": "Rating Pinot Wines: Is Pricier Better?\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\ndatatables\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 20, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nHealthcare Spending Is Only Getting Worse\n\n\n\n\n\n\n\nR\n\n\nlinear regression\n\n\nstats\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nDec 12, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nPokédex Database\n\n\n\n\n\n\n\npostgreSQL\n\n\ndatabase\n\n\npresentation\n\n\nR\n\n\nsql\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nResources for Prospective College Students\n\n\n\n\n\n\n\nR\n\n\ninteractive\n\n\ninformative\n\n\nshiny\n\n\n\n\n\n\n\n\n\n\n\nDec 2, 2022\n\n\nBrian Cervantes Alvarez, Corey Cassell\n\n\n\n\n\n\n  \n\n\n\n\nU.S. Medical Insurance Costs\n\n\n\n\n\n\n\npython\n\n\nhealthcare\n\n\nanalysis\n\n\nstats\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\nNo matching items"
+=======
+    "text": "Rating Pinot Wines: Is Pricier Better?\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 20, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nHealthcare Spending Is Only Getting Worse\n\n\n\n\n\n\n\nR\n\n\nlinear regression\n\n\nstats\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nDec 12, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nPokédex Database\n\n\n\n\n\n\n\npostgreSQL\n\n\ndatabase\n\n\npresentation\n\n\nR\n\n\nsql\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nResources for Prospective College Students\n\n\n\n\n\n\n\nR\n\n\ninteractive\n\n\ninformative\n\n\nshiny\n\n\n\n\n\n\n\n\n\n\n\nDec 2, 2022\n\n\nBrian Cervantes Alvarez, Corey Cassell\n\n\n\n\n\n\n  \n\n\n\n\nU.S. Medical Insurance Costs\n\n\n\n\n\n\n\npython\n\n\nhealthcare\n\n\nanalysis\n\n\nstats\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\nNo matching items"
+>>>>>>> 616d8c563cb343a43d3aedf0e2b893154a8d8d5b
   },
   {
     "objectID": "posts/US_HealthIns_Costs/index.html",

@@ -13,7 +13,10 @@ format:
 execute: 
   warning: false
   message: false
+<<<<<<< HEAD
 categories: [R, informative, interactive, datatables]
+=======
+>>>>>>> 616d8c563cb343a43d3aedf0e2b893154a8d8d5b
   
 ---
 
