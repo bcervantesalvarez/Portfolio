@@ -1,4 +1,145 @@
 ---
-title: "Fancy Tables"
+title: "Rating Pinot Wines: Is Pricier Better?"
+author: "Brian Cervantes Alvarez"
+image: wine.jpeg
+date: "2-20-2023"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: full
+    code-fold: true
+execute: 
+  warning: false
+  message: false
+categories: [R, informative, interactive, datatables]
+  
 ---
+
+# Fancy Tables
+
+Exploring different methods of creating visually satisfying data tables. Admit it, we do not like the tradition excel format: too ugly to understand.
+
+
+## Messing Around With Data Tables
+
+
+```{r}
+#| echo: false
+
+
+library(tidyverse)
+library(magrittr)
+library(DT)
+library(gt)
+library(gtExtras)
+library(countrycode)
+library(ggflags) 
+library(downloadthis)
+
+
+ds <- read_rds("pinot.rds")
+
+#head(ds)
+```
+```{r}
+#| code-summary: "DT Table Code"
+
+ds_starter <- ds %>% 
+  mutate(province = as.factor(province),
+         price = price,
+         thetaPointMean = mean(points),
+         thetaPriceMean = mean(price))
+
+ds_starter %>% 
+    arrange(province, year) %>%
+  select(Province = province, 
+         Year = year, 
+         Price = price, 
+         Points = points, 
+         Description = description) %>%
+  datatable(., 
+            filter = "bottom", 
+            extensions = 'Buttons', 
+            options = list(dom = 'Bfrtip',
+                           buttons = c('copy', 'csv', 'excel'), 
+                           initComplete = JS("function(settings, json) {",
+                                             "$(this.api().table().header()).css({'background-color': '#131F4F', 'color': '#fff'});",
+                                             "}")))
+
+```
+
+```{r}
+#| echo: false
+
+ds_summary <- ds_starter %>% 
+  group_by(province) %>% 
+  arrange(year) %>%
+  summarise(pointsMean = mean(points, na.rm=TRUE), 
+            pointsSD = sd(points),
+            priceMean = mean(price, na.rm=TRUE), 
+            priceSD = sd(price),
+            points = list(points),
+            price = list(price),
+            .groups = "drop")
+```
+
+
+```{r}
+#| echo: false
+excel_file_attachment <- ds_summary %>%
+  download_this(
+    output_name = "Pinot_Noir_Summary",
+    output_extension = ".xlsx", # Excel file type
+    button_label = "Download Excel",
+    button_type = "primary", # change button type
+  )
+```
+
+
+## Stepping Up The Table Game
+
+
+```{r}
+#| code-summary: "GT Table Code"
+
+fancyTbl <- ds_summary %>%
+  gt() %>%
+# format the numeric output to 3 digit rounding  
+  fmt_number(columns = c(pointsMean, pointsSD, priceMean, priceSD),
+             decimals = 3) %>%
+# create nice labels for a few ugly variable names
+  cols_label(province = "Province",
+             pointsMean = "Avg. Points",
+             pointsSD = "Std. Dev. Points",
+             priceMean = "Avg. Price",
+             priceSD = "Std. Dev. Price",
+             points = "Points Trend",
+             price = "Price Trend",) %>%
+# Plot the sparklines from the list column
+  gt_plt_sparkline(points, 
+                   type="ref_median", 
+                   same_limit = TRUE
+                   ) %>%
+  gt_plt_sparkline(price, 
+                   type="ref_median", 
+                   same_limit = TRUE
+                   ) %>%
+# use the guardian's table theme
+  gt_theme_guardian() %>% 
+# give hulk coloring to the Mean Human Rights Score
+  gt_hulk_col_numeric(pointsMean) %>%
+  gt_hulk_col_numeric(priceMean) %>%
+# create a header and subheader
+  tab_header(title="Province Pinot Wine Summary", subtitle = "Source: Dr. Hendrick") %>%
+# attach excel file
+  tab_source_note(excel_file_attachment)
+# save the original as an image
+#gtsave(fancyTbl, "table.png")
+# show the table themed in accordance with the page
+fancyTbl
+```
+
+
 
