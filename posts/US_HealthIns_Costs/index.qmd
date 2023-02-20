@@ -5,12 +5,16 @@ date: '2022-07-14'
 image: health_ins.jpeg
 format:
   html:
+    page-layout: full
     toc: true
     toc-location: right
     html-math-method: katex
-    code-fold: true
+output: html_document
 execute:
-  enabled: true
+  message: false
+  warning: false
+  echo: false
+code-fold: true
 categories:
   - python
   - healthcare
@@ -145,17 +149,17 @@ Note: As **Age** slowly increases, the insurance cost also slowly increases. So,
 
 ### Analyzing Male Smokers
 
-Graph One: Cost Distribution - Bimodal Distribution is again present. - Two clusters of cost are due to an underlying variable.
+**Graph One**: Cost Distribution - Bimodal Distribution is again present. - Two clusters of cost are due to an underlying variable.
 
-Graph Two: Barplot of Average Cost per Child - No clear trend. - Only valuable note is that having 4 children seems to have an overall lower average insurance cost.
+**Graph Two**: Barplot of Average Cost per Child - No clear trend. - Only valuable note is that having 4 children seems to have an overall lower average insurance cost.
 
-Graph Three: Scatterplot of Cost vs BMI with Region - There is a visable linear relationship between BMI and Cost. - There are two clusters of individuals but follows the linear relationship. - At \>=30 BMI, there is a clear signifcant increase in insurance cost for male smokers. - Note: a BMI of 30 or implies that the individual is "obese" (though, BMI is not necessarily a good measurement--see results). - No trends with the region.
+**Graph Three**: Scatterplot of Cost vs BMI with Region - There is a visable linear relationship between BMI and Cost. - There are two clusters of individuals but follows the linear relationship. - At \>=30 BMI, there is a clear signifcant increase in insurance cost for male smokers. - Note: a BMI of 30 or implies that the individual is "obese" (though, BMI is not necessarily a good measurement--see results). - No trends with the region.
 
-Graph Four: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual's insurance cost will increase as expected.
+**Graph Four**: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual's insurance cost will increase as expected.
 
-Graph Five: Barplot of Average Cost per Region - No valuable insights can be drawn.
+**Graph Five**: Barplot of Average Cost per Region - No valuable insights can be drawn.
 
-Graph Six: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers' insurance cost.
+**Graph Six**: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers' insurance cost.
 
 ```{python}
 #seperate all male smokers from the main data set
@@ -266,17 +270,17 @@ male_diff_cost_percent = 100*round(male_diff_cost / male_avg_cost_2, 2)
 
 ### Analyzing Female Smokers
 
-Graph One: Cost Distribution - Bimodal Distribution is again present. - Two clusters of cost are due to an underlying variable.
+**Graph One**: Cost Distribution - Bimodal Distribution is again present. - Two clusters of cost are due to an underlying variable.
 
-Graph Two: Barplot of Average Cost per Child - No clear trend. - Only valuable note is that having 5 children seems to have an overall lower average insurance cost.
+**Graph Two**: Barplot of Average Cost per Child - No clear trend. - Only valuable note is that having 5 children seems to have an overall lower average insurance cost.
 
-Graph Three: Scatterplot of Cost vs BMI with Region - There is a visable linear relationship between BMI and Cost - There are two clusters of individuals but follows the linear relationship. - At \>=30 BMI, there is a clear signifcant increase in insurance cost for female smokers. - Note: a BMI of 30 or implies that the individual is "obese" (though, BMI is not necessarily a good measurement--see results). - No trends with the region.
+**Graph Three**: Scatterplot of Cost vs BMI with Region - There is a visable linear relationship between BMI and Cost - There are two clusters of individuals but follows the linear relationship. - At \>=30 BMI, there is a clear signifcant increase in insurance cost for female smokers. - Note: a BMI of 30 or implies that the individual is "obese" (though, BMI is not necessarily a good measurement--see results). - No trends with the region.
 
-Graph Four: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual's insurance cost will increase as expected.
+**Graph Four**: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual's insurance cost will increase as expected.
 
-Graph Five: Barplot of Average Cost per Region - No valuable insights can be drawn.
+**Graph Five**: Barplot of Average Cost per Region - No valuable insights can be drawn.
 
-Graph Six: Boxplot of Female Smoker Insurance Cost - Noteworthy to see the spread of female smokers' insurance cost.
+**Graph Six**: Boxplot of Female Smoker Insurance Cost - Noteworthy to see the spread of female smokers' insurance cost.
 
 Given that the Insurane Cost vs BMI is essentially the same as male smokers, the stated results will apply here.
 
@@ -494,17 +498,17 @@ nonsmoker_min = round(np.min(df_nonsmokers.charges), 2)
 
 ### Analyzing Male Nonsmokers
 
-Graph One: Cost Distribution - Right-skewed distribution is again present. - Knowing this, we should go with the median as the most appropriate statistic instead of the mean.
+**Graph One**: Cost Distribution - Right-skewed distribution is again present. - Knowing this, we should go with the median as the most appropriate statistic instead of the mean.
 
-Graph Two: Barplot of Average Cost per Child - There seems to be a trend that having more children will lead to higher average insurance costs. - Given the information from the smokers, when an individual has 5 children or more, their insurance costs drops signifcantly. - However, the lowest average comes from having no children at all.
+**Graph Two**: Barplot of Average Cost per Child - There seems to be a trend that having more children will lead to higher average insurance costs. - Given the information from the smokers, when an individual has 5 children or more, their insurance costs drops signifcantly. - However, the lowest average comes from having no children at all.
 
-Graph Three: Scatterplot of Cost vs BMI with Region - There is no correlation between cost and BMI of nonsmokers. - This is an interesting finding. - No trends with the region.
+**Graph Three**: Scatterplot of Cost vs BMI with Region - There is no correlation between cost and BMI of nonsmokers. - This is an interesting finding. - No trends with the region.
 
-Graph Four: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.
+**Graph Four**: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.
 
-Graph Five: Barplot of Average Cost per Region - No valuable insights can be drawn. - Some regions are simply cheaper than others.
+**Graph Five**: Barplot of Average Cost per Region - No valuable insights can be drawn. - Some regions are simply cheaper than others.
 
-Graph Six: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers' insurance cost.
+**Graph Six**: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers' insurance cost.
 
 ```{python}
 #seperate all male nonsmokers from the main data set
@@ -587,17 +591,17 @@ plt.clf()
 
 ### Analyzing Female Nonsmokers
 
-Graph One: Cost Distribution - Right-skewed distribution is again present. - Knowing this, we should go with the median as the most appropriate statistic instead of the mean.
+**Graph One**: Cost Distribution - Right-skewed distribution is again present. - Knowing this, we should go with the median as the most appropriate statistic instead of the mean.
 
-Graph Two: Barplot of Average Cost per Child - Similar to the male nonsmokers, there seems to be a trend that having more children will result in higher average insurance costs. - Given the information from the smokers, when an individual has 5 children or more, their insurance costs drops on average. - However, the lowest average comes from having no children at all.
+**Graph Two**: Barplot of Average Cost per Child - Similar to the male nonsmokers, there seems to be a trend that having more children will result in higher average insurance costs. - Given the information from the smokers, when an individual has 5 children or more, their insurance costs drops on average. - However, the lowest average comes from having no children at all.
 
-Graph Three: Scatterplot of Cost vs BMI with Region - Again, there is no correlation between cost and BMI of nonsmokers. - No trends with the region.
+**Graph Three**: Scatterplot of Cost vs BMI with Region - Again, there is no correlation between cost and BMI of nonsmokers. - No trends with the region.
 
-Graph Four: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.
+**Graph Four**: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.
 
-Graph Five: Barplot of Average Cost per Region - There is a slight trend of region importance. - The northeast is more expensive on average than the southwest.
+**Graph Five**: Barplot of Average Cost per Region - There is a slight trend of region importance. - The northeast is more expensive on average than the southwest.
 
-Graph Six: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers' insurance cost.
+**Graph Six**: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers' insurance cost.
 
 ```{python}
 #seperate all female nonsmokers from the main data set
@@ -724,6 +728,10 @@ There is much more to be done with this project. I may come back to it and do so
 
 I included two articles: One states that BMI metric is an inaccurate method to measure human height and weight; the other confirms that tabacco usage allows insurance companies to charge those individuals a premium.
 
-"BMI (body mass index), which is based on the height and weight of a person, is an inaccurate measure of body fat content and does not take into account muscle mass, bone density, overall body composition, and racial and sex differences" (source: https://www.medicalnewstoday.com/articles/265215#:\~:text=BMI%20(body%20mass%20index)%2C,of%20Medicine%2C%20University%20of%20Pennsylvania.)
+"BMI (body mass index), which is based on the height and weight of a person, is an inaccurate measure of body fat content and does not take into account muscle mass, bone density, overall body composition, and racial and sex differences"
 
-"The practice of charging tobacco users more is called tobacco rating. The ACA allows for insurance companies to charge smokers up to 50% more (or premiums that are 1.5 times higher) than non-smokers through a tobacco surcharge." (source: https://www.healthmarkets.com/content/smoking-and-health-insurance#:\~:text=The%20Cost%20of%20Health%20Insurance%20for%20Smokers%20Vs.&text=The%20practice%20of%20charging%20tobacco,smokers%20through%20a%20tobacco%20surcharge).
+(source: https://www.medicalnewstoday.com/articles/265215)
+
+"The practice of charging tobacco users more is called tobacco rating. The ACA allows for insurance companies to charge smokers up to 50% more (or premiums that are 1.5 times higher) than non-smokers through a tobacco surcharge."
+
+(source: https://www.healthmarkets.com/content/smoking-and-health-insurance)

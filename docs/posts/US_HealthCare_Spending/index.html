@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
+    <div class="quarto-title column-page-left">
       <h1 class="title">Healthcare Spending Is Only Getting Worse</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -175,6 +175,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-far-west-ranks-3rd-in-healthcare-spending" id="toc-the-far-west-ranks-3rd-in-healthcare-spending" class="nav-link" data-scroll-target="#the-far-west-ranks-3rd-in-healthcare-spending">The Far West Ranks 3rd In Healthcare Spending</a></li>
   <li><a href="#oregon-ranks-3rd-but-dont-be-fooled" id="toc-oregon-ranks-3rd-but-dont-be-fooled" class="nav-link" data-scroll-target="#oregon-ranks-3rd-but-dont-be-fooled">Oregon Ranks 3rd, But Don’t Be Fooled!</a></li>
   <li><a href="#a-linear-fit-is-not-the-right-model-for-this-data" id="toc-a-linear-fit-is-not-the-right-model-for-this-data" class="nav-link" data-scroll-target="#a-linear-fit-is-not-the-right-model-for-this-data">A Linear Fit Is Not The Right Model For This Data</a></li>
+  <li><a href="#a-linear-fit-is-not-the-right-model-for-this-data-1" id="toc-a-linear-fit-is-not-the-right-model-for-this-data-1" class="nav-link" data-scroll-target="#a-linear-fit-is-not-the-right-model-for-this-data-1">A Linear Fit Is Not The Right Model For This Data</a></li>
   <li><a href="#was-there-a-significant-difference-in-the-means-of-each-region" id="toc-was-there-a-significant-difference-in-the-means-of-each-region" class="nav-link" data-scroll-target="#was-there-a-significant-difference-in-the-means-of-each-region">Was there A Significant Difference In The Means Of Each Region?</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">RESULTS</a></li>
@@ -183,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
@@ -222,12 +223,6 @@ ul.task-list li input[type="checkbox"] {
 #   Y2004 &lt;dbl&gt;, Y2005 &lt;dbl&gt;, Y2006 &lt;dbl&gt;, Y2007 &lt;dbl&gt;, Y2008 &lt;dbl&gt;,
 #   Y2009 &lt;dbl&gt;, Y2010 &lt;dbl&gt;, Y2011 &lt;dbl&gt;, Y2012 &lt;dbl&gt;, Y2013 &lt;dbl&gt;,
 #   Y2014 &lt;dbl&gt;, Average_Annual_Percent_Growth &lt;dbl&gt;, and abbreviated …</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Number of rows: 660"</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Number of cols: 42"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Code"                          "Item"                         
@@ -330,13 +325,14 @@ ul.task-list li input[type="checkbox"] {
 [1] "$5.81M"</code></pre>
 </div>
 </div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 </section>
 <section id="a-linear-fit-is-not-the-right-model-for-this-data" class="level3">
 <h3 class="anchored" data-anchor-id="a-linear-fit-is-not-the-right-model-for-this-data">A Linear Fit Is Not The Right Model For This Data</h3>
 <p>Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data.</p>
-<p>======= ### A Linear Fit Is Not The Right Model For This Data</p>
-<p>Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data. &gt;&gt;&gt;&gt;&gt;&gt;&gt; ddc2eb489105b63ec4d6e823ed0c196d9012c65a</p>
+</section>
+<section id="a-linear-fit-is-not-the-right-model-for-this-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-linear-fit-is-not-the-right-model-for-this-data-1">A Linear Fit Is Not The Right Model For This Data</h3>
+<p>Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
@@ -399,9 +395,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="was-there-a-significant-difference-in-the-means-of-each-region" class="level3">
 <h3 class="anchored" data-anchor-id="was-there-a-significant-difference-in-the-means-of-each-region">Was there A Significant Difference In The Means Of Each Region?</h3>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.</p>
-<p>=======</p>
-<p>I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005. &gt;&gt;&gt;&gt;&gt;&gt;&gt; ddc2eb489105b63ec4d6e823ed0c196d9012c65a</p>
+<p>I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.</p>
+<p>I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The Average Spending In The Expensive Regions since 2005 = $5333.29"</code></pre>
@@ -509,22 +504,7 @@ Southwest-Southeast           381.25535 -2126.59148  2889.1021825 0.9997829</cod
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">CONCLUSION</h2>
-<p>The United States continues to spend more in their healthcare system. Though, in some categories such as Personal Health Care, you could argue that it is becoming increasingly unaffordable. A $70K difference in 35 years is quite off from inflation expectations. Speaking of inflation, this dataset would have had great potential if inflation adjusted values were given. In that sense, a deeper analysis could be made and more insight would have been gained. Now, one could explore this with even more in depth see if there is any statistical significance between each individual state and their spending habits. That is left and open for anyone to undertake in the future. &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD =======</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>ddc2eb489105b63ec4d6e823ed0c196d9012c65a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>The United States continues to spend more in their healthcare system. Though, in some categories such as Personal Health Care, you could argue that it is becoming increasingly unaffordable. A $70K difference in 35 years is quite off from inflation expectations. Speaking of inflation, this dataset would have had great potential if inflation adjusted values were given. In that sense, a deeper analysis could be made and more insight would have been gained. Now, one could explore this with even more in depth see if there is any statistical significance between each individual state and their spending habits. That is left and open for anyone to undertake in the future.</p>
 
 
 </section>
