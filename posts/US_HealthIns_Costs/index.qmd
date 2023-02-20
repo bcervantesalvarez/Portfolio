@@ -5,6 +5,9 @@ date: '2022-07-14'
 image: health_ins.jpeg
 format:
   html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
     code-fold: true
 execute:
   enabled: true

@@ -14,16 +14,17 @@ about:
       text: Email
       href: mailto:briancervantesalvarez@gmail.com
 ---
+#### Who am I?
 
-I am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science.
+I am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science. 
 
-## Education
+#### Education
 
 Willamette University, Salem, OR M.S. in Data Science \| Aug 2022 - Aug 2023
 
 Linfield University, McMinnville, OR B.A. in Mathematics \| Aug 2018 - May 2022
 
-## Domain Experience
+#### Domain Experience
 
 The North Face, a VF Company \| Retail Specialist \| Oct 2022 - present
 

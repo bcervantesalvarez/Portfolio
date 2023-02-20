@@ -1,3 +1,39 @@
 ---
 title: "Resume"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
 ---
+
+### Background
+
+Experienced retail associate with exceptional communication and storytelling abilities. I am resilient, patient, and persuasive, which leads to providing impeccable customer service. Additionally, capable of adapting and managing a multitude of tasks with quick efficiency. An effective learner and teacher of in-depth product knowledge. I pride myself on being able to apply these skills to fields outside of retail.
+
+### Goal
+
+From data visualizations, statistical analysis and data engineering, I am joining and expanding my knowledge that lies in the field of data science. I plan to move forward with this data driven world by becoming a leading data expert as a future data scientist.
+
+### Education
+
+Willamette University, Salem, OR \| M.S. in Data Science \| Aug 2022 - Aug 2023
+
+Linfield University, McMinnville, OR \| B.A. in Mathematics \| Aug 2018 - May 2022
+
+### Professional Experience
+
+*The North Face, a VF Company \| Retail Specialist \| Oct 2022 - present*
+
+-   Delegated associates to complete merchandising projects in a timely manner.
+-   Coordinated with store and assistant managers to promote morale in other associates in order to meet sales objectives
+
+*The North Face, a VF Company \| Sales Associate \| Oct 2019 - June 2021*
+
+-   Engaged with customers leading to higher conversion rates.
+-   Provided excellent customer service.
+
+### Languages
+
+-   Seal of Biliteracy in English and Spanish.
+-   Novice in French.

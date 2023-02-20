@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -222,7 +222,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pokédex-project" id="toc-pokédex-project" class="nav-link active" data-scroll-target="#pokédex-project">Pokédex Project</a>
+  <ul class="collapse">
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#database-with-postgresql" id="toc-database-with-postgresql" class="nav-link" data-scroll-target="#database-with-postgresql">Database with PostgreSQL</a>
+  <ul class="collapse">
+  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
+  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a></li>
+  <li><a href="#part-3" id="toc-part-3" class="nav-link" data-scroll-target="#part-3">PART 3</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -239,8 +257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>What is the best base stat pokemon type? I was intrigued by this question and sought to answer it using some data engineering. First, I used the “Pokémon of Kanto, Johto, and Hoenn Region” dataset to help design and structure my database. Second, I established the database and imported the dataset. Then, I used a few queries and built an new dataset for analysis. Using R, I analyzed and determined that the “Ghost” type was the best base type.</p>
 </section>
-<section id="use-this-code-for-your-own-pokemon-adventure" class="level2">
-<h2 class="anchored" data-anchor-id="use-this-code-for-your-own-pokemon-adventure">Use this code for your own pokemon adventure!</h2>
+<section id="database-with-postgresql" class="level2">
+<h2 class="anchored" data-anchor-id="database-with-postgresql">Database with PostgreSQL</h2>
 <section id="part-1" class="level3">
 <h3 class="anchored" data-anchor-id="part-1">Part 1</h3>
 <p>Due to time constraints there are some missing tables that would have added more flexiblity to my analysis.</p>
