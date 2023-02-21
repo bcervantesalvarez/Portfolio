@@ -24,7 +24,10 @@ format:
       light: lux
       dark: cyborg
     css: styles.css
-    mainfont: Futura
+    mainfont: "Futura"
+    fontsize: 0.8em
+    linestretch: 1.7
+    monofont: "Monaco"
 
 editor: visual
 

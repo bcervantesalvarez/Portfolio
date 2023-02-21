@@ -287,10 +287,6 @@ farWestStatesHealthCare2014 %>%
 
 Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data.
 
-### A Linear Fit Is Not The Right Model For This Data
-
-Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data. 
-
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
 #Question: Are there no significant differences in spending for each region?
 regionHealthCareSince2005 <- ds_years %>% 
@@ -345,7 +341,6 @@ summary.aov(model)
 ### Was there A Significant Difference In The Means Of Each Region?
 
 I wished to explore if it was statistically significant on where each region's mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.
-
 
 I wished to explore if it was statistically significant on where each region's mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.
 

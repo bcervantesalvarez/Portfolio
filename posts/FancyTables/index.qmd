@@ -20,9 +20,7 @@ categories: [R, informative, interactive, datatables]
 
 Exploring different methods of creating visually satisfying data tables. Admit it, we do not like the tradition excel format: too ugly to understand.
 
-
 ## Messing Around With Data Tables
-
 
 ```{r}
 #| echo: false
@@ -42,6 +40,7 @@ ds <- read_rds("pinot.rds")
 
 #head(ds)
 ```
+
 ```{r}
 #| code-summary: "DT Table Code"
 
@@ -84,7 +83,6 @@ ds_summary <- ds_starter %>%
             .groups = "drop")
 ```
 
-
 ```{r}
 #| echo: false
 excel_file_attachment <- ds_summary %>%
@@ -96,9 +94,7 @@ excel_file_attachment <- ds_summary %>%
   )
 ```
 
-
 ## Stepping Up The Table Game
-
 
 ```{r}
 #| code-summary: "GT Table Code"
@@ -139,6 +135,3 @@ fancyTbl <- ds_summary %>%
 # show the table themed in accordance with the page
 fancyTbl
 ```
-
-
-

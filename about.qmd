@@ -14,7 +14,7 @@ about:
       text: Email
       href: mailto:briancervantesalvarez@gmail.com
 ---
+
 #### Who am I?
 
-I am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science. 
-
+I am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science.
