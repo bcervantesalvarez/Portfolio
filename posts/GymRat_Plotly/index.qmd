@@ -1,0 +1,147 @@
+---
+title: "Do You Like Stretching? I would Reconsider ASAP!"
+author: "Brian Cervantes Alvarez"
+image: gymRat.jpeg
+date: "2-24-2023"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: full
+    code-fold: true
+execute: 
+  warning: false
+  message: false
+categories: [R, informative, interactive, plotly]
+---
+
+## Setup
+
+```{r}
+#| code-fold: false
+library(tidyverse)
+library(tidytext)
+library(RColorBrewer)
+library(extrafont)
+library(plotly)
+#font_import()
+loadfonts()
+```
+
+
+## Data Wrangling For Plot 1
+```{r}
+gymDs <- read_csv("megaGymDataset.csv")
+
+head(gymDs, 5)
+names(gymDs)
+
+ds <- gymDs %>%
+  mutate(ID = ...1,
+         Level = factor(Level, levels = c("Beginner", "Intermediate", "Expert")),
+         Type = as.factor(Type)) %>%
+  select(-...1) %>% 
+  drop_na() 
+
+
+```
+
+## Plot 1
+```{r}
+myTheme <- theme(text = element_text(family = "Futura Medium"),
+                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = "cm"),
+                 plot.title = element_text(size = 15, family = "Futura Condensed ExtraBold"),
+                 plot.subtitle = element_text(size = 10, family = "Futura Medium"),
+                 strip.text.y = element_text(angle = 90, size = 10, family = "Futura Condensed ExtraBold"),
+                 strip.placement = "inside",
+                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = "cm")),
+                 axis.title.y = element_blank(),
+                 axis.text = element_text(size = 9),
+                 legend.position = "none",
+                 panel.grid.major.y = element_blank())
+
+
+plotDs <- ds %>% 
+  group_by(Type, Level) %>%
+  summarize(meanRating = mean(Rating)) %>%
+  arrange(Type, meanRating) %>%
+  ungroup()
+
+p <- plotDs %>%
+  ggplot(aes(x = meanRating, 
+             y = reorder_within(Type, meanRating, Level),
+             fill = fct_reorder(Type, meanRating))) +
+  geom_col(color = "black") + 
+  facet_grid(rows = vars(Level), 
+             scales = "free_y", 
+             switch = "y", 
+             space = "free_y") +
+  scale_y_reordered() +
+  scale_fill_brewer(palette = "PuBuGn") +
+  labs(title = "Are You a Stretch Fiend? You Should Reconsider",
+       caption = "Based on the average rating of each exercise type for each individual's current level",
+       x = "Average Rating of Each Exercise Type",
+       fill = "Workout Types") + theme_minimal() +
+  myTheme 
+
+ggplotly(p)
+```
+
+
+
+## Data Wrangling For Plot 1
+
+```{r}
+gymDs <- gymDs %>%
+  mutate(ID = ...1,
+         Level = factor(Level, levels = c("Beginner", "Intermediate", "Expert")),
+         Type = as.factor(Type)) %>%
+  select(-...1) %>% 
+  drop_na() 
+```
+
+
+
+## Plot 2
+```{r}
+myTheme <- theme(text = element_text(family = "Futura Medium"),
+                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = "cm"),
+                 plot.title = element_text(size = 15, family = "Futura Condensed ExtraBold"),
+                 strip.text.y = element_text(angle = 90, size = 10, family = "Futura Condensed ExtraBold"),
+                 strip.placement = "outside",
+                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = "cm")),
+                 axis.title.y = element_blank(),
+                 axis.text = element_text(size = 9),
+                 legend.position = "none",
+                 panel.grid.major.y = element_blank())
+
+
+plotDs <- gymDs %>% 
+  group_by(Type, Level) %>%
+  summarize(meanRating = mean(Rating)) %>%
+  arrange(Type, meanRating) %>%
+  ungroup()
+
+p <- plotDs %>%
+  ggplot(aes(x = meanRating, 
+             y = reorder_within(Type, meanRating, Level),
+             fill = fct_reorder(Type, meanRating))) +
+  geom_col(color = "black") + 
+  facet_grid(rows = vars(Level), 
+             scales = "free_y", 
+             switch = "y", 
+             space = "free_y") +
+  scale_y_reordered() +
+  scale_fill_brewer(palette = "PuBuGn") +
+  labs(title = "Are You a Stretch Fiend? You Should Reconsider",
+       x = NULL,
+       y = "",
+       fill = "Workout Types") + theme_minimal() +
+  myTheme 
+
+ggplotly(p)
+
+```
+
+
