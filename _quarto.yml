@@ -24,9 +24,11 @@ format:
       light: lux
       dark: cyborg
     css: styles.css
-    mainfont: "Futura"
-    fontsize: 0.8em
-    linestretch: 1.7
+    header-includes: |
+     <link href="https://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
+    mainfont: "DM Sans"
+    fontsize: 0.9em
+    linestretch: 2
     monofont: "Monaco"
 
 editor: visual
