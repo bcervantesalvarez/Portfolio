@@ -16,7 +16,6 @@ categories: [R, interactive, informative, shiny]
 ```{r}
 #| include: FALSE
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "/Users/briancervantesalvarez/Documents/GitHub/Portflio/posts/CollegeStudent_Debt_Tool")
 ```
 
 ![](uni.jpeg)
@@ -31,7 +30,8 @@ The interactive visualization has 4 parts to it. The salary, tuition, debt estim
 
 ## Shiny Interactive Tool
 
-Click this image to be transported to another world [![FunnyLink](student_debt.jpeg)](https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/)
+<iframe src="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="960" height="500"></iframe>
+
 
 When quarto introduces a method of adding shiny apps into quarto, I will update this, eventually.
 

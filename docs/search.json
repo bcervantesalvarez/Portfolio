@@ -88,7 +88,7 @@
     "href": "posts/CollegeStudent_Debt_Tool/index.html#shiny-interactive-tool",
     "title": "Resources for Prospective College Students",
     "section": "Shiny Interactive Tool",
-    "text": "Shiny Interactive Tool\nClick this image to be transported to another world \nWhen quarto introduces a method of adding shiny apps into quarto, I will update this, eventually."
+    "text": "Shiny Interactive Tool\n\n\nWhen quarto introduces a method of adding shiny apps into quarto, I will update this, eventually."
   },
   {
     "objectID": "posts/CollegeStudent_Debt_Tool/index.html#setup",
@@ -137,14 +137,14 @@
     "href": "posts/GymRat_Plotly/index.html",
     "title": "Do You Like Stretching? I would Reconsider ASAP!",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(tidytext)\nlibrary(RColorBrewer)\nlibrary(extrafont)\nlibrary(plotly)\n#font_import()\nloadfonts()"
+    "text": "library(tidyverse)\nlibrary(tidytext)\nlibrary(ggtext)\nlibrary(RColorBrewer)\nlibrary(extrafont)\nlibrary(plotly)\nlibrary(htmlwidgets)\n#font_import()\nloadfonts()"
   },
   {
     "objectID": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-1",
     "href": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-1",
     "title": "Do You Like Stretching? I would Reconsider ASAP!",
     "section": "Data Wrangling For Plot 1",
-    "text": "Data Wrangling For Plot 1\n\n\nCode\ngymDs <- read_csv(\"megaGymDataset.csv\")\n\nhead(gymDs, 5)\n\n\n# A tibble: 5 × 9\n   ...1 Title                   Desc  Type  BodyP…¹ Equip…² Level Rating Ratin…³\n  <dbl> <chr>                   <chr> <chr> <chr>   <chr>   <chr>  <dbl> <chr>  \n1     0 Partner plank band row  \"The… Stre… Abdomi… Bands   Inte…      0 <NA>   \n2     1 Banded crunch isometri… \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n3     2 FYR Banded Plank Jack   \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n4     3 Banded crunch           \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n5     4 Crunch                  \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n# … with abbreviated variable names ¹​BodyPart, ²​Equipment, ³​RatingDesc\n\n\nCode\nnames(gymDs)\n\n\n[1] \"...1\"       \"Title\"      \"Desc\"       \"Type\"       \"BodyPart\"  \n[6] \"Equipment\"  \"Level\"      \"Rating\"     \"RatingDesc\"\n\n\nCode\nds <- gymDs %>%\n  mutate(ID = ...1,\n         Level = factor(Level, levels = c(\"Beginner\", \"Intermediate\", \"Expert\")),\n         Type = as.factor(Type)) %>%\n  select(-...1) %>% \n  drop_na()"
+    "text": "Data Wrangling For Plot 1\n\n\nCode\ngymDs <- read_csv(\"megaGymDataset.csv\")\n\n#head(gymDs, 5)\n#names(gymDs)\n\nds <- gymDs %>%\n  mutate(ID = ...1,\n         Level = factor(Level, levels = c(\"Beginner\", \"Intermediate\", \"Expert\")),\n         Type = as.factor(Type)) %>%\n  select(-...1) %>% \n  drop_na()"
   },
   {
     "objectID": "posts/GymRat_Plotly/index.html#plot-1",
@@ -166,5 +166,26 @@
     "title": "Do You Like Stretching? I would Reconsider ASAP!",
     "section": "Plot 2",
     "text": "Plot 2\n\n\nCode\nmyTheme <- theme(text = element_text(family = \"Futura Medium\"),\n                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = \"cm\"),\n                 plot.title = element_text(size = 15, family = \"Futura Condensed ExtraBold\"),\n                 strip.text.y = element_text(angle = 90, size = 10, family = \"Futura Condensed ExtraBold\"),\n                 strip.placement = \"outside\",\n                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = \"cm\")),\n                 axis.title.y = element_blank(),\n                 axis.text = element_text(size = 9),\n                 legend.position = \"none\",\n                 panel.grid.major.y = element_blank())\n\n\nplotDs <- gymDs %>% \n  group_by(Type, Level) %>%\n  summarize(meanRating = mean(Rating)) %>%\n  arrange(Type, meanRating) %>%\n  ungroup()\n\np <- plotDs %>%\n  ggplot(aes(x = meanRating, \n             y = reorder_within(Type, meanRating, Level),\n             fill = fct_reorder(Type, meanRating))) +\n  geom_col(color = \"black\") + \n  facet_grid(rows = vars(Level), \n             scales = \"free_y\", \n             switch = \"y\", \n             space = \"free_y\") +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"PuBuGn\") +\n  labs(title = \"Are You a Stretch Fiend? You Should Reconsider\",\n       x = NULL,\n       y = \"\",\n       fill = \"Workout Types\") + theme_minimal() +\n  myTheme \n\nggplotly(p)"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#using-plotly-for-plot-1",
+    "href": "posts/GymRat_Plotly/index.html#using-plotly-for-plot-1",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Using Plotly for Plot 1",
+    "text": "Using Plotly for Plot 1\n\n\nCode\nmyTheme <- theme(text = element_text(family = \"Futura Medium\"),\n                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = \"cm\"),\n                 plot.title = element_text(size = 15, family = \"Futura Condensed ExtraBold\"),\n                 plot.subtitle = element_text(size = 10, family = \"Futura Medium\"),\n                 strip.text.y = element_text(angle = 0, size = 10, family = \"Futura Condensed ExtraBold\"),\n                 strip.placement = \"inside\",\n                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = \"cm\")),\n                 axis.title.y = element_blank(),\n                 axis.text = element_text(size = 9),\n                 legend.position = \"none\",\n                 panel.grid.major.y = element_blank())\n\n\nplotDs <- ds %>% \n  group_by(Type, Level) %>%\n  summarize(meanRating = mean(Rating)) %>%\n  arrange(Type, meanRating) %>%\n  ungroup()\n\np <- plotDs %>%\n  highlight_key(., ~reorder_within(Type, meanRating, Level)) %>%\n  ggplot(aes(x = meanRating, \n             y = reorder_within(Type, meanRating, Level),\n             fill = fct_reorder(Type, meanRating),\n             text = paste0(\"Rating: \", round(meanRating,2),\n                           \"<br>Type: \", Type))) +\n  geom_col(color = \"black\") + \n  facet_grid(rows = vars(Level), \n             scales = \"free_y\", \n             switch = \"y\", \n             space = \"free_y\") +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"PuBuGn\") +\n  labs(title = \"Ranking Exercise Type According to Experience Level of Individuals\",\n       x = \"Average Rating of Each Exercise Type\",\n       fill = \"Workout Types\") + \n  theme_minimal() +\n  myTheme \n\n\nggplotly(p, tooltip = \"text\") %>%\n  config(displayModeBar = FALSE) %>%\n  highlight(on = \"plotly_hover\", off = \"plotly_doubleclick\") %>%\n  layout(\n    uniformtext=list(minsize=8, mode='hide'),\n    margin = list(b = 70, l = 140, r = 140)\n  )"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-2",
+    "href": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-2",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Data Wrangling For Plot 2",
+    "text": "Data Wrangling For Plot 2\n\n\nCode\ngymDs <- gymDs %>%\n  mutate(ID = ...1,\n         Level = factor(Level, levels = c(\"Beginner\", \"Intermediate\", \"Expert\")),\n         Type = as.factor(Type)) %>%\n  select(-...1) %>% \n  drop_na()"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#using-for-plot-1",
+    "href": "posts/GymRat_Plotly/index.html#using-for-plot-1",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Using for Plot 1",
+    "text": "Using for Plot 1\n\n\nCode\nmyTheme <- theme(text = element_text(family = \"Futura Medium\"),\n                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = \"cm\"),\n                 plot.title = element_text(size = 15, family = \"Futura Condensed ExtraBold\"),\n                 strip.text.y = element_text(angle = 90, size = 10, family = \"Futura Condensed ExtraBold\"),\n                 strip.placement = \"outside\",\n                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = \"cm\")),\n                 axis.title.y = element_blank(),\n                 axis.text = element_text(size = 9),\n                 legend.position = \"none\",\n                 panel.grid.major.y = element_blank())\n\n\nplotDs <- gymDs %>% \n  group_by(Type, Level) %>%\n  summarize(meanRating = mean(Rating)) %>%\n  arrange(Type, meanRating) %>%\n  ungroup()\n\np <- plotDs %>%\n  ggplot(aes(x = meanRating, \n             y = reorder_within(Type, meanRating, Level),\n             fill = fct_reorder(Type, meanRating))) +\n  geom_col(color = \"black\") + \n  facet_grid(rows = vars(Level), \n             scales = \"free_y\", \n             switch = \"y\", \n             space = \"free_y\") +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"PuBuGn\") +\n  labs(title = \"Are You a Stretch Fiend? You Should Reconsider\",\n       x = NULL,\n       y = \"\",\n       fill = \"Workout Types\") + theme_minimal() +\n  myTheme \n\n#ggplotly(p)"
   }
 ]
