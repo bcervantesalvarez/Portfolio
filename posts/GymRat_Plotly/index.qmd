@@ -29,8 +29,8 @@ library(plotly)
 loadfonts()
 ```
 
-
 ## Data Wrangling For Plot 1
+
 ```{r}
 gymDs <- read_csv("megaGymDataset.csv")
 
@@ -48,6 +48,7 @@ ds <- gymDs %>%
 ```
 
 ## Plot 1
+
 ```{r}
 myTheme <- theme(text = element_text(family = "Futura Medium"),
                  plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = "cm"),
@@ -88,8 +89,6 @@ p <- plotDs %>%
 ggplotly(p)
 ```
 
-
-
 ## Data Wrangling For Plot 1
 
 ```{r}
@@ -101,9 +100,8 @@ gymDs <- gymDs %>%
   drop_na() 
 ```
 
-
-
 ## Plot 2
+
 ```{r}
 myTheme <- theme(text = element_text(family = "Futura Medium"),
                  plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = "cm"),
@@ -143,5 +141,3 @@ p <- plotDs %>%
 ggplotly(p)
 
 ```
-
-

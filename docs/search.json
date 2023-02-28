@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Portfolio",
     "section": "",
-    "text": "Rating Pinot Wines: Is Pricier Better?\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\ndatatables\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 20, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nHealthcare Spending Is Only Getting Worse\n\n\n\n\n\n\n\nR\n\n\nlinear regression\n\n\nstats\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nDec 12, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nPokédex Database\n\n\n\n\n\n\n\npostgreSQL\n\n\ndatabase\n\n\npresentation\n\n\nR\n\n\nsql\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nResources for Prospective College Students\n\n\n\n\n\n\n\nR\n\n\ninteractive\n\n\ninformative\n\n\nshiny\n\n\n\n\n\n\n\n\n\n\n\nDec 2, 2022\n\n\nBrian Cervantes Alvarez, Corey Cassell\n\n\n\n\n\n\n  \n\n\n\n\nU.S. Medical Insurance Costs\n\n\n\n\n\n\n\npython\n\n\nhealthcare\n\n\nanalysis\n\n\nstats\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\nNo matching items"
+    "text": "Do You Like Stretching? I would Reconsider ASAP!\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\nplotly\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nRating Pinot Wines: Is Pricier Better?\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\ndatatables\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 20, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nHealthcare Spending Is Only Getting Worse\n\n\n\n\n\n\n\nR\n\n\nlinear regression\n\n\nstats\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nDec 12, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nPokédex Database\n\n\n\n\n\n\n\npostgreSQL\n\n\ndatabase\n\n\npresentation\n\n\nR\n\n\nsql\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nResources for Prospective College Students\n\n\n\n\n\n\n\nR\n\n\ninteractive\n\n\ninformative\n\n\nshiny\n\n\n\n\n\n\n\n\n\n\n\nDec 2, 2022\n\n\nBrian Cervantes Alvarez, Corey Cassell\n\n\n\n\n\n\n  \n\n\n\n\nU.S. Medical Insurance Costs\n\n\n\n\n\n\n\npython\n\n\nhealthcare\n\n\nanalysis\n\n\nstats\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resume.html",
@@ -131,5 +131,40 @@
     "title": "Brian",
     "section": "",
     "text": "Who am I?\nI am a next generation Data Scientist who is staying up to date with the latest Python, R, and SQL technologies. From machine learning to survival analysis applications, I continue to advance my skills through my unending thirst of learning data science."
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html",
+    "href": "posts/GymRat_Plotly/index.html",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidytext)\nlibrary(RColorBrewer)\nlibrary(extrafont)\nlibrary(plotly)\n#font_import()\nloadfonts()"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-1",
+    "href": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-1",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Data Wrangling For Plot 1",
+    "text": "Data Wrangling For Plot 1\n\n\nCode\ngymDs <- read_csv(\"megaGymDataset.csv\")\n\nhead(gymDs, 5)\n\n\n# A tibble: 5 × 9\n   ...1 Title                   Desc  Type  BodyP…¹ Equip…² Level Rating Ratin…³\n  <dbl> <chr>                   <chr> <chr> <chr>   <chr>   <chr>  <dbl> <chr>  \n1     0 Partner plank band row  \"The… Stre… Abdomi… Bands   Inte…      0 <NA>   \n2     1 Banded crunch isometri… \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n3     2 FYR Banded Plank Jack   \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n4     3 Banded crunch           \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n5     4 Crunch                  \"The… Stre… Abdomi… Bands   Inte…     NA <NA>   \n# … with abbreviated variable names ¹​BodyPart, ²​Equipment, ³​RatingDesc\n\n\nCode\nnames(gymDs)\n\n\n[1] \"...1\"       \"Title\"      \"Desc\"       \"Type\"       \"BodyPart\"  \n[6] \"Equipment\"  \"Level\"      \"Rating\"     \"RatingDesc\"\n\n\nCode\nds <- gymDs %>%\n  mutate(ID = ...1,\n         Level = factor(Level, levels = c(\"Beginner\", \"Intermediate\", \"Expert\")),\n         Type = as.factor(Type)) %>%\n  select(-...1) %>% \n  drop_na()"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#plot-1",
+    "href": "posts/GymRat_Plotly/index.html#plot-1",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Plot 1",
+    "text": "Plot 1\n\n\nCode\nmyTheme <- theme(text = element_text(family = \"Futura Medium\"),\n                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = \"cm\"),\n                 plot.title = element_text(size = 15, family = \"Futura Condensed ExtraBold\"),\n                 plot.subtitle = element_text(size = 10, family = \"Futura Medium\"),\n                 strip.text.y = element_text(angle = 90, size = 10, family = \"Futura Condensed ExtraBold\"),\n                 strip.placement = \"inside\",\n                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = \"cm\")),\n                 axis.title.y = element_blank(),\n                 axis.text = element_text(size = 9),\n                 legend.position = \"none\",\n                 panel.grid.major.y = element_blank())\n\n\nplotDs <- ds %>% \n  group_by(Type, Level) %>%\n  summarize(meanRating = mean(Rating)) %>%\n  arrange(Type, meanRating) %>%\n  ungroup()\n\np <- plotDs %>%\n  ggplot(aes(x = meanRating, \n             y = reorder_within(Type, meanRating, Level),\n             fill = fct_reorder(Type, meanRating))) +\n  geom_col(color = \"black\") + \n  facet_grid(rows = vars(Level), \n             scales = \"free_y\", \n             switch = \"y\", \n             space = \"free_y\") +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"PuBuGn\") +\n  labs(title = \"Are You a Stretch Fiend? You Should Reconsider\",\n       caption = \"Based on the average rating of each exercise type for each individual's current level\",\n       x = \"Average Rating of Each Exercise Type\",\n       fill = \"Workout Types\") + theme_minimal() +\n  myTheme \n\nggplotly(p)"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-1-1",
+    "href": "posts/GymRat_Plotly/index.html#data-wrangling-for-plot-1-1",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Data Wrangling For Plot 1",
+    "text": "Data Wrangling For Plot 1\n\n\nCode\ngymDs <- gymDs %>%\n  mutate(ID = ...1,\n         Level = factor(Level, levels = c(\"Beginner\", \"Intermediate\", \"Expert\")),\n         Type = as.factor(Type)) %>%\n  select(-...1) %>% \n  drop_na()"
+  },
+  {
+    "objectID": "posts/GymRat_Plotly/index.html#plot-2",
+    "href": "posts/GymRat_Plotly/index.html#plot-2",
+    "title": "Do You Like Stretching? I would Reconsider ASAP!",
+    "section": "Plot 2",
+    "text": "Plot 2\n\n\nCode\nmyTheme <- theme(text = element_text(family = \"Futura Medium\"),\n                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = \"cm\"),\n                 plot.title = element_text(size = 15, family = \"Futura Condensed ExtraBold\"),\n                 strip.text.y = element_text(angle = 90, size = 10, family = \"Futura Condensed ExtraBold\"),\n                 strip.placement = \"outside\",\n                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = \"cm\")),\n                 axis.title.y = element_blank(),\n                 axis.text = element_text(size = 9),\n                 legend.position = \"none\",\n                 panel.grid.major.y = element_blank())\n\n\nplotDs <- gymDs %>% \n  group_by(Type, Level) %>%\n  summarize(meanRating = mean(Rating)) %>%\n  arrange(Type, meanRating) %>%\n  ungroup()\n\np <- plotDs %>%\n  ggplot(aes(x = meanRating, \n             y = reorder_within(Type, meanRating, Level),\n             fill = fct_reorder(Type, meanRating))) +\n  geom_col(color = \"black\") + \n  facet_grid(rows = vars(Level), \n             scales = \"free_y\", \n             switch = \"y\", \n             space = \"free_y\") +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"PuBuGn\") +\n  labs(title = \"Are You a Stretch Fiend? You Should Reconsider\",\n       x = NULL,\n       y = \"\",\n       fill = \"Workout Types\") + theme_minimal() +\n  myTheme \n\nggplotly(p)"
   }
 ]
