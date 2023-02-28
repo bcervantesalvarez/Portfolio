@@ -282,7 +282,6 @@ farWestStatesHealthCare2014 %>%
   theme(title = element_text(size = 10, face = "bold"))
 ```
 
-
 ### A Linear Fit Is Not The Right Model For This Data
 
 Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data.

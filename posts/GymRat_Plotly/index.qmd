@@ -20,12 +20,9 @@ categories: [R, informative, interactive, plotly]
 
 Stretching is not a good method of building muscle for several reasons. First, stretching is primarily focused on increasing flexibility and range of motion, rather than building muscle mass or strength. While stretching can help prepare the muscles for exercise and prevent injury, it is not a sufficient method of building muscle. Second, stretching alone does not provide enough resistance or tension on the muscles to stimulate muscle growth. To build muscle, the body needs to be challenged with weight or resistance training. Finally, stretching may actually reduce muscle strength by decreasing muscle activation and power output. While stretching can be a useful addition to a muscle-building routine, it should not be relied upon as the primary method for building muscle mass and strength.
 
-
-
 ## General Setup
 
 ```{r}
-#| code-fold: false
 #| message: false
 #| warning: false
 library(tidyverse)
@@ -110,37 +107,4 @@ ggplotly(p, tooltip = "text") %>%
     margin = list(b = 70, l = 140, r = 140)
   ) 
   
-```
-
-## Data Wrangling For Plot 2
-
-```{r}
-plotDs2 <- ds %>%
-  group_by(BodyPart, Level) %>%
-  summarize(meanRating = mean(Rating))
-
-head(plotDs2)
-```
-
-## Using  for Plot 2
-
-```{r}
-myTheme <- theme(text = element_text(family = "Futura Medium"),
-                 plot.margin = margin(0.5, 0.5, 0.5, 0.5, unit = "cm"),
-                 plot.title = element_text(size = 15, family = "Futura Condensed ExtraBold"),
-                 strip.text.y = element_text(angle = 90, size = 10, family = "Futura Condensed ExtraBold"),
-                 strip.placement = "outside",
-                 axis.title.x = element_text(margin = margin(t = 0.5, b = 0.5, unit = "cm")),
-                 axis.title.y = element_blank(),
-                 axis.text = element_text(size = 9),
-                 legend.position = "none",
-                 panel.grid.major.y = element_blank())
-
-
-
-
-
-
-#ggplotly(p)
-
 ```

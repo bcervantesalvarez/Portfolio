@@ -207,7 +207,7 @@
     "href": "posts/GymRat_Plotly/index.html#general-setup",
     "title": "Do You Like Stretching? I would Reconsider!",
     "section": "General Setup",
-    "text": "General Setup\n\nlibrary(tidyverse)\nlibrary(tidytext)\nlibrary(ggtext)\nlibrary(RColorBrewer)\nlibrary(extrafont)\nlibrary(plotly)\nlibrary(htmlwidgets)\n#font_import()\nloadfonts()"
+    "text": "General Setup\n\n\nCode\nlibrary(tidyverse)\nlibrary(tidytext)\nlibrary(ggtext)\nlibrary(RColorBrewer)\nlibrary(extrafont)\nlibrary(plotly)\nlibrary(htmlwidgets)\n#font_import()\nloadfonts()"
   },
   {
     "objectID": "posts/GymRat_Plotly/index.html#using-for-plot-2",
