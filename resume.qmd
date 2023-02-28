@@ -10,11 +10,11 @@ format:
 
 ### Background
 
-Experienced retail associate with exceptional communication and storytelling abilities. I am resilient, patient, and persuasive, which leads to providing impeccable customer service. Additionally, capable of adapting and managing a multitude of tasks with quick efficiency. An effective learner and teacher of in-depth product knowledge. I pride myself on being able to apply these skills to fields outside of retail.
+I come from a background in retail, where I have gained valuable experience in customer service, sales, and inventory management. However, I have always been fascinated by the power of data and its potential to inform business decisions and drive growth. As a result, I have pursued coursework in data science and gained proficiency in programming languages such as Python, R, and SQL. I have also completed projects that involved data cleaning, exploratory data analysis, and predictive modeling. My experience in retail has taught me the importance of understanding customer behavior and market trends, and I believe that these insights can be enhanced through the use of data-driven approaches. I am excited to apply my skills and knowledge to a career in data science and contribute to an organization that values innovation and data-driven decision-making.
 
 ### Goal
 
-From data visualizations, statistical analysis and data engineering, I am joining and expanding my knowledge that lies in the field of data science. I plan to move forward with this data driven world by becoming a leading data expert as a future data scientist.
+My goal as a Data Scientist is to leverage my skills and knowledge to contribute to a dynamic organization that values innovation and data-driven decision-making. I am seeking a challenging role where I can apply my expertise in statistical analysis, machine learning, and data visualization to solve complex problems and drive business growth. Through my academic coursework and hands-on experience, I have developed a strong foundation in programming languages such as Python, R, and SQL, as well as tools and frameworks like Tableau, Pandas, and Scikit-learn. I am excited to continue building my skills and learning from experienced professionals in the industry.
 
 ### Education
 
@@ -24,17 +24,21 @@ Linfield University, McMinnville, OR \| B.A. in Mathematics \| Aug 2018 - May 20
 
 ### Professional Experience
 
-*The North Face, a VF Company \| Retail Specialist \| Oct 2022 - present*
+*The North Face, a VF Company \| Retail Specialist \| Oct 2019 - June 2021, Oct 2022 - present*
 
--   Delegated associates to complete merchandising projects in a timely manner.
--   Coordinated with store and assistant managers to promote morale in other associates in order to meet sales objectives
+-   Customer service: As a retail worker at The North Face, I have developed strong customer service skills, including active listening, problem-solving, and conflict resolution. I am able to provide product recommendations, answer questions about features and benefits, and ensure that customers have a positive experience in the store.
 
-*The North Face, a VF Company \| Sales Associate \| Oct 2019 - June 2021*
+-   Sales: I am proficient in sales techniques, including suggestive selling, upselling, and cross-selling. I understand how to build rapport with customers and how to close a sale effectively. I am also comfortable with point-of-sale systems and can process transactions accurately and efficiently.
 
--   Engaged with customers leading to higher conversion rates.
--   Provided excellent customer service.
+-   Product knowledge: I have in-depth knowledge of The North Face's products, including their features, benefits, and intended uses. I am able to explain technical details, such as materials and construction, to customers in a clear and concise manner.
+
+-   Inventory management: I am experienced in managing inventory, including receiving, organizing, and stocking products. I am able to track inventory levels and identify when reorders are necessary. I am also skilled in visual merchandising and can arrange products in an aesthetically pleasing and organized manner.
+
+-   Teamwork: I am able to work collaboratively with other team members to achieve common goals. I am comfortable with delegating tasks, taking direction from others, and providing constructive feedback. I am also able to work independently and take initiative when necessary.
+
+-   Communication: I have excellent verbal and written communication skills. I am able to communicate effectively with customers, team members, and management. I am also comfortable with public speaking and can present information to groups in a clear and engaging manner.
 
 ### Languages
 
--   Seal of Biliteracy in English and Spanish.
--   Novice in French.
+-   I have a deep understanding of the cultural nuances of both English and Spanish-speaking communities. I am able to navigate cultural differences with sensitivity and respect.
+-   I have basic verbal and written communication skills in French. I am able to introduce myself, ask and answer basic questions, and engage in simple conversations. I am also able to write simple sentences and paragraphs in French.

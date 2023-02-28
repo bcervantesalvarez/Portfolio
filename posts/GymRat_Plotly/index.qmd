@@ -1,5 +1,5 @@
 ---
-title: "Do You Like Stretching? I would Reconsider ASAP!"
+title: "Do You Like Stretching? I would Reconsider!"
 author: "Brian Cervantes Alvarez"
 image: gymRat.jpeg
 date: "2-24-2023"
@@ -15,6 +15,12 @@ execute:
   message: false
 categories: [R, informative, interactive, plotly]
 ---
+
+## Background
+
+Stretching is not a good method of building muscle for several reasons. First, stretching is primarily focused on increasing flexibility and range of motion, rather than building muscle mass or strength. While stretching can help prepare the muscles for exercise and prevent injury, it is not a sufficient method of building muscle. Second, stretching alone does not provide enough resistance or tension on the muscles to stimulate muscle growth. To build muscle, the body needs to be challenged with weight or resistance training. Finally, stretching may actually reduce muscle strength by decreasing muscle activation and power output. While stretching can be a useful addition to a muscle-building routine, it should not be relied upon as the primary method for building muscle mass and strength.
+
+
 
 ## General Setup
 
@@ -109,15 +115,14 @@ ggplotly(p, tooltip = "text") %>%
 ## Data Wrangling For Plot 2
 
 ```{r}
-gymDs <- gymDs %>%
-  mutate(ID = ...1,
-         Level = factor(Level, levels = c("Beginner", "Intermediate", "Expert")),
-         Type = as.factor(Type)) %>%
-  select(-...1) %>% 
-  drop_na() 
+plotDs2 <- ds %>%
+  group_by(BodyPart, Level) %>%
+  summarize(meanRating = mean(Rating))
+
+head(plotDs2)
 ```
 
-## Using  for Plot 1
+## Using  for Plot 2
 
 ```{r}
 myTheme <- theme(text = element_text(family = "Futura Medium"),
@@ -132,28 +137,9 @@ myTheme <- theme(text = element_text(family = "Futura Medium"),
                  panel.grid.major.y = element_blank())
 
 
-plotDs <- gymDs %>% 
-  group_by(Type, Level) %>%
-  summarize(meanRating = mean(Rating)) %>%
-  arrange(Type, meanRating) %>%
-  ungroup()
 
-p <- plotDs %>%
-  ggplot(aes(x = meanRating, 
-             y = reorder_within(Type, meanRating, Level),
-             fill = fct_reorder(Type, meanRating))) +
-  geom_col(color = "black") + 
-  facet_grid(rows = vars(Level), 
-             scales = "free_y", 
-             switch = "y", 
-             space = "free_y") +
-  scale_y_reordered() +
-  scale_fill_brewer(palette = "PuBuGn") +
-  labs(title = "Are You a Stretch Fiend? You Should Reconsider",
-       x = NULL,
-       y = "",
-       fill = "Workout Types") + theme_minimal() +
-  myTheme 
+
+
 
 #ggplotly(p)
 

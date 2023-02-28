@@ -1,5 +1,5 @@
 ---
-title: "Rating Pinot Wines: Is Pricier Better?"
+title: "Rating Pinot Wines: Is More Expensive Better?"
 author: "Brian Cervantes Alvarez"
 image: wine.jpeg
 date: "2-20-2023"
