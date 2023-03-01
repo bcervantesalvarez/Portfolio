@@ -28,11 +28,13 @@ jupyter: python3
 
 ## Purpose of this Project
 
-This project focuses on the medical insurance industry. I demonstrate the ability to provide visualizations and statistical inferences when given a cleaned up data set. Here is the data set source: https://www.kaggle.com/datasets/mirichoi0218/insurance
+The focal point of this project pertains to the medical insurance industry. I showcase my proficiency in creating compelling visualizations and conducting statistical analyses on a refined data set. Prior to delving into the data set, I formulated several key questions to guide my investigation. These inquiries included identifying the principal driver of heightened insurance costs, evaluating the variables that contribute to rising or falling medical insurance expenses, and identifying the optimal individual profile that minimizes medical insurance costs.
 
-Here are a few questions I formulated before diving into the data set: *What single component causes the most increase in insurance costs? What variables play a role in increasing or decreasing insurance costs? What would be the ideal individual to minimize the cost of medical insurance?*
+Of particular interest in this study was the analysis of smoking habits as a variable that may have a significant impact on medical insurance expenses. Moreover, a detailed exploration of the disparities in insurance costs between male and female individuals, both smokers and non-smokers, was conducted.
 
-I look into **smokers** as being a variable of interest. Additionally, I dive into the difference of between male and female insurance costs for both smokers and nonsmokers.
+To accomplish these objectives, advanced analytical tools and methodologies were utilized. Rigorous data cleaning and wrangling were carried out to ensure the accuracy and integrity of the data. Subsequently, advanced statistical techniques such as linear regression and hypothesis testing were utilized to extract meaningful insights from the data.
+
+Ultimately, this project provides valuable insights into the medical insurance industry and serves as a testament to the power of data analytics in unlocking actionable insights that can drive informed decision-making.
 
 **If you wish to skip towards the results portion, feel free to scroll down and have a quick read! Interesting results were found.**
 
@@ -723,9 +725,13 @@ print("A female smoker will get charged approxmiately {percent}% more than a non
 
 # Results
 
-It is clear that smoking will increase your health insurance charges. Male and female smokers will receive an additional charge for having a BMI equal or greater than 30. Male smokers hitch a 52% increase while female smokers endure a 49% increase. Keep in mind that this apart from their base premium increase for being smokers in the first place. To emphasize, male smokers will approximately be charged 408.57% more than their nonsmoker counterpart. Similarly, female smokers approximately pay 350.12% more than their nonsmoker counterparts. Given the data, it pushes the idea that smoking and being in an unhealthy body mass index will punish those individuals through higher health insurance charges. Note: Overtime, health insurance does get slightly more expensive as we age.
+It is abundantly clear that smoking is a significant contributing factor in the escalation of health insurance premiums. Moreover, both male and female smokers who exhibit a body mass index (BMI) of 30 or greater are subject to an additional charge, further exacerbating their financial burden. Male smokers face an exorbitant increase of 52%, while female smokers are subject to a 49% rise in their insurance charges. It should be noted that this increase is in addition to the base premium that is already charged to smokers.
 
-There is much more to be done with this project. I may come back to it and do some machine learning methods to predict if this sample represents the entire population or not.
+To underscore the severity of the situation, male smokers can expect to pay a staggering 408.57% more than their non-smoking counterparts. Similarly, female smokers can anticipate paying an astronomical 350.12% more than their non-smoking counterparts. The data presented unequivocally supports the notion that unhealthy lifestyle choices, such as smoking and an unhealthy BMI, are met with punitive measures in the form of higher health insurance premiums. It is important to acknowledge that health insurance premiums do increase gradually over time, in line with the aging process.
+
+Despite the insightful results obtained from this project, there remains a multitude of avenues for further exploration. One such avenue would be to apply machine learning techniques to predict whether this sample accurately represents the entire population or not. Such an analysis could help to refine the accuracy of the conclusions drawn from the data, potentially leading to further breakthroughs in the field of health insurance.
+
+# Further Study
 
 I included two articles: One states that BMI metric is an inaccurate method to measure human height and weight; the other confirms that tabacco usage allows insurance companies to charge those individuals a premium.
 

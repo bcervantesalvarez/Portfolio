@@ -22,18 +22,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Purpose:
 
-How do we inform a prospective college student about their potential career salary and student debt? We built an interactive tool to solve that problem. While simple and open to improvement, it helped us dive into the interactive visualizations using R Shiny.
+How can we provide a prospective college student with information regarding their potential income and student debt upon embarking on a career path? To address this issue, we have created an interactive tool. Although it is uncomplicated and subject to enhancement, it has enabled us to delve into interactive visualizations through the utilization of R Shiny.
 
 ## Summary:
 
-The interactive visualization has 4 parts to it. The salary, tuition, debt estimators, and debt calculator. The first one explores the majors their potential salaries. A prospective student may want to see their choices and what their salary could line up during their career. Next, the tuition estimator explores a generalized tuition cost for the students exploring their major in their state of choice. Thirdly, the debt estimator looks into your potential 4-year degree debt based on your family's income. It is an average of all the students for each university, but it still is a good indicator of how much debt a student will accumulate for their 4 years. Lastly, the final tool looks at how long a student will be in debt according to their major category of choice. In this visual, you can also see how long their projected student debts will last. In essense, this tool is another great tool to help out students in high school who are interested in going into higher education.
+The interactive visualization is comprised of four distinct parts: salary estimator, tuition estimator, debt estimator, and debt calculator. The salary estimator allows prospective students to explore the potential salaries associated with different majors, thereby enabling them to make informed decisions about their future careers. The tuition estimator provides an estimate of the generalized tuition costs associated with pursuing a major in a particular state. The debt estimator calculates the potential four-year degree debt based on the student's family income, utilizing an average of all students attending each university, and offers insight into the likely debt accumulation over the four years of study. The final tool analyzes the expected length of time a student will remain in debt, based on their chosen major category, and provides a visualization of the projected student debts. Overall, this interactive tool is an invaluable resource for high school students who are considering higher education, offering a comprehensive set of tools to help them make informed decisions about their future.
 
 ## Shiny Interactive Tool
 
 <iframe src="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="960" height="500">
 
 </iframe>
-
 
 ## Setup
 

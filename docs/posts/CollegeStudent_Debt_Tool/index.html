@@ -233,7 +233,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#plot-sidebar-inputs" id="toc-plot-sidebar-inputs" class="nav-link" data-scroll-target="#plot-sidebar-inputs">Plot Sidebar Inputs</a></li>
   <li><a href="#plots" id="toc-plots" class="nav-link" data-scroll-target="#plots">Plots</a></li>
-  <li><a href="#plots-dont-render-click-interactive-tool" id="toc-plots-dont-render-click-interactive-tool" class="nav-link" data-scroll-target="#plots-dont-render-click-interactive-tool">Plots Don’t Render, Click “Interactive Tool”</a></li>
   </ul>
 </nav>
     </div>
@@ -246,17 +245,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="uni.jpeg" class="img-fluid"></p>
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose:</h2>
-<p>How do we inform a prospective college student about their potential career salary and student debt? We built an interactive tool to solve that problem. While simple and open to improvement, it helped us dive into the interactive visualizations using R Shiny.</p>
+<p>How can we provide a prospective college student with information regarding their potential income and student debt upon embarking on a career path? To address this issue, we have created an interactive tool. Although it is uncomplicated and subject to enhancement, it has enabled us to delve into interactive visualizations through the utilization of R Shiny.</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary:</h2>
-<p>The interactive visualization has 4 parts to it. The salary, tuition, debt estimators, and debt calculator. The first one explores the majors their potential salaries. A prospective student may want to see their choices and what their salary could line up during their career. Next, the tuition estimator explores a generalized tuition cost for the students exploring their major in their state of choice. Thirdly, the debt estimator looks into your potential 4-year degree debt based on your family’s income. It is an average of all the students for each university, but it still is a good indicator of how much debt a student will accumulate for their 4 years. Lastly, the final tool looks at how long a student will be in debt according to their major category of choice. In this visual, you can also see how long their projected student debts will last. In essense, this tool is another great tool to help out students in high school who are interested in going into higher education.</p>
+<p>The interactive visualization is comprised of four distinct parts: salary estimator, tuition estimator, debt estimator, and debt calculator. The salary estimator allows prospective students to explore the potential salaries associated with different majors, thereby enabling them to make informed decisions about their future careers. The tuition estimator provides an estimate of the generalized tuition costs associated with pursuing a major in a particular state. The debt estimator calculates the potential four-year degree debt based on the student’s family income, utilizing an average of all students attending each university, and offers insight into the likely debt accumulation over the four years of study. The final tool analyzes the expected length of time a student will remain in debt, based on their chosen major category, and provides a visualization of the projected student debts. Overall, this interactive tool is an invaluable resource for high school students who are considering higher education, offering a comprehensive set of tools to help them make informed decisions about their future.</p>
 </section>
 <section id="shiny-interactive-tool" class="level2">
 <h2 class="anchored" data-anchor-id="shiny-interactive-tool">Shiny Interactive Tool</h2>
 <iframe src="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="960" height="500">
 </iframe>
-<p>When quarto introduces a method of adding shiny apps into quarto, I will update this, eventually.</p>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
@@ -552,30 +550,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_fill_continuous_sequential</span>(<span class="st">"PuBuGn"</span>)</span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="plots-dont-render-click-interactive-tool" class="level2">
-<h2 class="anchored" data-anchor-id="plots-dont-render-click-interactive-tool">Plots Don’t Render, Click “Interactive Tool”</h2>
-<p><a href="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/">Interactive Tool</a></p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Salary Estimator</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#input1</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot1</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Tuition Estimator</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#input2</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plot2</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Debt Estimator</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#input3</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plot3</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Debt Calculator</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#input4</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#plot4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
