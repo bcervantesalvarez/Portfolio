@@ -5,7 +5,6 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
-    page-layout: full
 ---
 
 ### Background

@@ -15,7 +15,7 @@ execute:
   warning: false
   echo: false
 code-fold: true
-categories: [R, linear regression, stats, analysis]
+categories: [R, linear regression, stats, analysis, healthcare]
 ---
 
 ```{r setup, include=FALSE}

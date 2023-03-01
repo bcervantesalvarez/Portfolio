@@ -16,11 +16,16 @@ execute:
 categories: [R, informative, interactive, datatables]
 ---
 
-# Fancy Tables
+## Purpose
 
-Exploring different methods of creating visually satisfying data tables. Admit it, we do not like the tradition excel format: too ugly to understand.
+This project centers on the exploration of various techniques to design visually appealing and comprehensible data tables. It is a well-known fact that the conventional format of Excel spreadsheets can be tedious and challenging to read. As such, the project aims to investigate alternative ways of presenting data in tables that are both aesthetically pleasing and easy to understand.
 
-## Messing Around With Data Tables
+By utilizing various design principles such as color theory, typography, and layout, we seek to create data tables that are visually striking and convey information effectively. Additionally, the project involves the evaluation of different software tools and platforms that offer innovative and user-friendly options for creating data tables.
+
+It is crucial to recognize that the presentation of data plays a significant role in its interpretation and understanding. The traditional Excel format may not provide sufficient visual cues to highlight key data points or insights. Therefore, this project seeks to address this limitation by exploring new and innovative methods of presenting data tables that are both functional and visually appealing.
+
+
+## Advanced Data Tables
 
 ```{r}
 #| echo: false
@@ -94,7 +99,7 @@ excel_file_attachment <- ds_summary %>%
   )
 ```
 
-## Stepping Up The Table Game
+## Adding Statistical Visuals To Summary Tables
 
 ```{r}
 #| code-summary: "GT Table Code"
@@ -135,3 +140,7 @@ fancyTbl <- ds_summary %>%
 # show the table themed in accordance with the page
 fancyTbl
 ```
+
+## Conclusion
+
+This project aims to develop a comprehensive set of guidelines for designing data tables that are easy to read and understand. By implementing these guidelines, we hope to improve the accessibility and utility of data tables for a wide range of applications and industries.
