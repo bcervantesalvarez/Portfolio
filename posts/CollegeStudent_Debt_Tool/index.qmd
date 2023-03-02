@@ -1,6 +1,8 @@
 ---
 title: "Resources for Prospective College Students"
-author: "Brian Cervantes Alvarez, Corey Cassell"
+author: 
+  - "Brian Cervantes Alvarez" 
+  - "Corey Cassell"
 date: "12-02-2022"
 image: uni.jpeg
 format:
