@@ -9,7 +9,6 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
-    
 output: html_document
 execute:
   message: false

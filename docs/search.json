@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Portfolio",
     "section": "",
-    "text": "Predicting the Province of Origin for Pinot Wines Based on Their Individual Descriptions\n\n\n\n\n\n\n\nR\n\n\nmachine learning\n\n\nrandom forest\n\n\nclassification\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nDoes Temperature Kill Parasites Faster? Yes!\n\n\n\n\n\n\n\nreveal.js\n\n\nR\n\n\npresentation\n\n\ninformative\n\n\nsurvival analysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nDo You Like Stretching? I would Reconsider!\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\nplotly\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nRating Pinot Wines: Is More Expensive Better?\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\ndatatables\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 20, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nHealthcare Spending Is Only Getting Worse\n\n\n\n\n\n\n\nR\n\n\nlinear regression\n\n\nstats\n\n\nanalysis\n\n\nhealthcare\n\n\n\n\n\n\n\n\n\n\n\nDec 12, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nPokédex Database\n\n\n\n\n\n\n\npostgreSQL\n\n\ndatabase\n\n\npresentation\n\n\nR\n\n\nsql\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nResources for Prospective College Students\n\n\n\n\n\n\n\nR\n\n\ninteractive\n\n\ninformative\n\n\nshiny\n\n\n\n\n\n\n\n\n\n\n\nDec 2, 2022\n\n\nBrian Cervantes Alvarez, Corey Cassell\n\n\n\n\n\n\n  \n\n\n\n\nU.S. Medical Insurance Costs\n\n\n\n\n\n\n\npython\n\n\nhealthcare\n\n\nanalysis\n\n\nstats\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\nNo matching items"
+    "text": "Predicting the Province of Origin for Pinot Wines Based on Their Individual Descriptions\n\n\n\n\n\n\n\nR\n\n\nmachine learning\n\n\nrandom forest\n\n\nclassification\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nInvestigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach\n\n\n\n\n\n\n\nreveal.js\n\n\nR\n\n\npresentation\n\n\ninformative\n\n\nsurvival analysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\nBrian Cervantes Alvarez, Willa Van Liew, Hans Lehndorff\n\n\n\n\n\n\n  \n\n\n\n\nDo You Like Stretching? I would Reconsider!\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\nplotly\n\n\n\n\n\n\n\n\n\n\n\nFeb 24, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nRating Pinot Wines: Is More Expensive Better?\n\n\n\n\n\n\n\nR\n\n\ninformative\n\n\ninteractive\n\n\ndatatables\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 20, 2023\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nHealthcare Spending Is Only Getting Worse\n\n\n\n\n\n\n\nR\n\n\nlinear regression\n\n\nstats\n\n\nanalysis\n\n\nhealthcare\n\n\n\n\n\n\n\n\n\n\n\nDec 12, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nPokédex Database\n\n\n\n\n\n\n\npostgreSQL\n\n\ndatabase\n\n\npresentation\n\n\nR\n\n\nsql\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\n  \n\n\n\n\nResources for Prospective College Students\n\n\n\n\n\n\n\nR\n\n\ninteractive\n\n\ninformative\n\n\nshiny\n\n\n\n\n\n\n\n\n\n\n\nDec 2, 2022\n\n\nBrian Cervantes Alvarez, Corey Cassell\n\n\n\n\n\n\n  \n\n\n\n\nU.S. Medical Insurance Costs\n\n\n\n\n\n\n\npython\n\n\nhealthcare\n\n\nanalysis\n\n\nstats\n\n\n\n\n\n\n\n\n\n\n\nJul 14, 2022\n\n\nBrian Cervantes Alvarez\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -163,7 +163,7 @@
   {
     "objectID": "posts/SurvAnalysis_Parasite_RevealJS/index.html#background",
     "href": "posts/SurvAnalysis_Parasite_RevealJS/index.html#background",
-    "title": "Does Temperature Kill Parasites Faster? Yes!",
+    "title": "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach",
     "section": "Background",
     "text": "Background\nEchinostoma trivolvis is a species of trematode parasite that commonly infects birds, mammals, and some reptiles. It is part of the family Echinostomatidae, which includes several other species of trematodes that infect animals and humans. Echinostoma trivolvis has a complex life cycle that involves multiple hosts, including snails, birds, and mammals. The adult worms inhabit the small intestine of their hosts, where they feed on blood and nutrients. Infection with Echinostoma trivolvis can cause a range of symptoms, including abdominal pain, diarrhea, and malnutrition. The parasite is found throughout North America, particularly in wetlands and other aquatic environments where its intermediate hosts, freshwater snails, are abundant."
   },
@@ -271,5 +271,26 @@
     "title": "Predicting the Province of Origin for Pinot Wines Based on Their Individual Descriptions",
     "section": "Conclusion",
     "text": "Conclusion\nA kappa value of 0.82 indicates a very good level of agreement between the predictions of the random forest model and the actual outcomes. Kappa is a statistical measure of inter-rater agreement, which is commonly used to evaluate the performance of classification models.\nIn the context of a random forest model, the kappa value measures how well the model predicts the correct class labels for a given set of data. A kappa value of 0.82 indicates that the model’s predictions are in very good agreement with the true class labels, with a high degree of precision and accuracy.\nOverall, a kappa value of 0.82 suggests that the random forest model is performing very well, and can be considered a reliable predictor of the target variable in the dataset."
+  },
+  {
+    "objectID": "posts/SurvAnalysis_Parasite_RevealJS/index.html#purpose",
+    "href": "posts/SurvAnalysis_Parasite_RevealJS/index.html#purpose",
+    "title": "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach",
+    "section": "Purpose",
+    "text": "Purpose\nThe objective of this study was to investigate the impact of temperature on the toxicity of pesticides, driven by concerns that the global temperature rise may cause alterations in disease transmission rates. Additionally, the study aimed to address the issue that current pesticide testing may not account for the potential effects of varying temperatures on pesticide toxicity. The central research question was to determine whether temperature has a significant influence on the toxicity of pesticides, and to address this question, survival analysis was employed to analyze the impact of temperature on the time-to-death of the exposed subjects. By utilizing survival analysis, the study aimed to determine whether temperature significantly affects the survival rate of the exposed organisms and to evaluate the magnitude of this effect on the toxicity of pesticides."
+  },
+  {
+    "objectID": "posts/SurvAnalysis_Parasite_RevealJS/index.html#investigating-the-impact-of-temperature-on-pesticide-toxicity-a-survival-analysis-approach",
+    "href": "posts/SurvAnalysis_Parasite_RevealJS/index.html#investigating-the-impact-of-temperature-on-pesticide-toxicity-a-survival-analysis-approach",
+    "title": "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach",
+    "section": "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach",
+    "text": "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach"
+  },
+  {
+    "objectID": "posts/SurvAnalysis_Parasite_RevealJS/index.html#presentation",
+    "href": "posts/SurvAnalysis_Parasite_RevealJS/index.html#presentation",
+    "title": "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach",
+    "section": "Presentation",
+    "text": "Presentation"
   }
 ]
