@@ -16,6 +16,8 @@ execute:
 categories: [R, informative, interactive, plotly]
 ---
 
+![](gymRat.jpeg)
+
 ## Background
 
 Stretching is not a good method of building muscle for several reasons. First, stretching is primarily focused on increasing flexibility and range of motion, rather than building muscle mass or strength. While stretching can help prepare the muscles for exercise and prevent injury, it is not a sufficient method of building muscle. Second, stretching alone does not provide enough resistance or tension on the muscles to stimulate muscle growth. To build muscle, the body needs to be challenged with weight or resistance training. Finally, stretching may actually reduce muscle strength by decreasing muscle activation and power output. While stretching can be a useful addition to a muscle-building routine, it should not be relied upon as the primary method for building muscle mass and strength.

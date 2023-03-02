@@ -13,6 +13,9 @@ code-fold: true
 categories: [postgreSQL, database, presentation, R, sql]
 ---
 
+
+![](pokemon.jpeg)
+
 # Pokédex Project
 
 ## Purpose

@@ -24,6 +24,8 @@ categories:
 jupyter: python3
 ---
 
+![](health_ins.jpeg)
+
 # U.S. Medical Insurance Costs
 
 ## Purpose of this Project

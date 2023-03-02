@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/PredictPinotWine_ML/index.html",
       "/posts/SurvAnalysis_Parasite_RevealJS/index.html",
       "/posts/GymRat_Plotly/index.html",
       "/posts/FancyTables/index.html",

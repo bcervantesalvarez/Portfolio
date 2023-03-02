@@ -16,6 +16,9 @@ execute:
 categories: [R, informative, interactive, datatables]
 ---
 
+![](wine.jpeg)
+
+
 ## Purpose
 
 This project centers on the exploration of various techniques to design visually appealing and comprehensible data tables. It is a well-known fact that the conventional format of Excel spreadsheets can be tedious and challenging to read. As such, the project aims to investigate alternative ways of presenting data in tables that are both aesthetically pleasing and easy to understand.
@@ -143,4 +146,4 @@ fancyTbl
 
 ## Conclusion
 
-This project aims to develop a comprehensive set of guidelines for designing data tables that are easy to read and understand. By implementing these guidelines, we hope to improve the accessibility and utility of data tables for a wide range of applications and industries.
+The objective of this endeavor is to create a thorough and all-encompassing compilation of principles and instructions for crafting data tables that are simple to interpret and comprehend. By employing these guidelines, our aim is to enhance the usability and accessibility of data tables across a broad spectrum of applications and sectors.

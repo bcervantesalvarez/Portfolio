@@ -16,6 +16,8 @@ execute:
 categories: [reveal.js, R, presentation, informative, survival analysis]
 ---
 
+![](parasite.jpeg)
+
 ## Background
 
 Echinostoma trivolvis is a species of trematode parasite that commonly infects birds, mammals, and some reptiles. It is part of the family Echinostomatidae, which includes several other species of trematodes that infect animals and humans. Echinostoma trivolvis has a complex life cycle that involves multiple hosts, including snails, birds, and mammals. The adult worms inhabit the small intestine of their hosts, where they feed on blood and nutrients. Infection with Echinostoma trivolvis can cause a range of symptoms, including abdominal pain, diarrhea, and malnutrition. The parasite is found throughout North America, particularly in wetlands and other aquatic environments where its intermediate hosts, freshwater snails, are abundant.

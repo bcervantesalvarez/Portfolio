@@ -1,0 +1,137 @@
+---
+title: "Predicting the Province of Origin for Pinot Wines Based on Their Individual Descriptions"
+author: "Brian Cervantes Alvarez"
+date: "03-01-2023"
+image: pinot.jpeg
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: false
+categories: [R, machine learning, random forest, classification]
+---
+
+
+![](pinot.jpeg)
+
+## Purpose
+
+The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this goal, a random forest model was built and evaluated for its performance, achieving a kappa score of 0.82. This project aimed to provide a useful tool for wine connoisseurs and industry professionals in identifying the origin of wines based on their sensory characteristics.
+
+
+## Setup
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(caret)
+library(rpart)
+library(tidytext)
+library(SnowballC)
+wine = read_rds("pinot.rds") 
+```
+
+## Feature Engineering
+
+```{r}
+#| echo: false
+wine_words <- function(df, j, stem = T){ 
+  data(stop_words)
+  words <- df %>%
+    unnest_tokens(word, description) %>%
+    anti_join(stop_words) %>%
+    filter(str_detect(string = word, pattern = "[a-z+]")) %>% # get rid weird non alphas 
+    filter(str_length(word) >= 3) %>% # get rid of strings shorter than 3 characters 
+    filter(!(word %in% c("wine","pinot", "vineyard"))) %>%
+    group_by(word) %>%
+    mutate(total=n()) %>%
+    ungroup()
+  
+  if(stem){
+    words <- words %>% 
+      mutate(word = wordStem(word))
+  }
+  
+  words <- words %>% 
+    count(id, word) %>% 
+    group_by(id) %>% 
+    mutate(exists = (n>0)) %>% 
+    ungroup %>% 
+    group_by(word) %>% 
+    mutate(total = sum(n)) %>% 
+    filter(total > j) %>% 
+    pivot_wider(id_cols = id,
+                names_from = word,
+                values_from = exists,
+                values_fill = list(exists=0)) %>% 
+    right_join(select(df,id,province)) %>% 
+    select(-id) %>% 
+    mutate(across(-province, ~replace_na(.x, F)))
+}
+
+wino <- wine_words(wine, j = 190, stem = T)
+
+```
+
+## Specification
+
+```{r}
+set.seed(504) 
+
+ctrl <- trainControl(method = "cv", number = 3)
+
+
+wine_index <- createDataPartition(wino$province, p = 0.80, list = FALSE)
+train <- wino[ wine_index, ]
+test <- wino[-wine_index, ]
+
+fit <- train(province ~ .,
+             data = train, 
+             method = "rf",
+             ntree = 100,
+             tuneLength = 15,
+             nodesize = 10,
+             verbose = TRUE,
+             trControl = ctrl,
+             metric = "Kappa")
+```
+
+## Model Performance
+
+```{r}
+confusionMatrix(predict(fit, test),factor(test$province))
+```
+
+## Re-fit and evaluation
+
+```{r}
+set.seed(1504)
+
+wine_index <- createDataPartition(wino$province, p = 0.80, list = FALSE)
+train <- wino[ wine_index, ]
+test <- wino[-wine_index, ]
+
+# example spec for knn
+fit_final <- train(province ~ .,
+             data = train, 
+             method = "rf",
+             tuneGrid = fit$bestTune) 
+# The last line means we will fit a model using the best tune parameters your CV found above.
+```
+
+
+## Final Model Performance
+```{r}
+confusionMatrix(predict(fit_final, test),factor(test$province))
+```
+
+
+## Conclusion
+
+A kappa value of 0.82 indicates a very good level of agreement between the predictions of the random forest model and the actual outcomes. Kappa is a statistical measure of inter-rater agreement, which is commonly used to evaluate the performance of classification models.
+
+In the context of a random forest model, the kappa value measures how well the model predicts the correct class labels for a given set of data. A kappa value of 0.82 indicates that the model's predictions are in very good agreement with the true class labels, with a high degree of precision and accuracy.
+
+Overall, a kappa value of 0.82 suggests that the random forest model is performing very well, and can be considered a reliable predictor of the target variable in the dataset.
+
