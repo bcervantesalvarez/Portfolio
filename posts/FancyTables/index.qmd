@@ -18,7 +18,6 @@ categories: [R, informative, interactive, datatables]
 
 ![](wine.jpeg)
 
-
 ## Purpose
 
 This project centers on the exploration of various techniques to design visually appealing and comprehensible data tables. It is a well-known fact that the conventional format of Excel spreadsheets can be tedious and challenging to read. As such, the project aims to investigate alternative ways of presenting data in tables that are both aesthetically pleasing and easy to understand.
@@ -26,7 +25,6 @@ This project centers on the exploration of various techniques to design visually
 By utilizing various design principles such as color theory, typography, and layout, we seek to create data tables that are visually striking and convey information effectively. Additionally, the project involves the evaluation of different software tools and platforms that offer innovative and user-friendly options for creating data tables.
 
 It is crucial to recognize that the presentation of data plays a significant role in its interpretation and understanding. The traditional Excel format may not provide sufficient visual cues to highlight key data points or insights. Therefore, this project seeks to address this limitation by exploring new and innovative methods of presenting data tables that are both functional and visually appealing.
-
 
 ## Advanced Data Tables
 

@@ -25,7 +25,6 @@ categories: [reveal.js, R, presentation, informative, survival analysis]
 
 The objective of this study was to investigate the impact of temperature on the toxicity of pesticides, driven by concerns that the global temperature rise may cause alterations in disease transmission rates. Additionally, the study aimed to address the issue that current pesticide testing may not account for the potential effects of varying temperatures on pesticide toxicity. The central research question was to determine whether temperature has a significant influence on the toxicity of pesticides, and to address this question, survival analysis was employed to analyze the impact of temperature on the time-to-death of the exposed subjects. By utilizing survival analysis, the study aimed to determine whether temperature significantly affects the survival rate of the exposed organisms and to evaluate the magnitude of this effect on the toxicity of pesticides.
 
-
 ## Background
 
 Echinostoma trivolvis is a species of trematode parasite that commonly infects birds, mammals, and some reptiles. It is part of the family Echinostomatidae, which includes several other species of trematodes that infect animals and humans. Echinostoma trivolvis has a complex life cycle that involves multiple hosts, including snails, birds, and mammals. The adult worms inhabit the small intestine of their hosts, where they feed on blood and nutrients. Infection with Echinostoma trivolvis can cause a range of symptoms, including abdominal pain, diarrhea, and malnutrition. The parasite is found throughout North America, particularly in wetlands and other aquatic environments where its intermediate hosts, freshwater snails, are abundant.
@@ -35,4 +34,3 @@ Echinostoma trivolvis is a species of trematode parasite that commonly infects b
 <iframe src="SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="850" height="650">
 
 </iframe>
-

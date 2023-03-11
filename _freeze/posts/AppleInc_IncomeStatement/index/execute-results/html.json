@@ -1,0 +1,14 @@
+{
+  "hash": "2c777c859b53dbde23bc48d4a071aafc",
+  "result": {
+    "markdown": "---\ntitle: \"Finance: Apple's Journey\"\nauthor: \"Brian Cervantes Alvarez\"\nimage: apple.jpeg\ndate: \"3-03-2021\"\nformat:\n  html:\n    toc: true\n    toc-location: right\n    html-math-method: katex\n    page-layout: full\n    code-fold: true\nexecute: \n  warning: false\n  message: false\ncategories: [R, finance]\n---\n\n\n# Setup\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx = 2\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

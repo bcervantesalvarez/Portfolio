@@ -13,13 +13,11 @@ code-fold: false
 categories: [R, machine learning, random forest, classification]
 ---
 
-
 ![](pinot.jpeg)
 
 ## Purpose
 
 The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this goal, a random forest model was built and evaluated for its performance, achieving a kappa score of 0.82. This project aimed to provide a useful tool for wine connoisseurs and industry professionals in identifying the origin of wines based on their sensory characteristics.
-
 
 ## Setup
 
@@ -120,12 +118,11 @@ fit_final <- train(province ~ .,
 # The last line means we will fit a model using the best tune parameters your CV found above.
 ```
 
-
 ## Final Model Performance
+
 ```{r}
 confusionMatrix(predict(fit_final, test),factor(test$province))
 ```
-
 
 ## Conclusion
 
@@ -134,4 +131,3 @@ A kappa value of 0.82 indicates a very good level of agreement between the predi
 In the context of a random forest model, the kappa value measures how well the model predicts the correct class labels for a given set of data. A kappa value of 0.82 indicates that the model's predictions are in very good agreement with the true class labels, with a high degree of precision and accuracy.
 
 Overall, a kappa value of 0.82 suggests that the random forest model is performing very well, and can be considered a reliable predictor of the target variable in the dataset.
-

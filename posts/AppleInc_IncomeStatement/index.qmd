@@ -1,0 +1,23 @@
+---
+title: "Finance: Apple's Journey"
+author: "Brian Cervantes Alvarez"
+image: apple.jpeg
+date: "3-03-2021"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: full
+    code-fold: true
+execute: 
+  warning: false
+  message: false
+categories: [R, finance]
+---
+
+# Setup
+
+```{r}
+x = 2
+```

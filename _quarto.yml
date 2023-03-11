@@ -16,7 +16,7 @@ website:
         href: https://www.linkedin.com/in/bcervantesalvarez/
       - icon: github
         href: https://github.com/bcervantesalvarez/
-      - icon: envelope
+      - icon: envelope-fill
         href: mailto:briancervantesalvarez@gmail.com
 format:
   html:

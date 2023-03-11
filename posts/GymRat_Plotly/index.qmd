@@ -9,7 +9,7 @@ format:
     toc-location: right
     html-math-method: katex
     page-layout: full
-    code-fold: true
+    code-fold: false
 execute: 
   warning: false
   message: false

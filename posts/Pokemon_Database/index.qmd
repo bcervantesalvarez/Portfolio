@@ -13,7 +13,6 @@ code-fold: true
 categories: [postgreSQL, database, presentation, R, sql]
 ---
 
-
 ![](pokemon.jpeg)
 
 # Pokédex Project
@@ -29,7 +28,6 @@ The successful implementation of this project was dependent on the utilization o
 ## Summary
 
 The inquiry of identifying the optimal base stat Pokemon type sparked my interest, prompting me to delve into the realm of data engineering. In order to craft a well-informed response to this question, I began by utilizing the expansive and multifaceted "Pokémon of Kanto, Johto, and Hoenn Region" dataset to establish a structured and organized database.
-
 
 ## Database with PostgreSQL
 
