@@ -16,7 +16,7 @@ execute:
 categories: [R, finance]
 ---
 
-# Setup
+## Setup
 
 ```{r}
 x = 2

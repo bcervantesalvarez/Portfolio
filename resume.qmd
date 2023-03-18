@@ -5,6 +5,7 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
+title-block-banner: true
 ---
 
 ### Background

@@ -1,5 +1,5 @@
 ---
-title: "Do You Like Stretching? I would Reconsider!"
+title: "Do You Like Stretching? I Would Reconsider!"
 author: "Brian Cervantes Alvarez"
 image: gymRat.jpeg
 date: "2-24-2023"

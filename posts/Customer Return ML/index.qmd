@@ -19,9 +19,9 @@ categories: [R, machine learning, logistical model, data visualization]
 
 ## Approach and Methodology
 
-To ensure proper analysis, I began by loading the necessary libraries and examining the train and test datasets to identify the variables available for analysis. Exploration of the data revealed trends in the number of returns across various variables such as ProductDepartment, ProductSize, and Returns Per State. Given the project objective of predicting the probability of item returns, I selected logistic regression, a well-suited model for binary dependent variables. To prepare the data, I developed a function to transform both the train and test data, ensuring dimensionality was kept in check by removing unnecessary columns such as dates and IDs. Additionally, I updated character data types to factors. Further exploration of the data led to the inclusion of additional features, such as "Season", "CustomerAge", "MSRP", and "PriceRange", that may play a significant role in predicting a customer's probability of returning their product. I then ran the logistic model and examined the coefficients, noting the highest ratios for ProductDepartment, with a significant influence from men's and women's products. Noting that for future exploration, I concluded my model and wrote the submssion file.
+To ensure proper analysis, I began by loading the necessary libraries and examining the train and test datasets to identify the variables available for analysis. Exploration of the data revealed trends in the number of returns across various variables such as ProductDepartment, ProductSize, and Returns Per State. Given the project objective of predicting the probability of item returns, I selected logistic regression, a well-suited model for binary dependent variables. To prepare the data, I developed a function to transform both the train and test data, ensuring dimensionality was kept in check by removing unnecessary columns such as dates and IDs. Additionally, I updated character data types to factors. Further exploration of the data led to the inclusion of additional features, such as "Season", "CustomerAge", "MSRP", and "PriceRange", that may play a significant role in predicting a customer's probability of returning their product. I ran a Random Forest model and achieved an AUC of 0.625. This indicates moderate predictive power for the model, and suggests that further feature engineering or model tuning may be necessary for better performance.
 
-Note: I had explored the idea of using rpart, rf and gbm, however I was not accustomed to using those models. There was much more refinement to be done, but the 3 hour constraint kept me focused on building a draft of the model. Would this go into production? No, but it would be a step in the right direction.
+Initially, I utilized a logistic regression model, however, it required further refinement and tuning. Due to a three-hour time constraint, I focused on building a draft model. While not suitable for production, it is a step towards the right direction.
 
 ## Load the required packages
 
@@ -118,28 +118,29 @@ table(train$Returned)
 
 ```
 
-## Fit a Logistical Regression Model
+## Fit a Random Forest Model
 
 ```{r}
 set.seed(345)
 
-#Model using Logistical Regression
-logModel <- glm(Returned ~ .,
-                data = train,
-                family = "binomial")
-summary(logModel)
+#Model using Random Forest 
+ctrl <- trainControl(method = "cv", number = 3, classProbs = TRUE, summaryFunction = twoClassSummary)
+fit <- train(Returned ~ .,
+             data = train, 
+             method = "rf",
+             ntree = 50,
+             tuneLength = 3,
+             metric = "ROC",
+             trControl = ctrl)
 
-odds_ratio <- exp(logModel$coefficients)
-data.frame(name = names(odds_ratio), odds_ratio = odds_ratio) %>%  
-  arrange(desc(odds_ratio)) %>% 
-  head()
+fit
 
 ```
 
 ## Make prediction on the test data
 
 ```{r}
-testPredictions <- predict(logModel, newdata = test, type = "response")
+testPredictions <- predict(fit, newdata = test, type = "prob")[,2]
 ```
 
 ## Writing the Submission File

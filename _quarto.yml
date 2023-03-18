@@ -21,12 +21,9 @@ website:
 format:
   html:
     theme: 
-      light: lux
-      dark: cyborg
+      light: lux.scss
+      dark: cyborg.scss
     css: styles.css
-    header-includes: |
-     <link href="https://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
-    mainfont: "DM Sans"
     fontsize: 0.9em
     linestretch: 2
     monofont: "Monaco"

@@ -25,8 +25,6 @@ jupyter: python3
 
 ![](health_ins.jpeg)
 
-# U.S. Medical Insurance Costs
-
 ## Purpose of this Project
 
 The focal point of this project pertains to the medical insurance industry. I showcase my proficiency in creating compelling visualizations and conducting statistical analyses on a refined data set. Prior to delving into the data set, I formulated several key questions to guide my investigation. These inquiries included identifying the principal driver of heightened insurance costs, evaluating the variables that contribute to rising or falling medical insurance expenses, and identifying the optimal individual profile that minimizes medical insurance costs.
