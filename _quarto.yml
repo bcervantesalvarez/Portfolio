@@ -8,6 +8,8 @@ website:
     right:
       - text: "Portfolio"
         file: index.qmd
+      - text: "Presentations"
+        file: presentation.qmd
       - text: "Resume"
         file: resume.qmd
       - text: "About Me"

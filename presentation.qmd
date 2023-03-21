@@ -1,0 +1,15 @@
+---
+title: "Presentations"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+title-block-banner: true
+---
+
+## About Me Slides
+
+<https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide>
+
+## Parasites Slides [Work in progress]

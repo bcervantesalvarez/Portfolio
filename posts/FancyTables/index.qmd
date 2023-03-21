@@ -104,6 +104,7 @@ excel_file_attachment <- ds_summary %>%
 
 ```{r}
 #| code-summary: "GT Table Code"
+#| code-line-numbers: "|6|9"
 
 fancyTbl <- ds_summary %>%
   gt() %>%

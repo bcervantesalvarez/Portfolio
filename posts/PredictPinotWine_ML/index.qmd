@@ -33,7 +33,7 @@ wine = read_rds("pinot.rds")
 ## Feature Engineering
 
 ```{r}
-#| echo: false
+#| echo: true
 wine_words <- function(df, j, stem = T){ 
   data(stop_words)
   words <- df %>%
