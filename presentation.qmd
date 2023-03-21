@@ -13,3 +13,5 @@ title-block-banner: true
 <https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide>
 
 ## Parasites Slides [Work in progress]
+
+<https://bcervantesalvarez.github.io/Presentations/Parasites/#/title-slide>
