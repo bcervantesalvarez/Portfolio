@@ -10,8 +10,8 @@ title-block-banner: true
 
 ## About Me Slides
 
-<https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide>
+Link: <https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide>
 
 ## Parasites Slides [Work in progress]
 
-<https://bcervantesalvarez.github.io/Presentations/Parasites/#/title-slide>
+Link: <https://bcervantesalvarez.github.io/Presentations/Parasites/#/title-slide>
