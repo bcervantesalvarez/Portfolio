@@ -116,7 +116,7 @@ $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
 .navbar {
   font-size: $font-size-sm;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 400;
 
   &-nav {
     .nav-link {
@@ -198,8 +198,8 @@ $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
 // Typography
 
 body {
-  font-weight: 220;
-  letter-spacing: 1.1px;
+  font-weight: 250;
+  letter-spacing: 0.5px;
 }
 
 h1 {

@@ -27,7 +27,7 @@ format:
       dark: cyborg.scss
     css: styles.css
     fontsize: 0.9em
-    linestretch: 2
+    linestretch: 1.8
     monofont: "Monaco"
 
 editor: visual
