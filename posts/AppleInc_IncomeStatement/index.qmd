@@ -1,23 +1,170 @@
 ---
-title: "Finance: Apple's Journey"
+title: "Apple's Stock Journey:"
 author: "Brian Cervantes Alvarez"
 image: apple.jpeg
-date: "3-03-2021"
+date: "3-29-2023"
 format:
   html:
     toc: true
     toc-location: right
     html-math-method: katex
     page-layout: full
-    code-fold: true
+    code-fold: false
 execute: 
   warning: false
   message: false
 categories: [R, finance]
 ---
 
+![](apple.jpeg)
+
+The primary objective of this undertaking was to delve into the application of R's plotly and create dynamic and interactive visualizations of Time Series Graphs. In this regard, I opted to scrutinize the Apple stock prices spanning the period from 1981 to the present, with a keen focus on identifying any notable trends that have emerged over time. Upon a closer inspection of the data, I observed a remarkable spike in the company's stock prices in the aftermath of 2010, which I attribute to the resounding success of Apple's iPhone and the accompanying products.
+
+The shift in Apple's market value was not just a result of its breakthrough innovation but was also influenced by its impeccable marketing strategy that has ensured that their products always remain relevant to the ever-changing consumer needs. It is noteworthy that Apple's transformative technology has revolutionized the tech industry and has made significant contributions to its economic growth. Overall, the utilization of R's plotly in the visualization of Time Series Graphs proved to be an incredibly insightful undertaking, helping to identify and explain the trends in the stock market in a more meaningful way.
+
 ## Setup
 
+
 ```{r}
-x = 2
+library(tidyverse)
+library(plotly)
+library(lubridate)
+library(scales)
 ```
+
+```{r}
+ds <- read_csv("AppleInc_Stocks.csv")
+
+#head(ds)
+```
+
+## Apply Custom Theme
+
+```{r}
+myTheme <- function(){ 
+    font <- "SF Mono"   #assign font family up front
+    
+    theme_minimal() %+replace%    #replace elements we want to change
+    
+    theme(
+      
+      #grid elements
+      panel.grid.major.x = element_blank(),    #strip major gridlines
+      panel.grid.minor = element_blank(),    #strip minor gridlines
+      axis.ticks = element_blank(),          #strip axis ticks
+      
+      #since theme_minimal() already strips axis lines, 
+      #we don't need to do that again
+      
+      #text elements
+      plot.title = element_text(             #title
+                   family = font,            #set font family
+                   size = 16,                #set font size
+                   face = 'bold',            #bold typeface
+                   hjust = 0,                #left align
+                   vjust = 2),               #raise slightly
+      
+      plot.subtitle = element_text(          #subtitle
+                   family = font,            #font family
+                   size = 12),               #font size
+      
+      plot.caption = element_text(           #caption
+                   family = font,            #font family
+                   size = 9,                 #font size
+                   hjust = 1),               #right align
+      
+      axis.title = element_text(             #axis titles
+                   family = font,            #font family
+                   size = 10),               #font size
+      
+      axis.text = element_text(              #axis text
+                   family = font,            #axis famuly
+                   size = 9),                #font size
+      
+      axis.text.x = element_text(            #margin for axis text
+                    margin=margin(5, b = 10))
+      
+      #since the legend often requires manual tweaking 
+      #based on plot content, don't define it here
+    )
+}
+```
+
+
+## Data Wrangling
+
+```{r}
+yearlyDs <- ds %>% 
+  drop_na() %>%
+  mutate(Date = as.Date(Date, "%m/%d/%Y")) %>%
+  group_by(Year = lubridate::floor_date(Date, "year")) %>%
+  summarize(Open = mean(Open),
+            High = mean(High),
+            Low = mean(Low),
+            Close = mean(Close),
+            AdjClose = mean(`Adj Close`),
+            Volume = mean(Volume))
+
+
+log_yearlyDs <- ds %>% 
+  drop_na() %>%
+  mutate(Date = as.Date(Date, "%m/%d/%Y")) %>%
+  group_by(Year = lubridate::floor_date(Date, "year")) %>%
+  summarize(Open = log(mean(Open)),
+            High = log(mean(High)),
+            Low = log(mean(Low)),
+            Close = log(mean(Close)),
+            AdjClose = log(mean(`Adj Close`)),
+            Volume = log(mean(Volume)))
+
+```
+
+
+## Times Series Plots of Apple Inc. Stock Prices
+
+```{r}
+p <- yearlyDs %>%
+  ggplot(aes(x = Year)) +
+  geom_line(aes(y = High), color = "green4") +
+  geom_line(aes(y = Low), color = "red4") +
+  geom_line(aes(y = AdjClose), color = "grey") +
+  labs(x = NULL,
+       y = NULL,
+       title = "Apple Inc. Stock Price Since 1981") +
+  scale_y_continuous(labels=scales::dollar_format()) +
+  myTheme()
+
+ggplotly(p) %>%
+  layout(hovermode = "x unified") %>% 
+  style(hovertext = paste0(" High: $", round(yearlyDs$High,2)),
+        traces = 1) %>%
+  style(hovertext = paste0(" Low: $", round(yearlyDs$Low,2)),
+        traces = 2) %>%
+  style(hovertext = paste0(" AdjClose: $", round(yearlyDs$AdjClose,2)),
+        traces = 3)
+  
+```
+## Applying Log-norm
+```{r}
+p2 <- log_yearlyDs %>%
+  ggplot(aes(x = Year)) +
+  geom_line(aes(y = High), color = "green4") +
+  geom_line(aes(y = Low), color = "red4") +
+  geom_line(aes(y = AdjClose), color = "grey") +
+  labs(x = NULL,
+       y = NULL,
+       title = "Apple Inc. Stock Price (Log-Normalized)") +
+  myTheme()
+
+ggplotly(p2, tooltip = "text") %>%
+  layout(hovermode = "x unified", 
+         hovertext = paste0(" Year: ", log_yearlyDs$Year)) %>% 
+  style(hovertext = paste0(" High: ", round(log_yearlyDs$High,2)),
+        traces = 1) %>%
+  style(hovertext = paste0(" Low: ", round(log_yearlyDs$Low,2)),
+        traces = 2) %>%
+  style(hovertext = paste0(" AdjClose: ", round(log_yearlyDs$AdjClose,2)),
+        traces = 3)
+
+```
+

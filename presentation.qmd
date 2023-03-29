@@ -15,5 +15,3 @@ Link: <https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide>
 ## Parasites Slides
 
 Link: <https://bcervantesalvarez.github.io/Presentations/Parasites/#/title-slide>
-
-## {TEST}
