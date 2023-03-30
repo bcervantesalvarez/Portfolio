@@ -1,5 +1,5 @@
 ---
-title: "Apple's Stock Journey:"
+title: "Apple's Journey In The Stock Market"
 author: "Brian Cervantes Alvarez"
 image: apple.jpeg
 date: "3-29-2023"
