@@ -14,8 +14,6 @@ execute:
 categories: [R, informative, interactive, plotly]
 ---
 
-![](default.jpeg)
-
 ## Setup
 
 ```{r}

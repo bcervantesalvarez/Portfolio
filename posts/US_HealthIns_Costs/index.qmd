@@ -13,8 +13,6 @@ output: html_document
 execute:
   message: false
   warning: false
-  echo: false
-code-fold: true
 categories:
   - python
   - healthcare
