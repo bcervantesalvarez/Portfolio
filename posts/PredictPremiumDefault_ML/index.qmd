@@ -1,8 +1,7 @@
 ---
-title: "Predicting Premium Default (Insurance)"
+title: "Predicting Insurance Premium Default {work in progress}"
 author: "Brian Cervantes Alvarez"
-date: "3-05-2021"
-image: default.jpeg
+date: "1-01-2020"
 format:
   html:
     toc: true
