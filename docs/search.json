@@ -607,5 +607,12 @@
     "title": "Apple’s Stock Journey:",
     "section": "Setup",
     "text": "Setup\n\nlibrary(tidyverse)\nlibrary(plotly)\nlibrary(lubridate)\nlibrary(scales)\n\n\nds <- read_csv(\"AppleInc_Stocks.csv\")\n\n#head(ds)"
+  },
+  {
+    "objectID": "posts/PredictPremiumDefault_ML/index.html#wrangling",
+    "href": "posts/PredictPremiumDefault_ML/index.html#wrangling",
+    "title": "Predicting Premium Default (Insurance)",
+    "section": "Wrangling",
+    "text": "Wrangling\n\n#head(train)\n#head(test)\n\nds <- train %>%\n  mutate(age_in_years = round(age_in_days/365, 1),\n         income_class = factor(case_when(Income > 24000 & Income <= 32000 ~ \"24K-32K\",\n                                  Income > 32000 & Income <= 45000 ~ \"32K-45K\",\n                                  Income > 45000 & Income <= 60000 ~ \"45K-60K\",\n                                  Income > 60000 & Income <= 85000 ~ \"60K-85K\",\n                                  Income > 85000 & Income <= 110000 ~ \"85K-110K\",\n                                  Income > 110000 & Income <= 200000 ~ \"110K-200K\",\n                                  Income > 200000 & Income <= 400000 ~ \"200K-400K\",\n                                  Income > 400000 ~ \">400K\"), \n                               levels = c(\"24K-32K\",\n                                          \"32K-45K\",\n                                          \"45K-60K\",\n                                          \"60K-85K\",\n                                          \"85K-110K\",\n                                          \"110K-200K\",\n                                          \"200K-400K\",\n                                          \">400K\"))) %>%\n  select(-application_underwriting_score, -sourcing_channel, - age_in_days)"
   }
 ]
