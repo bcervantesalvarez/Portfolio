@@ -13,13 +13,4 @@ title-block-banner: true
 This presentation not only serves as an introduction to my persona but also offers a glimpse into a selection of my projects that I have found immensely gratifying. Utilizing an array of programming languages ranging from R to SQL, I am thrilled to embark on my journey as a Data Scientist and become an integral part of the ever-evolving field of Data Science.
 
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide" width="810" height="600" allowfullscreen></iframe>
-
-
-
-## A Survival Analysis Approach: Climate Change Is Changing Host-Parasite Relationships
-
-A study was conducted to investigate whether temperature has an impact on the toxicity of pesticides. Specifically, the study aimed to determine whether the effectiveness of common pesticides used to manage parasitic infections is compromised in different temperature settings. The researchers exposed a range of parasitic organisms to varying temperatures and measured the efficacy of different pesticides under these conditions. The results of the study indicated that temperature can indeed have a significant impact on the toxicity of pesticides, with some pesticides being less effective at higher temperatures. These findings have important implications for the management of parasitic infections, particularly in the context of climate change, and underscore the need for further research to better understand the impacts of changing environmental conditions on the efficacy of management strategies.
-
-<iframe src="https://bcervantesalvarez.github.io/Presentations/Parasites/#/title-slide" width="810" height="600" allowfullscreen></iframe>
-
+<iframe src="https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide" width="800" height="600" allowfullscreen></iframe>
