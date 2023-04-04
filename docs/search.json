@@ -543,7 +543,7 @@
     "href": "presentation.html",
     "title": "Presentations",
     "section": "",
-    "text": "Link: https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide"
+    "text": "This presentation not only serves as an introduction to my persona but also offers a glimpse into a selection of my projects that I have found immensely gratifying. Utilizing an array of programming languages ranging from R to SQL, I am thrilled to embark on my journey as a Data Scientist and become an integral part of the ever-evolving field of Data Science."
   },
   {
     "objectID": "presentation.html#parasites-slides-work-in-progress",
@@ -557,7 +557,7 @@
     "href": "presentation.html#parasites-slides",
     "title": "Presentations",
     "section": "Parasites Slides",
-    "text": "Parasites Slides\nLink: https://bcervantesalvarez.github.io/Presentations/Parasites/#/title-slide"
+    "text": "Parasites Slides"
   },
   {
     "objectID": "presentation.html#test",
@@ -719,5 +719,12 @@
     "title": "Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress",
     "section": "Purpose",
     "text": "Purpose\nFor this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business."
+  },
+  {
+    "objectID": "presentation.html#a-survival-analysis-approach-climate-change-is-changing-host-parasite-relationships",
+    "href": "presentation.html#a-survival-analysis-approach-climate-change-is-changing-host-parasite-relationships",
+    "title": "Presentations",
+    "section": "A Survival Analysis Approach: Climate Change Is Changing Host-Parasite Relationships",
+    "text": "A Survival Analysis Approach: Climate Change Is Changing Host-Parasite Relationships\nA study was conducted to investigate whether temperature has an impact on the toxicity of pesticides. Specifically, the study aimed to determine whether the effectiveness of common pesticides used to manage parasitic infections is compromised in different temperature settings. The researchers exposed a range of parasitic organisms to varying temperatures and measured the efficacy of different pesticides under these conditions. The results of the study indicated that temperature can indeed have a significant impact on the toxicity of pesticides, with some pesticides being less effective at higher temperatures. These findings have important implications for the management of parasitic infections, particularly in the context of climate change, and underscore the need for further research to better understand the impacts of changing environmental conditions on the efficacy of management strategies."
   }
 ]
