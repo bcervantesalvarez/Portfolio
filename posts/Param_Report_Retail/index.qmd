@@ -5,7 +5,7 @@ date: "4-03-2023"
 image: report.png
 params:
   printcode: true
-  year: 2022
+  year: 2019
 format:
   html:
     toc: true
@@ -47,9 +47,10 @@ ds <- ds %>%
 glimpse(ds)
 ```
 
-## Setting Plot Theme
-
 ```{r}
+#| include: false
+
+
 myTheme <- function(){ 
     font <- "SF Mono"   #assign font family up front
     
@@ -133,6 +134,14 @@ ggplotly(p, tooltip = c("text")) %>%
   layout(hovermode = "x unified") 
 
 ```
+## Other Reports Generated
 
+### 2019 Report
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="680" height="600" allowfullscreen></iframe>
 
+### 2020 Report
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="680" height="600" allowfullscreen></iframe>
+
+### 2021 Report
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="680" height="600" allowfullscreen></iframe>
 

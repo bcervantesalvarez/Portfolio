@@ -240,8 +240,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#required-libraries" id="toc-required-libraries" class="nav-link active" data-scroll-target="#required-libraries">Required Libraries</a></li>
   <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset">Load Dataset</a></li>
-  <li><a href="#setting-plot-theme" id="toc-setting-plot-theme" class="nav-link" data-scroll-target="#setting-plot-theme">Setting Plot Theme</a></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#other-reports-generated" id="toc-other-reports-generated" class="nav-link" data-scroll-target="#other-reports-generated">Other Reports Generated</a>
+  <ul class="collapse">
+  <li><a href="#report" id="toc-report" class="nav-link" data-scroll-target="#report">2019 Report</a></li>
+  <li><a href="#report-1" id="toc-report-1" class="nav-link" data-scroll-target="#report-1">2020 Report</a></li>
+  <li><a href="#report-2" id="toc-report-2" class="nav-link" data-scroll-target="#report-2">2021 Report</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -278,109 +283,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 7,601
+<pre><code>Rows: 10,042
 Columns: 9
-$ ID         &lt;dbl&gt; 25755, 25756, 25757, 25758, 25759, 25760, 25761, 25762, 257…
-$ DocumentID &lt;dbl&gt; 7227, 7230, 7231, 15494, 15494, 15494, 15494, 8610, 8611, 8…
-$ Date       &lt;date&gt; 2022-01-03, 2022-01-04, 2022-01-04, 2022-01-07, 2022-01-07…
-$ SKU        &lt;dbl&gt; 2455, 516, 2167, 2149, 1243, 1765, 475, 1777, 1786, 1785, 2…
-$ Price      &lt;dbl&gt; 9298.3051, 5037.2881, 9830.5085, 770.7627, 1066.1017, 612.2…
-$ Discount   &lt;dbl&gt; 1673.69492, 906.71186, 1769.49152, 299.23729, 413.89830, 23…
-$ Customer   &lt;dbl&gt; 371, 512, 406, 155, 155, 155, 155, 397, 437, 437, 447, 224,…
-$ Quantity   &lt;dbl&gt; 4, 4, 4, 1, 1, 1, 1, 2, 8, 4, 4, 4, 2, 1, 4, 1, 4, 2, 4, 2,…
-$ Month      &lt;date&gt; 2022-01-01, 2022-01-01, 2022-01-01, 2022-01-01, 2022-01-01…</code></pre>
+$ ID         &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1…
+$ DocumentID &lt;dbl&gt; 716, 716, 716, 716, 716, 716, 716, 460, 461, 462, 463, 464,…
+$ Date       &lt;date&gt; 2019-09-23, 2019-09-23, 2019-09-23, 2019-09-23, 2019-09-23…
+$ SKU        &lt;dbl&gt; 1039, 853, 862, 868, 2313, 2355, 2529, 2361, 2723, 655, 254…
+$ Price      &lt;dbl&gt; 381.78, 593.22, 423.73, 201.70, 345.76, 406.78, 542.38, 139…
+$ Discount   &lt;dbl&gt; 67.37254, 0.00034, -0.00119, 35.58814, 61.01966, 101.69458,…
+$ Customer   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 460, 479, 26, 580, 311, 311, 311, 311,…
+$ Quantity   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 2, 2, 1, 1, 1, 4, 1, 1, 4,…
+$ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01…</code></pre>
 </div>
-</div>
-</section>
-<section id="setting-plot-theme" class="level2">
-<h2 class="anchored" data-anchor-id="setting-plot-theme">Setting Plot Theme</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>myTheme <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    font <span class="ot">&lt;-</span> <span class="st">"SF Mono"</span>   <span class="co">#assign font family up front</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">%+replace%</span>    <span class="co">#replace elements we want to change</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="co">#grid elements</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),    <span class="co">#strip major gridlines</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),    <span class="co">#strip minor gridlines</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),          <span class="co">#strip axis ticks</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="co">#since theme_minimal() already strips axis lines, </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="co">#we don't need to do that again</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="co">#text elements</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(             <span class="co">#title</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#set font family</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">16</span>,                <span class="co">#set font size</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">face =</span> <span class="st">'bold'</span>,            <span class="co">#bold typeface</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                   <span class="at">hjust =</span> <span class="dv">0</span>,                <span class="co">#left align</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vjust =</span> <span class="dv">2</span>),               <span class="co">#raise slightly</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.margin =</span> <span class="fu">margin</span>(                  <span class="co">#margins</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                           <span class="at">r =</span> <span class="fl">0.5</span>,          <span class="co">#right margin</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                           <span class="at">l =</span> <span class="fl">0.5</span>,          <span class="co">#left margin</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                           <span class="at">t =</span> <span class="dv">1</span>,            <span class="co">#top margin</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                           <span class="at">b =</span> <span class="fl">0.25</span>,            <span class="co">#bottom margin</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                           <span class="at">unit =</span> <span class="st">"cm"</span>),     <span class="co">#units      </span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(          <span class="co">#subtitle</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#font family</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">12</span>,                <span class="co">#font size</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                   <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>),               </span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(           <span class="co">#caption</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#font family</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">9</span>),                 <span class="co">#font size</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(             <span class="co">#axis titles</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#font family</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">10</span>),               <span class="co">#font size</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(              <span class="co">#axis text</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#axis famuly</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">9</span>),                <span class="co">#font size</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(            <span class="co">#margin for axis text</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>                      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">5</span>, <span class="at">b =</span> <span class="dv">20</span>),</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>                      <span class="at">angle =</span> <span class="dv">45</span>)</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>      <span class="co">#since the legend often requires manual tweaking </span></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>      <span class="co">#based on plot content, don't define it here</span></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">AvgSales =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Price <span class="sc">*</span> Quantity),<span class="dv">2</span>) ) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> AvgSales,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> <span class="dv">1</span>,                 <span class="co">#Necessary or else line plot disappears</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">text =</span> <span class="fu">paste0</span>(<span class="st">"Monthly Sales: $"</span>, (<span class="fu">round</span>(AvgSales<span class="sc">/</span><span class="dv">1000</span>,<span class="dv">2</span>)),<span class="st">"K"</span> ))) <span class="sc">+</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">scale =</span> .<span class="dv">001</span>, <span class="at">suffix =</span> <span class="st">"K"</span>)) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>, <span class="at">date_labels =</span> <span class="st">"%B"</span>) <span class="sc">+</span> </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"CRM and Invoicing System Sales For FY: "</span>, params<span class="sc">$</span>year),</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">myTheme</span>()</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"text"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">AvgSales =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Price <span class="sc">*</span> Quantity),<span class="dv">2</span>) ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> AvgSales,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> <span class="dv">1</span>,                 <span class="co">#Necessary or else line plot disappears</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">text =</span> <span class="fu">paste0</span>(<span class="st">"Monthly Sales: $"</span>, (<span class="fu">round</span>(AvgSales<span class="sc">/</span><span class="dv">1000</span>,<span class="dv">2</span>)),<span class="st">"K"</span> ))) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">scale =</span> .<span class="dv">001</span>, <span class="at">suffix =</span> <span class="st">"K"</span>)) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>, <span class="at">date_labels =</span> <span class="st">"%B"</span>) <span class="sc">+</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"CRM and Invoicing System Sales For FY: "</span>, params<span class="sc">$</span>year),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">myTheme</span>()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"text"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-335e59be061544f4e628" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-335e59be061544f4e628">{"x":{"data":[{"x":[18993,19024,19052,19083,19113,19144,19174,19205,19236,19266,19297],"y":[64925.2,51216.94,72485.53,66706.03,214202.63,567634.22,1758918.68,251419.27,239640.57,87622.7,112524.5],"text":["Monthly Sales: $64.93K","Monthly Sales: $51.22K","Monthly Sales: $72.49K","Monthly Sales: $66.71K","Monthly Sales: $214.2K","Monthly Sales: $567.63K","Monthly Sales: $1758.92K","Monthly Sales: $251.42K","Monthly Sales: $239.64K","Monthly Sales: $87.62K","Monthly Sales: $112.52K"],"type":"scatter","mode":"lines","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.167018039308,"r":18.8976377952756,"b":45.8321255336126,"l":64.3936942502362},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2022 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.2536322125363},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[18977.8,19312.2],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November"],"tickvals":[18993,19024,19052,19083,19113,19144,19174,19205,19236,19266,19297],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-34168.147,1844303.767],"tickmode":"array","ticktext":["$0K","$500K","$1,000K","$1,500K"],"tickvals":[0,500000,1000000,1500000],"categoryorder":"array","categoryarray":["$0K","$500K","$1,000K","$1,500K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"c71a44b2fbd":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"c71a44b2fbd","visdat":{"c71a44b2fbd":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cbde74b22efd27a8bc0d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-cbde74b22efd27a8bc0d">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.62,6221.6,7009.9,7054.48,11329.94,11629.42,10792.47,7329.84,12539.52,9659.63,7174.03,7750.88],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.167018039308,"r":18.8976377952756,"b":45.8321255336126,"l":46.4609420709086},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.2536322125363},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.3,18247.7],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.925,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"df5a8cc6a84":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"df5a8cc6a84","visdat":{"df5a8cc6a84":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+</section>
+<section id="other-reports-generated" class="level2">
+<h2 class="anchored" data-anchor-id="other-reports-generated">Other Reports Generated</h2>
+<section id="report" class="level3">
+<h3 class="anchored" data-anchor-id="report">2019 Report</h3>
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="680" height="600" allowfullscreen="">
+</iframe>
+</section>
+<section id="report-1" class="level3">
+<h3 class="anchored" data-anchor-id="report-1">2020 Report</h3>
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="680" height="600" allowfullscreen="">
+</iframe>
+</section>
+<section id="report-2" class="level3">
+<h3 class="anchored" data-anchor-id="report-2">2021 Report</h3>
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="680" height="600" allowfullscreen="">
+</iframe>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

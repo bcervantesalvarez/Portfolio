@@ -620,14 +620,14 @@
     "href": "posts/Param_Report_Retail/index.html#load-dataset",
     "title": "Got Daily Reports? Use Parameterized RMarkdown To Alliveate That Stress",
     "section": "Load Dataset",
-    "text": "Load Dataset\n\nds <- read_csv(\"retail.csv\")\n\n#head(ds)\n\nds <- ds %>% \n  rename(ID = ...1) %>%\n  mutate(Month = lubridate::floor_date(Date, 'month')) %>%\n  filter(year(Month) == params$year)\n\nglimpse(ds)\n\nRows: 7,601\nColumns: 9\n$ ID         <dbl> 25755, 25756, 25757, 25758, 25759, 25760, 25761, 25762, 257…\n$ DocumentID <dbl> 7227, 7230, 7231, 15494, 15494, 15494, 15494, 8610, 8611, 8…\n$ Date       <date> 2022-01-03, 2022-01-04, 2022-01-04, 2022-01-07, 2022-01-07…\n$ SKU        <dbl> 2455, 516, 2167, 2149, 1243, 1765, 475, 1777, 1786, 1785, 2…\n$ Price      <dbl> 9298.3051, 5037.2881, 9830.5085, 770.7627, 1066.1017, 612.2…\n$ Discount   <dbl> 1673.69492, 906.71186, 1769.49152, 299.23729, 413.89830, 23…\n$ Customer   <dbl> 371, 512, 406, 155, 155, 155, 155, 397, 437, 437, 447, 224,…\n$ Quantity   <dbl> 4, 4, 4, 1, 1, 1, 1, 2, 8, 4, 4, 4, 2, 1, 4, 1, 4, 2, 4, 2,…\n$ Month      <date> 2022-01-01, 2022-01-01, 2022-01-01, 2022-01-01, 2022-01-01…"
+    "text": "Load Dataset\n\nds <- read_csv(\"retail.csv\")\n\n#head(ds)\n\nds <- ds %>% \n  rename(ID = ...1) %>%\n  mutate(Month = lubridate::floor_date(Date, 'month')) %>%\n  filter(year(Month) == params$year)\n\nglimpse(ds)\n\nRows: 10,042\nColumns: 9\n$ ID         <dbl> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1…\n$ DocumentID <dbl> 716, 716, 716, 716, 716, 716, 716, 460, 461, 462, 463, 464,…\n$ Date       <date> 2019-09-23, 2019-09-23, 2019-09-23, 2019-09-23, 2019-09-23…\n$ SKU        <dbl> 1039, 853, 862, 868, 2313, 2355, 2529, 2361, 2723, 655, 254…\n$ Price      <dbl> 381.78, 593.22, 423.73, 201.70, 345.76, 406.78, 542.38, 139…\n$ Discount   <dbl> 67.37254, 0.00034, -0.00119, 35.58814, 61.01966, 101.69458,…\n$ Customer   <dbl> 1, 1, 1, 1, 1, 1, 1, 460, 479, 26, 580, 311, 311, 311, 311,…\n$ Quantity   <dbl> 1, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 2, 2, 1, 1, 1, 4, 1, 1, 4,…\n$ Month      <date> 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01…"
   },
   {
     "objectID": "posts/Param_Report_Retail/index.html#setting-plot-theme",
     "href": "posts/Param_Report_Retail/index.html#setting-plot-theme",
     "title": "Got Daily Reports? Use Parameterized RMarkdown To Alliveate That Stress",
     "section": "Setting Plot Theme",
-    "text": "Setting Plot Theme\n\nmyTheme <- function(){ \n    font <- \"SF Mono\"   #assign font family up front\n    \n    theme_minimal() %+replace%    #replace elements we want to change\n    \n    theme(\n      \n      #grid elements\n      panel.grid.major.x = element_blank(),    #strip major gridlines\n      panel.grid.minor = element_blank(),    #strip minor gridlines\n      axis.ticks = element_blank(),          #strip axis ticks\n      \n      #since theme_minimal() already strips axis lines, \n      #we don't need to do that again\n      \n      #text elements\n      plot.title = element_text(             #title\n                   family = font,            #set font family\n                   size = 16,                #set font size\n                   face = 'bold',            #bold typeface\n                   hjust = 0,                #left align\n                   vjust = 2),               #raise slightly\n      \n      plot.margin = margin(                  #margins\n                           r = 0.5,          #right margin\n                           l = 0.5,          #left margin\n                           t = 1,            #top margin\n                           b = 0.25,            #bottom margin\n                           unit = \"cm\"),     #units      \n      \n      plot.subtitle = element_text(          #subtitle\n                   family = font,            #font family\n                   size = 12,                #font size\n                   hjust = 0,\n                   vjust = -1),               \n      \n      plot.caption = element_text(           #caption\n                   family = font,            #font family\n                   size = 9),                 #font size\n      \n      axis.title = element_text(             #axis titles\n                   family = font,            #font family\n                   size = 10),               #font size\n      \n      axis.text = element_text(              #axis text\n                   family = font,            #axis famuly\n                   size = 9),                #font size\n      \n      axis.text.x = element_text(            #margin for axis text\n                      margin = margin(t = 5, b = 20),\n                      angle = 45)\n      \n      #since the legend often requires manual tweaking \n      #based on plot content, don't define it here\n    )\n}"
+    "text": "Setting Plot Theme"
   },
   {
     "objectID": "posts/Param_Report_Retail/index.html#data-visualization",
@@ -677,5 +677,12 @@
     "title": "Got Daily Reports? Use Parameterized RMarkdown To Alliveate That Stress",
     "section": "Required Libraries",
     "text": "Required Libraries\n\nlibrary(tidyverse)\nlibrary(plotly)\nlibrary(lubridate)\nlibrary(scales)\nlibrary(zoo)\nlibrary(rmarkdown)\nlibrary(purrr)"
+  },
+  {
+    "objectID": "posts/Param_Report_Retail/index.html#other-reports-generated",
+    "href": "posts/Param_Report_Retail/index.html#other-reports-generated",
+    "title": "Got Daily Reports? Use Parameterized RMarkdown To Alliveate That Stress",
+    "section": "Other Reports Generated",
+    "text": "Other Reports Generated\n\n2019 Report\n\n\n\n\n2020 Report\n\n\n\n\n2021 Report"
   }
 ]
