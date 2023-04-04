@@ -18,8 +18,11 @@ execute:
 categories: [R, informative, reports, plotly]
 ---
 
-
 ![](report.png)
+
+## Purpose
+
+For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business.
 
 ## Required Libraries
 
@@ -33,7 +36,8 @@ library(rmarkdown)
 library(purrr)
 ```
 
-## Load Dataset
+## Load Dataset & Wrangle
+
 ```{r}
 ds <- read_csv("retail.csv")
 
@@ -109,9 +113,16 @@ myTheme <- function(){
 }
 ```
 
+## Visualize The Report
 
 
-## Data Visualization
+I utilized ggplotly, a graphical representation tool, to create an interactive visualization of monthly sales time series data for "CRM and Invoicing system," which is a wholesale company owned by Sadi Evren. The data for this analysis was obtained from the following Kaggle dataset: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv.
+
+The resulting plot provided an insightful representation of the monthly sales data, showcasing trends and patterns in the data that could potentially provide useful information for decision making in the business.
+
+In addition to the initial plot, I implemented a for loop to automatically generate multiple reports based on the time series data for each year. This approach eliminated the need for manual report generation, thereby saving time and reducing the risk of errors. The loop enabled the automated generation of separate reports for each year, which provided a comprehensive view of the sales trends over time.
+
+Overall, the use of ggplotly for data visualization and automation of report generation using a for loop demonstrated an effective approach for efficiently analyzing and presenting data.
 
 ```{r}
 p <- ds %>%
@@ -134,14 +145,48 @@ ggplotly(p, tooltip = c("text")) %>%
   layout(hovermode = "x unified") 
 
 ```
+
 ## Other Reports Generated
 
 ### 2019 Report
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="680" height="600" allowfullscreen></iframe>
+
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="925" height="600" allowfullscreen>
+
+</iframe>
 
 ### 2020 Report
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="680" height="600" allowfullscreen></iframe>
+
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="925" height="600" allowfullscreen>
+
+</iframe>
 
 ### 2021 Report
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="680" height="600" allowfullscreen></iframe>
 
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="925" height="600" allowfullscreen>
+
+</iframe>
+
+## Function To Run Parameterized Reports
+
+```{r}
+#| eval: false
+renderReport <- function(year) {
+  rmarkdown::render(
+    'input.Rmd',
+    output_file = paste0(year, '.html'),
+    params = list(year = year),
+    envir = parent.frame()
+  )
+}
+```
+
+## Render ALL Reports
+
+```{r}
+#| eval: false
+
+# Renders all 4 Reports (dates range from 2019-2022)
+for (year in 2019:2022) {
+    renderReport(year)
+}
+```

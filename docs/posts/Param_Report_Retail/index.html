@@ -238,15 +238,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#required-libraries" id="toc-required-libraries" class="nav-link active" data-scroll-target="#required-libraries">Required Libraries</a></li>
-  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset">Load Dataset</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#required-libraries" id="toc-required-libraries" class="nav-link" data-scroll-target="#required-libraries">Required Libraries</a></li>
+  <li><a href="#load-dataset-wrangle" id="toc-load-dataset-wrangle" class="nav-link" data-scroll-target="#load-dataset-wrangle">Load Dataset &amp; Wrangle</a></li>
+  <li><a href="#visualize-the-report" id="toc-visualize-the-report" class="nav-link" data-scroll-target="#visualize-the-report">Visualize The Report</a></li>
   <li><a href="#other-reports-generated" id="toc-other-reports-generated" class="nav-link" data-scroll-target="#other-reports-generated">Other Reports Generated</a>
   <ul class="collapse">
   <li><a href="#report" id="toc-report" class="nav-link" data-scroll-target="#report">2019 Report</a></li>
   <li><a href="#report-1" id="toc-report-1" class="nav-link" data-scroll-target="#report-1">2020 Report</a></li>
   <li><a href="#report-2" id="toc-report-2" class="nav-link" data-scroll-target="#report-2">2021 Report</a></li>
   </ul></li>
+  <li><a href="#function-to-run-parameterized-reports" id="toc-function-to-run-parameterized-reports" class="nav-link" data-scroll-target="#function-to-run-parameterized-reports">Function To Run Parameterized Reports</a></li>
+  <li><a href="#render-all-reports" id="toc-render-all-reports" class="nav-link" data-scroll-target="#render-all-reports">Render ALL Reports</a></li>
   </ul>
 </nav>
     </div>
@@ -257,6 +260,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="report.png" class="img-fluid"></p>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business.</p>
+</section>
 <section id="required-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="required-libraries">Required Libraries</h2>
 <div class="cell">
@@ -269,8 +276,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="load-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="load-dataset">Load Dataset</h2>
+<section id="load-dataset-wrangle" class="level2">
+<h2 class="anchored" data-anchor-id="load-dataset-wrangle">Load Dataset &amp; Wrangle</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"retail.csv"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -297,8 +304,12 @@ $ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-0
 </div>
 </div>
 </section>
-<section id="data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
+<section id="visualize-the-report" class="level2">
+<h2 class="anchored" data-anchor-id="visualize-the-report">Visualize The Report</h2>
+<p>I utilized ggplotly, a graphical representation tool, to create an interactive visualization of monthly sales time series data for “CRM and Invoicing system,” which is a wholesale company owned by Sadi Evren. The data for this analysis was obtained from the following Kaggle dataset: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv.</p>
+<p>The resulting plot provided an insightful representation of the monthly sales data, showcasing trends and patterns in the data that could potentially provide useful information for decision making in the business.</p>
+<p>In addition to the initial plot, I implemented a for loop to automatically generate multiple reports based on the time series data for each year. This approach eliminated the need for manual report generation, thereby saving time and reducing the risk of errors. The loop enabled the automated generation of separate reports for each year, which provided a comprehensive view of the sales trends over time.</p>
+<p>Overall, the use of ggplotly for data visualization and automation of report generation using a for loop demonstrated an effective approach for efficiently analyzing and presenting data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
@@ -319,8 +330,8 @@ $ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-0
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"text"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cbde74b22efd27a8bc0d" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-cbde74b22efd27a8bc0d">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.62,6221.6,7009.9,7054.48,11329.94,11629.42,10792.47,7329.84,12539.52,9659.63,7174.03,7750.88],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.167018039308,"r":18.8976377952756,"b":45.8321255336126,"l":46.4609420709086},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.2536322125363},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.3,18247.7],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.925,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"df5a8cc6a84":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"df5a8cc6a84","visdat":{"df5a8cc6a84":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b45eb3fdebfa9d7cfdca" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b45eb3fdebfa9d7cfdca">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.62,6221.6,7009.9,7054.48,11329.94,11629.42,10792.47,7329.84,12539.52,9659.63,7174.03,7750.88],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.167018039308,"r":18.8976377952756,"b":45.8321255336126,"l":46.4609420709086},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.2536322125363},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.3,18247.7],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.925,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"f2212b4a53cb":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"f2212b4a53cb","visdat":{"f2212b4a53cb":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -328,21 +339,43 @@ $ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-0
 <h2 class="anchored" data-anchor-id="other-reports-generated">Other Reports Generated</h2>
 <section id="report" class="level3">
 <h3 class="anchored" data-anchor-id="report">2019 Report</h3>
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="680" height="600" allowfullscreen="">
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="925" height="600" allowfullscreen="">
 </iframe>
 </section>
 <section id="report-1" class="level3">
 <h3 class="anchored" data-anchor-id="report-1">2020 Report</h3>
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="680" height="600" allowfullscreen="">
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="925" height="600" allowfullscreen="">
 </iframe>
 </section>
 <section id="report-2" class="level3">
 <h3 class="anchored" data-anchor-id="report-2">2021 Report</h3>
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="680" height="600" allowfullscreen="">
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="925" height="600" allowfullscreen="">
 </iframe>
-
-
 </section>
+</section>
+<section id="function-to-run-parameterized-reports" class="level2">
+<h2 class="anchored" data-anchor-id="function-to-run-parameterized-reports">Function To Run Parameterized Reports</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>renderReport <span class="ot">&lt;-</span> <span class="cf">function</span>(year) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">render</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'input.Rmd'</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output_file =</span> <span class="fu">paste0</span>(year, <span class="st">'.html'</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">params =</span> <span class="fu">list</span>(<span class="at">year =</span> year),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">envir =</span> <span class="fu">parent.frame</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="render-all-reports" class="level2">
+<h2 class="anchored" data-anchor-id="render-all-reports">Render ALL Reports</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Renders all 4 Reports (dates range from 2019-2022)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2022</span>) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">renderReport</span>(year)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
