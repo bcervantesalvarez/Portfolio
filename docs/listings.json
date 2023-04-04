@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Param_Report_Retail/index.html",
       "/posts/AppleInc_IncomeStatement/index.html",
       "/posts/Customer Return ML/index.html",
+      "/posts/PredictPremiumDefault_ML/index.html",
       "/posts/PredictPinotWine_ML/index.html",
       "/posts/SurvAnalysis_Parasite_RevealJS/index.html",
       "/posts/GymRat_Plotly/index.html",
@@ -11,8 +13,7 @@
       "/posts/US_HealthCare_Spending/index.html",
       "/posts/Pokemon_Database/index.html",
       "/posts/CollegeStudent_Debt_Tool/index.html",
-      "/posts/US_HealthIns_Costs/index.html",
-      "/posts/PredictPremiumDefault_ML/index.html"
+      "/posts/US_HealthIns_Costs/index.html"
     ]
   }
 ]

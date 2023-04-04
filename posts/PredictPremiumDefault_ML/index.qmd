@@ -1,7 +1,7 @@
 ---
-title: "Predicting Insurance Premium Default {work in progress}"
+title: "Insurance Premium Default {updating...}"
 author: "Brian Cervantes Alvarez"
-date: "1-01-2020"
+date: "3-04-2023"
 format:
   html:
     toc: true
@@ -11,7 +11,7 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, informative, interactive, plotly]
+categories: [R, informative, reports, plotly]
 ---
 
 ## Setup

@@ -13,7 +13,7 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, finance]
+categories: [R, finance, time series, data visualization]
 ---
 
 ![](apple.jpeg)
@@ -23,7 +23,6 @@ The primary objective of this undertaking was to delve into the application of R
 The shift in Apple's market value was not just a result of its breakthrough innovation but was also influenced by its impeccable marketing strategy that has ensured that their products always remain relevant to the ever-changing consumer needs. It is noteworthy that Apple's transformative technology has revolutionized the tech industry and has made significant contributions to its economic growth. Overall, the utilization of R's plotly in the visualization of Time Series Graphs proved to be an incredibly insightful undertaking, helping to identify and explain the trends in the stock market in a more meaningful way.
 
 ## Setup
-
 
 ```{r}
 library(tidyverse)
@@ -90,7 +89,6 @@ myTheme <- function(){
 }
 ```
 
-
 ## Data Wrangling
 
 ```{r}
@@ -119,7 +117,6 @@ log_yearlyDs <- ds %>%
 
 ```
 
-
 ## Times Series Plots of Apple Inc. Stock Prices
 
 ```{r}
@@ -144,7 +141,9 @@ ggplotly(p) %>%
         traces = 3)
   
 ```
+
 ## Applying Log-norm
+
 ```{r}
 p2 <- log_yearlyDs %>%
   ggplot(aes(x = Year)) +
@@ -167,4 +166,3 @@ ggplotly(p2, tooltip = "text") %>%
         traces = 3)
 
 ```
-

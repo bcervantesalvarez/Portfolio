@@ -1,0 +1,138 @@
+---
+title: "Got Daily Reports? Use Parameterized RMarkdown To Alliveate That Stress"
+author: "Brian Cervantes Alvarez"
+date: "4-03-2023"
+image: report.png
+params:
+  printcode: true
+  year: 2022
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: full
+execute: 
+  warning: false
+  message: false
+categories: [R, informative, reports, plotly]
+---
+
+
+![](report.png)
+
+## Required Libraries
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(lubridate)
+library(scales)
+library(zoo)
+library(rmarkdown)
+library(purrr)
+```
+
+## Load Dataset
+```{r}
+ds <- read_csv("retail.csv")
+
+#head(ds)
+
+ds <- ds %>% 
+  rename(ID = ...1) %>%
+  mutate(Month = lubridate::floor_date(Date, 'month')) %>%
+  filter(year(Month) == params$year)
+
+glimpse(ds)
+```
+
+## Setting Plot Theme
+
+```{r}
+myTheme <- function(){ 
+    font <- "SF Mono"   #assign font family up front
+    
+    theme_minimal() %+replace%    #replace elements we want to change
+    
+    theme(
+      
+      #grid elements
+      panel.grid.major.x = element_blank(),    #strip major gridlines
+      panel.grid.minor = element_blank(),    #strip minor gridlines
+      axis.ticks = element_blank(),          #strip axis ticks
+      
+      #since theme_minimal() already strips axis lines, 
+      #we don't need to do that again
+      
+      #text elements
+      plot.title = element_text(             #title
+                   family = font,            #set font family
+                   size = 16,                #set font size
+                   face = 'bold',            #bold typeface
+                   hjust = 0,                #left align
+                   vjust = 2),               #raise slightly
+      
+      plot.margin = margin(                  #margins
+                           r = 0.5,          #right margin
+                           l = 0.5,          #left margin
+                           t = 1,            #top margin
+                           b = 0.25,            #bottom margin
+                           unit = "cm"),     #units      
+      
+      plot.subtitle = element_text(          #subtitle
+                   family = font,            #font family
+                   size = 12,                #font size
+                   hjust = 0,
+                   vjust = -1),               
+      
+      plot.caption = element_text(           #caption
+                   family = font,            #font family
+                   size = 9),                 #font size
+      
+      axis.title = element_text(             #axis titles
+                   family = font,            #font family
+                   size = 10),               #font size
+      
+      axis.text = element_text(              #axis text
+                   family = font,            #axis famuly
+                   size = 9),                #font size
+      
+      axis.text.x = element_text(            #margin for axis text
+                      margin = margin(t = 5, b = 20),
+                      angle = 45)
+      
+      #since the legend often requires manual tweaking 
+      #based on plot content, don't define it here
+    )
+}
+```
+
+
+
+## Data Visualization
+
+```{r}
+p <- ds %>%
+  group_by(Month) %>%
+  summarize(AvgSales = round(mean(Price * Quantity),2) ) %>%
+  ggplot(aes(x = Month, 
+             y = AvgSales,
+             group = 1,                 #Necessary or else line plot disappears
+             text = paste0("Monthly Sales: $", (round(AvgSales/1000,2)),"K" ))) +
+  geom_line(size = 1) + 
+  scale_y_continuous(labels = scales::dollar_format(scale = .001, suffix = "K")) +
+  scale_x_date(date_breaks = "1 month", date_labels = "%B") + 
+  labs(title = paste0("CRM and Invoicing System Sales For FY: ", params$year),
+       caption = "Source: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv",
+       x = NULL,
+       y = NULL) +
+  myTheme()
+
+ggplotly(p, tooltip = c("text")) %>% 
+  layout(hovermode = "x unified") 
+
+```
+
+
+
