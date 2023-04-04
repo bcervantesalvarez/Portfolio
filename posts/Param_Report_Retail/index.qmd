@@ -148,12 +148,6 @@ ggplotly(p, tooltip = c("text")) %>%
 
 ## Other Reports Generated
 
-### 2019 Report
-
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2019.html" width="925" height="600" allowfullscreen>
-
-</iframe>
-
 ### 2020 Report
 
 <iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="925" height="600" allowfullscreen>
@@ -163,6 +157,12 @@ ggplotly(p, tooltip = c("text")) %>%
 ### 2021 Report
 
 <iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="925" height="600" allowfullscreen>
+
+</iframe>
+
+### 2022 Report
+
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2022.html" width="925" height="600" allowfullscreen>
 
 </iframe>
 
