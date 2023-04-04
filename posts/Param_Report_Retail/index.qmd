@@ -1,5 +1,5 @@
 ---
-title: "Got Daily Reports? Use Parameterized RMarkdown To Alliveate That Stress"
+title: "Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress"
 author: "Brian Cervantes Alvarez"
 date: "4-03-2023"
 image: report.png
@@ -114,7 +114,6 @@ myTheme <- function(){
 ```
 
 ## Visualize The Report
-
 
 I utilized ggplotly, a graphical representation tool, to create an interactive visualization of monthly sales time series data for "CRM and Invoicing system," which is a wholesale company owned by Sadi Evren. The data for this analysis was obtained from the following Kaggle dataset: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv.
 
