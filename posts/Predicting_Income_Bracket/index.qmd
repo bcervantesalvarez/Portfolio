@@ -1,0 +1,272 @@
+---
+title: "Predicting Individuals Who Earn More Than 50K"
+author:  
+  - "Brian Cervantes Alvarez"
+  - "Willa Van Liew"
+date: "04-11-2023"
+image: income.jpeg
+format:
+  html:
+    page-layout: full
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+execute:
+  message: false
+  warning: false
+categories: [R, machine learning, gradient boosting machine, logistic regression, stats]
+---
+
+![](income.jpeg)
+
+## Purpose
+
+In this project, we conducted a comprehensive machine learning analysis, encompassing various stages of the data science workflow, including data preprocessing, feature engineering, and feature selection through PCA. Collaboratively, we sought to predict whether individuals had an income greater than 50K. By incorporating hyperparameter optimization and deploying a robust model pipeline, we achieved a final Kappa score of 0.9543. This project enabled us to hone our skills as aspiring Data Scientists and paves the way for future machine learning endeavors.
+
+## Highlight Of The Project
+
+Willa was instrumental in laying the foundation for the models and identifying the PCA features. Without her exceptional work, we would not have been able to create such a comprehensive and outstanding model for predicting income above \$50,000. Her valuable contributions provided a critical starting point for our team, enabling us to add the feature importance at the start and optimize the models to their best parameters. Willa's dedication, skill, and hard work were truly impressive, and I feel grateful to have had her as a partner on this project.
+
+Here is the direct link to her [website](https://willavanliew.netlify.app/). Take a look at her data science projects!
+
+## Predicting Income >50K
+
+### Load Libraries
+
+```{r setup, message=FALSE, warning=FALSE}
+#knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(tidytext)
+library(caret)
+library(tidymodels)
+library(fastDummies)
+library(randomForest)
+```
+
+### Load The Data
+
+```{r}
+raw_income = read_csv("openml_1590.csv", na = c("?")) %>%
+  mutate(income_above_50k = ifelse(class == ">50K",1,0))
+
+income = read_csv("openml_1590.csv", na = c("?")) %>%
+  drop_na() %>%
+  mutate(income_above_50K = ifelse(class == ">50K",1,0)) %>%
+  select(-class) %>%
+  dummy_cols(remove_selected_columns = T)
+
+```
+
+## Run Random Forest & Obtain Importance Features
+
+```{r}
+set.seed(504)
+raw_index <- createDataPartition(income$income_above_50K, p = 0.8, list = FALSE)
+train <- income[raw_index,]
+test  <- income[-raw_index, ]
+ctrl <- trainControl(method = "cv", number = 3)
+
+fit <- train(income_above_50K ~ .,
+            data = train, 
+            method = "rf",
+            ntree = 50,
+            tuneLength = 3,
+            trControl = ctrl,
+            metric = "kappa")
+fit
+
+print(varImp(fit), 10)
+```
+
+## PCA
+
+### Chose Top 8 Features
+
+```{r}
+inc <- income %>%
+  select(-c(fnlwgt,
+            `marital-status_Married-civ-spouse`,
+            age,
+            `capital-gain`,
+            `education-num`,
+            `hours-per-week`,
+            relationship_Husband,
+            `capital-loss`))
+
+#Remained unchanged
+pr_income = prcomp(x = inc, scale=T, center = T)
+screeplot(pr_income, type="lines")
+
+rownames_to_column(as.data.frame(pr_income$rotation)) %>%
+  select(1:11) %>%
+  filter(abs(PC1) >= 0.35 | abs(PC2) >= 0.35 | abs(PC3) >= 0.35 | abs(PC4) >= 0.35 | abs(PC5) >= 0.35 | abs(PC6) >= 0.35 | abs(PC7) >= 0.35 | abs(PC8) >= 0.35 | abs(PC9) >= 0.35 | abs(PC10) >= 0.35)
+```
+
+### Chose First 10 PCA Features
+
+```{r}
+# IMPORTANT: Since I used 8 features, I updated the prc dataframe to include
+# the features + PCA 1-10
+prc <- 
+  bind_cols(select(income, 
+                   c(fnlwgt, 
+                    `marital-status_Married-civ-spouse`, 
+                    age, 
+                    `capital-gain`, 
+                    age, 
+                    `hours-per-week`, 
+                    relationship_Husband,
+                    `capital-loss`,
+                    income_above_50K)
+                   ), 
+            as.data.frame(pr_income$x)
+            ) %>%
+  select(1:18) %>%
+  ungroup() %>%
+  rename("NonBlack_Men" = PC1,
+         "US_Women" = PC2,
+         "PrivateSec_Men" = PC3,
+         "NonUS_NonBlack" = PC4,
+         "NonPrivateSec_Black" = PC5,
+         "PrivateSec" = PC6,
+         "NonBlack_SelfEmploy" = PC7,
+         "Wives" = PC8,
+         "NonFamily_SomeCollege" = PC9,
+         "NotSelfEmployes_NonBlack" = PC10)
+
+head(prc)
+```
+
+## Gradient Boosting Machine
+
+```{r}
+
+#IMPORTANT: I took a while and messed around with the hyperparameters
+# Went From 0.2 Kappa to 0.6 Kappa BEFORE updating the features.
+# After updating to the top 8 features + PCA 1-5, it jumped to 
+# 0.88 Kappa. Then I added PCA 1-10 and it jumped to 0.95 for the Kappa!
+set.seed(504)
+raw_index <- createDataPartition(prc$income_above_50K, p = 0.8, list = FALSE)
+train <- prc[raw_index,]
+test  <- prc[-raw_index, ]
+ctrl <- trainControl(method = "cv", number = 5)
+weights <- ifelse(income$income_above_50K == 1, 75, 25)
+
+hyperparameters <- expand.grid(interaction.depth = 9, 
+                    n.trees = 300, 
+                    shrinkage = 0.1, 
+                    n.minobsinnode = 4)
+fit <- train(factor(income_above_50K) ~ .,
+            data = train, 
+            method = "gbm",
+            verbose = FALSE,
+            tuneGrid = hyperparameters,
+            trControl = ctrl,
+            metric = "kappa")
+fit
+
+```
+
+### Confusion Matrix For GBM
+
+```{r}
+confusionMatrix(predict(fit, test), factor(test$income_above_50K))
+```
+
+## Logistical Model
+
+```{r}
+#I messed around with using a logistical model
+#It turns out that it's pretty good too! Not as great as the GBM
+#But a great and easy model to explain!
+
+set.seed(504)
+raw_index <- createDataPartition(prc$income_above_50K, p = 0.8, list = FALSE)
+train <- prc[raw_index,]
+test  <- prc[-raw_index, ]
+ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 3, verboseIter = FALSE)
+hyperparameters <- expand.grid(alpha = 1, 
+                               lambda = 0.001)
+
+fit <- train(factor(income_above_50K)  ~ .,
+            data = train, 
+            method = "glmnet",
+            family = "binomial",
+            tuneGrid = hyperparameters,
+            trControl = ctrl,
+            metric = "kappa",
+            importance = TRUE)
+fit
+```
+
+### Confusion Matrix For Logistical Regression
+
+```{r}
+confusionMatrix(predict(fit, test), factor(test$income_above_50K))
+```
+
+## KMeans Clustering
+
+```{r}
+kclust <- kmeans(na.omit(prc), centers = 4)
+kclust$centers
+
+kclusts <- tibble(k = 1:9) %>%
+  mutate(
+    kclust = map(k, ~kmeans(prc, .x)),
+    glanced = map(kclust, glance),
+    augmented = map(kclust, augment, prc)
+  )
+
+clusterings <- kclusts %>%
+  unnest(glanced, .drop = TRUE)
+
+ggplot(clusterings, aes(k, tot.withinss)) +
+  geom_line()
+```
+
+## Augumenting The GBM Model with KMeans Clustering
+
+```{r}
+prc2 <- augment(kclust, prc)
+
+set.seed(504)
+raw_index <- createDataPartition(prc2$income_above_50K, p = 0.8, list = FALSE)
+
+train <- prc2[raw_index,]
+test  <- prc2[-raw_index, ]
+ctrl <- trainControl(method = "cv", number = 5)
+
+hyperparameters <- expand.grid(
+  n.trees = 500,
+  interaction.depth = 5,
+  shrinkage = 0.1,
+  n.minobsinnode = 10
+)
+
+
+
+fit <- train(factor(income_above_50K)  ~ .,
+            data = train, 
+            method = "gbm",
+            trControl = ctrl,
+            tuneGrid = hyperparameters,
+            verbose = FALSE)
+fit
+
+
+```
+
+### Confusion Matrix For KMeans + GBM
+
+```{r}
+#We should be getting a Kappa of 0.9543!
+#Sensitivity = 0.9930, Specificity = 0.9533
+#Excellent Numbers!
+confusionMatrix(predict(fit, test), factor(test$income_above_50K))
+```
+
+## Results
+
+We used a random forest model to identify the most important variables and selected the top 8 features, then utilized principal component analysis (PCA) to further analyze the data. Our final model incorporated a gradient boosting machine (GBM) algorithm with optimized hyperparameters and achieved an accuracy rate of 0.9829731 and a Kappa score of 0.9538928. To ensure the model was not overfitting, we benchmarked it with a logistic regression model that achieved a Kappa score of 0.895033 and an accuracy rate of 0.9610166. We further improved the model's accuracy by incorporating unsupervised machine learning with Kmeans clustering, achieving a Kappa score of 0.9543 and an accuracy rate of 0.9833. Overall, our approach of feature selection and PCA was effective and could be applied to future data analysis projects with some additional fine-tuning.
