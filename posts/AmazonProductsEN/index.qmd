@@ -1,0 +1,281 @@
+---
+title: "Building A Quick Dashboard For Amazon Products (EN.)"
+author: "Brian Cervantes Alvarez"
+date: "04-21-2023"
+image: AmazonLogo.png
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+output: html_document
+code-fold: false
+execute:
+  eval: false
+categories: [R, RShiny, CSS]
+---
+
+![](AmazonLogo.png)
+
+## Purpose
+
+In this project, I developed a Shiny application that analyzed Amazon products available in India. The dataset used in this project was obtained from [Kaggle](https://www.kaggle.com/datasets/lokeshparab/amazon-products-dataset?select=Amazon+Pharmacy.csv), and it presented several challenges during the development process. While I was not able to fix all the issues with the product categories due to time constraints, I focused on creating a concise and informative dashboard that displayed the categories with the highest average ratings and reviews.
+
+Compared to my previous Shiny app, this project was developed more efficiently, taking approximately 70% less time. Additionally, I was able to implement more advanced CSS theming than before, which improved the overall design of the application. While there are still additional features and visualizations that could be added to the app, I decided to leave them for others to explore in the future.
+
+Overall, this project was a challenging but rewarding experience that allowed me to build my skills in data analysis and Shiny app development.
+
+
+## Questions
+
+-   What is the average **rating** for each category and subcategory?
+
+-   What is the average **review** for each category and subcategory?
+
+<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="800" height="800" allowfullscreen></iframe>
+
+[Fullscreen](https://bcervantesalvarez.shinyapps.io/AmazonProductApp/)
+
+## Load Libraries
+
+```{r}
+library(shiny)
+library(tidyverse)
+library(readr)
+library(stringr)
+library(plotly)
+library(DT)
+options(scipen = 999)
+```
+
+## Part 1: Data Wrangling Multiple Datasets
+
+```{r}
+#ORIGINAL DATA WRANGLING 
+
+datasets <- as.data.frame(list.files(path = "~/Documents/ShinyApps/AmazonProducts/AmazonProductApp", pattern = "csv"))
+colnames(datasets) <- "Datasets"
+
+#Combine all the datasets
+for (i in length(nrow(datasets))){
+ combinedDs <- read_csv(datasets[[i]])
+}
+
+amazonProducts <- combinedDs %>%
+ mutate(Name = name,
+       MainCategory = factor(str_to_title((sort(main_category)))),
+        SubCategory = factor(sort(sub_category)),
+        ProductImage = image,
+        ProductRating = as.numeric(ratings),
+        NumberOfRatings = as.numeric(gsub("\\,","",no_of_ratings)),
+        DiscountPrice = round(as.numeric(gsub("[\\₹,]", "", discount_price)) / 81.85, 2), #convert from Rupee to USD
+        Price = round(as.numeric(gsub("[\\₹,]", "", actual_price)) / 81.85, 2),           #convert from Rupee to USD
+        ProductLink = link) %>%
+ select(-c(name, 
+           main_category, 
+           sub_category, 
+           image, 
+           ratings, 
+           no_of_ratings, 
+           discount_price, 
+           actual_price,
+           link)) %>% 
+ drop_na() %>%
+ filter(!str_detect(SubCategory, "^All "))
+
+amazonProducts %>%
+ write_csv("amazonProducts.csv")
+```
+
+
+### Reload Data
+
+```{r}
+products <- read_csv("amazonProducts.csv")
+```
+
+## Part 2: Data Wrangling For Visualization
+
+```{r}
+products <- products %>% mutate(DiscountPrice = round(DiscountPrice82.04,2), Price = round(Price82.04,2))
+
+#For Plot 1
+ratings <- products %>% select(-c(ProductImage, Name, ProductLink)) %>% group_by(MainCategory,SubCategory) %>% summarise(AverageRating = mean(ProductRating)) %>% ungroup()
+
+reviews <- products %>% select(-c(ProductImage, Name, ProductLink)) %>% group_by(MainCategory,SubCategory) %>% summarise(AverageReview = mean(NumberOfRatings)) %>% ungroup()
+
+#For Plot 2 
+top10Products <- products %>% filter(ProductRating > 4.5, NumberOfRatings > 50) %>% group_by(SubCategory) %>% arrange(desc(ProductRating)) %>% slice(1:10) %>% select(-c(ProductImage, Name, ProductLink))
+
+#unique(products$MainCategory)
+```
+
+### Color Theming 
+
+```{r}
+#Plot 1 
+num_colors <- 21 
+colors <- c("#f2f2f2", "#ff9900") 
+pal1 <- colorRampPalette(colors)(num_colors)
+
+print(pal1)
+
+#Plot 2 
+num_colors <- 21 
+colors <- colors <- c("#f2f2f2","#00a8e1") 
+pal2 <- colorRampPalette(colors)(num_colors)
+```
+
+## Part 1: Shiny UI
+
+```{r}
+# Define UI for application 
+ui <- fluidPage(
+  
+  #Background CSS
+  tags$head(tags$style(HTML('
+  @import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);
+    body {
+      font-family: Montserrat, sans-serif;
+      background-color: #FF9900;
+    }
+    .dataTables_wrapper {
+      background-color: #fff;
+    }
+    .sidebar {
+      background-color: #fff;
+      width: 3/12;
+      height: 2/12;
+    }
+    .nav-tabs > li > a {
+      color: black;
+      background-color: #00a8e1;
+      border-color: #00a8e1;
+    }'))),
+  
+  # Application title
+  titlePanel("Amazon Inc. Product Dashboard (EN.)"),
+  
+  # Sidebar
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("MainCategoryChoice", 
+                  label = h3("Select Category:"), 
+                  choices = unique(products$MainCategory), 
+                  selected = "Accessories"),
+      
+      uiOutput("SubCategoryChoice")
+    ),
+    
+    # Tabs
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Plot", 
+                 plotlyOutput("RatingsPlot"),
+                 plotlyOutput("ReviewsPlot")),
+        tabPanel("Data", dataTableOutput("myDataTable"))
+      )
+    )
+  )
+)
+```
+
+## Part 2: Shiny Server
+
+```{r}
+# Define server logic required to draw Dashboard
+server <- function(input, output) {
+  
+  # Subcategory choices
+  output$SubCategoryChoice <- renderUI({
+    subcategories <- unique(products$SubCategory[products$MainCategory == input$MainCategoryChoice])
+    checkboxGroupInput("SubCategoryChoice", 
+                       label = h3("Select Subcategories:"), 
+                       choices = subcategories, 
+                       selected = subcategories)
+  })
+  
+  # Plot 1: Product Rating
+  output$RatingsPlot <- renderPlotly({
+    ratings %>%
+      filter(MainCategory == input$MainCategoryChoice,
+             SubCategory %in% input$SubCategoryChoice) %>% 
+      mutate(SubCategory_ordered = factor(SubCategory, 
+                                          levels = unique(SubCategory[order(AverageRating)]))) %>%
+      plot_ly(x = ~SubCategory_ordered, 
+              y = ~round(AverageRating,2),
+              type = 'bar',
+              marker = list(color = ~pal1[SubCategory_ordered])) %>%
+      add_annotations(x = ~SubCategory_ordered,
+                      y = ~round(AverageRating,2),
+                      text = ~paste0(round(AverageRating,2)),
+                      font = list(color = 'black', 
+                                  size = 10),
+                      showarrow = FALSE,
+                      yshift = 5) %>%
+      layout(title = paste0("Average Product Rating For ",input$MainCategoryChoice),
+             xaxis = list(title = "", tickangle = 45),
+             yaxis = list(title = ""),
+             showlegend = FALSE,
+             margin = list(t = 50,
+                           l = 50,
+                           r = 50,
+                           b = 50)) 
+  })
+  
+  # Plot 2: Product Reviews
+  output$ReviewsPlot <- renderPlotly({
+    reviews %>%
+      filter(MainCategory == input$MainCategoryChoice,
+             SubCategory %in% input$SubCategoryChoice) %>% 
+      mutate(SubCategory_ordered = factor(SubCategory, 
+                                          levels = unique(SubCategory[order(AverageReview)]))) %>%
+      plot_ly(x = ~SubCategory_ordered, 
+              y = ~round(AverageReview),
+              type = 'bar',
+              marker = list(color = ~pal2[SubCategory_ordered])) %>%
+      add_annotations(x = ~SubCategory_ordered,
+                      y = ~round(AverageReview),
+                      text = ~paste0(round(AverageReview)),
+                      font = list(color = 'black', 
+                                  size = 10),
+                      showarrow = FALSE,
+                      yshift = 5) %>%
+      layout(title = paste0("Average Number of Reviews For ",input$MainCategoryChoice),
+             xaxis = list(title = "", tickangle = 45),
+             yaxis = list(title = ""),
+             showlegend = FALSE,
+             margin = list(t = 50,
+                           l = 50,
+                           r =50,
+                           b = 50)) 
+  })
+  
+  output$myDataTable <- DT::renderDataTable({
+    products %>%
+      filter(MainCategory == input$MainCategoryChoice,
+             SubCategory %in% input$SubCategoryChoice) %>%
+      mutate(ProductImage = sprintf('<img src="%s" width="75px"/>', ProductImage)) %>%
+      DT::datatable(., escape = FALSE, options = list(
+        pageLength = 10,
+        lengthMenu = c(5, 10, 25),
+        scrollY = "600px",
+        scrollX = TRUE
+      )) %>%
+      DT::formatStyle(columns = colnames(products), 
+                      backgroundColor = styleEqual(c("green", "white"), c("rgb(51, 102, 0)", "rgb(255, 255, 255)")))
+  })
+  
+  
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+## Further Improvement Questions
+
+-  Is there a correlation between the number of ratings and the product rating?
+- What is the average discount percentage for each main category and subcategory?
+- What is the price range for each main category and subcategory?
+- Which products have the highest ratings and how do they compare in terms of price and number of ratings?

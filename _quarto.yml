@@ -26,8 +26,8 @@ format:
       light: lux.scss
       dark: cyborg.scss
     css: styles.css
-    fontsize: 0.9em
-    linestretch: 1.8
+    fontsize: 1.2em
+    linestretch: 2
     monofont: "Monaco"
 
 editor: visual
