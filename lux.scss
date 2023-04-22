@@ -29,6 +29,7 @@ $green:   #4bbf73 !default;
 $teal:    #20c997 !default;
 $cyan:    #1f9bcf !default;
 
+
 $primary:       $gray-900 !default;
 $secondary:     $white !default;
 $success:       $green !default;
@@ -38,29 +39,42 @@ $danger:        $red !default;
 $light:         $white !default;
 $dark:          $gray-400 !default;
 
+
 $min-contrast-ratio:   2.25 !default;
 
 // Options
 
-$enable-rounded:            true !default;
+$enable-rounded:       true !default;
+
+// Background Color
+
+$background-color:      #E9EAE0 !default;
+
+// Title Banner
+
+$title-banner: true !default;
 
 // Body
 
-
-$body-color:                $gray-800 !default;
+$body-color:           $gray-700 !default;
 
 // Fonts
 
-// stylelint-disable-next-line value-keyword-case
-$font-family-sans-serif:      "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$h1-font-size:                2.2rem !default;
-$h2-font-size:                1.75rem !default;
-$h3-font-size:                1.5rem !default;
+$font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$body-font-size:              0.95rem !default;
+$font-size-sm:                0.8rem !default;
+$h1-font-size:                2rem !default;
+$h2-font-size:                1.8rem !default;
+$h3-font-size:                1.3rem !default;
 $h4-font-size:                1.25rem !default;
 $h5-font-size:                1rem !default;
 $h6-font-size:                .75rem !default;
 $headings-font-weight:        600 !default;
-$headings-color:              $gray-900 !default;
+$headings-color:              $primary !default;
+
+// Word Spacing
+
+$body-line-stretch:           1.7rem !default;
 
 // Tables
 
@@ -87,10 +101,10 @@ $input-group-addon-bg:                  $gray-300 !default;
 // Navbar
 
 $navbar-padding-y:                  1.5rem !default;
-$navbar-dark-hover-color:           $white !default;
+$navbar-dark-hover-color:           $secondary !default;
 $navbar-light-color:                rgba($black, .3) !default;
-$navbar-light-hover-color:          $gray-900 !default;
-$navbar-light-active-color:         $gray-900 !default;
+$navbar-light-hover-color:          $primary !default;
+$navbar-light-active-color:         $primary !default;
 
 // Pagination
 
@@ -99,17 +113,45 @@ $pagination-hover-border-color:     $pagination-border-color !default;
 $pagination-disabled-border-color:  $pagination-border-color !default;
 
 
-
 /*-- scss:rules --*/
 
 
 // Variables
 
+// Font Imports
 $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
 @if $web-font-path {
   @import url($web-font-path);
 }
 
+$web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" !default;
+
+@if $web-monofont-path {
+  @import url($web-monofont-path);
+}
+
+
+div.quarto-post .listing-categories .listing-category {
+    color: $gray-600;
+    border: solid 1px $gray-500;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    font-size: .65em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+    cursor: pointer;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+// Title Banner
+
+.quarto-title-banner .quarto-title .title {
+    font-weight: 500;
+    color: white;
+}
 
 // Navbar
 
@@ -165,7 +207,7 @@ $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
     &:hover,
     &:not([disabled]):not(.disabled):active,
     &:focus {
-      color: $white;
+      color: $secondary;
     }
   }
 }
@@ -179,7 +221,7 @@ $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
   &:not([disabled]):not(.disabled):active {
     background-color: $gray-400;
     border-color: $gray-400;
-    color: $white;
+    color: $secondary;
   }
 
   &:not([disabled]):not(.disabled):focus {
@@ -198,21 +240,49 @@ $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
 // Typography
 
 body {
+  font-weight: 200;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.1px;
+  background-color: $background-color;
+  font-size: $body-font-size;
+  line-height: $body-line-stretch;
+  color: $gray-700;
+}
+
+code{
   font-weight: 250;
-  letter-spacing: 0.5px;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 1px;
 }
 
 h1 {
-  color: $gray-500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-h2,
-h3,
-h4,
-h5,
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h5 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 h6 {
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 .text-secondary {
@@ -261,6 +331,21 @@ th {
     color: $dark;
   }
 }
+
+// Footer
+
+.nav-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    background-color: $primary;
+    font-weight: 200;
+    font-size: 1.2rem;
+}
+
 
 // Containers
 

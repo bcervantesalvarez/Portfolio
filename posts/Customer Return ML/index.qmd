@@ -17,6 +17,11 @@ categories: [R, machine learning, logistical model, data visualization]
 
 ![](return.jpeg)
 
+## Purpose
+
+In this evaluation, I scrutinized a partially randomly generated customer returns dataset with the objective of forecasting whether a customer would opt to return their purchased item. By employing progressive techniques that advanced from Logistical to Random Forest, I achieved a robust prediction of customer behavior with respect to product returns.
+
+
 ## Approach and Methodology
 
 To ensure proper analysis, I began by loading the necessary libraries and examining the train and test datasets to identify the variables available for analysis. Exploration of the data revealed trends in the number of returns across various variables such as ProductDepartment, ProductSize, and Returns Per State. Given the project objective of predicting the probability of item returns, I selected logistic regression, a well-suited model for binary dependent variables. To prepare the data, I developed a function to transform both the train and test data, ensuring dimensionality was kept in check by removing unnecessary columns such as dates and IDs. Additionally, I updated character data types to factors. Further exploration of the data led to the inclusion of additional features, such as "Season", "CustomerAge", "MSRP", and "PriceRange", that may play a significant role in predicting a customer's probability of returning their product. I ran a Random Forest model and achieved an AUC of 0.625. This indicates moderate predictive power for the model, and suggests that further feature engineering or model tuning may be necessary for better performance.

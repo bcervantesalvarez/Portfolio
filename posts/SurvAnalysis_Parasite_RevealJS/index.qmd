@@ -16,7 +16,7 @@ format:
 execute: 
   warning: false
   message: false
-categories: [reveal.js, R, presentation, informative, survival analysis]
+categories: [R, Reveal.JS, Survival Analysis]
 ---
 
 ![](parasite.jpeg)

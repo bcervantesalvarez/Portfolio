@@ -1,7 +1,8 @@
 ---
-title: "Insurance Premium Default {updating...}"
+title: "Insurance Premium Default"
 author: "Brian Cervantes Alvarez"
 date: "3-04-2023"
+image: insurance.jpeg
 format:
   html:
     toc: true
@@ -11,8 +12,13 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, informative, reports, plotly]
+categories: [R, Machine Learning]
 ---
+
+# WORK IN PROGRESS!
+
+
+![](insurance.jpeg)
 
 ## Setup
 

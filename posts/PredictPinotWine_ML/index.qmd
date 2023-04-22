@@ -10,7 +10,7 @@ format:
     html-math-method: katex
 output: html_document
 code-fold: false
-categories: [R, machine learning, random forest, classification]
+categories: [R, Machine Learning, Random Forest, Classification]
 ---
 
 ![](pinot.jpeg)
@@ -27,12 +27,13 @@ library(caret)
 library(rpart)
 library(tidytext)
 library(SnowballC)
-wine = read_rds("pinot.rds") 
 ```
 
 ## Feature Engineering
 
 ```{r}
+
+wine = read_rds("pinot.rds") 
 
 wine_words <- function(df, j, stem = T){ 
   data(stop_words)

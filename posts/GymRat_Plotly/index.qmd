@@ -13,7 +13,7 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, informative, interactive, plotly]
+categories: [R, RPlotly]
 ---
 
 ![](gymRat.jpeg)

@@ -12,5 +12,6 @@ title-block-banner: true
 
 This presentation not only serves as an introduction to my persona but also offers a glimpse into a selection of my projects that I have found immensely gratifying. Utilizing an array of programming languages ranging from R to SQL, I am thrilled to embark on my journey as a Data Scientist and become an integral part of the ever-evolving field of Data Science.
 
+<iframe src="https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide" width="800" height="600" allowfullscreen>
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide" width="800" height="600" allowfullscreen></iframe>
+</iframe>

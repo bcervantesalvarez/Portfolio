@@ -10,7 +10,6 @@ title-block-banner: true
 format:
   html:
     theme: 
-      light: lux
-      dark: cyborg
-    css: styles.css
-    mainfont: Futura
+      light: lux.scss
+      dark: cyborg.scss
+    

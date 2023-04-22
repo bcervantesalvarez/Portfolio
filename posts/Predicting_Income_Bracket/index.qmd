@@ -15,7 +15,7 @@ output: html_document
 execute:
   message: false
   warning: false
-categories: [R, machine learning, gradient boosting machine, logistic regression, stats]
+categories: [R, Machine Learning, Gradient Boosting Machines, Logistic Regression]
 ---
 
 ![](income.jpeg)
@@ -30,7 +30,7 @@ Willa was instrumental in laying the foundation for the models and identifying t
 
 Here is the direct link to her [website](https://willavanliew.netlify.app/). Take a look at her data science projects!
 
-## Predicting Income >50K
+## Predicting Income \>50K
 
 ### Load Libraries
 

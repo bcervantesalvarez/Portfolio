@@ -10,7 +10,7 @@ format:
 image: pokemon.jpeg
 output: html_document
 code-fold: true
-categories: [postgreSQL, database, presentation, R, sql]
+categories: [R, PostgreSQL]
 ---
 
 ![](pokemon.jpeg)

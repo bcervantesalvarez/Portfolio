@@ -127,8 +127,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -230,7 +228,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#approach-and-methodology" id="toc-approach-and-methodology" class="nav-link active" data-scroll-target="#approach-and-methodology">Approach and Methodology</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#approach-and-methodology" id="toc-approach-and-methodology" class="nav-link" data-scroll-target="#approach-and-methodology">Approach and Methodology</a></li>
   <li><a href="#load-the-required-packages" id="toc-load-the-required-packages" class="nav-link" data-scroll-target="#load-the-required-packages">Load the required packages</a></li>
   <li><a href="#load-the-training-and-test-data" id="toc-load-the-training-and-test-data" class="nav-link" data-scroll-target="#load-the-training-and-test-data">Load the training and test data</a></li>
   <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration">Data Exploration</a></li>
@@ -249,6 +248,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="return.jpeg" class="img-fluid"></p>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>In this evaluation, I scrutinized a partially randomly generated customer returns dataset with the objective of forecasting whether a customer would opt to return their purchased item. By employing progressive techniques that advanced from Logistical to Random Forest, I achieved a robust prediction of customer behavior with respect to product returns.</p>
+</section>
 <section id="approach-and-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="approach-and-methodology">Approach and Methodology</h2>
 <p>To ensure proper analysis, I began by loading the necessary libraries and examining the train and test datasets to identify the variables available for analysis. Exploration of the data revealed trends in the number of returns across various variables such as ProductDepartment, ProductSize, and Returns Per State. Given the project objective of predicting the probability of item returns, I selected logistic regression, a well-suited model for binary dependent variables. To prepare the data, I developed a function to transform both the train and test data, ensuring dimensionality was kept in check by removing unnecessary columns such as dates and IDs. Additionally, I updated character data types to factors. Further exploration of the data led to the inclusion of additional features, such as “Season”, “CustomerAge”, “MSRP”, and “PriceRange”, that may play a significant role in predicting a customer’s probability of returning their product. I ran a Random Forest model and achieved an AUC of 0.625. This indicates moderate predictive power for the model, and suggests that further feature engineering or model tuning may be necessary for better performance.</p>
@@ -392,7 +395,7 @@ $ PriceRange        &lt;fct&gt; $13-$30, $31-$60, $31-$60, $61-$100, &gt;$100, &
  Min.   :0.0019   Min.   :  8.73   No :42035   Fall  :23194   Min.   :26.00  
  1st Qu.:0.0882   1st Qu.: 44.79   Yes:22877   Spring:12576   1st Qu.:36.00  
  Median :0.1717   Median : 62.54               Summer:16620   Median :47.00  
- Mean   :0.1689   Mean   : 65.42               Winter:12522   Mean   :48.29  
+ Mean   :0.1689   Mean   : 65.42               Winter:12522   Mean   :48.38  
  3rd Qu.:0.2541   3rd Qu.: 84.84                              3rd Qu.:60.00  
  Max.   :0.3329   Max.   :132.72                              Max.   :77.00  
                                                                              
@@ -442,9 +445,9 @@ Summary of sample sizes: 43274, 43275, 43275
 Resampling results across tuning parameters:
 
   mtry  ROC        Sens       Spec     
-   2    0.5560054  1.0000000  0.0000000
-  36    0.6232798  0.8319257  0.3590509
-  70    0.6249459  0.8264303  0.3719893
+   2    0.5536397  1.0000000  0.0000000
+  36    0.6241007  0.8337575  0.3629410
+  70    0.6243384  0.8250266  0.3740877
 
 ROC was used to select the optimal model using the largest value.
 The final value used for the model was mtry = 70.</code></pre>

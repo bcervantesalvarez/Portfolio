@@ -3,7 +3,10 @@ project:
   output-dir: docs
 
 website:
+  open-graph: true
   title: "Brian Cervantes Alvarez"
+  page-footer:
+    left: "Quarto, Copyright 2023, Brian Cervantes Alvarez"
   navbar:
     right:
       - text: "Portfolio"
@@ -22,13 +25,11 @@ website:
         href: mailto:briancervantesalvarez@gmail.com
 format:
   html:
+    citations-hover: true
+    footnotes-hover: true
     theme: 
       light: lux.scss
       dark: cyborg.scss
-    css: styles.css
-    fontsize: 1.2em
-    linestretch: 2
-    monofont: "Monaco"
 
 editor: visual
 

@@ -25,14 +25,15 @@ Compared to my previous Shiny app, this project was developed more efficiently, 
 
 Overall, this project was a challenging but rewarding experience that allowed me to build my skills in data analysis and Shiny app development.
 
-
 ## Questions
 
 -   What is the average **rating** for each category and subcategory?
 
 -   What is the average **review** for each category and subcategory?
 
-<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="800" height="800" allowfullscreen></iframe>
+<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="800" height="800" allowfullscreen>
+
+</iframe>
 
 [Fullscreen](https://bcervantesalvarez.shinyapps.io/AmazonProductApp/)
 
@@ -87,7 +88,6 @@ amazonProducts %>%
  write_csv("amazonProducts.csv")
 ```
 
-
 ### Reload Data
 
 ```{r}
@@ -110,7 +110,7 @@ top10Products <- products %>% filter(ProductRating > 4.5, NumberOfRatings > 50) 
 #unique(products$MainCategory)
 ```
 
-### Color Theming 
+### Color Theming
 
 ```{r}
 #Plot 1 
@@ -275,7 +275,7 @@ shinyApp(ui = ui, server = server)
 
 ## Further Improvement Questions
 
--  Is there a correlation between the number of ratings and the product rating?
-- What is the average discount percentage for each main category and subcategory?
-- What is the price range for each main category and subcategory?
-- Which products have the highest ratings and how do they compare in terms of price and number of ratings?
+-   Is there a correlation between the number of ratings and the product rating?
+-   What is the average discount percentage for each main category and subcategory?
+-   What is the price range for each main category and subcategory?
+-   Which products have the highest ratings and how do they compare in terms of price and number of ratings?

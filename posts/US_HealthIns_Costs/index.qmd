@@ -14,10 +14,8 @@ execute:
   message: false
   warning: false
 categories:
-  - python
-  - healthcare
-  - analysis
-  - stats
+  - Python
+  - Statistics
 jupyter: python3
 ---
 

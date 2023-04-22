@@ -13,10 +13,12 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, finance, time series, data visualization]
+categories: [R, Time Series]
 ---
 
 ![](apple.jpeg)
+
+## Purpose
 
 The primary objective of this undertaking was to delve into the application of R's plotly and create dynamic and interactive visualizations of Time Series Graphs. In this regard, I opted to scrutinize the Apple stock prices spanning the period from 1981 to the present, with a keen focus on identifying any notable trends that have emerged over time. Upon a closer inspection of the data, I observed a remarkable spike in the company's stock prices in the aftermath of 2010, which I attribute to the resounding success of Apple's iPhone and the accompanying products.
 
