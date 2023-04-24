@@ -39,7 +39,6 @@ $danger:        $red !default;
 $light:         $white !default;
 $dark:          $gray-400 !default;
 
-
 $min-contrast-ratio:   2.25 !default;
 
 // Options
@@ -56,7 +55,7 @@ $title-banner: true !default;
 
 // Body
 
-$body-color:           $gray-700 !default;
+$body-color: $gray-700 !default;
 
 // Fonts
 
@@ -112,6 +111,19 @@ $pagination-border-color:           transparent !default;
 $pagination-hover-border-color:     $pagination-border-color !default;
 $pagination-disabled-border-color:  $pagination-border-color !default;
 
+// Code block
+
+// $code-block-bg:           #16151f !default;
+// $code-block-text-color:   #f5f5f5 !default;
+// $code-comment-color:      #a6a6a6 !default;
+// $code-variable-color:     #4da6ff !default;
+// $code-function-color:     #ffd300 !default;
+// $code-operator-color:     #2ecc71 !default;
+// $code-punctuation-color:  #a6a6a6 !default;
+// $code-string-color:       #ff6b81 !default;
+// $code-number-color:       #a55eea !default;
+// $code-selector-color:     #ff9f43 !default;
+
 
 /*-- scss:rules --*/
 
@@ -131,6 +143,7 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
 }
 
 
+// Category Block Labels
 div.quarto-post .listing-categories .listing-category {
     color: $gray-600;
     border: solid 1px $gray-500;
@@ -249,11 +262,157 @@ body {
   color: $gray-700;
 }
 
-code{
-  font-weight: 250;
+// Code Chunk Coloring
+
+code {
   font-family: 'Fira Code', monospace;
-  letter-spacing: 1px;
+  padding: 0.5rem;
+  overflow-x: scroll;
 }
+
+// Source Code color-scheme: 
+
+
+pre > code.sourceCode > span {
+  color: #ffffff;
+  width: 100%;
+}
+
+div.sourceCode, div.sourceCode pre.sourceCode {
+    background-color: #333333;
+}
+
+code span {
+  color: #ffffff;
+}
+
+code.sourceCode > span {
+  color: #ffffff;
+  
+}
+
+div.sourceCode,
+div.sourceCode pre.sourceCode {
+  color: #ffffff;
+}
+
+code span.ot {
+  color: #20794D;
+}
+
+code span.at {
+  color: #b3c20f;
+}
+
+code span.ss {
+  color: #25a18e;
+}
+
+code span.an {
+  color: #a0a0a0;
+}
+
+code span.fu {
+  color: #9e7ace;
+}
+
+code span.st {
+  color: #25a18e;
+}
+
+code span.cf {
+  color: #ffffff;
+}
+
+code span.op {
+  color: #a0a0a0;
+}
+
+code span.er {
+  color: #ff6347;
+}
+
+code span.bn {
+  color: #ff6347;
+}
+
+code span.al {
+  color: #ff6347;
+}
+
+code span.va {
+  color: #cccccc;
+}
+
+code span.pp {
+  color: #ff6347;
+}
+
+code span.in {
+  color: #a0a0a0;
+}
+
+code span.vs {
+  color: #25a18e;
+}
+
+code span.wa {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.do {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.im {
+  color: #25c3dc;
+}
+
+code span.ch {
+  color: #25a18e;
+}
+
+code span.dt {
+  color: #ff6347;
+}
+
+code span.fl {
+  color: #ff6347;
+}
+
+code span.co {
+  color: #a0a0a0;
+}
+
+code span.cv {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.cn {
+  color: #e6b800;
+}
+
+code span.sc {
+  color: #a0a0a0;
+}
+
+code span.dv {
+  color: #ff6347;
+}
+
+code span.kw {
+  color: #ffffff;
+}
+
+.prevent-inlining {
+  content: "</";
+}
+
+
+// Heading Transformations
 
 h1 {
   text-transform: uppercase;

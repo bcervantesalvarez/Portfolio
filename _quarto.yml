@@ -6,7 +6,7 @@ website:
   open-graph: true
   title: "Brian Cervantes Alvarez"
   page-footer:
-    left: "Quarto, Copyright 2023, Brian Cervantes Alvarez"
+    left: "Made with quarto® © 2023 Brian Cervantes Alvarez"
   navbar:
     right:
       - text: "Portfolio"

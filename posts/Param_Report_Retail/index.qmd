@@ -15,7 +15,7 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, Plotly, Reports, Time Series]
+categories: [R, RPlotly, Reports, Time Series]
 ---
 
 ![](report.png)
