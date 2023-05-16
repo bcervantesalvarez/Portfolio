@@ -35,11 +35,9 @@ leaflet() %>%
              lat = 46.235109, popup = "Grew up here")
 ```
 
-
 ![Pasco, Washington](background1.jpeg)
 
 Before finishing 1st grade, I moved to Salem, Oregon, a mid-sized city in the heart of the Willamette Valley. Salem is known for its farms and vineyards that produce some of the best wine and food in the state. Growing up in Salem, I was immersed in the outdoors and enjoyed activities such as hiking, camping, and running. Salem also has a rich history, with landmarks like the Oregon State Capitol and Willamette University, which is the oldest university in the west. However, as I got older, I also became aware of some of the social and economic challenges faced by many families in the area, such as poverty, limited job opportunities, and inadequate access to healthcare. My family and I suffered poverty and food instability before I graduated high school. Despite these challenges, I feel a strong connection to Salem and its people, and I am grateful for the experiences and values that I gained from growing up in this community.
-
 
 ```{r}
 library(leaflet)
