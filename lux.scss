@@ -6,7 +6,7 @@ $theme: "lux" !default;
 // Color system
 //
 
-$white:    #fff !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #f7f7f9 !default;
 $gray-300: #eceeef !default;
@@ -16,38 +16,37 @@ $gray-600: #919aa1 !default;
 $gray-700: #55595c !default;
 $gray-800: #343a40 !default;
 $gray-900: #1a1a1a !default;
-$black:    #000 !default;
+$black: #000 !default;
 
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #d9534f !default;
-$orange:  #fd7e14 !default;
-$yellow:  #f0ad4e !default;
-$green:   #4bbf73 !default;
-$teal:    #20c997 !default;
-$cyan:    #1f9bcf !default;
+$blue: #0073cf !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #d9534f !default;
+$orange: #fd7e14 !default;
+$yellow: #f0ad4e !default;
+$green: #4bbf73 !default;
+$teal: #20c997 !default;
+$cyan: #1f9bcf !default;
 
+$primary: $gray-900 !default;
+$secondary: $white !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $white !default;
+$dark: $gray-400 !default;
 
-$primary:       $gray-900 !default;
-$secondary:     $white !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $white !default;
-$dark:          $gray-400 !default;
-
-$min-contrast-ratio:   2.25 !default;
+$min-contrast-ratio: 2.25 !default;
 
 // Options
 
-$enable-rounded:       true !default;
+$enable-rounded: true !default;
 
 // Background Color
 
-$background-color:      #E9EAE0 !default;
+$background-color: #e9eae0 !default;
 
 // Title Banner
 
@@ -59,74 +58,62 @@ $body-color: $gray-700 !default;
 
 // Fonts
 
-$font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$body-font-size:              0.95rem !default;
-$font-size-sm:                0.8rem !default;
-$h1-font-size:                2rem !default;
-$h2-font-size:                1.8rem !default;
-$h3-font-size:                1.3rem !default;
-$h4-font-size:                1.25rem !default;
-$h5-font-size:                1rem !default;
-$h6-font-size:                .75rem !default;
-$headings-font-weight:        600 !default;
-$headings-color:              $primary !default;
+$font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$body-font-size: 1rem !default;
+$font-size-sm: 0.8rem !default;
+$h1-font-size: 3rem !default;
+$h2-font-size: 2.5rem !default;
+$h3-font-size: 2rem !default;
+$h4-font-size: 1.75rem !default;
+$h5-font-size: 1.5rem !default;
+$h6-font-size: 1.25rem !default;
+$headings-font-weight: 900 !default;
+$headings-color: $primary !default;
 
 // Word Spacing
 
-$body-line-stretch:           1.7rem !default;
+$body-line-stretch: 1.7rem !default;
 
 // Tables
 
-$table-border-color:          rgba(0, 2, 0, .05) !default;
+$table-border-color: rgba(0, 2, 0, 0.05) !default;
 
 // Buttons
 
-$btn-line-height:             1.5rem !default;
-$input-btn-padding-y:         .75rem !default;
-$input-btn-padding-x:         1.5rem !default;
-$input-btn-padding-y-sm:      .5rem !default;
-$input-btn-padding-x-sm:      1rem !default;
-$input-btn-padding-y-lg:      2rem !default;
-$input-btn-padding-x-lg:      2rem !default;
-$btn-font-weight:             600 !default;
+$btn-line-height: 1.5rem !default;
+$input-btn-padding-y: 0.75rem !default;
+$input-btn-padding-x: 1.5rem !default;
+$input-btn-padding-y-sm: 0.5rem !default;
+$input-btn-padding-x-sm: 1rem !default;
+$input-btn-padding-y-lg: 2rem !default;
+$input-btn-padding-x-lg: 2rem !default;
+$btn-font-weight: 600 !default;
 
 // Forms
 
-$input-line-height:                     1.5 !default;
-$input-bg:                              $gray-200 !default;
-$input-disabled-bg:                     $gray-300 !default;
-$input-group-addon-bg:                  $gray-300 !default;
+$input-line-height: 1.5 !default;
+$input-bg: $gray-200 !default;
+$input-disabled-bg: $gray-300 !default;
+$input-group-addon-bg: $gray-300 !default;
 
 // Navbar
 
-$navbar-padding-y:                  1.5rem !default;
-$navbar-dark-hover-color:           $secondary !default;
-$navbar-light-color:                rgba($black, .3) !default;
-$navbar-light-hover-color:          $primary !default;
-$navbar-light-active-color:         $primary !default;
+$navbar-padding-y: 1.5rem !default;
+$navbar-dark-hover-color: $secondary !default;
+$navbar-light-color: rgba($black, 0.3) !default;
+$navbar-light-hover-color: $primary !default;
+$navbar-light-active-color: $primary !default;
 
 // Pagination
-
-$pagination-border-color:           transparent !default;
-$pagination-hover-border-color:     $pagination-border-color !default;
-$pagination-disabled-border-color:  $pagination-border-color !default;
-
-// Code block
-
-// $code-block-bg:           #16151f !default;
-// $code-block-text-color:   #f5f5f5 !default;
-// $code-comment-color:      #a6a6a6 !default;
-// $code-variable-color:     #4da6ff !default;
-// $code-function-color:     #ffd300 !default;
-// $code-operator-color:     #2ecc71 !default;
-// $code-punctuation-color:  #a6a6a6 !default;
-// $code-string-color:       #ff6b81 !default;
-// $code-number-color:       #a55eea !default;
-// $code-selector-color:     #ff9f43 !default;
-
+$pagination-color: $blue !default;
+$pagination-hover-color: color-contrast($blue) !default;
+$pagination-border-color: transparent !default;
+$pagination-hover-border-color: $pagination-border-color !default;
+$pagination-disabled-border-color: $pagination-border-color !default;
 
 /*-- scss:rules --*/
-
 
 // Variables
 
@@ -142,28 +129,27 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
   @import url($web-monofont-path);
 }
 
-
 // Category Block Labels
 div.quarto-post .listing-categories .listing-category {
-    color: $gray-600;
-    border: solid 1px $gray-500;
-    border-radius: 0.25rem;
-    text-transform: uppercase;
-    font-size: .65em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    padding-top: 0.15em;
-    padding-bottom: 0.15em;
-    cursor: pointer;
-    margin-right: 4px;
-    margin-bottom: 4px;
+  color: $gray-600;
+  border: solid 1px $gray-500;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  font-size: 0.65em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  cursor: pointer;
+  margin-right: 4px;
+  margin-bottom: 4px;
 }
 
 // Title Banner
 
 .quarto-title-banner .quarto-title .title {
-    font-weight: 500;
-    color: white;
+  font-weight: 900;
+  color: white;
 }
 
 // Navbar
@@ -171,12 +157,12 @@ div.quarto-post .listing-categories .listing-category {
 .navbar {
   font-size: $font-size-sm;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 800;
 
   &-nav {
     .nav-link {
-      padding-top: .715rem;
-      padding-bottom: .715rem;
+      padding-top: 0.715rem;
+      padding-bottom: 0.715rem;
     }
   }
 
@@ -185,12 +171,13 @@ div.quarto-post .listing-categories .listing-category {
   }
 }
 
+
 .bg-primary {
   background-color: theme-color("primary") !important;
 }
 
 .bg-light {
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
   &.navbar-fixed-top {
     border-width: 0 0 1px;
@@ -205,56 +192,18 @@ div.quarto-post .listing-categories .listing-category {
   margin-right: 2rem;
 }
 
-// Buttons
-
-.btn {
-  font-size: $font-size-sm;
-  text-transform: uppercase;
-
-  &-sm {
-    font-size: 10px;
-  }
-
-  &-warning {
-    &,
-    &:hover,
-    &:not([disabled]):not(.disabled):active,
-    &:focus {
-      color: $secondary;
-    }
-  }
+// Table of Content 
+.sidebar nav[role=doc-toc] ul>li>a.active {
+  border-left: 1px solid #1a1a1a;
+  color: $blue !important;
 }
 
-.btn-outline-secondary {
-  border-color: $gray-600;
-  color: $gray-600;
-
-  &:not([disabled]):not(.disabled):hover,
-  &:not([disabled]):not(.disabled):focus,
-  &:not([disabled]):not(.disabled):active {
-    background-color: $gray-400;
-    border-color: $gray-400;
-    color: $secondary;
-  }
-
-  &:not([disabled]):not(.disabled):focus {
-    box-shadow: 0 0 0 .2rem rgba($gray-400, .5);
-  }
-}
-
-[class*="btn-outline-"] {
-  border-width: 2px;
-}
-
-.border-secondary {
-  border: 1px solid $gray-400 !important;
-}
 
 // Typography
 
 body {
   font-weight: 200;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   letter-spacing: 1.1px;
   background-color: $background-color;
   font-size: $body-font-size;
@@ -262,24 +211,28 @@ body {
   color: $gray-700;
 }
 
+p {
+  margin-bottom: 20px; // Adjusts the bottom margin between paragraphs
+}
+
 // Code Chunk Coloring
 
 code {
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   padding: 0.5rem;
   overflow-x: scroll;
 }
 
-// Source Code color-scheme: 
-
+// Source Code color-scheme:
 
 pre > code.sourceCode > span {
   color: #ffffff;
   width: 100%;
 }
 
-div.sourceCode, div.sourceCode pre.sourceCode {
-    background-color: $gray-900;
+div.sourceCode,
+div.sourceCode pre.sourceCode {
+  background-color: $gray-900;
 }
 
 code span {
@@ -288,7 +241,6 @@ code span {
 
 code.sourceCode > span {
   color: #ffffff;
-  
 }
 
 div.sourceCode,
@@ -297,7 +249,7 @@ div.sourceCode pre.sourceCode {
 }
 
 code span.ot {
-  color: #20794D;
+  color: #20794d;
 }
 
 code span.at {
@@ -411,22 +363,24 @@ code span.kw {
   content: "</";
 }
 
-
 // Heading Transformations
 
 h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
 h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
 h3 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
 h4 {
@@ -448,6 +402,53 @@ h6 {
   color: $body-color !important;
 }
 
+
+// Buttons
+
+.btn {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+
+  &-sm {
+    font-size: 10px;
+  }
+
+  &-warning {
+    &,
+    &:hover,
+    &:not([disabled]):not(.disabled):active,
+    &:focus {
+      color: $secondary;
+    }
+  }
+}
+
+.btn-outline-secondary {
+  border-color: $gray-600;
+  color: $gray-600;
+
+  &:not([disabled]):not(.disabled):hover,
+  &:not([disabled]):not(.disabled):focus,
+  &:not([disabled]):not(.disabled):active {
+    background-color: $gray-400;
+    border-color: $gray-400;
+    color: $secondary;
+  }
+
+  &:not([disabled]):not(.disabled):focus {
+    box-shadow: 0 0 0 0.2rem rgba($gray-400, 0.5);
+  }
+}
+
+[class*="btn-outline-"] {
+  border-width: 2px;
+}
+
+.border-secondary {
+  border: 1px solid $gray-400 !important;
+}
+
+
 // Tables
 
 th {
@@ -464,7 +465,7 @@ th {
   &-sm {
     th,
     td {
-      padding: .75rem;
+      padding: 0.75rem;
     }
   }
 }
@@ -479,7 +480,7 @@ th {
 // Indicators
 
 .badge {
-  padding-top: .28rem;
+  padding-top: 0.28rem;
 
   &-pill {
     border-radius: 10rem;
@@ -494,17 +495,16 @@ th {
 // Footer
 
 .nav-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    background-color: $primary;
-    font-weight: 200;
-    font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  background-color: $primary;
+  font-weight: 200;
+  font-size: 1.2rem;
 }
-
 
 // Containers
 
@@ -532,3 +532,14 @@ th {
   }
 }
 
+.container {
+  width: 100%; // Sets the width to 100% for smaller screens
+  max-width: 1200px; // Sets a maximum width for larger screens
+  margin: 0 auto; // Centers the container horizontally
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%; // Adjusts the maximum width for smaller screens
+  }
+}
