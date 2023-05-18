@@ -9,7 +9,7 @@ website:
     left: "Made with quarto® © 2023 Brian Cervantes Alvarez"
   navbar:
     right:
-      - text: "Portfolio"
+      - text: "Projects"
         file: index.qmd
       - text: "Presentations"
         file: presentation.qmd
