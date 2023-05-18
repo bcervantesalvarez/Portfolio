@@ -28,6 +28,8 @@ My dedication to continuous learning allows me to stay up-to-date with the lates
 
 I was born in Pasco, Washington, a small city in the southeastern part of the state. Pasco is part of the Tri-Cities area, along with Richland and Kennewick, and is known for its agricultural industry, particularly the cultivation of potatoes, apples, and wine grapes. 
 
+![Pasco, Washington](background1.jpeg)
+
 I enjoyed the rural atmosphere of Pasco, with its open fields, orchards, and vineyards.
 
 ```{r}
@@ -39,9 +41,9 @@ leaflet() %>%
              lat = 46.235109, popup = "Grew up here")
 ```
 
-![Pasco, Washington](background1.jpeg)
-
 Before finishing 1st grade, I moved to Salem, Oregon, a mid-sized city in the heart of the Willamette Valley. Salem is known for its farms and vineyards that produce some of the best wine and food in the state. 
+
+![Salem, Oregon](background2.jpeg)
 
 Growing up in Salem, I was immersed in the outdoors and enjoyed activities such as hiking, camping, and running. Salem also has a rich history, with landmarks like the Oregon State Capitol and Willamette University, which is the oldest university in the west. However, as I got older, I also became aware of some of the social and economic challenges faced by many families in the area, such as poverty, limited job opportunities, and inadequate access to healthcare. 
 
@@ -56,4 +58,3 @@ leaflet() %>%
              lat = 44.9391565, popup = "Grew up here")
 ```
 
-![Salem, Oregon](background2.jpeg)
