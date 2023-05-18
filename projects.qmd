@@ -1,0 +1,16 @@
+---
+title: "Projects"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  date-format: full
+  template: blog_template.ejs
+  categories: unnumbered
+  sort-ui: false
+  filter-ui: false
+format: 
+  html:
+    page-layout: article
+title-block-banner: true
+---

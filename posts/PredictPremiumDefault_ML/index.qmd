@@ -2,6 +2,7 @@
 title: "Insurance Premium Default"
 author: "Brian Cervantes Alvarez"
 date: "3-04-2023"
+draft: true
 image: insurance.jpeg
 format:
   html:

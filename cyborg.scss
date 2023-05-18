@@ -231,6 +231,11 @@ p {
   margin-bottom: 25px; // Adjusts the bottom margin between paragraphs
 }
 
+// Adjust Image Size
+.quarto-img {
+  max-width: 100%;
+}
+
 // Title Banner
 
 .quarto-title-banner .quarto-title .title {
@@ -238,7 +243,25 @@ p {
   color: white;
 }
 
+// Blog Author + Date
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
+  margin-bottom: 0.1em;
+  margin-top: auto;
+  font-size: 1.1em
+}
+
+
 // Navbar
+
+a {
+  color: $gray-100;
+  
+  &:hover {
+    color: lighten(#1560bd, 20%);
+  }
+}
+
 
 .navbar {
   font-size: $font-size-sm;

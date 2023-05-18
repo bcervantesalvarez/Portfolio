@@ -152,6 +152,14 @@ div.quarto-post .listing-categories .listing-category {
   color: white;
 }
 
+// Blog Author + Date
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
+  margin-bottom: 0.1em;
+  margin-top: auto;
+  font-size: 1.1em
+}
+
 // Navbar
 
 .navbar {
@@ -214,6 +222,11 @@ body {
 p {
   margin-top: 25px;
   margin-bottom: 25px; // Adjusts the bottom margin between paragraphs
+}
+
+// Adjust Image Size
+.quarto-img {
+  max-width: 100%;
 }
 
 // Code Chunk Coloring
@@ -471,7 +484,33 @@ th {
   }
 }
 
-// Navs
+// Navs Colors & Hover Over
+
+a {
+  color: $gray-900;
+  
+  &:hover {
+    color: #1560bd;
+  }
+}
+
+#quarto-margin-sidebar .quarto-listing-category-title {
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.1rem;
+  position: relative;
+
+  &:hover {
+    color: #1560bd;
+  }
+}
+
+.quarto-listing-category .category {
+  cursor: pointer;
+  &:hover {
+    color: #1560bd;
+  }
+}
 
 .dropdown-menu {
   font-size: $font-size-sm;
@@ -505,6 +544,13 @@ th {
   background-color: $primary;
   font-weight: 200;
   font-size: 1.2rem;
+  a {
+    color: $gray-600;
+    
+    &:hover {
+      color: $background-color;  // Adjust the percentage to control the amount of lightening
+    }
+  }
 }
 
 // Containers

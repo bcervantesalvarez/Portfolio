@@ -8,8 +8,9 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2022-07-14">
+<meta name="description" content="In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders, including both smokers and non-smokers.">
 
-<title>Brian Cervantes Alvarez - U.S. Medical Insurance Costs</title>
+<title>Brian Cervantes Alvarez - The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,8 +128,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta property="og:title" content="Brian Cervantes Alvarez - U.S. Medical Insurance Costs">
-<meta property="og:description" content="The focal point of this project pertains to the medical insurance industry. I showcase my proficiency in creating compelling visualizations and conducting statistical analyses on a refined data set.">
+<meta property="og:title" content="Brian Cervantes Alvarez - The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs">
+<meta property="og:description" content="In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders, including both smokers…">
 <meta property="og:image" content="health_ins.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -150,8 +151,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html">
- <span class="menu-text">Portfolio</span></a>
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../presentation.html">
@@ -160,25 +165,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li class="nav-item">
     <a class="nav-link" href="../../resume.html">
  <span class="menu-text">Resume</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About Me</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/"><i class="bi bi-linkedin" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bcervantesalvarez/"><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="mailto:briancervantesalvarez@gmail.com"><i class="bi bi-envelope-fill" role="img">
-</i> 
- <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -193,10 +179,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">U.S. Medical Insurance Costs</h1>
-                                <div class="quarto-categories">
+      <h1 class="title">The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs</h1>
+                  <div>
+        <div class="description">
+          In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders, including both smokers and non-smokers.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">Python</div>
                 <div class="quarto-category">Statistics</div>
+                <div class="quarto-category">Jupyter Notebook</div>
+                <div class="quarto-category">Data Visualization</div>
               </div>
                   </div>
   </div>
@@ -230,26 +223,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#purpose-of-this-project" id="toc-purpose-of-this-project" class="nav-link active" data-scroll-target="#purpose-of-this-project">Purpose of this Project</a>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract:</a>
   <ul class="collapse">
-  <li><a href="#set-up-and-importing-the-data" id="toc-set-up-and-importing-the-data" class="nav-link" data-scroll-target="#set-up-and-importing-the-data">Set Up and Importing the Data</a></li>
+  <li><a href="#data-setup-and-import" id="toc-data-setup-and-import" class="nav-link" data-scroll-target="#data-setup-and-import">Data Setup and Import</a></li>
   </ul></li>
-  <li><a href="#analyzing-smoker-insurance-costs" id="toc-analyzing-smoker-insurance-costs" class="nav-link" data-scroll-target="#analyzing-smoker-insurance-costs">Analyzing Smoker Insurance Costs</a>
+  <li><a href="#analysis-of-factors-affecting-insurance-costs" id="toc-analysis-of-factors-affecting-insurance-costs" class="nav-link" data-scroll-target="#analysis-of-factors-affecting-insurance-costs">Analysis of Factors Affecting Insurance Costs:</a>
   <ul class="collapse">
   <li><a href="#histogram-plot-of-smokers-vs-nonsmokers" id="toc-histogram-plot-of-smokers-vs-nonsmokers" class="nav-link" data-scroll-target="#histogram-plot-of-smokers-vs-nonsmokers">Histogram Plot of Smokers vs Nonsmokers</a></li>
   <li><a href="#boxplot-and-histogram-distribution-of-insurance-costs-for-smokers" id="toc-boxplot-and-histogram-distribution-of-insurance-costs-for-smokers" class="nav-link" data-scroll-target="#boxplot-and-histogram-distribution-of-insurance-costs-for-smokers">Boxplot and Histogram Distribution of Insurance Costs for Smokers</a></li>
   <li><a href="#insurance-cost-statistics-for-smokers" id="toc-insurance-cost-statistics-for-smokers" class="nav-link" data-scroll-target="#insurance-cost-statistics-for-smokers">Insurance Cost Statistics for Smokers</a></li>
-  <li><a href="#seperating-male-and-female-smokers" id="toc-seperating-male-and-female-smokers" class="nav-link" data-scroll-target="#seperating-male-and-female-smokers">Seperating Male and Female Smokers</a></li>
-  <li><a href="#analyzing-male-smokers" id="toc-analyzing-male-smokers" class="nav-link" data-scroll-target="#analyzing-male-smokers">Analyzing Male Smokers</a></li>
-  <li><a href="#bmi-graph-highlighted" id="toc-bmi-graph-highlighted" class="nav-link" data-scroll-target="#bmi-graph-highlighted">BMI Graph Highlighted</a></li>
-  <li><a href="#analyzing-female-smokers" id="toc-analyzing-female-smokers" class="nav-link" data-scroll-target="#analyzing-female-smokers">Analyzing Female Smokers</a></li>
-  <li><a href="#average-insurance-cost-comparision-of-male-and-female-smokers" id="toc-average-insurance-cost-comparision-of-male-and-female-smokers" class="nav-link" data-scroll-target="#average-insurance-cost-comparision-of-male-and-female-smokers">Average Insurance Cost Comparision of Male and Female Smokers</a></li>
-  <li><a href="#boxplot-and-histogram-distribution-of-insurance-costs-for-nonsmokers" id="toc-boxplot-and-histogram-distribution-of-insurance-costs-for-nonsmokers" class="nav-link" data-scroll-target="#boxplot-and-histogram-distribution-of-insurance-costs-for-nonsmokers">Boxplot and Histogram Distribution of Insurance Costs for Nonsmokers</a></li>
+  <li><a href="#separation-of-male-and-female-smokers" id="toc-separation-of-male-and-female-smokers" class="nav-link" data-scroll-target="#separation-of-male-and-female-smokers">Separation of Male and Female Smokers:</a></li>
+  <li><a href="#analysis-of-male-smokers" id="toc-analysis-of-male-smokers" class="nav-link" data-scroll-target="#analysis-of-male-smokers">Analysis of Male Smokers:</a></li>
+  <li><a href="#analysis-of-male-smokers-highlighting-bmi" id="toc-analysis-of-male-smokers-highlighting-bmi" class="nav-link" data-scroll-target="#analysis-of-male-smokers-highlighting-bmi">Analysis of Male Smokers: Highlighting BMI</a></li>
+  <li><a href="#the-analysis-of-female-smokers-reveals-the-following-insights" id="toc-the-analysis-of-female-smokers-reveals-the-following-insights" class="nav-link" data-scroll-target="#the-analysis-of-female-smokers-reveals-the-following-insights">The analysis of female smokers reveals the following insights:</a></li>
+  <li><a href="#comparing-average-insurance-costs-male-vs.-female-smokers" id="toc-comparing-average-insurance-costs-male-vs.-female-smokers" class="nav-link" data-scroll-target="#comparing-average-insurance-costs-male-vs.-female-smokers">Comparing Average Insurance Costs: Male vs.&nbsp;Female Smokers</a></li>
   </ul></li>
-  <li><a href="#analyzing-the-insurance-cost-of-nonsmokers" id="toc-analyzing-the-insurance-cost-of-nonsmokers" class="nav-link" data-scroll-target="#analyzing-the-insurance-cost-of-nonsmokers">Analyzing the insurance cost of nonsmokers</a>
+  <li><a href="#approaching-the-analysis-of-nonsmokers" id="toc-approaching-the-analysis-of-nonsmokers" class="nav-link" data-scroll-target="#approaching-the-analysis-of-nonsmokers">Approaching the Analysis of Nonsmokers</a>
   <ul class="collapse">
-  <li><a href="#analyzing-male-nonsmokers" id="toc-analyzing-male-nonsmokers" class="nav-link" data-scroll-target="#analyzing-male-nonsmokers">Analyzing Male Nonsmokers</a></li>
-  <li><a href="#analyzing-female-nonsmokers" id="toc-analyzing-female-nonsmokers" class="nav-link" data-scroll-target="#analyzing-female-nonsmokers">Analyzing Female Nonsmokers</a></li>
+  <li><a href="#analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution" id="toc-analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution" class="nav-link" data-scroll-target="#analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution">Analysis of Insurance Costs for Nonsmokers: Boxplot and Histogram Distribution</a></li>
+  <li><a href="#analysis-of-insurance-costs-for-nonsmokers" id="toc-analysis-of-insurance-costs-for-nonsmokers" class="nav-link" data-scroll-target="#analysis-of-insurance-costs-for-nonsmokers">Analysis of Insurance Costs for Nonsmokers</a></li>
+  <li><a href="#analyzing-male-nonsmokers-key-findings" id="toc-analyzing-male-nonsmokers-key-findings" class="nav-link" data-scroll-target="#analyzing-male-nonsmokers-key-findings">Analyzing Male Nonsmokers: Key Findings</a></li>
+  <li><a href="#analyzing-female-nonsmokers-a-comparison-with-male-nonsmokers" id="toc-analyzing-female-nonsmokers-a-comparison-with-male-nonsmokers" class="nav-link" data-scroll-target="#analyzing-female-nonsmokers-a-comparison-with-male-nonsmokers">Analyzing Female Nonsmokers: A Comparison with Male Nonsmokers</a></li>
   </ul></li>
   <li><a href="#nonsmokers-vs-smokers" id="toc-nonsmokers-vs-smokers" class="nav-link" data-scroll-target="#nonsmokers-vs-smokers">Nonsmokers vs Smokers</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
@@ -264,15 +258,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="health_ins.jpeg" class="img-fluid"></p>
-<section id="purpose-of-this-project" class="level2">
-<h2 class="anchored" data-anchor-id="purpose-of-this-project">Purpose of this Project</h2>
-<p>The focal point of this project pertains to the medical insurance industry. I showcase my proficiency in creating compelling visualizations and conducting statistical analyses on a refined data set. Prior to delving into the data set, I formulated several key questions to guide my investigation. These inquiries included identifying the principal driver of heightened insurance costs, evaluating the variables that contribute to rising or falling medical insurance expenses, and identifying the optimal individual profile that minimizes medical insurance costs.</p>
-<p>Of particular interest in this study was the analysis of smoking habits as a variable that may have a significant impact on medical insurance expenses. Moreover, a detailed exploration of the disparities in insurance costs between male and female individuals, both smokers and non-smokers, was conducted.</p>
-<p>To accomplish these objectives, advanced analytical tools and methodologies were utilized. Rigorous data cleaning and wrangling were carried out to ensure the accuracy and integrity of the data. Subsequently, advanced statistical techniques such as linear regression and hypothesis testing were utilized to extract meaningful insights from the data.</p>
-<p>Ultimately, this project provides valuable insights into the medical insurance industry and serves as a testament to the power of data analytics in unlocking actionable insights that can drive informed decision-making.</p>
-<p><strong>If you wish to skip towards the results portion, feel free to scroll down and have a quick read! Interesting results were found.</strong></p>
-<section id="set-up-and-importing-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="set-up-and-importing-the-data">Set Up and Importing the Data</h3>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract:</h2>
+<p>This study confirms the significant impact of smoking on the escalation of health insurance premiums. Male and female smokers with a body mass index (BMI) of 30 or higher face additional charges, compounding their financial burden. Male smokers experience a 52% increase, while female smokers face a 49% rise in insurance charges, in addition to the base premium for smokers.</p>
+<p>The severity of the situation is evident, as male smokers pay 408.57% more than non-smokers, and female smokers pay 350.12% more. The data unequivocally supports the notion that unhealthy lifestyle choices, such as smoking and high BMI, result in higher health insurance premiums. It is important to note that premiums also increase gradually over time with age.</p>
+<p>While this project provides valuable insights, further exploration opportunities exist. Applying machine learning techniques to assess the representativeness of the sample could enhance the accuracy of conclusions and foster advancements in the field of health insurance.</p>
+<section id="data-setup-and-import" class="level3">
+<h3 class="anchored" data-anchor-id="data-setup-and-import">Data Setup and Import</h3>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -294,16 +286,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="analyzing-smoker-insurance-costs" class="level2">
-<h2 class="anchored" data-anchor-id="analyzing-smoker-insurance-costs">Analyzing Smoker Insurance Costs</h2>
-<p>We want to know what influences the cost of insurance. What causes an individual to pay more for their insurance? We can infer that being a smoker will drastically increase their out of pocket medical insurance expenses.</p>
-<p>I take a look into how many smokers we have in this data set. Then, I take a quick look into the smokers’ distribution of charges and show a boxplot to visualize the insurance cost quartiles. Next, I dive into using some statistics such as finding the min, max, mean, median, etc. I follow up by seperating male and female smokers and seeing if there’s a drastic change in their expenses.</p>
+<section id="analysis-of-factors-affecting-insurance-costs" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-of-factors-affecting-insurance-costs">Analysis of Factors Affecting Insurance Costs:</h2>
+<p>The objective of this analysis is to identify the factors influencing insurance costs and determine their impact on individuals’ financial burden. Specifically, we investigate the relationship between smoking habits and increased medical insurance expenses.</p>
+<p>Initially, we examine the prevalence of smoking within the dataset. Subsequently, we conduct a comprehensive assessment of the distribution of charges among smokers, employing visual aids like box plots to illustrate quartiles and identify any outliers. Statistical measures, including minimum, maximum, mean, and median, are then employed to provide a more comprehensive understanding of the data.</p>
+<p>Furthermore, we conduct a gender-based analysis to ascertain if there are notable differences in expenses between male and female smokers. This allows us to evaluate any significant variations in insurance costs based on gender.</p>
 <section id="histogram-plot-of-smokers-vs-nonsmokers" class="level3">
 <h3 class="anchored" data-anchor-id="histogram-plot-of-smokers-vs-nonsmokers">Histogram Plot of Smokers vs Nonsmokers</h3>
 <ul>
 <li>Smoker Count: 274</li>
 <li>Nonsmoker Count: 1064</li>
 </ul>
+<p>To visually illustrate the distribution of smokers and nonsmokers within the dataset, a histogram plot was generated. The plot showcases the count of individuals categorized as smokers or nonsmokers. The number of smokers is 274, while the count of nonsmokers is 1064.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#while a histogram is not necessary, it can really show in the visual count of smokers vs nonsmokers</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -329,9 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="boxplot-and-histogram-distribution-of-insurance-costs-for-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="boxplot-and-histogram-distribution-of-insurance-costs-for-smokers">Boxplot and Histogram Distribution of Insurance Costs for Smokers</h3>
-<p>The interquartile range is $20,125.33. Very high spread from the first and third interquartiles.</p>
-<p>Now, notice that we have a bimodal distribution. This means that there is a variable in the data set that is drastically affecting the insurance cost. Since there is two “humps” we must identify the component that causes a further jump in insurance costs for those who smoke.</p>
-<p>What could cause this? - Region? - Bmi? - Sex? - Children? - Age?</p>
+<p>Upon analyzing the insurance costs specifically for smokers, a boxplot and histogram were constructed. The interquartile range indicates a substantial spread of $20,125.33 between the first and third quartiles.</p>
+<p>Notably, the distribution of insurance costs for smokers exhibits a bimodal pattern, suggesting the presence of a contributing factor that significantly impacts insurance expenses. Further investigation is required to identify the specific variable responsible for the observed increase in insurance costs among smokers. Potential factors to consider include region, BMI, sex, number of children, and age.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_smokers <span class="op">=</span> df[df.smoker <span class="op">==</span> <span class="st">'yes'</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_smokers.head())</span></span>
@@ -364,8 +357,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="insurance-cost-statistics-for-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="insurance-cost-statistics-for-smokers">Insurance Cost Statistics for Smokers</h3>
-<p>Summary Stats: - Mean: $32,050.23 - Median: $34,456.35 - Max: $63,770.43 - Min: $12,829.46 - Standard Deviation: $11,520.47 - Variance: 132721153.14</p>
-<p>Given the distribution, we can say that the mean represents the true average insurance cost for smokers.</p>
+<p>Summary Stats:</p>
+<ul>
+<li>Mean: $32,050.23</li>
+<li>Median: $34,456.35</li>
+<li>Max: $63,770.43</li>
+<li>Min: $12,829.46</li>
+<li>Standard Deviation: $11,520.47</li>
+<li>Variance: 132,721,153.14</li>
+</ul>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for smokers</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>smoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_smokers.charges), <span class="dv">2</span>)</span>
@@ -391,20 +391,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>smoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_smokers.charges), <span class="dv">2</span>)</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The minimum insurance cost for being a smoker is: ${min}'.format(min = smoker_min))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The summary statistics provide valuable insights into the distribution of insurance costs for smokers. The mean insurance cost for smokers is calculated to be $32,050.23, representing the average expense in this category. The median insurance cost, at $34,456.35, serves as the central value around which the data is evenly distributed.</p>
+<p>Additionally, the maximum observed insurance cost for smokers is $63,770.43, indicating the highest expense recorded within this group. Conversely, the minimum cost stands at $12,829.46, representing the lowest recorded expense.</p>
+<p>The standard deviation of $11,520.47 measures the degree of variability or dispersion among the insurance costs for smokers. Furthermore, the variance of 132,721,153.14 quantifies the average squared deviation from the mean.</p>
+<p>These statistical measures provide a comprehensive overview of the distribution of insurance costs for smokers, enabling a better understanding of the financial implications associated with smoking.</p>
 </section>
-<section id="seperating-male-and-female-smokers" class="level3">
-<h3 class="anchored" data-anchor-id="seperating-male-and-female-smokers">Seperating Male and Female Smokers</h3>
-<p>I chose to seperate male and female smokers to see if there was a noticable difference in cost. Notice in the graphs below, that we can easily identify the culprit for the bimodal distribution. The <strong>BMI</strong> drastically influences the insurance cost when it is greater than or equal to 30 (the obese rating starts at 30 forward). <em>This means that being obese AND being a smoker can sharply increase your medical insurance cost.</em></p>
-<p>Note: As <strong>Age</strong> slowly increases, the insurance cost also slowly increases. So, there is a gradual increase in insurance cost as you age. That is common sense since as one ages, one develops more health issues as they near death.</p>
+<section id="separation-of-male-and-female-smokers" class="level3">
+<h3 class="anchored" data-anchor-id="separation-of-male-and-female-smokers">Separation of Male and Female Smokers:</h3>
+<p>To examine potential differences in insurance costs, a segmentation analysis was conducted, specifically focusing on male and female smokers. This approach aims to discern any notable variations in expenses between the two genders.</p>
+<p>The analysis reveals significant insights, as demonstrated in the accompanying graphs. It becomes evident that the primary contributor to the observed bimodal distribution is the BMI (Body Mass Index). Notably, when the BMI reaches or exceeds 30, which falls within the obese category, a substantial increase in insurance costs occurs. This finding highlights the compounding effect of both obesity and smoking on medical insurance expenses.</p>
+<p>Furthermore, it is worth noting that insurance costs gradually increase as age advances. This correlation aligns with the expected progression of health issues that typically arise with aging. Consequently, there is a gradual rise in insurance costs as individuals age, reflecting the natural occurrence of age-related health conditions.</p>
+<p>This segmentation analysis underscores the interplay between gender, BMI, age, and insurance costs, providing valuable insights for the medical industry in understanding the multifaceted factors that influence insurance expenses.</p>
 </section>
-<section id="analyzing-male-smokers" class="level3">
-<h3 class="anchored" data-anchor-id="analyzing-male-smokers">Analyzing Male Smokers</h3>
-<p><strong>Graph One</strong>: Cost Distribution - Bimodal Distribution is again present. - Two clusters of cost are due to an underlying variable.</p>
-<p><strong>Graph Two</strong>: Barplot of Average Cost per Child - No clear trend. - Only valuable note is that having 4 children seems to have an overall lower average insurance cost.</p>
-<p><strong>Graph Three</strong>: Scatterplot of Cost vs BMI with Region - There is a visable linear relationship between BMI and Cost. - There are two clusters of individuals but follows the linear relationship. - At &gt;=30 BMI, there is a clear signifcant increase in insurance cost for male smokers. - Note: a BMI of 30 or implies that the individual is “obese” (though, BMI is not necessarily a good measurement–see results). - No trends with the region.</p>
-<p><strong>Graph Four</strong>: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual’s insurance cost will increase as expected.</p>
-<p><strong>Graph Five</strong>: Barplot of Average Cost per Region - No valuable insights can be drawn.</p>
-<p><strong>Graph Six</strong>: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers’ insurance cost.</p>
+<section id="analysis-of-male-smokers" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-male-smokers">Analysis of Male Smokers:</h3>
+<p>Graph One: Cost Distribution The distribution of insurance costs for male smokers exhibits a bimodal pattern, indicating the presence of two distinct clusters. This suggests the influence of an underlying variable that contributes to the observed cost disparity.</p>
+<p>Graph Two: Average Cost per Child The bar plot showcasing the average insurance costs per child does not reveal any clear trends. However, it is noteworthy that individuals with four children tend to have a slightly lower average insurance cost.</p>
+<p>Graph Three: Cost vs BMI with Region The scatterplot depicting insurance cost against BMI, considering different regions, demonstrates a visible linear relationship. The plot shows two clusters of individuals, but both clusters follow the same linear pattern. Notably, when the BMI reaches or exceeds 30 (indicating obesity), there is a significant and distinct increase in insurance costs for male smokers. It is important to note that BMI is not always an ideal measurement; however, in this analysis, it serves as an indicator of obesity. No notable trends were observed concerning the region.</p>
+<p>Graph Four: Cost vs Age with Children The scatterplot illustrating insurance cost against age, accounting for the presence of children, exhibits a linear trend split into two distinct clusters. This finding suggests that the observed difference is likely attributed to variations in BMI among individuals. As expected, insurance costs tend to increase gradually over time.</p>
+<p>Graph Five: Average Cost per Region The bar plot representing the average insurance costs per region does not yield any significant insights.</p>
+<p>Graph Six: Boxplot of Male Smoker Insurance Cost The boxplot provides valuable visual information regarding the spread of insurance costs among male smokers. It allows for a better understanding of the distribution and variability within this group.</p>
+<p>These analyses shed light on the various factors impacting insurance costs for male smokers, including BMI, age, and the presence of children. By comprehensively examining these relationships, the medical industry can gain valuable insights to inform decision-making and enhance understanding of cost dynamics.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male smokers from the main data set</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_male_smoker <span class="op">=</span> df_smokers[df_smokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
@@ -475,9 +482,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="bmi-graph-highlighted" class="level3">
-<h3 class="anchored" data-anchor-id="bmi-graph-highlighted">BMI Graph Highlighted</h3>
-<p>As mentioned above, the reason why the cost distribution had two clusters was due to the difference in BMI in each male smoker. Male smokers with a BMI &gt;= 30 will that their expense increase by approximately 47%.</p>
+<section id="analysis-of-male-smokers-highlighting-bmi" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-male-smokers-highlighting-bmi">Analysis of Male Smokers: Highlighting BMI</h3>
+<p>As previously mentioned, the presence of two clusters in the cost distribution of male smokers can be attributed to variations in BMI. Notably, male smokers with a BMI greater than or equal to 30 experience a significant increase in expenses, approximately 47%, compared to their counterparts with a lower BMI. This finding underscores the impact of obesity on insurance costs for male smokers in the medical industry.</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight BMI graph</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -489,7 +496,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Male Smoker Insurance Cost vs BMI'</span>)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'BMI'</span>)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Text(0, 0.5, 'Insurance Costs (USD)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -517,15 +524,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#print('A male smoker will suffer an increase of {percent}% in their insurance cost by being obese (BMI &gt;= 30)'.format(percent = male_diff_cost_percent))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="analyzing-female-smokers" class="level3">
-<h3 class="anchored" data-anchor-id="analyzing-female-smokers">Analyzing Female Smokers</h3>
-<p><strong>Graph One</strong>: Cost Distribution - Bimodal Distribution is again present. - Two clusters of cost are due to an underlying variable.</p>
-<p><strong>Graph Two</strong>: Barplot of Average Cost per Child - No clear trend. - Only valuable note is that having 5 children seems to have an overall lower average insurance cost.</p>
-<p><strong>Graph Three</strong>: Scatterplot of Cost vs BMI with Region - There is a visable linear relationship between BMI and Cost - There are two clusters of individuals but follows the linear relationship. - At &gt;=30 BMI, there is a clear signifcant increase in insurance cost for female smokers. - Note: a BMI of 30 or implies that the individual is “obese” (though, BMI is not necessarily a good measurement–see results). - No trends with the region.</p>
-<p><strong>Graph Four</strong>: Scatterplot of Cost vs Age with Children - There is a linear trend, but split into two linear clusters. - As found earlier, this is most likely due to BMI differences in the indivduals. - Overtime, an individual’s insurance cost will increase as expected.</p>
-<p><strong>Graph Five</strong>: Barplot of Average Cost per Region - No valuable insights can be drawn.</p>
-<p><strong>Graph Six</strong>: Boxplot of Female Smoker Insurance Cost - Noteworthy to see the spread of female smokers’ insurance cost.</p>
-<p>Given that the Insurane Cost vs BMI is essentially the same as male smokers, the stated results will apply here.</p>
+<section id="the-analysis-of-female-smokers-reveals-the-following-insights" class="level3">
+<h3 class="anchored" data-anchor-id="the-analysis-of-female-smokers-reveals-the-following-insights">The analysis of female smokers reveals the following insights:</h3>
+<p>Cost Distribution: Similar to the previous analysis, there is a bimodal distribution in the insurance cost for female smokers, indicating the presence of underlying factors contributing to the cost variations.</p>
+<p>Average Cost per Child: The barplot does not show a clear trend between the number of children and the average insurance cost for female smokers. However, it is worth noting that having five children seems to be associated with a slightly lower average insurance cost.</p>
+<p>Scatterplot of Cost vs BMI with Region: The scatterplot demonstrates a visible linear relationship between BMI and insurance cost for female smokers. There are two clusters of individuals, but they both follow the linear relationship. Notably, when the BMI is greater than or equal to 30 (indicating obesity), there is a significant increase in insurance cost for female smokers. It is important to consider that BMI may not be a perfect measurement of obesity (as discussed in the results). No specific trends are observed with respect to the region.</p>
+<p>Scatterplot of Cost vs Age with Children: The scatterplot shows a linear trend in insurance cost based on age, but it is split into two linear clusters. This finding aligns with the earlier observation that differences in BMI among individuals may contribute to the clusters. As expected, insurance cost gradually increases over time.</p>
+<p>Average Cost per Region: The barplot of average cost per region does not provide any valuable insights for female smokers.</p>
+<p>Boxplot of Female Smoker Insurance Cost: The boxplot displays the spread of insurance cost among female smokers, highlighting the range of variation in costs.</p>
+<p>Overall, the analysis of female smokers provides insights into the relationship between factors such as BMI, age, and insurance cost.</p>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female smokers from the main data set</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_female_smoker <span class="op">=</span> df_smokers[df_smokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
@@ -591,6 +598,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
+<p>The analysis of female smokers reveals findings that align with the observations made for male smokers. Specifically, the relationship between insurance cost and BMI for female smokers follows a similar pattern as observed in male smokers. Therefore, the conclusions drawn from the previous analysis regarding the impact of BMI on insurance cost can be applied to female smokers as well.</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -609,9 +617,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The difference in cost from being at or over 30 BMI compared to being under 30 BMI for females is: ${diff}".format(diff = female_diff_cost))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="average-insurance-cost-comparision-of-male-and-female-smokers" class="level3">
-<h3 class="anchored" data-anchor-id="average-insurance-cost-comparision-of-male-and-female-smokers">Average Insurance Cost Comparision of Male and Female Smokers</h3>
-<p>Noteworthy mention: - Male smokers pay approximately 1.34% more than their female counterparts when their BMI less than 30. - Male smokers pay approximately 1.42% less than their female counterparts when their BMI greater than or equal to 30.</p>
+<section id="comparing-average-insurance-costs-male-vs.-female-smokers" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-average-insurance-costs-male-vs.-female-smokers">Comparing Average Insurance Costs: Male vs.&nbsp;Female Smokers</h3>
+<p>When comparing the average insurance costs of male and female smokers, some notable observations emerge. Among smokers with a BMI below 30, male smokers pay approximately 1.34% more than their female counterparts. However, for smokers with a BMI of 30 or higher, male smokers pay approximately 1.42% less than their female counterparts. These findings indicate a gender-based variation in insurance costs, influenced by both BMI and smoking status.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot average insurance cost for male and female </span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_bmi_less_than_30 <span class="op">=</span> df_smokers[df_smokers.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
@@ -675,17 +683,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-11-output-1.png" width="691" height="495"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>&lt;function matplotlib.pyplot.clf()&gt;</code></pre>
 </div>
 </div>
 </section>
-<section id="boxplot-and-histogram-distribution-of-insurance-costs-for-nonsmokers" class="level3">
-<h3 class="anchored" data-anchor-id="boxplot-and-histogram-distribution-of-insurance-costs-for-nonsmokers">Boxplot and Histogram Distribution of Insurance Costs for Nonsmokers</h3>
-<p>The interquartile range is $7,378.07. Spread is minimal from the first and third interquartiles.</p>
-<p>Now, notice that we have a right-skewed distribution.</p>
-<p>What could cause this? - Region? - Bmi? - Sex? - Children? - Age?</p>
-<p>Keep in mind, there is a chance that we may not be able to determine the cause of those outliers.</p>
+</section>
+<section id="approaching-the-analysis-of-nonsmokers" class="level2">
+<h2 class="anchored" data-anchor-id="approaching-the-analysis-of-nonsmokers">Approaching the Analysis of Nonsmokers</h2>
+<p>Considered Factors: To understand the underlying causes of outliers or extreme values, several key factors warrant examination, including region, BMI, sex, children, and age. However, it is important to acknowledge that identifying the precise factors contributing to these outliers may present challenges and require further investigation.</p>
+<section id="analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution">Analysis of Insurance Costs for Nonsmokers: Boxplot and Histogram Distribution</h3>
+<p>The distribution of insurance costs for nonsmokers exhibits a right-skewed pattern, indicating a higher concentration of lower-cost cases. The interquartile range suggests a relatively narrow spread between the first and third quartiles.</p>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> stats.iqr(df_nonsmokers.charges, interpolation <span class="op">=</span> <span class="st">'midpoint'</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> <span class="bu">round</span>(IQR, <span class="dv">2</span>)</span>
@@ -718,11 +727,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-</section>
-<section id="analyzing-the-insurance-cost-of-nonsmokers" class="level2">
-<h2 class="anchored" data-anchor-id="analyzing-the-insurance-cost-of-nonsmokers">Analyzing the insurance cost of nonsmokers</h2>
-<p>Now let’s look at the nonsmokers.</p>
-<p>Summary Stats: - Mean: $8,434.27 - Median: $7,345.41 - Max: $39,910.61 - Min: $1,121.87 - Standard Deviation: $5,990.96 - Variance: 35891656</p>
+<section id="analysis-of-insurance-costs-for-nonsmokers" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-insurance-costs-for-nonsmokers">Analysis of Insurance Costs for Nonsmokers</h3>
+<p>The interquartile range of insurance costs for nonsmokers is $7,378.07, indicating a relatively narrow spread of data between the first and third quartiles.</p>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for nonsmokers</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_nonsmokers.charges), <span class="dv">2</span>)</span>
@@ -750,14 +757,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co">#For explaination a high standard deviation tells us that here are other reasons the cost is so high since it varies signifcantly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="analyzing-male-nonsmokers" class="level3">
-<h3 class="anchored" data-anchor-id="analyzing-male-nonsmokers">Analyzing Male Nonsmokers</h3>
-<p><strong>Graph One</strong>: Cost Distribution - Right-skewed distribution is again present. - Knowing this, we should go with the median as the most appropriate statistic instead of the mean.</p>
-<p><strong>Graph Two</strong>: Barplot of Average Cost per Child - There seems to be a trend that having more children will lead to higher average insurance costs. - Given the information from the smokers, when an individual has 5 children or more, their insurance costs drops signifcantly. - However, the lowest average comes from having no children at all.</p>
-<p><strong>Graph Three</strong>: Scatterplot of Cost vs BMI with Region - There is no correlation between cost and BMI of nonsmokers. - This is an interesting finding. - No trends with the region.</p>
-<p><strong>Graph Four</strong>: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.</p>
-<p><strong>Graph Five</strong>: Barplot of Average Cost per Region - No valuable insights can be drawn. - Some regions are simply cheaper than others.</p>
-<p><strong>Graph Six</strong>: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers’ insurance cost.</p>
+</section>
+<section id="analyzing-male-nonsmokers-key-findings" class="level3">
+<h3 class="anchored" data-anchor-id="analyzing-male-nonsmokers-key-findings">Analyzing Male Nonsmokers: Key Findings</h3>
+<p>Graph One: Cost Distribution The cost distribution for male nonsmokers exhibits a right-skewed pattern. It is important to consider the median as the most appropriate measure of central tendency, given the presence of skewness in the distribution.</p>
+<p>Graph Two: Average Cost per Child There is a notable trend indicating that having more children is associated with higher average insurance costs for male nonsmokers. However, an interesting exception is observed for individuals with five or more children, as their insurance costs show a significant decrease. The lowest average cost is observed for individuals with no children.</p>
+<p>Graph Three: Cost vs BMI with Region No correlation is found between the insurance cost and BMI of male nonsmokers. This finding highlights the absence of a relationship between these two variables. Similarly, no discernible trends are observed with respect to different regions.</p>
+<p>Graph Four: Cost vs Age with Children A strong linear relationship is observed between insurance cost and age for male nonsmokers. Additionally, the number of children shows a secondary trend, where fewer children correspond to lower insurance costs, while more children align with higher insurance costs. It is worth noting that some outliers deviate from the overall trend line.</p>
+<p>Graph Five: Average Cost per Region No significant insights can be drawn from the barplot of average cost per region for male nonsmokers. The data does not reveal any distinct variations among different regions in terms of insurance costs.</p>
+<p>Graph Six: Boxplot of Male Nonsmoker Insurance Cost The boxplot provides valuable information about the spread of insurance costs for male nonsmokers. It allows for visualizing the range, quartiles, and potential outliers within the data.</p>
+<p>Overall, these analyses shed light on various factors influencing insurance costs for male nonsmokers, such as the number of children and age. However, the relationship between BMI and insurance cost appears to be inconclusive, while regional differences do not show significant variations.</p>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male nonsmokers from the main data set</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_male_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
@@ -848,14 +857,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="analyzing-female-nonsmokers" class="level3">
-<h3 class="anchored" data-anchor-id="analyzing-female-nonsmokers">Analyzing Female Nonsmokers</h3>
-<p><strong>Graph One</strong>: Cost Distribution - Right-skewed distribution is again present. - Knowing this, we should go with the median as the most appropriate statistic instead of the mean.</p>
-<p><strong>Graph Two</strong>: Barplot of Average Cost per Child - Similar to the male nonsmokers, there seems to be a trend that having more children will result in higher average insurance costs. - Given the information from the smokers, when an individual has 5 children or more, their insurance costs drops on average. - However, the lowest average comes from having no children at all.</p>
-<p><strong>Graph Three</strong>: Scatterplot of Cost vs BMI with Region - Again, there is no correlation between cost and BMI of nonsmokers. - No trends with the region.</p>
-<p><strong>Graph Four</strong>: Scatterplot of Cost vs Age with Children - Strong linear relationship between insurance cost and age. - A secondary trend is shown with the number of children. - The less children, the insurance cost is on the lower end of the linear relationship. - The more children, the insurance cost is on the higher end of the linear relationship - The outliers do not follow the trend line.</p>
-<p><strong>Graph Five</strong>: Barplot of Average Cost per Region - There is a slight trend of region importance. - The northeast is more expensive on average than the southwest.</p>
-<p><strong>Graph Six</strong>: Boxplot of Male Smoker Insurance Cost - Noteworthy to see the spread of male smokers’ insurance cost.</p>
+<section id="analyzing-female-nonsmokers-a-comparison-with-male-nonsmokers" class="level3">
+<h3 class="anchored" data-anchor-id="analyzing-female-nonsmokers-a-comparison-with-male-nonsmokers">Analyzing Female Nonsmokers: A Comparison with Male Nonsmokers</h3>
+<p>Graph One: Cost Distribution Similar to male nonsmokers, the cost distribution for female nonsmokers exhibits a right-skewed pattern. This suggests that the median is a more appropriate measure of central tendency than the mean, considering the skewness in the distribution.</p>
+<p>Graph Two: Average Cost per Child Similarly to male nonsmokers, there is a discernible trend indicating that having more children is associated with higher average insurance costs for female nonsmokers. However, consistent with the findings among smokers, females with five or more children experience a decrease in average costs. Notably, the lowest average cost is observed among females with no children.</p>
+<p>Graph Three: Cost vs BMI with Region As with male nonsmokers, there is no correlation between the insurance cost and BMI among female nonsmokers. This lack of relationship remains consistent, and no significant trends are observed across different regions.</p>
+<p>Graph Four: Cost vs Age with Children In line with the observations for male nonsmokers, there is a strong linear relationship between insurance cost and age among female nonsmokers. A secondary trend is also evident, indicating that insurance costs tend to be lower for females with fewer children and higher for those with more children. It is worth noting that outliers do not conform to the overall trend line.</p>
+<p>Graph Five: Average Cost per Region There is a slight trend suggesting regional differences in insurance costs among female nonsmokers. On average, the northeast region exhibits higher costs compared to the southwest region.</p>
+<p>Graph Six: Boxplot of Male Smoker Insurance Cost While not directly related to the analysis of female nonsmokers, it is noteworthy to examine the spread of insurance costs among male smokers for comparative purposes</p>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female nonsmokers from the main data set</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_female_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
@@ -922,8 +931,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="nonsmokers-vs-smokers" class="level1">
-<h1>Nonsmokers vs Smokers</h1>
+<section id="nonsmokers-vs-smokers" class="level2">
+<h2 class="anchored" data-anchor-id="nonsmokers-vs-smokers">Nonsmokers vs Smokers</h2>
+<p>Based on the analysis conducted on smokers and nonsmokers, it can be observed that smoking status significantly impacts health insurance costs. Both male and female smokers experience higher insurance costs compared to their nonsmoking counterparts. Furthermore, nonsmokers tend to have a more favorable cost distribution, characterized by lower median costs and less variability. This highlights the importance of smoking cessation interventions and promoting a nonsmoking lifestyle to mitigate the financial burden associated with health insurance for both individuals and the healthcare system.</p>
 <div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Nonsmokers</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> df_nonsmokers.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
@@ -999,19 +1009,19 @@ A female smoker will get charged approxmiately 350.12% more than a nonsmoker.</c
 </div>
 </div>
 </section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<p>It is abundantly clear that smoking is a significant contributing factor in the escalation of health insurance premiums. Moreover, both male and female smokers who exhibit a body mass index (BMI) of 30 or greater are subject to an additional charge, further exacerbating their financial burden. Male smokers face an exorbitant increase of 52%, while female smokers are subject to a 49% rise in their insurance charges. It should be noted that this increase is in addition to the base premium that is already charged to smokers.</p>
-<p>To underscore the severity of the situation, male smokers can expect to pay a staggering 408.57% more than their non-smoking counterparts. Similarly, female smokers can anticipate paying an astronomical 350.12% more than their non-smoking counterparts. The data presented unequivocally supports the notion that unhealthy lifestyle choices, such as smoking and an unhealthy BMI, are met with punitive measures in the form of higher health insurance premiums. It is important to acknowledge that health insurance premiums do increase gradually over time, in line with the aging process.</p>
-<p>Despite the insightful results obtained from this project, there remains a multitude of avenues for further exploration. One such avenue would be to apply machine learning techniques to predict whether this sample accurately represents the entire population or not. Such an analysis could help to refine the accuracy of the conclusions drawn from the data, potentially leading to further breakthroughs in the field of health insurance.</p>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The impact of smoking on health insurance premiums is undeniable, as demonstrated by the substantial increases in charges for both male and female smokers. When coupled with a BMI of 30 or higher, smokers face an additional financial burden. Male smokers experience a significant 52% increase in insurance charges, while female smokers face a 49% rise. It is important to note that these increases are in addition to the base premium already charged to smokers.</p>
+<p>The severity of the situation becomes apparent when comparing the costs borne by smokers and nonsmokers. Male smokers pay a staggering 408.57% more than their nonsmoking counterparts, while female smokers face an astronomical 350.12% increase. This data reinforces the notion that unhealthy lifestyle choices, such as smoking and an unhealthy BMI, result in punitive measures in the form of higher health insurance premiums. It is worth mentioning that insurance premiums gradually increase over time in line with the aging process.</p>
+<p>While this project provides valuable insights, there are still numerous avenues for further exploration. One potential direction involves applying machine learning techniques to assess the representativeness of the sample and refine the accuracy of the conclusions. Such analyses have the potential to drive advancements in the field of health insurance.</p>
 </section>
-<section id="further-study" class="level1">
-<h1>Further Study</h1>
-<p>I included two articles: One states that BMI metric is an inaccurate method to measure human height and weight; the other confirms that tabacco usage allows insurance companies to charge those individuals a premium.</p>
-<p>“BMI (body mass index), which is based on the height and weight of a person, is an inaccurate measure of body fat content and does not take into account muscle mass, bone density, overall body composition, and racial and sex differences”</p>
-<p>(source: https://www.medicalnewstoday.com/articles/265215)</p>
-<p>“The practice of charging tobacco users more is called tobacco rating. The ACA allows for insurance companies to charge smokers up to 50% more (or premiums that are 1.5 times higher) than non-smokers through a tobacco surcharge.”</p>
-<p>(source: https://www.healthmarkets.com/content/smoking-and-health-insurance)</p>
+<section id="further-study" class="level2">
+<h2 class="anchored" data-anchor-id="further-study">Further Study</h2>
+<p>According to a reputable source (Medical News Today), BMI, which relies on height and weight measurements, is an inadequate indicator of body fat content. It fails to consider important factors such as muscle mass, bone density, overall body composition, and variations based on race and sex.</p>
+<p>Furthermore, health insurance companies employ a practice known as tobacco rating, as outlined in the Affordable Care Act (ACA). Smokers can be charged a tobacco surcharge of up to 50% (or premiums 1.5 times higher) compared to non-smokers. This allows insurance providers to adjust prices based on tobacco usage and the associated health risks.</p>
+<p>References:</p>
+<p><a href="https://www.medicalnewstoday.com/articles/265215">Medical News Today: “BMI (body mass index): What is it and is it useful?”</a></p>
+<p><a href="https://www.healthmarkets.com/content/smoking-and-health-insurance">HealthMarkets: “Smoking and Health Insurance”</a></p>
 
 
 </section>
@@ -1268,7 +1278,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Made with quarto® © 2023 Brian Cervantes Alvarez</div>   
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.quarto.org">Made with quarto®</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bcervantesalvarez/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:briancervantesalvarez@gmail.com">
+      <i class="bi bi-envelope-fill" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
   </div>
 </footer>
 

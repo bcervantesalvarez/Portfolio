@@ -1,0 +1,34 @@
+```{=html}
+<%/* so category filtering works */%>
+<ul class="list" style="list-style-type:none">
+<%/* create custom listing */%>
+<% for (const item of items) { %>
+  <li <%= metadataAttrs(item) %>>
+    <div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-left: -35px; margin-bottom: 30px;">
+      <div id="itemImage" style="width:200px; height:200px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px; display: flex; align-items: center; justify-content: center;">
+        <a href="<%- item.path %>" class="listing-categories">
+          <img src="<%- item.image %>" width="200" height="200" />
+        </a>
+      </div>
+      <div id="itemDetails" style="width:100%;">
+        <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+          <div id="itemTitle" style="display:block; width:95%">
+            <p style="font-size:22px">
+              <a href="<%- item.path %>" class="listing-categories" style="text-decoration: none; font-weight: 400;"><%= item.title %></a>
+              </a>
+            </p>
+          </div>
+          <div id="itemDescription" style="margin-bottom:8px">
+            <%= item['description'] %>
+          </div>
+          <div id="created" style="margin-top:8px">
+            <p style="font-size:14px"><%= item['date'] %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+<% } %>
+</ul>
+
+```
