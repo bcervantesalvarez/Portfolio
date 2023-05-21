@@ -2,6 +2,7 @@
 title: "Brian Cervantes Alvarez"
 about:
   template: marquee
+  
   image: profile.jpeg
   image-width: 100%
   links:
@@ -16,7 +17,7 @@ about:
       href: mailto:briancervantesalvarez@gmail.com
 execute: 
   echo: false
----
+---          
 
 ### Who am I?
 
