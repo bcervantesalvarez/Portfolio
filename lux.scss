@@ -584,9 +584,3 @@ a {
   max-width: 1200px; // Sets a maximum width for larger screens
   margin: 0 auto; // Centers the container horizontally
 }
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 90%; // Adjusts the maximum width for smaller screens
-  }
-}
