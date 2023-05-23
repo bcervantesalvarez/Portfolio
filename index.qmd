@@ -2,7 +2,6 @@
 title: "Brian Cervantes Alvarez"
 about:
   template: marquee
-  
   image: profile.jpeg
   image-width: 100%
   links:

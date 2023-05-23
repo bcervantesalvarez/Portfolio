@@ -19,7 +19,7 @@ execute:
 categories: [R, Reveal.JS, Survival Analysis]
 ---
 
-![](parasite.jpeg)
+![](parasite.jpeg){ width=900 height=800 }
 
 ## Purpose
 

@@ -4,9 +4,10 @@ listing:
   contents: posts
   sort: "date desc"
   type: default
-  date-format: full
-  template: blog_template.ejs
+  date-format: long
+  fields: [image, date, title, author, description, categories, reading-time]
   categories: unnumbered
+  max-description-length: 150
   sort-ui: false
   filter-ui: false
 format: 

@@ -2,7 +2,7 @@
 title: "Building A Quick Dashboard For Amazon Products (EN.)"
 author: "Brian Cervantes Alvarez"
 date: "04-21-2023"
-image: AmazonLogo.png
+image: AmazonLogo.jpeg
 format:
   html:
     toc: true
@@ -15,7 +15,7 @@ execute:
 categories: [R, RShiny, CSS]
 ---
 
-![](AmazonLogo.png)
+![](AmazonLogo.jpeg)
 
 ## Purpose
 

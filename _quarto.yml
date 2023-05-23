@@ -34,9 +34,8 @@ format:
     citations-hover: true
     footnotes-hover: true
     theme: 
-      light: lux.scss
-      dark: cyborg.scss
-
+      light: BCA_LightTheme.scss
+      dark: BCA_DarkTheme.scss
 
 editor: visual
 
