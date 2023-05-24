@@ -7,7 +7,7 @@ listing:
   date-format: long
   fields: [image, date, title, author, description, categories, reading-time]
   categories: unnumbered
-  max-description-length: 150
+  max-description-length: 175
   sort-ui: false
   filter-ui: false
 format: 

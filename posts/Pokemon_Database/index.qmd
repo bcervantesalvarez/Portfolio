@@ -1,6 +1,7 @@
 ---
 title: "Pokédex Database"
 author: "Brian Cervantes Alvarez"
+description: "Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database. Join the journey of unraveling Pokémon mysteries through data engineering."
 date: "12-05-2022"
 format:
   html:
@@ -10,12 +11,72 @@ format:
 image: pokemon.jpeg
 output: html_document
 code-fold: true
-categories: [R, PostgreSQL]
+categories: [R, PostgreSQL, Data Visualization]
 ---
 
 ![](pokemon.jpeg)
 
-# Pokédex Project
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 5px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border: 1px solid #fff; /* Mini border block */
+      border-radius: 4px; /* Rounded corners for the mini border block */
+      padding: 2px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Pokemon_Database/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Pokemon_Database/pokedex_presentation.jpg",
+      "Download .jpg"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
 
 ## Purpose
 
@@ -29,11 +90,10 @@ The successful implementation of this project was dependent on the utilization o
 
 The inquiry of identifying the optimal base stat Pokemon type sparked my interest, prompting me to delve into the realm of data engineering. In order to craft a well-informed response to this question, I began by utilizing the expansive and multifaceted "Pokémon of Kanto, Johto, and Hoenn Region" dataset to establish a structured and organized database.
 
-## Database with PostgreSQL
 
-### Part 1
+## Unleashing the Power of PostgreSQL: Building a Database
 
-Due to time constraints there are some missing tables that would have added more flexiblity to my analysis.
+This SQL code creates several tables for storing Pokémon data. The tables include information about Pokémon, their types, abilities, generations, and moves. The code establishes primary keys, foreign key constraints, and defines the data types for each column. These tables form the foundation for a comprehensive Pokémon database, enabling efficient storage and retrieval of Pokémon-related information.
 
 ``` sql
 CREATE TABLE IF NOT EXISTS pokemon (
@@ -127,9 +187,10 @@ CREATE TABLE IF NOT EXISTS moves (
 );
 ```
 
-### Part 2
+## Data Transformation and CSV Preparation in SQL: A Step-by-Step Guide
 
-This portion of the sql file is for transforming and preparing a csv file for analysis.
+
+This section of the SQL file focuses on transforming and preparing a CSV file for analysis. It involves multiple SELECT statements that extract relevant data from different tables and join them together. The extracted data is then inserted into temporary tables, including 'temp1', 'temp2', and 'temp3', with each step refining the data further. Finally, the transformed data in 'temp3' is selected and filtered based on specific conditions, ordered, and then exported to a CSV file named 'scuffed_pokedex.csv'. This process prepares the data for further analysis and exploration in external tools or applications.
 
 ``` sql
 SELECT 
@@ -187,9 +248,9 @@ TO '/Users/Shared/Data_503/Datasets/scuffed_pokedex.csv'
 WITH (FORMAT CSV, HEADER);
 ```
 
-### Part 3
+## Unveiling Pokémon Insights: Analyzing Damage Output and Accuracy
 
-Here is my R analysis! Again, feel free to use this as you wish!
+Through the power of data analysis and visualization, we have delved into the world of Pokémon to uncover insights about types, damage output, accuracy, and their relationships. Our exploration has shed light on the best Pokémon type for damage output, the most accurate contenders, and the interplay between power and accuracy. By combining the captivating nature of Pokémon with the analytical capabilities of R, we have gained valuable knowledge and set the stage for further investigations in the vast Pokémon universe.
 
 ``` r
 library(tidyverse)

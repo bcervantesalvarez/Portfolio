@@ -8,6 +8,7 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2022-12-05">
+<meta name="description" content="Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database. Join the journey of unraveling Pokémon mysteries through data engineering.">
 
 <title>Brian Cervantes Alvarez - Pokédex Database</title>
 <style>
@@ -128,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Pokédex Database">
+<meta property="og:description" content="Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database.">
 <meta property="og:image" content="pokemon.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -178,9 +180,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Pokédex Database</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database. Join the journey of unraveling Pokémon mysteries through data engineering.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">PostgreSQL</div>
+                <div class="quarto-category">Data Visualization</div>
               </div>
                   </div>
   </div>
@@ -214,17 +222,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pokédex-project" id="toc-pokédex-project" class="nav-link active" data-scroll-target="#pokédex-project">Pokédex Project</a>
-  <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#database-with-postgresql" id="toc-database-with-postgresql" class="nav-link" data-scroll-target="#database-with-postgresql">Database with PostgreSQL</a>
-  <ul class="collapse">
-  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
-  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a></li>
-  <li><a href="#part-3" id="toc-part-3" class="nav-link" data-scroll-target="#part-3">Part 3</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#unleashing-the-power-of-postgresql-building-a-database" id="toc-unleashing-the-power-of-postgresql-building-a-database" class="nav-link" data-scroll-target="#unleashing-the-power-of-postgresql-building-a-database">Unleashing the Power of PostgreSQL: Building a Database</a></li>
+  <li><a href="#data-transformation-and-csv-preparation-in-sql-a-step-by-step-guide" id="toc-data-transformation-and-csv-preparation-in-sql-a-step-by-step-guide" class="nav-link" data-scroll-target="#data-transformation-and-csv-preparation-in-sql-a-step-by-step-guide">Data Transformation and CSV Preparation in SQL: A Step-by-Step Guide</a></li>
+  <li><a href="#unveiling-pokémon-insights-analyzing-damage-output-and-accuracy" id="toc-unveiling-pokémon-insights-analyzing-damage-output-and-accuracy" class="nav-link" data-scroll-target="#unveiling-pokémon-insights-analyzing-damage-output-and-accuracy">Unveiling Pokémon Insights: Analyzing Damage Output and Accuracy</a></li>
   </ul>
 </nav>
     </div>
@@ -235,8 +237,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="pokemon.jpeg" class="img-fluid"></p>
-<section id="pokédex-project" class="level1">
-<h1>Pokédex Project</h1>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 5px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border: 1px solid #fff; /* Mini border block */
+      border-radius: 4px; /* Rounded corners for the mini border block */
+      padding: 2px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Pokemon_Database/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Pokemon_Database/pokedex_presentation.jpg",
+      "Download .jpg"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
 <p>The main objective of this project was to construct a fully operational Postgresql database in a time frame of fewer than two weeks by employing the Extract, Transform, Load (ETL) methodology. The purpose of this approach was to extract data from various sources, transform it into a format that could be easily integrated into the database, and finally load the transformed data into the database.</p>
@@ -247,11 +307,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>The inquiry of identifying the optimal base stat Pokemon type sparked my interest, prompting me to delve into the realm of data engineering. In order to craft a well-informed response to this question, I began by utilizing the expansive and multifaceted “Pokémon of Kanto, Johto, and Hoenn Region” dataset to establish a structured and organized database.</p>
 </section>
-<section id="database-with-postgresql" class="level2">
-<h2 class="anchored" data-anchor-id="database-with-postgresql">Database with PostgreSQL</h2>
-<section id="part-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-1">Part 1</h3>
-<p>Due to time constraints there are some missing tables that would have added more flexiblity to my analysis.</p>
+<section id="unleashing-the-power-of-postgresql-building-a-database" class="level2">
+<h2 class="anchored" data-anchor-id="unleashing-the-power-of-postgresql-building-a-database">Unleashing the Power of PostgreSQL: Building a Database</h2>
+<p>This SQL code creates several tables for storing Pokémon data. The tables include information about Pokémon, their types, abilities, generations, and moves. The code establishes primary keys, foreign key constraints, and defines the data types for each column. These tables form the foundation for a comprehensive Pokémon database, enabling efficient storage and retrieval of Pokémon-related information.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> pokemon (</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> <span class="dt">SMALLINT</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">identifier</span> TEXT,</span>
@@ -342,9 +400,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>            <span class="kw">REFERENCES</span> <span class="kw">types</span>(<span class="kw">id</span>)</span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="part-2" class="level3">
-<h3 class="anchored" data-anchor-id="part-2">Part 2</h3>
-<p>This portion of the sql file is for transforming and preparing a csv file for analysis.</p>
+<section id="data-transformation-and-csv-preparation-in-sql-a-step-by-step-guide" class="level2">
+<h2 class="anchored" data-anchor-id="data-transformation-and-csv-preparation-in-sql-a-step-by-step-guide">Data Transformation and CSV Preparation in SQL: A Step-by-Step Guide</h2>
+<p>This section of the SQL file focuses on transforming and preparing a CSV file for analysis. It involves multiple SELECT statements that extract relevant data from different tables and join them together. The extracted data is then inserted into temporary tables, including ‘temp1’, ‘temp2’, and ‘temp3’, with each step refining the data further. Finally, the transformed data in ‘temp3’ is selected and filtered based on specific conditions, ordered, and then exported to a CSV file named ‘scuffed_pokedex.csv’. This process prepares the data for further analysis and exploration in external tools or applications.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">identifier</span> <span class="kw">AS</span> pokemon_name, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    pokemon_types.type_id,</span>
@@ -399,9 +457,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="kw">TO</span> <span class="st">'/Users/Shared/Data_503/Datasets/scuffed_pokedex.csv'</span></span>
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> (FORMAT CSV, <span class="kw">HEADER</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="part-3" class="level3">
-<h3 class="anchored" data-anchor-id="part-3">Part 3</h3>
-<p>Here is my R analysis! Again, feel free to use this as you wish!</p>
+<section id="unveiling-pokémon-insights-analyzing-damage-output-and-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="unveiling-pokémon-insights-analyzing-damage-output-and-accuracy">Unveiling Pokémon Insights: Analyzing Damage Output and Accuracy</h2>
+<p>Through the power of data analysis and visualization, we have delved into the world of Pokémon to uncover insights about types, damage output, accuracy, and their relationships. Our exploration has shed light on the best Pokémon type for damage output, the most accurate contenders, and the interplay between power and accuracy. By combining the captivating nature of Pokémon with the analytical capabilities of R, we have gained valuable knowledge and set the stage for further investigations in the vast Pokémon universe.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -471,8 +529,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="pokedex_presentation.jpg" class="img-fluid"></p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
