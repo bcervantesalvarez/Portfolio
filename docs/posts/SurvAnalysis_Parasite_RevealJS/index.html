@@ -10,6 +10,7 @@
 <meta name="author" content="Willa Van Liew">
 <meta name="author" content="Hans Lehndorff">
 <meta name="dcterms.date" content="2023-02-27">
+<meta name="description" content="Uncover the hidden impact of temperature on pesticide toxicity in a captivating quest that reveals the implications for our changing world.">
 
 <title>Brian Cervantes Alvarez - Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach</title>
 <style>
@@ -67,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach">
-<meta property="og:description" content="The objective of this study was to investigate the impact of temperature on the toxicity of pesticides, driven by concerns that the global temperature rise may cause alterations in disease…">
+<meta property="og:description" content="Uncover the hidden impact of temperature on pesticide toxicity in a captivating quest that reveals the implications for our changing world.">
 <meta property="og:image" content="parasite.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -118,7 +119,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Uncover the hidden impact of temperature on pesticide toxicity in a captivating quest that reveals the implications for our changing world.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Reveal.JS</div>
                 <div class="quarto-category">Survival Analysis</div>
@@ -157,8 +163,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#unveiling-natures-heatwave-the-hidden-impact-of-temperature-on-pesticide-toxicity" id="toc-unveiling-natures-heatwave-the-hidden-impact-of-temperature-on-pesticide-toxicity" class="nav-link active" data-scroll-target="#unveiling-natures-heatwave-the-hidden-impact-of-temperature-on-pesticide-toxicity">Unveiling Nature’s Heatwave: The Hidden Impact of Temperature on Pesticide Toxicity</a></li>
+  <li><a href="#parasitic-marvels-unveiled-delving-into-the-intricate-world-of-echinostoma-trivolvis" id="toc-parasitic-marvels-unveiled-delving-into-the-intricate-world-of-echinostoma-trivolvis" class="nav-link" data-scroll-target="#parasitic-marvels-unveiled-delving-into-the-intricate-world-of-echinostoma-trivolvis">Parasitic Marvels Unveiled: Delving into the Intricate World of Echinostoma trivolvis</a></li>
   <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a></li>
   </ul>
 </nav>
@@ -169,14 +175,75 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="parasite.jpeg" width="900" height="800"></p>
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>The objective of this study was to investigate the impact of temperature on the toxicity of pesticides, driven by concerns that the global temperature rise may cause alterations in disease transmission rates. Additionally, the study aimed to address the issue that current pesticide testing may not account for the potential effects of varying temperatures on pesticide toxicity. The central research question was to determine whether temperature has a significant influence on the toxicity of pesticides, and to address this question, survival analysis was employed to analyze the impact of temperature on the time-to-death of the exposed subjects. By utilizing survival analysis, the study aimed to determine whether temperature significantly affects the survival rate of the exposed organisms and to evaluate the magnitude of this effect on the toxicity of pesticides.</p>
+<p><img src="parasite.jpeg" class="img-fluid"></p>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      margin-bottom: 40px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 5px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border: 1px solid #fff; /* Mini border block */
+      border-radius: 4px; /* Rounded corners for the mini border block */
+      padding: 2px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/SurvAnalysis_Parasite_RevealJS/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/SurvAnalysis_Parasite_RevealJS/SurvivalAnalysis_Parasites.html",
+      "Download .html"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+<section id="unveiling-natures-heatwave-the-hidden-impact-of-temperature-on-pesticide-toxicity" class="level2">
+<h2 class="anchored" data-anchor-id="unveiling-natures-heatwave-the-hidden-impact-of-temperature-on-pesticide-toxicity">Unveiling Nature’s Heatwave: The Hidden Impact of Temperature on Pesticide Toxicity</h2>
+<p>In this captivating study, we embark on a quest to unravel the influence of temperature on the toxicity of pesticides, driven by growing concerns about the effects of climate change. Our mission extends beyond conventional pesticide testing, as we strive to shed light on the potential impacts of varying temperatures. We seek to answer a pivotal question: Does temperature significantly shape pesticide toxicity? To uncover the truth, we employ survival analysis, delving into the realm of time-to-death for the exposed subjects. By deciphering the intricate interplay between temperature and pesticide toxicity, we aim to reveal the magnitude of this effect and its implications for our changing world.</p>
 </section>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Echinostoma trivolvis is a species of trematode parasite that commonly infects birds, mammals, and some reptiles. It is part of the family Echinostomatidae, which includes several other species of trematodes that infect animals and humans. Echinostoma trivolvis has a complex life cycle that involves multiple hosts, including snails, birds, and mammals. The adult worms inhabit the small intestine of their hosts, where they feed on blood and nutrients. Infection with Echinostoma trivolvis can cause a range of symptoms, including abdominal pain, diarrhea, and malnutrition. The parasite is found throughout North America, particularly in wetlands and other aquatic environments where its intermediate hosts, freshwater snails, are abundant.</p>
+<section id="parasitic-marvels-unveiled-delving-into-the-intricate-world-of-echinostoma-trivolvis" class="level2">
+<h2 class="anchored" data-anchor-id="parasitic-marvels-unveiled-delving-into-the-intricate-world-of-echinostoma-trivolvis">Parasitic Marvels Unveiled: Delving into the Intricate World of Echinostoma trivolvis</h2>
+<p>Prepare to be amazed as we take you on a captivating journey into the hidden intricacies of Echinostoma trivolvis, a remarkable species of trematode parasite. From its widespread infection of birds, mammals, and reptiles to its complex life cycle involving snails, birds, and mammals, this parasite holds many secrets waiting to be unlocked. Join us as we explore its adult worms’ intriguing residence in the small intestine, where they feed on blood and nutrients, causing a range of symptoms from abdominal pain to malnutrition. Found abundantly in North American wetlands and aquatic environments, Echinostoma trivolvis is a true marvel of nature that continues to fascinate and astonish researchers and nature enthusiasts alike.</p>
 </section>
 <section id="presentation" class="level2">
 <h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
