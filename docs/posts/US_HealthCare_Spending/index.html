@@ -8,6 +8,7 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2022-12-12">
+<meta name="description" content="Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!">
 
 <title>Brian Cervantes Alvarez - Healthcare Spending Is Only Getting Worse</title>
 <style>
@@ -65,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Healthcare Spending Is Only Getting Worse">
-<meta property="og:description" content="U.S. Healthcare costs are increasing in every category since 1980. There are an unfiltered number of reasons for the rise of these costs.">
+<meta property="og:description" content="Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!">
 <meta property="og:image" content="healthcareSpending.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -88,7 +89,11 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html">
- <span class="menu-text">Portfolio</span></a>
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html">
+ <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../presentation.html">
@@ -97,25 +102,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../../resume.html">
  <span class="menu-text">Resume</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About Me</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/"><i class="bi bi-linkedin" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bcervantesalvarez/"><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="mailto:briancervantesalvarez@gmail.com"><i class="bi bi-envelope-fill" role="img">
-</i> 
- <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -131,7 +117,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">Healthcare Spending Is Only Getting Worse</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Linear Regression</div>
                 <div class="quarto-category">Statistics</div>
@@ -168,22 +159,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">ABSTRACT</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">INTRODUCTION</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">BACKGROUND</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">METHODOLOGY</a>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#rising-health-care-costs" id="toc-rising-health-care-costs" class="nav-link" data-scroll-target="#rising-health-care-costs">Rising Health Care Costs</a>
   <ul class="collapse">
-  <li><a href="#health-care-costs-have-increased" id="toc-health-care-costs-have-increased" class="nav-link" data-scroll-target="#health-care-costs-have-increased">Health Care Costs Have Increased</a></li>
-  <li><a href="#personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories" id="toc-personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories" class="nav-link" data-scroll-target="#personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories">Personal, Hospital and Physician &amp; Clinical Care Are The Dominate Spending Categories</a></li>
-  <li><a href="#each-region-is-trending-the-same" id="toc-each-region-is-trending-the-same" class="nav-link" data-scroll-target="#each-region-is-trending-the-same">Each Region Is Trending The Same</a></li>
-  <li><a href="#the-trends-remain.-healthcare-spending-continues-to-rise-in-every-region-in-the-u.s." id="toc-the-trends-remain.-healthcare-spending-continues-to-rise-in-every-region-in-the-u.s." class="nav-link" data-scroll-target="#the-trends-remain.-healthcare-spending-continues-to-rise-in-every-region-in-the-u.s.">The Trends Remain. Healthcare Spending Continues To Rise In Every Region In The U.S.</a></li>
-  <li><a href="#the-far-west-ranks-3rd-in-healthcare-spending" id="toc-the-far-west-ranks-3rd-in-healthcare-spending" class="nav-link" data-scroll-target="#the-far-west-ranks-3rd-in-healthcare-spending">The Far West Ranks 3rd In Healthcare Spending</a></li>
-  <li><a href="#oregon-ranks-3rd-but-dont-be-fooled" id="toc-oregon-ranks-3rd-but-dont-be-fooled" class="nav-link" data-scroll-target="#oregon-ranks-3rd-but-dont-be-fooled">Oregon Ranks 3rd, But Don’t Be Fooled!</a></li>
-  <li><a href="#a-linear-fit-is-not-the-right-model-for-this-data" id="toc-a-linear-fit-is-not-the-right-model-for-this-data" class="nav-link" data-scroll-target="#a-linear-fit-is-not-the-right-model-for-this-data">A Linear Fit Is Not The Right Model For This Data</a></li>
-  <li><a href="#was-there-a-significant-difference-in-the-means-of-each-region" id="toc-was-there-a-significant-difference-in-the-means-of-each-region" class="nav-link" data-scroll-target="#was-there-a-significant-difference-in-the-means-of-each-region">Was there A Significant Difference In The Means Of Each Region?</a></li>
+  <li><a href="#dominant-spending-categories-personal-hospital-and-physician-clinical-care" id="toc-dominant-spending-categories-personal-hospital-and-physician-clinical-care" class="nav-link" data-scroll-target="#dominant-spending-categories-personal-hospital-and-physician-clinical-care">Dominant Spending Categories: Personal, Hospital, and Physician &amp; Clinical Care</a></li>
+  <li><a href="#consistent-trends-across-regions" id="toc-consistent-trends-across-regions" class="nav-link" data-scroll-target="#consistent-trends-across-regions">Consistent Trends Across Regions</a></li>
+  <li><a href="#persistent-trends-rising-healthcare-spending-across-u.s.-regions" id="toc-persistent-trends-rising-healthcare-spending-across-u.s.-regions" class="nav-link" data-scroll-target="#persistent-trends-rising-healthcare-spending-across-u.s.-regions">Persistent Trends: Rising Healthcare Spending Across U.S. Regions</a></li>
+  <li><a href="#far-west-a-surprising-3rd-place-in-healthcare-spending" id="toc-far-west-a-surprising-3rd-place-in-healthcare-spending" class="nav-link" data-scroll-target="#far-west-a-surprising-3rd-place-in-healthcare-spending">Far West: A Surprising 3rd Place in Healthcare Spending</a></li>
+  <li><a href="#oregon-3rd-place-but-dont-be-deceived" id="toc-oregon-3rd-place-but-dont-be-deceived" class="nav-link" data-scroll-target="#oregon-3rd-place-but-dont-be-deceived">Oregon: 3rd Place, but Don’t Be Deceived!</a></li>
+  <li><a href="#inappropriate-model-linear-fit-inadequate-for-the-data" id="toc-inappropriate-model-linear-fit-inadequate-for-the-data" class="nav-link" data-scroll-target="#inappropriate-model-linear-fit-inadequate-for-the-data">Inappropriate Model: Linear Fit Inadequate for the Data</a></li>
+  <li><a href="#significant-differences-in-means-among-regions" id="toc-significant-differences-in-means-among-regions" class="nav-link" data-scroll-target="#significant-differences-in-means-among-regions">Significant Differences in Means among Regions</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">RESULTS</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">CONCLUSION</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -194,21 +185,81 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><img src="healthcareSpending.jpeg" class="img-fluid"></p>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 5px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border: 1px solid #fff; /* Mini border block */
+      border-radius: 4px; /* Rounded corners for the mini border block */
+      padding: 2px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthCare_Spending/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthCare_Spending/healthcareSpending.csv",
+      "Download .csv"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
 <section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">ABSTRACT</h2>
-<p>U.S. Healthcare costs are increasing in every category since 1980. There are an unfiltered number of reasons for the rise of these costs. From population increase to doctor’s wages, they are but a few examples of the unforgiving healthcare spending increases that are observed in a yearly basis. This report examines the expenditure trends from 1980 to 2005 and up to 2014. The results show that each sector in the United States is experiencing an unprecedented increase in health care costs. Hence, the findings revealed in this report serve to provide context behind the United States’ status as one the most expensive health care nations in the world.</p>
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Since 1980, healthcare costs in the United States have been consistently increasing across all categories. Various factors contribute to this rise, such as population growth and higher wages for doctors. This report examines expenditure trends from 1980 to 2005, extending up to 2014. The findings reveal an unprecedented surge in healthcare costs across every sector in the United States. Consequently, this report sheds light on the reasons behind the country’s reputation as one of the world’s most expensive nations in terms of healthcare.</p>
 </section>
 <section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">INTRODUCTION</h2>
-<p>Healthcare is a vital component to our lives. Without it, we cannot get the necessary help to live happy lives. Or worse, we could not live long enough to enjoy it. However, Healthcare spending continues to skyrocket in a year to year basis. This report reveals the frightening truth about the healthcare spending and visualizes each component. From the overall spending nationally, to showing each category and their individual trends, the spending remains increasingly constant.</p>
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Healthcare plays a crucial role in our lives, providing essential support for our well-being and longevity. However, healthcare spending continues to soar annually. This report uncovers the alarming reality of escalating healthcare expenditure, presenting a visual representation of each component. It explores overall national spending and delves into individual categories, demonstrating the persistent upward trend in healthcare costs.</p>
 </section>
 <section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">BACKGROUND</h2>
-<p>Now, the data set that was used for this report is called US Healthcare Spending Per Capita (source: Kaggle). The format of this data set was quite tricky. Instead of being in the long format, with few columns and lengthy rows, it was in the wide format, lots of columns and very few rows. Specifically, the years were in the format, “Y####” which made it very difficult to do any sort of analysis at first. Though, with some pivoting and string manipulation, the updated data set was ready to do some quirky analysis. The full step process is coming up next.</p>
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>The dataset utilized for this report is titled “US Healthcare Spending Per Capita” and was obtained from Kaggle. The dataset’s format posed a challenge, as it followed a wide format with numerous columns and few rows. Notably, the years were presented in the format “Y####,” initially impeding analysis. However, by employing pivoting techniques and manipulating the strings, the dataset was transformed, enabling comprehensive analysis. The subsequent section outlines the complete step-by-step process.</p>
 </section>
 <section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">METHODOLOGY</h2>
-<p>Before jumping into the data, first start with seeing whether it is “wide” or “long”. Check out the number of rows and columns to allow some room to do some data wrangling.</p>
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>To begin, it is essential to assess whether the data is in a “wide” or “long” format. This involves examining the number of rows and columns to facilitate necessary data wrangling.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 42
@@ -251,7 +302,10 @@ ul.task-list li input[type="checkbox"] {
 [41] "Y2014"                         "Average_Annual_Percent_Growth"</code></pre>
 </div>
 </div>
-<p>As explained earlier, the data set was evidently in the wide format. So, using the “pivot_longer” function with the “tidyverse” package, the years columns were placed into one column called “Year” with their values in the another column called “Cost”. I used the “gsub” function to fix up my Year column and factored a few columns for later use.</p>
+<p>Earlier, we noticed that the dataset had a wide format, which means the years were in separate columns. To make it easier to analyze, we rearranged the data using a special technique. We combined the year columns into a single “Year” column and placed their corresponding values in a new column called “Cost.”</p>
+<p>We also made some adjustments to the “Year” column by removing a specific symbol and converting it to numbers. This way, we can work with the years as numeric values instead of text.</p>
+<p>Additionally, we transformed certain columns into categories, which help us group and analyze the data more effectively. These categories include “Item,” “Region_Name,” “Group,” and “State_Name.”</p>
+<p>Finally, we selected specific columns, including “Item,” “Region_Name,” “State_Name,” “Year,” and “Cost,” to focus on for further analysis. This will provide us with a clearer understanding of the data.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
@@ -265,45 +319,45 @@ ul.task-list li input[type="checkbox"] {
 6 Personal Health Care United States &lt;NA&gt;        1985 376376</code></pre>
 </div>
 </div>
-<section id="health-care-costs-have-increased" class="level3">
-<h3 class="anchored" data-anchor-id="health-care-costs-have-increased">Health Care Costs Have Increased</h3>
-<p>Diving straight into the first visual. It appears very clearly that Healthcare spending is in an upward trend and does not appear to slow down. The graph was filter from the years 1980 to 2005 to highlight this era of healthcare costs.</p>
+</section>
+<section id="rising-health-care-costs" class="level2">
+<h2 class="anchored" data-anchor-id="rising-health-care-costs">Rising Health Care Costs</h2>
+<p>Let’s jump right into the first visualization. It’s evident that healthcare spending has been consistently increasing and shows no signs of slowing down. This graph focuses on the years 1980 to 2005, highlighting the era of escalating healthcare costs.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories" class="level3">
-<h3 class="anchored" data-anchor-id="personal-hospital-and-physician-clinical-care-are-the-dominate-spending-categories">Personal, Hospital and Physician &amp; Clinical Care Are The Dominate Spending Categories</h3>
-<p>Yikes. Personal health care went from about $10K to nearly $80K in that short time span. Hospital and Clinical Care are heavy hitters for spending. Though this graph shows the same trend for each category. Not very pleasant information.</p>
+<section id="dominant-spending-categories-personal-hospital-and-physician-clinical-care" class="level3">
+<h3 class="anchored" data-anchor-id="dominant-spending-categories-personal-hospital-and-physician-clinical-care">Dominant Spending Categories: Personal, Hospital, and Physician &amp; Clinical Care</h3>
+<p>Wow! Personal health care expenses skyrocketed from around $10K to nearly $80K within a relatively short period. Both Hospital and Clinical Care play significant roles in healthcare spending. Surprisingly, all three categories follow a similar upward trend, which reveals some unsettling information.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="each-region-is-trending-the-same" class="level3">
-<h3 class="anchored" data-anchor-id="each-region-is-trending-the-same">Each Region Is Trending The Same</h3>
-<p>Terrible news, each region has not stopped increasing spending. Their trend lines all appear to be similar and proportionally alike to one and another. The highlights are that the Mideast is the most expensive and the Rocky Mountains is the cheapest. Note, this was looking at the spending up to 2005. Maybe things will change by 2014.</p>
+<section id="consistent-trends-across-regions" class="level3">
+<h3 class="anchored" data-anchor-id="consistent-trends-across-regions">Consistent Trends Across Regions</h3>
+<p>It’s disheartening to report that every region has been experiencing relentless growth in healthcare spending. The trend lines for each region are strikingly similar and proportionate to one another. Notably, the Mideast stands out as the most expensive region, while the Rocky Mountains region appears to have comparatively lower healthcare costs. It’s important to note that this analysis considers spending up to 2005, and we can hope for potential changes by 2014.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="the-trends-remain.-healthcare-spending-continues-to-rise-in-every-region-in-the-u.s." class="level3">
-<h3 class="anchored" data-anchor-id="the-trends-remain.-healthcare-spending-continues-to-rise-in-every-region-in-the-u.s.">The Trends Remain. Healthcare Spending Continues To Rise In Every Region In The U.S.</h3>
-<p>In the bar chart, you can distinguish more clearly each region and their overall spending. What stands out the most is that the Plains, New England and the Rocky Mountains are one of the lowest in terms of medical funding. In some cases, they are 1/3 the cost of the most expensive regions.</p>
+<section id="persistent-trends-rising-healthcare-spending-across-u.s.-regions" class="level3">
+<h3 class="anchored" data-anchor-id="persistent-trends-rising-healthcare-spending-across-u.s.-regions">Persistent Trends: Rising Healthcare Spending Across U.S. Regions</h3>
+<p>The bar chart vividly demonstrates the ongoing trends in healthcare spending across different regions. Notably, the Plains, New England, and the Rocky Mountains regions emerge as some of the lowest in terms of medical funding. Surprisingly, their costs can be as low as one-third compared to the most expensive regions. This stark contrast highlights the significant disparities in healthcare expenditure throughout the United States.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="the-far-west-ranks-3rd-in-healthcare-spending" class="level3">
-<h3 class="anchored" data-anchor-id="the-far-west-ranks-3rd-in-healthcare-spending">The Far West Ranks 3rd In Healthcare Spending</h3>
-<p>For 2014, that is quite the jump. It can be assumed that all those states are heavy hitters in terms of spending, but that is proven quite wrong in the next graphic.</p>
+<section id="far-west-a-surprising-3rd-place-in-healthcare-spending" class="level3">
+<h3 class="anchored" data-anchor-id="far-west-a-surprising-3rd-place-in-healthcare-spending">Far West: A Surprising 3rd Place in Healthcare Spending</h3>
+<p>In 2014, the Far West region experienced a significant surge in healthcare spending, landing them in the 3rd position. This unexpected leap challenges the assumption that states within this region are heavy spenders. However, the subsequent graphic reveals an intriguing revelation that contradicts this perception.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -314,9 +368,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="oregon-ranks-3rd-but-dont-be-fooled" class="level3">
-<h3 class="anchored" data-anchor-id="oregon-ranks-3rd-but-dont-be-fooled">Oregon Ranks 3rd, But Don’t Be Fooled!</h3>
-<p>Look, California takes the #1 spot in spending. You cannot deny the underlying reasons behind that, such as their ridicously population size. While this report did not look into it, you would probably push the Far West region closer to the Plains or New England in terms of spending.</p>
+<section id="oregon-3rd-place-but-dont-be-deceived" class="level3">
+<h3 class="anchored" data-anchor-id="oregon-3rd-place-but-dont-be-deceived">Oregon: 3rd Place, but Don’t Be Deceived!</h3>
+<p>Surprisingly, Oregon ranks 3rd in healthcare spending. However, let’s not overlook the undeniable fact that California claims the top spot. The massive population size of California is a significant contributing factor to its high expenditure. Although this report doesn’t delve into the specific reasons, it’s plausible that further analysis would align the Far West region more closely with the spending patterns observed in the Plains or New England regions.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
@@ -329,9 +383,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="a-linear-fit-is-not-the-right-model-for-this-data" class="level3">
-<h3 class="anchored" data-anchor-id="a-linear-fit-is-not-the-right-model-for-this-data">A Linear Fit Is Not The Right Model For This Data</h3>
-<p>Right off the bat, the model appears to have an adjusted R-Squared value of 0.8572. That looks wondeful, right? No! This model is not accurate at all and is highly discouraged. It becomes clear that their is no correlation between Cost and Region_Name per Year. While not shown, this was true for the filtered data set that went up from 1980 to 2014. The residual plots speak for themselves. The Residuals vs Fitted was showing clear signs of being a quadratic fit instead of a linear one. The Q-Q was short of linear but had a number of curves along the fitted line. The scale location evidently showed that this model was simple not the correct fit for this data.</p>
+<section id="inappropriate-model-linear-fit-inadequate-for-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="inappropriate-model-linear-fit-inadequate-for-the-data">Inappropriate Model: Linear Fit Inadequate for the Data</h3>
+<p>At first glance, the model may seem impressive with an adjusted R-squared value of 0.8572. However, this is deceptive. It’s crucial to note that this model is highly inaccurate and strongly discouraged. The analysis reveals no correlation between Cost and Region_Name per Year, a finding consistent with the filtered dataset covering the years 1980 to 2014.</p>
+<p>The residual plots provide clear evidence against a linear fit. The Residuals vs Fitted plot indicates a clear quadratic relationship rather than a linear one. The Q-Q plot deviates from linearity, exhibiting multiple curves along the fitted line. Additionally, the scale-location plot highlights that this model is fundamentally unsuitable for the data.</p>
+<p>It is evident that a linear fit is not the appropriate choice for accurately modeling this dataset.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
@@ -392,10 +448,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </section>
-<section id="was-there-a-significant-difference-in-the-means-of-each-region" class="level3">
-<h3 class="anchored" data-anchor-id="was-there-a-significant-difference-in-the-means-of-each-region">Was there A Significant Difference In The Means Of Each Region?</h3>
-<p>I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.</p>
-<p>I wished to explore if it was statistically significant on where each region’s mean over the years mattered. I actually started off using a LeveneTest to see if the variance (the spread of the spending for each region) was important. Given both tests yielded an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. I was not done there, I now wanted to confirm this with the TukeyHsd test to see if their means differed as a result. Yes, their means differed as expected from the LeveneTest. To make clear, New England, Plains and Rocky Mountains spent much lower on average. Despite that fact, they are following the trend of growth with an 18% since 2005.</p>
+<section id="significant-differences-in-means-among-regions" class="level3">
+<h3 class="anchored" data-anchor-id="significant-differences-in-means-among-regions">Significant Differences in Means among Regions</h3>
+<p>My objective was to investigate whether there were significant differences in the means of each region’s spending over the years. To start, I utilized the LeveneTest to examine the importance of variance (i.e., the spread of spending) across regions. Both tests yielded remarkably small p-values, indicating that three regions had substantially different variances compared to the others.</p>
+<p>Building on this, I employed the TukeyHsd test to confirm if these differing variances were reflected in the means. As anticipated from the LeveneTest results, the means of these regions indeed exhibited significant differences. Notably, New England, Plains, and Rocky Mountains had considerably lower average spending. However, despite their comparatively lower spending, these regions still followed the overall growth trend, with an increase of 18% since 2005.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The Average Spending In The Expensive Regions since 2005 = $5333.29"</code></pre>
@@ -498,12 +554,15 @@ Southwest-Southeast           381.25535 -2126.59148  2889.1021825 0.9997829</cod
 </section>
 </section>
 <section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">RESULTS</h2>
-<p>U.S. Healthcare costs have more than quintupled from 1980 to 2014. There are trends throughout each region that show no clear indication of healthcare spending going down. While some regions are not as expensive as others, they are still growing at the same pace nationally. Following the trend, personal health care spending averaged approximately $10,000 in 1980, but has substantially increased to nearly $80,000 in 2014. The top 3 most expensive regions as of 2014 are the Mideast, Great Lakes, and Far West. The top 3 least cheapest regions as of 2014 are the Rocky Mountains, New England, and Plains. In the Far West region, Oregon ranks 3rd in being the most expensive State in the region.</p>
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The cost of healthcare in the United States has increased more than fivefold between 1980 and 2014. Across regions, there is a consistent upward trend in healthcare spending with no clear indications of a decrease. Although some regions are less expensive than others, their growth rates align with the national average. Personal health care spending, which averaged around $10,000 in 1980, has significantly risen to nearly $80,000 in 2014.</p>
+<p>As of 2014, the Mideast, Great Lakes, and Far West regions rank as the top three most expensive regions, while the Rocky Mountains, New England, and Plains regions are the least expensive.</p>
+<p>Within the Far West region, Oregon stands out as the third most expensive state.</p>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">CONCLUSION</h2>
-<p>The United States continues to spend more in their healthcare system. Though, in some categories such as Personal Health Care, you could argue that it is becoming increasingly unaffordable. A $70K difference in 35 years is quite off from inflation expectations. Speaking of inflation, this dataset would have had great potential if inflation adjusted values were given. In that sense, a deeper analysis could be made and more insight would have been gained. Now, one could explore this with even more in depth see if there is any statistical significance between each individual state and their spending habits. That is left and open for anyone to undertake in the future.</p>
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The United States continues to experience escalating healthcare expenditures, raising concerns about the affordability of personal health care. The substantial increase of approximately $70,000 over a span of 35 years far exceeds inflation expectations. It would have been beneficial to have inflation-adjusted values in the dataset, allowing for a more comprehensive analysis and deeper insights.</p>
+<p>Further exploration can be done to investigate potential statistical significance between individual states and their spending patterns. This avenue remains open for future researchers to delve into for a more in-depth understanding of healthcare expenditure variations.</p>
 
 
 </section>
@@ -760,7 +819,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Made with quarto® © 2023 Brian Cervantes Alvarez</div>   
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.quarto.org">Made with quarto®</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bcervantesalvarez/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:briancervantesalvarez@gmail.com">
+      <i class="bi bi-envelope-fill" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
   </div>
 </footer>
 
