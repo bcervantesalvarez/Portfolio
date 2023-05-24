@@ -223,10 +223,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract:</a>
-  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract:</a></li>
   <li><a href="#data-setup-and-import" id="toc-data-setup-and-import" class="nav-link" data-scroll-target="#data-setup-and-import">Data Setup and Import</a></li>
-  </ul></li>
   <li><a href="#analysis-of-factors-affecting-insurance-costs" id="toc-analysis-of-factors-affecting-insurance-costs" class="nav-link" data-scroll-target="#analysis-of-factors-affecting-insurance-costs">Analysis of Factors Affecting Insurance Costs:</a>
   <ul class="collapse">
   <li><a href="#histogram-plot-of-smokers-vs-nonsmokers" id="toc-histogram-plot-of-smokers-vs-nonsmokers" class="nav-link" data-scroll-target="#histogram-plot-of-smokers-vs-nonsmokers">Histogram Plot of Smokers vs Nonsmokers</a></li>
@@ -258,13 +256,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="health_ins.jpeg" class="img-fluid"></p>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 5px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border: 1px solid #fff; /* Mini border block */
+      border-radius: 4px; /* Rounded corners for the mini border block */
+      padding: 2px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthIns_Costs/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthIns_Costs/insurance.csv",
+      "Download .csv"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract:</h2>
 <p>This study confirms the significant impact of smoking on the escalation of health insurance premiums. Male and female smokers with a body mass index (BMI) of 30 or higher face additional charges, compounding their financial burden. Male smokers experience a 52% increase, while female smokers face a 49% rise in insurance charges, in addition to the base premium for smokers.</p>
 <p>The severity of the situation is evident, as male smokers pay 408.57% more than non-smokers, and female smokers pay 350.12% more. The data unequivocally supports the notion that unhealthy lifestyle choices, such as smoking and high BMI, result in higher health insurance premiums. It is important to note that premiums also increase gradually over time with age.</p>
 <p>While this project provides valuable insights, further exploration opportunities exist. Applying machine learning techniques to assess the representativeness of the sample could enhance the accuracy of conclusions and foster advancements in the field of health insurance.</p>
-<section id="data-setup-and-import" class="level3">
-<h3 class="anchored" data-anchor-id="data-setup-and-import">Data Setup and Import</h3>
+</section>
+<section id="data-setup-and-import" class="level2">
+<h2 class="anchored" data-anchor-id="data-setup-and-import">Data Setup and Import</h2>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -284,7 +343,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 4   32    male  28.880         0     no  northwest   3866.85520</code></pre>
 </div>
 </div>
-</section>
 </section>
 <section id="analysis-of-factors-affecting-insurance-costs" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-of-factors-affecting-insurance-costs">Analysis of Factors Affecting Insurance Costs:</h2>
@@ -496,7 +554,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Male Smoker Insurance Cost vs BMI'</span>)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'BMI'</span>)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Text(0, 0.5, 'Insurance Costs (USD)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -683,7 +741,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-11-output-1.png" width="691" height="495"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>&lt;function matplotlib.pyplot.clf()&gt;</code></pre>
 </div>
 </div>
