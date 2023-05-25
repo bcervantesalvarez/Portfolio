@@ -40,11 +40,29 @@ I enjoyed the rural atmosphere of Pasco, with its open fields, orchards, and vin
 
 ```{r}
 library(leaflet)
-#| column: screen
-leaflet() %>%
-  addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng = -119.095377, 
-             lat = 46.235109, popup = "Grew up here")
+
+# Create a Leaflet map object
+map <- leaflet() %>%
+  addTiles() %>%
+  setView(lng = -119.095377, lat = 46.235109, zoom = 12)
+
+# Create a marker layer
+marker <- addMarkers(
+  map = map,
+  lng = -119.095377,
+  lat = 46.235109,
+  popup = "Grew up here"
+)
+
+# Add JavaScript code to activate the map only on hover
+htmlwidgets::onRender(map, '
+  function(el, x) {
+    el.addEventListener("mouseenter", function(e) {
+      x.map.invalidateSize();
+    });
+  }
+')
+
 ```
 
 Before finishing 1st grade, I moved to Salem, Oregon, a mid-sized city in the heart of the Willamette Valley. Salem is known for its farms and vineyards that produce some of the best wine and food in the state.
@@ -57,10 +75,27 @@ My family and I suffered poverty and food instability before I graduated high sc
 
 ```{r}
 library(leaflet)
-leaflet::clearCache()
-#| column: screen
-leaflet() %>%
-  addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng = -123.033121, 
-             lat = 44.9391565, popup = "Grew up here")
+
+# Create a Leaflet map object
+map <- leaflet() %>%
+  addTiles() %>%
+  setView(lng = -123.033121, lat = 44.9391565, zoom = 12)
+
+# Create a marker layer
+marker <- addMarkers(
+  map = map,
+  lng = -123.033121,
+  lat = 44.9391565,
+  popup = "Grew up here"
+)
+
+# Add JavaScript code to activate the map only on hover
+htmlwidgets::onRender(map, '
+  function(el, x) {
+    el.addEventListener("mouseenter", function(e) {
+      x.map.invalidateSize();
+    });
+  }
+')
+
 ```
