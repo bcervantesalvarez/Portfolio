@@ -8,6 +8,62 @@ format:
 title-block-banner: true
 ---
 
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/FancyTables/index.qmd",
+      "Download Resume"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+  </script>
+</div>
+
 ### Background
 
 I have a background in retail, with experience in customer service, sales, and inventory management. However, I am passionate about data and its potential to drive growth and inform business decisions. Through coursework in data science and proficiency in Python, R, and SQL, I have completed projects in data cleaning, exploratory data analysis, and predictive modeling. My retail experience taught me the importance of understanding customer behavior and market trends, which can be enhanced by data-driven approaches. I am eager to apply my skills to a career in data science and contribute to innovative organizations that value data-driven decision-making.

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Cervantes Alvarez">
+<meta name="dcterms.date" content="2023-03-29">
+<meta name="description" content="Explore the dynamic world of Time Series Graphs with R’s plotly. Unveil trends in Apple’s stock market and the impact of groundbreaking innovations">
+
+<title>Brian Cervantes Alvarez - Apple’s Journey In The Stock Market</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<meta property="og:title" content="Brian Cervantes Alvarez - Apple’s Journey In The Stock Market">
+<meta property="og:description" content="Explore the dynamic world of Time Series Graphs with R's plotly. Unveil trends in Apple's stock market and the impact of groundbreaking innovations">
+<meta property="og:image" content="apple.jpeg">
+<meta property="og:site-name" content="Brian Cervantes Alvarez">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Brian Cervantes Alvarez</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../presentation.html">
+ <span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resume.html">
+ <span class="menu-text">Resume</span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Apple’s Journey In The Stock Market</h1>
+                  <div>
+        <div class="description">
+          Explore the dynamic world of Time Series Graphs with R’s plotly. Unveil trends in Apple’s stock market and the impact of groundbreaking innovations
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Time Series</div>
+                <div class="quarto-category">Data Visualization</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Cervantes Alvarez </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 29, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#apply-custom-theme" id="toc-apply-custom-theme" class="nav-link" data-scroll-target="#apply-custom-theme">Apply Custom Theme</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  <li><a href="#times-series-plots-of-apple-inc.-stock-prices" id="toc-times-series-plots-of-apple-inc.-stock-prices" class="nav-link" data-scroll-target="#times-series-plots-of-apple-inc.-stock-prices">Times Series Plots of Apple Inc.&nbsp;Stock Prices</a></li>
+  <li><a href="#applying-log-norm" id="toc-applying-log-norm" class="nav-link" data-scroll-target="#applying-log-norm">Applying Log-norm</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#data-references" id="toc-data-references" class="nav-link" data-scroll-target="#data-references">Data References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+<p><img src="apple.jpeg" class="img-fluid"></p>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AppleInc_IncomeStatement/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AppleInc_IncomeStatement/AppleInc_Stocks.csv",
+      "Download .csv"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>This project aims to utilize R’s plotly package to create dynamic and interactive visualizations of Time Series Graphs. The focus of the analysis is on the Apple stock prices from 1981 to the present, with a specific emphasis on identifying notable trends that have emerged over time. The study reveals a significant spike in the company’s stock prices following 2010, attributed to the success of Apple’s iPhone and related products. The research also highlights the impact of Apple’s marketing strategy in maintaining its market value and relevance to changing consumer needs. Overall, the project demonstrates the insightful use of R’s plotly for visualizing Time Series Graphs and providing meaningful explanations of stock market trends.</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Visualizing Time Series Graphs using R’s plotly package provides a powerful means to analyze and interpret complex data. In this project, the focus is on exploring the Apple stock prices over several decades and identifying key trends that have shaped the company’s market performance. The analysis uncovers a significant upsurge in Apple’s stock prices after 2010, which can be attributed to the tremendous success of the iPhone and Apple’s ability to stay in tune with evolving consumer demands.</p>
+<p>Furthermore, the research recognizes the role of Apple’s marketing strategy in maintaining the company’s market value and driving its growth. Apple’s innovative technology and ability to revolutionize the tech industry have contributed significantly to its economic impact. By employing R’s plotly package, this project aims to provide a more meaningful and interactive representation of the Time Series Graphs, enabling a comprehensive understanding of the trends in the stock market.</p>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"AppleInc_Stocks.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(ds)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="apply-custom-theme" class="level2">
+<h2 class="anchored" data-anchor-id="apply-custom-theme">Apply Custom Theme</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>myTheme <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    font <span class="ot">&lt;-</span> <span class="st">"SF Mono"</span>   <span class="co">#assign font family up front</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">%+replace%</span>    <span class="co">#replace elements we want to change</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="co">#grid elements</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),    <span class="co">#strip major gridlines</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),    <span class="co">#strip minor gridlines</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),          <span class="co">#strip axis ticks</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="co">#since theme_minimal() already strips axis lines, </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="co">#we don't need to do that again</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="co">#text elements</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(             <span class="co">#title</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#set font family</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">16</span>,                <span class="co">#set font size</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">face =</span> <span class="st">'bold'</span>,            <span class="co">#bold typeface</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                   <span class="at">hjust =</span> <span class="dv">0</span>,                <span class="co">#left align</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                   <span class="at">vjust =</span> <span class="dv">2</span>),               <span class="co">#raise slightly</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(          <span class="co">#subtitle</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#font family</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">12</span>),               <span class="co">#font size</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(           <span class="co">#caption</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#font family</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">9</span>,                 <span class="co">#font size</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                   <span class="at">hjust =</span> <span class="dv">1</span>),               <span class="co">#right align</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(             <span class="co">#axis titles</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#font family</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">10</span>),               <span class="co">#font size</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(              <span class="co">#axis text</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> font,            <span class="co">#axis famuly</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">9</span>),                <span class="co">#font size</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(            <span class="co">#margin for axis text</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>                    <span class="at">margin=</span><span class="fu">margin</span>(<span class="dv">5</span>, <span class="at">b =</span> <span class="dv">10</span>))</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>      <span class="co">#since the legend often requires manual tweaking </span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>      <span class="co">#based on plot content, don't define it here</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>yearlyDs <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as.Date</span>(Date, <span class="st">"%m/%d/%Y"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">Year =</span> lubridate<span class="sc">::</span><span class="fu">floor_date</span>(Date, <span class="st">"year"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Open =</span> <span class="fu">mean</span>(Open),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">High =</span> <span class="fu">mean</span>(High),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Low =</span> <span class="fu">mean</span>(Low),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">Close =</span> <span class="fu">mean</span>(Close),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">AdjClose =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Adj Close</span><span class="st">`</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">Volume =</span> <span class="fu">mean</span>(Volume))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>log_yearlyDs <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as.Date</span>(Date, <span class="st">"%m/%d/%Y"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">Year =</span> lubridate<span class="sc">::</span><span class="fu">floor_date</span>(Date, <span class="st">"year"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Open =</span> <span class="fu">log</span>(<span class="fu">mean</span>(Open)),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">High =</span> <span class="fu">log</span>(<span class="fu">mean</span>(High)),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">Low =</span> <span class="fu">log</span>(<span class="fu">mean</span>(Low)),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">Close =</span> <span class="fu">log</span>(<span class="fu">mean</span>(Close)),</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">AdjClose =</span> <span class="fu">log</span>(<span class="fu">mean</span>(<span class="st">`</span><span class="at">Adj Close</span><span class="st">`</span>)),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">Volume =</span> <span class="fu">log</span>(<span class="fu">mean</span>(Volume)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="times-series-plots-of-apple-inc.-stock-prices" class="level2">
+<h2 class="anchored" data-anchor-id="times-series-plots-of-apple-inc.-stock-prices">Times Series Plots of Apple Inc.&nbsp;Stock Prices</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> yearlyDs <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> High), <span class="at">color =</span> <span class="st">"green4"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Low), <span class="at">color =</span> <span class="st">"red4"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> AdjClose), <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Apple Inc. Stock Price Since 1981"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">myTheme</span>()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p) <span class="sc">%&gt;%</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style</span>(<span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" High: $"</span>, <span class="fu">round</span>(yearlyDs<span class="sc">$</span>High,<span class="dv">2</span>)),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">traces =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style</span>(<span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" Low: $"</span>, <span class="fu">round</span>(yearlyDs<span class="sc">$</span>Low,<span class="dv">2</span>)),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">traces =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style</span>(<span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" AdjClose: $"</span>, <span class="fu">round</span>(yearlyDs<span class="sc">$</span>AdjClose,<span class="dv">2</span>)),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">traces =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-a1274ff000ab71e38a8f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a1274ff000ab71e38a8f">{"x":{"data":[{"x":[4018,4383,4748,5113,5479,5844,6209,6574,6940,7305,7670,8035,8401,8766,9131,9496,9862,10227,10592,10957,11323,11688,12053,12418,12784,13149,13514,13879,14245,14610,14975,15340,15706,16071,16436,16801,17167,17532,17897,18262,18628,18993,19358,null],"y":[0.11056357,0.08707033,0.170725171717172,0.121499606060606,0.09150112,0.14569196,0.34829802,0.37866395959596,0.381047336734694,0.34065848,0.477159237623762,0.497745292929293,0.3867522,0.309537858585859,0.369281571428571,0.228098524752475,0.16605192,0.268567414141414,0.52295064,0.846719161616162,0.369025244897959,0.354543861386139,0.33484288,0.624856030612245,1.64575711,2.57474124489796,4.5775473877551,5.28137552475247,5.19822864646465,9.20361788,13.05438929,20.6417382653061,17.0914745049505,23.11246082,30.2875252525253,26.103575,37.6512755408163,47.9589646565657,51.7074506039604,96.0102294285714,140.50560003,159.03910046,131.257497125,16.8782485621302],"text":["Year: 1981-01-01<br />High:   0.11056357","Year: 1982-01-01<br />High:   0.08707033","Year: 1983-01-01<br />High:   0.17072517","Year: 1984-01-01<br />High:   0.12149961","Year: 1985-01-01<br />High:   0.09150112","Year: 1986-01-01<br />High:   0.14569196","Year: 1987-01-01<br />High:   0.34829802","Year: 1988-01-01<br />High:   0.37866396","Year: 1989-01-01<br />High:   0.38104734","Year: 1990-01-01<br />High:   0.34065848","Year: 1991-01-01<br />High:   0.47715924","Year: 1992-01-01<br />High:   0.49774529","Year: 1993-01-01<br />High:   0.38675220","Year: 1994-01-01<br />High:   0.30953786","Year: 1995-01-01<br />High:   0.36928157","Year: 1996-01-01<br />High:   0.22809852","Year: 1997-01-01<br />High:   0.16605192","Year: 1998-01-01<br />High:   0.26856741","Year: 1999-01-01<br />High:   0.52295064","Year: 2000-01-01<br />High:   0.84671916","Year: 2001-01-01<br />High:   0.36902524","Year: 2002-01-01<br />High:   0.35454386","Year: 2003-01-01<br />High:   0.33484288","Year: 2004-01-01<br />High:   0.62485603","Year: 2005-01-01<br />High:   1.64575711","Year: 2006-01-01<br />High:   2.57474124","Year: 2007-01-01<br />High:   4.57754739","Year: 2008-01-01<br />High:   5.28137552","Year: 2009-01-01<br />High:   5.19822865","Year: 2010-01-01<br />High:   9.20361788","Year: 2011-01-01<br />High:  13.05438929","Year: 2012-01-01<br />High:  20.64173827","Year: 2013-01-01<br />High:  17.09147450","Year: 2014-01-01<br />High:  23.11246082","Year: 2015-01-01<br />High:  30.28752525","Year: 2016-01-01<br />High:  26.10357500","Year: 2017-01-01<br />High:  37.65127554","Year: 2018-01-01<br />High:  47.95896466","Year: 2019-01-01<br />High:  51.70745060","Year: 2020-01-01<br />High:  96.01022943","Year: 2021-01-01<br />High: 140.50560003","Year: 2022-01-01<br />High: 159.03910046","Year: 2023-01-01<br />High: 131.25749712","Year: NA<br />High:  16.87824856"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,139,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertext":[" High: $0.11"," High: $0.09"," High: $0.17"," High: $0.12"," High: $0.09"," High: $0.15"," High: $0.35"," High: $0.38"," High: $0.38"," High: $0.34"," High: $0.48"," High: $0.5"," High: $0.39"," High: $0.31"," High: $0.37"," High: $0.23"," High: $0.17"," High: $0.27"," High: $0.52"," High: $0.85"," High: $0.37"," High: $0.35"," High: $0.33"," High: $0.62"," High: $1.65"," High: $2.57"," High: $4.58"," High: $5.28"," High: $5.2"," High: $9.2"," High: $13.05"," High: $20.64"," High: $17.09"," High: $23.11"," High: $30.29"," High: $26.1"," High: $37.65"," High: $47.96"," High: $51.71"," High: $96.01"," High: $140.51"," High: $159.04"," High: $131.26"," High: $16.88"]},{"x":[4018,4383,4748,5113,5479,5844,6209,6574,6940,7305,7670,8035,8401,8766,9131,9496,9862,10227,10592,10957,11323,11688,12053,12418,12784,13149,13514,13879,14245,14610,14975,15340,15706,16071,16436,16801,17167,17532,17897,18262,18628,18993,19358,null],"y":[0.10988277,0.08482143,0.163160646464646,0.116454747474747,0.0895592,0.14103244,0.33454802,0.366184151515152,0.368816081632653,0.32799105,0.459832524752475,0.483123666666667,0.37333706,0.297354141414141,0.357309469387755,0.219581613861386,0.1592341,0.254378323232323,0.49681921,0.794827464646465,0.348519969387755,0.339432445544554,0.32366072,0.605400857142857,1.59932504,2.49581268367347,4.42958819387755,5.0502793960396,5.06689752525253,9.00700711,12.80048929,20.2318294285714,16.756463960396,22.71001068,29.6695454747475,25.6579751,37.1323216428571,46.9776264343434,50.7911386237624,93.1599492346939,137.7295994,154.96299974,127.3512505,16.5005177692307],"text":["Year: 1981-01-01<br />Low:   0.10988277","Year: 1982-01-01<br />Low:   0.08482143","Year: 1983-01-01<br />Low:   0.16316065","Year: 1984-01-01<br />Low:   0.11645475","Year: 1985-01-01<br />Low:   0.08955920","Year: 1986-01-01<br />Low:   0.14103244","Year: 1987-01-01<br />Low:   0.33454802","Year: 1988-01-01<br />Low:   0.36618415","Year: 1989-01-01<br />Low:   0.36881608","Year: 1990-01-01<br />Low:   0.32799105","Year: 1991-01-01<br />Low:   0.45983252","Year: 1992-01-01<br />Low:   0.48312367","Year: 1993-01-01<br />Low:   0.37333706","Year: 1994-01-01<br />Low:   0.29735414","Year: 1995-01-01<br />Low:   0.35730947","Year: 1996-01-01<br />Low:   0.21958161","Year: 1997-01-01<br />Low:   0.15923410","Year: 1998-01-01<br />Low:   0.25437832","Year: 1999-01-01<br />Low:   0.49681921","Year: 2000-01-01<br />Low:   0.79482746","Year: 2001-01-01<br />Low:   0.34851997","Year: 2002-01-01<br />Low:   0.33943245","Year: 2003-01-01<br />Low:   0.32366072","Year: 2004-01-01<br />Low:   0.60540086","Year: 2005-01-01<br />Low:   1.59932504","Year: 2006-01-01<br />Low:   2.49581268","Year: 2007-01-01<br />Low:   4.42958819","Year: 2008-01-01<br />Low:   5.05027940","Year: 2009-01-01<br />Low:   5.06689753","Year: 2010-01-01<br />Low:   9.00700711","Year: 2011-01-01<br />Low:  12.80048929","Year: 2012-01-01<br />Low:  20.23182943","Year: 2013-01-01<br />Low:  16.75646396","Year: 2014-01-01<br />Low:  22.71001068","Year: 2015-01-01<br />Low:  29.66954547","Year: 2016-01-01<br />Low:  25.65797510","Year: 2017-01-01<br />Low:  37.13232164","Year: 2018-01-01<br />Low:  46.97762643","Year: 2019-01-01<br />Low:  50.79113862","Year: 2020-01-01<br />Low:  93.15994923","Year: 2021-01-01<br />Low: 137.72959940","Year: 2022-01-01<br />Low: 154.96299974","Year: 2023-01-01<br />Low: 127.35125050","Year: NA<br />Low:  16.50051777"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(139,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertext":[" Low: $0.11"," Low: $0.08"," Low: $0.16"," Low: $0.12"," Low: $0.09"," Low: $0.14"," Low: $0.33"," Low: $0.37"," Low: $0.37"," Low: $0.33"," Low: $0.46"," Low: $0.48"," Low: $0.37"," Low: $0.3"," Low: $0.36"," Low: $0.22"," Low: $0.16"," Low: $0.25"," Low: $0.5"," Low: $0.79"," Low: $0.35"," Low: $0.34"," Low: $0.32"," Low: $0.61"," Low: $1.6"," Low: $2.5"," Low: $4.43"," Low: $5.05"," Low: $5.07"," Low: $9.01"," Low: $12.8"," Low: $20.23"," Low: $16.76"," Low: $22.71"," Low: $29.67"," Low: $25.66"," Low: $37.13"," Low: $46.98"," Low: $50.79"," Low: $93.16"," Low: $137.73"," Low: $154.96"," Low: $127.35"," Low: $16.5"]},{"x":[4018,4383,4748,5113,5479,5844,6209,6574,6940,7305,7670,8035,8401,8766,9131,9496,9862,10227,10592,10957,11323,11688,12053,12418,12784,13149,13514,13879,14245,14610,14975,15340,15706,16071,16436,16801,17167,17532,17897,18262,18628,18993,19358,null],"y":[0.08550511,0.06680269,0.129849363636364,0.0924481717171717,0.06989881,0.11181539,0.26627285,0.292382202020202,0.297368683673469,0.26842908,0.379697108910891,0.400888666666667,0.31296789,0.254682545454545,0.30804612244898,0.190766455445545,0.13835376,0.223627060606061,0.43660495,0.696760121212121,0.306293479591837,0.295870059405941,0.28093721,0.525223336734694,1.38512879,2.15817045918367,3.84382366326531,4.39796678217822,4.37723961616162,7.777808,11.02469492,17.4491163469388,14.7327208415842,20.44986191,27.2213537474747,23.97978332,35.3220507857143,45.5319048282828,49.9740976732673,93.2461126020408,137.97241264,156.45276899,129.231249,16.0273342988165],"text":["Year: 1981-01-01<br />AdjClose:   0.08550511","Year: 1982-01-01<br />AdjClose:   0.06680269","Year: 1983-01-01<br />AdjClose:   0.12984936","Year: 1984-01-01<br />AdjClose:   0.09244817","Year: 1985-01-01<br />AdjClose:   0.06989881","Year: 1986-01-01<br />AdjClose:   0.11181539","Year: 1987-01-01<br />AdjClose:   0.26627285","Year: 1988-01-01<br />AdjClose:   0.29238220","Year: 1989-01-01<br />AdjClose:   0.29736868","Year: 1990-01-01<br />AdjClose:   0.26842908","Year: 1991-01-01<br />AdjClose:   0.37969711","Year: 1992-01-01<br />AdjClose:   0.40088867","Year: 1993-01-01<br />AdjClose:   0.31296789","Year: 1994-01-01<br />AdjClose:   0.25468255","Year: 1995-01-01<br />AdjClose:   0.30804612","Year: 1996-01-01<br />AdjClose:   0.19076646","Year: 1997-01-01<br />AdjClose:   0.13835376","Year: 1998-01-01<br />AdjClose:   0.22362706","Year: 1999-01-01<br />AdjClose:   0.43660495","Year: 2000-01-01<br />AdjClose:   0.69676012","Year: 2001-01-01<br />AdjClose:   0.30629348","Year: 2002-01-01<br />AdjClose:   0.29587006","Year: 2003-01-01<br />AdjClose:   0.28093721","Year: 2004-01-01<br />AdjClose:   0.52522334","Year: 2005-01-01<br />AdjClose:   1.38512879","Year: 2006-01-01<br />AdjClose:   2.15817046","Year: 2007-01-01<br />AdjClose:   3.84382366","Year: 2008-01-01<br />AdjClose:   4.39796678","Year: 2009-01-01<br />AdjClose:   4.37723962","Year: 2010-01-01<br />AdjClose:   7.77780800","Year: 2011-01-01<br />AdjClose:  11.02469492","Year: 2012-01-01<br />AdjClose:  17.44911635","Year: 2013-01-01<br />AdjClose:  14.73272084","Year: 2014-01-01<br />AdjClose:  20.44986191","Year: 2015-01-01<br />AdjClose:  27.22135375","Year: 2016-01-01<br />AdjClose:  23.97978332","Year: 2017-01-01<br />AdjClose:  35.32205079","Year: 2018-01-01<br />AdjClose:  45.53190483","Year: 2019-01-01<br />AdjClose:  49.97409767","Year: 2020-01-01<br />AdjClose:  93.24611260","Year: 2021-01-01<br />AdjClose: 137.97241264","Year: 2022-01-01<br />AdjClose: 156.45276899","Year: 2023-01-01<br />AdjClose: 129.23124900","Year: NA<br />AdjClose:  16.02733430"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(190,190,190,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertext":[" AdjClose: $0.09"," AdjClose: $0.07"," AdjClose: $0.13"," AdjClose: $0.09"," AdjClose: $0.07"," AdjClose: $0.11"," AdjClose: $0.27"," AdjClose: $0.29"," AdjClose: $0.3"," AdjClose: $0.27"," AdjClose: $0.38"," AdjClose: $0.4"," AdjClose: $0.31"," AdjClose: $0.25"," AdjClose: $0.31"," AdjClose: $0.19"," AdjClose: $0.14"," AdjClose: $0.22"," AdjClose: $0.44"," AdjClose: $0.7"," AdjClose: $0.31"," AdjClose: $0.3"," AdjClose: $0.28"," AdjClose: $0.53"," AdjClose: $1.39"," AdjClose: $2.16"," AdjClose: $3.84"," AdjClose: $4.4"," AdjClose: $4.38"," AdjClose: $7.78"," AdjClose: $11.02"," AdjClose: $17.45"," AdjClose: $14.73"," AdjClose: $20.45"," AdjClose: $27.22"," AdjClose: $23.98"," AdjClose: $35.32"," AdjClose: $45.53"," AdjClose: $49.97"," AdjClose: $93.25"," AdjClose: $137.97"," AdjClose: $156.45"," AdjClose: $129.23"," AdjClose: $16.03"]}],"layout":{"margin":{"t":47.4819427148194,"r":7.30593607305936,"b":25.8364466583645,"l":34.8692403486924},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"<b> Apple Inc. Stock Price Since 1981 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.2536322125363},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3251,20125],"tickmode":"array","ticktext":["1980","1990","2000","2010","2020"],"tickvals":[3652,7305,10957,14610,18262],"categoryorder":"array","categoryarray":["1980","1990","2000","2010","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-7.8818121985,166.9877153485],"tickmode":"array","ticktext":["$0","$50","$100","$150"],"tickvals":[0,50,100,150],"categoryorder":"array","categoryarray":["$0","$50","$100","$150"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"b9ff51768433":{"x":{},"y":{},"type":"scatter"},"b9ff3be15a0d":{"x":{},"y":{}},"b9ff47df2a31":{"x":{},"y":{}}},"cur_data":"b9ff51768433","visdat":{"b9ff51768433":["function (y) ","x"],"b9ff3be15a0d":["function (y) ","x"],"b9ff47df2a31":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="applying-log-norm" class="level2">
+<h2 class="anchored" data-anchor-id="applying-log-norm">Applying Log-norm</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> log_yearlyDs <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> High), <span class="at">color =</span> <span class="st">"green4"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Low), <span class="at">color =</span> <span class="st">"red4"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> AdjClose), <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Apple Inc. Stock Price (Log-Normalized)"</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">myTheme</span>()</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p2, <span class="at">tooltip =</span> <span class="st">"text"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" Year: "</span>, log_yearlyDs<span class="sc">$</span>Year)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style</span>(<span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" High: "</span>, <span class="fu">round</span>(log_yearlyDs<span class="sc">$</span>High,<span class="dv">2</span>)),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">traces =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style</span>(<span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" Low: "</span>, <span class="fu">round</span>(log_yearlyDs<span class="sc">$</span>Low,<span class="dv">2</span>)),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">traces =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style</span>(<span class="at">hovertext =</span> <span class="fu">paste0</span>(<span class="st">" AdjClose: "</span>, <span class="fu">round</span>(log_yearlyDs<span class="sc">$</span>AdjClose,<span class="dv">2</span>)),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">traces =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e39730e8a59f72f33c7e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e39730e8a59f72f33c7e">{"x":{"data":[{"x":[4018,4383,4748,5113,5479,5844,6209,6574,6940,7305,7670,8035,8401,8766,9131,9496,9862,10227,10592,10957,11323,11688,12053,12418,12784,13149,13514,13879,14245,14610,14975,15340,15706,16071,16436,16801,17167,17532,17897,18262,18628,18993,19358,null],"y":[-2.2021646293249,-2.44103909609482,-1.76770019832397,-2.10784425850633,-2.39140406633842,-1.92626074918413,-1.05469678638086,-0.971106117349036,-0.964831668174861,-1.07687482848651,-0.739905012306775,-0.697666792779095,-0.949971101115923,-1.1726748725745,-0.996195859726515,-1.47797761725995,-1.79545476844394,-1.31465331967097,-0.648268197956239,-0.166386207650851,-0.996890222924152,-1.03692321319914,-1.09409387210435,-0.470234006801015,0.498200527575262,0.945749041648232,1.52116334983519,1.66418657984136,1.64831792264408,2.21959665457942,2.56912442127902,3.02731515534754,2.83857977222082,3.14037190152522,3.41073591990293,3.26207227812875,3.62836683257817,3.87034574228171,3.9456018833935,4.56445474233871,4.94524734584427,5.0691500868309,4.87716102079277,2.82602572561692],"text":"","type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,139,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertext":[" High: -2.2"," High: -2.44"," High: -1.77"," High: -2.11"," High: -2.39"," High: -1.93"," High: -1.05"," High: -0.97"," High: -0.96"," High: -1.08"," High: -0.74"," High: -0.7"," High: -0.95"," High: -1.17"," High: -1"," High: -1.48"," High: -1.8"," High: -1.31"," High: -0.65"," High: -0.17"," High: -1"," High: -1.04"," High: -1.09"," High: -0.47"," High: 0.5"," High: 0.95"," High: 1.52"," High: 1.66"," High: 1.65"," High: 2.22"," High: 2.57"," High: 3.03"," High: 2.84"," High: 3.14"," High: 3.41"," High: 3.26"," High: 3.63"," High: 3.87"," High: 3.95"," High: 4.56"," High: 4.95"," High: 5.07"," High: 4.88"," High: 2.83"]},{"x":[4018,4383,4748,5113,5479,5844,6209,6574,6940,7305,7670,8035,8401,8766,9131,9496,9862,10227,10592,10957,11323,11688,12053,12418,12784,13149,13514,13879,14245,14610,14975,15340,15706,16071,16436,16801,17167,17532,17897,18262,18628,18993,19358,null],"y":[-2.20834120875356,-2.46720705584649,-1.81302000238908,-2.15025251512944,-2.41285541985066,-1.95876534414424,-1.09497485216867,-1.00461892590013,-0.997457182955769,-1.11476895755564,-0.776892932416035,-0.727482619454522,-0.985273621268071,-1.21283145518433,-1.0291530116794,-1.51603129843762,-1.83737983252864,-1.36893265856664,-0.699529081638616,-0.2296302134832,-1.05405974945403,-1.08048033397869,-1.12805947233924,-0.501864466566553,0.469581690241993,0.914614401085863,1.48830662124348,1.61944356770528,1.62272870234068,2.19800284218733,2.54948339597623,3.00725707855768,2.81878409191105,3.12280582639477,3.39012111483074,3.24485444336912,3.61448779364757,3.84967145505839,3.9277219028285,4.53431790008999,4.92529233833574,5.04318637706832,4.84694902077262,2.80339176036757],"text":"","type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(139,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertext":[" Low: -2.21"," Low: -2.47"," Low: -1.81"," Low: -2.15"," Low: -2.41"," Low: -1.96"," Low: -1.09"," Low: -1"," Low: -1"," Low: -1.11"," Low: -0.78"," Low: -0.73"," Low: -0.99"," Low: -1.21"," Low: -1.03"," Low: -1.52"," Low: -1.84"," Low: -1.37"," Low: -0.7"," Low: -0.23"," Low: -1.05"," Low: -1.08"," Low: -1.13"," Low: -0.5"," Low: 0.47"," Low: 0.91"," Low: 1.49"," Low: 1.62"," Low: 1.62"," Low: 2.2"," Low: 2.55"," Low: 3.01"," Low: 2.82"," Low: 3.12"," Low: 3.39"," Low: 3.24"," Low: 3.61"," Low: 3.85"," Low: 3.93"," Low: 4.53"," Low: 4.93"," Low: 5.04"," Low: 4.85"," Low: 2.8"]},{"x":[4018,4383,4748,5113,5479,5844,6209,6574,6940,7305,7670,8035,8401,8766,9131,9496,9862,10227,10592,10957,11323,11688,12053,12418,12784,13149,13514,13879,14245,14610,14975,15340,15706,16071,16436,16801,17167,17532,17897,18262,18628,18993,19358,null],"y":[-2.45917913874347,-2.70601192978925,-2.04138024164501,-2.381107097254,-2.66070665420775,-2.19090607120541,-1.32323374404472,-1.22969342156304,-1.21278255085876,-1.31516853400098,-0.968381425913766,-0.914071529459721,-1.1616546815639,-1.36773742916618,-1.17750575900873,-1.65670534545818,-1.97794139567,-1.49777552263535,-0.828726497321769,-0.361314086407507,-1.18321155302315,-1.21783490953518,-1.26962408657479,-0.643931703544667,0.325793124485752,0.769260853143539,1.3464676168158,1.48114233916594,1.47641830109271,2.05127455041988,2.40013774929471,2.85928900822232,2.69007092771323,3.01797612989877,3.3040017295456,3.17721111369532,3.56450743706586,3.81841328524474,3.91150482466103,4.53524236974119,4.92705375676706,5.0527541688397,4.86160342742888,2.77429565827126],"text":"","type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(190,190,190,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null,"hovertext":[" AdjClose: -2.46"," AdjClose: -2.71"," AdjClose: -2.04"," AdjClose: -2.38"," AdjClose: -2.66"," AdjClose: -2.19"," AdjClose: -1.32"," AdjClose: -1.23"," AdjClose: -1.21"," AdjClose: -1.32"," AdjClose: -0.97"," AdjClose: -0.91"," AdjClose: -1.16"," AdjClose: -1.37"," AdjClose: -1.18"," AdjClose: -1.66"," AdjClose: -1.98"," AdjClose: -1.5"," AdjClose: -0.83"," AdjClose: -0.36"," AdjClose: -1.18"," AdjClose: -1.22"," AdjClose: -1.27"," AdjClose: -0.64"," AdjClose: 0.33"," AdjClose: 0.77"," AdjClose: 1.35"," AdjClose: 1.48"," AdjClose: 1.48"," AdjClose: 2.05"," AdjClose: 2.4"," AdjClose: 2.86"," AdjClose: 2.69"," AdjClose: 3.02"," AdjClose: 3.3"," AdjClose: 3.18"," AdjClose: 3.56"," AdjClose: 3.82"," AdjClose: 3.91"," AdjClose: 4.54"," AdjClose: 4.93"," AdjClose: 5.05"," AdjClose: 4.86"," AdjClose: 2.77"]}],"layout":{"margin":{"t":47.4819427148194,"r":7.30593607305936,"b":25.8364466583645,"l":34.8692403486924},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"<b> Apple Inc. Stock Price (Log-Normalized) <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.2536322125363},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3251,20125],"tickmode":"array","ticktext":["1980","1990","2000","2010","2020"],"tickvals":[3652,7305,10957,14610,18262],"categoryorder":"array","categoryarray":["1980","1990","2000","2010","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.09477003062026,5.45790818766191],"tickmode":"array","ticktext":["-2.5","0.0","2.5","5.0"],"tickvals":[-2.5,0,2.5,5],"categoryorder":"array","categoryarray":["-2.5","0.0","2.5","5.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.2835201328352}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"x unified","barmode":"relative","hovertext":[" Year: 1981-01-01"," Year: 1982-01-01"," Year: 1983-01-01"," Year: 1984-01-01"," Year: 1985-01-01"," Year: 1986-01-01"," Year: 1987-01-01"," Year: 1988-01-01"," Year: 1989-01-01"," Year: 1990-01-01"," Year: 1991-01-01"," Year: 1992-01-01"," Year: 1993-01-01"," Year: 1994-01-01"," Year: 1995-01-01"," Year: 1996-01-01"," Year: 1997-01-01"," Year: 1998-01-01"," Year: 1999-01-01"," Year: 2000-01-01"," Year: 2001-01-01"," Year: 2002-01-01"," Year: 2003-01-01"," Year: 2004-01-01"," Year: 2005-01-01"," Year: 2006-01-01"," Year: 2007-01-01"," Year: 2008-01-01"," Year: 2009-01-01"," Year: 2010-01-01"," Year: 2011-01-01"," Year: 2012-01-01"," Year: 2013-01-01"," Year: 2014-01-01"," Year: 2015-01-01"," Year: 2016-01-01"," Year: 2017-01-01"," Year: 2018-01-01"," Year: 2019-01-01"," Year: 2020-01-01"," Year: 2021-01-01"," Year: 2022-01-01"," Year: 2023-01-01"," Year: NA"]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"b9ff19295ad1":{"x":{},"y":{},"type":"scatter"},"b9ff6a095c3e":{"x":{},"y":{}},"b9ffc8720d5":{"x":{},"y":{}}},"cur_data":"b9ff19295ad1","visdat":{"b9ff19295ad1":["function (y) ","x"],"b9ff6a095c3e":["function (y) ","x"],"b9ffc8720d5":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The utilization of R’s plotly package for visualizing Time Series Graphs in the context of Apple’s stock prices has yielded valuable insights. The analysis revealed a substantial increase in Apple’s stock prices following 2010, fueled by the success of the iPhone and the company’s adept marketing strategy. The study emphasizes the transformative impact of Apple’s technology and its contributions to the tech industry and economic growth.</p>
+<p>By employing dynamic and interactive visualizations, this project has enhanced the interpretation of Time Series Graphs, enabling a deeper understanding of the trends in the stock market. The use of R’s plotly package has proven to be a valuable tool in visual data exploration and storytelling. This undertaking serves as a testament to the power of R’s plotly in uncovering meaningful patterns and explaining the dynamics of stock market trends in a more engaging and informative manner.</p>
+</section>
+<section id="data-references" class="level2">
+<h2 class="anchored" data-anchor-id="data-references">Data References</h2>
+<div class="cell">
+
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-lubridate2011" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
+</div>
+<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+</div>
+<div id="ref-plotly2020" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+</div>
+<div id="ref-R-plotly" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2022. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+</div>
+<div id="ref-ggplot22016" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
+———. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-R-forcats" class="csl-entry" role="doc-biblioentry">
+———. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
+</div>
+<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
+———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
+</div>
+<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
+<div id="ref-R-scales" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Dana Seidel. 2022. <em>Scales: Scale Functions for Visualization</em>. <a href="https://CRAN.R-project.org/package=scales">https://CRAN.R-project.org/package=scales</a>.
+</div>
+<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.quarto.org">Made with quarto®</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bcervantesalvarez/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:briancervantesalvarez@gmail.com">
+      <i class="bi bi-envelope-fill" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
