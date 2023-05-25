@@ -57,6 +57,7 @@ My family and I suffered poverty and food instability before I graduated high sc
 
 ```{r}
 library(leaflet)
+leaflet::clearCache()
 #| column: screen
 leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
