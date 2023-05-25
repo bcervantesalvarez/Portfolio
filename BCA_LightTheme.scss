@@ -65,7 +65,7 @@ $body-font-size: 0.9rem !default;
 $font-size-sm: 0.5rem !default;
 $h1-font-size: 1.75rem !default;
 $h2-font-size: 1.5rem !default;
-$h3-font-size: 1.20rem !default;
+$h3-font-size: 1.2rem !default;
 $h4-font-size: 1.15rem !default;
 $h5-font-size: 1rem !default;
 $h6-font-size: 0.8rem !default;
@@ -129,7 +129,6 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
   @import url($web-monofont-path);
 }
 
-
 .navbar {
   font-size: $h6-font-size;
   font-weight: 800;
@@ -170,16 +169,13 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
   margin-right: 2rem;
 }
 
-// Table of Content 
-.sidebar nav[role=doc-toc] ul>li>a.active {
+// Table of Content
+.sidebar nav[role="doc-toc"] ul > li > a.active {
   border-left: 1px solid #1a1a1a;
   color: $blue !important;
 }
 
-
-
 // Typography
-
 
 // Heading Transformations
 
@@ -211,7 +207,6 @@ h6 {
   color: $body-color !important;
 }
 
-
 body {
   font-weight: 200;
   font-family: "DM Sans", sans-serif;
@@ -229,8 +224,6 @@ p {
   margin-bottom: 25px; // Adjusts the bottom margin between paragraphs
   line-height: 1.7em;
 }
-
-
 
 // Code Chunk Coloring
 
@@ -380,7 +373,6 @@ code span.kw {
   content: "</";
 }
 
-
 // Buttons
 
 .btn {
@@ -426,7 +418,6 @@ code span.kw {
   border: 1px solid $gray-400 !important;
 }
 
-
 // Tables
 
 th {
@@ -452,15 +443,11 @@ th {
 
 a {
   color: $gray-900;
-  
+
   &:hover {
     color: #1560bd;
   }
 }
-
-
-
-
 
 .dropdown-menu {
   font-size: $font-size-sm;
@@ -486,7 +473,7 @@ a {
 
 .nav-footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   padding-top: 0.6rem;
@@ -496,9 +483,9 @@ a {
   font-size: 1.2rem;
   a {
     color: $gray-600;
-    
+
     &:hover {
-      color: $background-color;  // Adjust the percentage to control the amount of lightening
+      color: $background-color; // Adjust the percentage to control the amount of lightening
     }
   }
 }
@@ -529,16 +516,12 @@ a {
   }
 }
 
-
-
-
 // Quarto Specific
-
-
 
 // THIS WORKS!
 
-div.quarto-post .body h3.listing-title, div.quarto-post .body .listing-title.h3 {
+div.quarto-post .body h3.listing-title,
+div.quarto-post .body .listing-title.h3 {
   margin-top: 0px;
   margin-bottom: 0px;
   border-bottom: none;
@@ -549,7 +532,6 @@ div.quarto-post .body h3.listing-title, div.quarto-post .body .listing-title.h3 
     text-decoration: underline;
   }
 }
-
 
 // Updates Category Block Labels [R, Rshiny, CSS]...
 div.quarto-post .listing-categories .listing-category {
@@ -571,7 +553,7 @@ div.quarto-post .listing-categories .listing-category {
   }
 }
 
-// Updates Categories 
+// Updates Categories
 .quarto-listing-category-title {
   font-weight: 500;
   font-size: 1.1rem !important;
@@ -615,7 +597,7 @@ div.quarto-post .listing-categories .listing-category {
   .quarto-post-description {
     order: 1;
   }
-  
+
   .quarto-post-title:hover {
     text-decoration: underline;
   }
@@ -627,7 +609,6 @@ div.quarto-post .listing-categories {
   padding-bottom: 5px;
 }
 
-
 div.quarto-post .thumbnail img {
   margin-top: 0.4em;
   width: 300px;
@@ -635,7 +616,6 @@ div.quarto-post .thumbnail img {
   object-fit: cover;
   margin: auto;
 }
-
 
 // Title Banner
 
@@ -646,10 +626,12 @@ div.quarto-post .thumbnail img {
 
 // Blog Author + Date
 
-#title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents p,
+#title-block-header.quarto-title-block.default .quarto-title-authors p,
+#title-block-header.quarto-title-block.default .quarto-title-affiliations p {
   margin-bottom: 0.1em;
   margin-top: auto;
-  font-size: 1.1em
+  font-size: 1.1em;
 }
 
 div.quarto-post .listing-description {
@@ -662,7 +644,7 @@ div.quarto-post .metadata {
   display: flex;
   flex-direction: column;
   font-weight: 200;
-  font-size: .7em;
+  font-size: 0.7em;
   font-family: var(--bs-font-sans-serif);
   flex-basis: 33%;
 }
