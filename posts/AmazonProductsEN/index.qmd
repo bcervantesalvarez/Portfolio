@@ -3,6 +3,10 @@ title: "Building A Quick Dashboard For Amazon Products (EN.)"
 author: "Brian Cervantes Alvarez"
 date: "04-21-2023"
 image: AmazonLogo.jpeg
+description: "Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing."
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 format:
   html:
     toc: true
@@ -12,18 +16,81 @@ output: html_document
 code-fold: false
 execute:
   eval: false
-categories: [R, RShiny, CSS]
+categories: [R, RShiny, CSS, Datatables, Data Visualization]
 ---
 
 ![](AmazonLogo.jpeg)
 
-## Purpose
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
 
-In this project, I developed a Shiny application that analyzed Amazon products available in India. The dataset used in this project was obtained from [Kaggle](https://www.kaggle.com/datasets/lokeshparab/amazon-products-dataset?select=Amazon+Pharmacy.csv), and it presented several challenges during the development process. While I was not able to fix all the issues with the product categories due to time constraints, I focused on creating a concise and informative dashboard that displayed the categories with the highest average ratings and reviews.
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
 
-Compared to my previous Shiny app, this project was developed more efficiently, taking approximately 70% less time. Additionally, I was able to implement more advanced CSS theming than before, which improved the overall design of the application. While there are still additional features and visualizations that could be added to the app, I decided to leave them for others to explore in the future.
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
 
-Overall, this project was a challenging but rewarding experience that allowed me to build my skills in data analysis and Shiny app development.
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AmazonProductsEN/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AmazonProductsEN/amazonProducts.csv.zip",
+      "Download .zip"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+
+## Abstract
+
+This project focuses on the development of a Shiny application to analyze Amazon products in India. Using a dataset sourced from Kaggle, the application aims to create an informative dashboard showcasing categories with the highest average ratings and reviews. Despite encountering challenges with product categorization, the project prioritizes efficiency and design improvements.
+
+## Introduction
+
+The objective of this project is to create a Shiny application that explores the Amazon products dataset from India. The dataset, obtained from Kaggle, presented challenges during development, particularly regarding product categories. However, the project's primary focus was on creating a concise and informative dashboard displaying categories with the highest average ratings and reviews.
+
+Compared to previous Shiny app development experiences, this project demonstrated improved efficiency, taking significantly less time to complete. Furthermore, advanced CSS theming was implemented to enhance the overall design of the application. While additional features and visualizations could be incorporated, the decision was made to leave them for future exploration.
 
 ## Questions
 
@@ -31,7 +98,7 @@ Overall, this project was a challenging but rewarding experience that allowed me
 
 -   What is the average **review** for each category and subcategory?
 
-<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="800" height="800" allowfullscreen>
+<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="100%" height="800" allowfullscreen>
 
 </iframe>
 
@@ -39,7 +106,7 @@ Overall, this project was a challenging but rewarding experience that allowed me
 
 ## Load Libraries
 
-```{r}
+```{r, eval=TRUE,output=FALSE}
 library(shiny)
 library(tidyverse)
 library(readr)
@@ -279,3 +346,13 @@ shinyApp(ui = ui, server = server)
 -   What is the average discount percentage for each main category and subcategory?
 -   What is the price range for each main category and subcategory?
 -   Which products have the highest ratings and how do they compare in terms of price and number of ratings?
+
+## Conclusion
+
+This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.
+
+## Data References
+
+```{r, echo=FALSE, eval=TRUE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```

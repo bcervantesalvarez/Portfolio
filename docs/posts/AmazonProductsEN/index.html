@@ -8,6 +8,7 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2023-04-21">
+<meta name="description" content="Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing.">
 
 <title>Brian Cervantes Alvarez - Building A Quick Dashboard For Amazon Products (EN.)</title>
 <style>
@@ -85,6 +86,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -128,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Building A Quick Dashboard For Amazon Products (EN.)">
-<meta property="og:description" content="In this project, I developed a Shiny application that analyzed Amazon products available in India.">
+<meta property="og:description" content="Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing.">
 <meta property="og:image" content="AmazonLogo.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -179,10 +199,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Building A Quick Dashboard For Amazon Products (EN.)</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">RShiny</div>
                 <div class="quarto-category">CSS</div>
+                <div class="quarto-category">Datatables</div>
+                <div class="quarto-category">Data Visualization</div>
               </div>
                   </div>
   </div>
@@ -216,7 +243,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries">Load Libraries</a></li>
   <li><a href="#part-1-data-wrangling-multiple-datasets" id="toc-part-1-data-wrangling-multiple-datasets" class="nav-link" data-scroll-target="#part-1-data-wrangling-multiple-datasets">Part 1: Data Wrangling Multiple Datasets</a>
@@ -230,6 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#part-1-shiny-ui" id="toc-part-1-shiny-ui" class="nav-link" data-scroll-target="#part-1-shiny-ui">Part 1: Shiny UI</a></li>
   <li><a href="#part-2-shiny-server" id="toc-part-2-shiny-server" class="nav-link" data-scroll-target="#part-2-shiny-server">Part 2: Shiny Server</a></li>
   <li><a href="#further-improvement-questions" id="toc-further-improvement-questions" class="nav-link" data-scroll-target="#further-improvement-questions">Further Improvement Questions</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#data-references" id="toc-data-references" class="nav-link" data-scroll-target="#data-references">Data References</a></li>
   </ul>
 </nav>
     </div>
@@ -240,11 +270,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="AmazonLogo.jpeg" class="img-fluid"></p>
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>In this project, I developed a Shiny application that analyzed Amazon products available in India. The dataset used in this project was obtained from <a href="https://www.kaggle.com/datasets/lokeshparab/amazon-products-dataset?select=Amazon+Pharmacy.csv">Kaggle</a>, and it presented several challenges during the development process. While I was not able to fix all the issues with the product categories due to time constraints, I focused on creating a concise and informative dashboard that displayed the categories with the highest average ratings and reviews.</p>
-<p>Compared to my previous Shiny app, this project was developed more efficiently, taking approximately 70% less time. Additionally, I was able to implement more advanced CSS theming than before, which improved the overall design of the application. While there are still additional features and visualizations that could be added to the app, I decided to leave them for others to explore in the future.</p>
-<p>Overall, this project was a challenging but rewarding experience that allowed me to build my skills in data analysis and Shiny app development.</p>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AmazonProductsEN/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AmazonProductsEN/amazonProducts.csv.zip",
+      "Download .zip"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>This project focuses on the development of a Shiny application to analyze Amazon products in India. Using a dataset sourced from Kaggle, the application aims to create an informative dashboard showcasing categories with the highest average ratings and reviews. Despite encountering challenges with product categorization, the project prioritizes efficiency and design improvements.</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The objective of this project is to create a Shiny application that explores the Amazon products dataset from India. The dataset, obtained from Kaggle, presented challenges during development, particularly regarding product categories. However, the project’s primary focus was on creating a concise and informative dashboard displaying categories with the highest average ratings and reviews.</p>
+<p>Compared to previous Shiny app development experiences, this project demonstrated improved efficiency, taking significantly less time to complete. Furthermore, advanced CSS theming was implemented to enhance the overall design of the application. While additional features and visualizations could be incorporated, the decision was made to leave them for future exploration.</p>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
@@ -252,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>What is the average <strong>rating</strong> for each category and subcategory?</p></li>
 <li><p>What is the average <strong>review</strong> for each category and subcategory?</p></li>
 </ul>
-<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="800" height="800" allowfullscreen="">
+<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="100%" height="800" allowfullscreen="">
 </iframe>
 <p><a href="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/">Fullscreen</a></p>
 </section>
@@ -500,11 +592,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What is the price range for each main category and subcategory?</li>
 <li>Which products have the highest ratings and how do they compare in terms of price and number of ratings?</li>
 </ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.</p>
+</section>
+<section id="data-references" class="level2">
+<h2 class="anchored" data-anchor-id="data-references">Data References</h2>
+<div class="cell">
+
+</div>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-R-shiny" class="csl-entry" role="doc-biblioentry">
+Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges. 2022. <em>Shiny: Web Application Framework for r</em>. <a href="https://shiny.rstudio.com/">https://shiny.rstudio.com/</a>.
+</div>
+<div id="ref-lubridate2011" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
+</div>
+<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+</div>
+<div id="ref-plotly2020" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+</div>
+<div id="ref-R-plotly" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2022. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+</div>
+<div id="ref-ggplot22016" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
+———. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-R-forcats" class="csl-entry" role="doc-biblioentry">
+———. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
+</div>
+<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
+———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
+</div>
+<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
+<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+<div id="ref-R-DT" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, Joe Cheng, and Xianying Tan. 2023. <em>DT: A Wrapper of the JavaScript Library DataTables</em>. <a href="https://github.com/rstudio/DT">https://github.com/rstudio/DT</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

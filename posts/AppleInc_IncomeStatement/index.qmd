@@ -3,6 +3,10 @@ title: "Apple's Journey In The Stock Market"
 author: "Brian Cervantes Alvarez"
 image: apple.jpeg
 date: "3-29-2023"
+description: "Explore the dynamic world of Time Series Graphs with R's plotly. Unveil trends in Apple's stock market and the impact of groundbreaking innovations"
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 format:
   html:
     toc: true
@@ -13,16 +17,81 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, Time Series]
+categories: [R, Time Series, Data Visualization]
 ---
 
 ![](apple.jpeg)
 
-## Purpose
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
 
-The primary objective of this undertaking was to delve into the application of R's plotly and create dynamic and interactive visualizations of Time Series Graphs. In this regard, I opted to scrutinize the Apple stock prices spanning the period from 1981 to the present, with a keen focus on identifying any notable trends that have emerged over time. Upon a closer inspection of the data, I observed a remarkable spike in the company's stock prices in the aftermath of 2010, which I attribute to the resounding success of Apple's iPhone and the accompanying products.
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
 
-The shift in Apple's market value was not just a result of its breakthrough innovation but was also influenced by its impeccable marketing strategy that has ensured that their products always remain relevant to the ever-changing consumer needs. It is noteworthy that Apple's transformative technology has revolutionized the tech industry and has made significant contributions to its economic growth. Overall, the utilization of R's plotly in the visualization of Time Series Graphs proved to be an incredibly insightful undertaking, helping to identify and explain the trends in the stock market in a more meaningful way.
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AppleInc_IncomeStatement/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AppleInc_IncomeStatement/AppleInc_Stocks.csv",
+      "Download .jpg"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+
+## Abstract
+
+This project aims to utilize R's plotly package to create dynamic and interactive visualizations of Time Series Graphs. The focus of the analysis is on the Apple stock prices from 1981 to the present, with a specific emphasis on identifying notable trends that have emerged over time. The study reveals a significant spike in the company's stock prices following 2010, attributed to the success of Apple's iPhone and related products. The research also highlights the impact of Apple's marketing strategy in maintaining its market value and relevance to changing consumer needs. Overall, the project demonstrates the insightful use of R's plotly for visualizing Time Series Graphs and providing meaningful explanations of stock market trends.
+
+## Introduction
+
+Visualizing Time Series Graphs using R's plotly package provides a powerful means to analyze and interpret complex data. In this project, the focus is on exploring the Apple stock prices over several decades and identifying key trends that have shaped the company's market performance. The analysis uncovers a significant upsurge in Apple's stock prices after 2010, which can be attributed to the tremendous success of the iPhone and Apple's ability to stay in tune with evolving consumer demands.
+
+Furthermore, the research recognizes the role of Apple's marketing strategy in maintaining the company's market value and driving its growth. Apple's innovative technology and ability to revolutionize the tech industry have contributed significantly to its economic impact. By employing R's plotly package, this project aims to provide a more meaningful and interactive representation of the Time Series Graphs, enabling a comprehensive understanding of the trends in the stock market.
 
 ## Setup
 
@@ -35,7 +104,6 @@ library(scales)
 
 ```{r}
 ds <- read_csv("AppleInc_Stocks.csv")
-
 #head(ds)
 ```
 
@@ -167,4 +235,17 @@ ggplotly(p2, tooltip = "text") %>%
   style(hovertext = paste0(" AdjClose: ", round(log_yearlyDs$AdjClose,2)),
         traces = 3)
 
+```
+
+## Conclusion
+
+The utilization of R's plotly package for visualizing Time Series Graphs in the context of Apple's stock prices has yielded valuable insights. The analysis revealed a substantial increase in Apple's stock prices following 2010, fueled by the success of the iPhone and the company's adept marketing strategy. The study emphasizes the transformative impact of Apple's technology and its contributions to the tech industry and economic growth.
+
+By employing dynamic and interactive visualizations, this project has enhanced the interpretation of Time Series Graphs, enabling a deeper understanding of the trends in the stock market. The use of R's plotly package has proven to be a valuable tool in visual data exploration and storytelling. This undertaking serves as a testament to the power of R's plotly in uncovering meaningful patterns and explaining the dynamics of stock market trends in a more engaging and informative manner.
+
+
+## Data References
+
+```{r, echo=FALSE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
 ```

@@ -1,15 +1,18 @@
 ---
 title: "Rating Pinot Wines: Is More Expensive Better?"
 author: "Brian Cervantes Alvarez"
+description: "Revolutionizing Data Tables: Visual Appeal & Comprehension. Explore techniques for aesthetically pleasing & informative tables. Enhance data presentation with design principles & innovative software."
 image: wine.jpeg
 date: "2-20-2023"
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 format:
   html:
     toc: true
     toc-location: right
     html-math-method: katex
     page-layout: full
-    code-fold: true
 execute: 
   warning: false
   message: false
@@ -18,131 +21,208 @@ categories: [R, Datatables]
 
 ![](wine.jpeg)
 
-## Purpose
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
 
-This project centers on the exploration of various techniques to design visually appealing and comprehensible data tables. It is a well-known fact that the conventional format of Excel spreadsheets can be tedious and challenging to read. As such, the project aims to investigate alternative ways of presenting data in tables that are both aesthetically pleasing and easy to understand.
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
 
-By utilizing various design principles such as color theory, typography, and layout, we seek to create data tables that are visually striking and convey information effectively. Additionally, the project involves the evaluation of different software tools and platforms that offer innovative and user-friendly options for creating data tables.
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
 
-It is crucial to recognize that the presentation of data plays a significant role in its interpretation and understanding. The traditional Excel format may not provide sufficient visual cues to highlight key data points or insights. Therefore, this project seeks to address this limitation by exploring new and innovative methods of presenting data tables that are both functional and visually appealing.
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/FancyTables/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/FancyTables/pinot.rds",
+      "Download .rds"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+
+## Abstract
+
+This project aims to explore alternative techniques for designing visually appealing and comprehensible data tables. Traditional Excel spreadsheets often lack readability and visual impact. By incorporating design principles such as color theory, typography, and layout, we aim to create visually striking data tables that effectively convey information. Additionally, we will evaluate innovative software tools and platforms that offer user-friendly options for creating functional and aesthetically pleasing data tables. Enhancing data presentation is crucial for improving interpretation and understanding.
+
+## Introduction
+
+Excel spreadsheets are widely used for organizing and presenting data. However, their conventional format can be tedious and challenging to read, hindering data comprehension. This project seeks to address this limitation by exploring various techniques to design visually appealing and comprehensible data tables.
+
+The primary focus is to create data tables that are not only aesthetically pleasing but also convey information effectively. By employing design principles such as color theory, typography, and layout, we aim to enhance the visual impact and readability of data tables. This will involve experimenting with different combinations of colors, fonts, and arrangement patterns to find the most optimal design choices.
+
+It is crucial to recognize that the presentation of data plays a significant role in its interpretation and understanding. The traditional Excel format often lacks visual cues to highlight key data points or insights. Therefore, this project seeks to explore new and innovative methods of presenting data tables that not only serve their functional purpose but also captivate the audience with their visual appeal.
 
 ## Advanced Data Tables
 
 ```{r}
-#| echo: false
-
-
 library(tidyverse)
 library(magrittr)
 library(DT)
 library(gt)
 library(gtExtras)
 library(countrycode)
-library(ggflags) 
+library(ggflags)
 library(downloadthis)
-
 
 ds <- read_rds("pinot.rds")
 
-#head(ds)
+# head(ds)
 ```
 
 ```{r}
-#| code-summary: "DT Table Code"
+ds_starter <- ds %>%
+    mutate(
+        province = as.factor(province),
+        price = price,
+        thetaPointMean = mean(points),
+        thetaPriceMean = mean(price)
+    )
 
-ds_starter <- ds %>% 
-  mutate(province = as.factor(province),
-         price = price,
-         thetaPointMean = mean(points),
-         thetaPriceMean = mean(price))
-
-ds_starter %>% 
+ds_starter %>%
     arrange(province, year) %>%
-  select(Province = province, 
-         Year = year, 
-         Price = price, 
-         Points = points, 
-         Description = description) %>%
-  datatable(., 
-            filter = "bottom", 
-            extensions = 'Buttons', 
-            options = list(dom = 'Bfrtip',
-                           buttons = c('copy', 'csv', 'excel'), 
-                           initComplete = JS("function(settings, json) {",
-                                             "$(this.api().table().header()).css({'background-color': '#131F4F', 'color': '#fff'});",
-                                             "}")))
+    select(
+        Province = province,
+        Year = year,
+        Price = price,
+        Points = points,
+        Description = description
+    ) %>%
+    datatable(.,
+        filter = "bottom",
+        extensions = "Buttons",
+        options = list(
+            dom = "Bfrtip",
+            buttons = c("copy", "csv", "excel"),
+            initComplete = JS(
+                "function(settings, json) {",
+                "$(this.api().table().header()).css({'background-color': '#131F4F', 'color': '#fff'});",
+                "}"
+            )
+        )
+    )
 
 ```
 
 ```{r}
-#| echo: false
-
-ds_summary <- ds_starter %>% 
-  group_by(province) %>% 
-  arrange(year) %>%
-  summarise(pointsMean = mean(points, na.rm=TRUE), 
-            pointsSD = sd(points),
-            priceMean = mean(price, na.rm=TRUE), 
-            priceSD = sd(price),
-            points = list(points),
-            price = list(price),
-            .groups = "drop")
+ds_summary <- ds_starter %>%
+    group_by(province) %>%
+    arrange(year) %>%
+    summarise(
+        pointsMean = mean(points, na.rm = TRUE),
+        pointsSD = sd(points),
+        priceMean = mean(price, na.rm = TRUE),
+        priceSD = sd(price),
+        points = list(points),
+        price = list(price),
+        .groups = "drop"
+    )
 ```
 
 ```{r}
-#| echo: false
 excel_file_attachment <- ds_summary %>%
-  download_this(
-    output_name = "Pinot_Noir_Summary",
-    output_extension = ".xlsx", # Excel file type
-    button_label = "Download Excel",
-    button_type = "primary", # change button type
-  )
+    download_this(
+        output_name = "Pinot_Noir_Summary",
+        output_extension = ".xlsx", # Excel file type
+        button_label = "Download Excel",
+        button_type = "primary", # change button type
+    )
 ```
 
-## Adding Statistical Visuals To Summary Tables
+## Adding Trend Lines To Summary Tables
 
 ```{r}
 #| code-summary: "GT Table Code"
 #| code-line-numbers: "|6|9"
 
 fancyTbl <- ds_summary %>%
-  gt() %>%
-# format the numeric output to 3 digit rounding  
-  fmt_number(columns = c(pointsMean, pointsSD, priceMean, priceSD),
-             decimals = 3) %>%
-# create nice labels for a few ugly variable names
-  cols_label(province = "Province",
-             pointsMean = "Avg. Points",
-             pointsSD = "Std. Dev. Points",
-             priceMean = "Avg. Price",
-             priceSD = "Std. Dev. Price",
-             points = "Points Trend",
-             price = "Price Trend",) %>%
-# Plot the sparklines from the list column
-  gt_plt_sparkline(points, 
-                   type="ref_median", 
-                   same_limit = TRUE
-                   ) %>%
-  gt_plt_sparkline(price, 
-                   type="ref_median", 
-                   same_limit = TRUE
-                   ) %>%
-# use the guardian's table theme
-  gt_theme_guardian() %>% 
-# give hulk coloring to the Mean Human Rights Score
-  gt_hulk_col_numeric(pointsMean) %>%
-  gt_hulk_col_numeric(priceMean) %>%
-# create a header and subheader
-  tab_header(title="Province Pinot Wine Summary", subtitle = "Source: Dr. Hendrick") %>%
-# attach excel file
-  tab_source_note(excel_file_attachment)
+    gt() %>%
+    # format the numeric output to 3 digit rounding
+    fmt_number(
+        columns = c(pointsMean, pointsSD, priceMean, priceSD),
+        decimals = 3
+    ) %>%
+    # create nice labels for a few ugly variable names
+    cols_label(
+        province = "Province",
+        pointsMean = "Avg. Points",
+        pointsSD = "Std. Dev. Points",
+        priceMean = "Avg. Price",
+        priceSD = "Std. Dev. Price",
+        points = "Points Trend",
+        price = "Price Trend",
+    ) %>%
+    # Plot the sparklines from the list column
+    gt_plt_sparkline(points,
+        type = "ref_median",
+        same_limit = TRUE
+    ) %>%
+    gt_plt_sparkline(price,
+        type = "ref_median",
+        same_limit = TRUE
+    ) %>%
+    # use the guardian's table theme
+    gt_theme_guardian() %>%
+    # give hulk coloring to the Mean Human Rights Score
+    gt_hulk_col_numeric(pointsMean) %>%
+    gt_hulk_col_numeric(priceMean) %>%
+    # create a header and subheader
+    tab_header(title = "Province Pinot Wine Summary", subtitle = "Source: Dr. Hendrick") %>%
+    # attach excel file
+    tab_source_note(excel_file_attachment)
 # save the original as an image
-#gtsave(fancyTbl, "table.png")
+# gtsave(fancyTbl, "table.png")
 # show the table themed in accordance with the page
 fancyTbl
 ```
 
 ## Conclusion
 
-The objective of this endeavor is to create a thorough and all-encompassing compilation of principles and instructions for crafting data tables that are simple to interpret and comprehend. By employing these guidelines, our aim is to enhance the usability and accessibility of data tables across a broad spectrum of applications and sectors.
+This project highlights the importance of visually appealing and comprehensible data tables as an alternative to Excel. By incorporating design principles and exploring innovative tools, we enhance data presentation and interpretation. It calls for adopting alternative techniques to design data tables. By embracing visually appealing formats, we improve data comprehension, communication, and unlock new possibilities for visualization and analysis.
+
+## Data References
+
+```{r, echo=FALSE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```

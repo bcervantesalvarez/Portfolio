@@ -3,6 +3,9 @@ title: "Pokédex Database"
 author: "Brian Cervantes Alvarez"
 description: "Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database. Join the journey of unraveling Pokémon mysteries through data engineering."
 date: "12-05-2022"
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 format:
   html:
     toc: true
@@ -10,7 +13,6 @@ format:
     html-math-method: katex
 image: pokemon.jpeg
 output: html_document
-code-fold: true
 categories: [R, PostgreSQL, Data Visualization]
 ---
 
@@ -94,7 +96,8 @@ The inquiry of identifying the optimal base stat Pokemon type sparked my interes
 
 This SQL code creates several tables for storing Pokémon data. The tables include information about Pokémon, their types, abilities, generations, and moves. The code establishes primary keys, foreign key constraints, and defines the data types for each column. These tables form the foundation for a comprehensive Pokémon database, enabling efficient storage and retrieval of Pokémon-related information.
 
-``` sql
+```{sql, include=FALSE, eval=FALSE}
+
 CREATE TABLE IF NOT EXISTS pokemon (
     id SMALLINT PRIMARY KEY,
     identifier TEXT,
@@ -188,10 +191,10 @@ CREATE TABLE IF NOT EXISTS moves (
 
 ## Data Transformation and CSV Preparation in SQL: A Step-by-Step Guide
 
-
 This section of the SQL file focuses on transforming and preparing a CSV file for analysis. It involves multiple SELECT statements that extract relevant data from different tables and join them together. The extracted data is then inserted into temporary tables, including 'temp1', 'temp2', and 'temp3', with each step refining the data further. Finally, the transformed data in 'temp3' is selected and filtered based on specific conditions, ordered, and then exported to a CSV file named 'scuffed_pokedex.csv'. This process prepares the data for further analysis and exploration in external tools or applications.
 
-``` sql
+```{sql, eval=FALSE}
+
 SELECT 
     identifier AS pokemon_name, 
     pokemon_types.type_id,
@@ -251,10 +254,13 @@ WITH (FORMAT CSV, HEADER);
 
 Through the power of data analysis and visualization, we have delved into the world of Pokémon to uncover insights about types, damage output, accuracy, and their relationships. Our exploration has shed light on the best Pokémon type for damage output, the most accurate contenders, and the interplay between power and accuracy. By combining the captivating nature of Pokémon with the analytical capabilities of R, we have gained valuable knowledge and set the stage for further investigations in the vast Pokémon universe.
 
-``` r
+```{r, message=FALSE,output=FALSE}
 library(tidyverse)
 library(RColorBrewer)
+```
 
+
+```{r, eval=FALSE}
 pokemon <- read_csv("scuffed_pokedex.csv")
 
 names(pokemon)
@@ -320,4 +326,12 @@ model <- lm(data = stats, avg_accuracy ~ avg_power)
 plot(model)
 ```
 
+## Presentation
+
 ![](pokedex_presentation.jpg)
+
+## Data References
+
+```{r, echo=FALSE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```
