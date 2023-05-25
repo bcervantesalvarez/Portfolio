@@ -94,6 +94,6 @@ Prepare to be amazed as we take you on a captivating journey into the hidden int
 
 ## Presentation
 
-<iframe src="SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="850" height="650">
+<iframe src="SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="100%" height="800">
 
 </iframe>
