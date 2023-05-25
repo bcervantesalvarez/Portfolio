@@ -39,14 +39,14 @@ ds <- read_csv("healthcareSpending.csv")
     .download-buttons a.button {
       display: inline-block;
       padding-right: 10px;
-      padding-left: 30px;
+      padding-left: 35px;
       padding-top: 10px;
       padding-bottom: 10px;
       margin-right: 25px;
       background-color: #343a40;
       color: #fff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 15px;
       position: relative;
     }
 
@@ -63,11 +63,10 @@ ds <- read_csv("healthcareSpending.csv")
       font-size: 20px;
       position: absolute;
       top: 50%;
-      left: 5px; /* Added margin from the text */
+      left: 12px; /* Added margin from the text */
       transform: translateY(-50%);
-      border: 1px solid #fff; /* Mini border block */
-      border-radius: 4px; /* Rounded corners for the mini border block */
-      padding: 2px; /* Padding for the mini border block */
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
     }
   </style>
 
@@ -114,9 +113,14 @@ The dataset utilized for this report is titled "US Healthcare Spending Per Capit
 
 To begin, it is essential to assess whether the data is in a "wide" or "long" format. This involves examining the number of rows and columns to facilitate necessary data wrangling.
 
-```{r message=FALSE, warning=FALSE, echo = FALSE}
+::: {.callout-warning}
 
-head(ds,5)
+## R Version
+
+:::
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+head(ds, 5)
 names(ds)
 ```
 
@@ -129,16 +133,20 @@ Additionally, we transformed certain columns into categories, which help us grou
 Finally, we selected specific columns, including "Item," "Region_Name," "State_Name," "Year," and "Cost," to focus on for further analysis. This will provide us with a clearer understanding of the data.
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
-#Pivot Y{Year} columns into it's own Year column
-ds_years <- ds %>% pivot_longer(!(c("Code", "Item", 
-                                  "Group", "Region_Number", 
-                                  "Region_Name", "State_Name", 
-                                  "Average_Annual_Percent_Growth")), 
-                                names_to = "Year",
-                                values_to = "Cost")
-#Get rid of "Y" symbol and make it numeric
-ds_years$Year <- as.numeric(gsub("Y","",ds_years$Year))
-ds_years$Item <- gsub(" \\(Millions of Dollars\\)","", ds_years$Item)
+# Pivot Y{Year} columns into it's own Year column
+ds_years <- ds %>% pivot_longer(
+    !(c(
+        "Code", "Item",
+        "Group", "Region_Number",
+        "Region_Name", "State_Name",
+        "Average_Annual_Percent_Growth"
+    )),
+    names_to = "Year",
+    values_to = "Cost"
+)
+# Get rid of "Y" symbol and make it numeric
+ds_years$Year <- as.numeric(gsub("Y", "", ds_years$Year))
+ds_years$Item <- gsub(" \\(Millions of Dollars\\)", "", ds_years$Item)
 
 
 ds_years$Item <- factor(ds_years$Item)
@@ -155,20 +163,22 @@ head(ds_years)
 Let's jump right into the first visualization. It's evident that healthcare spending has been consistently increasing and shows no signs of slowing down. This graph focuses on the years 1980 to 2005, highlighting the era of escalating healthcare costs.
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
-#Looking at overall U.S. healthcare costs since 2005
-usHealthCareSince2005 <- ds_years %>% 
-  filter((Year >= 1980 & Year <= 2005)) %>%
-  group_by(Year) %>%
-  summarise(Cost = mean(Cost))
+# Looking at overall U.S. healthcare costs since 2005
+usHealthCareSince2005 <- ds_years %>%
+    filter((Year >= 1980 & Year <= 2005)) %>%
+    group_by(Year) %>%
+    summarise(Cost = mean(Cost))
 
 usHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
-  geom_line(size = 1.2, color = "#b32134") +
-  labs(x = "Year",
-       y = "Cost (USD)",
-       title = "U.S. Healthcare Spending Per Capita Since 2005",
-       subtitle = "For All Healthcare Categories") +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3)) +
-  theme_minimal()
+    geom_line(size = 1.2, color = "#b32134") +
+    labs(
+        x = "Year",
+        y = "Cost (USD)",
+        title = "U.S. Healthcare Spending Per Capita Since 2005",
+        subtitle = "For All Healthcare Categories"
+    ) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3)) +
+    theme_minimal()
 ```
 
 ### Dominant Spending Categories: Personal, Hospital, and Physician & Clinical Care
@@ -176,40 +186,47 @@ usHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
 Wow! Personal health care expenses skyrocketed from around \$10K to nearly \$80K within a relatively short period. Both Hospital and Clinical Care play significant roles in healthcare spending. Surprisingly, all three categories follow a similar upward trend, which reveals some unsettling information.
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
-#Now looking at per category spending
-usHealthCareSince2005 <- ds_years %>% 
-  filter((Year >= 1980 & Year <= 2005)) %>%
-  arrange(Cost) %>%
-  group_by(Item, Year) %>%
-  summarise(Cost = mean(Cost))
+# Now looking at per category spending
+usHealthCareSince2005 <- ds_years %>%
+    filter((Year >= 1980 & Year <= 2005)) %>%
+    arrange(Cost) %>%
+    group_by(Item, Year) %>%
+    summarise(Cost = mean(Cost))
 
-usHealthCareSince2005$Item <- factor(usHealthCareSince2005$Item, 
-                                     levels = c("Personal Health Care", 
-                                                "Hospital Care", 
-                                            "Physician & Clinical Services", 
-                                            "Prescription Drugs", 
-                                            "Nursing Home Care", 
-                                            "Other Health, Residential, and Personal Care", 
-                                            "Dental Services", 
-                                            "Home Health Care", 
-                                            "Other Professional Services", 
-                                            "Other Non-durable Medical Products", 
-                                            "Durable Medical Products"))
+usHealthCareSince2005$Item <- factor(usHealthCareSince2005$Item,
+    levels = c(
+        "Personal Health Care",
+        "Hospital Care",
+        "Physician & Clinical Services",
+        "Prescription Drugs",
+        "Nursing Home Care",
+        "Other Health, Residential, and Personal Care",
+        "Dental Services",
+        "Home Health Care",
+        "Other Professional Services",
+        "Other Non-durable Medical Products",
+        "Durable Medical Products"
+    )
+)
 
 
 usHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
-  geom_line(color = "#b32134") +
-  facet_wrap(~Item, scales = "free_y") +
-  labs(x = "Year",
-       y = "Cost (USD)",
-       title = "U.S. Healthcare Spending Per Category Since 2005",
-       subtitle = "Per Capita") +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90),
+    geom_line(color = "#b32134") +
+    facet_wrap(~Item, scales = "free_y") +
+    labs(
+        x = "Year",
+        y = "Cost (USD)",
+        title = "U.S. Healthcare Spending Per Category Since 2005",
+        subtitle = "Per Capita"
+    ) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+    theme_minimal() +
+    theme(
+        axis.text.x = element_text(angle = 90),
         strip.text = element_text(size = 4.2, face = "bold"),
-        title = element_text(size = 10, face = "bold"))
-  
+        title = element_text(size = 10, face = "bold")
+    )
+
 ```
 
 ### Consistent Trends Across Regions
@@ -217,24 +234,28 @@ usHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
 It's disheartening to report that every region has been experiencing relentless growth in healthcare spending. The trend lines for each region are strikingly similar and proportionate to one another. Notably, the Mideast stands out as the most expensive region, while the Rocky Mountains region appears to have comparatively lower healthcare costs. It's important to note that this analysis considers spending up to 2005, and we can hope for potential changes by 2014.
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
-regionHealthCareSince2005 <- ds_years %>% 
-  filter((Year >= 1980 & Year <= 2005) & Region_Name != "United States") %>%
-  arrange(Cost) %>%
-  group_by(Region_Name, Year) %>%
-  summarise(Cost = mean(Cost))
+regionHealthCareSince2005 <- ds_years %>%
+    filter((Year >= 1980 & Year <= 2005) & Region_Name != "United States") %>%
+    arrange(Cost) %>%
+    group_by(Region_Name, Year) %>%
+    summarise(Cost = mean(Cost))
 
 
 regionHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
-  geom_line(color = "#b32134") +
-  facet_wrap(~Region_Name, scales = "free_y") +
-  labs(x = "Year",
-       y = "Cost (USD)",
-       title = "U.S. Healthcare Spending Per Region Since 2005") +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90),
+    geom_line(color = "#b32134") +
+    facet_wrap(~Region_Name, scales = "free_y") +
+    labs(
+        x = "Year",
+        y = "Cost (USD)",
+        title = "U.S. Healthcare Spending Per Region Since 2005"
+    ) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+    theme_minimal() +
+    theme(
+        axis.text.x = element_text(angle = 90),
         strip.text = element_text(size = 8, face = "bold"),
-        title = element_text(size = 10, face = "bold"))
+        title = element_text(size = 10, face = "bold")
+    )
 ```
 
 ### Persistent Trends: Rising Healthcare Spending Across U.S. Regions
@@ -242,23 +263,25 @@ regionHealthCareSince2005 %>% ggplot(aes(x = Year, y = Cost)) +
 The bar chart vividly demonstrates the ongoing trends in healthcare spending across different regions. Notably, the Plains, New England, and the Rocky Mountains regions emerge as some of the lowest in terms of medical funding. Surprisingly, their costs can be as low as one-third compared to the most expensive regions. This stark contrast highlights the significant disparities in healthcare expenditure throughout the United States.
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
-regionHealthCare2014 <- ds_years %>% 
-  filter((Year == 2014) & Region_Name != "United States") %>%
-  arrange(Cost) %>%
-  group_by(Region_Name) %>%
-  summarise(Cost = mean(Cost))
+regionHealthCare2014 <- ds_years %>%
+    filter((Year == 2014) & Region_Name != "United States") %>%
+    arrange(Cost) %>%
+    group_by(Region_Name) %>%
+    summarise(Cost = mean(Cost))
 
 
 regionHealthCare2014 %>% ggplot(aes(x = reorder(Region_Name, Cost), y = Cost, fill = reorder(Region_Name, Cost))) +
-  geom_col(color = "grey", show.legend = FALSE) +
-  coord_flip() +
-  labs(x = "Region",
-       y = "Cost (USD)",
-       title = "U.S. Healthcare Spending Per Region For 2014") +
-  scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d"))+
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
-  theme_minimal() +
-  theme(title = element_text(size = 10, face = "bold"))
+    geom_col(color = "grey", show.legend = FALSE) +
+    coord_flip() +
+    labs(
+        x = "Region",
+        y = "Cost (USD)",
+        title = "U.S. Healthcare Spending Per Region For 2014"
+    ) +
+    scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d")) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+    theme_minimal() +
+    theme(title = element_text(size = 10, face = "bold"))
 ```
 
 ### Far West: A Surprising 3rd Place in Healthcare Spending
@@ -267,36 +290,44 @@ In 2014, the Far West region experienced a significant surge in healthcare spend
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
 
-farWestHealthCare2014 <- ds_years %>% 
-  filter((Year == 2014) & Region_Name == "Far West") %>%
-  arrange(Cost) %>%
-  group_by(Region_Name) %>%
-  summarise(Cost = mean(Cost))
+farWestHealthCare2014 <- ds_years %>%
+    filter((Year == 2014) & Region_Name == "Far West") %>%
+    arrange(Cost) %>%
+    group_by(Region_Name) %>%
+    summarise(Cost = mean(Cost))
 
 regionHealthCare2014 %>% ggplot(aes(x = reorder(Region_Name, Cost), y = Cost, fill = reorder(Region_Name, Cost))) +
-  geom_col(color = "grey", show.legend = FALSE) +
-  geom_col(data = farWestHealthCare2014, 
-           mapping = aes(x = reorder(Region_Name, Cost),y = Cost, fill = reorder(Region_Name, Cost)),
-           color = "black",
-           size = 1.2,
-           show.legend = FALSE) +
-  geom_label(data = farWestHealthCare2014, 
-             mapping = aes(x = reorder(Region_Name, Cost),
-                           y = Cost, 
-                           label = print(paste0("$", round(Cost/1000, 2), "M"))),
-             size = 3,
-             fill = "white",
-             color = "black",
-             hjust = 1.1,
-             show.legend = FALSE) +
-  coord_flip() +
-  labs(x = "Region",
-       y = "Cost (USD)",
-       title = "Far West Healthcare Spending For 2014") +
-  scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d")) +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
-  theme_minimal() +
-  theme(title = element_text(size = 10, face = "bold"))
+    geom_col(color = "grey", show.legend = FALSE) +
+    geom_col(
+        data = farWestHealthCare2014,
+        mapping = aes(x = reorder(Region_Name, Cost), y = Cost, fill = reorder(Region_Name, Cost)),
+        color = "black",
+        size = 1.2,
+        show.legend = FALSE
+    ) +
+    geom_label(
+        data = farWestHealthCare2014,
+        mapping = aes(
+            x = reorder(Region_Name, Cost),
+            y = Cost,
+            label = print(paste0("$", round(Cost / 1000, 2), "M"))
+        ),
+        size = 3,
+        fill = "white",
+        color = "black",
+        hjust = 1.1,
+        show.legend = FALSE
+    ) +
+    coord_flip() +
+    labs(
+        x = "Region",
+        y = "Cost (USD)",
+        title = "Far West Healthcare Spending For 2014"
+    ) +
+    scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#99000d")) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+    theme_minimal() +
+    theme(title = element_text(size = 10, face = "bold"))
 ```
 
 ### Oregon: 3rd Place, but Don't Be Deceived!
@@ -305,50 +336,67 @@ Surprisingly, Oregon ranks 3rd in healthcare spending. However, let's not overlo
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
 
-farWestStatesHealthCare2014 <- ds_years %>% 
-  filter((Year == 2014) & (Region_Name == "Far West") & (State_Name != "NA")) %>%
-  arrange(Cost) %>%
-  group_by(State_Name, Year) %>%
-  summarise(Cost = mean(Cost))
+farWestStatesHealthCare2014 <- ds_years %>%
+    filter((Year == 2014) & (Region_Name == "Far West") & (State_Name != "NA")) %>%
+    arrange(Cost) %>%
+    group_by(State_Name, Year) %>%
+    summarise(Cost = mean(Cost))
 
 
-oregonHealthCare2014 <- ds_years %>% 
-  filter((Year == 2014) & (Region_Name == "Far West") & (State_Name == "Oregon")) %>%
-  arrange(Cost) %>%
-  group_by(State_Name, Year) %>%
-  summarise(Cost = mean(Cost))
+oregonHealthCare2014 <- ds_years %>%
+    filter((Year == 2014) & (Region_Name == "Far West") & (State_Name == "Oregon")) %>%
+    arrange(Cost) %>%
+    group_by(State_Name, Year) %>%
+    summarise(Cost = mean(Cost))
 
-farWestStatesHealthCare2014 %>% 
-  ggplot(aes(x = reorder(State_Name, Cost),
-             y = Cost, 
-             fill = reorder(State_Name, Cost))) +
-  geom_col(aes(x = reorder(State_Name, Cost),
-               y = Cost, 
-               fill = reorder(State_Name, Cost)),
-           color = "grey", 
-           show.legend = FALSE) +
-  geom_col(data = oregonHealthCare2014, 
-           aes(x = reorder(State_Name, Cost),
-               y = Cost, 
-               fill = reorder(State_Name, Cost)),
-           color = "black",
-           fill = "#154733",
-           size = 1.5,
-           show.legend = FALSE) +
-  geom_label(aes(label = print(paste0("$", round(Cost/1000, 2), "M"))),
-             fill = "white",
-             size = 3) +
-  geom_label(data = oregonHealthCare2014, aes(label = print(paste0("$", round(Cost/1000, 2), "M"))),
-             fill = "#FEE123",
-             size = 3) +
-  labs(x = "State",
-       y = "Cost (USD)",
-       title = "How Oregon Compares To The Far West States For Healthcare Costs") +
-  scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c")) +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ","),
-                     breaks = c(10000, 20000, 30000, 40000, 50000)) +
-  theme_minimal() +
-  theme(title = element_text(size = 10, face = "bold"))
+farWestStatesHealthCare2014 %>%
+    ggplot(aes(
+        x = reorder(State_Name, Cost),
+        y = Cost,
+        fill = reorder(State_Name, Cost)
+    )) +
+    geom_col(
+        aes(
+            x = reorder(State_Name, Cost),
+            y = Cost,
+            fill = reorder(State_Name, Cost)
+        ),
+        color = "grey",
+        show.legend = FALSE
+    ) +
+    geom_col(
+        data = oregonHealthCare2014,
+        aes(
+            x = reorder(State_Name, Cost),
+            y = Cost,
+            fill = reorder(State_Name, Cost)
+        ),
+        color = "black",
+        fill = "#154733",
+        size = 1.5,
+        show.legend = FALSE
+    ) +
+    geom_label(aes(label = print(paste0("$", round(Cost / 1000, 2), "M"))),
+        fill = "white",
+        size = 3
+    ) +
+    geom_label(
+        data = oregonHealthCare2014, aes(label = print(paste0("$", round(Cost / 1000, 2), "M"))),
+        fill = "#FEE123",
+        size = 3
+    ) +
+    labs(
+        x = "State",
+        y = "Cost (USD)",
+        title = "How Oregon Compares To The Far West States For Healthcare Costs"
+    ) +
+    scale_fill_manual(values = c("#fff5f0", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a", "#ef3b2c")) +
+    scale_y_continuous(
+        labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ","),
+        breaks = c(10000, 20000, 30000, 40000, 50000)
+    ) +
+    theme_minimal() +
+    theme(title = element_text(size = 10, face = "bold"))
 ```
 
 ### Inappropriate Model: Linear Fit Inadequate for the Data
@@ -360,41 +408,49 @@ The residual plots provide clear evidence against a linear fit. The Residuals vs
 It is evident that a linear fit is not the appropriate choice for accurately modeling this dataset.
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}
-#Question: Are there no significant differences in spending for each region?
-regionHealthCareSince2005 <- ds_years %>% 
-  filter((Year >= 1980 & Year <= 2005) & Region_Name != "United States") %>%
-  arrange(Cost) %>%
-  group_by(Region_Name, Year) %>%
-  summarise(Cost = mean(Cost))
+# Question: Are there no significant differences in spending for each region?
+regionHealthCareSince2005 <- ds_years %>%
+    filter((Year >= 1980 & Year <= 2005) & Region_Name != "United States") %>%
+    arrange(Cost) %>%
+    group_by(Region_Name, Year) %>%
+    summarise(Cost = mean(Cost))
 
 regionHealthCareSince2005 %>% ggplot(aes(x = Region_Name, y = Cost, color = Region_Name)) +
-  geom_boxplot(color = "#b32134", size = 0.5, bins = 40) +
-  labs(x = "Year",
-       y = "Cost (USD)",
-       title = "U.S. Healthcare Spending Distribution Per Region Since 2005") +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
-  theme_classic() +
-  theme(axis.text.x = element_text(angle = 90),
+    geom_boxplot(color = "#b32134", size = 0.5, bins = 40) +
+    labs(
+        x = "Year",
+        y = "Cost (USD)",
+        title = "U.S. Healthcare Spending Distribution Per Region Since 2005"
+    ) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+    theme_classic() +
+    theme(
+        axis.text.x = element_text(angle = 90),
         strip.text = element_text(size = 6.5, face = "bold"),
-        title = element_text(size = 10, face = "bold"))
+        title = element_text(size = 10, face = "bold")
+    )
 
 
-regionHealthCareSince2014 <- ds_years %>% 
-  filter(Region_Name != "United States") %>%
-  arrange(Cost) %>%
-  group_by(Region_Name, Year) %>%
-  summarise(Cost = mean(Cost))
+regionHealthCareSince2014 <- ds_years %>%
+    filter(Region_Name != "United States") %>%
+    arrange(Cost) %>%
+    group_by(Region_Name, Year) %>%
+    summarise(Cost = mean(Cost))
 
 regionHealthCareSince2014 %>% ggplot(aes(x = Region_Name, y = Cost, color = Region_Name)) +
-  geom_boxplot(color = "#b32134", size = 0.5, bins = 40) +
-  labs(x = "Year",
-       y = "Cost (USD)",
-       title = "U.S. Healthcare Spending Distribution Per Region Since 2014") +
-  scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
-  theme_classic() +
-  theme(axis.text.x = element_text(angle = 90),
+    geom_boxplot(color = "#b32134", size = 0.5, bins = 40) +
+    labs(
+        x = "Year",
+        y = "Cost (USD)",
+        title = "U.S. Healthcare Spending Distribution Per Region Since 2014"
+    ) +
+    scale_y_continuous(labels = label_number(prefix = "$", suffix = "M", scale = 1e-3, big.mark = ",")) +
+    theme_classic() +
+    theme(
+        axis.text.x = element_text(angle = 90),
         strip.text = element_text(size = 6.5, face = "bold"),
-        title = element_text(size = 10, face = "bold"))
+        title = element_text(size = 10, face = "bold")
+    )
 
 model <- lm(data = regionHealthCareSince2005, Cost ~ Region_Name + Year)
 plot(model)
@@ -424,45 +480,47 @@ cheapRegions2005 <- regionHealthCareSince2005 %>% filter(Region_Name == c("New E
 cheapRegions2014 <- regionHealthCareSince2014 %>% filter(Region_Name == c("New England", "Plains", "Rocky Mountains"))
 
 
-exp2005 <- round(mean(expensiveRegions2005$Cost),2)
-exp2014 <- round(mean(expensiveRegions2014$Cost),2)
-chp2005 <- round(mean(cheapRegions2005$Cost),2)
-chp2014 <- round(mean(cheapRegions2014$Cost),2)
+exp2005 <- round(mean(expensiveRegions2005$Cost), 2)
+exp2014 <- round(mean(expensiveRegions2014$Cost), 2)
+chp2005 <- round(mean(cheapRegions2005$Cost), 2)
+chp2014 <- round(mean(cheapRegions2014$Cost), 2)
 
 print(paste0("The Average Spending In The Expensive Regions since 2005 = $", exp2005))
 print(paste0("The Average Spending In The Expensive Regions since 2014= $", exp2014))
-print(paste0("Difference: +$", exp2014 - exp2005, " | Percentage Increase: +", round(((exp2014 - exp2005)/(exp2014 + exp2005))*100, 2), "%"))
+print(paste0("Difference: +$", exp2014 - exp2005, " | Percentage Increase: +", round(((exp2014 - exp2005) / (exp2014 + exp2005)) * 100, 2), "%"))
 
 print(paste0("The Average Spending In The Cheap Regions since 2005 = $", chp2005))
 print(paste0("The Average Spending In The Cheap Regions since 2014= $", chp2014))
-print(paste0("Difference: +$", chp2014 - chp2005, " | Percentage Increase: ", round(((chp2014 - chp2005)/(chp2014 + chp2005))*100, 2), "%"))
+print(paste0("Difference: +$", chp2014 - chp2005, " | Percentage Increase: ", round(((chp2014 - chp2005) / (chp2014 + chp2005)) * 100, 2), "%"))
 
 
 
-#Levene’s test
-leveneTest(Cost~Region_Name,data=regionHealthCareSince2005,center=mean)
-#Brown-Forsythe test
-leveneTest(Cost~Region_Name,data=regionHealthCareSince2005,center=median)
+# Levene’s test
+leveneTest(Cost ~ Region_Name, data = regionHealthCareSince2005, center = mean)
+# Brown-Forsythe test
+leveneTest(Cost ~ Region_Name, data = regionHealthCareSince2005, center = median)
 
-#Levene’s test
-leveneTest(Cost~Region_Name,data=regionHealthCareSince2014,center=mean)
-#Brown-Forsythe test
-leveneTest(Cost~Region_Name,data=regionHealthCareSince2014,center=median)
+# Levene’s test
+leveneTest(Cost ~ Region_Name, data = regionHealthCareSince2014, center = mean)
+# Brown-Forsythe test
+leveneTest(Cost ~ Region_Name, data = regionHealthCareSince2014, center = median)
 
-#Given both tests yield an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions. 
+# Given both tests yield an extremely small p-value, it is clear that there are 3 regions that have a completely different variance than the other regions.
 
-#one way anova model
-model <- aov(Cost~Region_Name, data=regionHealthCareSince2005)
+# one way anova model
+model <- aov(Cost ~ Region_Name, data = regionHealthCareSince2005)
 summary(model)
 
-#Let's do a TukeyHSD test to confirm this.
+# Let's do a TukeyHSD test to confirm this.
 
-TukeyHSD(model, conf.level=.95)
+TukeyHSD(model, conf.level = .95)
 
-plot(TukeyHSD(model, conf.level=.95), las = 2)
+plot(TukeyHSD(model, conf.level = .95), las = 2)
 
 
-#New England, Plains and Rocky Mountains spend much lower on average. Despite that, they are following the trend of growth with an 18% since 2005.
+# New England, Plains and Rocky Mountains spend much lower on average. Despite that, they are following the trend of growth with an 18% since 2005.
+
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
 ```
 
 ## Results
