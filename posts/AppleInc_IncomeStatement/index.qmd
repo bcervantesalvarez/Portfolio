@@ -77,7 +77,7 @@ categories: [R, Time Series, Data Visualization]
 
     var csvButton = createDynamicButton(
       "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/AppleInc_IncomeStatement/AppleInc_Stocks.csv",
-      "Download .jpg"
+      "Download .csv"
     );
     downloadButtonsDiv.appendChild(csvButton);
   </script>
