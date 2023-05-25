@@ -3,6 +3,9 @@ title: "Healthcare Spending Is Only Getting Worse"
 author: "Brian Cervantes Alvarez"
 date: "December 12, 2022"
 image: healthcareSpending.jpeg
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 description: "Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!"
 format:
   html:
@@ -94,8 +97,6 @@ ds <- read_csv("healthcareSpending.csv")
     downloadButtonsDiv.appendChild(csvButton);
   </script>
 </div>
-
-
 
 ## Abstract
 
@@ -520,7 +521,6 @@ plot(TukeyHSD(model, conf.level = .95), las = 2)
 
 # New England, Plains and Rocky Mountains spend much lower on average. Despite that, they are following the trend of growth with an 18% since 2005.
 
-knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
 ```
 
 ## Results
@@ -536,3 +536,9 @@ Within the Far West region, Oregon stands out as the third most expensive state.
 The United States continues to experience escalating healthcare expenditures, raising concerns about the affordability of personal health care. The substantial increase of approximately \$70,000 over a span of 35 years far exceeds inflation expectations. It would have been beneficial to have inflation-adjusted values in the dataset, allowing for a more comprehensive analysis and deeper insights.
 
 Further exploration can be done to investigate potential statistical significance between individual states and their spending patterns. This avenue remains open for future researchers to delve into for a more in-depth understanding of healthcare expenditure variations.
+
+## Data References
+
+```{r, echo=FALSE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file="bibliography.bib")
+```
