@@ -538,6 +538,29 @@ legend {
   }
 }
 
+// Footer
+
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  background-color: $gray-400;
+  font-weight: 200;
+  font-size: 1.2rem;
+  a {
+    color: $black;
+
+    &:hover {
+      color: $gray-600; // Adjust the percentage to control the amount of lightening
+    }
+  }
+}
+
+
+
 // Containers
 
 .list-group-item-action {
