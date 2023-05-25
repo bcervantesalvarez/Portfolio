@@ -219,7 +219,10 @@ body {
   font-size: $body-font-size;
   line-height: $body-line-stretch;
   color: $gray-700;
+  touch-action: pan-y;
   overflow-x: hidden;
+  user-zoom: fixed;
+  max-height: 100vh;
 }
 
 p {
@@ -662,10 +665,4 @@ div.quarto-post .metadata {
   font-size: .7em;
   font-family: var(--bs-font-sans-serif);
   flex-basis: 33%;
-}
-
-@viewport {
-  width: device-width;
-  zoom: 1.0;
-  max-zoom: 1.0;
 }
