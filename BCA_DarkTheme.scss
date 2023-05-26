@@ -611,6 +611,14 @@ div.quarto-post .listing-categories .listing-category {
   }
 }
 
+// About me Title
+div.quarto-about-marquee header#title-block-header {
+  margin-block-end: 1rem;
+  position: relative;
+  text-align: center;
+  margin-top: 5px;
+}
+
 // Updates Categories 
 .quarto-listing-category-title {
   font-weight: 500;
@@ -682,7 +690,7 @@ div.quarto-post .thumbnail img {
 
 .quarto-title-banner .quarto-title .title {
   font-weight: 900;
-  color: white;
+  color: $black;
 }
 
 .quarto-title-banner{
@@ -695,7 +703,7 @@ div.quarto-post .thumbnail img {
 #title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
   margin-bottom: 0.1em;
   margin-top: auto;
-  font-size: 1.1em
+  font-size: 1.1em;
 }
 
 div.quarto-post .listing-description {
