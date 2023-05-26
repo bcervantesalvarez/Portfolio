@@ -516,6 +516,14 @@ a {
   }
 }
 
+// About me Title
+div.quarto-about-marquee header#title-block-header {
+  margin-block-end: 1rem;
+  position: relative;
+  text-align: center;
+  margin-top: 5px;
+}
+
 // Quarto Specific
 
 // THIS WORKS!
