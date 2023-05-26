@@ -56,7 +56,7 @@ title-block-banner: true
     var downloadButtonsDiv = document.querySelector(".download-buttons");
 
     var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/FancyTables/index.qmd",
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/Brian%20Cervantes%20Alvarez%20-%20Resume.pdf",
       "Download Resume"
     );
     downloadButtonsDiv.appendChild(documentButton);
