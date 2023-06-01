@@ -189,6 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                 <div class="quarto-category">Python</div>
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Machine Learning</div>
+                <div class="quarto-category">Gradient Boosting Machine</div>
               </div>
                   </div>
   </div>
@@ -224,14 +225,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
+  <ul class="collapse">
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a></li>
   <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
   <li><a href="#split-the-data-into-training-validation-and-test-sets" id="toc-split-the-data-into-training-validation-and-test-sets" class="nav-link" data-scroll-target="#split-the-data-into-training-validation-and-test-sets">Split the data into training, validation, and test sets</a></li>
   <li><a href="#evaluate-on-the-validation-set" id="toc-evaluate-on-the-validation-set" class="nav-link" data-scroll-target="#evaluate-on-the-validation-set">Evaluate on the validation set</a></li>
   <li><a href="#evaluate-on-the-test-set" id="toc-evaluate-on-the-test-set" class="nav-link" data-scroll-target="#evaluate-on-the-test-set">Evaluate on the test set</a></li>
   <li><a href="#how-does-this-compare-to-the-current-model" id="toc-how-does-this-compare-to-the-current-model" class="nav-link" data-scroll-target="#how-does-this-compare-to-the-current-model">How does this compare to the current model?</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#comparison-with-isflaggedfraud-column-model" id="toc-comparison-with-isflaggedfraud-column-model" class="nav-link" data-scroll-target="#comparison-with-isflaggedfraud-column-model">Comparison with ‘isFlaggedFraud’ Column Model</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#comparison-with-original-model" id="toc-comparison-with-original-model" class="nav-link" data-scroll-target="#comparison-with-original-model">Comparison with Original Model</a></li>
+  </ul></li>
   <li><a href="#limitations-and-further-study" id="toc-limitations-and-further-study" class="nav-link" data-scroll-target="#limitations-and-further-study">Limitations and Further Study</a></li>
   </ul>
 </nav>
@@ -243,6 +249,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <p><img src="fraud.png" class="img-fluid"></p>
+<div class="download-buttons" style="text-align: center;">
+<style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+<script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/FraudML/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://www.kaggle.com/datasets/harithapliyal/card-transaction-log/download?datasetVersionNumber=1",
+      "Download .zip"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <p>Fraud detection is a challenging task, but advancements are being made each year. This project aims to improve fraud detection using a Gradient Boosting Machine (GBM) model. The dataset is prepared, and the model is trained and evaluated on validation and test sets. Performance metrics such as accuracy, precision, recall, AUC, and Kappa coefficient are computed. A comparison is made with the existing ‘isFlaggedFraud’ column model. The GBM model demonstrates higher performance in various aspects, highlighting its superiority in classifying fraudulent transactions. However, further improvements are needed to enhance fraud detection while maintaining precision.</p>
@@ -260,31 +325,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Further, we assess the GBM model’s performance on the test set and compute the corresponding metrics. The test accuracy, precision, recall, confusion matrix, AUC, and Kappa coefficient provide a comprehensive evaluation of the model’s ability to classify transactions accurately.</p>
 <p>To compare the GBM model with the existing ‘isFlaggedFraud’ column model, we calculate the accuracy, precision, and recall scores for the ‘isFlaggedFraud’ column. This analysis allows us to assess the GBM model’s superiority in detecting fraudulent transactions.</p>
 <p>Based on the results, we discuss the GBM model’s performance, highlighting its accuracy, precision, recall, AUC, and Kappa coefficient. We analyze the confusion matrix to identify areas where the model misclassifies transactions. While the GBM model outperforms the ‘isFlaggedFraud’ column model in several aspects, it still has room for improvement in detecting fraudulent instances while maintaining high precision.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ensure you are using the correct Python version: Python 3.10.9 (‘base’) ~/anaconda3/bin/python</p>
+</div>
+</div>
+<section id="set-up" class="level3">
+<h3 class="anchored" data-anchor-id="set-up">Set up</h3>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Set up</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> GradientBoostingClassifier  <span class="co"># For classification tasks</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> GradientBoostingRegressor  <span class="co"># For regression tasks</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    accuracy_score,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    confusion_matrix,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    precision_score,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    recall_score,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    roc_auc_score,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    roc_curve,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    cohen_kappa_score,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">'Card-Transaction_log.csv'</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first 5 rows</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ds.head(<span class="dv">5</span>))</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the shape of the frame</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ds.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> GradientBoostingClassifier  <span class="co"># For classification tasks</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> GradientBoostingRegressor  <span class="co"># For regression tasks</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    accuracy_score,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    confusion_matrix,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    precision_score,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    recall_score,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    roc_auc_score,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    roc_curve,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    cohen_kappa_score,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">'Card-Transaction_log.csv'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first 5 rows</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ds.head(<span class="dv">5</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the shape of the frame</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ds.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   step      type    amount     nameOrig  oldbalanceOrg  newbalanceOrig  \
 0     1   PAYMENT   9839.64  C1231006815       170136.0       160296.36   
@@ -303,8 +382,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="data-wrangling" class="level2">
-<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(ds.drop([<span class="st">'isFraud'</span>, <span class="st">'nameOrig'</span>, <span class="st">'nameDest'</span>, <span class="st">'isFlaggedFraud'</span>], axis<span class="op">=</span><span class="dv">1</span>))   <span class="co"># Perform one-hot encoding on the features</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'isFraud'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -323,8 +402,8 @@ Note
 </div>
 </div>
 </section>
-<section id="split-the-data-into-training-validation-and-test-sets" class="level2">
-<h2 class="anchored" data-anchor-id="split-the-data-into-training-validation-and-test-sets">Split the data into training, validation, and test sets</h2>
+<section id="split-the-data-into-training-validation-and-test-sets" class="level3">
+<h3 class="anchored" data-anchor-id="split-the-data-into-training-validation-and-test-sets">Split the data into training, validation, and test sets</h3>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the random seed</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">57</span>)</span>
@@ -345,12 +424,12 @@ Note
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>elapsed_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elapsed Time: </span><span class="sc">{</span>elapsed_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Elapsed Time: 1015.5686531066895 seconds</code></pre>
+<pre><code>Elapsed Time: 1018.513671875 seconds</code></pre>
 </div>
 </div>
 </section>
-<section id="evaluate-on-the-validation-set" class="level2">
-<h2 class="anchored" data-anchor-id="evaluate-on-the-validation-set">Evaluate on the validation set</h2>
+<section id="evaluate-on-the-validation-set" class="level3">
+<h3 class="anchored" data-anchor-id="evaluate-on-the-validation-set">Evaluate on the validation set</h3>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y_pred_val <span class="op">=</span> gbm.predict(X_val)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>accuracy_val <span class="op">=</span> accuracy_score(y_val, y_pred_val)</span>
@@ -380,8 +459,8 @@ Validation Kappa: 0.6562465275067701</code></pre>
 </div>
 </div>
 </section>
-<section id="evaluate-on-the-test-set" class="level2">
-<h2 class="anchored" data-anchor-id="evaluate-on-the-test-set">Evaluate on the test set</h2>
+<section id="evaluate-on-the-test-set" class="level3">
+<h3 class="anchored" data-anchor-id="evaluate-on-the-test-set">Evaluate on the test set</h3>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y_pred_test <span class="op">=</span> gbm.predict(X_test)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>accuracy_test <span class="op">=</span> accuracy_score(y_test, y_pred_test)</span>
@@ -411,8 +490,8 @@ Test Kappa: 0.6193839067580158</code></pre>
 </div>
 </div>
 </section>
-<section id="how-does-this-compare-to-the-current-model" class="level2">
-<h2 class="anchored" data-anchor-id="how-does-this-compare-to-the-current-model">How does this compare to the current model?</h2>
+<section id="how-does-this-compare-to-the-current-model" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-this-compare-to-the-current-model">How does this compare to the current model?</h3>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparison with 'isFlaggedFraud' column</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>is_flagged_fraud_accuracy <span class="op">=</span> accuracy_score(ds[<span class="st">'isFraud'</span>], ds[<span class="st">'isFlaggedFraud'</span>])</span>
@@ -429,6 +508,7 @@ Recall (isFlaggedFraud): 0.0019481310118105442</code></pre>
 </div>
 </div>
 </section>
+</section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>Based on the evaluation of the GBM (Gradient Boosting Machine) model on the test set, the following performance metrics were obtained:</p>
@@ -442,10 +522,10 @@ Recall (isFlaggedFraud): 0.0019481310118105442</code></pre>
 <p>The GBM model achieved a high accuracy score of 0.999, indicating a strong ability to correctly classify transactions in the test set. With a precision of 0.946, the GBM model accurately identified approximately 94.6% of the predicted fraudulent transactions. However, the recall score of 0.461 suggests that the GBM model only captured around 46.1% of the actual fraudulent transactions.</p>
 <p>Analyzing the confusion matrix, the GBM model correctly classified a large number of non-fraudulent transactions (true negatives) and a significant portion of fraudulent transactions (true positives). However, there were some instances where the GBM model misclassified non-fraudulent transactions as fraudulent (false positives) and failed to identify certain fraudulent transactions (false negatives).</p>
 <p>The AUC score of 0.730 indicates a moderate level of discrimination between fraudulent and non-fraudulent transactions for the GBM model. Although the GBM model demonstrates substantial agreement beyond chance with a Kappa coefficient of 0.619, there is room for improvement in its ability to detect fraudulent instances while maintaining high precision.</p>
-</section>
-<section id="comparison-with-isflaggedfraud-column-model" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-with-isflaggedfraud-column-model">Comparison with ‘isFlaggedFraud’ Column Model</h2>
+<section id="comparison-with-original-model" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-with-original-model">Comparison with Original Model</h3>
 <p>Comparing the GBM model with the ‘isFlaggedFraud’ column model, the GBM model outperforms in several key aspects. It achieves higher accuracy, precision, recall, and AUC scores, indicating superior overall performance in classifying fraudulent transactions. The ‘isFlaggedFraud’ column model, although having perfect precision, only detects a very small number of actual fraud cases, resulting in low recall.</p>
+</section>
 </section>
 <section id="limitations-and-further-study" class="level2">
 <h2 class="anchored" data-anchor-id="limitations-and-further-study">Limitations and Further Study</h2>
