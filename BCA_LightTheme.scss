@@ -129,23 +129,25 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
   @import url($web-monofont-path);
 }
 
-.navbar {
-  font-size: $h6-font-size;
-  font-weight: 800;
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  background-color: $gray-400;
+  font-weight: 200;
+  font-size: 1.2rem;
+  overflow-x: auto;   // Add this property to enable horizontal scrolling
+  white-space: nowrap; // Prevent line breaks for footer elements
 
-  &-nav {
-    .nav-link {
-      padding-top: 0.715rem;
-      padding-bottom: 0.715rem;
+  a {
+    color: $black;
 
-      &:hover {
-        text-decoration: underline;
-      }
+    &:hover {
+      color: $gray-600; // Adjust the percentage to control the amount of lightening
     }
-  }
-
-  &-brand {
-    margin-right: 2rem;
   }
 }
 
@@ -655,4 +657,10 @@ div.quarto-post .metadata {
   font-size: 0.7em;
   font-family: var(--bs-font-sans-serif);
   flex-basis: 33%;
+}
+
+// Viewport Meta Tag
+@viewport {
+  width: device-width;
+  initial-scale: 1.0;
 }

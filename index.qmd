@@ -38,33 +38,6 @@ I was born in Pasco, Washington, a small city in the southeastern part of the st
 
 I enjoyed the rural atmosphere of Pasco, with its open fields, orchards, and vineyards.
 
-```{r}
-library(leaflet)
-
-# Create a Leaflet map object
-map <- leaflet() %>%
-  addTiles() %>%
-  setView(lng = -119.095377, lat = 46.235109, zoom = 12)
-
-# Create a marker layer
-marker <- addMarkers(
-  map = map,
-  lng = -119.095377,
-  lat = 46.235109,
-  popup = "Grew up here"
-)
-
-# Add JavaScript code to activate the map only on hover
-htmlwidgets::onRender(map, '
-  function(el, x) {
-    el.addEventListener("mouseenter", function(e) {
-      x.map.invalidateSize();
-    });
-  }
-')
-
-```
-
 Before finishing 1st grade, I moved to Salem, Oregon, a mid-sized city in the heart of the Willamette Valley. Salem is known for its farms and vineyards that produce some of the best wine and food in the state.
 
 ![Salem, Oregon](background2.jpeg)
@@ -72,30 +45,3 @@ Before finishing 1st grade, I moved to Salem, Oregon, a mid-sized city in the he
 Growing up in Salem, I was immersed in the outdoors and enjoyed activities such as hiking, camping, and running. Salem also has a rich history, with landmarks like the Oregon State Capitol and Willamette University, which is the oldest university in the west. However, as I got older, I also became aware of some of the social and economic challenges faced by many families in the area, such as poverty, limited job opportunities, and inadequate access to healthcare.
 
 My family and I suffered poverty and food instability before I graduated high school. Despite these challenges, I feel a strong connection to Salem and its people, and I am grateful for the experiences and values that I gained from growing up in this community.
-
-```{r}
-library(leaflet)
-
-# Create a Leaflet map object
-map <- leaflet() %>%
-  addTiles() %>%
-  setView(lng = -123.033121, lat = 44.9391565, zoom = 12)
-
-# Create a marker layer
-marker <- addMarkers(
-  map = map,
-  lng = -123.033121,
-  lat = 44.9391565,
-  popup = "Grew up here"
-)
-
-# Add JavaScript code to activate the map only on hover
-htmlwidgets::onRender(map, '
-  function(el, x) {
-    el.addEventListener("mouseenter", function(e) {
-      x.map.invalidateSize();
-    });
-  }
-')
-
-```

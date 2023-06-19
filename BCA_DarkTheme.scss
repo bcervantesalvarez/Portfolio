@@ -550,6 +550,9 @@ legend {
   background-color: $gray-400;
   font-weight: 200;
   font-size: 1.2rem;
+  overflow-x: auto;   // Add this property to enable horizontal scrolling
+  white-space: nowrap; // Prevent line breaks for footer elements
+
   a {
     color: $black;
 
@@ -719,4 +722,10 @@ div.quarto-post .metadata {
   font-size: .7em;
   font-family: var(--bs-font-sans-serif);
   flex-basis: 33%;
+}
+
+// Viewport Meta Tag
+@viewport {
+  width: device-width;
+  initial-scale: 1.0;
 }
