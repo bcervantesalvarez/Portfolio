@@ -7,9 +7,4 @@ freeze: true
 # Enable banner style title blocks
 title-block-banner: true
 
-format:
-  html:
-    theme: 
-      light: lux.scss
-      dark: cyborg.scss
     

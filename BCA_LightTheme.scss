@@ -172,10 +172,20 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
 }
 
 // Table of Content
+
+.sidebar nav[role="doc-toc"] {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
 .sidebar nav[role="doc-toc"] ul > li > a.active {
   border-left: 1px solid #1a1a1a;
   color: $blue !important;
 }
+
+
 
 // Typography
 
@@ -219,7 +229,6 @@ body {
   touch-action: pan-y;
   overflow-x: hidden;
   user-zoom: fixed;
-  max-height: 100vh;
 }
 
 p {
