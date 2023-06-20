@@ -15,9 +15,8 @@ execute:
   message: false
 categories: 
     - Python
-    - R
     - Machine Learning
-    - Gradient Boosting Machine
+    - Gradient Boosting Machines
 jupyter: python3
 ---
 
