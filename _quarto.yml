@@ -13,7 +13,7 @@ website:
         file: projects.qmd
       - text: "Presentations"
         file: presentation.qmd
-      - text: "Resume"
+      - text: "Curriculum Vitae"
         file: resume.qmd
       
   page-footer:
