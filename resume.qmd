@@ -91,9 +91,9 @@ As a Data Scientist, I possess a diverse skillset that enables me to excel in my
 
 These skills collectively empower me to excel as a Data Scientist, enabling me to derive meaningful insights, make informed decisions, and effectively communicate complex information to drive actionable results.
 
-## Machine Learning Engineer Skillset
+## Machine Learning Scientist Skillset
 
-As a Machine Learning Engineer, I possess a range of skills that allow me to thrive in my role. Here are some additional skills I have acquired:
+As a Machine Learning Scientist, I possess a range of skills that allow me to thrive in my role. Here are some additional skills I have acquired:
 
 1. **Natural Language Processing (NLP):**
    - I am familiar with NLP techniques, enabling me to work with text data and perform sentiment analysis. I leverage text classification, named entity recognition, and sentiment analysis to extract valuable information from unstructured text data.
@@ -110,4 +110,4 @@ As a Machine Learning Engineer, I possess a range of skills that allow me to thr
 5. **Model Evaluation and Validation:**
    - I have expertise in evaluating and validating machine learning models. I can employ techniques like cross-validation, ROC curves, and precision-recall analysis to assess model performance, select the best models, and ensure their generalizability.
 
-These skills collectively empower me to excel as a Machine Learning Engineer, allowing me to develop and deploy cutting-edge machine learning systems and solve complex problems across various domains.
+These skills collectively empower me to excel as a Machine Learning Scientist, allowing me to develop and deploy cutting-edge machine learning systems and solve complex problems across various domains.
