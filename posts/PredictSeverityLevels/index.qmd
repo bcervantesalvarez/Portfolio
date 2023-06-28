@@ -313,6 +313,8 @@ Overall, these metrics indicate that the model has performed well in predicting 
 
 ### Visualizing Random Forest's Best Decision Tree
 ```{python}
+#| column: screen
+
 # Perform 10-fold cross-validation
 cv_scores = cross_val_score(rf_model, X, y, cv=10)
 
@@ -323,16 +325,21 @@ best_tree_index = np.argmax(cv_scores)
 best_tree = rf_model.estimators_[best_tree_index]
 
 # Visualize the best decision tree using matplotlib
-plt.figure(figsize=(25, 25))
+plt.figure(figsize=(20, 15))
 tree.plot_tree(best_tree, feature_names=X.columns, class_names=label_encoder.classes_, filled=True)
+
 plt.show()
 
 ```
 
+
+
 ## Results
 
 1. If a patient has between 1 to 3 symptoms, and one of those symptoms includes depression, they are classified as 'Mild'.
+
 2. If a patient has at least 3 symptoms, and two of those symptoms are depression and cramps, they are classified as 'Moderate'.
+
 3. Lastly, if a patient has 4 symptoms, and two of those symptoms are cramps and spasms, they are classified as 'Severe'.
 
 ## Conclusion

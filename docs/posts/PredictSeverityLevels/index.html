@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
+    <div class="quarto-title column-body">
       <h1 class="title">Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis</h1>
                   <div>
         <div class="description">
@@ -240,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full column-body" id="quarto-document-content">
 
 
 
@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>In the field of rare diseases, physicians often observe variations in the severity levels of patients; however, there is a lack of established guidelines to map individual patients directly to specific severity levels. Our client, who is developing a product for this rare disease, aims to target patients with moderate to severe conditions. To address this challenge, the client possesses a comprehensive database containing clinically relevant information about the disease, including symptom flags and a symptom count variable. Additionally, each patient in the database has been rated by a physician as mild, moderate, or severe. The client has approached [REDACTED] with the objective of extracting the mental heuristics employed by physicians when assigning severity labels to patients. The task at hand involves deriving simple rules (1-3 per severity level) from the database that can effectively classify patients. For instance, a set of rules might involve identifying patients as severe if they exhibit fatigue or have exactly two symptoms. By extracting these rules, our aim is to provide the client with a clearer understanding of the factors influencing severity levels in order to enhance their product development and enable more personalized patient care.</p>
 </section>
-<section id="methodology" class="level2">
+<section id="methodology" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">"severityLevels.csv"</span>)  </span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="91">
 
 <div>
 
@@ -534,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Number of Symptoms'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="92">
 
 <div>
 
@@ -942,9 +942,9 @@ Kappa: 0.85
 <p>Overall, these metrics indicate that the model has performed well in predicting the severity ratings of the patients, with high accuracy, good distinction between severity levels, and substantial agreement with the actual severity ratings provided by physicians.</p>
 </section>
 </section>
-<section id="visualizing-random-forests-best-decision-tree" class="level3">
+<section id="visualizing-random-forests-best-decision-tree" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="visualizing-random-forests-best-decision-tree">Visualizing Random Forest’s Best Decision Tree</h3>
-<div class="cell" data-execution_count="5">
+<div class="cell page-columns page-full" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform 10-fold cross-validation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf_model, X, y, cv<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -955,11 +955,12 @@ Kappa: 0.85
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>best_tree <span class="op">=</span> rf_model.estimators_[best_tree_index]</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the best decision tree using matplotlib</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">25</span>))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">15</span>))</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>tree.plot_tree(best_tree, feature_names<span class="op">=</span>X.columns, class_names<span class="op">=</span>label_encoder.classes_, filled<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-6-output-1.png" width="1879" height="1867"></p>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display column-screen">
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="1507" height="1128"></p>
 </div>
 </div>
 </section>
@@ -967,9 +968,9 @@ Kappa: 0.85
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <ol type="1">
-<li>If a patient has between 1 to 3 symptoms, and one of those symptoms includes depression, they are classified as ‘Mild’.</li>
-<li>If a patient has at least 3 symptoms, and two of those symptoms are depression and cramps, they are classified as ‘Moderate’.</li>
-<li>Lastly, if a patient has 4 symptoms, and two of those symptoms are cramps and spasms, they are classified as ‘Severe’.</li>
+<li><p>If a patient has between 1 to 3 symptoms, and one of those symptoms includes depression, they are classified as ‘Mild’.</p></li>
+<li><p>If a patient has at least 3 symptoms, and two of those symptoms are depression and cramps, they are classified as ‘Moderate’.</p></li>
+<li><p>Lastly, if a patient has 4 symptoms, and two of those symptoms are cramps and spasms, they are classified as ‘Severe’.</p></li>
 </ol>
 </section>
 <section id="conclusion" class="level2">
