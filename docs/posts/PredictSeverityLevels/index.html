@@ -130,6 +130,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis">
 <meta property="og:description" content="Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.">
@@ -935,7 +951,18 @@ Kappa: 0.85
 <h4 class="anchored" data-anchor-id="metrics-explained">Metrics Explained</h4>
 <p>Let’s break down the provided metrics based on the given confusion matrix:</p>
 <p>Confusion Matrix: The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories.</p>
-<p>The number 84 in the first row and first column indicates that the model correctly predicted 84 patients as “mild” when their actual severity rating was also “mild.” The number 13 in the first row and second column indicates that the model incorrectly predicted 13 patients as “moderate” when their actual severity rating was “mild.” The number 3 in the first row and third column indicates that the model incorrectly predicted 3 patients as “severe” when their actual severity rating was “mild.” Similarly, the other numbers in the matrix represent the model’s predictions for the other severity rating categories. ROC AUC (Receiver Operating Characteristic Area Under the Curve): ROC AUC is a measure of the model’s ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.971 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.</p>
+<p><span class="math display">
+\begin{array}{c|ccc}
+&amp; {\text{Actual}} \\
+\text{Predicted} &amp; \text{Mild} &amp; \text{Moderate} &amp; \text{Severe} \\
+\hline
+\text{Mild} &amp; 84 &amp; 13 &amp; 3 \\
+\text{Moderate} &amp; 1 &amp; 94 &amp; 5 \\
+\text{Severe} &amp; 0 &amp; 8 &amp; 92 \\
+\end{array}
+</span></p>
+<p>The number 84 in the first row and first column indicates that the model correctly predicted 84 patients as “mild” when their actual severity rating was also “mild.” The number 13 in the first row and second column indicates that the model incorrectly predicted 13 patients as “moderate” when their actual severity rating was “mild.” The number 3 in the first row and third column indicates that the model incorrectly predicted 3 patients as “severe” when their actual severity rating was “mild.”</p>
+<p>Similarly, the other numbers in the matrix represent the model’s predictions for the other severity rating categories. ROC AUC (Receiver Operating Characteristic Area Under the Curve): ROC AUC is a measure of the model’s ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.971 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.</p>
 <p>Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.9 means that the model identified 90% of the patients with their correct severity rating.</p>
 <p>Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.909 indicates that out of all the patients the model identified as having a specific severity rating, 90.9% of them were correct.</p>
 <p>Kappa: The Kappa statistic is a measure of agreement between the model’s predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.85 indicates a substantial level of agreement between the model’s predictions and the actual severity ratings, suggesting a reliable performance of the model.</p>
