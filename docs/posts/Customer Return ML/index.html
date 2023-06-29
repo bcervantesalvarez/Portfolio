@@ -8,6 +8,7 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2023-03-11">
+<meta name="description" content="Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power.">
 
 <title>Brian Cervantes Alvarez - Predicting Customer Returns</title>
 <style>
@@ -85,6 +86,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -128,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Predicting Customer Returns">
-<meta property="og:description" content="In this evaluation, I scrutinized a partially randomly generated customer returns dataset with the objective of forecasting whether a customer would opt to return their purchased item.">
+<meta property="og:description" content="Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power.">
 <meta property="og:image" content="return.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -163,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../resume.html">
- <span class="menu-text">Resume</span></a>
+ <span class="menu-text">Curriculum Vitae</span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -179,7 +199,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">Predicting Customer Returns</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Machine Learning</div>
                 <div class="quarto-category">Random Forest</div>
@@ -226,6 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#make-prediction-on-the-test-data" id="toc-make-prediction-on-the-test-data" class="nav-link" data-scroll-target="#make-prediction-on-the-test-data">Make prediction on the test data</a></li>
   <li><a href="#writing-the-submission-file" id="toc-writing-the-submission-file" class="nav-link" data-scroll-target="#writing-the-submission-file">Writing the Submission File</a></li>
   <li><a href="#leftout-features-that-were-considered" id="toc-leftout-features-that-were-considered" class="nav-link" data-scroll-target="#leftout-features-that-were-considered">Leftout Features that were considered</a></li>
+  <li><a href="#data-references" id="toc-data-references" class="nav-link" data-scroll-target="#data-references">Data References</a></li>
   </ul>
 </nav>
     </div>
@@ -383,7 +409,7 @@ $ PriceRange        &lt;fct&gt; $13-$30, $31-$60, $31-$60, $61-$100, &gt;$100, &
  Min.   :0.0019   Min.   :  8.73   No :42035   Fall  :23194   Min.   :26.00  
  1st Qu.:0.0882   1st Qu.: 44.79   Yes:22877   Spring:12576   1st Qu.:36.00  
  Median :0.1717   Median : 62.54               Summer:16620   Median :47.00  
- Mean   :0.1689   Mean   : 65.42               Winter:12522   Mean   :48.54  
+ Mean   :0.1689   Mean   : 65.42               Winter:12522   Mean   :48.56  
  3rd Qu.:0.2541   3rd Qu.: 84.84                              3rd Qu.:60.00  
  Max.   :0.3329   Max.   :132.72                              Max.   :77.00  
                                                                              
@@ -433,12 +459,12 @@ Summary of sample sizes: 43274, 43275, 43275
 Resampling results across tuning parameters:
 
   mtry  ROC        Sens       Spec     
-   2    0.5560616  1.0000000  0.0000000
-  36    0.6252121  0.8329724  0.3620666
-  70    0.6253726  0.8273818  0.3716833
+   2    0.5554701  1.0000000  0.0000000
+  36    0.6249949  0.8332817  0.3606679
+  70    0.6245694  0.8249790  0.3712897
 
 ROC was used to select the optimal model using the largest value.
-The final value used for the model was mtry = 70.</code></pre>
+The final value used for the model was mtry = 36.</code></pre>
 </div>
 </div>
 </section>
@@ -488,11 +514,85 @@ The final value used for the model was mtry = 70.</code></pre>
 <span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co">#         -ProductCost,</span></span>
 <span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="co">#         -CustomerState)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="data-references" class="level2">
+<h2 class="anchored" data-anchor-id="data-references">Data References</h2>
+<div class="cell">
+
+</div>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-R-Matrix" class="csl-entry" role="doc-biblioentry">
+Bates, Douglas, Martin Maechler, and Mikael Jagan. 2023. <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. <a href="https://CRAN.R-project.org/package=Matrix">https://CRAN.R-project.org/package=Matrix</a>.
+</div>
+<div id="ref-R-glmnet" class="csl-entry" role="doc-biblioentry">
+Friedman, Jerome, Trevor Hastie, Rob Tibshirani, Balasubramanian Narasimhan, Kenneth Tay, Noah Simon, and James Yang. 2023. <em>Glmnet: Lasso and Elastic-Net Regularized Generalized Linear Models</em>. <a href="https://glmnet.stanford.edu">https://glmnet.stanford.edu</a>.
+</div>
+<div id="ref-glmnet2010" class="csl-entry" role="doc-biblioentry">
+Friedman, Jerome, Robert Tibshirani, and Trevor Hastie. 2010. <span>“Regularization Paths for Generalized Linear Models via Coordinate Descent.”</span> <em>Journal of Statistical Software</em> 33 (1): 1–22. <a href="https://doi.org/10.18637/jss.v033.i01">https://doi.org/10.18637/jss.v033.i01</a>.
+</div>
+<div id="ref-lubridate2011" class="csl-entry" role="doc-biblioentry">
+Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
+</div>
+<div id="ref-R-caret" class="csl-entry" role="doc-biblioentry">
+Kuhn, Max. 2023. <em>Caret: Classification and Regression Training</em>. <a href="https://github.com/topepo/caret/">https://github.com/topepo/caret/</a>.
+</div>
+<div id="ref-caret2008" class="csl-entry" role="doc-biblioentry">
+Kuhn, and Max. 2008. <span>“Building Predictive Models in r Using the Caret Package.”</span> <em>Journal of Statistical Software</em> 28 (5): 1–26. <a href="https://doi.org/10.18637/jss.v028.i05">https://doi.org/10.18637/jss.v028.i05</a>.
+</div>
+<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+</div>
+<div id="ref-lattice2008" class="csl-entry" role="doc-biblioentry">
+Sarkar, Deepayan. 2008. <em>Lattice: Multivariate Data Visualization with r</em>. New York: Springer. <a href="http://lmdvr.r-forge.r-project.org">http://lmdvr.r-forge.r-project.org</a>.
+</div>
+<div id="ref-R-lattice" class="csl-entry" role="doc-biblioentry">
+———. 2023. <em>Lattice: Trellis Graphics for r</em>. <a href="https://lattice.r-forge.r-project.org/">https://lattice.r-forge.r-project.org/</a>.
+</div>
+<div id="ref-glmnet2011" class="csl-entry" role="doc-biblioentry">
+Simon, Noah, Jerome Friedman, Robert Tibshirani, and Trevor Hastie. 2011. <span>“Regularization Paths for Cox’s Proportional Hazards Model via Coordinate Descent.”</span> <em>Journal of Statistical Software</em> 39 (5): 1–13. <a href="https://doi.org/10.18637/jss.v039.i05">https://doi.org/10.18637/jss.v039.i05</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+</div>
+<div id="ref-glmnet2023" class="csl-entry" role="doc-biblioentry">
+Tay, J. Kenneth, Balasubramanian Narasimhan, and Trevor Hastie. 2023. <span>“Elastic Net Regularization Paths for All Generalized Linear Models.”</span> <em>Journal of Statistical Software</em> 106 (1): 1–31. <a href="https://doi.org/10.18637/jss.v106.i01">https://doi.org/10.18637/jss.v106.i01</a>.
+</div>
+<div id="ref-ggplot22016" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
+———. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-R-forcats" class="csl-entry" role="doc-biblioentry">
+———. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
+</div>
+<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
+———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
+</div>
+<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
+<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

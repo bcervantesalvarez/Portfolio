@@ -1,10 +1,14 @@
 ---
 title: "Predicting Individuals Who Earn More Than 50K"
+description: "We employed advanced techniques in our project, using a random forest model to identify important variables and selecting the top 8 features."
 author:  
   - "Brian Cervantes Alvarez"
   - "Willa Van Liew"
 date: "04-11-2023"
 image: income.jpeg
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 format:
   html:
     page-layout: full
@@ -15,7 +19,7 @@ output: html_document
 execute:
   message: false
   warning: false
-categories: [R, Machine Learning, Gradient Boosting Machines, Logistic Regression]
+categories: [R, Machine Learning, Gradient Boosting Machines, Logistic Regression, Classification]
 ---
 
 ![](income.jpeg)
@@ -270,3 +274,9 @@ confusionMatrix(predict(fit, test), factor(test$income_above_50K))
 ## Results
 
 We used a random forest model to identify the most important variables and selected the top 8 features, then utilized principal component analysis (PCA) to further analyze the data. Our final model incorporated a gradient boosting machine (GBM) algorithm with optimized hyperparameters and achieved an accuracy rate of 0.9829731 and a Kappa score of 0.9538928. To ensure the model was not overfitting, we benchmarked it with a logistic regression model that achieved a Kappa score of 0.895033 and an accuracy rate of 0.9610166. We further improved the model's accuracy by incorporating unsupervised machine learning with Kmeans clustering, achieving a Kappa score of 0.9543 and an accuracy rate of 0.9833. Overall, our approach of feature selection and PCA was effective and could be applied to future data analysis projects with some additional fine-tuning.
+
+## Data References
+
+```{r, echo=FALSE, eval=TRUE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```

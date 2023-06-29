@@ -16,7 +16,7 @@ output: html_document
 code-fold: false
 execute:
   eval: false
-categories: [R, RShiny, CSS, Datatables, Data Visualization]
+categories: [R, Shiny, CSS, Data Tables, Data Visualization, Dashboard]
 ---
 
 ![](AmazonLogo.jpeg)

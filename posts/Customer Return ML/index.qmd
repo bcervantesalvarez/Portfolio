@@ -1,6 +1,10 @@
 ---
 title: "Predicting Customer Returns"
 author: Brian Cervantes Alvarez
+description: " Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power."
+bibliography: "bibliography.bib"
+nocite: |
+     @*
 date: "3-11-2023"
 image: return.jpeg
 format:
@@ -187,4 +191,10 @@ write.csv(submission, "submission.csv", row.names = FALSE)
 #         -MSRP,
 #         -ProductCost,
 #         -CustomerState)
+```
+
+## Data References
+
+```{r, echo=FALSE, eval=TRUE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
 ```

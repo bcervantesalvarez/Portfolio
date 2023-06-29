@@ -16,7 +16,7 @@ format:
 execute: 
   warning: false
   message: false
-categories: [R, Datatables]
+categories: [R, Data Tables]
 ---
 
 ![](wine.jpeg)

@@ -15,7 +15,7 @@ format:
     toc-location: right
     html-math-method: katex
 output: html_document
-categories: [R, RShiny, Data Visualization]
+categories: [R, Shiny, Data Visualization, Dashboard]
 ---
 
 ```{r}

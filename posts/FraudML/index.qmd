@@ -257,3 +257,4 @@ Comparing the GBM model with the 'isFlaggedFraud' column model, the GBM model ou
 It is important to consider the specific goals and requirements of the application. While the GBM model provides better overall performance, it may have a higher number of false positives compared to the 'isFlaggedFraud' column model. Further enhancements can be made to improve the GBM model's ability to detect fraudulent transactions while maintaining high precision.
 
 These results provide valuable insights into the GBM model's performance on unseen data, indicating its generalization capability. It is crucial to consider the test set performance as the final evaluation of the GBM model's effectiveness in real-world scenarios.
+

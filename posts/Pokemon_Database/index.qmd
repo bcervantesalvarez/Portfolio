@@ -13,7 +13,7 @@ format:
     html-math-method: katex
 image: pokemon.jpeg
 output: html_document
-categories: [R, PostgreSQL, Data Visualization]
+categories: [R, PostgreSQL, Data Visualization, Data Engineering]
 ---
 
 ![](pokemon.jpeg)
