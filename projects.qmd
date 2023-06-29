@@ -13,5 +13,5 @@ listing:
 format: 
   html:
     page-layout: article
-title-block-banner: false
+title-block-banner: true
 ---
