@@ -353,7 +353,7 @@ print()
 Let's break down the provided metrics based on the given confusion matrix:
 
 Confusion Matrix:
-The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories.
+The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.
 
 
 $$

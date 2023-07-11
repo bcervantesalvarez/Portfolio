@@ -354,7 +354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">"severityLevels.csv"</span>)  </span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)  <span class="co"># Display the first 10 rows of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-page" data-execution_count="55">
+<div class="cell-output cell-output-display column-page" data-execution_count="1">
 
 <div>
 
@@ -537,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell page-columns page-full" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic statistics of the dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ds.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-screen" data-execution_count="56">
+<div class="cell-output cell-output-display column-screen" data-execution_count="2">
 
 <div>
 
@@ -746,7 +746,7 @@ Name: Final Category, dtype: int64</code></pre>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Number of Symptoms'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-screen" data-execution_count="58">
+<div class="cell-output cell-output-display column-screen" data-execution_count="4">
 
 <div>
 
@@ -1153,7 +1153,7 @@ Kappa: 0.8245614035087719
 <section id="metrics-explained" class="level4">
 <h4 class="anchored" data-anchor-id="metrics-explained">Metrics Explained</h4>
 <p>Let’s break down the provided metrics based on the given confusion matrix:</p>
-<p>Confusion Matrix: The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories.</p>
+<p>Confusion Matrix: The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.</p>
 <p><span class="math display">
 \begin{array}{c|ccc}
 &amp; {\text{Actual}} \\
