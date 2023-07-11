@@ -249,6 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
   <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering">Feature Engineering</a></li>
   <li><a href="#random-forest-model" id="toc-random-forest-model" class="nav-link" data-scroll-target="#random-forest-model">Random Forest Model</a></li>
+  <li><a href="#metrics-explained" id="toc-metrics-explained" class="nav-link" data-scroll-target="#metrics-explained">Metrics Explained</a></li>
   <li><a href="#visualizing-random-forests-best-decision-tree" id="toc-visualizing-random-forests-best-decision-tree" class="nav-link" data-scroll-target="#visualizing-random-forests-best-decision-tree">Visualizing Random Forest’s Best Decision Tree</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
@@ -354,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">"severityLevels.csv"</span>)  </span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)  <span class="co"># Display the first 10 rows of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-page" data-execution_count="1">
+<div class="cell-output cell-output-display column-page" data-execution_count="19">
 
 <div>
 
@@ -537,7 +538,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell page-columns page-full" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic statistics of the dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ds.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-screen" data-execution_count="2">
+<div class="cell-output cell-output-display column-screen" data-execution_count="20">
 
 <div>
 
@@ -746,7 +747,7 @@ Name: Final Category, dtype: int64</code></pre>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Number of Symptoms'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display column-screen" data-execution_count="4">
+<div class="cell-output cell-output-display column-screen" data-execution_count="22">
 
 <div>
 
@@ -1150,10 +1151,13 @@ Kappa: 0.8245614035087719
 </code></pre>
 </div>
 </div>
-<section id="metrics-explained" class="level4">
-<h4 class="anchored" data-anchor-id="metrics-explained">Metrics Explained</h4>
+</section>
+<section id="metrics-explained" class="level3">
+<h3 class="anchored" data-anchor-id="metrics-explained">Metrics Explained</h3>
 <p>Let’s break down the provided metrics based on the given confusion matrix:</p>
-<p>Confusion Matrix: The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.</p>
+<section id="confusion-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h4>
+<p>The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.</p>
 <p><span class="math display">
 \begin{array}{c|ccc}
 &amp; {\text{Actual}} \\
@@ -1164,7 +1168,7 @@ Kappa: 0.8245614035087719
 \text{Severe} &amp; 0 &amp; 1 &amp; 16 \\
 \end{array}
 </span></p>
-<p>The number 18 in the first row and first column indicates that the model correctly predicted 84 patients as “mild” when their actual severity rating was also “mild.” The number 4 in the first row and second column indicates that the model incorrectly predicted 4 patients as “moderate” when their actual severity rating was “mild.” The number 0 in the first row and third column indicates that the model correctly predicted 0 patients as being “severe”, meaning that those patients were labeled correctly as “mild”</p>
+<p>The number 18 in the first row and first column indicates that the model correctly predicted 84 patients as “mild” when their actual severity rating was also “mild.” The number 4 in the first row and second column indicates that the model incorrectly predicted 4 patients as “moderate” when their actual severity rating was “mild.” The number 0 in the first row and third column indicates that the model correctly predicted 0 patients as being “severe”, meaning that those patients were labeled correctly as “mild”.</p>
 <p>Similarly, the other numbers in the matrix represent the model’s predictions for the other severity rating categories. ROC AUC (Receiver Operating Characteristic Area Under the Curve): ROC AUC is a measure of the model’s ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.945 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.</p>
 </section>
 <section id="roc-curve" class="level4">
@@ -1238,7 +1242,10 @@ Kappa: 0.8245614035087719
 <p><img src="index_files/figure-html/cell-9-output-1.png" width="663" height="523"></p>
 </div>
 </div>
-<p>Kappa: The Kappa statistic is a measure of agreement between the model’s predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.82 indicates a substantial level of agreement between the model’s predictions and the actual severity ratings, suggesting a reliable performance of the model.</p>
+</section>
+<section id="kappa" class="level4">
+<h4 class="anchored" data-anchor-id="kappa">Kappa</h4>
+<p>The Kappa statistic is a measure of agreement between the model’s predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.82 indicates a substantial level of agreement between the model’s predictions and the actual severity ratings, suggesting a reliable performance of the model.</p>
 <p>Overall, these metrics indicate that the model has performed well in predicting the severity ratings of the patients, with high accuracy, good distinction between severity levels, and substantial agreement with the actual severity ratings provided by physicians.</p>
 </section>
 </section>
