@@ -91,7 +91,6 @@ In the field of rare diseases, physicians often observe variations in the severi
 
 ## Methodology
 ```{python}
-#| column: page
 # Import the required libraries
 import pandas as pd                 # Library for data manipulation and analysis
 import numpy as np                  # Library for numerical computations
@@ -121,16 +120,12 @@ ds.head(10)  # Display the first 10 rows of the dataset
 ### Exploratory Data Analysis
 
 ```{python}
-#| column: screen
-
 # Display basic statistics of the dataset
 ds.describe()
 ```
 
 ```{python}
 #| column: page
-# Check the distribution of the target variable 'Final Category'
-print(ds['Final Category'].value_counts())
 
 # Visualize the distribution of the target variable 'Final Category'
 plt.figure(figsize=(14, 8))
@@ -184,7 +179,6 @@ Overall, this code prepares the data by transforming categorical data into a sui
 
 
 ```{python}
-#| column: screen
 # Drop the ID column
 ds.drop('Patient', axis=1, inplace=True)
 
@@ -202,7 +196,6 @@ ds.head(10)
 
 
 ```{python}
-#| column: page
 # Separate the features (X) and the target variable (y)
 X = ds.drop('Final Category', axis=1)
 y = ds['Final Category']
@@ -290,7 +283,6 @@ The code performs machine learning tasks using a Random Forest model with select
 Overall, this code builds a Random Forest model using selected features, evaluates its performance through cross-validation, and provides insights into the model's predictive capabilities using various evaluation metrics. The goal is to understand how well the model can predict the categories in the target variable based on the selected features.
 
 ```{python}
-#| column: page
 # Separate the features (X) and the target variable (y) using only the top features
 X = ds[top_features['Mild'] + top_features['Moderate'] + top_features['Severe']]
 y = ds['Final Category']
@@ -369,14 +361,16 @@ $$
 $$
 
 
-The number 18 in the first row and first column indicates that the model correctly predicted 84 patients as "mild" when their actual severity rating was also "mild." The number 4 in the first row and second column indicates that the model incorrectly predicted 4 patients as "moderate" when their actual severity rating was "mild." The number 0 in the first row and third column indicates that the model correctly predicted 0 patients as being "severe", meaning that those patients were labeled correctly as "mild".
+First, the number 18 in the first row and column indicates that the model correctly predicted 18 patients as "mild" which coincides with the actual "mild" severity label. Next, the number 4 in the first row and second column indicates that the model incorrectly predicted 4 patients as "moderate" when their actual severity rating was "mild." Lastly, the number 0 in the first row and third column indicates that the model correctly predicted 0 patients as being "severe", meaning that those patients were labeled correctly as "mild".
 
-Similarly, the other numbers in the matrix represent the model's predictions for the other severity rating categories. ROC AUC (Receiver Operating Characteristic Area Under the Curve): ROC AUC is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.945 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.
+Similarly, the other numbers in the confusion matrix represent the model's predictions for the other severity rating categories. Given that this was a dataset with only 300 patients, it is very intriguing that it can label each patient with high accuarcy. 
+
+
+Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.945 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.
 
 
 #### ROC Curve
 ```{python}
-
 # Calculate predicted probabilities for each class
 y_pred_proba = rf_model.predict_proba(X_test)
 
