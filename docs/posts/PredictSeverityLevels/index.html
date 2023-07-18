@@ -360,7 +360,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">"severityLevels.csv"</span>)  </span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)  <span class="co"># Display the first 10 rows of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="1">
 
 <div>
 
@@ -543,7 +543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic statistics of the dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ds.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="2">
 
 <div>
 
@@ -744,7 +744,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Number of Symptoms'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
 
@@ -1066,12 +1066,13 @@ Top 3 features for Moderate:
 <ol start="3" type="1">
 <li><strong>Has 3 symptoms:</strong></li>
 </ol>
-<p>Similar to the previous feature, this feature represents the presence of another symptom (let’s call it symptom Y) that is associated with a mild severity rating. If a patient has symptom Y, it suggests a higher likelihood of being classified as “Mild.”</p>
+<p>This feature represents the presence of 3 symptoms (let’s call them symptoms A,B,C) that are associated with a mild severity rating. If a patient has symptoms A,B,C, it suggests a higher likelihood of being classified as “Mild.”</p>
+<p>Given this information, it can be recommended that a threshold is established. It can be inferred that if a patient has 1-3 symptoms and/or has depression, they can be classified as “Mild.” This is addressed with the model later in the study.</p>
 <p><strong>For patients rated as “Moderate”:</strong></p>
 <ol type="1">
 <li><strong>Has 3 symptoms:</strong></li>
 </ol>
-<p>This feature indicates the presence of symptom Y, which is associated with a moderate severity rating. If a patient has symptom Y, it suggests a higher likelihood of being classified as “Moderate.”</p>
+<p>This feature represents the presence of 3 symptoms (let’s call them symptoms A,B,C again) that are associated with a moderate severity rating. If a patient has symptoms A,B,C, it suggests a higher likelihood of being classified as “Moderate.”</p>
 <ol start="2" type="1">
 <li><strong>Depression:</strong></li>
 </ol>
@@ -1080,6 +1081,7 @@ Top 3 features for Moderate:
 <li><strong>Cramps:</strong></li>
 </ol>
 <p>This feature represents the presence or absence of cramps in the patient. The presence of cramps is considered important in predicting a moderate severity rating.</p>
+<p>Given this information, another threshold can be established. It can be inferred that if a patient has at least 3 symptoms and/or has depression and/or cramps, they can be classified as “Moderate.” This is addressed with the model later in the study.</p>
 <p><strong>For patients rated as “Severe”:</strong></p>
 <ol type="1">
 <li><strong>Cramps:</strong></li>
@@ -1092,7 +1094,8 @@ Top 3 features for Moderate:
 <ol start="3" type="1">
 <li><strong>Has 4 symptoms:</strong></li>
 </ol>
-<p>This feature represents the presence of another symptom (let’s call it symptom Z) that is associated with a severe severity rating. If a patient has symptom Z, it suggests a higher likelihood of being classified as “Severe.”</p>
+<p>This feature represents the presence of symptoms (let’s call it symptoms A,B,C,D) that are associated with a severe severity rating. If a patient has symptoms , it suggests a higher likelihood of being classified as “Severe.”</p>
+<p>Given this information, a last threshold can be established. It can be inferred that if a patient has at least 4 symptoms and/or has cramps and/or spasms, they can be classified as “Severe.” This is addressed with the model later in the study.</p>
 <p>In summary, the top features identified for each severity level provide insights into the specific symptoms and factors that contribute to determining the severity of a patient’s condition. By considering the presence or absence of these features, the model can make predictions about the severity rating of a patient’s condition, helping healthcare professionals assess the level of severity and provide appropriate care and treatment.</p>
 </section>
 </section>
