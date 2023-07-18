@@ -100,7 +100,12 @@ import seaborn as sns
 # Import Machine Learning libraries
 from sklearn import tree            # Library for decision tree models
 from sklearn.ensemble import RandomForestClassifier  # Library for random forest models
-from sklearn.model_selection import cross_val_score, train_test_split  # Library for cross-validation
+from sklearn.model_selection import (
+  cross_val_score,                   # Library for cross-validation
+  train_test_split,
+  GridSearchCV
+
+)  
 from sklearn.preprocessing import LabelEncoder      # Library for label encoding
 from sklearn.metrics import (                        # Library for model evaluation metrics
     confusion_matrix,                                # Confusion matrix
@@ -242,25 +247,52 @@ for label, features in top_features.items():
 The feature selection process aims to identify the most important factors (features) that contribute to determining the severity of a patient's condition. In this case, the severity levels are categorized as "Mild," "Moderate," and "Severe." The top three features that were found to be most indicative for each severity level are as follows:
 
 **For patients rated as "Mild":**
-1. **Has 1 symptom:** This feature indicates the presence of a specific symptom (let's say, symptom X) that is associated with a mild severity rating. If a patient has symptom X, it suggests a higher likelihood of being classified as "Mild."
-2. **Depression:** This feature refers to the presence or absence of depression symptoms in the patient. The presence of depression symptoms is considered important in determining a mild severity rating.
-3. **Has 3 symptoms:** Similar to the previous feature, this feature represents the presence of another symptom (let's call it symptom Y) that is associated with a mild severity rating. If a patient has symptom Y, it suggests a higher likelihood of being classified as "Mild."
+
+1. **Has 1 symptom:**
+
+This feature indicates the presence of a specific symptom (let's say, symptom X) that is associated with a mild severity rating. If a patient has symptom X, it suggests a higher likelihood of being classified as "Mild."
+
+2. **Depression:** 
+
+This feature refers to the presence or absence of depression symptoms in the patient. The presence of depression symptoms is considered important in determining a mild severity rating.
+
+3. **Has 3 symptoms:** 
+
+Similar to the previous feature, this feature represents the presence of another symptom (let's call it symptom Y) that is associated with a mild severity rating. If a patient has symptom Y, it suggests a higher likelihood of being classified as "Mild."
 
 **For patients rated as "Moderate":**
-1. **Has 3 symptoms:** This feature indicates the presence of symptom Y, which is associated with a moderate severity rating. If a patient has symptom Y, it suggests a higher likelihood of being classified as "Moderate."
-2. **Depression:** The presence or absence of depression symptoms also plays a role in determining a moderate severity rating.
-3. **Cramps:** This feature represents the presence or absence of cramps in the patient. The presence of cramps is considered important in predicting a moderate severity rating.
+
+1. **Has 3 symptoms:** 
+
+This feature indicates the presence of symptom Y, which is associated with a moderate severity rating. If a patient has symptom Y, it suggests a higher likelihood of being classified as "Moderate."
+
+2. **Depression:** 
+
+The presence or absence of depression symptoms also plays a role in determining a moderate severity rating.
+
+3. **Cramps:** 
+
+This feature represents the presence or absence of cramps in the patient. The presence of cramps is considered important in predicting a moderate severity rating.
 
 **For patients rated as "Severe":**
-1. **Cramps:** This feature indicates the presence or absence of cramps, which is associated with a severe severity rating. If a patient has cramps, it suggests a higher likelihood of being classified as "Severe."
-2. **Spasms:** This feature refers to the presence or absence of muscle spasms in the patient. The presence of spasms is considered important in predicting a severe severity rating.
-3. **Has 4 symptoms:** This feature represents the presence of another symptom (let's call it symptom Z) that is associated with a severe severity rating. If a patient has symptom Z, it suggests a higher likelihood of being classified as "Severe."
+
+1. **Cramps:** 
+
+This feature indicates the presence or absence of cramps, which is associated with a severe severity rating. If a patient has cramps, it suggests a higher likelihood of being classified as "Severe."
+
+2. **Spasms:** 
+
+This feature refers to the presence or absence of muscle spasms in the patient. The presence of spasms is considered important in predicting a severe severity rating.
+
+3. **Has 4 symptoms:** 
+
+This feature represents the presence of another symptom (let's call it symptom Z) that is associated with a severe severity rating. If a patient has symptom Z, it suggests a higher likelihood of being classified as "Severe."
 
 In summary, the top features identified for each severity level provide insights into the specific symptoms and factors that contribute to determining the severity of a patient's condition. By considering the presence or absence of these features, the model can make predictions about the severity rating of a patient's condition, helping healthcare professionals assess the level of severity and provide appropriate care and treatment.
 
 ### Random Forest Model
 
-The code performs machine learning tasks using a Random Forest model with selected features. Let's go through each step:
+The code performs machine learning tasks using a Random Forest model with the selected features from the earlier model. Let's go through each step:
 
 1. Separate the features (X) and the target variable (y) using only the top features: The code selects specific features from the dataset based on their importance in predicting the target variable. These features are obtained from the "top_features" dictionary, which contains the top three features for each category (Mild, Moderate, and Severe) in the target variable.
 
@@ -291,19 +323,36 @@ y = ds['Final Category']
 label_encoder = LabelEncoder()
 y = label_encoder.fit_transform(y)
 
-# Create a random forest model using the top features
+# Create a random forest model
 rf_model = RandomForestClassifier(random_state=60)
 
-# Perform 10-fold cross-validation
+# Define the parameter grid for hyperparameter optimization
+param_grid = {
+    'max_depth': [None],
+    'min_samples_leaf': [4],
+    'min_samples_split': [2],
+    'n_estimators': [100]
+}
+
+# Perform hyperparameter optimization using grid search and 10-fold cross-validation
+grid_search = GridSearchCV(rf_model, param_grid, cv=10)
+grid_search.fit(X, y)
+
+# Get the best random forest model with optimized hyperparameters
+rf_model = grid_search.best_estimator_
+
+# Perform 10-fold cross-validation with the optimized model
 cv_scores = cross_val_score(rf_model, X, y, cv=10)
 
 # Print the cross-validation scores
 print("Cross-Validation Scores:", cv_scores)
 print("Mean CV Score:", cv_scores.mean())
 print()
+```
 
+```{python}
 # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 87)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=87)
 
 # Train the model
 rf_model.fit(X_train, y_train)
@@ -335,8 +384,6 @@ print()
 kappa = cohen_kappa_score(y_test, y_pred)
 print("Kappa:", kappa)
 print()
-
-
 ```
 
 
@@ -355,7 +402,7 @@ $$
 \text{Predicted} & \text{Mild} & \text{Moderate} & \text{Severe} \\
 \hline
 \text{Mild} & 18 & 4 & 0 \\
-\text{Moderate} & 0 & 19 & 2 \\
+\text{Moderate} & 0 & 20 & 1 \\
 \text{Severe} & 0 & 1 & 16 \\
 \end{array}
 $$
@@ -366,10 +413,10 @@ First, the number 18 in the first row and column indicates that the model correc
 Similarly, the other numbers in the confusion matrix represent the model's predictions for the other severity rating categories. Given that this was a dataset with only 300 patients, it is very intriguing that it can label each patient with high accuarcy. 
 
 
-Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.945 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.
-
-
 #### ROC Curve
+
+Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.948 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.
+
 ```{python}
 # Calculate predicted probabilities for each class
 y_pred_proba = rf_model.predict_proba(X_test)
@@ -413,11 +460,12 @@ plt.close()
 plt.show()
 ```
 
-Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.883 means that the model identified nearly 88.3% of the patients with their correct severity rating.
-
-Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.895 indicates that out of all the patients the model identified as having a specific severity rating, 89.5% of them were correct.
-
 #### Recall vs. Precision Curve
+
+Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.9 means that the model identified nearly 90.0% of the patients with their correct severity rating.
+
+Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.913 indicates that out of all the patients the model identified as having a specific severity rating, 91.3% of them were correct.
+
 
 ```{python}
 # Calculate precision and recall values for each class
@@ -438,14 +486,14 @@ plt.show()
 
 #### Kappa
 
-The Kappa statistic is a measure of agreement between the model's predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.82 indicates a substantial level of agreement between the model's predictions and the actual severity ratings, suggesting a reliable performance of the model.
+The Kappa statistic is a measure of agreement between the model's predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.849 indicates a substantial level of agreement between the model's predictions and the actual severity ratings, suggesting a reliable performance of the model.
 
 Overall, these metrics indicate that the model has performed well in predicting the severity ratings of the patients, with high accuracy, good distinction between severity levels, and substantial agreement with the actual severity ratings provided by physicians.
 
 
 ### Visualizing Random Forest's Best Decision Tree
 ```{python}
-#| column: screen
+#| column: page
 
 # Perform 10-fold cross-validation
 cv_scores = cross_val_score(rf_model, X, y, cv=10)
@@ -457,7 +505,7 @@ best_tree_index = np.argmax(cv_scores)
 best_tree = rf_model.estimators_[best_tree_index]
 
 # Visualize the best decision tree using matplotlib
-plt.figure(figsize=(20, 15))
+plt.figure(figsize=(15, 14))
 tree.plot_tree(best_tree, feature_names=X.columns, class_names=label_encoder.classes_, filled=True)
 
 plt.show()
