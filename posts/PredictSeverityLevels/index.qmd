@@ -149,7 +149,7 @@ plt.show()
 corr_matrix = ds.corr()
 
 # Visualize the correlation matrix
-plt.figure(figsize=(8, 8))
+plt.figure(figsize=(10, 7))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
 plt.title('Correlation Matrix')
 plt.xticks(rotation=45)  # Set rotation to 0 degrees for horizontal x-axis labels
