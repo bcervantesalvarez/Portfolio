@@ -130,10 +130,8 @@ ds.describe()
 ```
 
 ```{python}
-#| column: page
-
 # Visualize the distribution of the target variable 'Final Category'
-plt.figure(figsize=(14, 8))
+plt.figure(figsize=(9, 6))
 ds['Final Category'].value_counts().plot(kind='bar')
 plt.xlabel('Symptom Category')
 plt.ylabel('Number of Cases')
@@ -144,11 +142,14 @@ plt.clf()
 plt.close()
 plt.show()
 
+```
+
+```{python}
 # Calculate the correlation matrix
 corr_matrix = ds.corr()
 
 # Visualize the correlation matrix
-plt.figure(figsize=(14, 8))
+plt.figure(figsize=(8, 8))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
 plt.title('Correlation Matrix')
 plt.xticks(rotation=45)  # Set rotation to 0 degrees for horizontal x-axis labels
@@ -434,7 +435,7 @@ for class_index in range(len(label_encoder.classes_)):
     )
 
 # Plot the ROC curve for each class
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(9, 8))
 for class_index in range(len(label_encoder.classes_)):
     plt.plot(
         fpr[class_index],
@@ -472,7 +473,7 @@ Precision measures the proportion of instances that the model predicted correctl
 precision, recall, thresholds = precision_recall_curve(y_test, rf_model.predict_proba(X_test)[:, 1], pos_label=1)
 
 # Plot the recall vs. precision curve
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(9, 8))
 plt.plot(recall, precision, marker='.')
 plt.xlabel('Recall')
 plt.ylabel('Precision')
@@ -493,8 +494,6 @@ Overall, these metrics indicate that the model has performed well in predicting 
 
 ### Visualizing Random Forest's Best Decision Tree
 ```{python}
-#| column: page
-
 # Perform 10-fold cross-validation
 cv_scores = cross_val_score(rf_model, X, y, cv=10)
 
@@ -505,7 +504,7 @@ best_tree_index = np.argmax(cv_scores)
 best_tree = rf_model.estimators_[best_tree_index]
 
 # Visualize the best decision tree using matplotlib
-plt.figure(figsize=(15, 14))
+plt.figure(figsize=(12, 12))
 tree.plot_tree(best_tree, feature_names=X.columns, class_names=label_encoder.classes_, filled=True)
 
 plt.show()
