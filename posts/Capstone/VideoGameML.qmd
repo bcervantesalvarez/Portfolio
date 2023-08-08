@@ -7,7 +7,7 @@ author:
     - "[Heather Terada](https://www.linkedin.com/in/heatherterada/)"
     - "[Willa Van Liew](https://www.linkedin.com/in/willa-van-liew/)"
 date: "08-08-2023"
-description: "Craft adult games for novice players. Steer clear of crowded winter releases. Game developers, take note!"
+description: "Create mature games designed for inexperienced players. Avoid the saturated market of winter game releases. Game developers, pay attention to this!"
 image: "Developer.png"
 format:
   html:
