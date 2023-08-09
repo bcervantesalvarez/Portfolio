@@ -527,29 +527,54 @@ a {
   }
 }
 
-
 // About me Title
 div.quarto-about-marquee header#title-block-header {
-  margin-block-end: 1rem;
   position: relative;
-  text-align: center;
   margin-top: 5px;
+  text-align: center;
+  margin-block-end: 1rem;
 }
 
+// Title Banner
+.quarto-title-banner .quarto-title .title {
+  font-weight: 900;
+  color: white;
+}
 
 // Post Blocks
-
 div.quarto-post .body h3.listing-title,
 div.quarto-post .body .listing-title.h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0;
   border-bottom: none;
-
   cursor: pointer;
+
   &:hover {
     color: $gray-700;
     text-decoration: underline;
   }
+}
+
+// Updates Categories
+.quarto-listing-category-title,
+.quarto-listing-category .category {
+  cursor: pointer;
+
+  &:hover {
+    color: $blue;
+    text-decoration: underline;
+  }
+}
+
+.quarto-listing-category-title {
+  font-weight: 500;
+  font-size: 1.1rem !important;
+  position: relative;
+}
+
+.quarto-listing-category .category {
+  font-size: 90%;
+  font-weight: 100;
+  color: $gray-600;
 }
 
 // Updates Category Block Labels [R, Rshiny, CSS]...
@@ -560,65 +585,12 @@ div.quarto-post .listing-categories .listing-category {
   border: solid 1px $gray-400;
   border-radius: 0.25rem;
   font-size: 0.55em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  margin-right: 4px;
-  margin-bottom: 4px;
+  padding: 0.15em 0.5em;
+  margin: 4px 4px 4px 0;
   cursor: pointer;
+
   &:hover {
     background-color: $gray-200;
-  }
-}
-
-// Updates Categories
-.quarto-listing-category-title {
-  font-weight: 500;
-  font-size: 1.1rem !important;
-  position: relative;
-  cursor: pointer;
-  &:hover {
-    color: $blue;
-    text-decoration: underline;
-  }
-}
-
-.quarto-listing-category .category {
-  font-size: 90%;
-  font-weight: 100;
-  color: $gray-600;
-  cursor: pointer !important;
-  &:hover {
-    color: $blue;
-  }
-}
-
-.quarto-post {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: auto;
-
-  .quarto-post-content {
-    flex-grow: 1;
-  }
-
-  .quarto-post-image {
-    order: 2;
-  }
-
-  .quarto-post-title {
-    order: 1;
-    cursor: pointer;
-  }
-
-  .quarto-post-description {
-    order: 1;
-  }
-
-  .quarto-post-title:hover {
-    text-decoration: underline;
   }
 }
 
@@ -628,44 +600,57 @@ div.quarto-post .listing-categories {
   padding-bottom: 5px;
 }
 
+// Post Styling
+div.quarto-post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+
+  .quarto-post-content {
+    flex-grow: 1;
+  }
+
+  .quarto-post-image,
+  .quarto-post-title,
+  .quarto-post-description {
+    order: 1;
+  }
+
+  .quarto-post-image {
+    order: 2;
+  }
+
+  .quarto-post-title:hover {
+    text-decoration: underline;
+  }
+}
+
 div.quarto-post .thumbnail img {
   margin-top: 0.4em;
-  width: 300px;
-  height: 200px;
+  width: 262px;
+  height: 175px;
   object-fit: cover;
-  margin: auto;
-}
-
-// Title Banner
-
-.quarto-title-banner .quarto-title .title {
-  font-weight: 900;
-  color: white;
-}
-
-// Blog Author + Date
-
-#title-block-header.quarto-title-block.default .quarto-title-meta-contents p,
-#title-block-header.quarto-title-block.default .quarto-title-authors p,
-#title-block-header.quarto-title-block.default .quarto-title-affiliations p {
-  margin-bottom: 0.1em;
-  margin-top: auto;
-  font-size: 1.1em;
 }
 
 div.quarto-post .listing-description {
-  margin-bottom: 0.5em;
-  font-size: 13px;
-  line-height: 1.4em;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  line-height: 1.2em;
 }
 
 div.quarto-post .metadata {
-  display: flex;
-  flex-direction: column;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 0.7em;
   font-family: var(--bs-font-sans-serif);
-  flex-basis: 33%;
+  flex-basis: 100%;
+  padding-bottom: 20px;
+
+}
+
+div.quarto-post .metadata .listing-date {
+  font-weight: 300;
 }
 
 // Viewport Meta Tag

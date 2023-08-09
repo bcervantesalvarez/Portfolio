@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
                 <div class="quarto-category">Webscraper</div>
                 <div class="quarto-category">Machine Learning</div>
                 <div class="quarto-category">Random Forest</div>
-                <div class="quarto-category">Gradient Boosting Machine</div>
+                <div class="quarto-category">Gradient Boosting Machines</div>
                 <div class="quarto-category">XGBoost</div>
                 <div class="quarto-category">Classification</div>
               </div>
@@ -214,10 +214,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="quarto-title-meta-heading">Authors</div>
       <div class="quarto-title-meta-contents">
                <p>Brian Cervantes Alvarez </p>
-               <p><a href="https://www.linkedin.com/in/john-bergstrom-v/">John Bergstrom</a> </p>
-               <p><a href="https://www.linkedin.com/in/oliver-f-anderson/">Oliver Anderson</a> </p>
-               <p><a href="https://www.linkedin.com/in/heatherterada/">Heather Terada</a> </p>
-               <p><a href="https://www.linkedin.com/in/willa-van-liew/">Willa Van Liew</a> </p>
+               <p>John Bergstrom </p>
+               <p>Oliver Anderson </p>
+               <p>Heather Terada </p>
+               <p>Willa Van Liew </p>
             </div>
     </div>
       
@@ -2697,30 +2697,30 @@ Top 25 Features using Tree-based Feature Importance (Random Forest):
 <span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="co"># TOP 40 FEATURES</span></span>
 <span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train_selected.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ROC AUC (Second Model): 0.9707518812290585
-Kappa (Second Model): 0.7715757136221775
+<pre><code>ROC AUC (Second Model): 0.9710710753295868
+Kappa (Second Model): 0.7716687437382401
 Accuracy (Second Model): 0.8098958333333334
-Precision (Second Model): 0.8091552978393616
+Precision (Second Model): 0.8097295835188149
 Recall (Second Model): 0.8098958333333334
 Confusion Matrix (Second Model):
-[[49  2  1  5  3  3]
- [ 1 58  3  1  1  1]
+[[47  2  3  5  4  2]
+ [ 1 59  3  0  1  1]
  [ 4  1 56  4  0  3]
- [ 2  3  4 58  0  3]
- [ 5  0  1  0 45  3]
- [ 3  5  4  2  5 45]]
-Index(['pub_SquareEnix', 'pub_Kalypso', 'Multiplayer', 'playtime_ratio',
-       'Xbox 360', 'pub_Curve', 'season_Spring', 'Nintendo Switch',
-       'PlayStation 4', 'PlayStation 5', 'trend_line_playtime_yoy_Q4',
-       'dev_Crytek', 'playtime_category_Novice', 'season_Winter',
-       'Xbox Series S/X', 'pub_Xbox', 'Wii U', 'pub_2K',
-       'trend_line_metacritic_yoy_Increasing', 'season_Summer', 'dev_other',
-       'esrb_rating_name_Teen', 'Web', 'subgenres_Space Flight Simulator',
-       'subgenres_Space Flight Simulator', 'macOS', 'iOS', 'pub_Team17',
-       'pub_Sony', 'dev_BioWare', 'pub_Paradox', 'Linux', 'Xbox One',
-       'dev_FromSoftware', 'pub_majesco', 'esrb_rating_name_Mature',
-       'pub_Blizzard', 'pub_Nintendo', 'trend_line_playtime_yoy_Q2',
-       'year_Positive'],
+ [ 2  4  3 58  1  2]
+ [ 5  0  0  0 46  3]
+ [ 4  4  4  1  6 45]]
+Index(['year_Positive', 'pub_Nintendo', 'Wii U',
+       'trend_line_metacritic_yoy_Increasing', 'pub_2K', 'pub_Kalypso',
+       'esrb_rating_name_Teen', 'pub_Sony', 'PlayStation 4', 'pub_Xbox',
+       'Multiplayer', 'iOS', 'trend_line_playtime_yoy_Q2', 'dev_other',
+       'subgenres_Space Flight Simulator', 'subgenres_Space Flight Simulator',
+       'pub_Team17', 'dev_BioWare', 'Xbox Series S/X',
+       'playtime_category_Novice', 'season_Summer', 'Xbox One', 'macOS',
+       'pub_Paradox', 'PlayStation 5', 'dev_Crytek', 'Linux', 'pub_majesco',
+       'playtime_ratio', 'pub_Curve', 'pub_SquareEnix', 'Web', 'pub_Blizzard',
+       'dev_FromSoftware', 'Nintendo Switch', 'season_Spring', 'Xbox 360',
+       'esrb_rating_name_Mature', 'season_Winter',
+       'trend_line_playtime_yoy_Q4'],
       dtype='object')</code></pre>
 </div>
 </div>
@@ -4121,7 +4121,7 @@ Confusion Matrix (Best XGBoost):
 Average SVM Accuracy: 0.482084690553746</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ROC AUC (SVM): 0.763256240390465
+<pre><code>ROC AUC (SVM): 0.7635635932029615
 Kappa (SVM): 0.21787122207621545
 Accuracy (SVM): 0.3541666666666667
 Precision (SVM): 0.30057773366956814

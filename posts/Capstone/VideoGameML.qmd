@@ -2,10 +2,10 @@
 title: "Innovating Game Production: Anticipating Success through Pre-Production Insights"
 author: 
     - "Brian Cervantes Alvarez"
-    - "[John Bergstrom](https://www.linkedin.com/in/john-bergstrom-v/)"
-    - "[Oliver Anderson](https://www.linkedin.com/in/oliver-f-anderson/)"
-    - "[Heather Terada](https://www.linkedin.com/in/heatherterada/)"
-    - "[Willa Van Liew](https://www.linkedin.com/in/willa-van-liew/)"
+    - "John Bergstrom"
+    - "Oliver Anderson"
+    - "Heather Terada"
+    - "Willa Van Liew"
 date: "08-08-2023"
 description: "Create mature games designed for inexperienced players. Avoid the saturated market of winter game releases. Game developers, pay attention to this!"
 image: "Developer.png"
@@ -26,7 +26,7 @@ categories:
     - Webscraper
     - Machine Learning
     - Random Forest
-    - Gradient Boosting Machine
+    - Gradient Boosting Machines
     - XGBoost
     - Classification
 jupyter: python3
