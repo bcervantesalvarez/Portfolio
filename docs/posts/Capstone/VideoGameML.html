@@ -2697,29 +2697,29 @@ Top 25 Features using Tree-based Feature Importance (Random Forest):
 <span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="co"># TOP 40 FEATURES</span></span>
 <span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train_selected.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ROC AUC (Second Model): 0.9686877836391522
-Kappa (Second Model): 0.7684673673918357
+<pre><code>ROC AUC (Second Model): 0.9698230132459869
+Kappa (Second Model): 0.7684466138087827
 Accuracy (Second Model): 0.8072916666666666
-Precision (Second Model): 0.8079237559768941
+Precision (Second Model): 0.8081305099757526
 Recall (Second Model): 0.8072916666666666
 Confusion Matrix (Second Model):
-[[48  2  1  5  2  5]
- [ 3 57  2  1  1  1]
- [ 4  1 56  4  0  3]
- [ 2  5  2 58  0  3]
+[[49  2  1  5  3  3]
+ [ 3 56  4  0  1  1]
+ [ 3  1 57  4  0  3]
+ [ 2  6  4 58  0  0]
  [ 5  0  1  0 45  3]
- [ 3  6  3  1  5 46]]
-Index(['PlayStation 4', 'season_Spring', 'pub_Curve', 'pub_SquareEnix',
-       'playtime_ratio', 'esrb_rating_name_Teen', 'pub_Paradox', 'Multiplayer',
-       'dev_BioWare', 'Nintendo Switch', 'esrb_rating_name_Mature', 'pub_Xbox',
-       'Wii U', 'macOS', 'trend_line_playtime_yoy_Q2', 'season_Summer',
-       'PlayStation 5', 'subgenres_Space Flight Simulator',
-       'subgenres_Space Flight Simulator', 'Xbox One', 'Linux', 'dev_other',
-       'Xbox Series S/X', 'pub_2K', 'pub_Team17', 'dev_Crytek', 'pub_Sony',
-       'year_Positive', 'pub_Kalypso', 'Web', 'dev_FromSoftware',
-       'pub_Blizzard', 'playtime_category_Novice', 'season_Winter', 'iOS',
-       'trend_line_playtime_yoy_Q4', 'Xbox 360', 'pub_majesco', 'pub_Nintendo',
-       'trend_line_metacritic_yoy_Increasing'],
+ [ 4  4  4  2  5 45]]
+Index(['Wii U', 'dev_FromSoftware', 'pub_Nintendo', 'pub_Kalypso',
+       'season_Winter', 'trend_line_playtime_yoy_Q4', 'Xbox Series S/X',
+       'esrb_rating_name_Teen', 'esrb_rating_name_Mature', 'pub_majesco',
+       'pub_Curve', 'trend_line_playtime_yoy_Q2',
+       'subgenres_Space Flight Simulator', 'subgenres_Space Flight Simulator',
+       'Xbox 360', 'year_Positive', 'Web', 'playtime_ratio', 'Xbox One',
+       'pub_Xbox', 'pub_Paradox', 'pub_Team17', 'season_Spring',
+       'PlayStation 4', 'PlayStation 5', 'Multiplayer', 'pub_Blizzard',
+       'trend_line_metacritic_yoy_Increasing', 'playtime_category_Novice',
+       'iOS', 'Nintendo Switch', 'pub_Sony', 'Linux', 'pub_2K', 'dev_BioWare',
+       'season_Summer', 'dev_Crytek', 'macOS', 'pub_SquareEnix', 'dev_other'],
       dtype='object')</code></pre>
 </div>
 </div>
@@ -4120,7 +4120,7 @@ Confusion Matrix (Best XGBoost):
 Average SVM Accuracy: 0.482084690553746</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ROC AUC (SVM): 0.7627570031230766
+<pre><code>ROC AUC (SVM): 0.7634465340654729
 Kappa (SVM): 0.21787122207621545
 Accuracy (SVM): 0.3541666666666667
 Precision (SVM): 0.30057773366956814
