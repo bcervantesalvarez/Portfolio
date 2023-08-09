@@ -7,6 +7,7 @@ author:
     - "Heather Terada"
     - "Willa Van Liew"
 date: "08-08-2023"
+draft: true
 description: "Create mature games designed for inexperienced players. Avoid the saturated market of winter game releases. Game developers, pay attention to this!"
 image: "Developer.png"
 format:
