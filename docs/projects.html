@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -59,7 +59,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -92,9 +93,11 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Projects">
+<meta property="og:image" content="./posts/PredictSeverityLevels/severity.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
 
@@ -109,32 +112,32 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Brian Cervantes Alvarez</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page">
+    <a class="nav-link active" href="./projects.html" rel="" target="" aria-current="page">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html">
+    <a class="nav-link" href="./presentation.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html">
+    <a class="nav-link" href="./resume.html" rel="" target="">
  <span class="menu-text">Curriculum Vitae</span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -174,9 +177,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Python,Machine Learning,Random Forest,Classification" data-listing-date-sort="1687762800000" data-listing-file-modified-sort="1691534714058" data-listing-reading-time-sort="21.455">
+<div class="quarto-post image-right" data-index="0" data-categories="Python,Machine Learning,Random Forest,Classification" data-listing-date-sort="1687762800000" data-listing-file-modified-sort="1695608517351" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22">
 <div class="thumbnail">
-<p><a href="./posts/PredictSeverityLevels/index.html"> <img src="./posts/PredictSeverityLevels/severity.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/PredictSeverityLevels/index.html"> <img src="./posts/PredictSeverityLevels/severity.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/PredictSeverityLevels/index.html">
@@ -216,14 +219,14 @@ June 26, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-21 min
+22 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Python,Machine Learning,Gradient Boosting Machines" data-listing-date-sort="1685430000000" data-listing-file-modified-sort="1691534713974" data-listing-reading-time-sort="6.985">
+<div class="quarto-post image-right" data-index="1" data-categories="Python,Machine Learning,Gradient Boosting Machines" data-listing-date-sort="1685430000000" data-listing-file-modified-sort="1695608517235" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
 <div class="thumbnail">
-<p><a href="./posts/FraudML/index.html"> <img src="./posts/FraudML/fraud.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/FraudML/index.html"> <img src="./posts/FraudML/fraud.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/FraudML/index.html">
@@ -260,14 +263,14 @@ May 30, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-6 min
+7 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,Shiny,CSS,Data Tables,Data Visualization,Dashboard" data-listing-date-sort="1682060400000" data-listing-file-modified-sort="1691534713886" data-listing-reading-time-sort="12.965">
+<div class="quarto-post image-right" data-index="2" data-categories="R,Shiny,CSS,Data Tables,Data Visualization,Dashboard" data-listing-date-sort="1682060400000" data-listing-file-modified-sort="1695608517064" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
 <div class="thumbnail">
-<p><a href="./posts/AmazonProductsEN/index.html"> <img src="./posts/AmazonProductsEN/AmazonLogo.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/AmazonProductsEN/index.html"> <img src="./posts/AmazonProductsEN/AmazonLogo.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/AmazonProductsEN/index.html">
@@ -313,14 +316,14 @@ April 21, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-12 min
+13 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,Machine Learning,Gradient Boosting Machines,Logistic Regression,Classification" data-listing-date-sort="1681196400000" data-listing-file-modified-sort="1691534714059" data-listing-reading-time-sort="8.325">
+<div class="quarto-post image-right" data-index="3" data-categories="R,Machine Learning,Gradient Boosting Machines,Logistic Regression,Classification" data-listing-date-sort="1681196400000" data-listing-file-modified-sort="1695608517353" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
 <div class="thumbnail">
-<p><a href="./posts/Predicting_Income_Bracket/index.html"> <img src="./posts/Predicting_Income_Bracket/income.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/Predicting_Income_Bracket/index.html"> <img src="./posts/Predicting_Income_Bracket/income.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/Predicting_Income_Bracket/index.html">
@@ -363,14 +366,14 @@ April 11, 2023
 Brian Cervantes Alvarez, Willa Van Liew
 </div>
 <div class="listing-reading-time">
-8 min
+9 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,Plotly,Reports,Time Series,Data Visualization" data-listing-date-sort="1680505200000" data-listing-file-modified-sort="1691534713977" data-listing-reading-time-sort="10.325">
+<div class="quarto-post image-right" data-index="4" data-categories="R,Plotly,Reports,Time Series,Data Visualization" data-listing-date-sort="1680505200000" data-listing-file-modified-sort="1695608517239" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
 <div class="thumbnail">
-<p><a href="./posts/Param_Report_Retail/index.html"> <img src="./posts/Param_Report_Retail/report.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/Param_Report_Retail/index.html"> <img src="./posts/Param_Report_Retail/report.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/Param_Report_Retail/index.html">
@@ -413,14 +416,14 @@ April 3, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-10 min
+11 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1680073200000" data-listing-file-modified-sort="1691534713888" data-listing-reading-time-sort="10.39">
+<div class="quarto-post image-right" data-index="5" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1680073200000" data-listing-file-modified-sort="1695608517067" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
 <div class="thumbnail">
-<p><a href="./posts/AppleInc_IncomeStatement/index.html"> <img src="./posts/AppleInc_IncomeStatement/apple.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/AppleInc_IncomeStatement/index.html"> <img src="./posts/AppleInc_IncomeStatement/apple.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/AppleInc_IncomeStatement/index.html">
@@ -457,14 +460,14 @@ March 29, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-10 min
+11 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R,Machine Learning,Random Forest" data-listing-date-sort="1678521600000" data-listing-file-modified-sort="1691534713922" data-listing-reading-time-sort="6.095">
+<div class="quarto-post image-right" data-index="6" data-categories="R,Machine Learning,Random Forest" data-listing-date-sort="1678521600000" data-listing-file-modified-sort="1695608517169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
 <div class="thumbnail">
-<p><a href="./posts/Customer Return ML/index.html"> <img src="./posts/Customer Return ML/return.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/Customer Return ML/index.html"> <img src="./posts/Customer Return ML/return.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/Customer Return ML/index.html">
@@ -501,14 +504,14 @@ March 11, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-6 min
+7 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R,Machine Learning,Random Forest,Classification" data-listing-date-sort="1677657600000" data-listing-file-modified-sort="1691534714028" data-listing-reading-time-sort="3.5">
+<div class="quarto-post image-right" data-index="7" data-categories="R,Machine Learning,Random Forest,Classification" data-listing-date-sort="1677657600000" data-listing-file-modified-sort="1695608517318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <div class="thumbnail">
-<p><a href="./posts/PredictPinotWine_ML/index.html"> <img src="./posts/PredictPinotWine_ML/pinot.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/PredictPinotWine_ML/index.html"> <img src="./posts/PredictPinotWine_ML/pinot.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/PredictPinotWine_ML/index.html">
@@ -548,14 +551,14 @@ March 1, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-3 min
+4 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R,Reveal.JS,Survival Analysis" data-listing-date-sort="1677484800000" data-listing-file-modified-sort="1691534714076" data-listing-reading-time-sort="2.95">
+<div class="quarto-post image-right" data-index="8" data-categories="R,Reveal.JS,Survival Analysis" data-listing-date-sort="1677484800000" data-listing-file-modified-sort="1695608517377" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
 <div class="thumbnail">
-<p><a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html"> <img src="./posts/SurvAnalysis_Parasite_RevealJS/parasite.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html"> <img src="./posts/SurvAnalysis_Parasite_RevealJS/parasite.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html">
@@ -592,14 +595,14 @@ February 27, 2023
 Brian Cervantes Alvarez, Willa Van Liew, Hans Lehndorff
 </div>
 <div class="listing-reading-time">
-2 min
+3 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="R,Data Visualization,Plotly" data-listing-date-sort="1677225600000" data-listing-file-modified-sort="1691534713975" data-listing-reading-time-sort="5.47">
+<div class="quarto-post image-right" data-index="9" data-categories="R,Data Visualization,Plotly" data-listing-date-sort="1677225600000" data-listing-file-modified-sort="1695608517237" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
 <div class="thumbnail">
-<p><a href="./posts/GymRat_Plotly/index.html"> <img src="./posts/GymRat_Plotly/gymRat.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/GymRat_Plotly/index.html"> <img src="./posts/GymRat_Plotly/gymRat.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/GymRat_Plotly/index.html">
@@ -636,14 +639,14 @@ February 24, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-5 min
+6 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="R,Data Tables" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1691534713965" data-listing-reading-time-sort="6.97">
+<div class="quarto-post image-right" data-index="10" data-categories="R,Data Tables" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1695608517223" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
 <div class="thumbnail">
-<p><a href="./posts/FancyTables/index.html"> <img src="./posts/FancyTables/wine.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/FancyTables/index.html"> <img src="./posts/FancyTables/wine.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/FancyTables/index.html">
@@ -677,14 +680,14 @@ February 20, 2023
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-6 min
+7 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="R,Linear Regression,Statistics" data-listing-date-sort="1670832000000" data-listing-file-modified-sort="1691534714079" data-listing-reading-time-sort="19.975">
+<div class="quarto-post image-right" data-index="11" data-categories="R,Linear Regression,Statistics" data-listing-date-sort="1670832000000" data-listing-file-modified-sort="1695608517381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20">
 <div class="thumbnail">
-<p><a href="./posts/US_HealthCare_Spending/index.html"> <img src="./posts/US_HealthCare_Spending/healthcareSpending.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/US_HealthCare_Spending/index.html"> <img src="./posts/US_HealthCare_Spending/healthcareSpending.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/US_HealthCare_Spending/index.html">
@@ -721,14 +724,14 @@ December 12, 2022
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-19 min
+20 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="R,PostgreSQL,Data Visualization,Data Engineering" data-listing-date-sort="1670227200000" data-listing-file-modified-sort="1691534713984" data-listing-reading-time-sort="9.295">
+<div class="quarto-post image-right" data-index="12" data-categories="R,PostgreSQL,Data Visualization,Data Engineering" data-listing-date-sort="1670227200000" data-listing-file-modified-sort="1695608517251" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
 <div class="thumbnail">
-<p><a href="./posts/Pokemon_Database/index.html"> <img src="./posts/Pokemon_Database/pokemon.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/Pokemon_Database/index.html"> <img src="./posts/Pokemon_Database/pokemon.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/Pokemon_Database/index.html">
@@ -768,14 +771,14 @@ December 5, 2022
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-9 min
+10 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="R,Shiny,Data Visualization,Dashboard" data-listing-date-sort="1669968000000" data-listing-file-modified-sort="1691534713892" data-listing-reading-time-sort="15.445">
+<div class="quarto-post image-right" data-index="13" data-categories="R,Shiny,Data Visualization,Dashboard" data-listing-date-sort="1669968000000" data-listing-file-modified-sort="1695608517122" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16">
 <div class="thumbnail">
-<p><a href="./posts/CollegeStudent_Debt_Tool/index.html"> <img src="./posts/CollegeStudent_Debt_Tool/uni.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/CollegeStudent_Debt_Tool/index.html"> <img src="./posts/CollegeStudent_Debt_Tool/uni.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/CollegeStudent_Debt_Tool/index.html">
@@ -815,14 +818,14 @@ December 2, 2022
 Brian Cervantes Alvarez, Corey Cassell
 </div>
 <div class="listing-reading-time">
-15 min
+16 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="Python,Statistics,Jupyter Notebook,Data Visualization" data-listing-date-sort="1657782000000" data-listing-file-modified-sort="1691534714085" data-listing-reading-time-sort="26.205">
+<div class="quarto-post image-right" data-index="14" data-categories="Python,Statistics,Jupyter Notebook,Data Visualization" data-listing-date-sort="1657782000000" data-listing-file-modified-sort="1695608517389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27">
 <div class="thumbnail">
-<p><a href="./posts/US_HealthIns_Costs/index.html"> <img src="./posts/US_HealthIns_Costs/health_ins.jpeg" class="thumnail-image"> </a></p>
+<p><a href="./posts/US_HealthIns_Costs/index.html"> <img src="./posts/US_HealthIns_Costs/health_ins.jpeg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/US_HealthIns_Costs/index.html">
@@ -862,7 +865,7 @@ July 14, 2022
 Brian Cervantes Alvarez
 </div>
 <div class="listing-reading-time">
-26 min
+27 min
 </div>
 </a>
 </div>
@@ -1014,9 +1017,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1081,6 +1098,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1130,6 +1233,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
