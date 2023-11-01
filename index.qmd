@@ -18,19 +18,24 @@ execute:
   echo: false
 ---          
 
-### Mathematician by Training, Data Scientist by Passion: My Journey of Self-Discovery
+## From Mathematician to Data Scientist to Aspiring Statistician: My Journey of Self-Discovery and Research
 
-With a solid foundation in mathematics from my Bachelor of Arts degree and nearing completion of my Master's degree in Data Science, I have embarked on an exhilarating path towards becoming a next-generation data scientist. My journey has been fueled by a deep-rooted passion for unraveling insights hidden within data.
+
+With a solid foundation in mathematics from my Bachelor of Arts degree obtained at Linfield University and recently graduating from Willamette University with a Master’s degree in Data Science, I have embarked on an exhilarating path towards becoming a next-generation data scientist. My educational journey has been fueled by a deep-rooted passion for unraveling insights hidden within data.
 
 Throughout my academic pursuits, I have delved into a multitude of areas, including machine learning and survival analysis, honing my analytical skills and developing a keen eye for patterns and trends. Equipped with the ability to effectively communicate data-driven insights, I strive to bridge the gap between complex datasets and actionable solutions.
 
-My journey has been characterized by a relentless pursuit of knowledge and growth. I am dedicated to staying abreast of the latest advancements in the dynamic field of data science, as I believe that continuous learning is the key to unlocking new possibilities. Embracing challenges with enthusiasm, I am eager to apply my expertise in statistical analysis, data visualization, and problem-solving to tackle real-world complexities.
+As a graduate with a Master of Science in Data Science, I've acquired comprehensive expertise in leveraging data science methodologies to translate data into actionable business solutions and pave the way for research opportunities. My educational journey has recently taken an exciting turn as I embark on a new chapter with Oregon State University, a renowned research powerhouse. My goal over the next five years is to pursue a Ph.D. in Statistics, where I intend to delve deep into the world of statistical research.
 
-As I near the culmination of my master's degree, I am poised to embark on a professional career where I can leverage my skills to make a meaningful impact. I am eager to collaborate with experienced professionals in the industry, learn from their expertise, and contribute to innovative projects that push the boundaries of data science.
+I am currently pursuing my second Master's of Science degree, this time specializing in statistics, and I have ambitious plans to seamlessly transition into my Ph.D. program immediately afterward. My research focus will primarily revolve around classification problems, an area that holds immense promise and relevance in today's data-driven landscape.
 
-My journey as a mathematician-turned-data scientist has been one of self-discovery, empowerment, and unwavering determination. I am excited to forge ahead, armed with a potent combination of mathematical acumen and a passion for data science, ready to create solutions that drive progress and shape a data-powered future.
+My journey has been characterized by a relentless pursuit of knowledge and growth. I am dedicated to staying abreast of the latest advancements in the dynamic field of data science and statistics, as I believe that continuous learning is the key to unlocking new possibilities. Embracing challenges with enthusiasm, I am eager to apply my expertise in statistical analysis, data visualization, and problem-solving to tackle real-world complexities.
 
-### From Playgrounds to Algorithms: Charting the Evolution of a Data Science Whiz
+As I recently graduated from Willamette University and prepare to pursue my Ph.D. at Oregon State University, I am poised to embark on a professional career where I can leverage my skills to make a meaningful impact. While attending Oregon State, I plan to put my Data Scientist skills to full use, providing immense value to the Department of Statistics and contributing to innovative projects that push the boundaries of data science and statistics.
+
+My journey as a mathematician-turned-data scientist and aspiring statistician has been one of self-discovery, empowerment, and unwavering determination. I am excited to forge ahead, armed with a potent combination of mathematical acumen and a passion for data science and statistics, ready to create solutions that drive progress and shape a data-powered future.
+
+## From Playgrounds to Algorithms: Charting the Evolution of a Data Science Whiz
 
 I was born in Pasco, Washington, a small city in the southeastern part of the state. Pasco is part of the Tri-Cities area, along with Richland and Kennewick, and is known for its agricultural industry, particularly the cultivation of potatoes, apples, and wine grapes.
 

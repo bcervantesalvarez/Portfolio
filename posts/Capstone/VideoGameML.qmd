@@ -1314,7 +1314,7 @@ from sklearn.model_selection import train_test_split, cross_val_score, GridSearc
 # GridSearchCV is used for hyperparameter tuning to find the best model configuration.
 
  # Library for decision tree models
-from sklearn import tree     
+from sklearn import tree
 
 # Library for label encoding
 from sklearn.preprocessing import LabelEncoder      
@@ -2152,21 +2152,20 @@ from sklearn.tree import plot_tree
 best_decision_tree = final_rf_model.estimators_[6]
 
 # Get the feature names from the original data
-feature_names = X.columns
+feature_names = list(X.columns)
+class_names = list(final_rf_model.classes_)  # Convert the array to a list
 
-plt.rcParams['font.family'] = 'SF Compact Rounded'
-
+# Rest of your code remains the same
+# plt.rcParams['font.family'] = 'SF Compact Rounded'
 plt.figure(figsize=(20, 10))
-plot_tree(best_decision_tree, feature_names=feature_names, class_names=final_rf_model.classes_,
-          filled=True, rounded=True, fontsize=9, max_depth=3)  # Set max_depth=3 and font_name='Arial'
-plt.title("Random Forest's First Decision Tree (First 3 Levels)", fontsize=16)  # Set fontname='Arial'
-
-# Adjust layout to avoid overlapping
+plot_tree(best_decision_tree, feature_names=feature_names, class_names=class_names,
+          filled=True, rounded=True, fontsize=9, max_depth=3)
+plt.title("Random Forest's First Decision Tree (First 3 Levels)", fontsize=16)
 plt.tight_layout()
-
-# Save the decision tree as an SVG file
 plt.savefig("best_decision_tree_first_3_levels_custom_font.jpeg", format="jpeg")
 plt.show()
+plt.close()
+
 ```
 
 
@@ -2546,24 +2545,24 @@ This code snippet demonstrates how to visualize the first decision tree within a
 
 
 ```{python}
-from xgboost import plot_tree
+#from xgboost import plot_tree
 
 # Get the booster from the classifier
-booster = best_xgb_classifier.get_booster()
+#booster = best_xgb_classifier.get_booster()
 
 # Set the size of the plot
-fig, ax = plt.subplots(figsize=(8, 8))
+#fig, ax = plt.subplots(figsize=(8, 8))
 
 # Plot the first tree (num_trees=0)
-xgb.plot_tree(booster, num_trees=0, ax=ax)
+#xgb.plot_tree(booster, num_trees=0, ax=ax)
 
 # Increase the DPI for higher resolution (e.g., 600)
-dpi = 1000
+#dpi = 300
 
 # Save the plot to an SVG file with specific DPI (resolution)
-plt.savefig('xgb_tree_plot.jpeg', format='jpeg', dpi=dpi)
+#plt.savefig('xgb_tree_plot.jpeg', format='jpeg', dpi=dpi)
 
-plt.show()
+#plt.show()
 ```
 
 ## Unsuccessful Models
