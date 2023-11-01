@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/posts/Automaker Analysis/Automaker.html",
       "/posts/PredictSeverityLevels/index.html",
       "/posts/FraudML/index.html",
       "/posts/AmazonProductsEN/index.html",

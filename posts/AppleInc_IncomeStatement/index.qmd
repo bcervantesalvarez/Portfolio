@@ -22,8 +22,9 @@ categories: [R, Time Series, Data Visualization]
 
 ![](apple.jpeg)
 
-<div class="download-buttons" style="text-align: center;">
-  <style>
+::: {.download-buttons style="text-align: center;"}
+```{=html}
+<style>
     .download-buttons a.button {
       display: inline-block;
       padding-right: 10px;
@@ -57,8 +58,9 @@ categories: [R, Time Series, Data Visualization]
       padding: 1px; /* Padding for the mini border block */
     }
   </style>
-
-  <script>
+```
+```{=html}
+<script>
     function createDynamicButton(href, text) {
       var button = document.createElement("a");
       button.href = href;
@@ -81,7 +83,8 @@ categories: [R, Time Series, Data Visualization]
     );
     downloadButtonsDiv.appendChild(csvButton);
   </script>
-</div>
+```
+:::
 
 ## Abstract
 
@@ -242,7 +245,6 @@ ggplotly(p2, tooltip = "text") %>%
 The utilization of R's plotly package for visualizing Time Series Graphs in the context of Apple's stock prices has yielded valuable insights. The analysis revealed a substantial increase in Apple's stock prices following 2010, fueled by the success of the iPhone and the company's adept marketing strategy. The study emphasizes the transformative impact of Apple's technology and its contributions to the tech industry and economic growth.
 
 By employing dynamic and interactive visualizations, this project has enhanced the interpretation of Time Series Graphs, enabling a deeper understanding of the trends in the stock market. The use of R's plotly package has proven to be a valuable tool in visual data exploration and storytelling. This undertaking serves as a testament to the power of R's plotly in uncovering meaningful patterns and explaining the dynamics of stock market trends in a more engaging and informative manner.
-
 
 ## Data References
 
