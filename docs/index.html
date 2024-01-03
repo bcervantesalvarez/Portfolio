@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Brian Cervantes Alvarez</title>
+<title>Brian Cervantes Alvarez - Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
 </style>
@@ -30,9 +30,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -56,19 +59,46 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<meta property="og:title" content="Brian Cervantes Alvarez">
-<meta property="og:description" content="">
-<meta property="og:image" content="background1.jpeg">
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="Brian Cervantes Alvarez - Projects">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -79,105 +109,769 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Brian Cervantes Alvarez</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">About Me</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
+    <a class="nav-link active" href="./index.html" aria-current="page">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html" rel="" target="">
+    <a class="nav-link" href="./presentation.html">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html" rel="" target="">
+    <a class="nav-link" href="./resume.html">
  <span class="menu-text">Curriculum Vitae</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./aboutme.html">
+ <span class="menu-text">About Me</span></a>
+  </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Projects</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-unnumbered"><div class="category" data-category="CSS">CSS</div><div class="category" data-category="Classification">Classification</div><div class="category" data-category="Dashboard">Dashboard</div><div class="category" data-category="Data Engineering">Data Engineering</div><div class="category" data-category="Data Tables">Data Tables</div><div class="category" data-category="Data Visualization">Data Visualization</div><div class="category" data-category="Gradient Boosting Machines">Gradient Boosting Machines</div><div class="category" data-category="Jupyter Notebook">Jupyter Notebook</div><div class="category" data-category="Linear Regression">Linear Regression</div><div class="category" data-category="Logistic Regression">Logistic Regression</div><div class="category" data-category="Machine Learning">Machine Learning</div><div class="category" data-category="Plotly">Plotly</div><div class="category" data-category="PostgreSQL">PostgreSQL</div><div class="category" data-category="Python">Python</div><div class="category" data-category="R">R</div><div class="category" data-category="Random Forest">Random Forest</div><div class="category" data-category="Reports">Reports</div><div class="category" data-category="Reveal.JS">Reveal.JS</div><div class="category" data-category="Shiny">Shiny</div><div class="category" data-category="Statistics">Statistics</div><div class="category" data-category="Survival Analysis">Survival Analysis</div><div class="category" data-category="Time Series">Time Series</div></div></div>
 <!-- main -->
-<div class="quarto-about-marquee">
-  <div class="about-image-container">
-    <img src="profile.jpeg" class="about-image " style="width: 100%;">
-  </div>
-  <div class="about-contents">
-    <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Brian Cervantes Alvarez</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header> <main class="content" id="quarto-document-content">
-<section id="from-mathematician-to-data-scientist-to-aspiring-statistician-my-journey-of-self-discovery-and-research" class="level2">
-<h2 data-anchor-id="from-mathematician-to-data-scientist-to-aspiring-statistician-my-journey-of-self-discovery-and-research">From Mathematician to Data Scientist to Aspiring Statistician: My Journey of Self-Discovery and Research</h2>
-<p>With a solid foundation in mathematics from my Bachelor of Arts degree obtained at Linfield University and recently graduating from Willamette University with a Master’s degree in Data Science, I have embarked on an exhilarating path towards becoming a next-generation data scientist. My educational journey has been fueled by a deep-rooted passion for unraveling insights hidden within data.</p>
-<p>Throughout my academic pursuits, I have delved into a multitude of areas, including machine learning and survival analysis, honing my analytical skills and developing a keen eye for patterns and trends. Equipped with the ability to effectively communicate data-driven insights, I strive to bridge the gap between complex datasets and actionable solutions.</p>
-<p>As a graduate with a Master of Science in Data Science, I’ve acquired comprehensive expertise in leveraging data science methodologies to translate data into actionable business solutions and pave the way for research opportunities. My educational journey has recently taken an exciting turn as I embark on a new chapter with Oregon State University, a renowned research powerhouse. My goal over the next five years is to pursue a Ph.D.&nbsp;in Statistics, where I intend to delve deep into the world of statistical research.</p>
-<p>I am currently pursuing my second Master’s of Science degree, this time specializing in statistics, and I have ambitious plans to seamlessly transition into my Ph.D.&nbsp;program immediately afterward. My research focus will primarily revolve around classification problems, an area that holds immense promise and relevance in today’s data-driven landscape.</p>
-<p>My journey has been characterized by a relentless pursuit of knowledge and growth. I am dedicated to staying abreast of the latest advancements in the dynamic field of data science and statistics, as I believe that continuous learning is the key to unlocking new possibilities. Embracing challenges with enthusiasm, I am eager to apply my expertise in statistical analysis, data visualization, and problem-solving to tackle real-world complexities.</p>
-<p>As I recently graduated from Willamette University and prepare to pursue my Ph.D.&nbsp;at Oregon State University, I am poised to embark on a professional career where I can leverage my skills to make a meaningful impact. While attending Oregon State, I plan to put my Data Scientist skills to full use, providing immense value to the Department of Statistics and contributing to innovative projects that push the boundaries of data science and statistics.</p>
-<p>My journey as a mathematician-turned-data scientist and aspiring statistician has been one of self-discovery, empowerment, and unwavering determination. I am excited to forge ahead, armed with a potent combination of mathematical acumen and a passion for data science and statistics, ready to create solutions that drive progress and shape a data-powered future.</p>
-</section>
-<section id="from-playgrounds-to-algorithms-charting-the-evolution-of-a-data-science-whiz" class="level2">
-<h2 data-anchor-id="from-playgrounds-to-algorithms-charting-the-evolution-of-a-data-science-whiz">From Playgrounds to Algorithms: Charting the Evolution of a Data Science Whiz</h2>
-<p>I was born in Pasco, Washington, a small city in the southeastern part of the state. Pasco is part of the Tri-Cities area, along with Richland and Kennewick, and is known for its agricultural industry, particularly the cultivation of potatoes, apples, and wine grapes.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="background1.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Pasco, Washington</figcaption>
-</figure>
-</div>
-<p>I enjoyed the rural atmosphere of Pasco, with its open fields, orchards, and vineyards.</p>
-<p>Before finishing 1st grade, I moved to Salem, Oregon, a mid-sized city in the heart of the Willamette Valley. Salem is known for its farms and vineyards that produce some of the best wine and food in the state.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="background2.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Salem, Oregon</figcaption>
-</figure>
-</div>
-<p>Growing up in Salem, I was immersed in the outdoors and enjoyed activities such as hiking, camping, and running. Salem also has a rich history, with landmarks like the Oregon State Capitol and Willamette University, which is the oldest university in the west. However, as I got older, I also became aware of some of the social and economic challenges faced by many families in the area, such as poverty, limited job opportunities, and inadequate access to healthcare.</p>
-<p>My family and I suffered poverty and food instability before I graduated high school. Despite these challenges, I feel a strong connection to Salem and its people, and I am grateful for the experiences and values that I gained from growing up in this community.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</section>
-</main> 
-    <div class="about-footer"><div class="about-links">
-  <a href="https://www.linkedin.com/in/bcervantesalvarez/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/bcervantesalvarez/" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="mailto:briancervantesalvarez@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Python,Machine Learning,Random Forest,Classification" data-listing-date-sort="1687762800000" data-listing-file-modified-sort="1691534714058" data-listing-reading-time-sort="21.455">
+<div class="thumbnail">
+<p><a href="./posts/PredictSeverityLevels/index.html"> <img src="./posts/PredictSeverityLevels/severity.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/PredictSeverityLevels/index.html">
+<h3 class="no-anchor listing-title">
+Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis On A Rare Disease
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
+Machine Learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Random Forest'); return false;">
+Random Forest
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Classification'); return false;">
+Classification
 </div>
 </div>
-  </div>
+<a href="./posts/PredictSeverityLevels/index.html">
+<div class="listing-description">
+<p>Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.</p>
 </div>
- <!-- /main -->
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/PredictSeverityLevels/index.html">
+<div class="listing-date">
+June 26, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+21 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Python,Machine Learning,Gradient Boosting Machines" data-listing-date-sort="1685430000000" data-listing-file-modified-sort="1691534713974" data-listing-reading-time-sort="6.985">
+<div class="thumbnail">
+<p><a href="./posts/FraudML/index.html"> <img src="./posts/FraudML/fraud.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/FraudML/index.html">
+<h3 class="no-anchor listing-title">
+Boosting Fraud Detection: Enhancing Accuracy with GBM
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
+Machine Learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Gradient Boosting Machines'); return false;">
+Gradient Boosting Machines
+</div>
+</div>
+<a href="./posts/FraudML/index.html">
+<div class="listing-description">
+<p>I developed a model that enhances fraud detection in this dataset, contributing to ongoing advancements in this challenging task</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/FraudML/index.html">
+<div class="listing-date">
+May 30, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+6 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="R,Shiny,CSS,Data Tables,Data Visualization,Dashboard" data-listing-date-sort="1682060400000" data-listing-file-modified-sort="1691534713886" data-listing-reading-time-sort="12.965">
+<div class="thumbnail">
+<p><a href="./posts/AmazonProductsEN/index.html"> <img src="./posts/AmazonProductsEN/AmazonLogo.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/AmazonProductsEN/index.html">
+<h3 class="no-anchor listing-title">
+Building A Quick Dashboard For Amazon Products (EN.)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Shiny'); return false;">
+Shiny
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('CSS'); return false;">
+CSS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Tables'); return false;">
+Data Tables
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Dashboard'); return false;">
+Dashboard
+</div>
+</div>
+<a href="./posts/AmazonProductsEN/index.html">
+<div class="listing-description">
+<p>Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/AmazonProductsEN/index.html">
+<div class="listing-date">
+April 21, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+12 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="R,Machine Learning,Gradient Boosting Machines,Logistic Regression,Classification" data-listing-date-sort="1681196400000" data-listing-file-modified-sort="1691534714059" data-listing-reading-time-sort="8.325">
+<div class="thumbnail">
+<p><a href="./posts/Predicting_Income_Bracket/index.html"> <img src="./posts/Predicting_Income_Bracket/income.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/Predicting_Income_Bracket/index.html">
+<h3 class="no-anchor listing-title">
+Predicting Individuals Who Earn More Than 50K
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
+Machine Learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Gradient Boosting Machines'); return false;">
+Gradient Boosting Machines
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logistic Regression'); return false;">
+Logistic Regression
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Classification'); return false;">
+Classification
+</div>
+</div>
+<a href="./posts/Predicting_Income_Bracket/index.html">
+<div class="listing-description">
+<p>We employed advanced techniques in our project, using a random forest model to identify important variables and selecting the top 8 features.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/Predicting_Income_Bracket/index.html">
+<div class="listing-date">
+April 11, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez, Willa Van Liew
+</div>
+<div class="listing-reading-time">
+8 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="R,Plotly,Reports,Time Series,Data Visualization" data-listing-date-sort="1680505200000" data-listing-file-modified-sort="1691534713977" data-listing-reading-time-sort="10.325">
+<div class="thumbnail">
+<p><a href="./posts/Param_Report_Retail/index.html"> <img src="./posts/Param_Report_Retail/report.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/Param_Report_Retail/index.html">
+<h3 class="no-anchor listing-title">
+Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Plotly'); return false;">
+Plotly
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Reports'); return false;">
+Reports
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Time Series'); return false;">
+Time Series
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+</div>
+<a href="./posts/Param_Report_Retail/index.html">
+<div class="listing-description">
+<p>Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time.…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/Param_Report_Retail/index.html">
+<div class="listing-date">
+April 3, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+10 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1680073200000" data-listing-file-modified-sort="1694670276489" data-listing-reading-time-sort="10.37">
+<div class="thumbnail">
+<p><a href="./posts/AppleInc_IncomeStatement/index.html"> <img src="./posts/AppleInc_IncomeStatement/apple.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/AppleInc_IncomeStatement/index.html">
+<h3 class="no-anchor listing-title">
+Apple’s Journey In The Stock Market
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Time Series'); return false;">
+Time Series
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+</div>
+<a href="./posts/AppleInc_IncomeStatement/index.html">
+<div class="listing-description">
+<p>Explore the dynamic world of Time Series Graphs with R’s plotly. Unveil trends in Apple’s stock market and the impact of groundbreaking innovations</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/AppleInc_IncomeStatement/index.html">
+<div class="listing-date">
+March 29, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+10 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="R,Machine Learning,Random Forest" data-listing-date-sort="1678521600000" data-listing-file-modified-sort="1691534713922" data-listing-reading-time-sort="6.095">
+<div class="thumbnail">
+<p><a href="./posts/Customer Return ML/index.html"> <img src="./posts/Customer Return ML/return.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/Customer Return ML/index.html">
+<h3 class="no-anchor listing-title">
+Predicting Customer Returns
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
+Machine Learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Random Forest'); return false;">
+Random Forest
+</div>
+</div>
+<a href="./posts/Customer Return ML/index.html">
+<div class="listing-description">
+<p>Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/Customer Return ML/index.html">
+<div class="listing-date">
+March 11, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+6 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="R,Machine Learning,Random Forest,Classification" data-listing-date-sort="1677657600000" data-listing-file-modified-sort="1691534714028" data-listing-reading-time-sort="3.5">
+<div class="thumbnail">
+<p><a href="./posts/PredictPinotWine_ML/index.html"> <img src="./posts/PredictPinotWine_ML/pinot.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/PredictPinotWine_ML/index.html">
+<h3 class="no-anchor listing-title">
+Predicting the Province of Origin for Pinot Wines Based on Their Individual Descriptions
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
+Machine Learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Random Forest'); return false;">
+Random Forest
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Classification'); return false;">
+Classification
+</div>
+</div>
+<a href="./posts/PredictPinotWine_ML/index.html">
+<div class="listing-description">
+The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/PredictPinotWine_ML/index.html">
+<div class="listing-date">
+March 1, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+3 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="R,Reveal.JS,Survival Analysis" data-listing-date-sort="1677484800000" data-listing-file-modified-sort="1691534714076" data-listing-reading-time-sort="2.95">
+<div class="thumbnail">
+<p><a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html"> <img src="./posts/SurvAnalysis_Parasite_RevealJS/parasite.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html">
+<h3 class="no-anchor listing-title">
+Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Reveal.JS'); return false;">
+Reveal.JS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Survival Analysis'); return false;">
+Survival Analysis
+</div>
+</div>
+<a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html">
+<div class="listing-description">
+<p>Uncover the hidden impact of temperature on pesticide toxicity in a captivating quest that reveals the implications for our changing world.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/SurvAnalysis_Parasite_RevealJS/index.html">
+<div class="listing-date">
+February 27, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez, Willa Van Liew, Hans Lehndorff
+</div>
+<div class="listing-reading-time">
+2 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="R,Data Visualization,Plotly" data-listing-date-sort="1677225600000" data-listing-file-modified-sort="1691534713975" data-listing-reading-time-sort="5.47">
+<div class="thumbnail">
+<p><a href="./posts/GymRat_Plotly/index.html"> <img src="./posts/GymRat_Plotly/gymRat.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/GymRat_Plotly/index.html">
+<h3 class="no-anchor listing-title">
+Do You Like Stretching? I Would Reconsider!
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Plotly'); return false;">
+Plotly
+</div>
+</div>
+<a href="./posts/GymRat_Plotly/index.html">
+<div class="listing-description">
+<p>Stretching enhances flexibility but lacks muscle-building benefits. Weight training and resistance exercises stimulate muscle growth. Supplement, not substitute, for…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/GymRat_Plotly/index.html">
+<div class="listing-date">
+February 24, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+5 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="R,Data Tables" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1691534713965" data-listing-reading-time-sort="6.97">
+<div class="thumbnail">
+<p><a href="./posts/FancyTables/index.html"> <img src="./posts/FancyTables/wine.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/FancyTables/index.html">
+<h3 class="no-anchor listing-title">
+Rating Pinot Wines: Is More Expensive Better?
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Tables'); return false;">
+Data Tables
+</div>
+</div>
+<a href="./posts/FancyTables/index.html">
+<div class="listing-description">
+<p>Revolutionizing Data Tables: Visual Appeal &amp; Comprehension. Explore techniques for aesthetically pleasing &amp; informative tables. Enhance data presentation with design…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/FancyTables/index.html">
+<div class="listing-date">
+February 20, 2023
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+6 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="R,Linear Regression,Statistics" data-listing-date-sort="1670832000000" data-listing-file-modified-sort="1691534714079" data-listing-reading-time-sort="19.975">
+<div class="thumbnail">
+<p><a href="./posts/US_HealthCare_Spending/index.html"> <img src="./posts/US_HealthCare_Spending/healthcareSpending.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/US_HealthCare_Spending/index.html">
+<h3 class="no-anchor listing-title">
+Healthcare Spending Is Only Getting Worse
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Linear Regression'); return false;">
+Linear Regression
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Statistics'); return false;">
+Statistics
+</div>
+</div>
+<a href="./posts/US_HealthCare_Spending/index.html">
+<div class="listing-description">
+<p>Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/US_HealthCare_Spending/index.html">
+<div class="listing-date">
+December 12, 2022
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+19 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="R,PostgreSQL,Data Visualization,Data Engineering" data-listing-date-sort="1670227200000" data-listing-file-modified-sort="1691534713984" data-listing-reading-time-sort="9.295">
+<div class="thumbnail">
+<p><a href="./posts/Pokemon_Database/index.html"> <img src="./posts/Pokemon_Database/pokemon.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/Pokemon_Database/index.html">
+<h3 class="no-anchor listing-title">
+Pokédex Database
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('PostgreSQL'); return false;">
+PostgreSQL
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Engineering'); return false;">
+Data Engineering
+</div>
+</div>
+<a href="./posts/Pokemon_Database/index.html">
+<div class="listing-description">
+<p>Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database. Join the journey of…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/Pokemon_Database/index.html">
+<div class="listing-date">
+December 5, 2022
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+9 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="R,Shiny,Data Visualization,Dashboard" data-listing-date-sort="1669968000000" data-listing-file-modified-sort="1691534713892" data-listing-reading-time-sort="15.445">
+<div class="thumbnail">
+<p><a href="./posts/CollegeStudent_Debt_Tool/index.html"> <img src="./posts/CollegeStudent_Debt_Tool/uni.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/CollegeStudent_Debt_Tool/index.html">
+<h3 class="no-anchor listing-title">
+Resources for Prospective College Students
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Shiny'); return false;">
+Shiny
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Dashboard'); return false;">
+Dashboard
+</div>
+</div>
+<a href="./posts/CollegeStudent_Debt_Tool/index.html">
+<div class="listing-description">
+<p>Unleash your future with our interactive tool! Estimate salaries, tuition, and student debt for majors. Plan your journey and make informed career decisions. Essential for…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/CollegeStudent_Debt_Tool/index.html">
+<div class="listing-date">
+December 2, 2022
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez, Corey Cassell
+</div>
+<div class="listing-reading-time">
+15 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="Python,Statistics,Jupyter Notebook,Data Visualization" data-listing-date-sort="1657782000000" data-listing-file-modified-sort="1691534714085" data-listing-reading-time-sort="26.205">
+<div class="thumbnail">
+<p><a href="./posts/US_HealthIns_Costs/index.html"> <img src="./posts/US_HealthIns_Costs/health_ins.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/US_HealthIns_Costs/index.html">
+<h3 class="no-anchor listing-title">
+The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Statistics'); return false;">
+Statistics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Jupyter Notebook'); return false;">
+Jupyter Notebook
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+</div>
+<a href="./posts/US_HealthIns_Costs/index.html">
+<div class="listing-description">
+<p>In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders…</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/US_HealthIns_Costs/index.html">
+<div class="listing-date">
+July 14, 2022
+</div>
+<div class="listing-author">
+Brian Cervantes Alvarez
+</div>
+<div class="listing-reading-time">
+26 min
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -313,23 +1007,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -394,92 +1081,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -529,9 +1130,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

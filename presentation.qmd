@@ -8,10 +8,12 @@ format:
 title-block-banner: true
 ---
 
-## My Journey So Far
-
-This presentation not only serves as an introduction to my persona but also offers a glimpse into a selection of my projects that I have found immensely gratifying. Utilizing an array of programming languages ranging from R to SQL, I am thrilled to embark on my journey as a Data Scientist and become an integral part of the ever-evolving field of Data Science.
+## Quick Introduction About Myself
 
 <iframe src="https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide" width="100%" height="600" allowfullscreen>
 
 </iframe>
+
+## Why You Should Switch To Quarto Presentations
+
+<iframe src="https://bcervantesalvarez.github.io/Presentations/TeachingQuarto/#/title-slide" width="100%" height="600" allowfullscreen>

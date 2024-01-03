@@ -7,14 +7,14 @@ website:
   title: "Brian Cervantes Alvarez"
   navbar:
     right:
-      - text: "About Me"
-        file: index.qmd
       - text: "Projects"
-        file: projects.qmd
+        file: index.qmd
       - text: "Presentations"
         file: presentation.qmd
       - text: "Curriculum Vitae"
         file: resume.qmd
+      - text: "About Me"
+        file: aboutme.qmd
       
   page-footer:
     left:
