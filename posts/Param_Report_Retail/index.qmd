@@ -1,0 +1,263 @@
+---
+title: "Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress"
+author: "Brian Cervantes Alvarez"
+date: "4-03-2023"
+image: report.png
+description: "Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time. Boost productivity and accuracy for data scientists, analysts, and engineers. "
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+params:
+  printcode: true
+  year: 2019
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: full
+execute: 
+  warning: false
+  message: false
+categories: [R, Plotly, Reports, Time Series, Data Visualization]
+---
+
+![](report.png)
+
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Param_Report_Retail/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Param_Report_Retail/retail.csv",
+      "Download .csv"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+
+
+## Purpose
+
+For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business.
+
+## Required Libraries
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(lubridate)
+library(scales)
+library(zoo)
+library(rmarkdown)
+library(purrr)
+```
+
+## Load Dataset & Wrangle
+
+```{r}
+ds <- read_csv("retail.csv")
+
+#head(ds)
+
+ds <- ds %>% 
+  rename(ID = ...1) %>%
+  mutate(Month = lubridate::floor_date(Date, 'month')) %>%
+  filter(year(Month) == params$year)
+
+glimpse(ds)
+```
+
+```{r}
+#| include: false
+
+
+myTheme <- function(){ 
+    font <- "SF Mono"   #assign font family up front
+    
+    theme_minimal() %+replace%    #replace elements we want to change
+    
+    theme(
+      
+      #grid elements
+      panel.grid.major.x = element_blank(),    #strip major gridlines
+      panel.grid.minor = element_blank(),    #strip minor gridlines
+      axis.ticks = element_blank(),          #strip axis ticks
+      
+      #since theme_minimal() already strips axis lines, 
+      #we don't need to do that again
+      
+      #text elements
+      plot.title = element_text(             #title
+                   family = font,            #set font family
+                   size = 16,                #set font size
+                   face = 'bold',            #bold typeface
+                   hjust = 0,                #left align
+                   vjust = 2),               #raise slightly
+      
+      plot.margin = margin(                  #margins
+                           r = 0.5,          #right margin
+                           l = 0.5,          #left margin
+                           t = 1,            #top margin
+                           b = 0.25,            #bottom margin
+                           unit = "cm"),     #units      
+      
+      plot.subtitle = element_text(          #subtitle
+                   family = font,            #font family
+                   size = 12,                #font size
+                   hjust = 0,
+                   vjust = -1),               
+      
+      plot.caption = element_text(           #caption
+                   family = font,            #font family
+                   size = 9),                 #font size
+      
+      axis.title = element_text(             #axis titles
+                   family = font,            #font family
+                   size = 10),               #font size
+      
+      axis.text = element_text(              #axis text
+                   family = font,            #axis famuly
+                   size = 9),                #font size
+      
+      axis.text.x = element_text(            #margin for axis text
+                      margin = margin(t = 5, b = 20),
+                      angle = 45)
+      
+      #since the legend often requires manual tweaking 
+      #based on plot content, don't define it here
+    )
+}
+```
+
+## Visualize The Report
+
+I utilized ggplotly, a graphical representation tool, to create an interactive visualization of monthly sales time series data for "CRM and Invoicing system," which is a wholesale company owned by Sadi Evren. The data for this analysis was obtained from the following Kaggle dataset: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv.
+
+The resulting plot provided an insightful representation of the monthly sales data, showcasing trends and patterns in the data that could potentially provide useful information for decision making in the business.
+
+In addition to the initial plot, I implemented a for loop to automatically generate multiple reports based on the time series data for each year. This approach eliminated the need for manual report generation, thereby saving time and reducing the risk of errors. The loop enabled the automated generation of separate reports for each year, which provided a comprehensive view of the sales trends over time.
+
+Overall, the use of ggplotly for data visualization and automation of report generation using a for loop demonstrated an effective approach for efficiently analyzing and presenting data.
+
+```{r}
+p <- ds %>%
+  group_by(Month) %>%
+  summarize(AvgSales = round(mean(Price * Quantity),2) ) %>%
+  ggplot(aes(x = Month, 
+             y = AvgSales,
+             group = 1,                 #Necessary or else line plot disappears
+             text = paste0("Monthly Sales: $", (round(AvgSales/1000,2)),"K" ))) +
+  geom_line(size = 1) + 
+  scale_y_continuous(labels = scales::dollar_format(scale = .001, suffix = "K")) +
+  scale_x_date(date_breaks = "1 month", date_labels = "%B") + 
+  labs(title = paste0("CRM and Invoicing System Sales For FY: ", params$year),
+       caption = "Source: https://www.kaggle.com/datasets/shedai/retail-data-set?select=file_out.csv",
+       x = NULL,
+       y = NULL) +
+  myTheme()
+
+ggplotly(p, tooltip = c("text")) %>% 
+  layout(hovermode = "x unified") 
+
+```
+
+## Other Reports Generated
+
+### 2020 Report
+
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="100%" height="1000" allowfullscreen>
+
+</iframe>
+
+### 2021 Report
+
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="100%" height="1000" allowfullscreen>
+
+</iframe>
+
+### 2022 Report
+
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2022.html" width="100%" height="1000" allowfullscreen>
+
+</iframe>
+
+## Function To Run Parameterized Reports
+
+```{r}
+#| eval: false
+renderReport <- function(year) {
+  rmarkdown::render(
+    'input.Rmd',
+    output_file = paste0(year, '.html'),
+    params = list(year = year),
+    envir = parent.frame()
+  )
+}
+```
+
+## Render All Reports
+
+```{r}
+#| eval: false
+
+# Renders all 4 Reports (dates range from 2019-2022)
+for (year in 2019:2022) {
+    renderReport(year)
+}
+```
+
+## Data References
+
+```{r, echo=FALSE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```
