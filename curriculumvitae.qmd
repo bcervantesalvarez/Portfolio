@@ -1,0 +1,113 @@
+---
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+title-block-banner: true
+---
+
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 35px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      margin-bottom: 30px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border-bottom: 2px solid #fff;
+      padding: 1px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/Brian%20Cervantes%20Alvarez%20-%20Machine%20Learning%20Scientist.pdf",
+      "Download Resume"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+  </script>
+</div>
+
+## Data Scientist Skillset
+
+As a Data Scientist, I possess a diverse skillset that enables me to excel in my role. Here are some key skills I have acquired:
+
+1. **Data Storytelling and Communication:**
+   - I am adept at effectively conveying complex insights and findings to both technical and non-technical stakeholders through compelling narratives, data visualization, and clear presentations.
+
+2. **Bayesian Statistics:**
+   - I have a strong grasp of Bayesian statistics, allowing me to make robust inferences, predictions, and decisions by integrating prior knowledge with observed data, even in uncertain environments or with limited data.
+
+3. **Data Wrangling and Cleaning:**
+   - I possess excellent skills in transforming raw data into a usable format for analysis. I can handle missing data, outliers, and ensure data integrity, thereby maintaining the quality and accuracy of the data throughout the analysis process.
+
+4. **A/B Testing:**
+   - I am skilled in designing and analyzing A/B tests, enabling me to compare the performance of different versions of a product, webpage, or strategy. I can derive valid conclusions and make data-driven decisions based on experimental results.
+
+5. **Time Series Analysis:**
+   - I have expertise in analyzing time-dependent data, such as stock prices or sales figures. By identifying patterns, trends, and seasonality within the data, I can provide accurate predictions and forecasts crucial for decision-making in industries reliant on temporal patterns.
+
+6. **Survival Analysis:**
+   - I possess a deep understanding of survival analysis techniques, allowing me to analyze time-to-event data effectively. I can estimate survival probabilities, account for competing risks, and draw insightful conclusions about event occurrences.
+
+
+
+These skills collectively empower me to excel as a Data Scientist, enabling me to derive meaningful insights, make informed decisions, and effectively communicate complex information to drive actionable results.
+
+## Machine Learning Scientist Skillset
+
+As a Machine Learning Scientist, I possess a range of skills that allow me to thrive in my role. Here are some additional skills I have acquired:
+
+1. **Natural Language Processing (NLP):**
+   - I am familiar with NLP techniques, enabling me to work with text data and perform sentiment analysis. I leverage text classification, named entity recognition, and sentiment analysis to extract valuable information from unstructured text data.
+
+2. **Deep Learning:**
+   - I have a strong understanding of deep learning techniques and frameworks, such as TensorFlow and PyTorch. I can work with neural networks, including convolutional neural networks (CNNs) and recurrent neural networks (RNNs).
+
+3. **Data Engineering:**
+   - I am familiar with data engineering concepts and tools such as  PostgreSQL. I can preprocess, transform, and engineer features from large datasets, ensuring optimal data quality and efficiency for machine learning tasks.
+
+4. **Performance Optimization:**
+   - I have expertise in optimizing machine learning models for performance, speed, and efficiency. I can fine-tune hyperparameters, handle issues like overfitting or underfitting, and implement techniques such as regularization and ensemble learning. Proficiency in libraries like scikit-learn and XGBoost enables me to achieve optimal model performance.
+
+5. **Model Evaluation and Validation:**
+   - I have expertise in evaluating and validating machine learning models. I can employ techniques like cross-validation, ROC curves, and precision-recall analysis to assess model performance, select the best models, and ensure their generalizability.
+
+These skills collectively empower me to excel as a Machine Learning Scientist, allowing me to develop and deploy cutting-edge machine learning systems and solve complex problems across various domains.

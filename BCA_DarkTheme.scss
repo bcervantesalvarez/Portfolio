@@ -1,0 +1,730 @@
+/*-- scss:defaults --*/
+
+$theme: "BCA_DarkTheme" !default;
+
+//
+// Color system
+//
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #adafae !default;
+$gray-500: #888 !default;
+$gray-600: #555 !default;
+$gray-700: #282828 !default;
+$gray-800: #222 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$blue: #2a9fd6 !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #c00 !default;
+$orange: #fd7e14 !default;
+$yellow: #f80 !default;
+$green: #77b300 !default;
+$teal: #20c997 !default;
+$cyan: #93c !default;
+
+$primary: $blue !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+
+$min-contrast-ratio: 2.25 !default;
+
+// Options
+
+$enable-rounded: true !default;
+
+// Body
+
+@function body-mix($weight) {
+  @return mix(#060606, $gray-400, $weight);
+}
+$body-bg: body-mix(100%) !default;
+$body-color: body-mix(0%) !default;
+
+// Most defaults to cascade from body bg/color, but some
+// colors really want to a full contrast from the bg color
+$contrast-bg: color-contrast($body-bg) !default;
+$secondary: body-mix(67%) !default;
+$light: body-mix(33%) !default;
+$dark: $body-color !default;
+
+/// Fonts
+
+$font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$body-font-size: 0.9rem !default;
+$font-size-sm: 0.5rem !default;
+$h1-font-size: 1.75rem !default;
+$h2-font-size: 1.5rem !default;
+$h3-font-size: 1.20rem !default;
+$h4-font-size: 1.15rem !default;
+$h5-font-size: 1rem !default;
+$h6-font-size: 0.8rem !default;
+$headings-font-weight: 900 !default;
+$headings-color: $white !default;
+
+// Word Spacing
+
+$body-line-stretch: 1.3rem !default;
+
+
+// Tables
+
+$table-color: $contrast-bg !default;
+$table-accent-bg: rgba($contrast-bg, 0.05) !default;
+$table-hover-bg: rgba($contrast-bg, 0.075) !default;
+$table-border-color: body-mix(50%) !default;
+$table-dark-bg: body-mix(16%) !default;
+$table-dark-border-color: body-mix(23%) !default;
+
+$table-bg-scale: 0 !default;
+
+// Buttons
+
+$input-btn-padding-x: 1rem !default;
+
+// Forms
+
+$input-bg: $white !default;
+$input-disabled-bg: $body-color !default;
+$input-color: body-mix(85%) !default;
+$input-border-color: $contrast-bg !default;
+$input-border-width: 0 !default;
+$input-group-addon-color: $contrast-bg !default;
+$input-group-addon-bg: body-mix(50%) !default;
+$input-group-addon-border-color: transparent !default;
+$form-check-input-bg: $contrast-bg !default;
+$form-check-input-border: none !default;
+$form-file-button-color: $contrast-bg !default;
+
+// Dropdowns
+
+$dropdown-bg: body-mix(50%) !default;
+$dropdown-divider-bg: body-mix(67%) !default;
+$dropdown-link-color: $contrast-bg !default;
+$dropdown-link-hover-color: $contrast-bg !default;
+$dropdown-link-hover-bg: $primary !default;
+
+// Navs
+
+$nav-tabs-border-color: $table-border-color !default;
+$nav-tabs-link-hover-border-color: $nav-tabs-border-color !default;
+$nav-tabs-link-active-color: $contrast-bg !default;
+$nav-tabs-link-active-bg: $nav-tabs-border-color !default;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
+
+// Navbar
+
+$navbar-dark-hover-color: $contrast-bg !default;
+$navbar-padding-y: 1.5rem !default;
+$navbar-dark-hover-color: $white !default;
+
+// Pagination
+
+$pagination-color: $contrast-bg !default;
+$pagination-bg: body-mix(50%) !default;
+$pagination-border-color: transparent !default;
+$pagination-hover-color: $contrast-bg !default;
+$pagination-hover-bg: $primary !default;
+$pagination-hover-border-color: $pagination-border-color !default;
+$pagination-disabled-bg: $pagination-bg !default;
+$pagination-disabled-border-color: $pagination-border-color !default;
+
+// Cards
+
+$card-bg: body-mix(50%) !default;
+
+// Tooltips
+
+$tooltip-bg: body-mix(50%) !default;
+$tooltip-opacity: 1 !default;
+
+// Popovers
+
+$popover-bg: body-mix(50%) !default;
+
+// Toasts
+
+$toast-color: $contrast-bg !default;
+$toast-background-color: body-mix(67%) !default;
+$toast-border-color: body-mix(50%) !default;
+$toast-header-color: $body-color !default;
+$toast-header-background-color: $toast-background-color !default;
+$toast-header-border-color: $toast-border-color !default;
+
+// Modals
+
+$modal-content-bg: body-mix(67%) !default;
+$modal-header-border-color: body-mix(50%) !default;
+
+// Progress bars
+
+$progress-bg: body-mix(50%) !default;
+
+// List group
+
+$list-group-color: $contrast-bg !default;
+$list-group-bg: body-mix(67%) !default;
+$list-group-border-color: body-mix(50%) !default;
+$list-group-hover-bg: $primary !default;
+$list-group-disabled-bg: body-mix(50%) !default;
+$list-group-action-color: $contrast-bg !default;
+$list-group-action-active-bg: $primary !default;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.375rem !default;
+$breadcrumb-padding-x: 0.75rem !default;
+$breadcrumb-bg: body-mix(50%) !default;
+$breadcrumb-border-radius: 0.25rem !default;
+
+// Close
+
+$btn-close-color: $contrast-bg !default;
+$btn-close-opacity: 0.6 !default;
+$btn-close-hover-opacity: 1 !default;
+
+// Code
+
+$pre-color: inherit !default;
+
+/*-- scss:rules --*/
+
+// Variables
+
+$web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
+@if $web-font-path {
+  @import url($web-font-path);
+}
+
+$web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" !default;
+
+@if $web-monofont-path {
+  @import url($web-monofont-path);
+}
+
+
+// Navbar
+
+.navbar {
+  font-size: $h6-font-size;
+  font-weight: 800;
+  background-color: $gray-400;
+
+  &-nav {
+    .nav-link {
+      padding-top: 0.715rem;
+      padding-bottom: 0.715rem;
+    }
+  }
+
+  &-brand {
+    margin-right: 2rem;
+  }
+}
+
+a {
+  color: $gray-100;
+  
+  &:hover {
+    color: lighten(#1560bd, 20%);
+  }
+}
+
+
+
+// Typography
+
+body {
+  font-weight: 200;
+  font-family: "DM Sans", sans-serif;
+  font-size: $body-font-size;
+  line-height: $body-line-stretch;
+  color: $gray-500;
+  touch-action: pan-y;
+  overflow-x: hidden;
+  user-zoom: fixed;
+}
+
+
+p {
+  margin-bottom: 25px; // Adjusts the bottom margin between paragraphs
+  line-height: 1.7em;
+}
+
+// Heading Transformations
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+h4 {
+  margin-bottom: 20px;
+}
+
+h5 {
+  margin-bottom: 20px;
+}
+
+h6 {
+  margin-bottom: 20px;
+}
+
+.text-secondary {
+  color: $white !important;
+}
+
+// Code Chunk Coloring
+
+code {
+  font-family: "Fira Code", monospace;
+  padding: 0.5rem;
+  overflow-x: scroll;
+}
+
+// Source Code color-scheme:
+
+pre > code.sourceCode > span {
+  color: #ffffff;
+  width: 100%;
+}
+
+div.sourceCode,
+div.sourceCode pre.sourceCode {
+  background-color: $gray-900;
+}
+
+code span {
+  color: #ffffff;
+}
+
+code.sourceCode > span {
+  color: #ffffff;
+}
+
+div.sourceCode,
+div.sourceCode pre.sourceCode {
+  color: #ffffff;
+}
+
+code span.ot {
+  color: #20794d;
+}
+
+code span.at {
+  color: #b3c20f;
+}
+
+code span.ss {
+  color: #25a18e;
+}
+
+code span.an {
+  color: #a0a0a0;
+}
+
+code span.fu {
+  color: #9e7ace;
+}
+
+code span.st {
+  color: #25a18e;
+}
+
+code span.cf {
+  color: #ffffff;
+}
+
+code span.op {
+  color: #a0a0a0;
+}
+
+code span.er {
+  color: #ff6347;
+}
+
+code span.bn {
+  color: #ff6347;
+}
+
+code span.al {
+  color: #ff6347;
+}
+
+code span.va {
+  color: #cccccc;
+}
+
+code span.pp {
+  color: #ff6347;
+}
+
+code span.in {
+  color: #a0a0a0;
+}
+
+code span.vs {
+  color: #25a18e;
+}
+
+code span.wa {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.do {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.im {
+  color: #25c3dc;
+}
+
+code span.ch {
+  color: #25a18e;
+}
+
+code span.dt {
+  color: #ff6347;
+}
+
+code span.fl {
+  color: #ff6347;
+}
+
+code span.co {
+  color: #a0a0a0;
+}
+
+code span.cv {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.cn {
+  color: #e6b800;
+}
+
+code span.sc {
+  color: #a0a0a0;
+}
+
+code span.dv {
+  color: #ff6347;
+}
+
+code span.kw {
+  color: #ffffff;
+}
+
+.prevent-inlining {
+  content: "</";
+}
+
+
+// Buttons
+
+.btn {
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value
+          linear-gradient(180deg, mix($contrast-bg, $value, 15%), $value)
+          repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+// Forms
+
+legend {
+  color: $contrast-bg;
+}
+
+.form-control {
+  background-clip: border-box;
+
+  &:disabled,
+  &[readonly] {
+    border-color: transparent;
+  }
+}
+
+// Navs
+
+.nav-tabs,
+.nav-pills {
+  .nav-link {
+    color: $contrast-bg;
+
+    &:hover {
+      background-color: body-mix(50%);
+    }
+
+    &.disabled,
+    &.disabled:hover {
+      background-color: transparent;
+      color: $nav-link-disabled-color;
+    }
+
+    &.active {
+      background-color: $gray-600;
+    }
+  }
+}
+
+.breadcrumb {
+  a {
+    color: $contrast-bg;
+  }
+}
+
+.pagination {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+// Indicators
+
+.alert {
+  border: none;
+  color: $contrast-bg;
+
+  a,
+  .alert-link {
+    color: $contrast-bg;
+    text-decoration: underline;
+  }
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @if $enable-gradients {
+        background: $value
+          linear-gradient(180deg, mix($contrast-bg, $value, 15%), $value)
+          repeat-x;
+      } @else {
+        background-color: $value;
+      }
+    }
+  }
+}
+
+.badge {
+  &.bg-dark {
+    color: $gray-900;
+  }
+}
+
+// Footer
+
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  background-color: $gray-400;
+  font-weight: 200;
+  font-size: 1.2rem;
+  overflow-x: auto;   // Add this property to enable horizontal scrolling
+  white-space: nowrap; // Prevent line breaks for footer elements
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: $gray-600; // Adjust the percentage to control the amount of lightening
+    }
+  }
+}
+
+
+
+// Containers
+
+.list-group-item-action {
+  &:hover {
+    border-color: $dark;
+  }
+}
+
+.popover {
+  &-title {
+    border-bottom: none;
+  }
+}
+
+
+// THIS WORKS!
+
+div.quarto-post .body h3.listing-title, div.quarto-post .body .listing-title.h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: none;
+
+  cursor: pointer;
+  &:hover {
+    color: $gray-700;
+    text-decoration: underline;
+  }
+}
+
+
+// Updates Category Block Labels [R, Rshiny, CSS]...
+div.quarto-post .listing-categories .listing-category {
+  display: flex;
+  color: $gray-600;
+  text-transform: capitalize;
+  border: solid 1px $gray-400;
+  border-radius: 0.25rem;
+  font-size: 0.55em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: $gray-200;
+  }
+}
+
+// About me Title
+div.quarto-about-marquee header#title-block-header {
+  margin-block-end: 1rem;
+  position: relative;
+  text-align: center;
+  margin-top: 5px;
+}
+
+// Updates Categories 
+.quarto-listing-category-title {
+  font-weight: 500;
+  font-size: 1.1rem !important;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    color: $blue;
+    text-decoration: underline;
+  }
+}
+
+.quarto-listing-category .category {
+  font-size: 90%;
+  font-weight: 100;
+  color: $gray-600;
+  cursor: pointer !important;
+  &:hover {
+    color: $blue;
+  }
+}
+
+
+.quarto-post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+
+  .quarto-post-content {
+    flex-grow: 1;
+  }
+
+  .quarto-post-image {
+    order: 2;
+  }
+
+  .quarto-post-title {
+    order: 1;
+  }
+
+  .quarto-post-description {
+    order: 1;
+  }
+  
+  .quarto-post-title:hover {
+    text-decoration: underline;
+  }
+}
+
+div.quarto-post .listing-categories {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+}
+
+
+div.quarto-post .thumbnail img {
+  flex: auto;
+  margin-top: 0.4em;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+}
+
+
+// Title Banner
+
+.quarto-title-banner .quarto-title .title {
+  font-weight: 900;
+  color: $black;
+}
+
+.quarto-title-banner{
+  font-weight: 900;
+  background-color: $gray-400 !important;
+}
+
+// Blog Author + Date
+
+#title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
+  margin-bottom: 0.1em;
+  margin-top: auto;
+  font-size: 1.1em;
+}
+
+div.quarto-post .listing-description {
+  margin-bottom: 0.5em;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+
+div.quarto-post .metadata {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: .7em;
+  font-family: var(--bs-font-sans-serif);
+  flex-basis: 33%;
+}
+
+// Viewport Meta Tag
+@viewport {
+  width: device-width;
+  initial-scale: 1.0;
+}
