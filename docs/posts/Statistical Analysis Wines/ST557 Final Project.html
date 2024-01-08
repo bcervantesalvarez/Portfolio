@@ -8,6 +8,7 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2023-12-14">
+<meta name="description" content="Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest’s superiority, identifying key variables.">
 
 <title>Brian Cervantes Alvarez - Applied Multivariate Analysis: Investigating Red &amp; White Wines</title>
 <style>
@@ -144,6 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Applied Multivariate Analysis: Investigating Red &amp; White Wines">
+<meta property="og:description" content="Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest's superiority, identifying key variables.">
 <meta property="og:image" content="redwhite.jpeg">
 <meta property="og:site-name" content="Brian Cervantes Alvarez">
 </head>
@@ -194,13 +196,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">Applied Multivariate Analysis: Investigating Red &amp; White Wines</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest’s superiority, identifying key variables.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Machine Learning</div>
                 <div class="quarto-category">Support Vector Machines</div>
                 <div class="quarto-category">Logistic Regression</div>
                 <div class="quarto-category">Random Forest</div>
                 <div class="quarto-category">Classification</div>
+                <div class="quarto-category">Statistics</div>
               </div>
                   </div>
   </div>
@@ -741,26 +749,26 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 
           Reference
 Prediction  red white
-     red    474     6
-     white    5  1463
+     red    473     4
+     white    6  1465
                                              
-               Accuracy : 0.9944             
-                 95% CI : (0.9899, 0.9972)   
+               Accuracy : 0.9949             
+                 95% CI : (0.9906, 0.9975)   
     No Information Rate : 0.7541             
     P-Value [Acc &gt; NIR] : &lt;0.0000000000000002
                                              
-                  Kappa : 0.9848             
+                  Kappa : 0.9861             
                                              
- Mcnemar's Test P-Value : 1                  
+ Mcnemar's Test P-Value : 0.7518             
                                              
-            Sensitivity : 0.9896             
-            Specificity : 0.9959             
-         Pos Pred Value : 0.9875             
-         Neg Pred Value : 0.9966             
+            Sensitivity : 0.9875             
+            Specificity : 0.9973             
+         Pos Pred Value : 0.9916             
+         Neg Pred Value : 0.9959             
              Prevalence : 0.2459             
-         Detection Rate : 0.2433             
-   Detection Prevalence : 0.2464             
-      Balanced Accuracy : 0.9927             
+         Detection Rate : 0.2428             
+   Detection Prevalence : 0.2449             
+      Balanced Accuracy : 0.9924             
                                              
        'Positive' Class : red                
                                              </code></pre>
@@ -787,7 +795,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyRF, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9964"</code></pre>
+<pre><code>[1] "Accuracy: 0.9959"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Logistic Regression Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -795,7 +803,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyLogistic, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9944"</code></pre>
+<pre><code>[1] "Accuracy: 0.9949"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Support Vector Machine (SVM) Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -811,16 +819,16 @@ Prediction  red white
 <pre><code>rf variable importance
 
                    Overall
-totalSulfurDioxide 100.000
-chlorides           96.412
-volatileAcidity     41.274
-density             24.317
-sulphates           21.978
-residualSugar       19.850
-fixedAcidity        18.526
-freeSulfurDioxide   18.251
-citricAcid           7.584
-pH                   5.685
+chlorides          100.000
+totalSulfurDioxide  73.599
+volatileAcidity     44.692
+density             24.173
+sulphates           22.789
+freeSulfurDioxide   20.033
+residualSugar       16.931
+fixedAcidity        15.996
+citricAcid           8.468
+pH                   5.126
 alcohol              0.000</code></pre>
 </div>
 </div>

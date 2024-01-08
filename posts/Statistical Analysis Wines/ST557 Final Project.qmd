@@ -3,7 +3,7 @@ title: "Applied Multivariate Analysis: Investigating Red & White Wines"
 author: 
     - "Brian Cervantes Alvarez"
 date: "12-14-2023"
-description: 
+description: "Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest's superiority, identifying key variables."
 image: redwhite.jpeg
 format:
   html:
