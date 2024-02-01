@@ -235,33 +235,141 @@ div.sourceCode pre.sourceCode {
 }
 
 /* Specific syntax coloring */
-code span.ot { color: #20794d; }
-code span.at { color: #b3c20f; }
-code span.ss,
-code span.st,
-code span.vs,
-code span.ch { color: #25a18e; }
-code span.an,
-code span.op,
-code span.in,
-code span.wa,
-code span.do,
-code span.co,
-code span.cv,
-code span.sc { color: #a0a0a0; font-style: normal; }
-code span.fu { color: #9e7ace; }
-code span.cf,
-code span.kw { color: #ffffff; }
-code span.er,
-code span.bn,
-code span.al,
-code span.pp,
-code span.dt,
-code span.fl,
-code span.dv { color: #ff6347; }
-code span.va { color: #cccccc; }
-code span.im { color: #25c3dc; }
-code span.cn { color: #e6b800; }
+// Source Code color-scheme:
+
+pre > code.sourceCode > span {
+  color: #ffffff;
+  width: 100%;
+}
+
+div.sourceCode,
+div.sourceCode pre.sourceCode {
+  background-color: $gray-900;
+}
+
+code span {
+  color: #ffffff;
+}
+
+code.sourceCode > span {
+  color: #ffffff;
+}
+
+div.sourceCode,
+div.sourceCode pre.sourceCode {
+  color: #ffffff;
+}
+
+code span.ot {
+  color: #20794d;
+}
+
+code span.at {
+  color: #b3c20f;
+}
+
+code span.ss {
+  color: #25a18e;
+}
+
+code span.an {
+  color: #a0a0a0;
+}
+
+code span.fu {
+  color: #9e7ace;
+}
+
+code span.st {
+  color: #25a18e;
+}
+
+code span.cf {
+  color: #ffffff;
+}
+
+code span.op {
+  color: #a0a0a0;
+}
+
+code span.er {
+  color: #ff6347;
+}
+
+code span.bn {
+  color: #ff6347;
+}
+
+code span.al {
+  color: #ff6347;
+}
+
+code span.va {
+  color: #cccccc;
+}
+
+code span.pp {
+  color: #ff6347;
+}
+
+code span.in {
+  color: #a0a0a0;
+}
+
+code span.vs {
+  color: #25a18e;
+}
+
+code span.wa {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.do {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.im {
+  color: #25c3dc;
+}
+
+code span.ch {
+  color: #25a18e;
+}
+
+code span.dt {
+  color: #ff6347;
+}
+
+code span.fl {
+  color: #ff6347;
+}
+
+code span.co {
+  color: #a0a0a0;
+}
+
+code span.cv {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+code span.cn {
+  color: #e6b800;
+}
+
+code span.sc {
+  color: #a0a0a0;
+}
+
+code span.dv {
+  color: #ff6347;
+}
+
+code span.kw {
+  color: #ffffff;
+}
 
 .prevent-inlining {
   content: "</";
