@@ -1,62 +1,62 @@
 /*-- scss:defaults --*/
 
-$theme: "BCA_DarkTheme" !default;
+$theme: "BCA_LightTheme" !default;
 
 //
 // Color system
 //
 
 $white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #adafae !default;
-$gray-500: #888 !default;
-$gray-600: #555 !default;
-$gray-700: #282828 !default;
-$gray-800: #222 !default;
-$gray-900: #212529 !default;
+$gray-100: #212529 !default; // Darker shade for light gray
+$gray-200: #343a40 !default;
+$gray-300: #495057 !default;
+$gray-400: #6c757d !default; // Lighter shade for dark gray
+$gray-500: #adb5bd !default;
+$gray-600: #ced4da !default; // Lighter shade for gray
+$gray-700: #dee2e6 !default; // Even lighter gray
+$gray-800: #e9ecef !default;
+$gray-900: #f8f9fa !default; // Almost white for darkest gray
 $black: #000 !default;
 
-$blue: #2a9fd6 !default;
+$blue: #0d6efd !default; // Adjusted for better visibility
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
-$pink: #e83e8c !default;
-$red: #c00 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
 $orange: #fd7e14 !default;
-$yellow: #f80 !default;
-$green: #77b300 !default;
+$yellow: #ffc107 !default;
+$green: #198754 !default;
 $teal: #20c997 !default;
-$cyan: #93c !default;
+$cyan: #0dcaf0 !default;
 
-$primary: $blue !default;
+$primary: $gray-100 !default;
+$secondary: $gray-700 !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
+$light: $gray-300 !default;
+$dark: $gray-700 !default;
 
-$min-contrast-ratio: 2.25 !default;
+$min-contrast-ratio: 4.5 !default; // Higher contrast ratio for readability
 
 // Options
 
 $enable-rounded: true !default;
 
+// Background Color
+
+$background-color: #1a1a1a !default; // Dark background
+
+// Title Banner
+
+$title-banner: true !default;
+
 // Body
 
-@function body-mix($weight) {
-  @return mix(#060606, $gray-400, $weight);
-}
-$body-bg: body-mix(100%) !default;
-$body-color: body-mix(0%) !default;
+$body-color: $gray-500 !default;
 
-// Most defaults to cascade from body bg/color, but some
-// colors really want to a full contrast from the bg color
-$contrast-bg: color-contrast($body-bg) !default;
-$secondary: body-mix(67%) !default;
-$light: body-mix(33%) !default;
-$dark: $body-color !default;
-
-/// Fonts
+// Fonts
 
 $font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
@@ -65,480 +65,271 @@ $body-font-size: 0.9rem !default;
 $font-size-sm: 0.5rem !default;
 $h1-font-size: 1.75rem !default;
 $h2-font-size: 1.5rem !default;
-$h3-font-size: 1.20rem !default;
+$h3-font-size: 1.2rem !default;
 $h4-font-size: 1.15rem !default;
 $h5-font-size: 1rem !default;
 $h6-font-size: 0.8rem !default;
 $headings-font-weight: 900 !default;
-$headings-color: $white !default;
+$headings-color: $light !default;
 
 // Word Spacing
 
 $body-line-stretch: 1.3rem !default;
 
-
 // Tables
 
-$table-color: $contrast-bg !default;
-$table-accent-bg: rgba($contrast-bg, 0.05) !default;
-$table-hover-bg: rgba($contrast-bg, 0.075) !default;
-$table-border-color: body-mix(50%) !default;
-$table-dark-bg: body-mix(16%) !default;
-$table-dark-border-color: body-mix(23%) !default;
+$table-border-color: rgba(255, 255, 255, 0.1) !default; // Lighter border for tables
 
-$table-bg-scale: 0 !default;
 
 // Buttons
 
-$input-btn-padding-x: 1rem !default;
+$btn-line-height: 1.5rem !default;
+$input-btn-padding-y: 0.75rem !default;
+$input-btn-padding-x: 1.5rem !default;
+$input-btn-padding-y-sm: 0.5rem !default;
+$input-btn-padding-x-sm: 1rem !default;
+$input-btn-padding-y-lg: 2rem !default;
+$input-btn-padding-x-lg: 2rem !default;
+$btn-font-weight: 600 !default;
 
 // Forms
 
-$input-bg: $white !default;
-$input-disabled-bg: $body-color !default;
-$input-color: body-mix(85%) !default;
-$input-border-color: $contrast-bg !default;
-$input-border-width: 0 !default;
-$input-group-addon-color: $contrast-bg !default;
-$input-group-addon-bg: body-mix(50%) !default;
-$input-group-addon-border-color: transparent !default;
-$form-check-input-bg: $contrast-bg !default;
-$form-check-input-border: none !default;
-$form-file-button-color: $contrast-bg !default;
-
-// Dropdowns
-
-$dropdown-bg: body-mix(50%) !default;
-$dropdown-divider-bg: body-mix(67%) !default;
-$dropdown-link-color: $contrast-bg !default;
-$dropdown-link-hover-color: $contrast-bg !default;
-$dropdown-link-hover-bg: $primary !default;
-
-// Navs
-
-$nav-tabs-border-color: $table-border-color !default;
-$nav-tabs-link-hover-border-color: $nav-tabs-border-color !default;
-$nav-tabs-link-active-color: $contrast-bg !default;
-$nav-tabs-link-active-bg: $nav-tabs-border-color !default;
-$nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
+$input-line-height: 1.5 !default;
+$input-bg: $gray-400 !default; // Darker input background
+$input-disabled-bg: $gray-500 !default;
+$input-group-addon-bg: $gray-500 !default;
 
 // Navbar
 
-$navbar-dark-hover-color: $contrast-bg !default;
 $navbar-padding-y: 1.5rem !default;
-$navbar-dark-hover-color: $white !default;
+$navbar-dark-hover-color: $gray-500 !default;
+$navbar-light-color: rgba($white, 0.3) !default;
+$navbar-light-hover-color: $light !default;
+$navbar-light-active-color: $light !default;
 
 // Pagination
-
-$pagination-color: $contrast-bg !default;
-$pagination-bg: body-mix(50%) !default;
+$pagination-color: $blue !default;
+$pagination-hover-color: color-contrast($blue) !default;
 $pagination-border-color: transparent !default;
-$pagination-hover-color: $contrast-bg !default;
-$pagination-hover-bg: $primary !default;
 $pagination-hover-border-color: $pagination-border-color !default;
-$pagination-disabled-bg: $pagination-bg !default;
 $pagination-disabled-border-color: $pagination-border-color !default;
-
-// Cards
-
-$card-bg: body-mix(50%) !default;
-
-// Tooltips
-
-$tooltip-bg: body-mix(50%) !default;
-$tooltip-opacity: 1 !default;
-
-// Popovers
-
-$popover-bg: body-mix(50%) !default;
-
-// Toasts
-
-$toast-color: $contrast-bg !default;
-$toast-background-color: body-mix(67%) !default;
-$toast-border-color: body-mix(50%) !default;
-$toast-header-color: $body-color !default;
-$toast-header-background-color: $toast-background-color !default;
-$toast-header-border-color: $toast-border-color !default;
-
-// Modals
-
-$modal-content-bg: body-mix(67%) !default;
-$modal-header-border-color: body-mix(50%) !default;
-
-// Progress bars
-
-$progress-bg: body-mix(50%) !default;
-
-// List group
-
-$list-group-color: $contrast-bg !default;
-$list-group-bg: body-mix(67%) !default;
-$list-group-border-color: body-mix(50%) !default;
-$list-group-hover-bg: $primary !default;
-$list-group-disabled-bg: body-mix(50%) !default;
-$list-group-action-color: $contrast-bg !default;
-$list-group-action-active-bg: $primary !default;
-
-// Breadcrumbs
-
-$breadcrumb-padding-y: 0.375rem !default;
-$breadcrumb-padding-x: 0.75rem !default;
-$breadcrumb-bg: body-mix(50%) !default;
-$breadcrumb-border-radius: 0.25rem !default;
-
-// Close
-
-$btn-close-color: $contrast-bg !default;
-$btn-close-opacity: 0.6 !default;
-$btn-close-hover-opacity: 1 !default;
-
-// Code
-
-$pre-color: inherit !default;
 
 /*-- scss:rules --*/
 
-// Variables
-
+// Variables and Font Imports
 $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
-@if $web-font-path {
-  @import url($web-font-path);
-}
-
 $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" !default;
 
-@if $web-monofont-path {
-  @import url($web-monofont-path);
-}
+@import url($web-font-path);
+@import url($web-monofont-path);
 
-
-// Navbar
-
-.navbar {
-  font-size: $h6-font-size;
-  font-weight: 800;
+// Nav Footer
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0.6rem 0;
   background-color: $gray-400;
+  font-weight: 200;
+  font-size: 1.2rem;
+  overflow-x: auto;
+  white-space: nowrap;
 
-  &-nav {
-    .nav-link {
-      padding-top: 0.715rem;
-      padding-bottom: 0.715rem;
+  a {
+    color: $black;
+    &:hover {
+      color: $gray-600;
     }
   }
-
-  &-brand {
-    margin-right: 2rem;
-  }
 }
 
-a {
-  color: $gray-100;
-  
-  &:hover {
-    color: lighten(#1560bd, 20%);
-  }
+// Background Colors
+.bg-primary {
+  background-color: theme-color("primary") !important;
 }
 
+.bg-light {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  &.navbar-fixed-top { border-width: 0 0 1px; }
+  &.navbar-bottom-top { border-width: 1px 0 0; }
+}
 
+// Nav Item
+.nav-item {
+  margin-right: 2rem;
+}
+
+// Sidebar Table of Content
+.sidebar nav[role="doc-toc"] {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar nav[role="doc-active"] ul > li > a.active {
+  border-left: 1px solid #1a1a1a;
+  text-decoration: underline !important;
+}
 
 // Typography
+// Heading Transformations
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+
+
+.text-secondary {
+  color: $body-color !important;
+}
 
 body {
   font-weight: 200;
   font-family: "DM Sans", sans-serif;
+  background-color: $background-color;
   font-size: $body-font-size;
   line-height: $body-line-stretch;
-  color: $gray-500;
+  color: $gray-700;
   touch-action: pan-y;
   overflow-x: hidden;
   user-zoom: fixed;
 }
 
-
 p {
-  margin-bottom: 25px; // Adjusts the bottom margin between paragraphs
+  margin-bottom: 25px; /* Adjusts the bottom margin between paragraphs */
   line-height: 1.7em;
 }
 
-// Heading Transformations
-
-h1 {
-  margin-bottom: 20px;
-}
-
-h2 {
-  margin-bottom: 20px;
-}
-
-h3 {
-  margin-bottom: 20px;
-}
-
-h4 {
-  margin-bottom: 20px;
-}
-
-h5 {
-  margin-bottom: 20px;
-}
-
-h6 {
-  margin-bottom: 20px;
-}
-
-.text-secondary {
-  color: $white !important;
-}
-
-// Code Chunk Coloring
-
+/* Code Chunk Coloring */
 code {
   font-family: "Fira Code", monospace;
   padding: 0.5rem;
   overflow-x: scroll;
+  color: #ffffff; /* Default color for all code elements */
 }
 
-// Source Code color-scheme:
-
-pre > code.sourceCode > span {
-  color: #ffffff;
-  width: 100%;
-}
-
+/* Source Code color-scheme: */
 div.sourceCode,
 div.sourceCode pre.sourceCode {
   background-color: $gray-900;
+  color: #ffffff; /* Color for source code containers */
 }
 
-code span {
-  color: #ffffff;
-}
-
-code.sourceCode > span {
-  color: #ffffff;
-}
-
-div.sourceCode,
-div.sourceCode pre.sourceCode {
-  color: #ffffff;
-}
-
-code span.ot {
-  color: #20794d;
-}
-
-code span.at {
-  color: #b3c20f;
-}
-
-code span.ss {
-  color: #25a18e;
-}
-
-code span.an {
-  color: #a0a0a0;
-}
-
-code span.fu {
-  color: #9e7ace;
-}
-
-code span.st {
-  color: #25a18e;
-}
-
-code span.cf {
-  color: #ffffff;
-}
-
-code span.op {
-  color: #a0a0a0;
-}
-
-code span.er {
-  color: #ff6347;
-}
-
-code span.bn {
-  color: #ff6347;
-}
-
-code span.al {
-  color: #ff6347;
-}
-
-code span.va {
-  color: #cccccc;
-}
-
-code span.pp {
-  color: #ff6347;
-}
-
-code span.in {
-  color: #a0a0a0;
-}
-
-code span.vs {
-  color: #25a18e;
-}
-
-code span.wa {
-  color: #a0a0a0;
-  font-style: italic;
-}
-
-code span.do {
-  color: #a0a0a0;
-  font-style: italic;
-}
-
-code span.im {
-  color: #25c3dc;
-}
-
-code span.ch {
-  color: #25a18e;
-}
-
-code span.dt {
-  color: #ff6347;
-}
-
-code span.fl {
-  color: #ff6347;
-}
-
-code span.co {
-  color: #a0a0a0;
-}
-
-code span.cv {
-  color: #a0a0a0;
-  font-style: italic;
-}
-
-code span.cn {
-  color: #e6b800;
-}
-
-code span.sc {
-  color: #a0a0a0;
-}
-
-code span.dv {
-  color: #ff6347;
-}
-
-code span.kw {
-  color: #ffffff;
-}
+/* Specific syntax coloring */
+code span.ot { color: #20794d; }
+code span.at { color: #b3c20f; }
+code span.ss,
+code span.st,
+code span.vs,
+code span.ch { color: #25a18e; }
+code span.an,
+code span.op,
+code span.in,
+code span.wa,
+code span.do,
+code span.co,
+code span.cv,
+code span.sc { color: #a0a0a0; font-style: normal; }
+code span.fu { color: #9e7ace; }
+code span.cf,
+code span.kw { color: #ffffff; }
+code span.er,
+code span.bn,
+code span.al,
+code span.pp,
+code span.dt,
+code span.fl,
+code span.dv { color: #ff6347; }
+code span.va { color: #cccccc; }
+code span.im { color: #25c3dc; }
+code span.cn { color: #e6b800; }
 
 .prevent-inlining {
   content: "</";
 }
 
-
 // Buttons
-
 .btn {
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @if $enable-gradients {
-        background: $value
-          linear-gradient(180deg, mix($contrast-bg, $value, 15%), $value)
-          repeat-x;
-      } @else {
-        background-color: $value;
-      }
-    }
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+
+  &-sm {
+    font-size: 10px;
+  }
+
+  &-warning,
+  &-warning:hover,
+  &-warning:not([disabled]):not(.disabled):active,
+  &-warning:focus {
+    color: $secondary;
   }
 }
 
-// Forms
-
-legend {
-  color: $contrast-bg;
-}
-
-.form-control {
-  background-clip: border-box;
-
-  &:disabled,
-  &[readonly] {
-    border-color: transparent;
+.btn-outline-secondary {
+  border-color: $gray-600;
+  color: $gray-600;
+  &:not([disabled]):not(.disabled):hover,
+  &:not([disabled]):not(.disabled):focus,
+  &:not([disabled]):not(.disabled):active {
+    background-color: $gray-400;
+    border-color: $gray-400;
+    color: $secondary;
+  }
+  &:not([disabled]):not(.disabled):focus {
+    box-shadow: 0 0 0 0.2rem rgba($gray-400, 0.5);
   }
 }
 
-// Navs
+[class*="btn-outline-"] {
+  border-width: 2px;
+}
 
-.nav-tabs,
-.nav-pills {
-  .nav-link {
-    color: $contrast-bg;
+.border-secondary {
+  border: 1px solid $gray-400 !important;
+}
 
-    &:hover {
-      background-color: body-mix(50%);
-    }
+// Tables
+th {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+}
 
-    &.disabled,
-    &.disabled:hover {
-      background-color: transparent;
-      color: $nav-link-disabled-color;
-    }
-
-    &.active {
-      background-color: $gray-600;
-    }
+.table {
+  th, td {
+    padding: 1.5rem;
+  }
+  &-sm th, &-sm td {
+    padding: 0.75rem;
   }
 }
 
-.breadcrumb {
-  a {
-    color: $contrast-bg;
+// Navs Colors & Hover Over
+a {
+  color: $gray-900;
+  &:hover {
+    color: #1560bd;
   }
 }
 
-.pagination {
-  a:hover {
-    text-decoration: none;
-  }
+.dropdown-menu {
+  font-size: $font-size-sm;
+  text-transform: none;
 }
 
 // Indicators
-
-.alert {
-  border: none;
-  color: $contrast-bg;
-
-  a,
-  .alert-link {
-    color: $contrast-bg;
-    text-decoration: underline;
-  }
-
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @if $enable-gradients {
-        background: $value
-          linear-gradient(180deg, mix($contrast-bg, $value, 15%), $value)
-          repeat-x;
-      } @else {
-        background-color: $value;
-      }
-    }
-  }
-}
-
 .badge {
-  &.bg-dark {
-    color: $gray-900;
+  padding-top: 0.28rem;
+  &-pill {
+    border-radius: 10rem;
+  }
+  &.bg-secondary, &.bg-light {
+    color: $dark;
   }
 }
 
 // Footer
-
 .nav-footer {
   display: flex;
   justify-content: space-between;
@@ -546,184 +337,110 @@ legend {
   text-align: center;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
-  background-color: $gray-400;
+  background-color: $primary;
   font-weight: 200;
   font-size: 1.2rem;
-  overflow-x: auto;   // Add this property to enable horizontal scrolling
-  white-space: nowrap; // Prevent line breaks for footer elements
-
   a {
-    color: $black;
-
+    color: $gray-600;
     &:hover {
-      color: $gray-600; // Adjust the percentage to control the amount of lightening
+      color: $background-color;
     }
   }
 }
 
 
-
-// Containers
-
-.list-group-item-action {
-  &:hover {
-    border-color: $dark;
-  }
+/* Containers */
+.list-group-item h1, .list-group-item h2, .list-group-item h3, .list-group-item h4, .list-group-item h5, .list-group-item h6, .list-group-item .h1, .list-group-item .h2, .list-group-item .h3, .list-group-item .h4, .list-group-item .h5, .list-group-item .h6,
+.card-title, .card-header {
+  color: inherit;
 }
 
-.popover {
-  &-title {
-    border-bottom: none;
-  }
-}
-
-
-// THIS WORKS!
-
-div.quarto-post .body h3.listing-title, div.quarto-post .body .listing-title.h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-bottom: none;
-
-  cursor: pointer;
-  &:hover {
-    color: $gray-700;
-    text-decoration: underline;
-  }
-}
-
-
-// Updates Category Block Labels [R, Rshiny, CSS]...
-div.quarto-post .listing-categories .listing-category {
-  display: flex;
-  color: $gray-600;
-  text-transform: capitalize;
-  border: solid 1px $gray-400;
-  border-radius: 0.25rem;
-  font-size: 0.55em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  margin-right: 4px;
-  margin-bottom: 4px;
-  cursor: pointer;
-  &:hover {
-    background-color: $gray-200;
-  }
-}
-
-// About me Title
+/* About Me Title */
 div.quarto-about-marquee header#title-block-header {
-  margin-block-end: 1rem;
   position: relative;
-  text-align: center;
   margin-top: 5px;
+  text-align: center;
+  margin-block-end: 1rem;
 }
 
-// Updates Categories 
-.quarto-listing-category-title {
-  font-weight: 500;
-  font-size: 1.1rem !important;
-  position: relative;
+/* Title Banner */
+.quarto-title-banner .quarto-title .title {
+  font-weight: 900;
+  color: white;
+}
+
+/* Post Blocks */
+div.quarto-post .body h3.listing-title, div.quarto-post .body .listing-title.h3 {
+  margin: 0;
+  border-bottom: none;
   cursor: pointer;
-  &:hover {
-    color: $blue;
-    text-decoration: underline;
-  }
+}
+div.quarto-post .body h3.listing-title:hover, div.quarto-post .body .listing-title.h3:hover {
+  color: $gray-900;
 }
 
+/* Updates Categories */
+.quarto-listing-category-title, .quarto-listing-category .category {
+  cursor: pointer;
+  font-size: 1.1rem !important;
+  font-weight: 500;
+}
 .quarto-listing-category .category {
   font-size: 90%;
   font-weight: 100;
   color: $gray-600;
-  cursor: pointer !important;
-  &:hover {
-    color: $blue;
-  }
+}
+.quarto-listing-category-title:hover, .quarto-listing-category .category:hover {
+  color: $gray-800;
 }
 
+/* Updates Category Block Labels [R, Rshiny, CSS]... */
+div.quarto-post .listing-categories .listing-category {
+  display: flex;
+  color: $gray-700;
+  text-transform: capitalize;
+  border: solid 1px $gray-400;
+  border-radius: 0.25rem;
+  font-size: 0.55em;
+  padding: 0.15em 0.5em;
+  margin: 4px 4px 4px 0;
+  cursor: pointer;
+}
+div.quarto-post .listing-categories .listing-category:hover {
+  background-color: $gray-400;
+}
 
-.quarto-post {
+/* Post Styling */
+div.quarto-post {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: auto;
-
-  .quarto-post-content {
-    flex-grow: 1;
-  }
-
-  .quarto-post-image {
-    order: 2;
-  }
-
-  .quarto-post-title {
-    order: 1;
-  }
-
-  .quarto-post-description {
-    order: 1;
-  }
-  
-  .quarto-post-title:hover {
-    text-decoration: underline;
-  }
+  padding: 5px;
 }
-
-div.quarto-post .listing-categories {
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 5px;
-}
-
-
 div.quarto-post .thumbnail img {
-  flex: auto;
   margin-top: 0.4em;
-  width: 300px;
-  height: 200px;
+  width: 262px;
+  height: 175px;
   object-fit: cover;
-  margin: auto;
 }
-
-
-// Title Banner
-
-.quarto-title-banner .quarto-title .title {
-  font-weight: 900;
-  color: $black;
-}
-
-.quarto-title-banner{
-  font-weight: 900;
-  background-color: $gray-400 !important;
-}
-
-// Blog Author + Date
-
-#title-block-header.quarto-title-block.default .quarto-title-meta-contents p, #title-block-header.quarto-title-block.default .quarto-title-authors p, #title-block-header.quarto-title-block.default .quarto-title-affiliations p {
-  margin-bottom: 0.1em;
-  margin-top: auto;
-  font-size: 1.1em;
-}
-
 div.quarto-post .listing-description {
-  margin-bottom: 0.5em;
-  font-size: 13px;
-  line-height: 1.4em;
+  margin-bottom: 5px;
+  font-size: 13.5px;
+  line-height: 1.2em;
 }
-
 div.quarto-post .metadata {
-  display: flex;
-  flex-direction: column;
-  font-weight: 200;
-  font-size: .7em;
+  font-weight: 300;
+  font-size: 0.7em;
   font-family: var(--bs-font-sans-serif);
-  flex-basis: 33%;
+  flex-basis: 100%;
+  padding-bottom: 20px;
+}
+div.quarto-post .metadata .listing-date {
+  font-weight: 300;
 }
 
-// Viewport Meta Tag
+/* Viewport Meta Tag */
 @viewport {
   width: device-width;
   initial-scale: 1.0;

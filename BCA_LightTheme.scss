@@ -115,20 +115,14 @@ $pagination-disabled-border-color: $pagination-border-color !default;
 
 /*-- scss:rules --*/
 
-// Variables
-
-// Font Imports
+// Variables and Font Imports
 $web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
-@if $web-font-path {
-  @import url($web-font-path);
-}
-
 $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" !default;
 
-@if $web-monofont-path {
-  @import url($web-monofont-path);
-}
+@import url($web-font-path);
+@import url($web-monofont-path);
 
+// Footer
 .nav-footer {
   display: flex;
   justify-content: space-between;
@@ -136,84 +130,73 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
   text-align: center;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
-  background-color: $gray-400;
+  background-color: $primary;
   font-weight: 200;
   font-size: 1.2rem;
-  overflow-x: auto;   // Add this property to enable horizontal scrolling
-  white-space: nowrap; // Prevent line breaks for footer elements
-
   a {
-    color: $black;
-
+    color: $gray-100;
     &:hover {
-      color: $gray-600; // Adjust the percentage to control the amount of lightening
+      transition: color 0.3s ease;
+      color: $gray-600;
     }
   }
 }
 
+nav a:hover {
+  transition: color 0.5s ease;
+  color: $white !important;
+}
+
+// Apply the same styling for the active link
+nav a.active { // For direct navigation to a section via URL fragment
+  color: $white !important; // Active link color same as hover
+}
+
+
+.quarto-navbar-tools {
+  position: sticky;
+  transform: translateX(-50%); // Adjust for the element's height
+}
+
+
+// Background Colors
 .bg-primary {
   background-color: theme-color("primary") !important;
 }
 
 .bg-light {
   border: 1px solid rgba(0, 0, 0, 0.1);
-
-  &.navbar-fixed-top {
-    border-width: 0 0 1px;
-  }
-
-  &.navbar-bottom-top {
-    border-width: 1px 0 0;
-  }
+  &.navbar-fixed-top { border-width: 0 0 1px; }
+  &.navbar-bottom-top { border-width: 1px 0 0; }
 }
 
+// Nav Item
 .nav-item {
   margin-right: 2rem;
 }
 
-// Table of Content
-
+// Sidebar Table of Content
 .sidebar nav[role="doc-toc"] {
   position: sticky;
   top: 0;
   max-height: 100vh;
   overflow-y: auto;
+  color: $gray-600 !important;
 }
-
-.sidebar nav[role="doc-toc"] ul > li > a.active {
-  border-left: 1px solid #1a1a1a;
-  color: $blue !important;
+.sidebar nav[role="doc-toc"] .nav-link:hover {
+  border-left: 1px solid $cyan; // Change the border color to something visible in dark mode
+  color: $cyan !important; // Bright color for better visibility on hover
+  text-decoration: underline !important; // Underline to indicate hover state
 }
-
 
 
 // Typography
-
 // Heading Transformations
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
-
-h3 {
-  margin-bottom: 20px;
-}
-
-h4 {
-  margin-bottom: 20px;
-}
-
-h5 {
-  margin-bottom: 20px;
-}
-
-h6 {
-  margin-bottom: 20px;
-}
 
 .text-secondary {
   color: $body-color !important;
@@ -232,160 +215,59 @@ body {
 }
 
 p {
-  margin-bottom: 25px; // Adjusts the bottom margin between paragraphs
+  margin-bottom: 25px; /* Adjusts the bottom margin between paragraphs */
   line-height: 1.7em;
 }
 
-// Code Chunk Coloring
-
+/* Code Chunk Coloring */
 code {
   font-family: "Fira Code", monospace;
   padding: 0.5rem;
   overflow-x: scroll;
+  color: #ffffff; /* Default color for all code elements */
 }
 
-// Source Code color-scheme:
-
-pre > code.sourceCode > span {
-  color: #ffffff;
-  width: 100%;
-}
-
+/* Source Code color-scheme: */
 div.sourceCode,
 div.sourceCode pre.sourceCode {
   background-color: $gray-900;
+  color: #ffffff; /* Color for source code containers */
 }
 
-code span {
-  color: #ffffff;
-}
-
-code.sourceCode > span {
-  color: #ffffff;
-}
-
-div.sourceCode,
-div.sourceCode pre.sourceCode {
-  color: #ffffff;
-}
-
-code span.ot {
-  color: #20794d;
-}
-
-code span.at {
-  color: #b3c20f;
-}
-
-code span.ss {
-  color: #25a18e;
-}
-
-code span.an {
-  color: #a0a0a0;
-}
-
-code span.fu {
-  color: #9e7ace;
-}
-
-code span.st {
-  color: #25a18e;
-}
-
-code span.cf {
-  color: #ffffff;
-}
-
-code span.op {
-  color: #a0a0a0;
-}
-
-code span.er {
-  color: #ff6347;
-}
-
-code span.bn {
-  color: #ff6347;
-}
-
-code span.al {
-  color: #ff6347;
-}
-
-code span.va {
-  color: #cccccc;
-}
-
-code span.pp {
-  color: #ff6347;
-}
-
-code span.in {
-  color: #a0a0a0;
-}
-
-code span.vs {
-  color: #25a18e;
-}
-
-code span.wa {
-  color: #a0a0a0;
-  font-style: italic;
-}
-
-code span.do {
-  color: #a0a0a0;
-  font-style: italic;
-}
-
-code span.im {
-  color: #25c3dc;
-}
-
-code span.ch {
-  color: #25a18e;
-}
-
-code span.dt {
-  color: #ff6347;
-}
-
-code span.fl {
-  color: #ff6347;
-}
-
-code span.co {
-  color: #a0a0a0;
-}
-
-code span.cv {
-  color: #a0a0a0;
-  font-style: italic;
-}
-
-code span.cn {
-  color: #e6b800;
-}
-
-code span.sc {
-  color: #a0a0a0;
-}
-
-code span.dv {
-  color: #ff6347;
-}
-
-code span.kw {
-  color: #ffffff;
-}
+/* Specific syntax coloring */
+code span.ot { color: #20794d; }
+code span.at { color: #b3c20f; }
+code span.ss,
+code span.st,
+code span.vs,
+code span.ch { color: #25a18e; }
+code span.an,
+code span.op,
+code span.in,
+code span.wa,
+code span.do,
+code span.co,
+code span.cv,
+code span.sc { color: #a0a0a0; font-style: normal; }
+code span.fu { color: #9e7ace; }
+code span.cf,
+code span.kw { color: #ffffff; }
+code span.er,
+code span.bn,
+code span.al,
+code span.pp,
+code span.dt,
+code span.fl,
+code span.dv { color: #ff6347; }
+code span.va { color: #cccccc; }
+code span.im { color: #25c3dc; }
+code span.cn { color: #e6b800; }
 
 .prevent-inlining {
   content: "</";
 }
 
 // Buttons
-
 .btn {
   font-size: $font-size-sm;
   text-transform: uppercase;
@@ -394,20 +276,17 @@ code span.kw {
     font-size: 10px;
   }
 
-  &-warning {
-    &,
-    &:hover,
-    &:not([disabled]):not(.disabled):active,
-    &:focus {
-      color: $secondary;
-    }
+  &-warning,
+  &-warning:hover,
+  &-warning:not([disabled]):not(.disabled):active,
+  &-warning:focus {
+    color: $secondary;
   }
 }
 
 .btn-outline-secondary {
   border-color: $gray-600;
   color: $gray-600;
-
   &:not([disabled]):not(.disabled):hover,
   &:not([disabled]):not(.disabled):focus,
   &:not([disabled]):not(.disabled):active {
@@ -415,7 +294,6 @@ code span.kw {
     border-color: $gray-400;
     color: $secondary;
   }
-
   &:not([disabled]):not(.disabled):focus {
     box-shadow: 0 0 0 0.2rem rgba($gray-400, 0.5);
   }
@@ -430,33 +308,25 @@ code span.kw {
 }
 
 // Tables
-
 th {
   font-size: $font-size-sm;
   text-transform: uppercase;
 }
 
 .table {
-  th,
-  td {
+  th, td {
     padding: 1.5rem;
   }
-
-  &-sm {
-    th,
-    td {
-      padding: 0.75rem;
-    }
+  &-sm th, &-sm td {
+    padding: 0.75rem;
   }
 }
 
 // Navs Colors & Hover Over
-
 a {
   color: $gray-900;
-
   &:hover {
-    color: #1560bd;
+    color: $cyan;
   }
 }
 
@@ -466,68 +336,23 @@ a {
 }
 
 // Indicators
-
 .badge {
   padding-top: 0.28rem;
-
   &-pill {
     border-radius: 10rem;
   }
-
-  &.bg-secondary,
-  &.bg-light {
+  &.bg-secondary, &.bg-light {
     color: $dark;
   }
 }
 
-// Footer
-
-.nav-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-  background-color: $primary;
-  font-weight: 200;
-  font-size: 1.2rem;
-  a {
-    color: $gray-600;
-
-    &:hover {
-      color: $background-color; // Adjust the percentage to control the amount of lightening
-    }
-  }
+/* Containers */
+.list-group-item h1, .list-group-item h2, .list-group-item h3, .list-group-item h4, .list-group-item h5, .list-group-item h6, .list-group-item .h1, .list-group-item .h2, .list-group-item .h3, .list-group-item .h4, .list-group-item .h5, .list-group-item .h6,
+.card-title, .card-header {
+  color: inherit;
 }
 
-// Containers
-
-.list-group-item {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6 {
-    color: inherit;
-  }
-}
-
-.card {
-  &-title,
-  &-header {
-    color: inherit;
-  }
-}
-
-// About me Title
+/* About Me Title */
 div.quarto-about-marquee header#title-block-header {
   position: relative;
   margin-top: 5px;
@@ -535,49 +360,38 @@ div.quarto-about-marquee header#title-block-header {
   margin-block-end: 1rem;
 }
 
-// Title Banner
+/* Title Banner */
 .quarto-title-banner .quarto-title .title {
   font-weight: 900;
   color: white;
 }
 
-// Post Blocks
-div.quarto-post .body h3.listing-title,
-div.quarto-post .body .listing-title.h3 {
+/* Post Blocks */
+div.quarto-post .body h3.listing-title, div.quarto-post .body .listing-title.h3 {
   margin: 0;
   border-bottom: none;
   cursor: pointer;
-
-  &:hover {
-    color: $gray-700;
-    text-decoration: underline;
-  }
+}
+div.quarto-post .body h3.listing-title:hover, div.quarto-post .body .listing-title.h3:hover {
+  color: $gray-700;
 }
 
-// Updates Categories
-.quarto-listing-category-title,
-.quarto-listing-category .category {
+/* Updates Categories */
+.quarto-listing-category-title, .quarto-listing-category .category {
   cursor: pointer;
-
-  &:hover {
-    color: $blue;
-    text-decoration: underline;
-  }
-}
-
-.quarto-listing-category-title {
-  font-weight: 500;
   font-size: 1.1rem !important;
-  position: relative;
+  font-weight: 500;
 }
-
 .quarto-listing-category .category {
   font-size: 90%;
   font-weight: 100;
   color: $gray-600;
 }
+.quarto-listing-category-title:hover, .quarto-listing-category .category:hover {
+  color: $cyan;
+}
 
-// Updates Category Block Labels [R, Rshiny, CSS]...
+/* Updates Category Block Labels [R, Rshiny, CSS]... */
 div.quarto-post .listing-categories .listing-category {
   display: flex;
   color: $gray-600;
@@ -588,72 +402,42 @@ div.quarto-post .listing-categories .listing-category {
   padding: 0.15em 0.5em;
   margin: 4px 4px 4px 0;
   cursor: pointer;
-
-  &:hover {
-    background-color: $gray-200;
-  }
+}
+div.quarto-post .listing-categories .listing-category:hover {
+  background-color: $gray-200;
 }
 
-div.quarto-post .listing-categories {
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 5px;
-}
-
-// Post Styling
+/* Post Styling */
 div.quarto-post {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: auto;
   padding: 5px;
-
-  .quarto-post-content {
-    flex-grow: 1;
-  }
-
-  .quarto-post-image,
-  .quarto-post-title,
-  .quarto-post-description {
-    order: 1;
-  }
-
-  .quarto-post-image {
-    order: 2;
-  }
-
-  .quarto-post-title:hover {
-    text-decoration: underline;
-  }
 }
-
 div.quarto-post .thumbnail img {
   margin-top: 0.4em;
   width: 262px;
   height: 175px;
   object-fit: cover;
 }
-
 div.quarto-post .listing-description {
   margin-bottom: 5px;
   font-size: 13.5px;
   line-height: 1.2em;
 }
-
 div.quarto-post .metadata {
   font-weight: 300;
   font-size: 0.7em;
   font-family: var(--bs-font-sans-serif);
   flex-basis: 100%;
   padding-bottom: 20px;
-
 }
-
 div.quarto-post .metadata .listing-date {
   font-weight: 300;
 }
 
-// Viewport Meta Tag
+/* Viewport Meta Tag */
 @viewport {
   width: device-width;
   initial-scale: 1.0;
