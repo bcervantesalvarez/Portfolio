@@ -1,44 +1,36 @@
 [
   {
-    "listing": "/projects.html",
+    "listing": "/blog.html",
     "items": [
-      "/posts/Capstone/CapstoneProject.html",
-      "/posts/PredictSeverityLevels/index.html",
+      "/posts/Automakers/index.html",
       "/posts/FraudML/index.html",
       "/posts/AmazonProductsEN/index.html",
-      "/posts/Predicting_Income_Bracket/index.html",
-      "/posts/Param_Report_Retail/index.html",
       "/posts/AppleInc_IncomeStatement/index.html",
-      "/posts/Customer Return ML/index.html",
-      "/posts/PredictPinotWine_ML/index.html",
-      "/posts/SurvAnalysis_Parasite_RevealJS/index.html",
       "/posts/GymRat_Plotly/index.html",
       "/posts/FancyTables/index.html",
-      "/posts/US_HealthCare_Spending/index.html",
       "/posts/Pokemon_Database/index.html",
-      "/posts/CollegeStudent_Debt_Tool/index.html",
       "/posts/US_HealthIns_Costs/index.html"
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/posts/Statistical Analysis Wines/ST557 Final Project.html",
-      "/posts/PredictSeverityLevels/index.html",
-      "/posts/FraudML/index.html",
-      "/posts/AmazonProductsEN/index.html",
-      "/posts/Predicting_Income_Bracket/index.html",
-      "/posts/Param_Report_Retail/index.html",
-      "/posts/AppleInc_IncomeStatement/index.html",
-      "/posts/Customer Return ML/index.html",
-      "/posts/PredictPinotWine_ML/index.html",
-      "/posts/SurvAnalysis_Parasite_RevealJS/index.html",
-      "/posts/GymRat_Plotly/index.html",
-      "/posts/FancyTables/index.html",
-      "/posts/US_HealthCare_Spending/index.html",
-      "/posts/Pokemon_Database/index.html",
-      "/posts/CollegeStudent_Debt_Tool/index.html",
-      "/posts/US_HealthIns_Costs/index.html"
+      "/highlights/Statistical Analysis Wines/index.html",
+      "/highlights/Param_Report_Retail/index.html",
+      "/highlights/US_HealthCare_Spending/index.html",
+      "/highlights/Customer Return ML/index.html",
+      "/highlights/Predicting_Income_Bracket/index.html",
+      "/highlights/PredictSeverityLevels/index.html",
+      "/highlights/PredictPinotWine_ML/index.html",
+      "/highlights/CollegeStudent_Debt_Tool/index.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/ParasiteSurvAnalysis/index.html",
+      "/talks/HowtoUseQuarto101/index.html",
+      "/talks/AboutMyself/index.html"
     ]
   }
 ]

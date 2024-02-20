@@ -1,20 +1,23 @@
 project:
   type: website
   output-dir: docs
-
 website:
+  search:
+    type: textbox 
   open-graph: true
   title: "Brian Cervantes Alvarez"
   navbar:
     right:
-      - text: "Projects"
+      - text: "About"
         file: index.qmd
-      - text: "Presentations"
-        file: presentation.qmd
-      - text: "Curriculum Vitae"
-        file: curriculumvitae.qmd
-      - text: "About Me"
-        file: aboutme.qmd
+      - text: "Portfolio"
+        file: portfolio.qmd
+      - text: "Blog"
+        file: blog.qmd
+      - text: "Talks"
+        file: talks.qmd
+      - text: "Resources"
+        file: resources.qmd
       
   page-footer:
     left:
@@ -34,8 +37,6 @@ format:
     citations-hover: true
     footnotes-hover: true
     theme: 
-      light: BCA_LightTheme.scss
-      dark: BCA_DarkTheme.scss
-
+      - BCA_LightTheme.scss
 editor: visual
 

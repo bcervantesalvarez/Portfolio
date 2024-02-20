@@ -1,0 +1,13 @@
+---
+title: "Talks"
+listing:
+  contents: "talks"
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+format: 
+  html:
+    page-layout: article
+---

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,11 +20,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -49,48 +50,20 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -104,8 +77,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -120,19 +92,22 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -141,16 +116,18 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="../../site_libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="../../site_libs/htmlwidgets-1.6.3/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.3/plotly.js"></script>
 <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
 <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
-<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
@@ -158,47 +135,50 @@ div.csl-indent {
 <meta property="og:title" content="Brian Cervantes Alvarez - Do You Like Stretching? I Would Reconsider!">
 <meta property="og:description" content="Stretching enhances flexibility but lacks muscle-building benefits. Weight training and resistance exercises stimulate muscle growth. Supplement, not substitute, for effective muscle building.">
 <meta property="og:image" content="gymRat.jpeg">
-<meta property="og:site-name" content="Brian Cervantes Alvarez">
+<meta property="og:site_name" content="Brian Cervantes Alvarez">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Brian Cervantes Alvarez</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../presentation.html">
- <span class="menu-text">Presentations</span></a>
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../curriculumvitae.html">
- <span class="menu-text">Curriculum Vitae</span></a>
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../aboutme.html">
- <span class="menu-text">About Me</span></a>
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html"> 
+<span class="menu-text">Resources</span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -221,7 +201,7 @@ div.csl-indent {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       <div>
       <div class="quarto-title-meta-heading">Author</div>
@@ -261,6 +241,7 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 
 
 
@@ -411,8 +392,8 @@ div.csl-indent {
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">margin =</span> <span class="fu">list</span>(<span class="at">b =</span> <span class="dv">70</span>, <span class="at">l =</span> <span class="dv">140</span>, <span class="at">r =</span> <span class="dv">140</span>)</span>
 <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-71bac062ecea66727e19" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-71bac062ecea66727e19">{"x":{"data":[{"orientation":"v","width":4.79090909090909,"base":0.55,"x":[2.39545454545455],"y":[0.9],"text":"Rating: 4.79<br>Type: Stretching","key":["Stretching___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(246,239,247,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Stretching","legendgroup":"Stretching","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":5.23333333333333,"base":0.55,"x":[2.61666666666667],"y":[0.9],"text":"Rating: 5.23<br>Type: Stretching","key":["Stretching___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(246,239,247,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Stretching","legendgroup":"Stretching","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.4,"base":1.55,"x":[3.7],"y":[0.9],"text":"Rating: 7.4<br>Type: Cardio","key":["Cardio___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(208,209,230,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Cardio","legendgroup":"Cardio","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.89090909090909,"base":2.55,"x":[3.94545454545455],"y":[0.9],"text":"Rating: 7.89<br>Type: Cardio","key":["Cardio___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(208,209,230,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Cardio","legendgroup":"Cardio","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.05,"base":3.55,"x":[4.025],"y":[0.9],"text":"Rating: 8.05<br>Type: Plyometrics","key":["Plyometrics___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,189,219,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Plyometrics","legendgroup":"Plyometrics","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.535,"base":1.55,"x":[3.7675],"y":[0.9],"text":"Rating: 7.54<br>Type: Plyometrics","key":["Plyometrics___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,189,219,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Plyometrics","legendgroup":"Plyometrics","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.5,"base":1.55,"x":[4.25],"y":[0.9],"text":"Rating: 8.5<br>Type: Plyometrics","key":["Plyometrics___Expert"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,189,219,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Plyometrics","legendgroup":"Plyometrics","showlegend":false,"xaxis":"x","yaxis":"y3","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.51194029850746,"base":2.55,"x":[3.75597014925373],"y":[0.9],"text":"Rating: 7.51<br>Type: Strength","key":["Strength___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(103,169,207,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Strength","legendgroup":"Strength","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.0764367816092,"base":3.55,"x":[4.0382183908046],"y":[0.9],"text":"Rating: 8.08<br>Type: Strength","key":["Strength___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(103,169,207,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Strength","legendgroup":"Strength","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.16,"base":0.55,"x":[4.08],"y":[0.9],"text":"Rating: 8.16<br>Type: Strength","key":["Strength___Expert"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(103,169,207,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Strength","legendgroup":"Strength","showlegend":false,"xaxis":"x","yaxis":"y3","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.65,"base":5.55,"x":[4.325],"y":[0.9],"text":"Rating: 8.65<br>Type: Strongman","key":["Strongman___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(54,144,192,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Strongman","legendgroup":"Strongman","showlegend":true,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.325,"base":4.55,"x":[4.1625],"y":[0.9],"text":"Rating: 8.32<br>Type: Olympic Weightlifting","key":["Olympic Weightlifting___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(2,129,138,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Olympic Weightlifting","legendgroup":"Olympic Weightlifting","showlegend":true,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":9.3,"base":2.55,"x":[4.65],"y":[0.9],"text":"Rating: 9.3<br>Type: Olympic Weightlifting","key":["Olympic Weightlifting___Expert"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(2,129,138,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Olympic Weightlifting","legendgroup":"Olympic Weightlifting","showlegend":false,"xaxis":"x","yaxis":"y3","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":9.35,"base":4.55,"x":[4.675],"y":[0.9],"text":"Rating: 9.35<br>Type: Powerlifting","key":["Powerlifting___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(1,100,80,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Powerlifting","legendgroup":"Powerlifting","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.75,"base":6.55,"x":[4.375],"y":[0.9],"text":"Rating: 8.75<br>Type: Powerlifting","key":["Powerlifting___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(1,100,80,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"set":"SharedDatab152ce4e","name":"Powerlifting","legendgroup":"Powerlifting","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null}],"layout":{"margin":{"t":74.0714708295336,"r":140,"b":70,"l":140},"font":{"color":"rgba(0,0,0,1)","family":"Futura Medium","size":14.6118721461187},"title":{"text":"Ranking Exercise Type According to Experience Level of Individuals","font":{"color":"rgba(0,0,0,1)","family":"Futura Condensed ExtraBold","size":19.9252801992528},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.4675,9.8175],"tickmode":"array","ticktext":["0.0","2.5","5.0","7.5"],"tickvals":[0,2.5,5,7.5],"categoryorder":"array","categoryarray":["0.0","2.5","5.0","7.5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y3","title":"","hoverformat":".2f"},"annotations":[{"text":"Average Rating of Each Exercise Type","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"Futura Medium","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-37.4281483805807},{"text":"Beginner","x":1,"y":0.840943683409437,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"Futura Condensed ExtraBold","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"middle"},{"text":"Intermediate","x":1,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"Futura Condensed ExtraBold","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"middle"},{"text":"Expert","x":1,"y":0.159056316590563,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"Futura Condensed ExtraBold","size":13.2835201328352},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"middle"}],"yaxis":{"domain":[0.681887366818874,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,5.6],"tickmode":"array","ticktext":["Stretching","Cardio","Strength","Plyometrics","Powerlifting"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Stretching","Cardio","Strength","Plyometrics","Powerlifting"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.681887366818874,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","y0":0.681887366818874,"y1":1,"x0":0,"x1":24.9730178497302,"xanchor":1,"xsizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.34855403348554,"y1":0.65144596651446},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","y0":0.34855403348554,"y1":0.65144596651446,"x0":0,"x1":24.9730178497302,"xanchor":1,"xsizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.318112633181126},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","y0":0,"y1":0.318112633181126,"x0":0,"x1":24.9730178497302,"xanchor":1,"xsizemode":"pixel"}],"yaxis2":{"type":"linear","autorange":false,"range":[0.4,7.6],"tickmode":"array","ticktext":["Stretching","Plyometrics","Cardio","Strength","Olympic Weightlifting","Strongman","Powerlifting"],"tickvals":[1,2,3,4,5,6,7],"categoryorder":"array","categoryarray":["Stretching","Plyometrics","Cardio","Strength","Olympic Weightlifting","Strongman","Powerlifting"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0.34855403348554,0.65144596651446],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"yaxis3":{"type":"linear","autorange":false,"range":[0.4,3.6],"tickmode":"array","ticktext":["Strength","Plyometrics","Olympic Weightlifting"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Strength","Plyometrics","Olympic Weightlifting"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.9551681195517},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0,0.318112633181126],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Futura Medium","size":11.689497716895}},"hovermode":"closest","barmode":"relative","uniformtext":{"minsize":8,"mode":"hide"},"dragmode":"zoom"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"source":"A","attrs":{"1a8b549720c5":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"1a8b549720c5","visdat":{"1a8b549720c5":["function (y) ","x"]},"highlight":{"on":"plotly_hover","off":"plotly_doubleclick","persistent":false,"dynamic":false,"color":null,"selectize":false,"defaultValues":null,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedDatab152ce4e"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-4ebd896a4dae86d00a65" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-4ebd896a4dae86d00a65">{"x":{"data":[{"orientation":"v","width":4.790909090909091,"base":0.55000000000000004,"x":[2.3954545454545455],"y":[0.89999999999999991],"text":"Rating: 4.79<br>Type: Stretching","key":["Stretching___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(246,239,247,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Stretching","legendgroup":"Stretching","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":5.2333333333333334,"base":0.55000000000000004,"x":[2.6166666666666667],"y":[0.89999999999999991],"text":"Rating: 5.23<br>Type: Stretching","key":["Stretching___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(246,239,247,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Stretching","legendgroup":"Stretching","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.4000000000000004,"base":1.55,"x":[3.7000000000000002],"y":[0.90000000000000013],"text":"Rating: 7.4<br>Type: Cardio","key":["Cardio___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(208,209,230,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Cardio","legendgroup":"Cardio","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.8909090909090915,"base":2.5499999999999998,"x":[3.9454545454545458],"y":[0.90000000000000036],"text":"Rating: 7.89<br>Type: Cardio","key":["Cardio___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(208,209,230,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Cardio","legendgroup":"Cardio","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.0500000000000007,"base":3.5499999999999998,"x":[4.0250000000000004],"y":[0.90000000000000036],"text":"Rating: 8.05<br>Type: Plyometrics","key":["Plyometrics___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,189,219,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Plyometrics","legendgroup":"Plyometrics","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.5350000000000001,"base":1.55,"x":[3.7675000000000001],"y":[0.90000000000000013],"text":"Rating: 7.54<br>Type: Plyometrics","key":["Plyometrics___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,189,219,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Plyometrics","legendgroup":"Plyometrics","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.5,"base":1.55,"x":[4.25],"y":[0.90000000000000013],"text":"Rating: 8.5<br>Type: Plyometrics","key":["Plyometrics___Expert"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(166,189,219,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Plyometrics","legendgroup":"Plyometrics","showlegend":false,"xaxis":"x","yaxis":"y3","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":7.5119402985074624,"base":2.5499999999999998,"x":[3.7559701492537312],"y":[0.90000000000000036],"text":"Rating: 7.51<br>Type: Strength","key":["Strength___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(103,169,207,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Strength","legendgroup":"Strength","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.0764367816091962,"base":3.5499999999999998,"x":[4.0382183908045981],"y":[0.90000000000000036],"text":"Rating: 8.08<br>Type: Strength","key":["Strength___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(103,169,207,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Strength","legendgroup":"Strength","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.1600000000000001,"base":0.55000000000000004,"x":[4.0800000000000001],"y":[0.89999999999999991],"text":"Rating: 8.16<br>Type: Strength","key":["Strength___Expert"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(103,169,207,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Strength","legendgroup":"Strength","showlegend":false,"xaxis":"x","yaxis":"y3","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.6500000000000004,"base":5.5499999999999998,"x":[4.3250000000000002],"y":[0.90000000000000036],"text":"Rating: 8.65<br>Type: Strongman","key":["Strongman___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(54,144,192,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Strongman","legendgroup":"Strongman","showlegend":true,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.3249999999999993,"base":4.5499999999999998,"x":[4.1624999999999996],"y":[0.90000000000000036],"text":"Rating: 8.32<br>Type: Olympic Weightlifting","key":["Olympic Weightlifting___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(2,129,138,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Olympic Weightlifting","legendgroup":"Olympic Weightlifting","showlegend":true,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":9.3000000000000007,"base":2.5499999999999998,"x":[4.6500000000000004],"y":[0.90000000000000036],"text":"Rating: 9.3<br>Type: Olympic Weightlifting","key":["Olympic Weightlifting___Expert"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(2,129,138,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Olympic Weightlifting","legendgroup":"Olympic Weightlifting","showlegend":false,"xaxis":"x","yaxis":"y3","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":9.3500000000000014,"base":4.5499999999999998,"x":[4.6750000000000007],"y":[0.90000000000000036],"text":"Rating: 9.35<br>Type: Powerlifting","key":["Powerlifting___Beginner"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(1,100,80,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Powerlifting","legendgroup":"Powerlifting","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null},{"orientation":"v","width":8.75,"base":6.5499999999999998,"x":[4.375],"y":[0.90000000000000036],"text":"Rating: 8.75<br>Type: Powerlifting","key":["Powerlifting___Intermediate"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(1,100,80,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"set":"SharedData2d6706b2","name":"Powerlifting","legendgroup":"Powerlifting","showlegend":false,"xaxis":"x","yaxis":"y2","hoverinfo":"text","_isSimpleKey":true,"_isNestedKey":false,"frame":null}],"layout":{"margin":{"t":74.071470829533624,"r":140,"b":70,"l":140},"font":{"color":"rgba(0,0,0,1)","family":"Futura Medium","size":14.611872146118724},"title":{"text":"Ranking Exercise Type According to Experience Level of Individuals","font":{"color":"rgba(0,0,0,1)","family":"Futura Condensed ExtraBold","size":19.925280199252807},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.46750000000000008,9.8175000000000008],"tickmode":"array","ticktext":["0.0","2.5","5.0","7.5"],"tickvals":[0,2.4999999999999996,5,7.5000000000000009],"categoryorder":"array","categoryarray":["0.0","2.5","5.0","7.5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.955168119551681},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y3","title":"","hoverformat":".2f"},"annotations":[{"text":"Average Rating of Each Exercise Type","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"Futura Medium","size":14.611872146118724},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-37.428148380580694},{"text":"Beginner","x":1,"y":0.84094368340943682,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"Futura Condensed ExtraBold","size":13.283520132835205},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"middle"},{"text":"Intermediate","x":1,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"Futura Condensed ExtraBold","size":13.283520132835205},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"middle"},{"text":"Expert","x":1,"y":0.15905631659056318,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"Futura Condensed ExtraBold","size":13.283520132835205},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"middle"}],"yaxis":{"domain":[0.68188736681887374,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Stretching","Cardio","Strength","Plyometrics","Powerlifting"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Stretching","Cardio","Strength","Plyometrics","Powerlifting"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.68188736681887374,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","y0":0.68188736681887374,"y1":1,"x0":0,"x1":24.973017849730184,"xanchor":1,"xsizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.34855403348554037,"y1":0.65144596651445974},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","y0":0.34855403348554037,"y1":0.65144596651445974,"x0":0,"x1":24.973017849730184,"xanchor":1,"xsizemode":"pixel"},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.31811263318112637},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","y0":0,"y1":0.31811263318112637,"x0":0,"x1":24.973017849730184,"xanchor":1,"xsizemode":"pixel"}],"yaxis2":{"type":"linear","autorange":false,"range":[0.40000000000000002,7.5999999999999996],"tickmode":"array","ticktext":["Stretching","Plyometrics","Cardio","Strength","Olympic Weightlifting","Strongman","Powerlifting"],"tickvals":[1,2,3,4.0000000000000009,5,6,7],"categoryorder":"array","categoryarray":["Stretching","Plyometrics","Cardio","Strength","Olympic Weightlifting","Strongman","Powerlifting"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0.34855403348554037,0.65144596651445974],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"yaxis3":{"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Strength","Plyometrics","Olympic Weightlifting"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Strength","Plyometrics","Olympic Weightlifting"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Futura Medium","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0,0.31811263318112637],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Futura Medium","size":11.68949771689498}},"hovermode":"closest","barmode":"relative","uniformtext":{"minsize":8,"mode":"hide"},"dragmode":"zoom"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"source":"A","attrs":{"210b5e35bd56":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"210b5e35bd56","visdat":{"210b5e35bd56":["function (y) ","x"]},"highlight":{"on":"plotly_hover","off":"plotly_doubleclick","persistent":false,"dynamic":false,"color":null,"selectize":false,"defaultValues":null,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedData2d6706b2"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -421,77 +402,71 @@ div.csl-indent {
 <p>While stretching remains valuable for improving flexibility and reducing the risk of injuries, it should be viewed as a supplementary activity rather than the main strategy for building muscle mass and strength. The incorporation of weight and resistance training, supported by the utilization of interactive plots using R, offers a more effective and comprehensive approach to achieving desired muscle development goals.</p>
 </section>
 <section id="data-references" class="level2">
-<h2 class="anchored" data-anchor-id="data-references">Data References</h2>
-<div class="cell">
 
-</div>
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-R-extrafont" class="csl-entry" role="doc-biblioentry">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Data References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-extrafont" class="csl-entry" role="listitem">
 Chang, Winston. 2023. <em>Extrafont: Tools for Using Fonts</em>. <a href="https://github.com/wch/extrafont">https://github.com/wch/extrafont</a>.
 </div>
-<div id="ref-lubridate2011" class="csl-entry" role="doc-biblioentry">
+<div id="ref-lubridate2011" class="csl-entry" role="listitem">
 Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
 </div>
-<div id="ref-R-tibble" class="csl-entry" role="doc-biblioentry">
-Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.
+<div id="ref-R-tibble" class="csl-entry" role="listitem">
+Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://tibble.tidyverse.org/">https://tibble.tidyverse.org/</a>.
 </div>
-<div id="ref-R-RColorBrewer" class="csl-entry" role="doc-biblioentry">
-Neuwirth, Erich. 2022. <em>RColorBrewer: ColorBrewer Palettes</em>. <a href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a>.
-</div>
-<div id="ref-R-tidytext" class="csl-entry" role="doc-biblioentry">
+<div id="ref-R-tidytext" class="csl-entry" role="listitem">
 Robinson, David, and Julia Silge. 2023. <em>Tidytext: Text Mining Using Dplyr, Ggplot2, and Other Tidy Tools</em>. <a href="https://github.com/juliasilge/tidytext">https://github.com/juliasilge/tidytext</a>.
 </div>
-<div id="ref-plotly2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-plotly2020" class="csl-entry" role="listitem">
 Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
 </div>
-<div id="ref-R-plotly" class="csl-entry" role="doc-biblioentry">
-Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2022. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://CRAN.R-project.org/package=plotly">https://CRAN.R-project.org/package=plotly</a>.
+<div id="ref-R-plotly" class="csl-entry" role="listitem">
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2023. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
 </div>
-<div id="ref-tidytext2016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-tidytext2016" class="csl-entry" role="listitem">
 Silge, Julia, and David Robinson. 2016. <span>“Tidytext: Text Mining and Analysis Using Tidy Data Principles in r.”</span> <em>JOSS</em> 1 (3). <a href="https://doi.org/10.21105/joss.00037">https://doi.org/10.21105/joss.00037</a>.
 </div>
-<div id="ref-R-lubridate" class="csl-entry" role="doc-biblioentry">
-Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+<div id="ref-R-lubridate" class="csl-entry" role="listitem">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://lubridate.tidyverse.org">https://lubridate.tidyverse.org</a>.
 </div>
-<div id="ref-R-htmlwidgets" class="csl-entry" role="doc-biblioentry">
+<div id="ref-R-htmlwidgets" class="csl-entry" role="listitem">
 Vaidyanathan, Ramnath, Yihui Xie, JJ Allaire, Joe Cheng, Carson Sievert, and Kenton Russell. 2023. <em>Htmlwidgets: HTML Widgets for r</em>. <a href="https://github.com/ramnathv/htmlwidgets">https://github.com/ramnathv/htmlwidgets</a>.
 </div>
-<div id="ref-ggplot22016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-ggplot22016" class="csl-entry" role="listitem">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
-<div id="ref-R-stringr" class="csl-entry" role="doc-biblioentry">
-———. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+<div id="ref-R-forcats" class="csl-entry" role="listitem">
+———. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://forcats.tidyverse.org/">https://forcats.tidyverse.org/</a>.
 </div>
-<div id="ref-R-forcats" class="csl-entry" role="doc-biblioentry">
-———. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
+<div id="ref-R-stringr" class="csl-entry" role="listitem">
+———. 2023b. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://stringr.tidyverse.org">https://stringr.tidyverse.org</a>.
 </div>
-<div id="ref-R-tidyverse" class="csl-entry" role="doc-biblioentry">
-———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
+———. 2023c. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>.
 </div>
-<div id="ref-tidyverse2019" class="csl-entry" role="doc-biblioentry">
+<div id="ref-tidyverse2019" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
-<div id="ref-R-ggplot2" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
-<div id="ref-R-dplyr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
 </div>
-<div id="ref-R-purrr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
+<div id="ref-R-purrr" class="csl-entry" role="listitem">
+Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
 </div>
-<div id="ref-R-readr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+<div id="ref-R-readr" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
 </div>
-<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+<div id="ref-R-tidyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
 </div>
-<div id="ref-R-ggtext" class="csl-entry" role="doc-biblioentry">
+<div id="ref-R-ggtext" class="csl-entry" role="listitem">
 Wilke, Claus O., and Brenton M. Wiernik. 2022. <em>Ggtext: Improved Text Rendering Support for Ggplot2</em>. <a href="https://wilkelab.org/ggtext/">https://wilkelab.org/ggtext/</a>.
 </div>
 </div></section></div></main> <!-- /main -->
@@ -515,121 +490,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -637,9 +497,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -675,10 +549,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -688,8 +561,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -704,6 +586,238 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -749,14 +863,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://www.quarto.org">Made with quarto®</a>
+    <a class="nav-link" href="https://www.quarto.org">
+<p>Made with quarto®</p>
+</a>
   </li>  
 </ul>
     </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../license.html">License</a>
+    <a class="nav-link" href="../../license.html">
+<p>License</p>
+</a>
   </li>  
     <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/">
@@ -780,6 +901,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
