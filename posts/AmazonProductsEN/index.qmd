@@ -12,6 +12,7 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
+    page-layout: article
 output: html_document
 code-fold: false
 execute:

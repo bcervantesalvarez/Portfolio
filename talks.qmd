@@ -1,6 +1,7 @@
 ---
 title: "Talks"
 listing:
+  page-size: 10
   contents: "talks"
   sort: "date desc"
   type: table

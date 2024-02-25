@@ -11,7 +11,7 @@ nocite: |
      @*
 format:
   html:
-    page-layout: full
+    page-layout: article
     toc: true
     toc-location: right
     html-math-method: katex

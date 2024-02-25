@@ -1,8 +1,6 @@
 ---
 title: "Portfolio"
 subtitle: "Overview of my statistical & data science projects"
-include-in-header: 
-  text: <script type="text/javascript" src="hover-enhancements.js"></script>
 listing:
   contents: "highlights"
   type: grid

@@ -11,6 +11,7 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
+    page-layout: article
 image: pokemon.jpeg
 output: html_document
 categories: [R, PostgreSQL, Data Visualization, Data Engineering]

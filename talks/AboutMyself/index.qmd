@@ -9,11 +9,10 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
-    page-layout: full
+    page-layout: article
 execute: 
   warning: false
   message: false
-title-block-banner: true
 ---
 
 ## Quick Introduction About Myself

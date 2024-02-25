@@ -14,6 +14,7 @@ execute:
   warning: false
   message: false
 categories: [R, Time Series, Data Visualization]
+page-layout: article
 ---
 
 ```{r}

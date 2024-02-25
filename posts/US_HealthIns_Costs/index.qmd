@@ -6,7 +6,7 @@ date: '2022-07-14'
 image: health_ins.jpeg
 format:
   html:
-    page-layout: full
+    page-layout: article
     toc: true
     toc-location: right
     html-math-method: katex

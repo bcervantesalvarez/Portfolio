@@ -102,8 +102,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="text/javascript" src="hover-enhancements.js"></script>
+<script type="text/javascript" src="../../Portfolio/hover-enhancements.js"></script>
 
 
+<link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Brian Cervantes Alvarez - The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs">
 <meta property="og:description" content="In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders, including both smokers and non-smokers.">
 <meta property="og:image" content="health_ins.jpeg">
@@ -113,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -155,46 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs</h1>
-                  <div>
-        <div class="description">
-          In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders, including both smokers and non-smokers.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Python</div>
-                <div class="quarto-category">Statistics</div>
-                <div class="quarto-category">Jupyter Notebook</div>
-                <div class="quarto-category">Data Visualization</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Brian Cervantes Alvarez </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">July 14, 2022</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -229,10 +193,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Jupyter Notebook</div>
+    <div class="quarto-category">Data Visualization</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced differences between genders, including both smokers and non-smokers.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 14, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <p><img src="health_ins.jpeg" class="img-fluid"></p>
@@ -303,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-setup-and-import" class="level2">
 <h2 class="anchored" data-anchor-id="data-setup-and-import">Data Setup and Import</h2>
-<div class="cell" data-execution_count="1">
+<div id="c26cd5ce" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -335,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Nonsmoker Count: 1064</li>
 </ul>
 <p>To visually illustrate the distribution of smokers and nonsmokers within the dataset, a histogram plot was generated. The plot showcases the count of individuals categorized as smokers or nonsmokers. The number of smokers is 274, while the count of nonsmokers is 1064.</p>
-<div class="cell" data-execution_count="2">
+<div id="8fdd4d9b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#while a histogram is not necessary, it can really show in the visual count of smokers vs nonsmokers</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.5</span>)</span>
@@ -366,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="boxplot-and-histogram-distribution-of-insurance-costs-for-smokers">Boxplot and Histogram Distribution of Insurance Costs for Smokers</h3>
 <p>Upon analyzing the insurance costs specifically for smokers, a boxplot and histogram were constructed. The interquartile range indicates a substantial spread of $20,125.33 between the first and third quartiles.</p>
 <p>Notably, the distribution of insurance costs for smokers exhibits a bimodal pattern, suggesting the presence of a contributing factor that significantly impacts insurance expenses. Further investigation is required to identify the specific variable responsible for the observed increase in insurance costs among smokers. Potential factors to consider include region, BMI, sex, number of children, and age.</p>
-<div class="cell" data-execution_count="3">
+<div id="219ba29a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_smokers <span class="op">=</span> df[df.smoker <span class="op">==</span> <span class="st">'yes'</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_smokers.head())</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.8</span>)</span>
@@ -411,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Standard Deviation: $11,520.47</li>
 <li>Variance: 132,721,153.14</li>
 </ul>
-<div class="cell" data-execution_count="4">
+<div id="d20f4d2f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for smokers</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>smoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_smokers.charges), <span class="dv">2</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The average insurance cost for being a smoker: ${mean}'.format(mean = smoker_mean))</span></span>
@@ -457,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Graph Five: Average Cost per Region The bar plot representing the average insurance costs per region does not yield any significant insights.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost The boxplot provides valuable visual information regarding the spread of insurance costs among male smokers. It allows for a better understanding of the distribution and variability within this group.</p>
 <p>These analyses shed light on the various factors impacting insurance costs for male smokers, including BMI, age, and the presence of children. By comprehensively examining these relationships, the medical industry can gain valuable insights to inform decision-making and enhance understanding of cost dynamics.</p>
-<div class="cell" data-execution_count="5">
+<div id="58b3e84d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male smokers from the main data set</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_male_smoker <span class="op">=</span> df_smokers[df_smokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_nonsmokers <span class="op">=</span> df[df.smoker <span class="op">==</span> <span class="st">'no'</span>]</span>
@@ -534,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-male-smokers-highlighting-bmi" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-male-smokers-highlighting-bmi">Analysis of Male Smokers: Highlighting BMI</h3>
 <p>As previously mentioned, the presence of two clusters in the cost distribution of male smokers can be attributed to variations in BMI. Notably, male smokers with a BMI greater than or equal to 30 experience a significant increase in expenses, approximately 47%, compared to their counterparts with a lower BMI. This finding underscores the impact of obesity on insurance costs for male smokers in the medical industry.</p>
-<div class="cell" data-execution_count="6">
+<div id="5fd435c6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight BMI graph</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_smoker.bmi, y <span class="op">=</span> df_male_smoker.charges,</span>
@@ -556,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div id="120c6836" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>male_df_bmi <span class="op">=</span> df_male_smoker[df_male_smoker.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
@@ -586,7 +588,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Average Cost per Region: The barplot of average cost per region does not provide any valuable insights for female smokers.</p>
 <p>Boxplot of Female Smoker Insurance Cost: The boxplot displays the spread of insurance cost among female smokers, highlighting the range of variation in costs.</p>
 <p>Overall, the analysis of female smokers provides insights into the relationship between factors such as BMI, age, and insurance cost.</p>
-<div class="cell" data-execution_count="8">
+<div id="36478498" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female smokers from the main data set</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_female_smoker <span class="op">=</span> df_smokers[df_smokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -656,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The analysis of female smokers reveals findings that align with the observations made for male smokers. Specifically, the relationship between insurance cost and BMI for female smokers follows a similar pattern as observed in male smokers. Therefore, the conclusions drawn from the previous analysis regarding the impact of BMI on insurance cost can be applied to female smokers as well.</p>
-<div class="cell" data-execution_count="9">
+<div id="7a92f76f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>female_df_bmi <span class="op">=</span> df_female_smoker[df_female_smoker.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
@@ -677,7 +679,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="comparing-average-insurance-costs-male-vs.-female-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="comparing-average-insurance-costs-male-vs.-female-smokers">Comparing Average Insurance Costs: Male vs.&nbsp;Female Smokers</h3>
 <p>When comparing the average insurance costs of male and female smokers, some notable observations emerge. Among smokers with a BMI below 30, male smokers pay approximately 1.34% more than their female counterparts. However, for smokers with a BMI of 30 or higher, male smokers pay approximately 1.42% less than their female counterparts. These findings indicate a gender-based variation in insurance costs, influenced by both BMI and smoking status.</p>
-<div class="cell" data-execution_count="10">
+<div id="b4a32507" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot average insurance cost for male and female </span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_bmi_less_than_30 <span class="op">=</span> df_smokers[df_smokers.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df_one <span class="op">=</span> df_bmi_less_than_30.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
@@ -744,9 +746,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>&lt;function matplotlib.pyplot.clf()&gt;</code></pre>
-</div>
 </div>
 </section>
 </section>
@@ -756,27 +755,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution">Analysis of Insurance Costs for Nonsmokers: Boxplot and Histogram Distribution</h3>
 <p>The distribution of insurance costs for nonsmokers exhibits a right-skewed pattern, indicating a higher concentration of lower-cost cases. The interquartile range suggests a relatively narrow spread between the first and third quartiles.</p>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> stats.iqr(df_nonsmokers.charges, interpolation <span class="op">=</span> <span class="st">'midpoint'</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> <span class="bu">round</span>(IQR, <span class="dv">2</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(IQR)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y <span class="op">=</span> df_nonsmokers.charges, ax <span class="op">=</span> ax1)</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Insurance cost (USD)'</span>)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Insurance Cost Boxplot for Nonsmokers'</span>)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_nonsmokers.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax2)</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Insurance Cost Distribution for Nonsmokers'</span>)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">4</span>)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#right skewed distribution...explain potential causes:  Male and Female? BMI?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2c4696a9" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> stats.iqr(df_nonsmokers.charges, interpolation <span class="op">=</span> <span class="st">'midpoint'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> <span class="bu">round</span>(IQR, <span class="dv">2</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(IQR)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y <span class="op">=</span> df_nonsmokers.charges, ax <span class="op">=</span> ax1)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Insurance cost (USD)'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Insurance Cost Boxplot for Nonsmokers'</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_nonsmokers.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax2)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Insurance Cost Distribution for Nonsmokers'</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co">#right skewed distribution...explain potential causes:  Male and Female? BMI?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>7378.07</code></pre>
 </div>
@@ -795,32 +794,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-insurance-costs-for-nonsmokers" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-insurance-costs-for-nonsmokers">Analysis of Insurance Costs for Nonsmokers</h3>
 <p>The interquartile range of insurance costs for nonsmokers is $7,378.07, indicating a relatively narrow spread of data between the first and third quartiles.</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for nonsmokers</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker average insurance cost for being a smoker: ${mean}'.format(mean = nonsmoker_mean))</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#find median of insurance cost for nonsmokers</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>nonsmoker_median <span class="op">=</span> <span class="bu">round</span>(np.median(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker median insurance cost for being a smoker: ${median}'.format(median = nonsmoker_median))</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#find standard deviation...</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>nonsmoker_std <span class="op">=</span> <span class="bu">round</span>(np.std(df_nonsmokers.charges),<span class="dv">2</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker standard deviation is: ${std}'.format(std = nonsmoker_std))</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">#let's see the variance</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>nonsmoker_var <span class="op">=</span> <span class="bu">round</span>(np.var(df_nonsmokers.charges),<span class="dv">2</span>)</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker variance is: {var}'.format(var = nonsmoker_var))</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>nonsmoker_max <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">max</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker maximum insurance cost is: ${max}'.format(max = nonsmoker_max))</span></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="co">#minimum cost</span></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>nonsmoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker minimum insurance cost is: ${min}'.format(min = nonsmoker_min))</span></span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co">#For explaination a high standard deviation tells us that here are other reasons the cost is so high since it varies signifcantly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8d48af57" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for nonsmokers</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker average insurance cost for being a smoker: ${mean}'.format(mean = nonsmoker_mean))</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#find median of insurance cost for nonsmokers</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>nonsmoker_median <span class="op">=</span> <span class="bu">round</span>(np.median(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker median insurance cost for being a smoker: ${median}'.format(median = nonsmoker_median))</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#find standard deviation...</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>nonsmoker_std <span class="op">=</span> <span class="bu">round</span>(np.std(df_nonsmokers.charges),<span class="dv">2</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker standard deviation is: ${std}'.format(std = nonsmoker_std))</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#let's see the variance</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>nonsmoker_var <span class="op">=</span> <span class="bu">round</span>(np.var(df_nonsmokers.charges),<span class="dv">2</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker variance is: {var}'.format(var = nonsmoker_var))</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">#maximum cost</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>nonsmoker_max <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">max</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker maximum insurance cost is: ${max}'.format(max = nonsmoker_max))</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#minimum cost</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>nonsmoker_min <span class="op">=</span> <span class="bu">round</span>(np.<span class="bu">min</span>(df_nonsmokers.charges), <span class="dv">2</span>)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker minimum insurance cost is: ${min}'.format(min = nonsmoker_min))</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co">#For explaination a high standard deviation tells us that here are other reasons the cost is so high since it varies signifcantly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="analyzing-male-nonsmokers-key-findings" class="level3">
@@ -832,62 +831,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Graph Five: Average Cost per Region No significant insights can be drawn from the barplot of average cost per region for male nonsmokers. The data does not reveal any distinct variations among different regions in terms of insurance costs.</p>
 <p>Graph Six: Boxplot of Male Nonsmoker Insurance Cost The boxplot provides valuable information about the spread of insurance costs for male nonsmokers. It allows for visualizing the range, quartiles, and potential outliers within the data.</p>
 <p>Overall, these analyses shed light on various factors influencing insurance costs for male nonsmokers, such as the number of children and age. However, the relationship between BMI and insurance cost appears to be inconclusive, while regional differences do not show significant variations.</p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male nonsmokers from the main data set</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_male_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(male_nonsmoker.head())</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram male nonsmoker</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_male_nonsmoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Distribution'</span>)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Insurnance Cost (USD)'</span>)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of male nonsmokers per child</span></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>df_children <span class="op">=</span> df_male_nonsmoker.groupby(<span class="st">'children'</span>).mean().reset_index()</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_children.children, y <span class="op">=</span> df_children.charges, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">1</span>])</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Male Nonsmoker Insurance Cost Per Child'</span>)</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Number of Children'</span>)</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of male nonsmokers by BMI</span></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_nonsmoker.bmi, y <span class="op">=</span> df_male_nonsmoker.charges,</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_nonsmoker.region,</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_nonsmoker.region,</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="fl">7.5</span>, <span class="dv">25</span>), ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">2</span>])</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x <span class="op">=</span> <span class="dv">30</span>, color <span class="op">=</span> <span class="st">'gray'</span>, label <span class="op">=</span> <span class="st">'Obese BMI'</span>)</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost vs BMI'</span>)</span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'BMI'</span>)</span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of male nonsmokers by age</span></span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_nonsmoker.age, y <span class="op">=</span> df_male_nonsmoker.charges,</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_nonsmoker.children,</span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_nonsmoker.children, sizes <span class="op">=</span> (<span class="fl">12.5</span>,<span class="dv">25</span>),</span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>                ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">0</span>])</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost vs Age'</span>)</span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Age'</span>)</span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of male nonsmokers per region</span></span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>df_region <span class="op">=</span> df_male_nonsmoker.groupby(<span class="st">'region'</span>).mean().reset_index()</span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_region.region,  y <span class="op">=</span> df_region.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">1</span>])</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Male Nonsmoker Insurance Cost Per Region'</span>)</span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Region'</span>)</span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot of male nonsmoker boxplot</span></span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_nonsmoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Boxplot'</span>)</span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">4</span>)</span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6f51f98" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male nonsmokers from the main data set</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_male_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(male_nonsmoker.head())</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram male nonsmoker</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_male_nonsmoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Distribution'</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Insurnance Cost (USD)'</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of male nonsmokers per child</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>df_children <span class="op">=</span> df_male_nonsmoker.groupby(<span class="st">'children'</span>).mean().reset_index()</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_children.children, y <span class="op">=</span> df_children.charges, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Male Nonsmoker Insurance Cost Per Child'</span>)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Number of Children'</span>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of male nonsmokers by BMI</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_nonsmoker.bmi, y <span class="op">=</span> df_male_nonsmoker.charges,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_nonsmoker.region,</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_nonsmoker.region,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="fl">7.5</span>, <span class="dv">25</span>), ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">2</span>])</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x <span class="op">=</span> <span class="dv">30</span>, color <span class="op">=</span> <span class="st">'gray'</span>, label <span class="op">=</span> <span class="st">'Obese BMI'</span>)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost vs BMI'</span>)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'BMI'</span>)</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of male nonsmokers by age</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_nonsmoker.age, y <span class="op">=</span> df_male_nonsmoker.charges,</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_nonsmoker.children,</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_nonsmoker.children, sizes <span class="op">=</span> (<span class="fl">12.5</span>,<span class="dv">25</span>),</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>                ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">0</span>])</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost vs Age'</span>)</span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of male nonsmokers per region</span></span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>df_region <span class="op">=</span> df_male_nonsmoker.groupby(<span class="st">'region'</span>).mean().reset_index()</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_region.region,  y <span class="op">=</span> df_region.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">1</span>])</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Male Nonsmoker Insurance Cost Per Region'</span>)</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Region'</span>)</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot of male nonsmoker boxplot</span></span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_nonsmoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Boxplot'</span>)</span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -899,25 +898,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight scatter plot for linear trend</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.8</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_nonsmoker.age, y <span class="op">=</span> df_male_nonsmoker.charges,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_nonsmoker.children,</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_nonsmoker.children,</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="fl">7.5</span>, <span class="dv">20</span>))</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Male Nonsmoker Insurance Cost vs Age'</span>)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">1.0</span>, <span class="dv">1</span>))</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight this</span></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="co">#solid evidence that as age increases, your insurance cost increases as well.</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co">#people with more children see a slightly higher cost overall </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="983d9ea1" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight scatter plot for linear trend</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.8</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_nonsmoker.age, y <span class="op">=</span> df_male_nonsmoker.charges,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_male_nonsmoker.children,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_male_nonsmoker.children,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="fl">7.5</span>, <span class="dv">20</span>))</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Male Nonsmoker Insurance Cost vs Age'</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">1.0</span>, <span class="dv">1</span>))</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight this</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co">#solid evidence that as age increases, your insurance cost increases as well.</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co">#people with more children see a slightly higher cost overall </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -938,63 +937,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Graph Four: Cost vs Age with Children In line with the observations for male nonsmokers, there is a strong linear relationship between insurance cost and age among female nonsmokers. A secondary trend is also evident, indicating that insurance costs tend to be lower for females with fewer children and higher for those with more children. It is worth noting that outliers do not conform to the overall trend line.</p>
 <p>Graph Five: Average Cost per Region There is a slight trend suggesting regional differences in insurance costs among female nonsmokers. On average, the northeast region exhibits higher costs compared to the southwest region.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost While not directly related to the analysis of female nonsmokers, it is noteworthy to examine the spread of insurance costs among male smokers for comparative purposes</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female nonsmokers from the main data set</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_female_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_female_nonsmoker.head())</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram Female nonsmoker</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_female_nonsmoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Female Nonsmoker Insurance Cost Distribution'</span>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Insurnance Cost (USD)'</span>)</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of Female nonsmokers per child</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>df_children <span class="op">=</span> df_female_nonsmoker.groupby(<span class="st">'children'</span>).mean().reset_index()</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_children.children, y <span class="op">=</span> df_children.charges, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">1</span>])</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Female Nonsmoker Insurance Cost Per Child'</span>)</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Number of Children'</span>)</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of Female nonsmokers by BMI</span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_female_nonsmoker.bmi, y <span class="op">=</span> df_female_nonsmoker.charges,</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_female_nonsmoker.region,</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_female_nonsmoker.region,</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="fl">7.5</span>, <span class="dv">25</span>), ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">2</span>])</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x <span class="op">=</span> <span class="dv">30</span>, color <span class="op">=</span> <span class="st">'gray'</span>, label <span class="op">=</span> <span class="st">'Obese BMI'</span>)</span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">'Female Nonsmoker Insurance Cost vs BMI'</span>)</span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'BMI'</span>)</span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">1.0</span>, <span class="dv">1</span>))</span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of Female nonsmokers by age</span></span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_female_nonsmoker.age, y <span class="op">=</span> df_female_nonsmoker.charges,</span>
-<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_female_nonsmoker.children,</span>
-<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_female_nonsmoker.children, sizes <span class="op">=</span> (<span class="fl">12.5</span>,<span class="dv">25</span>),</span>
-<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>                ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">0</span>])</span>
-<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Female Nonsmoker Insurance Cost vs Age'</span>)</span>
-<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Age'</span>)</span>
-<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
-<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of Female nonsmokers per region</span></span>
-<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>df_region <span class="op">=</span> df_female_nonsmoker.groupby(<span class="st">'region'</span>).mean().reset_index()</span>
-<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_region.region,  y <span class="op">=</span> df_region.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">1</span>])</span>
-<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Female Nonsmoker Insurance Cost Per Region'</span>)</span>
-<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Region'</span>)</span>
-<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot of Female nonsmoker boxplot</span></span>
-<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_nonsmoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
-<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Boxplot'</span>)</span>
-<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
-<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">4</span>)</span>
-<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="74e7c4c0" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female nonsmokers from the main data set</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df_female_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_female_nonsmoker.head())</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>,figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram Female nonsmoker</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_female_nonsmoker.charges, bins <span class="op">=</span> <span class="dv">40</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Female Nonsmoker Insurance Cost Distribution'</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Insurnance Cost (USD)'</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of Female nonsmokers per child</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>df_children <span class="op">=</span> df_female_nonsmoker.groupby(<span class="st">'children'</span>).mean().reset_index()</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_children.children, y <span class="op">=</span> df_children.charges, ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Female Nonsmoker Insurance Cost Per Child'</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Number of Children'</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of Female nonsmokers by BMI</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_female_nonsmoker.bmi, y <span class="op">=</span> df_female_nonsmoker.charges,</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_female_nonsmoker.region,</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_female_nonsmoker.region,</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>                sizes <span class="op">=</span> (<span class="fl">7.5</span>, <span class="dv">25</span>), ax <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">2</span>])</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x <span class="op">=</span> <span class="dv">30</span>, color <span class="op">=</span> <span class="st">'gray'</span>, label <span class="op">=</span> <span class="st">'Obese BMI'</span>)</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">'Female Nonsmoker Insurance Cost vs BMI'</span>)</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'BMI'</span>)</span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">1.0</span>, <span class="dv">1</span>))</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="co">#scatterplot for insurance cost of Female nonsmokers by age</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_female_nonsmoker.age, y <span class="op">=</span> df_female_nonsmoker.charges,</span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>                hue <span class="op">=</span> df_female_nonsmoker.children,</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>                size <span class="op">=</span> df_female_nonsmoker.children, sizes <span class="op">=</span> (<span class="fl">12.5</span>,<span class="dv">25</span>),</span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>                ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">0</span>])</span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Female Nonsmoker Insurance Cost vs Age'</span>)</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">'Age'</span>)</span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="co">#barplot for insurance cost of Female nonsmokers per region</span></span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>df_region <span class="op">=</span> df_female_nonsmoker.groupby(<span class="st">'region'</span>).mean().reset_index()</span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> df_region.region,  y <span class="op">=</span> df_region.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">1</span>])</span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'Average Female Nonsmoker Insurance Cost Per Region'</span>)</span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">'Region'</span>)</span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot of Female nonsmoker boxplot</span></span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> df_male_nonsmoker.charges, ax <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">'Male Nonsmoker Insurance Cost Boxplot'</span>)</span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">'Insurance Cost (USD)'</span>)</span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a>plt.tight_layout(pad <span class="op">=</span> <span class="dv">4</span>)</span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1011,58 +1010,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="nonsmokers-vs-smokers" class="level2">
 <h2 class="anchored" data-anchor-id="nonsmokers-vs-smokers">Nonsmokers vs Smokers</h2>
 <p>Based on the analysis conducted on smokers and nonsmokers, it can be observed that smoking status significantly impacts health insurance costs. Both male and female smokers experience higher insurance costs compared to their nonsmoking counterparts. Furthermore, nonsmokers tend to have a more favorable cost distribution, characterized by lower median costs and less variability. This highlights the importance of smoking cessation interventions and promoting a nonsmoking lifestyle to mitigate the financial burden associated with health insurance for both individuals and the healthcare system.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Nonsmokers</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> df_nonsmokers.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>nonsmoker_male <span class="op">=</span>  <span class="bu">round</span>((df_avg[df_avg.sex <span class="op">==</span> <span class="st">'male'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>nonsmoker_female <span class="op">=</span> <span class="bu">round</span>((df_avg[df_avg.sex <span class="op">==</span> <span class="st">'female'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> <span class="bu">round</span>((nonsmoker_female <span class="op">-</span> nonsmoker_male), <span class="dv">2</span>)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> nonsmoker_male <span class="op">+</span> nonsmoker_female</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>nonsmoker_percent_diff <span class="op">=</span> <span class="bu">round</span>((((nonsmoker_female <span class="op">-</span> nonsmoker_male) <span class="op">/</span> total) <span class="op">*</span> <span class="dv">100</span>),<span class="dv">2</span>) </span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a nonsmoker male is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> nonsmoker_male))</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a nonsmoker female is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> nonsmoker_female))</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average difference in insurance cost for nonsmoker male and female is $</span><span class="sc">{diff}</span><span class="st">.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(diff <span class="op">=</span> diff))</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The nonsmoker males are charged </span><span class="sc">{percent}% le</span><span class="st">ss than their female counterpart.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(percent <span class="op">=</span> nonsmoker_percent_diff))</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co">#Smokers</span></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>df_avg2 <span class="op">=</span> df_smokers.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>smoker_male <span class="op">=</span>  <span class="bu">round</span>((df_avg2[df_avg2.sex <span class="op">==</span> <span class="st">'male'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>smoker_female <span class="op">=</span> <span class="bu">round</span>((df_avg2[df_avg2.sex <span class="op">==</span> <span class="st">'female'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>diff2 <span class="op">=</span> <span class="bu">round</span>((smoker_male <span class="op">-</span> smoker_female), <span class="dv">2</span>)</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> smoker_male <span class="op">+</span> smoker_female</span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>smoker_percent_diff <span class="op">=</span> <span class="bu">round</span>((((smoker_male <span class="op">-</span> smoker_female) <span class="op">/</span> total) <span class="op">*</span> <span class="dv">100</span>),<span class="dv">2</span>) </span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a smoker male is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> smoker_male))</span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a smoker female is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> smoker_female))</span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average difference in insurance cost for smoker male and female is $</span><span class="sc">{diff}</span><span class="st">.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(diff <span class="op">=</span> diff2))</span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The smoker males are charged </span><span class="sc">{percent}</span><span class="st">% more than their female counterpart.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(percent <span class="op">=</span> smoker_percent_diff))</span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="co">#Comparision</span></span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>ins_cost_diff_male <span class="op">=</span> smoker_male <span class="op">-</span> nonsmoker_male</span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>ins_cost_diff_female <span class="op">=</span> smoker_female <span class="op">-</span> nonsmoker_female</span>
-<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>ins_cost_avg_diff <span class="op">=</span> diff2 <span class="op">-</span> diff</span>
-<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>ins_cost_percent_male <span class="op">=</span> <span class="bu">round</span>((smoker_male <span class="op">/</span> nonsmoker_male) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
-<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>ins_cost_percent_female <span class="op">=</span> <span class="bu">round</span>((smoker_female <span class="op">/</span> nonsmoker_female) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
-<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"On average, a male nonsmoker pays $</span><span class="sc">{nonsmoker}</span><span class="st">, while a female smoker pays $</span><span class="sc">{smoker}</span><span class="st">."</span>.<span class="bu">format</span>(nonsmoker <span class="op">=</span> nonsmoker_male, smoker <span class="op">=</span> smoker_male))</span>
-<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The difference in their insurance charges is $</span><span class="sc">{diff_male}</span><span class="st">."</span>.<span class="bu">format</span>(diff_male <span class="op">=</span> ins_cost_diff_male))</span>
-<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A male smoker will get charged approxmiately </span><span class="sc">{percent}</span><span class="st">% more than a nonsmoker.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(percent <span class="op">=</span> ins_cost_percent_male))</span>
-<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"On average, a female nonsmoker pays $</span><span class="sc">{nonsmoker}</span><span class="st">, while a female smoker pays $</span><span class="sc">{smoker}</span><span class="st">."</span>.<span class="bu">format</span>(nonsmoker <span class="op">=</span> nonsmoker_female, smoker <span class="op">=</span> smoker_female))</span>
-<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The difference in their insurance charges is $</span><span class="sc">{diff_female}</span><span class="st">."</span>.<span class="bu">format</span>(diff_female <span class="op">=</span> ins_cost_diff_female))</span>
-<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A female smoker will get charged approxmiately </span><span class="sc">{percent}</span><span class="st">% more than a nonsmoker."</span>.<span class="bu">format</span>(percent <span class="op">=</span> ins_cost_percent_female))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a321a441" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Nonsmokers</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> df_nonsmokers.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>nonsmoker_male <span class="op">=</span>  <span class="bu">round</span>((df_avg[df_avg.sex <span class="op">==</span> <span class="st">'male'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>nonsmoker_female <span class="op">=</span> <span class="bu">round</span>((df_avg[df_avg.sex <span class="op">==</span> <span class="st">'female'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> <span class="bu">round</span>((nonsmoker_female <span class="op">-</span> nonsmoker_male), <span class="dv">2</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> nonsmoker_male <span class="op">+</span> nonsmoker_female</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>nonsmoker_percent_diff <span class="op">=</span> <span class="bu">round</span>((((nonsmoker_female <span class="op">-</span> nonsmoker_male) <span class="op">/</span> total) <span class="op">*</span> <span class="dv">100</span>),<span class="dv">2</span>) </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a nonsmoker male is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> nonsmoker_male))</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a nonsmoker female is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> nonsmoker_female))</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average difference in insurance cost for nonsmoker male and female is $</span><span class="sc">{diff}</span><span class="st">.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(diff <span class="op">=</span> diff))</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The nonsmoker males are charged </span><span class="sc">{percent}% le</span><span class="st">ss than their female counterpart.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(percent <span class="op">=</span> nonsmoker_percent_diff))</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#Smokers</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>df_avg2 <span class="op">=</span> df_smokers.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>smoker_male <span class="op">=</span>  <span class="bu">round</span>((df_avg2[df_avg2.sex <span class="op">==</span> <span class="st">'male'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>smoker_female <span class="op">=</span> <span class="bu">round</span>((df_avg2[df_avg2.sex <span class="op">==</span> <span class="st">'female'</span>].charges.<span class="bu">sum</span>()),<span class="dv">2</span>)</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>diff2 <span class="op">=</span> <span class="bu">round</span>((smoker_male <span class="op">-</span> smoker_female), <span class="dv">2</span>)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> smoker_male <span class="op">+</span> smoker_female</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>smoker_percent_diff <span class="op">=</span> <span class="bu">round</span>((((smoker_male <span class="op">-</span> smoker_female) <span class="op">/</span> total) <span class="op">*</span> <span class="dv">100</span>),<span class="dv">2</span>) </span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a smoker male is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> smoker_male))</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average insurance cost for a smoker female is $</span><span class="sc">{avg}</span><span class="st">."</span>.<span class="bu">format</span>(avg <span class="op">=</span> smoker_female))</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The average difference in insurance cost for smoker male and female is $</span><span class="sc">{diff}</span><span class="st">.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(diff <span class="op">=</span> diff2))</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The smoker males are charged </span><span class="sc">{percent}</span><span class="st">% more than their female counterpart.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(percent <span class="op">=</span> smoker_percent_diff))</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="co">#Comparision</span></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>ins_cost_diff_male <span class="op">=</span> smoker_male <span class="op">-</span> nonsmoker_male</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>ins_cost_diff_female <span class="op">=</span> smoker_female <span class="op">-</span> nonsmoker_female</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>ins_cost_avg_diff <span class="op">=</span> diff2 <span class="op">-</span> diff</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>ins_cost_percent_male <span class="op">=</span> <span class="bu">round</span>((smoker_male <span class="op">/</span> nonsmoker_male) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>ins_cost_percent_female <span class="op">=</span> <span class="bu">round</span>((smoker_female <span class="op">/</span> nonsmoker_female) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"On average, a male nonsmoker pays $</span><span class="sc">{nonsmoker}</span><span class="st">, while a female smoker pays $</span><span class="sc">{smoker}</span><span class="st">."</span>.<span class="bu">format</span>(nonsmoker <span class="op">=</span> nonsmoker_male, smoker <span class="op">=</span> smoker_male))</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The difference in their insurance charges is $</span><span class="sc">{diff_male}</span><span class="st">."</span>.<span class="bu">format</span>(diff_male <span class="op">=</span> ins_cost_diff_male))</span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A male smoker will get charged approxmiately </span><span class="sc">{percent}</span><span class="st">% more than a nonsmoker.</span><span class="ch">\n</span><span class="st">"</span>.<span class="bu">format</span>(percent <span class="op">=</span> ins_cost_percent_male))</span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"On average, a female nonsmoker pays $</span><span class="sc">{nonsmoker}</span><span class="st">, while a female smoker pays $</span><span class="sc">{smoker}</span><span class="st">."</span>.<span class="bu">format</span>(nonsmoker <span class="op">=</span> nonsmoker_female, smoker <span class="op">=</span> smoker_female))</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The difference in their insurance charges is $</span><span class="sc">{diff_female}</span><span class="st">."</span>.<span class="bu">format</span>(diff_female <span class="op">=</span> ins_cost_diff_female))</span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A female smoker will get charged approxmiately </span><span class="sc">{percent}</span><span class="st">% more than a nonsmoker."</span>.<span class="bu">format</span>(percent <span class="op">=</span> ins_cost_percent_female))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The average insurance cost for a nonsmoker male is $8087.2.
 The average insurance cost for a nonsmoker female is $8762.3.

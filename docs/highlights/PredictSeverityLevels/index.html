@@ -105,6 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript" src="hover-enhancements.js"></script>
+<script type="text/javascript" src="../../hover-enhancements.js"></script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -150,6 +152,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Brian Cervantes Alvarez - Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis On A Rare Disease">
 <meta property="og:description" content="Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.">
 <meta property="og:image" content="severity.jpeg">
@@ -159,7 +162,7 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -201,46 +204,7 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis On A Rare Disease</h1>
-                  <div>
-        <div class="description">
-          Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Python</div>
-                <div class="quarto-category">Machine Learning</div>
-                <div class="quarto-category">Random Forest</div>
-                <div class="quarto-category">Classification</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Brian Cervantes Alvarez </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">June 26, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -266,10 +230,48 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis On A Rare Disease</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Random Forest</div>
+    <div class="quarto-category">Classification</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 26, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <p><img src="severity.jpeg" class="img-fluid"></p>
@@ -337,7 +339,7 @@ window.Quarto = {
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<div id="deaf5567" class="cell" data-execution_count="1">
+<div id="6ed797b3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the required libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd                 <span class="co"># Library for data manipulation and analysis</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np                  <span class="co"># Library for numerical computations</span></span>
@@ -548,7 +550,7 @@ window.Quarto = {
 </div>
 <section id="exploratory-data-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
-<div id="5c44695f" class="cell" data-execution_count="2">
+<div id="d964ebc1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic statistics of the dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ds.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -691,7 +693,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="9d5db3f1" class="cell" data-execution_count="3">
+<div id="0f99513d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distribution of the target variable 'Final Category'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ds[<span class="st">'Final Category'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
@@ -711,7 +713,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="a266fc2d" class="cell" data-execution_count="4">
+<div id="b4f0c477" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation matrix</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> ds.corr()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -747,7 +749,7 @@ window.Quarto = {
 <li><p>Print the top 3 features for each label: The code then prints the top three features for each category in the target variable. This information helps us understand which features are most influential in determining the predicted category.</p></li>
 </ol>
 <p>Overall, this code prepares the data by transforming categorical data into a suitable format and identifies the top features that contribute to predicting different categories. This sets the stage for further analysis and building the final machine learning model based on these selected features.</p>
-<div id="4b8b847f" class="cell" data-execution_count="5">
+<div id="0203850a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the ID column</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Patient'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1017,7 +1019,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="19a79d7d" class="cell" data-execution_count="6">
+<div id="c8a01f0d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the features (X) and the target variable (y)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> ds.drop(<span class="st">'Final Category'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'Final Category'</span>]</span>
@@ -1132,7 +1134,7 @@ Top 3 features for Moderate:
 <li><p>Calculate and print other evaluation metrics: The code calculates additional evaluation metrics such as ROC AUC score, recall, precision, and Kappa metric. These metrics help assess the model’s performance in terms of classification accuracy, sensitivity, precision, and agreement beyond chance.</p></li>
 </ol>
 <p>Overall, this code builds a Random Forest model using selected features, evaluates its performance through cross-validation, and provides insights into the model’s predictive capabilities using various evaluation metrics. The goal is to understand how well the model can predict the categories in the target variable based on the selected features.</p>
-<div id="1b209e80" class="cell" data-execution_count="7">
+<div id="974d74bb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the features (X) and the target variable (y) using only the top features</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> ds[top_features[<span class="st">'Mild'</span>] <span class="op">+</span> top_features[<span class="st">'Moderate'</span>] <span class="op">+</span> top_features[<span class="st">'Severe'</span>]]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'Final Category'</span>]</span>
@@ -1173,7 +1175,7 @@ Mean CV Score: 0.8933333333333333
 </code></pre>
 </div>
 </div>
-<div id="86ce4f46" class="cell" data-execution_count="8">
+<div id="116e64db" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">87</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1246,7 +1248,7 @@ Kappa: 0.8493723849372385
 <section id="roc-curve" class="level4">
 <h4 class="anchored" data-anchor-id="roc-curve">ROC Curve</h4>
 <p>Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model’s ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.948 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.</p>
-<div id="3c2afc36" class="cell" data-execution_count="9">
+<div id="8e561c51" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate predicted probabilities for each class</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y_pred_proba <span class="op">=</span> rf_model.predict_proba(X_test)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1300,7 +1302,7 @@ Kappa: 0.8493723849372385
 <h4 class="anchored" data-anchor-id="recall-vs.-precision-curve">Recall vs.&nbsp;Precision Curve</h4>
 <p>Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.9 means that the model identified nearly 90.0% of the patients with their correct severity rating.</p>
 <p>Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.913 indicates that out of all the patients the model identified as having a specific severity rating, 91.3% of them were correct.</p>
-<div id="e676f2b6" class="cell" data-execution_count="10">
+<div id="59d0b354" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate precision and recall values for each class</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>precision, recall, thresholds <span class="op">=</span> precision_recall_curve(y_test, rf_model.predict_proba(X_test)[:, <span class="dv">1</span>], pos_label<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1332,7 +1334,7 @@ Kappa: 0.8493723849372385
 </section>
 <section id="visualizing-random-forests-best-decision-tree" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing-random-forests-best-decision-tree">Visualizing Random Forest’s Best Decision Tree</h3>
-<div id="79f3b205" class="cell" data-execution_count="11">
+<div id="4f42a790" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform 10-fold cross-validation</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf_model, X, y, cv<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>

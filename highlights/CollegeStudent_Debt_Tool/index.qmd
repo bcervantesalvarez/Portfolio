@@ -14,14 +14,10 @@ format:
     toc: true
     toc-location: right
     html-math-method: katex
+    page-layout: article
 output: html_document
 categories: [R, Shiny, Data Visualization, Dashboard]
 ---
-
-```{r}
-#| include: FALSE
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ![](uni.jpeg)
 

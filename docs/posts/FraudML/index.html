@@ -102,8 +102,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="text/javascript" src="hover-enhancements.js"></script>
+<script type="text/javascript" src="../../Portfolio/hover-enhancements.js"></script>
 
 
+<link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Brian Cervantes Alvarez - Boosting Fraud Detection: Enhancing Accuracy with GBM">
 <meta property="og:description" content="I developed a model that enhances fraud detection in this dataset, contributing to ongoing advancements in this challenging task">
 <meta property="og:image" content="fraud.png">
@@ -113,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -155,45 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Boosting Fraud Detection: Enhancing Accuracy with GBM</h1>
-                  <div>
-        <div class="description">
-          I developed a model that enhances fraud detection in this dataset, contributing to ongoing advancements in this challenging task
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Python</div>
-                <div class="quarto-category">Machine Learning</div>
-                <div class="quarto-category">Gradient Boosting Machines</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Brian Cervantes Alvarez </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 30, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -221,10 +186,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Boosting Fraud Detection: Enhancing Accuracy with GBM</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Gradient Boosting Machines</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    I developed a model that enhances fraud detection in this dataset, contributing to ongoing advancements in this challenging task
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 30, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <p><img src="fraud.png" class="img-fluid"></p>
@@ -319,7 +321,7 @@ Caution
 </div>
 <section id="set-up" class="level3">
 <h3 class="anchored" data-anchor-id="set-up">Set up</h3>
-<div class="cell" data-execution_count="1">
+<div id="a3948498" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -363,7 +365,7 @@ Caution
 </section>
 <section id="data-wrangling" class="level3">
 <h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
-<div class="cell" data-execution_count="2">
+<div id="df49dc71" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(ds.drop([<span class="st">'isFraud'</span>, <span class="st">'nameOrig'</span>, <span class="st">'nameDest'</span>, <span class="st">'isFlaggedFraud'</span>], axis<span class="op">=</span><span class="dv">1</span>))   <span class="co"># Perform one-hot encoding on the features</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'isFraud'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -383,7 +385,7 @@ Note
 </section>
 <section id="split-the-data-into-training-validation-and-test-sets" class="level3">
 <h3 class="anchored" data-anchor-id="split-the-data-into-training-validation-and-test-sets">Split the data into training, validation, and test sets</h3>
-<div class="cell" data-execution_count="3">
+<div id="94b9bd21" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the random seed</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">57</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -403,13 +405,13 @@ Note
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>elapsed_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Elapsed Time: </span><span class="sc">{</span>elapsed_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Elapsed Time: 1025.5563502311707 seconds</code></pre>
+<pre><code>Elapsed Time: 1022.21488904953 seconds</code></pre>
 </div>
 </div>
 </section>
 <section id="evaluate-on-the-validation-set" class="level3">
 <h3 class="anchored" data-anchor-id="evaluate-on-the-validation-set">Evaluate on the validation set</h3>
-<div class="cell" data-execution_count="4">
+<div id="0ac6a02a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y_pred_val <span class="op">=</span> gbm.predict(X_val)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>accuracy_val <span class="op">=</span> accuracy_score(y_val, y_pred_val)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>precision_val <span class="op">=</span> precision_score(y_val, y_pred_val)</span>
@@ -440,7 +442,7 @@ Validation Kappa: 0.6562465275067701</code></pre>
 </section>
 <section id="evaluate-on-the-test-set" class="level3">
 <h3 class="anchored" data-anchor-id="evaluate-on-the-test-set">Evaluate on the test set</h3>
-<div class="cell" data-execution_count="5">
+<div id="a1efffae" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y_pred_test <span class="op">=</span> gbm.predict(X_test)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>accuracy_test <span class="op">=</span> accuracy_score(y_test, y_pred_test)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>precision_test <span class="op">=</span> precision_score(y_test, y_pred_test)</span>
@@ -471,7 +473,7 @@ Test Kappa: 0.6193839067580158</code></pre>
 </section>
 <section id="how-does-this-compare-to-the-current-model" class="level3">
 <h3 class="anchored" data-anchor-id="how-does-this-compare-to-the-current-model">How does this compare to the current model?</h3>
-<div class="cell" data-execution_count="6">
+<div id="edcef787" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparison with 'isFlaggedFraud' column</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>is_flagged_fraud_accuracy <span class="op">=</span> accuracy_score(ds[<span class="st">'isFraud'</span>], ds[<span class="st">'isFlaggedFraud'</span>])</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>is_flagged_fraud_precision <span class="op">=</span> precision_score(ds[<span class="st">'isFraud'</span>], ds[<span class="st">'isFlaggedFraud'</span>])</span>

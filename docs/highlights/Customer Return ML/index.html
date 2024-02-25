@@ -122,8 +122,11 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script type="text/javascript" src="hover-enhancements.js"></script>
+<script type="text/javascript" src="../../hover-enhancements.js"></script>
 
 
+<link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Brian Cervantes Alvarez - Predicting Customer Returns">
 <meta property="og:description" content="Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power.">
 <meta property="og:image" content="return.jpeg">
@@ -175,7 +178,7 @@ div.csl-indent {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -198,7 +201,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -217,7 +220,7 @@ div.csl-indent {
 </div>
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -401,7 +404,7 @@ $ PriceRange        &lt;fct&gt; $13-$30, $31-$60, $31-$60, $61-$100, &gt;$100, &
  Min.   :0.0019   Min.   :  8.73   No :42035   Fall  :23194   Min.   :27.00  
  1st Qu.:0.0882   1st Qu.: 44.79   Yes:22877   Spring:12576   1st Qu.:37.00  
  Median :0.1717   Median : 62.54               Summer:16620   Median :48.00  
- Mean   :0.1689   Mean   : 65.42               Winter:12522   Mean   :49.19  
+ Mean   :0.1689   Mean   : 65.42               Winter:12522   Mean   :49.21  
  3rd Qu.:0.2541   3rd Qu.: 84.84                              3rd Qu.:61.00  
  Max.   :0.3329   Max.   :132.72                              Max.   :77.00  
                                                                              
@@ -451,9 +454,9 @@ Summary of sample sizes: 43274, 43275, 43275
 Resampling results across tuning parameters:
 
   mtry  ROC        Sens       Spec     
-   2    0.5519796  1.0000000  0.0000000
-  36    0.6244418  0.8317829  0.3612362
-  70    0.6230191  0.8251456  0.3698038
+   2    0.5537023  1.0000000  0.0000000
+  36    0.6240986  0.8328296  0.3614112
+  70    0.6237820  0.8256452  0.3719894
 
 ROC was used to select the optimal model using the largest value.
 The final value used for the model was mtry = 36.</code></pre>
