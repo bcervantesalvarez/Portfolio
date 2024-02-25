@@ -28,9 +28,38 @@
   {
     "listing": "/talks.html",
     "items": [
-      "/talks/ParasiteSurvAnalysis/index.html",
       "/talks/HowtoUseQuarto101/index.html",
+      "/talks/ParasiteSurvAnalysis/index.html",
       "/talks/AboutMyself/index.html"
+    ]
+  },
+  {
+    "listing": "/resources.html",
+    "items": [
+      "/talks/AboutMyself/index.html",
+      "/posts/AppleInc_IncomeStatement/index.html",
+      "/highlights/Statistical Analysis Wines/index.html",
+      "/posts/Automakers/index.html",
+      "/blog.html",
+      "/posts/FraudML/index.html",
+      "/index.html",
+      "/posts/AmazonProductsEN/index.html",
+      "/posts/GymRat_Plotly/index.html",
+      "/highlights/Param_Report_Retail/index.html",
+      "/highlights/US_HealthCare_Spending/index.html",
+      "/talks/ParasiteSurvAnalysis/index.html",
+      "/posts/Pokemon_Database/index.html",
+      "/portfolio.html",
+      "/highlights/Customer Return ML/index.html",
+      "/highlights/Predicting_Income_Bracket/index.html",
+      "/highlights/PredictSeverityLevels/index.html",
+      "/highlights/PredictPinotWine_ML/index.html",
+      "/talks/HowtoUseQuarto101/index.html",
+      "/posts/FancyTables/index.html",
+      "/highlights/CollegeStudent_Debt_Tool/index.html",
+      "/talks.html",
+      "/posts/US_HealthIns_Costs/index.html",
+      "/license.html"
     ]
   }
 ]
