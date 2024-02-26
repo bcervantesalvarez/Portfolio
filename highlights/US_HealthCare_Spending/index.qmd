@@ -9,7 +9,7 @@ nocite: |
 description: "Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!"
 format:
   html:
-    page-layout: full
+    page-layout: article
     toc: true
     toc-location: right
     html-math-method: katex

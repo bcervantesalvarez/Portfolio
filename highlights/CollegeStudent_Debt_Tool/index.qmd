@@ -21,67 +21,6 @@ categories: [R, Shiny, Data Visualization, Dashboard]
 
 ![](uni.jpeg)
 
-<div class="download-buttons" style="text-align: center;">
-  <style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 12px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border-bottom: 2px solid #fff;
-      padding: 1px; /* Padding for the mini border block */
-    }
-  </style>
-
-  <script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/CollegeStudent_Debt_Tool/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/CollegeStudent_Debt_Tool/collegetData.zip",
-      "Download .zip"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
-
 
 ## Abstract
 
@@ -180,8 +119,6 @@ df <- df %>% rename(
     "In State Tuition" = inStateTotal,
     "Out of State Tuition" = outOfStateTotal
 )
-
-
 
 ```
 
