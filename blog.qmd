@@ -1,0 +1,17 @@
+---
+title: "Blog"
+subtitle: "Blog about R, Python, data science, visualisation & statistics!"
+listing:
+  page-size: 5
+  contents: posts
+  max-description-length: 150
+  sort: "date desc"
+  type: default
+  date-format: long
+  fields: [image, date, title, author, description, categories, reading-time]
+  sort-ui: false
+  filter-ui: false
+format: 
+  html:
+    page-layout: article
+---

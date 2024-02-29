@@ -1,0 +1,123 @@
+/* Portfolio Listing Cards Styling */
+
+.page-main {
+    padding: 4rem;
+  }
+  
+  .page-main .blog-intro {
+    max-width: 64rem;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  
+  .page-main .blog-intro h2 {
+    font-size: 2.25rem;
+    line-height: solid;
+    font-weight: 400;
+  }
+  
+  @media screen and (min-width: 30em) {
+    .page-main .blog-intro h2 {
+      font-size: 3rem;
+    }
+  }
+  
+  .page-main .blog-intro p {
+    font-size: 0.75rem;
+    max-width: 34em;
+    line-height: 1.5;
+    text-align: center;
+    font-style: italic;
+    margin: auto;
+  }
+  
+  .page-main .blog-content {
+    display: block;
+  }
+  
+  @media screen and (min-width: 30em) {
+    .page-main .blog-content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  
+  .page-main .blog-content {
+    align-items: flex-start;
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+  
+  .page-main .blog-content article {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid;
+    border-width: 1px;
+  }
+  
+  @media screen and (min-width: 30em) {
+    .page-main .blog-content article {
+      width: 50%;
+    }
+  }
+  
+  @media screen and (min-width: 60em) {
+    .page-main .blog-content article {
+      width: calc(33.3333%);
+      border-width: 0;
+    }
+  }
+  
+  .page-main .blog-content article .ph0 {
+    padding: 0;
+  }
+  
+  .page-main .blog-content article .ph2-m {
+    padding: 0.5rem;
+  }
+  
+  .page-main .blog-content article .ph3-l {
+    padding: 1rem;
+  }
+  
+  .page-main .blog-content article .aspect-ratio {
+    position: relative;
+  }
+  
+  .page-main .blog-content article .aspect-ratio::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  
+  .page-main .blog-content article .aspect-ratio {
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .page-main .blog-content article .aspect-ratio .dim:hover {
+    opacity: 0.9;
+  }
+  
+  .page-main .blog-content article h1 {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+  
+  @media screen and (min-width: 60em) {
+    .page-main .blog-content article h1 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .page-main .blog-content article p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  

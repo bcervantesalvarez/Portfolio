@@ -1,0 +1,20 @@
+---
+title: "About Myself"
+author: 
+    - "Brian Cervantes Alvarez"
+date: "01-07-2023"
+description: "Who am I?"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+execute: 
+  warning: false
+  message: false
+---
+
+## Quick Introduction About Myself
+
+<iframe src="https://bcervantesalvarez.github.io/Presentations/AboutMe/#/title-slide" width="100%" height="600" allowfullscreen></iframe>

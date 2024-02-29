@@ -1,0 +1,19 @@
+---
+title: "Resources"
+subtitle: "Wanna learn more on how to build your projects? Explore the following options to open up your creativity"
+format: 
+  html:
+    page-layout: article
+---
+
+
+# Quarto
+
+# Posit
+
+# Github Pages
+
+# R4DS Online Community
+
+# R-bloggers
+

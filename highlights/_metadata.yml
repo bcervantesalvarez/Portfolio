@@ -1,0 +1,7 @@
+freeze: true
+format:
+  html:
+    css: styles.css
+    include-in-header: 
+      - text: |
+          <script type="text/javascript" src="/hover-enhancements.js"></script>

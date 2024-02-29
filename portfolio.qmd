@@ -1,0 +1,8 @@
+---
+title: "Portfolio"
+subtitle: "Overview of my statistical & data science projects"
+listing:
+  contents: "highlights"
+  type: grid
+  grid-columns: 4
+---

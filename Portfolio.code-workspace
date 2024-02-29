@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"r.rmarkdown.knit.defaults.knitWorkingDirectory": "document directory"
+	}
+}

@@ -1,0 +1,99 @@
+---
+title: "Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach"
+description: "Uncover the hidden impact of temperature on pesticide toxicity in a captivating quest that reveals the implications for our changing world."
+author: 
+  - "Brian Cervantes Alvarez"
+  - "Willa Van Liew"
+  - "Hans Lehndorff"
+image: parasite.jpeg
+date: "2-27-2023"
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+    code-fold: true
+execute: 
+  warning: false
+  message: false
+categories: [R, Reveal.JS, Survival Analysis]
+---
+
+![](parasite.jpeg)
+
+<div class="download-buttons" style="text-align: center;">
+  <style>
+    .download-buttons a.button {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-right: 25px;
+      margin-bottom: 40px;
+      background-color: #343a40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .download-buttons a.button:last-child {
+      margin-right: 0;
+    }
+
+    .download-buttons a.button:hover {
+      background-color: #55595c;
+    }
+
+    .download-buttons a.button:after {
+      content: "\2193";
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 5px; /* Added margin from the text */
+      transform: translateY(-50%);
+      border: 1px solid #fff; /* Mini border block */
+      border-radius: 4px; /* Rounded corners for the mini border block */
+      padding: 2px; /* Padding for the mini border block */
+    }
+  </style>
+
+  <script>
+    function createDynamicButton(href, text) {
+      var button = document.createElement("a");
+      button.href = href;
+      button.className = "button";
+      button.appendChild(document.createTextNode(text));
+      return button;
+    }
+
+    var downloadButtonsDiv = document.querySelector(".download-buttons");
+
+    var documentButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/SurvAnalysis_Parasite_RevealJS/index.qmd",
+      "Download .qmd"
+    );
+    downloadButtonsDiv.appendChild(documentButton);
+
+    var csvButton = createDynamicButton(
+      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/SurvAnalysis_Parasite_RevealJS/SurvivalAnalysis_Parasites.html",
+      "Download .html"
+    );
+    downloadButtonsDiv.appendChild(csvButton);
+  </script>
+</div>
+
+## Unveiling Nature's Heatwave: The Hidden Impact of Temperature on Pesticide Toxicity
+
+In this captivating study, we embark on a quest to unravel the influence of temperature on the toxicity of pesticides, driven by growing concerns about the effects of climate change. Our mission extends beyond conventional pesticide testing, as we strive to shed light on the potential impacts of varying temperatures. We seek to answer a pivotal question: Does temperature significantly shape pesticide toxicity? To uncover the truth, we employ survival analysis, delving into the realm of time-to-death for the exposed subjects. By deciphering the intricate interplay between temperature and pesticide toxicity, we aim to reveal the magnitude of this effect and its implications for our changing world.
+
+## Parasitic Marvels Unveiled: Delving into the Intricate World of Echinostoma trivolvis
+Prepare to be amazed as we take you on a captivating journey into the hidden intricacies of Echinostoma trivolvis, a remarkable species of trematode parasite. From its widespread infection of birds, mammals, and reptiles to its complex life cycle involving snails, birds, and mammals, this parasite holds many secrets waiting to be unlocked. Join us as we explore its adult worms' intriguing residence in the small intestine, where they feed on blood and nutrients, causing a range of symptoms from abdominal pain to malnutrition. Found abundantly in North American wetlands and aquatic environments, Echinostoma trivolvis is a true marvel of nature that continues to fascinate and astonish researchers and nature enthusiasts alike.
+
+## Presentation
+
+<iframe src="SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="100%" height="800">
+
+</iframe>
