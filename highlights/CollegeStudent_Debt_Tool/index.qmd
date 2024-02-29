@@ -9,7 +9,7 @@ image: uni.jpeg
 bibliography: "bibliography.bib"
 nocite: |
      @*
-format:
+format:  
   html:
     toc: true
     toc-location: right
@@ -32,7 +32,7 @@ As students make important decisions about their higher education, it becomes cr
 
 ## Shiny Interactive Tool
 
-<iframe src="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="100%" height="800">
+<iframe src="https://bcervantesalvarez.shinyapps.io/FinalProjectData502/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="100%" height="800">
 
 </iframe>
 

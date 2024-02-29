@@ -245,65 +245,6 @@ div.csl-indent {
 
 
 <p><img src="uni.jpeg" class="img-fluid"></p>
-<div class="download-buttons" style="text-align: center;">
-<style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 12px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border-bottom: 2px solid #fff;
-      padding: 1px; /* Padding for the mini border block */
-    }
-  </style>
-<script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/CollegeStudent_Debt_Tool/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/CollegeStudent_Debt_Tool/collegetData.zip",
-      "Download .zip"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <p>In collaboration with Corey Cassell, this study aims to provide prospective college students with crucial information about potential income and student debt in their chosen career paths. To achieve this, we have developed an interactive tool using R Shiny to create engaging visualizations.</p>
@@ -314,7 +255,7 @@ div.csl-indent {
 </section>
 <section id="shiny-interactive-tool" class="level2">
 <h2 class="anchored" data-anchor-id="shiny-interactive-tool">Shiny Interactive Tool</h2>
-<iframe src="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="100%" height="800">
+<iframe src="https://bcervantesalvarez.shinyapps.io/FinalProjectData502/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="100%" height="800">
 </iframe>
 </section>
 <section id="setup" class="level2">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Brian Cervantes Alvarez - Blog</title>
+<title>Brian Cervantes Alvarez - Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,10 +77,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 5,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -129,8 +128,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Brian Cervantes Alvarez - Blog">
-<meta property="og:description" content="Blog about R, Python, data science, visualisation &amp; statistics!">
+<meta property="og:title" content="Brian Cervantes Alvarez - Portfolio">
+<meta property="og:description" content="Overview of my statistical &amp; data science projects">
 <meta property="og:site_name" content="Brian Cervantes Alvarez">
 </head>
 
@@ -156,11 +155,11 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
+    <a class="nav-link active" href="./portfolio.html" aria-current="page"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
@@ -188,8 +187,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-<p class="subtitle lead">Blog about R, Python, data science, visualisation &amp; statistics!</p>
+<h1 class="title">Portfolio</h1>
+<p class="subtitle lead">Overview of my statistical &amp; data science projects</p>
 </div>
 
 
@@ -210,363 +209,212 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1698735600000" data-listing-file-modified-sort="1709244348467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="487">
-<div class="thumbnail">
-<p><a href="./posts/Automakers/index.html" class="no-external"></a></p><a href="./posts/Automakers/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/Automakers/index_files/figure-html/unnamed-chunk-7-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Automakers/index.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-4">
+<div class="g-col-1" data-index="0" data-categories="R,Machine Learning,Support Vector Machines,Logistic Regression,Random Forest,Classification,Statistics" data-listing-date-sort="1702540800000" data-listing-file-modified-sort="1709244348287" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5058">
+<a href="./highlights/Statistical Analysis Wines/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/Statistical Analysis Wines/redwhite.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Applied Multivariate Analysis: Investigating Red &amp; White Wines
+</h5>
+<div class="card-text listing-description">
+Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest’s superiority, identifying key…
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Automakers/index.html" class="no-external">Automaker Analysis</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Automakers/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Time Series'); return false;">
-Time Series
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
-Data Visualization
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Automakers/index.html" class="no-external">Diving deep into the complex world of market competition for automakers.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Automakers/index.html" class="no-external">
-<div class="listing-date">
-October 31, 2023
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-3 min
+<div class="listing-date">
+Dec 14, 2023
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="1" data-categories="R,Plotly,Reports,Time Series,Data Visualization" data-listing-date-sort="1680505200000" data-listing-file-modified-sort="1709244348258" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2065">
+<a href="./highlights/Param_Report_Retail/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/Param_Report_Retail/report.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress
+</h5>
+<div class="card-text listing-description">
+Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time.…
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Python,Machine Learning,Gradient Boosting Machines" data-listing-date-sort="1685430000000" data-listing-file-modified-sort="1709244348496" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1397">
-<div class="thumbnail">
-<p><a href="./posts/FraudML/index.html" class="no-external"></a></p><a href="./posts/FraudML/index.html" class="no-external">
-<p><img src="./posts/FraudML/fraud.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/FraudML/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/FraudML/index.html" class="no-external">Boosting Fraud Detection: Enhancing Accuracy with GBM</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/FraudML/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
-Machine Learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Gradient Boosting Machines'); return false;">
-Gradient Boosting Machines
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/FraudML/index.html" class="no-external">I developed a model that enhances fraud detection in this dataset, contributing to ongoing advancements in this challenging task</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/FraudML/index.html" class="no-external">
-<div class="listing-date">
-May 30, 2023
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-7 min
+<div class="listing-date">
+Apr 3, 2023
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="2" data-categories="R,Linear Regression,Statistics" data-listing-date-sort="1670832000000" data-listing-file-modified-sort="1709244348290" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3995">
+<a href="./highlights/US_HealthCare_Spending/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/US_HealthCare_Spending/healthcareSpending.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Healthcare Spending Is Only Getting Worse
+</h5>
+<div class="card-text listing-description">
+Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,Shiny,CSS,Data Tables,Data Visualization,Dashboard" data-listing-date-sort="1682060400000" data-listing-file-modified-sort="1709244348465" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2593">
-<div class="thumbnail">
-<p><a href="./posts/AmazonProductsEN/index.html" class="no-external"></a></p><a href="./posts/AmazonProductsEN/index.html" class="no-external">
-<p><img src="./posts/AmazonProductsEN/AmazonLogo.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/AmazonProductsEN/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/AmazonProductsEN/index.html" class="no-external">Building A Quick Dashboard For Amazon Products (EN.)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/AmazonProductsEN/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Shiny'); return false;">
-Shiny
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('CSS'); return false;">
-CSS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Tables'); return false;">
-Data Tables
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
-Data Visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Dashboard'); return false;">
-Dashboard
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/AmazonProductsEN/index.html" class="no-external">Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/AmazonProductsEN/index.html" class="no-external">
-<div class="listing-date">
-April 21, 2023
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-13 min
+<div class="listing-date">
+Dec 12, 2022
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-categories="R,Machine Learning,Random Forest" data-listing-date-sort="1678521600000" data-listing-file-modified-sort="1709244348227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1219">
+<a href="./highlights/Customer Return ML/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/Customer Return ML/return.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Predicting Customer Returns
+</h5>
+<div class="card-text listing-description">
+Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power.
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1680073200000" data-listing-file-modified-sort="1709244348467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2074">
-<div class="thumbnail">
-<p><a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external"></a></p><a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external">
-<p><img src="./posts/AppleInc_IncomeStatement/apple.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external">Apple’s Journey In The Stock Market</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Time Series'); return false;">
-Time Series
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
-Data Visualization
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external">Explore the dynamic world of Time Series Graphs with R’s plotly. Unveil trends in Apple’s stock market and the impact of groundbreaking innovations</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/AppleInc_IncomeStatement/index.html" class="no-external">
-<div class="listing-date">
-March 29, 2023
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-11 min
+<div class="listing-date">
+Mar 11, 2023
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="4" data-categories="R,Machine Learning,Gradient Boosting Machines,Logistic Regression,Classification" data-listing-date-sort="1681196400000" data-listing-file-modified-sort="1709244348269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1665">
+<a href="./highlights/Predicting_Income_Bracket/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/Predicting_Income_Bracket/income.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Predicting Individuals Who Earn More Than 50K
+</h5>
+<div class="card-text listing-description">
+We employed advanced techniques in our project, using a random forest model to identify important variables and selecting the top 8 features.
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,Data Visualization,Plotly" data-listing-date-sort="1677225600000" data-listing-file-modified-sort="1709244348497" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1094">
-<div class="thumbnail">
-<p><a href="./posts/GymRat_Plotly/index.html" class="no-external"></a></p><a href="./posts/GymRat_Plotly/index.html" class="no-external">
-<p><img src="./posts/GymRat_Plotly/gymRat.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/GymRat_Plotly/index.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Brian Cervantes Alvarez, Willa Van Liew
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/GymRat_Plotly/index.html" class="no-external">Do You Like Stretching? I Would Reconsider!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/GymRat_Plotly/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
-Data Visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Plotly'); return false;">
-Plotly
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/GymRat_Plotly/index.html" class="no-external">Stretching enhances flexibility but lacks muscle-building benefits. Weight training and resistance exercises stimulate muscle growth. Supplement…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/GymRat_Plotly/index.html" class="no-external">
 <div class="listing-date">
-February 24, 2023
+Apr 11, 2023
 </div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="Python,Machine Learning,Random Forest,Classification" data-listing-date-sort="1687762800000" data-listing-file-modified-sort="1709244348268" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4291">
+<a href="./highlights/PredictSeverityLevels/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/PredictSeverityLevels/severity.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Predicting Severity Levels in Patients: A Random Forest Approach Based on Symptom Analysis On A Rare Disease
+</h5>
+<div class="card-text listing-description">
+Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.
+</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-6 min
+<div class="listing-date">
+Jun 26, 2023
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="6" data-categories="R,Machine Learning,Random Forest,Classification" data-listing-date-sort="1677657600000" data-listing-file-modified-sort="1709244348263" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="700">
+<a href="./highlights/PredictPinotWine_ML/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/PredictPinotWine_ML/pinot.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Predicting the Province of Origin for Pinot Wines Based on Their Individual Descriptions
+</h5>
+<div class="card-text listing-description">
+The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this…
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,Data Tables" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1709244348491" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1394">
-<div class="thumbnail">
-<p><a href="./posts/FancyTables/index.html" class="no-external"></a></p><a href="./posts/FancyTables/index.html" class="no-external">
-<p><img data-src="./posts/FancyTables/wine.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/FancyTables/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/FancyTables/index.html" class="no-external">Rating Pinot Wines: Is More Expensive Better?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/FancyTables/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Tables'); return false;">
-Data Tables
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/FancyTables/index.html" class="no-external">Revolutionizing Data Tables: Visual Appeal &amp; Comprehension. Explore techniques for aesthetically pleasing &amp; informative tables. Enhance data…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/FancyTables/index.html" class="no-external">
-<div class="listing-date">
-February 20, 2023
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-7 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="R,PostgreSQL,Data Visualization,Data Engineering" data-listing-date-sort="1670227200000" data-listing-file-modified-sort="1709244348498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1859">
-<div class="thumbnail">
-<p><a href="./posts/Pokemon_Database/index.html" class="no-external"></a></p><a href="./posts/Pokemon_Database/index.html" class="no-external">
-<p><img data-src="./posts/Pokemon_Database/pokemon.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/Pokemon_Database/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Pokemon_Database/index.html" class="no-external">Pokédex Database</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Pokemon_Database/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('PostgreSQL'); return false;">
-PostgreSQL
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
-Data Visualization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Engineering'); return false;">
-Data Engineering
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Pokemon_Database/index.html" class="no-external">Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database.…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Pokemon_Database/index.html" class="no-external">
 <div class="listing-date">
-December 5, 2022
+Mar 1, 2023
 </div>
-<div class="listing-author">
-Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-10 min
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="7" data-categories="R,Shiny,Data Visualization,Dashboard" data-listing-date-sort="1669968000000" data-listing-file-modified-sort="1709244725444" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2759">
+<a href="./highlights/CollegeStudent_Debt_Tool/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./highlights/CollegeStudent_Debt_Tool/uni.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Resources for Prospective College Students
+</h5>
+<div class="card-text listing-description">
+Unleash your future with our interactive tool! Estimate salaries, tuition, and student debt for majors. Plan your journey and make informed career decisions. Essential for…
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Python,Statistics,Jupyter Notebook,Data Visualization" data-listing-date-sort="1657782000000" data-listing-file-modified-sort="1709244348541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5241">
-<div class="thumbnail">
-<p><a href="./posts/US_HealthIns_Costs/index.html" class="no-external"></a></p><a href="./posts/US_HealthIns_Costs/index.html" class="no-external">
-<p><img data-src="./posts/US_HealthIns_Costs/health_ins.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/US_HealthIns_Costs/index.html" class="no-external"></a></p>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Brian Cervantes Alvarez, Corey Cassell
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/US_HealthIns_Costs/index.html" class="no-external">The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/US_HealthIns_Costs/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Statistics'); return false;">
-Statistics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Jupyter Notebook'); return false;">
-Jupyter Notebook
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
-Data Visualization
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/US_HealthIns_Costs/index.html" class="no-external">In this captivating investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining the nuanced…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/US_HealthIns_Costs/index.html" class="no-external">
 <div class="listing-date">
-July 14, 2022
+Dec 2, 2022
 </div>
-<div class="listing-author">
-Brian Cervantes Alvarez
 </div>
-<div class="listing-reading-time">
-27 min
+</div>
 </div>
 </a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
