@@ -5,4 +5,9 @@ listing:
   contents: "highlights"
   type: grid
   grid-columns: 4
+format:
+  html:
+    include-in-header: 
+      - text: |
+          <script type="text/javascript" src="hover-enhancements.js"></script>
 ---

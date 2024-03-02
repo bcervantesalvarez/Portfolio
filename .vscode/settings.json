@@ -1,3 +1,4 @@
 {
-    "r.rpath.workspace": "${workspaceFolder}"
+    "r.rpath.workspace": "${workspaceFolder}",
+    "files.exclude": {}
 }

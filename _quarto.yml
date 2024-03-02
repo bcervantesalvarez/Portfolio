@@ -34,9 +34,6 @@ website:
         href: mailto:briancervantesalvarez@gmail.com
 format:
   html:
-    include-in-header: 
-      - text: |
-          <script type="text/javascript" src="hover-enhancements.js"></script>
     citations-hover: true
     footnotes-hover: true
     theme: 
