@@ -122,15 +122,14 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/htmlwidgets-1.6.3/htmlwidgets.js"></script>
-<script src="../../site_libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.4/plotly.js"></script>
 <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
 <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
 <script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<script type="text/javascript" src="hover-enhancements.js"></script>
 
 
 <meta property="og:title" content="Brian Cervantes Alvarez - Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress">
@@ -255,65 +254,6 @@ div.csl-indent {
 
 
 <p><img src="report.png" class="img-fluid"></p>
-<div class="download-buttons" style="text-align: center;">
-<style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 12px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border-bottom: 2px solid #fff;
-      padding: 1px; /* Padding for the mini border block */
-    }
-  </style>
-<script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Param_Report_Retail/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Param_Report_Retail/retail.csv",
-      "Download .csv"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
 <p>For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business.</p>
@@ -384,8 +324,8 @@ $ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-0
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"text"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-23a716cb74d23b9e109b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-23a716cb74d23b9e109b">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.6199999999999,6221.6000000000004,7009.8999999999996,7054.4799999999996,11329.940000000001,11629.42,10792.469999999999,7329.8400000000001,12539.52,9659.6299999999992,7174.0299999999997,7750.8800000000001],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.16701803930799,"r":18.897637795275585,"b":45.83212553361259,"l":46.460942070908629},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.253632212536321},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.299999999999,18247.700000000001],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551681},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.9250000000002,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"8c2c6a9d1756":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"8c2c6a9d1756","visdat":{"8c2c6a9d1756":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-df2c5fccd868bc1d3eda" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-df2c5fccd868bc1d3eda">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.6199999999999,6221.6000000000004,7009.8999999999996,7054.4799999999996,11329.940000000001,11629.42,10792.469999999999,7329.8400000000001,12539.52,9659.6299999999992,7174.0299999999997,7750.8800000000001],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.16701803930799,"r":18.897637795275585,"b":45.83212553361259,"l":46.460942070908629},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.253632212536321},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.299999999999,18247.700000000001],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551681},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.9250000000002,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"ba844b8f7d1b":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"ba844b8f7d1b","visdat":{"ba844b8f7d1b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -411,13 +351,12 @@ $ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-0
 <h2 class="anchored" data-anchor-id="function-to-run-parameterized-reports">Function To Run Parameterized Reports</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>renderReport <span class="ot">&lt;-</span> <span class="cf">function</span>(year) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">render</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'input.Rmd'</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">input =</span> <span class="st">"index.qmd"</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output_file =</span> <span class="fu">paste0</span>(year, <span class="st">'.html'</span>),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">params =</span> <span class="fu">list</span>(<span class="at">year =</span> year),</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">envir =</span> <span class="fu">parent.frame</span>()</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">year =</span> year)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="render-all-reports" class="level2">
@@ -450,7 +389,7 @@ Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. 
 Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
 </div>
 <div id="ref-R-plotly" class="csl-entry" role="listitem">
-Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2023. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2024. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
 </div>
 <div id="ref-R-lubridate" class="csl-entry" role="listitem">
 Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://lubridate.tidyverse.org">https://lubridate.tidyverse.org</a>.
@@ -471,7 +410,7 @@ Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Spr
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
 <div id="ref-R-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
 <div id="ref-R-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
@@ -480,13 +419,13 @@ Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaugh
 Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
 </div>
 <div id="ref-R-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
 </div>
 <div id="ref-R-scales" class="csl-entry" role="listitem">
 Wickham, Hadley, Thomas Lin Pedersen, and Dana Seidel. 2023. <em>Scales: Scale Functions for Visualization</em>. <a href="https://scales.r-lib.org">https://scales.r-lib.org</a>.
 </div>
 <div id="ref-R-tidyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2024. <em>Tidyr: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
 </div>
 <div id="ref-rmarkdown2018" class="csl-entry" role="listitem">
 Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.

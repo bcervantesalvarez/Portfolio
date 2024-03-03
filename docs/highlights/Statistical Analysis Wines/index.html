@@ -102,7 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="text/javascript" src="hover-enhancements.js"></script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -768,29 +767,29 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 
           Reference
 Prediction  red white
-     red    465     4
-     white   14  1465
-                                              
-               Accuracy : 0.9908              
-                 95% CI : (0.9854, 0.9945)    
-    No Information Rate : 0.7541              
-    P-Value [Acc &gt; NIR] : &lt; 0.0000000000000002
-                                              
-                  Kappa : 0.9749              
-                                              
- Mcnemar's Test P-Value : 0.03389             
-                                              
-            Sensitivity : 0.9708              
-            Specificity : 0.9973              
-         Pos Pred Value : 0.9915              
-         Neg Pred Value : 0.9905              
-             Prevalence : 0.2459              
-         Detection Rate : 0.2387              
-   Detection Prevalence : 0.2408              
-      Balanced Accuracy : 0.9840              
-                                              
-       'Positive' Class : red                 
-                                              </code></pre>
+     red    475     6
+     white    4  1463
+                                             
+               Accuracy : 0.9949             
+                 95% CI : (0.9906, 0.9975)   
+    No Information Rate : 0.7541             
+    P-Value [Acc &gt; NIR] : &lt;0.0000000000000002
+                                             
+                  Kappa : 0.9862             
+                                             
+ Mcnemar's Test P-Value : 0.7518             
+                                             
+            Sensitivity : 0.9916             
+            Specificity : 0.9959             
+         Pos Pred Value : 0.9875             
+         Neg Pred Value : 0.9973             
+             Prevalence : 0.2459             
+         Detection Rate : 0.2438             
+   Detection Prevalence : 0.2469             
+      Balanced Accuracy : 0.9938             
+                                             
+       'Positive' Class : red                
+                                             </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#confMatrixSVM</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -826,7 +825,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyRF, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9928"</code></pre>
+<pre><code>[1] "Accuracy: 0.9954"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Logistic Regression Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -834,7 +833,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyLogistic, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9908"</code></pre>
+<pre><code>[1] "Accuracy: 0.9949"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Support Vector Machine (SVM) Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -842,7 +841,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracySVM, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9933"</code></pre>
+<pre><code>[1] "Accuracy: 0.9969"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get variable importance from the best model</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -851,15 +850,15 @@ Prediction  red white
 
                    Overall
 chlorides          100.000
-totalSulfurDioxide  97.422
-volatileAcidity     37.428
-density             23.312
-residualSugar       21.674
-sulphates           20.633
-fixedAcidity        19.196
-freeSulfurDioxide   19.036
-citricAcid           7.220
-pH                   5.531
+totalSulfurDioxide  96.093
+volatileAcidity     50.052
+density             30.433
+freeSulfurDioxide   27.940
+residualSugar       19.545
+fixedAcidity        19.427
+sulphates           16.098
+citricAcid           7.035
+pH                   4.540
 alcohol              0.000</code></pre>
 </div>
 </div>

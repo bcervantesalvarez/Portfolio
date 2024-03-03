@@ -24,67 +24,6 @@ categories: [R, Plotly, Reports, Time Series, Data Visualization]
 
 ![](report.png)
 
-<div class="download-buttons" style="text-align: center;">
-  <style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 12px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border-bottom: 2px solid #fff;
-      padding: 1px; /* Padding for the mini border block */
-    }
-  </style>
-
-  <script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Param_Report_Retail/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/Param_Report_Retail/retail.csv",
-      "Download .csv"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
-
 
 ## Purpose
 
@@ -105,7 +44,6 @@ library(purrr)
 ## Load Dataset & Wrangle
 
 ```{r}
-setwd("highlights/Param_Report_Retail")
 ds <- read_csv("retail.csv")
 
 #head(ds)
@@ -216,32 +154,25 @@ ggplotly(p, tooltip = c("text")) %>%
 
 ### 2020 Report
 
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="100%" height="1000" allowfullscreen>
-
-</iframe>
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="100%" height="1000" allowfullscreen></iframe>
 
 ### 2021 Report
 
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="100%" height="1000" allowfullscreen>
-
-</iframe>
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="100%" height="1000" allowfullscreen></iframe>
 
 ### 2022 Report
 
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2022.html" width="100%" height="1000" allowfullscreen>
-
-</iframe>
+<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2022.html" width="100%" height="1000" allowfullscreen></iframe>
 
 ## Function To Run Parameterized Reports
 
 ```{r}
-#| eval: false
+#| eval: FALSE
 renderReport <- function(year) {
-  rmarkdown::render(
-    'input.Rmd',
+  quarto::quarto_render(
+    input = "index.qmd",
     output_file = paste0(year, '.html'),
-    params = list(year = year),
-    envir = parent.frame()
+    execute_params = list(year = year)
   )
 }
 ```
@@ -249,7 +180,7 @@ renderReport <- function(year) {
 ## Render All Reports
 
 ```{r}
-#| eval: false
+#| eval: FALSE
 
 # Renders all 4 Reports (dates range from 2019-2022)
 for (year in 2019:2022) {
