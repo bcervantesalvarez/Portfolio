@@ -109,6 +109,61 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
 
 
 // Navbar
+
+// Navbar Brand
+
+@media (max-width: 768px) {
+  .navbar .navbar-container>.navbar-brand-container {
+    margin-left: 26px !important;
+    margin-right: 0 !important;
+  }
+
+  .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+    --bs-gutter-x: 0rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)*.5);
+    padding-left: calc(var(--bs-gutter-x)*.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+}
+
+
+
+// Mobile devices
+@media (max-width: 768px) {
+  .navbar-brand-container {
+    display: flex; // Use flexbox to align children
+    justify-content: center; // Center children horizontally in the container
+    align-items: center; // Center children vertically in the container
+    width: 100%; // Ensure the container takes full width
+
+    .navbar-brand {
+      display: flex; // Enable flexbox for the brand itself
+      justify-content: center; // Center the brand content horizontally
+      align-items: center; // Center the brand content vertically
+    }
+  }
+  .navbar-nav {
+    --bs-nav-link-padding-x: 0;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: var(--bs-navbar-color);
+    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    padding-left: 2em !important;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+}
+
+// Navigation Bar
 nav a {
   position: relative; /* Needed to position the pseudo-element */
   display: inline-block; /* Ensures the pseudo-element is aligned correctly */
@@ -146,7 +201,6 @@ nav a:hover, nav a.active {
   position: sticky;
   transform: translateX(-50%); // Adjust for the element's height
 }
-
 
 // Footer
 .nav-footer {
@@ -190,7 +244,6 @@ nav a:hover, nav a.active {
       background-color: $gray-100; // Use SCSS variable for consistency
       transition: width 0.3s ease, left 0.3s ease; // Transition for the expanding effect
     }
-
     &:hover {
       color: $gray-100; // Color change on hover
 
@@ -205,6 +258,65 @@ nav a:hover, nav a.active {
     margin-right: 8px; // Adds space between the icon and text
   }
 }
+
+// Media query for mobile devices
+@media (max-width: 768px) {
+  .nav-footer {
+    flex-direction: column;
+  }
+
+  .nav-footer-left, .nav-footer-right {
+    width: 100%;
+    justify-content: center; // Center these sections within the footer
+    align-items: center; // Center align items vertically within each section
+  }
+
+  .nav-footer-left {
+    order: 1; // Ensure it's above the right section
+    margin-top: 5px;
+    margin-bottom: 10px; // Add some space below this section for clarity
+  }
+
+  .nav-footer-right {
+    order: 2; // Ensure it's below the left section
+    flex-direction: row; // Lay out the items in a row
+    justify-content: center; // Center the row of items if there's extra space
+    flex-wrap: wrap; // Allow items to wrap to new line if not enough space
+    gap: 10px; // Space between items when they wrap
+  }
+
+  .footer-items {
+    display: flex; // Enables flexbox layout
+    flex-direction: row; // Ensure items are laid out in a row
+    justify-content: center; // Center items horizontally
+    align-items: center; // Center items vertically
+    flex-wrap: wrap; // Allow items to wrap on small screens
+    list-style-type: none; // Remove default list styling
+    padding: 0; // Remove default padding
+    margin: 0 auto; // Center the list itself in the footer
+    width: 100%; // Ensure the list takes full width
+  }
+
+  .footer-items li, .nav-item {
+    margin: 0; // Remove all margins from the list items and nav-items for proper centering
+    display: flex; // Apply flex to align items properly
+    justify-content: center; // Center content within each nav item
+    align-items: center; // Center items vertically within each nav item
+  }
+
+  .nav-item {
+    margin: 10px; // Add some margin for spacing, adjusted as needed for wrapping items
+  }
+  .nav-footer-center{
+    margin-top: 0;
+    min-height: 0;
+  }
+  .nav-footer a {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
 
 // Background Colors
 .bg-primary {
@@ -451,9 +563,14 @@ header#title-block-header {
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   /* Adjust .about-entity for mobile */
-  .about-entity {
+  div.about-entity {
+    margin-top: 20px !important;
+    margin-bottom: 0px !important;
     height: auto; /* Adjust height to be more flexible on mobile devices */
     background-position: center 10%;
+  }
+  div.about-contents{
+    margin-top: -20px !important;
   }
 
   /* Adjust padding for .about-link for better spacing on mobile */
@@ -470,7 +587,7 @@ header#title-block-header {
     font-size: 14px; /* Adjust text size for better readability on mobile */
   }
 
-  /* Additional mobile-specific adjustments can be added here */
+  
 }
 
 

@@ -105,3 +105,67 @@
     text-decoration: none;
     color: inherit;
 }
+
+/* Media queries for mobile devices */
+@media (max-width: 600px) {
+    .title-section {
+        font-size: 1.5em; /* Smaller font size */
+        margin-top: 0; /* Adjust top margin */
+    }
+
+    .intro-text {
+        font-size: 0.9em; /* Smaller font size */
+    }
+
+    .resource-item {
+        flex-direction: column-reverse; /* Stack elements vertically */
+        width: 90%; /* Increase width for smaller screens */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+        background-color: rgba(255, 255, 255, 0); /* Default state background */
+    }
+
+    .resource-img {
+        margin: 0 auto; /* Center image and remove negative margin */
+        margin-top: -30px;
+        text-align: center;
+    }
+
+    .resource-img img {
+        width: 150px; /* Smaller image size */
+        height: 150px; /* Smaller image size */
+    }
+
+    .resource-description {
+        margin: 20px; /* Add more margin */
+        text-align: center; /* Center text */
+    }
+
+    .resource-description h3 {
+        font-size: 1.5em; /* Adjust heading size */
+    }
+
+    .resource-description p {
+        font-size: 1em; /* Adjust paragraph size */
+    }
+
+    /* Override PC version hover effects for mobile */
+    .resource-item:hover, .resource-item:focus {
+        background-color: rgba(255, 255, 255, 0.5); /* Lighten background on tap */
+    }
+
+    /* Ensure no hover effect from PC version is applied */
+    .resource-item:hover::before {
+        transform: scaleX(0); /* Keep the element not stretched */
+    }
+
+    .resource-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Override link color changes on hover from PC version, if necessary */
+    .content-section a.resource-item:hover,
+    .content-section .resource-item h3 a:hover,
+    .content-section .resource-item p a:hover {
+        color: inherit; /* Keep the color consistent on tap */
+    }
+}
