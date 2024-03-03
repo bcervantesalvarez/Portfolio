@@ -5,6 +5,10 @@ date: "4-03-2023"
 image: report.png
 description: "Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time. Boost productivity and accuracy for data scientists, analysts, and engineers. "
 bibliography: "bibliography.bib"
+resources: 
+  - "2020.html"
+  - "2021.html"
+  - "2022.html"
 nocite: |
      @*
 params:
@@ -154,15 +158,21 @@ ggplotly(p, tooltip = c("text")) %>%
 
 ### 2020 Report
 
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2020.html" width="100%" height="1000" allowfullscreen></iframe>
+```{=html}
+<iframe src="2020.html" width="100%" height="1000" allowfullscreen></iframe>
+```
 
 ### 2021 Report
 
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2021.html" width="100%" height="1000" allowfullscreen></iframe>
+```{=html}
+<iframe src="2021.html" width="100%" height="1000" allowfullscreen></iframe>
+```
 
 ### 2022 Report
 
-<iframe src="https://bcervantesalvarez.github.io/ParameterizedReports/CRM_Report/CRM_Report-2022.html" width="100%" height="1000" allowfullscreen></iframe>
+```{=html}
+<iframe src="2022.html" width="100%" height="1000" allowfullscreen></iframe>
+```
 
 ## Function To Run Parameterized Reports
 
