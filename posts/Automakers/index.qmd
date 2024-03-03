@@ -1,6 +1,7 @@
 ---
 title: "Automaker Analysis"
 author: "Brian Cervantes Alvarez"
+draft: TRUE
 date: "10-31-2023"
 description: "Diving deep into the complex world of market competition for automakers."
 format:

@@ -36,8 +36,7 @@ format:
   html:
     citations-hover: true
     footnotes-hover: true
-    theme: 
-      - MainThemeBCA.scss
+    theme: MainThemeBCA.scss
     highlight-style: github-dark
 editor: visual
 
