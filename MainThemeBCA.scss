@@ -340,13 +340,24 @@ nav a:hover, nav a.active {
   top: 0;
   max-height: 100vh;
   overflow-y: auto;
-  color: $gray-600 !important;
+  color: $black !important; // Text color for TOC links
 }
+
 .sidebar nav[role="doc-toc"] .nav-link:hover {
-  border-left: 1px solid $cyan; // Change the border color to something visible in dark mode
-  color: $cyan !important; // Bright color for better visibility on hover
-  text-decoration: underline !important; // Underline to indicate hover state
+  border-left: 1px solid rgb(75, 113, 149)!important; // Keeps the left border color change on hover
+  text-decoration: underline !important; // Adds an underline to indicate hover state
 }
+
+// Removing custom underline effects for TOC links
+#TOC .nav-link::after, #TOC .nav-link:hover::after, #TOC .nav-link.active::after {
+  content: none; // Removes the ::after pseudo-element used for custom underline
+}
+
+#TOC .nav-link:hover, #TOC .nav-link.active {
+  color: rgb(75, 113, 149) !important; // Keeps the text color the same on hover and active states
+  text-decoration: underline !important; // Adds standard underline for clarity
+}
+
 
 // Typography and Headings Transformations
 h1, h2, h3, h4, h5, h6 {
