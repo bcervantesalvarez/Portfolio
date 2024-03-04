@@ -6,8 +6,6 @@ date: "01-07-2023"
 description: "Who am I?"
 format:
   html:
-    toc: true
-    toc-location: right
     html-math-method: katex
     page-layout: article
 execute: 

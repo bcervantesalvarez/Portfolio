@@ -5,8 +5,6 @@ date: 11-14-2023"
 description: "Why Quarto is the next tool in the line up"
 format:
   html:
-    toc: true
-    toc-location: right
     html-math-method: katex
     page-layout: article
 execute: 

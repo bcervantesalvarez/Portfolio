@@ -9,8 +9,6 @@ image: parasite.jpeg
 date: "2-27-2023"
 format:
   html:
-    toc: true
-    toc-location: right
     html-math-method: katex
     page-layout: article
     code-fold: true
@@ -22,68 +20,6 @@ categories: [R, Reveal.JS, Survival Analysis]
 
 ![](parasite.jpeg)
 
-<div class="download-buttons" style="text-align: center;">
-  <style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 30px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      margin-bottom: 40px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 5px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border: 1px solid #fff; /* Mini border block */
-      border-radius: 4px; /* Rounded corners for the mini border block */
-      padding: 2px; /* Padding for the mini border block */
-    }
-  </style>
-
-  <script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/SurvAnalysis_Parasite_RevealJS/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/SurvAnalysis_Parasite_RevealJS/SurvivalAnalysis_Parasites.html",
-      "Download .html"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
 
 ## Unveiling Nature's Heatwave: The Hidden Impact of Temperature on Pesticide Toxicity
 
@@ -94,6 +30,4 @@ Prepare to be amazed as we take you on a captivating journey into the hidden int
 
 ## Presentation
 
-<iframe src="SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="100%" height="800">
-
-</iframe>
+<iframe src="SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="100%" height="600"></iframe>
