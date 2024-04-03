@@ -3,11 +3,12 @@ title: "Portfolio"
 subtitle: "Overview of my statistical & data science projects"
 listing:
   contents: "highlights"
+  max-description-length: 150
   type: grid
   grid-columns: 4
 format:
   html:
     include-in-header: 
       - text: |
-          <script type="text/javascript" src="hover-enhancements.js"></script>
+          <script type="text/javascript" src="new-banner.js"></script>
 ---

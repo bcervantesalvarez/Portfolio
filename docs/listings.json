@@ -15,13 +15,13 @@
     "listing": "/portfolio.html",
     "items": [
       "/highlights/Statistical Analysis Wines/index.html",
-      "/highlights/Param_Report_Retail/index.html",
+      "/highlights/CollegeStudent_Debt_Tool/index.html",
       "/highlights/US_HealthCare_Spending/index.html",
-      "/highlights/Customer Return ML/index.html",
+      "/highlights/Param_Report_Retail/index.html",
       "/highlights/Predicting_Income_Bracket/index.html",
-      "/highlights/PredictSeverityLevels/index.html",
+      "/highlights/Customer Return ML/index.html",
       "/highlights/PredictPinotWine_ML/index.html",
-      "/highlights/CollegeStudent_Debt_Tool/index.html"
+      "/highlights/PredictSeverityLevels/index.html"
     ]
   },
   {

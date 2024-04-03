@@ -8,9 +8,9 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2022-12-12">
-<meta name="description" content="Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!">
+<meta name="description" content="This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world’s most expensive countries for healthcare.">
 
-<title>Brian Cervantes Alvarez - Healthcare Spending Is Only Getting Worse</title>
+<title>Brian Cervantes Alvarez - Healthcare Spending Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,8 +90,8 @@ div.csl-indent {
 }</script>
 
 
-<meta property="og:title" content="Brian Cervantes Alvarez - Healthcare Spending Is Only Getting Worse">
-<meta property="og:description" content="Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!">
+<meta property="og:title" content="Brian Cervantes Alvarez - Healthcare Spending Analysis">
+<meta property="og:description" content="This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world’s most expensive countries for healthcare.">
 <meta property="og:image" content="healthcareSpending.jpeg">
 <meta property="og:site_name" content="Brian Cervantes Alvarez">
 </head>
@@ -174,7 +174,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Healthcare Spending Is Only Getting Worse</h1>
+<h1 class="title">Healthcare Spending Analysis</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">Linear Regression</div>
@@ -184,7 +184,7 @@ div.csl-indent {
 
 <div>
   <div class="description">
-    Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!
+    This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world’s most expensive countries for healthcare.
   </div>
 </div>
 
@@ -214,65 +214,6 @@ div.csl-indent {
 
 
 <p><img src="healthcareSpending.jpeg" class="img-fluid"></p>
-<div class="download-buttons" style="text-align: center;">
-<style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 12px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border-bottom: 2px solid #fff;
-      padding: 1px; /* Padding for the mini border block */
-    }
-  </style>
-<script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthCare_Spending/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthCare_Spending/healthcareSpending.csv",
-      "Download .csv"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <p>Since 1980, healthcare costs in the United States have been consistently increasing across all categories. Various factors contribute to this rise, such as population growth and higher wages for doctors. This report examines expenditure trends from 1980 to 2005, extending up to 2014. The findings reveal an unprecedented surge in healthcare costs across every sector in the United States. Consequently, this report sheds light on the reasons behind the country’s reputation as one of the world’s most expensive nations in terms of healthcare.</p>
@@ -294,11 +235,11 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Version
+Version Control
 </div>
 </div>
 <div class="callout-body-container callout-body">
-
+<p>Make sure to use RStudio’s version 2023.12.1 or higher</p>
 </div>
 </div>
 <div class="cell">

@@ -1,9 +1,9 @@
 ---
-title: "Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress"
+title: "Parameterized Reports"
 author: "Brian Cervantes Alvarez"
 date: "4-03-2023"
-image: report.png
-description: "Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time. Boost productivity and accuracy for data scientists, analysts, and engineers. "
+image: report.jpeg
+description: "Achieving peak productivity in data analysis with automated R Markdown reports, minimizing effort and errors."
 bibliography: "bibliography.bib"
 resources: 
   - "2020.html"
@@ -26,12 +26,42 @@ execute:
 categories: [R, Plotly, Reports, Time Series, Data Visualization]
 ---
 
-![](report.png)
+![](report.jpeg)
 
+## Objective
+This project was aimed at streamlining the report generation process by employing parameterized R Markdown. The core idea was to automate the update of report parameters, thus eliminating the manual task of adjusting values for daily or periodic reports. This innovation is designed to significantly reduce time and effort for data scientists, analysts, and engineers, facilitating the production of consistent and timely reports. The automation feature introduced through parameterized R Markdown enhances both productivity and accuracy, offering considerable benefits to business operations.
 
-## Purpose
+## Approach
+The process involved the following key steps:
 
-For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business.
+1. **Library Utilization:**
+   - Essential R libraries were loaded, including `tidyverse` for data manipulation, `plotly` and `ggplotly` for interactive visualizations, and `rmarkdown` for rendering parameterized reports.
+
+2. **Data Preparation:**
+   - The dataset was loaded and processed. This included renaming columns, converting dates, and filtering data based on the year specified through parameters.
+
+3. **Custom Theme Development:**
+   - A custom theme function was created to standardize the appearance of plots across all reports, ensuring a consistent and professional aesthetic.
+
+4. **Data Visualization:**
+   - Interactive visualizations were crafted using `ggplotly` to display monthly sales data, highlighting key trends and insights.
+
+5. **Automated Report Generation:**
+   - A loop was implemented to automate the generation of reports for each year, utilizing a function that leverages parameterized R Markdown to render individual reports dynamically.
+
+### Highlights
+- The project underscores the efficiency and scalability of automated report generation.
+- The approach allows for the seamless creation of visually appealing and informative reports.
+- Automation minimizes errors and saves considerable time, enhancing decision-making processes with timely and accurate data insights.
+
+### Technical Notes
+- The script included the loading of required libraries, data wrangling steps, and the use of `ggplotly` for creating dynamic visualizations.
+- The custom theme function (`myTheme`) ensures a uniform look across all visualizations.
+- The `renderReport` function and subsequent loop for rendering reports underscore the automation aspect, showcasing the project's capacity to produce multiple reports efficiently.
+
+### Conclusion
+This project exemplifies the power of automation in report generation using parameterized R Markdown. It offers a scalable solution for producing detailed and aesthetically consistent reports, providing valuable time savings and accuracy for businesses and their data teams.
+
 
 ## Required Libraries
 

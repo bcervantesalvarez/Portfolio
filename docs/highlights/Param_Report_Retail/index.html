@@ -8,9 +8,9 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2023-04-03">
-<meta name="description" content="Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time. Boost productivity and accuracy for data scientists, analysts, and engineers.">
+<meta name="description" content="Achieving peak productivity in data analysis with automated R Markdown reports, minimizing effort and errors.">
 
-<title>Brian Cervantes Alvarez - Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress</title>
+<title>Brian Cervantes Alvarez - Parameterized Reports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,9 +132,9 @@ div.csl-indent {
 <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
-<meta property="og:title" content="Brian Cervantes Alvarez - Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress">
-<meta property="og:description" content="Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time. Boost productivity and accuracy for data scientists, analysts, and engineers.">
-<meta property="og:image" content="report.png">
+<meta property="og:title" content="Brian Cervantes Alvarez - Parameterized Reports">
+<meta property="og:description" content="Achieving peak productivity in data analysis with automated R Markdown reports, minimizing effort and errors.">
+<meta property="og:image" content="report.jpeg">
 <meta property="og:site_name" content="Brian Cervantes Alvarez">
 </head>
 
@@ -191,7 +191,13 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#objective" id="toc-objective" class="nav-link active" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
+  <ul class="collapse">
+  <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">Highlights</a></li>
+  <li><a href="#technical-notes" id="toc-technical-notes" class="nav-link" data-scroll-target="#technical-notes">Technical Notes</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
   <li><a href="#required-libraries" id="toc-required-libraries" class="nav-link" data-scroll-target="#required-libraries">Required Libraries</a></li>
   <li><a href="#load-dataset-wrangle" id="toc-load-dataset-wrangle" class="nav-link" data-scroll-target="#load-dataset-wrangle">Load Dataset &amp; Wrangle</a></li>
   <li><a href="#visualize-the-report" id="toc-visualize-the-report" class="nav-link" data-scroll-target="#visualize-the-report">Visualize The Report</a></li>
@@ -212,7 +218,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Got Daily Reports? Use Parameterized RMarkdown To Alleviate That Stress</h1>
+<h1 class="title">Parameterized Reports</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">Plotly</div>
@@ -224,7 +230,7 @@ div.csl-indent {
 
 <div>
   <div class="description">
-    Enhancing Report Generation Efficiency: Automating Parameterized Rmarkdown to Save Time. Streamline daily reports with automated updates and comparable outputs over time. Boost productivity and accuracy for data scientists, analysts, and engineers.
+    Achieving peak productivity in data analysis with automated R Markdown reports, minimizing effort and errors.
   </div>
 </div>
 
@@ -253,10 +259,56 @@ div.csl-indent {
 </header>
 
 
-<p><img src="report.png" class="img-fluid"></p>
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>For this particular undertaking, I focused on the utilization of parameterized Rmarkdown with the aim of enhancing the efficacy of report generation. This approach involves setting predetermined values for parameters and creating a function that automatically updates the information, thereby mitigating the need for manual modification of parameters for daily reports. The primary objective of this system is to generate reports more efficiently, which in turn helps businesses save time in the long run. Furthermore, data scientists, analysts, and engineers can benefit from this system as it enables them to produce comparable reports over time with ease. The automation of the report generation process through the use of parameterized Rmarkdown contributes to increased productivity and accuracy, which can be highly beneficial to the success of a business.</p>
+<p><img src="report.jpeg" class="img-fluid"></p>
+<section id="objective" class="level2">
+<h2 class="anchored" data-anchor-id="objective">Objective</h2>
+<p>This project was aimed at streamlining the report generation process by employing parameterized R Markdown. The core idea was to automate the update of report parameters, thus eliminating the manual task of adjusting values for daily or periodic reports. This innovation is designed to significantly reduce time and effort for data scientists, analysts, and engineers, facilitating the production of consistent and timely reports. The automation feature introduced through parameterized R Markdown enhances both productivity and accuracy, offering considerable benefits to business operations.</p>
+</section>
+<section id="approach" class="level2">
+<h2 class="anchored" data-anchor-id="approach">Approach</h2>
+<p>The process involved the following key steps:</p>
+<ol type="1">
+<li><strong>Library Utilization:</strong>
+<ul>
+<li>Essential R libraries were loaded, including <code>tidyverse</code> for data manipulation, <code>plotly</code> and <code>ggplotly</code> for interactive visualizations, and <code>rmarkdown</code> for rendering parameterized reports.</li>
+</ul></li>
+<li><strong>Data Preparation:</strong>
+<ul>
+<li>The dataset was loaded and processed. This included renaming columns, converting dates, and filtering data based on the year specified through parameters.</li>
+</ul></li>
+<li><strong>Custom Theme Development:</strong>
+<ul>
+<li>A custom theme function was created to standardize the appearance of plots across all reports, ensuring a consistent and professional aesthetic.</li>
+</ul></li>
+<li><strong>Data Visualization:</strong>
+<ul>
+<li>Interactive visualizations were crafted using <code>ggplotly</code> to display monthly sales data, highlighting key trends and insights.</li>
+</ul></li>
+<li><strong>Automated Report Generation:</strong>
+<ul>
+<li>A loop was implemented to automate the generation of reports for each year, utilizing a function that leverages parameterized R Markdown to render individual reports dynamically.</li>
+</ul></li>
+</ol>
+<section id="highlights" class="level3">
+<h3 class="anchored" data-anchor-id="highlights">Highlights</h3>
+<ul>
+<li>The project underscores the efficiency and scalability of automated report generation.</li>
+<li>The approach allows for the seamless creation of visually appealing and informative reports.</li>
+<li>Automation minimizes errors and saves considerable time, enhancing decision-making processes with timely and accurate data insights.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level3">
+<h3 class="anchored" data-anchor-id="technical-notes">Technical Notes</h3>
+<ul>
+<li>The script included the loading of required libraries, data wrangling steps, and the use of <code>ggplotly</code> for creating dynamic visualizations.</li>
+<li>The custom theme function (<code>myTheme</code>) ensures a uniform look across all visualizations.</li>
+<li>The <code>renderReport</code> function and subsequent loop for rendering reports underscore the automation aspect, showcasing the project’s capacity to produce multiple reports efficiently.</li>
+</ul>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>This project exemplifies the power of automation in report generation using parameterized R Markdown. It offers a scalable solution for producing detailed and aesthetically consistent reports, providing valuable time savings and accuracy for businesses and their data teams.</p>
+</section>
 </section>
 <section id="required-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="required-libraries">Required Libraries</h2>
@@ -324,8 +376,8 @@ $ Month      &lt;date&gt; 2019-09-01, 2019-09-01, 2019-09-01, 2019-09-01, 2019-0
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="fu">c</span>(<span class="st">"text"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">hovermode =</span> <span class="st">"x unified"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-eab866d04ab83b0f27ba" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-eab866d04ab83b0f27ba">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.6199999999999,6221.6000000000004,7009.8999999999996,7054.4799999999996,11329.940000000001,11629.42,10792.469999999999,7329.8400000000001,12539.52,9659.6299999999992,7174.0299999999997,7750.8800000000001],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.16701803930799,"r":18.897637795275585,"b":45.83212553361259,"l":46.460942070908629},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.253632212536321},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.299999999999,18247.700000000001],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551681},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.9250000000002,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"c86a587d80ad":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"c86a587d80ad","visdat":{"c86a587d80ad":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-0e88337f531832068749" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-0e88337f531832068749">{"x":{"data":[{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"y":[5445.6199999999999,6221.6000000000004,7009.8999999999996,7054.4799999999996,11329.940000000001,11629.42,10792.469999999999,7329.8400000000001,12539.52,9659.6299999999992,7174.0299999999997,7750.8800000000001],"text":["Monthly Sales: $5.45K","Monthly Sales: $6.22K","Monthly Sales: $7.01K","Monthly Sales: $7.05K","Monthly Sales: $11.33K","Monthly Sales: $11.63K","Monthly Sales: $10.79K","Monthly Sales: $7.33K","Monthly Sales: $12.54K","Monthly Sales: $9.66K","Monthly Sales: $7.17K","Monthly Sales: $7.75K"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":90.16701803930799,"r":18.897637795275585,"b":45.83212553361259,"l":46.460942070908629},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> CRM and Invoicing System Sales For FY: 2019 <\/b>","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":21.253632212536321},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[17880.299999999999,18247.700000000001],"tickmode":"array","ticktext":["January","February","March","April","May","June","July","August","September","October","November","December"],"tickvals":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231],"categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551681},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[5090.9250000000002,12894.215],"tickmode":"array","ticktext":["$7K","$9K","$11K"],"tickvals":[7000,9000,11000],"categoryorder":"array","categoryarray":["$7K","$9K","$11K"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":11.955168119551683},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"SF Mono","size":13.283520132835205}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"x unified","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"113814bca6ea1":{"x":{},"y":{},"text":{},"type":"scatter"}},"cur_data":"113814bca6ea1","visdat":{"113814bca6ea1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

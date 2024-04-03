@@ -1,7 +1,7 @@
 ---
 title: "Predicting Customer Returns"
 author: Brian Cervantes Alvarez
-description: " Evaluating customer returns for predicting item returns using logistic regression and random forest techniques. Achieved robust predictions with moderate predictive power."
+description: "Leveraging logistic regression and random forest to advance the prediction of retail item returns with increased precision."
 bibliography: "bibliography.bib"
 nocite: |
      @*
@@ -21,15 +21,63 @@ categories: [R, Machine Learning, Random Forest]
 
 ![](return.jpeg)
 
-## Purpose
+# Project Summary
 
-In this evaluation, I scrutinized a partially randomly generated customer returns dataset with the objective of forecasting whether a customer would opt to return their purchased item. By employing progressive techniques that advanced from Logistical to Random Forest, I achieved a robust prediction of customer behavior with respect to product returns.
+## Objective
+This project aimed to predict customer return behavior using a dataset with various product and customer attributes. By employing logistic regression and Random Forest models, we sought to determine the likelihood of a customer returning a purchased item.
 
-## Approach and Methodology
+## Methodology
+Our analysis began with loading essential libraries and datasets, followed by an exploratory data analysis (EDA) to understand the distribution of returns across different attributes like product department, size, and customer state. Key features such as season, customer age, manufacturer's suggested retail price (MSRP), and price range were engineered to enrich the dataset.
 
-To ensure proper analysis, I began by loading the necessary libraries and examining the train and test datasets to identify the variables available for analysis. Exploration of the data revealed trends in the number of returns across various variables such as ProductDepartment, ProductSize, and Returns Per State. Given the project objective of predicting the probability of item returns, I selected logistic regression, a well-suited model for binary dependent variables. To prepare the data, I developed a function to transform both the train and test data, ensuring dimensionality was kept in check by removing unnecessary columns such as dates and IDs. Additionally, I updated character data types to factors. Further exploration of the data led to the inclusion of additional features, such as "Season", "CustomerAge", "MSRP", and "PriceRange", that may play a significant role in predicting a customer's probability of returning their product. I ran a Random Forest model and achieved an AUC of 0.625. This indicates moderate predictive power for the model, and suggests that further feature engineering or model tuning may be necessary for better performance.
+We initially applied logistic regression for its suitability for binary outcomes. However, to improve our model's predictive accuracy, we transitioned to a Random Forest approach. This model yielded an AUC score of 0.625, indicating moderate predictive capability and highlighting areas for potential improvement through further feature engineering or model tuning.
 
-Initially, I utilized a logistic regression model, however, it required further refinement and tuning. Due to a three-hour time constraint, I focused on building a draft model. While not suitable for production, it is a step towards the right direction.
+### Key Steps and Code Highlights
+
+1. **Preparation and EDA:**
+   - Loaded necessary R packages: `tidyverse`, `lubridate`, `caret`, and `glmnet`.
+   - Imported and glimpsed at the training and testing data.
+   - Conducted EDA to analyze returns by product department, size, and customer state.
+
+2. **Feature Engineering:**
+   - Developed a feature engineering function to create relevant variables such as `Season`, `CustomerAge`, `MSRP`, and `PriceRange`.
+   - Cleaned the dataset by transforming data types and removing irrelevant columns.
+
+3. **Modeling:**
+   - Fitted a Random Forest model with cross-validation, optimizing for the ROC metric.
+   - Predictions were made on the test dataset.
+
+4. **Final Output:**
+   - Generated a submission file containing predictions.
+
+### Improvements and Considerations
+
+- The logistic regression model served as an initial step, indicating the need for refinement.
+- The moderate AUC score from the Random Forest model suggests exploring additional feature engineering or alternative modeling techniques could enhance predictive performance.
+
+### Technical Documentation
+
+- **Data Loading and Exploration:**
+  - Essential libraries for data manipulation and modeling were loaded.
+  - Initial exploration involved visualizing returns across different attributes to identify trends.
+
+- **Feature Engineering Function:**
+  - Transformed categorical variables and engineered new features to improve model input.
+  - Simplified the dataset by excluding non-essential columns and adjusting data types.
+
+- **Random Forest Modeling:**
+  - Implemented a Random Forest model with a focus on the ROC metric for evaluation.
+  - Applied cross-validation for model training to ensure robustness.
+
+- **Prediction and Submission:**
+  - Predicted probabilities of returns on the test set.
+  - Prepared the submission file with ID and predicted probabilities.
+
+### Comments and Clarifications
+
+- **Data Cleaning and Preparation:** Made clear the purpose of data transformations and feature engineering to prepare for modeling.
+- **Model Selection and Evaluation:** Explained the choice of models and their evaluation, highlighting the transition from logistic regression to Random Forest for improved accuracy.
+- **Submission Process:** Detailed the steps for preparing the final submission, ensuring clarity on the expected output format.
+
 
 ## Load the required packages
 

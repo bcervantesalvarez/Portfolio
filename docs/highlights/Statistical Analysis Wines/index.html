@@ -8,9 +8,9 @@
 
 <meta name="author" content="Brian Cervantes Alvarez">
 <meta name="dcterms.date" content="2023-12-14">
-<meta name="description" content="Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest’s superiority, identifying key variables.">
+<meta name="description" content="Exploring wine attributes through EDA, MANOVA, and classification models reveals significant chemical differences and predictors of wine type and quality.">
 
-<title>Brian Cervantes Alvarez - Applied Multivariate Analysis: Investigating Red &amp; White Wines</title>
+<title>Brian Cervantes Alvarez - Applied Multivariate Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,8 +147,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Brian Cervantes Alvarez - Applied Multivariate Analysis: Investigating Red &amp; White Wines">
-<meta property="og:description" content="Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest’s superiority, identifying key variables.">
+<meta property="og:title" content="Brian Cervantes Alvarez - Applied Multivariate Analysis">
+<meta property="og:description" content="Exploring wine attributes through EDA, MANOVA, and classification models reveals significant chemical differences and predictors of wine type and quality.">
 <meta property="og:image" content="redwhite.jpeg">
 <meta property="og:site_name" content="Brian Cervantes Alvarez">
 </head>
@@ -295,21 +295,20 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Applied Multivariate Analysis: Investigating Red &amp; White Wines</h1>
+<h1 class="title">Applied Multivariate Analysis</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">Machine Learning</div>
     <div class="quarto-category">Support Vector Machines</div>
     <div class="quarto-category">Logistic Regression</div>
     <div class="quarto-category">Random Forest</div>
-    <div class="quarto-category">Classification</div>
     <div class="quarto-category">Statistics</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Exploratory data analysis distinguishes red and white wines; MANOVA confirms mean differences. Classification models reveal Random Forest’s superiority, identifying key variables.
+    Exploring wine attributes through EDA, MANOVA, and classification models reveals significant chemical differences and predictors of wine type and quality.
   </div>
 </div>
 
@@ -767,26 +766,26 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 
           Reference
 Prediction  red white
-     red    475     6
-     white    4  1463
+     red    472     9
+     white    7  1460
                                              
-               Accuracy : 0.9949             
-                 95% CI : (0.9906, 0.9975)   
+               Accuracy : 0.9918             
+                 95% CI : (0.9867, 0.9953)   
     No Information Rate : 0.7541             
     P-Value [Acc &gt; NIR] : &lt;0.0000000000000002
                                              
-                  Kappa : 0.9862             
+                  Kappa : 0.9779             
                                              
- Mcnemar's Test P-Value : 0.7518             
+ Mcnemar's Test P-Value : 0.8026             
                                              
-            Sensitivity : 0.9916             
-            Specificity : 0.9959             
-         Pos Pred Value : 0.9875             
-         Neg Pred Value : 0.9973             
+            Sensitivity : 0.9854             
+            Specificity : 0.9939             
+         Pos Pred Value : 0.9813             
+         Neg Pred Value : 0.9952             
              Prevalence : 0.2459             
-         Detection Rate : 0.2438             
+         Detection Rate : 0.2423             
    Detection Prevalence : 0.2469             
-      Balanced Accuracy : 0.9938             
+      Balanced Accuracy : 0.9896             
                                              
        'Positive' Class : red                
                                              </code></pre>
@@ -825,7 +824,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyRF, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9954"</code></pre>
+<pre><code>[1] "Accuracy: 0.9913"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Logistic Regression Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -833,7 +832,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyLogistic, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9949"</code></pre>
+<pre><code>[1] "Accuracy: 0.9918"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Support Vector Machine (SVM) Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -841,7 +840,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracySVM, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9969"</code></pre>
+<pre><code>[1] "Accuracy: 0.9944"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get variable importance from the best model</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -849,16 +848,16 @@ Prediction  red white
 <pre><code>rf variable importance
 
                    Overall
-chlorides          100.000
-totalSulfurDioxide  96.093
-volatileAcidity     50.052
-density             30.433
-freeSulfurDioxide   27.940
-residualSugar       19.545
-fixedAcidity        19.427
-sulphates           16.098
-citricAcid           7.035
-pH                   4.540
+totalSulfurDioxide 100.000
+chlorides           89.404
+volatileAcidity     41.257
+density             25.588
+freeSulfurDioxide   23.248
+residualSugar       20.212
+sulphates           18.726
+fixedAcidity        14.789
+citricAcid           5.722
+pH                   4.806
 alcohol              0.000</code></pre>
 </div>
 </div>

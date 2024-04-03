@@ -1,6 +1,6 @@
 ---
-title: "Predicting Individuals Who Earn More Than 50K"
-description: "We employed advanced techniques in our project, using a random forest model to identify important variables and selecting the top 8 features."
+title: "Predicting $50K+ Incomes"
+description: "Expertly predicting $50K+ incomes through ML, our project highlights the synergy of data science skills and team collaboration."
 author:  
   - "Brian Cervantes Alvarez"
   - "Willa Van Liew"
@@ -24,15 +24,15 @@ categories: [R, Machine Learning, Gradient Boosting Machines, Logistic Regressio
 
 ![](income.jpeg)
 
-## Purpose
+## Project Overview
 
-In this project, we conducted a comprehensive machine learning analysis, encompassing various stages of the data science workflow, including data preprocessing, feature engineering, and feature selection through PCA. Collaboratively, we sought to predict whether individuals had an income greater than 50K. By incorporating hyperparameter optimization and deploying a robust model pipeline, we achieved a final Kappa score of 0.9543. This project enabled us to hone our skills as aspiring Data Scientists and paves the way for future machine learning endeavors.
+In this project, our goal was to predict whether individuals earn more than $50K using machine learning techniques. We engaged in a thorough data science process, from data preprocessing and feature engineering to selecting principal components through PCA and optimizing hyperparameters for our model. Our collaborative efforts led to a high-performing model with a Kappa score of 0.9543, enhancing our data science expertise and setting the stage for future projects.
 
-## Highlight Of The Project
+## Team Contribution
 
-Willa was instrumental in laying the foundation for the models and identifying the PCA features. Without her exceptional work, we would not have been able to create such a comprehensive and outstanding model for predicting income above \$50,000. Her valuable contributions provided a critical starting point for our team, enabling us to add the feature importance at the start and optimize the models to their best parameters. Willa's dedication, skill, and hard work were truly impressive, and I feel grateful to have had her as a partner on this project.
+Willa played a pivotal role in developing the foundational models and pinpointing the key PCA features. Her outstanding efforts laid the groundwork for our high-quality model that accurately predicts incomes over $50,000. Willa's expertise not only provided a solid base for our project but also enabled us to fine-tune our models for peak performance. I'm thankful for her invaluable input and dedication, which significantly contributed to the success of our work.
 
-Here is the direct link to her [website](https://willavanliew.netlify.app/). Take a look at her data science projects!
+Explore more of Willa's data science work on her [website](https://willavanliew.netlify.app/).
 
 ## Predicting Income \>50K
 
@@ -273,7 +273,7 @@ confusionMatrix(predict(fit, test), factor(test$income_above_50K))
 
 ## Results
 
-We used a random forest model to identify the most important variables and selected the top 8 features, then utilized principal component analysis (PCA) to further analyze the data. Our final model incorporated a gradient boosting machine (GBM) algorithm with optimized hyperparameters and achieved an accuracy rate of 0.9829731 and a Kappa score of 0.9538928. To ensure the model was not overfitting, we benchmarked it with a logistic regression model that achieved a Kappa score of 0.895033 and an accuracy rate of 0.9610166. We further improved the model's accuracy by incorporating unsupervised machine learning with Kmeans clustering, achieving a Kappa score of 0.9543 and an accuracy rate of 0.9833. Overall, our approach of feature selection and PCA was effective and could be applied to future data analysis projects with some additional fine-tuning.
+Our analysis began with a random forest model to pinpoint critical factors, focusing on the top 8 features for in-depth examination. We then applied principal component analysis for further insight. The culmination of our work was a gradient boosting machine model, finely tuned for peak performance, which boasted a remarkable accuracy rate of 98.3% and a Kappa score of 95.4%. To validate our model's reliability and guard against overfitting, we compared it with a basic logistic regression model, which showed a Kappa score of 89.5% and an accuracy of 96.1%. Enhancements were made by integrating Kmeans clustering, an unsupervised learning technique, pushing the Kappa score slightly higher to 95.4% and accuracy to 98.3%. Our methodology, combining feature selection and PCA, proved highly effective, offering a solid foundation for future projects with potential for even finer adjustments.
 
 ## Data References
 

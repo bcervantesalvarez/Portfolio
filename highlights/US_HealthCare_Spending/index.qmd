@@ -1,12 +1,12 @@
 ---
-title: "Healthcare Spending Is Only Getting Worse"  
+title: "Healthcare Spending Analysis"  
 author: "Brian Cervantes Alvarez"
 date: "December 12, 2022"
+description: "This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world's most expensive countries for healthcare."
 image: healthcareSpending.jpeg
 bibliography: "bibliography.bib"
 nocite: |
      @*
-description: "Cracking the Code: Unmasking the Skyrocketing US Healthcare Costs, Unveiling the Factors and Sector Impact since 1980!"
 format:
   html:
     page-layout: article
@@ -37,67 +37,6 @@ ds <- read_csv("healthcareSpending.csv")
 
 ![](healthcareSpending.jpeg)
 
-<div class="download-buttons" style="text-align: center;">
-  <style>
-    .download-buttons a.button {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 35px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 25px;
-      background-color: #343a40;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .download-buttons a.button:last-child {
-      margin-right: 0;
-    }
-
-    .download-buttons a.button:hover {
-      background-color: #55595c;
-    }
-
-    .download-buttons a.button:after {
-      content: "\2193";
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 12px; /* Added margin from the text */
-      transform: translateY(-50%);
-      border-bottom: 2px solid #fff;
-      padding: 1px; /* Padding for the mini border block */
-    }
-  </style>
-
-  <script>
-    function createDynamicButton(href, text) {
-      var button = document.createElement("a");
-      button.href = href;
-      button.className = "button";
-      button.appendChild(document.createTextNode(text));
-      return button;
-    }
-
-    var downloadButtonsDiv = document.querySelector(".download-buttons");
-
-    var documentButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthCare_Spending/index.qmd",
-      "Download .qmd"
-    );
-    downloadButtonsDiv.appendChild(documentButton);
-
-    var csvButton = createDynamicButton(
-      "https://github.com/bcervantesalvarez/Portfolio/blob/main/posts/US_HealthCare_Spending/healthcareSpending.csv",
-      "Download .csv"
-    );
-    downloadButtonsDiv.appendChild(csvButton);
-  </script>
-</div>
-
 ## Abstract
 
 Since 1980, healthcare costs in the United States have been consistently increasing across all categories. Various factors contribute to this rise, such as population growth and higher wages for doctors. This report examines expenditure trends from 1980 to 2005, extending up to 2014. The findings reveal an unprecedented surge in healthcare costs across every sector in the United States. Consequently, this report sheds light on the reasons behind the country's reputation as one of the world's most expensive nations in terms of healthcare.
@@ -116,8 +55,8 @@ To begin, it is essential to assess whether the data is in a "wide" or "long" fo
 
 ::: {.callout-warning}
 
-## R Version
-
+## Version Control
+Make sure to use RStudio's version 2023.12.1 or higher
 :::
 
 ```{r message=FALSE, warning=FALSE, echo = FALSE}

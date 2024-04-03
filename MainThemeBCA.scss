@@ -63,7 +63,7 @@ $headings-font-weight: 900 !default;
 $headings-color: $primary !default;
 
 // Word Spacing
-$body-line-stretch: 1.3rem !default;
+$body-line-stretch: 1.4rem !default;
 
 // Tables
 $table-border-color: rgba(0, 2, 0, 0.05) !default;
@@ -160,6 +160,14 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
     margin-bottom: 0;
     list-style: none;
   }
+
+  .fixed-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
 
 }
 
@@ -381,8 +389,9 @@ body {
 
 p {
   margin-bottom: 25px; /* Adjusts the bottom margin between paragraphs */
-  line-height: 1.7em;
-  font-size: 1.2em;
+  line-height: 1.8rem;
+  font-size: 1rem;
+  font-weight: 200;
 }
 
 
@@ -602,96 +611,159 @@ header#title-block-header {
 }
 
 
-// ----------- FOR PORTFOLIO PAGE ------------
+
+/* ------------ NEW! BANNER REFERENCE JAVASCRIPT --------- */
+
+.new-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(219, 228, 237);
+  color: $gray-700; /* Assuming $gray-700 is a shade of gray, replace with the exact color if needed */
+  font-weight: 600;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 10;
+  transition: opacity 0.5s ease; /* This will control the fade effect */
+  opacity: 1; /* Default state is fully visible */
+}
+
+
+/* ----------- FOR PORTFOLIO PAGE ------------ */
+
+.quarto-grid-item:hover .new-banner {
+  opacity: 0; /* This makes the banner fully transparent when the card is hovered over */
+}
+
+.quarto-listing-cols-4 {
+  row-gap: 4rem;
+  column-gap: 2rem;
+}
 
 .quarto-listing-container-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1200px, 1fr));
-  gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(1300px, 1fr));
   justify-content: center;
   margin: 0 auto;
-  max-width: 2000px;
 
   .quarto-grid-item {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.10s, box-shadow 0.10s; // Added box-shadow to transition properties
+    background-color: rgb(219, 228, 237);
+    box-shadow: 0 5px 7px rgba(0,0,0,0.1);
+    transition: transform 0.7s ease, box-shadow 0.7s ease;
+    overflow: hidden;
 
     &:hover {
-      transform: scale(1.1) translateY(-10px); // Added translateY to create a lifting effect
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2); // Enhanced shadow for a deeper effect
-      z-index: 2;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+      .card-img-top img {
+        filter: blur(1.4px);
+        transform: scale(2);
+      }
+      .card-title, .card-text, .card-attribution {
+        background-color:rgb(219, 228, 237);
+      }
+      .card-title {
+        margin-left: -20px;
+        margin-right: -20px;
+        transform: translateY(-150px);
+        transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+      }
+      .card-text, .card-attribution {
+        opacity: 0.9;
+        transform: translateY(0);
+      }
     }
 
-    .card-body {
-      padding-top: 0.2em;
+    &:active {
+      transform: scale(0.95); // Example transformation on click
     }
 
-    .card-img-link {
-      display: block;
-      border-bottom: 5px solid #ececec;
-    }
-
-    .card-img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+    .card-img-top img {
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .card-title {
-      font-size: 0.9em; // Adjusted font size
-      margin: 0.5em 0 0;
-      text-align: left;
+      font-size: 1.1em;
+      font-weight: 600;
+      position: relative;
+      justify-content: center;
+      text-align: center;
+      color: $gray-700;
+      opacity: 1;
+      transform: translateY(0px);
+      transition: opacity 0.7s ease, transform 0.7s ease, background-color 0.4s ease;
+    }
+    
+    .card-text, .card-attribution {
+      transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.8s ease;
     }
 
     .card-text {
-      font-size: 0.7em;
-      margin: 0.3em 0 0;
-      line-height: 1.5em;
+      position: absolute;
+      font-size: 0.8em;
+      bottom: 45px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      overflow: hidden;
+      padding: 0.2em 1em 1em;
     }
 
-    .card-title-link {
-      text-decoration: none;
-      color: inherit;
-    }
-    
     .card-attribution {
-      display: none;
+      font-size: 0.5em;
+      font-weight: 500;
+      color: $gray-700;
+      text-align: center;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transform: translateY(30px);
+      padding: 0.5em;
     }
   }
 }
 
-// Responsive adjustments for smaller screens
-@media (max-width: 768px) {
+/* Media queries for responsiveness */
+@media (max-width: 1000px) {
   .quarto-listing-container-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted for better fit */
-  }
-
-  .quarto-grid-item .card-title {
-    font-size: 1em; /* Slightly larger for readability */
-  }
-
-  .quarto-grid-item .card-text {
-    font-size: 0.8em; /* Adjusted for readability */
+    grid-template-columns: repeat(1, minmax(500px, 1fr));
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .quarto-listing-container-grid {
-    grid-template-columns: 1fr; /* Stacks grid items vertically */
-    padding: 10px; /* Add some padding for small screens */
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
 
   .quarto-grid-item {
-    margin-bottom: 2rem; /* Add space between items */
-  }
+    margin-bottom: 1rem;
 
-  .quarto-grid-item .card-title, .quarto-grid-item .card-text {
-    text-align: center; /* Center-align text for a cleaner look */
+    &:hover {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Revert box-shadow to its original state */
+      .card-img-top img {
+        filter: none; /* Remove blur */
+        transform: none; /* Remove scale */
+      }
+      .card-title, .card-text, .card-attribution {
+        background-color: transparent; /* Remove background-color change */
+        opacity: 1; /* Ensure text is fully visible */
+        transform: translateY(0); /* Reset text position */
+      }
+    }
+  }
+  .subtitle{
+    text-align: center;
   }
 }
+
+
+
 
 // ----------- FOR BLOG PAGE ------------
 

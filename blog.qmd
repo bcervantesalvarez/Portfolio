@@ -14,4 +14,7 @@ listing:
 format: 
   html:
     page-layout: article
+    include-in-header: 
+      - text: |
+          <script type="text/javascript" src="new-banner.js"></script>    
 ---

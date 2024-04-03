@@ -1,10 +1,10 @@
 ---
-title: "Resources for Prospective College Students"
+title: "College Debt Shiny App"
 author: 
   - "Brian Cervantes Alvarez" 
   - "Corey Cassell"
 date: "12-02-2022"
-description: "Unleash your future with our interactive tool! Estimate salaries, tuition, and student debt for majors. Plan your journey and make informed career decisions. Essential for high school students exploring higher education."
+description: "Collaborating with Corey Cassell, we've developed an interactive tool aiding students in career and financial planning, empowering informed decisions."
 image: uni.jpeg
 bibliography: "bibliography.bib"
 nocite: |
@@ -22,21 +22,17 @@ categories: [R, Shiny, Data Visualization, Dashboard]
 ![](uni.jpeg)
 
 
-## Abstract
+## Overview
 
-In collaboration with Corey Cassell, this study aims to provide prospective college students with crucial information about potential income and student debt in their chosen career paths. To achieve this, we have developed an interactive tool using R Shiny to create engaging visualizations.
+In collaboration with [Corey Cassell](https://www.linkedin.com/in/corey-cassell/), our team developed an interactive tool tailored to support students in making informed decisions about their educational journey. This tool offers crucial financial insights, including salary and tuition estimators, as well as a debt calculator, empowering users to navigate their educational choices confidently. By exploring potential salaries, estimating tuition costs, and visualizing projected student debts, individuals can gain valuable perspectives on the financial aspects of their chosen career paths. Recognizing the significance of financial considerations in higher education, our tool comprises four essential components: salary estimator, tuition estimator, debt estimator, and debt calculator. Together, these components provide a comprehensive platform for prospective students to assess potential earnings, anticipate tuition expenses, calculate degree-related debt, and visualize future financial commitments aligned with their chosen majors.
 
-## Introduction
+## College Salary, Tuition, & Debt Tool
 
-As students make important decisions about their higher education, it becomes crucial to equip them with insights into the financial aspects of their chosen career paths. To address this need, we have created an interactive tool consisting of four components: salary estimator, tuition estimator, debt estimator, and debt calculator. These tools enable prospective students to explore potential salaries, estimate tuition costs, calculate degree debt, and visualize projected student debts based on their chosen majors.
+<iframe src="https://bcervantesalvarez.shinyapps.io/FinalProjectData502/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="100%" height="600"></iframe>
 
-## Shiny Interactive Tool
+## Introduction and Setup
 
-<iframe src="https://bcervantesalvarez.shinyapps.io/FinalProjectData502/" title="https://bcervantesalvarez.shinyapps.io/CollegeStudentSalaryDebtTools/" width="100%" height="800">
-
-</iframe>
-
-## Setup
+As students make crucial decisions about their higher education, it's imperative to equip them with insights into the financial aspects of their chosen career paths. To address this need, we've developed an interactive tool comprising four components: the salary estimator, tuition estimator, debt estimator, and debt calculator. This setup section initializes the necessary libraries and performs data wrangling to prepare the datasets for visualization.
 
 ```{r}
 #| warning: FALSE
@@ -55,13 +51,14 @@ library(shinyWidgets)
 library(scales)
 library(ggplot2)
 
-# read the files in from github
+# Reading necessary files from GitHub
 allAgesDf <- read_csv("all-ages.csv")
 tuition_cost <- read_csv("tuition_income.csv")
 tuition <- read_csv("tuition_cost.csv")
 ds4 <- read_csv("salary_and_stats.csv")
 
 # Wrangling Salary Potential
+# This section prepares data related to salary estimates for various majors.
 salary <- allAgesDf %>%
     dplyr::select(Major, P25th, Median, P75th) %>%
     pivot_longer(c(P25th, Median, P75th),
@@ -74,8 +71,7 @@ salary <- allAgesDf %>%
     )
 
 # Wrangling Potential Tuition Burden
-
-
+# This part of the code prepares data related to tuition costs.
 tuition_cost <- tuition_cost %>%
     filter(year == 2018 & net_cost > 0) %>%
     arrange(name) %>%
@@ -84,7 +80,7 @@ tuition_cost <- tuition_cost %>%
         name = as.factor(name)
     )
 
-
+# Adjusting income levels for readability
 tuition_cost$income_lvl <- recode(tuition_cost$income_lvl,
     "0 to 30,000" = "$0 to $30,000",
     "30,001 to 48,000" = "$30,001 to $48,000",
@@ -92,6 +88,8 @@ tuition_cost$income_lvl <- recode(tuition_cost$income_lvl,
     "75,001 to 110,000" = "$75,001 to $110,000",
     "Over 110,000" = "Over $110,000"
 )
+
+# Adjusting data for visualization
 salary$Percentile_Range <- factor(salary$Percentile_Range, levels = c("P25th", "Median", "P75th"))
 salary$Percentile_Range <- recode(salary$Percentile_Range,
     "P25th" = "Early Career",
@@ -101,7 +99,7 @@ salary$Percentile_Range <- recode(salary$Percentile_Range,
 salary$Major <- str_to_title(salary$Major)
 salary$Major <- gsub("And", "and", salary$Major)
 
-
+# Further data preparation for visualization
 df <- tuition %>%
     group_by(state, degree_length, type) %>%
     filter(!is.na(state) & degree_length != "Other") %>%
@@ -119,15 +117,18 @@ df <- df %>% rename(
     "In State Tuition" = inStateTotal,
     "Out of State Tuition" = outOfStateTotal
 )
-
 ```
+
+## Color Theme
+
+This section defines the visual theme to maintain consistency across all plots and enhance readability.
 
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Color Theme"
 
-# vars
+# Definitions for visual theme
 title <- 25
 subtitle <- 20
 facet_title <- 25
@@ -139,45 +140,39 @@ plot_background <- "gainsboro"
 facet_header_background <- "gainsboro"
 line_type <- "solid"
 
+# Custom theme for plots
 CoreyPlotTheme <- theme(
     text = element_text(family = "Futura"),
-    # background color of page
     plot.background = element_rect(fill = background),
-
-    # graph background and grid
     panel.background = element_blank(),
     panel.grid.major = element_line(size = .1, linetype = line_type, colour = "gainsboro"),
     panel.grid.minor = element_line(size = .1, linetype = line_type, colour = "black"),
-
-    # title/font/labels
     plot.title = element_text(color = title_color, size = title, family = "Futura", hjust = 0.5),
     plot.subtitle = element_text(color = title_color, size = subtitle, family = "Futura", hjust = 0.5),
-    # plot.caption = element_textbox_simple(halign = 0, size = tick_numbers, maxwidth = 30,family = "Futura"),
     plot.caption = element_text(color = title_color, face = "bold", size = tick_numbers, family = "Futura", hjust = 0),
     strip.text = element_text(color = title_color, size = facet_title, family = "Futura"),
     strip.background = element_rect(fill = facet_header_background),
-
-    # tick marks
     axis.text = element_text(color = title_color, size = tick_numbers, family = "Futura"),
     axis.title = element_text(color = title_color, size = axis_title, family = "Futura"),
     axis.ticks.x = element_blank(),
-
-    # legend
     legend.title = element_text(color = title_color, size = subtitle, family = "Futura"),
     legend.background = element_rect(fill = plot_background),
     legend.text = element_text(size = tick_numbers, family = "Futura")
 )
 ```
 
-## Plot Sidebar Inputs
+## Interactive Inputs
+
+This section presents the user interface elements allowing users to interact with the data and customize visualizations according to their preferences.
+
+### Salary Estimator Selectors
 
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Salary Estimator Selectors"
 
-# INPUT FOR PLOT 1
-
+# Inputs for Salary Estimator plot
 input1 <- inputPanel(
     selectInput("selectInput1",
         label = "Choose your major:",
@@ -196,19 +191,22 @@ input1 <- inputPanel(
 )
 ```
 
+### Tuition Estimator Options
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Tuition Estimator Options"
 
-# INPUT FOR PLOT 2
-
+# Inputs for Tuition Estimator plot
 input2 <- inputPanel(
     selectInput("money",
         label = "Select the type of expense:",
         choices = c(
             "Room and Board" = "Room and Board",
-            "In State Tuition" = "In State Tuition",
+           
+
+ "In State Tuition" = "In State Tuition",
             "Out of State Tuition" = "Out of State Tuition"
         ),
         selected = "In State Tuition"
@@ -221,13 +219,14 @@ input2 <- inputPanel(
 )
 ```
 
+### Debt Estimator Levels
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Debt Estimator Levels"
 
-# INPUT FOR PLOT 3
-
+# Inputs for Debt Estimator plot
 input3 <- inputPanel(
     selectInput("selectInput2",
         label = "Select your university:",
@@ -254,13 +253,14 @@ input3 <- inputPanel(
 )
 ```
 
+### Debt Calculator Choices
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Debt Calculator Choices"
 
-# INPUT FOR PLOT 4
-
+# Inputs for Debt Calculator plot
 input4 <- inputPanel(
     selectInput("major_category",
         label = "Pick a major category:",
@@ -272,12 +272,16 @@ input4 <- inputPanel(
 
 ## Plots
 
+These plots dynamically visualize various aspects of higher education finances based on user-selected inputs.
+
+### Salary Estimator
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Salary Estimator"
 
-# PLOT1
+# Plot for Salary Estimator
 plot1 <- renderPlot({
     salary %>%
         filter((Major %in% input$selectInput1) & (Percentile_Range %in% input$percentile_choice)) %>%
@@ -305,12 +309,14 @@ plot1 <- renderPlot({
 })
 ```
 
+### Tuition Estimator
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Tuition Estimator"
 
-# PLOT2
+# Plot for Tuition Estimator
 plot2 <- renderPlot({
     df %>%
         filter(state == input$state) %>%
@@ -343,12 +349,14 @@ plot2 <- renderPlot({
 })
 ```
 
+### Debt Estimator
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Debt Estimator"
 
-# PLOT3
+# Plot for Debt Estimator
 plot3 <- renderPlot({
     tuition_cost %>%
         filter((income_lvl %in% input$checkGroup) & (name %in% input$selectInput2)) %>%
@@ -377,12 +385,14 @@ plot3 <- renderPlot({
 })
 ```
 
+### Debt Calculator
+
 ```{r}
 #| warning: FALSE
 #| message: FALSE
 #| code-summary: "Debt Calculator"
 
-# PlOT4
+# Plot for Debt Calculator
 plot4 <- renderPlot({
     ds4 %>%
         filter(major_category == input$major_category) %>%
@@ -399,7 +409,9 @@ plot4 <- renderPlot({
         ) +
         labs(
             title = "How Long Will You Be In Debt?",
-            subtitle = "Based on Your Major",
+            subtitle = "Based on Your
+
+ Major",
             x = "Time to pay off loans"
         ) +
         CoreyPlotTheme +
@@ -408,10 +420,9 @@ plot4 <- renderPlot({
 })
 ```
 
-
 ## Conclusion
 
-Through the collaboration with Corey Cassell, our interactive tool provides valuable resources for high school students considering higher education. By offering comprehensive tools for estimating salaries, tuition costs, and student debt accumulation, we empower students to make informed decisions about their future. This project showcases the power of interactive visualizations in providing crucial information to prospective college students, guiding them towards successful career paths and financial planning.
+The interactive tool provides valuable resources for high school students considering higher education. By offering comprehensive tools for estimating salaries, tuition costs, and student debt accumulation, we empower students to make informed decisions about their future. This project showcases the power of interactive visualizations in providing crucial information to prospective college students, guiding them towards successful career paths and financial planning.
 
 ## Data References
 
