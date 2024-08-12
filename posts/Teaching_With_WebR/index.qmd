@@ -5,10 +5,12 @@ author: "Brian Cervantes Alvarez"
 date: today
 date-format: long
 format: 
-    OSUstyle-html:
+    html:
         toc: true
         toc-location: right
         toc-depth: 5
+        html-math-method: katex
+        page-layout: article
 execute: 
   echo: true
   warning: false
@@ -91,7 +93,7 @@ library(lubridate)
 ```{webr-r}
 #| autorun: TRUE
 # Specify the data URL using HTTPS
-url1 <- "https://github.com/bcervantesalvarez/Portfolio/Assets/Datasets/countries.csv"
+url1 <- "https://howarder.github.io/ST_437_Data_Viz/Assets/Datasets/countries.csv"
 
 # Download the data files from the HTTPS URL and save it as
 # countries.csv

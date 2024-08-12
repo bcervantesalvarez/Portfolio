@@ -19,21 +19,19 @@
 }
 
 .qwebr-editor {
-  font-size: 16px !important;
+  font-size: 14px !important;
   overflow: auto;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .qwebr-button-run {
-  font-size: 16px;  /* Updated font size */
-  background-color: #EEEEEE;
+  font-size: 14px;  /* Updated font size */
+  background-color: #4b7195;
   text-align: center;
   margin-bottom: 5px;
   cursor: pointer;
   outline: none;
-  color: #000;  /* White text color */
+  color: #fff;  /* White text color */
   border: none;
   border-radius: 0.5rem;  /* Updated border-radius */
   display: inline-block;
@@ -43,7 +41,7 @@
 }
 
 .qwebr-button-run:active {
-  background-color: #D73F09 !important;  /* Your orange color */;
+  background-color: #346594 !important;  /* Your orange color */;
   transform: translateY(4px);  /* Button moves down when clicked */
 }
 
@@ -53,8 +51,6 @@ fieldset:disabled .qwebr-button-run {
   pointer-events: none;
   opacity: .65;
 }
-
-
 
 /* Custom styling for RevealJS Presentations*/
 
@@ -82,12 +78,12 @@ fieldset:disabled .qwebr-button-run {
 
 .reveal pre div code.qwebr-output-code-stdout {
   color: #111;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 
 .reveal pre div code.qwebr-output-code-stderr {
   color: #db4133;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 
 
@@ -95,7 +91,7 @@ fieldset:disabled .qwebr-button-run {
 .reveal div.qwebr-console-area {
   border: 1px solid #EEEEEE;
   box-shadow: 2px 2px 10px #EEEEEE;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 
 /* Cap output height and allow text to scroll */
@@ -103,5 +99,5 @@ fieldset:disabled .qwebr-button-run {
 .reveal div.qwebr-output-code-area pre {
   max-height: 400px;
   overflow: scroll;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }

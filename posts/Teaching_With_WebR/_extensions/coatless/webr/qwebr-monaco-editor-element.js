@@ -16,13 +16,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
     editor = monaco.editor.create(editorDiv, {
       value: initialCode,
       language: 'r',
-      theme: 'vs-light',                // Use the vs-light theme
+      theme: 'vs-dark',                // Use the vs-light theme
       automaticLayout: true,            // Works wonderfully with RevealJS
       scrollBeyondLastLine: false,
       minimap: {
         enabled: false
       },
-      fontSize: '16px',                // Bootstrap is 1 rem
+      fontSize: '14px',                // Bootstrap is 1 rem
       renderLineHighlight: "none",     // Disable current line highlighting
       hideCursorInOverviewRuler: true  // Remove cursor indicator in right-hand side scroll bar
     });

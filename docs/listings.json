@@ -2,9 +2,13 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/Teaching_With_WebR/index.html",
+      "/posts/Automakers/index.html",
+      "/posts/Capstone/index.html",
       "/posts/FraudML/index.html",
       "/posts/AmazonProductsEN/index.html",
       "/posts/AppleInc_IncomeStatement/index.html",
+      "/posts/PredictPremiumDefault_ML/index.html",
       "/posts/GymRat_Plotly/index.html",
       "/posts/FancyTables/index.html",
       "/posts/Pokemon_Database/index.html",
