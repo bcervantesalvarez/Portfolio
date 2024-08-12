@@ -11,6 +11,7 @@ image: /Assets/Images/olympics-logo.svg
 execute: 
   warning: false
   message: false
+theme: 
 ---
 
 ```{r}
