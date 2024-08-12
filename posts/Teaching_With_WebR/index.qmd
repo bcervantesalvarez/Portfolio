@@ -91,7 +91,7 @@ library(lubridate)
 ```{webr-r}
 #| autorun: TRUE
 # Specify the data URL using HTTPS
-url1 <- "https://github.com/bcervantesalvarez/Portfolio/posts/Teaching_With_WebR/countries.csv"
+url1 <- "https://github.com/bcervantesalvarez/Portfolio/Assets/Datasets/countries.csv"
 
 # Download the data files from the HTTPS URL and save it as
 # countries.csv
