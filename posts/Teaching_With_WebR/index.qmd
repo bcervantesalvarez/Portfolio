@@ -1,6 +1,6 @@
 ---
-title: "Interactive Teaching with WebR | Demo"
-subtitle: "ST 437 Data Visualization"
+title: "Interactive Teaching with WebR"
+subtitle: "Lab Demonstration"
 author: "Brian Cervantes Alvarez"
 date: today
 date-format: long
@@ -112,7 +112,6 @@ countriesDs <- read_csv("countries.csv", show_col_types = FALSE)
 
 ```{webr-r}
 head(countriesDs, 5)
-head(countriesExtraDs, 5)
 ```
 
 #### Description of the Dataset
@@ -135,7 +134,6 @@ head(countriesExtraDs, 5)
 - `Selecting`: Select specific columns for focused analysis.
 - `Mutating`: Create new columns, such as cases per 100,000 population.
 - `Summarizing`: Aggregate data by country, year, or region to find totals and averages.
-- `Joining`: Combine the main dataset with the additional data based on country.
 
 ### Filtering
 
@@ -305,36 +303,6 @@ ggplot(summaryData, aes(x = total_population, y = avg_life_expectancy, label = c
 3. **Group the data** by country and summarize to find the maximum and minimum GDP per capita for each country.
 4. **Summarize by year** to find the total population and average birth rate each year.
 5. **Create a summary** that calculates the total population and average GDP per capita for countries classified as "First World."
-
-### Joining
-
-Joining combines data from the main dataset with additional data.
-
-#### Example 1
-
-```{webr-r}
-joinedData <- left_join(countriesDs, countriesExtraDs, by = "country")
-
-head(joinedData, 5)
-```
-
-##### Visualization
-
-```{webr-r}
-ggplot(joinedData, aes(x = continent, y = gdp_per_capita, fill = region)) +
-  geom_boxplot() +
-  labs(title = "GDP per Capita Distribution by Continent and Region",
-       x = "Continent", y = "GDP per Capita") +
-  theme_minimal()
-```
-
-
-#### Joining Challenges
-1. **Perform a left join** on the main dataset and an additional dataset that contains information on urbanization rates by country.
-2. **Join the datasets** to add `continent` and then filter for countries in a specific continent.
-3. **Create a new dataset** by performing an inner join on `countriesDs` and `countriesExtraDs`, then analyze the countries present in both datasets.
-4. **Perform a full join** to combine the datasets and identify countries that are missing from one dataset but present in the other.
-5. **Use an anti-join** to find the countries in the main dataset that do not have corresponding information in the additional dataset.
 
 
 ## Untidy Data Wrangling
@@ -538,6 +506,7 @@ ggplot(countriesDs, aes(x = year_date, y = population, color = country)) +
 Dealing with missing data is a crucial aspect of data wrangling. Missing data can occur for various reasons, and understanding the nature of these missing values is essential for appropriate handling.
 
 #### Types of Missing Data
+
 - **MCAR (Missing Completely at Random)**: Data is missing entirely at random, with no relationship between the missing data and any other observed or unobserved data. The analysis remains unbiased if this missing data is ignored.
 - **MAR (Missing at Random)**: The likelihood of missing data on a variable is related to other observed variables but not to the value of the variable itself.
 - **MNAR (Missing Not at Random)**: The missingness is related to the unobserved data itself, meaning the missing values are related to the actual value that is missing.
@@ -609,16 +578,6 @@ mar_data_imputed <- mar_data %>%
 summary(mar_data_imputed$gdp_per_capita)
 ```
 
-##### Imputing Missing Values for MNAR Data
-```{webr-r}
-mnar_data_imputed <- mnar_data %>%
-  mutate(
-    life_expectancy = ifelse(is.na(life_expectancy), median(life_expectancy, na.rm = TRUE), life_expectancy)
-  )
-# Check imputation
-summary(mnar_data_imputed$life_expectancy)
-```
-
 #### Missing Data | After Wrangling
 
 Let's visualize the data again after imputing the missing values.
@@ -630,6 +589,16 @@ ggplot(mar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = co
   labs(title = "GDP per Capita vs. Life Expectancy (after MAR Imputation)",
        x = "GDP per Capita", y = "Life Expectancy") +
   theme_minimal()
+```
+
+##### Imputing Missing Values for MNAR Data
+```{webr-r}
+mnar_data_imputed <- mnar_data %>%
+  mutate(
+    life_expectancy = ifelse(is.na(life_expectancy), median(life_expectancy, na.rm = TRUE), life_expectancy)
+  )
+# Check imputation
+summary(mnar_data_imputed$life_expectancy)
 ```
 
 ##### Visualization with MNAR Data (Imputed)
@@ -648,7 +617,7 @@ Understanding the different types of missing data—MCAR, MAR, and MNAR—is cru
 
 ## Creating a Pseudo-Publication Ready Visualization
 
-We’ll combine all the data wrangling techniques you’ve learned—`filtering`, `selecting`, `mutating`, `summarizing`, and `joining`—to perform a detailed analysis and produce a polished, publication-ready visualization.
+We’ll combine all the data wrangling techniques you’ve learned—`filtering`, `selecting`, `mutating`, `summarizing`—to perform a detailed analysis and produce a polished, publication-ready visualization.
 
 ### Creating a Professional-Quality Visualization
 
@@ -659,24 +628,20 @@ Here’s a step-by-step guide to transform and visualize data from 10 countries 
 filteredData <- countriesDs %>%
   filter(year >= 2020 & year <= 2023)
 
-# Step 2: Join with the additional dataset to get continent information
-joinedData <- filteredData %>%
-  left_join(countriesExtraDs, by = "country")
-
-# Step 3: Select relevant columns for analysis
+# Step 2: Select relevant columns for analysis
 selectedData <- joinedData %>%
   select(country, year, population, gdp_per_capita, life_expectancy, birth_rate, continent)
 
-# Step 4: Mutate the data to create new metrics
+# Step 3: Mutate the data to create new metrics
 mutatedData <- selectedData %>%
   mutate(
     gdp_total = gdp_per_capita * population,
     year_date = ymd(paste0(year, "-", ifelse(runif(n()) > 0.5, "06-30", "12-31")))
   )
 
-# Step 5: Summarize the data to get average life expectancy, GDP per capita, and total population by country and continent
+# Step 4: Summarize the data to get average life expectancy, GDP per capita, and total population by country and continent
 summaryData <- mutatedData %>%
-  group_by(continent, country) %>%
+  group_by(country) %>%
   summarize(
     avg_life_expectancy = mean(life_expectancy, na.rm = TRUE),
     avg_gdp_per_capita = mean(gdp_per_capita, na.rm = TRUE),
