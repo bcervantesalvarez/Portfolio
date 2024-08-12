@@ -93,12 +93,12 @@ library(lubridate)
 ```{webr-r}
 #| autorun: TRUE
 # Specify the data URL using HTTPS
-url1 <- "https://howarder.github.io/ST_437_Data_Viz/Assets/Datasets/countries.csv"
+url <- "https://raw.githubusercontent.com/bcervantesalvarez/Portfolio/main/Assets/Datasets/countries.csv"
 
 # Download the data files from the HTTPS URL and save it as
 # countries.csv
 cat("Downloading the data ...\n")
-download.file(url1, "countries.csv")
+download.file(url, "countries.csv")
 
 # Check for the data.
 cat("After downloading the data, we now have:\n")
