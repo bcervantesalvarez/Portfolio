@@ -1,0 +1,17 @@
+{
+  "hash": "3aec2b0f6c6562cc133015aa643cee78",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Build-a-Dashboard\"\nauthor: \"Brian Cervantes Alvarez\"\ndate: today\ndescription: \"TBH\"\nformat: dashboard\nexecute: \n  warning: false\n  message: false\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell title='Highway vs City Mpg'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=768}\n:::\n:::\n\n::: {.cell title='Drive types'}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=768}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
