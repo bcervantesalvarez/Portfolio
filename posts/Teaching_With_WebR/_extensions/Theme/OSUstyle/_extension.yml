@@ -1,0 +1,8 @@
+title: Oregon State University Quarto Template
+author: Brian Cervantes Alvarez
+version: 0.0.4
+contributes:
+  formats: 
+    html:
+      logo: OSULogo.png
+      theme: OSUstyle.scss

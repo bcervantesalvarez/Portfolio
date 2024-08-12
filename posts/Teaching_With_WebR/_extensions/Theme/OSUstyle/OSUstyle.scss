@@ -1,0 +1,187 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+// Font face definitions for Stratum 2
+@font-face {
+  font-family: 'Stratum 2';
+  src: url('https://github.com/howarder/ST_437_Data_Viz/raw/main/Assets/Fonts/Stratum2-Black.otf') format('opentype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Stratum 2';
+  src: url('https://github.com/howarder/ST_437_Data_Viz/raw/main/Assets/Fonts/Stratum2-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Stratum 2';
+  src: url('https://github.com/howarder/ST_437_Data_Viz/raw/main/Assets/Fonts/Stratum2-Light.otf') format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Stratum 2';
+  src: url('https://github.com/howarder/ST_437_Data_Viz/raw/main/Assets/Fonts/Stratum2-Medium.otf') format('opentype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Stratum 2';
+  src: url('https://github.com/howarder/ST_437_Data_Viz/raw/main/Assets/Fonts/Stratum2-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Stratum 2';
+  src: url('https://github.com/howarder/ST_437_Data_Viz/raw/main/Assets/Fonts/Stratum2-Thin.otf') format('opentype');
+  font-weight: 100;
+}
+
+// font family
+$font-family-sans-serif: 'Open Sans', Arial, sans-serif !default;
+$presentation-heading-font: 'Georgia', 'Stratum 2', 'Times New Roman', serif !default;
+
+// font size
+$presentation-font-size-root: 16px;
+$presentation-line-height: 1.8em;
+$heading-font-size-h1: 2em;
+$heading-font-size-h2: 1.8em;
+$heading-font-size-h3: 1.6em;
+$heading-font-size-h4: 1.4em;
+$heading-font-size-h5: 1.2em;
+$heading-font-size-h6: 1em;
+
+// font colour
+$presentation-heading-color: #000000 !default;
+
+$heading-color: #D73F09 !default;
+
+// code
+$code-color: #000000 !default;
+$code-block-font-size: 16px;
+$code-block-border-color: #000000;
+$code-block-bg: #f5f5f5;
+
+// bg colours 
+$body-color: #000000;
+$link-color: #D73F09;
+$body-bg: #ffffff;
+
+/*-- scss:rules --*/
+
+/* Base styles */
+body {
+  font-family: $font-family-sans-serif;
+  color: $body-color;
+  background-color: $body-bg;
+  font-size: $presentation-font-size-root;
+  line-height: $presentation-line-height;
+}
+
+h1 {
+  font-family: $presentation-heading-font;
+  font-weight: 700; 
+  font-size: $heading-font-size-h1;
+  color: $heading-color !important;
+}
+
+h2 {
+  font-family: $presentation-heading-font;
+  font-weight: 500; 
+  font-size: $heading-font-size-h2;
+  color: $heading-color !important;
+  border-bottom: 2.5px solid $body-color; /* Add a border underneath */
+}
+
+h3 {
+  font-family: $presentation-heading-font;
+  font-weight: 400; 
+  font-size: $heading-font-size-h3;
+  color: $heading-color !important;
+}
+
+h4 {
+  font-family: $presentation-heading-font;
+  font-weight: 300; 
+  font-size: $heading-font-size-h4;
+  color: $heading-color !important;
+}
+
+h5 {
+  font-family: $presentation-heading-font;
+  font-weight: 100; 
+  font-size: $heading-font-size-h5;
+  color: $heading-color !important;
+}
+
+h6 {
+  font-family: $presentation-heading-font;
+  font-weight: 100; 
+  font-size: $heading-font-size-h6;
+  color: $heading-color !important;
+}
+
+a {
+  color: $link-color;
+}
+
+.qwebr-button-run {
+  font-family: $presentation-heading-font;
+  font-weight: 100;
+}
+
+pre, code {
+  background-color: #f5f5f5;
+  color: $code-color;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+   /* Enhanced styling */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.qwebr-output-code-stdout {
+  color: #111;
+  box-shadow: none;
+}
+
+.qwebr-output-code-area {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: $body-color;
+  color: $body-bg;
+  padding: 0.5em;
+}
+
+td {
+  border: 1px solid $code-block-border-color;
+  padding: 0.5em;
+}
+
+/* Additional styles to mimic reveal.js */
+.subtitle {
+  font-size: $presentation-font-size-root * 1.1;
+  font-family: $font-family-sans-serif;
+}
+
+.footer {
+  color: lighten($body-color, 40%);
+  font-family: $font-family-sans-serif;
+  padding-bottom: 25px;
+}
+
+.right {
+  text-align: right !important;
+}
+
+
