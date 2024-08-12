@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,7 +11,7 @@
 <meta name="dcterms.date" content="2022-12-02">
 <meta name="description" content="Collaborating with Corey Cassell, we’ve developed an interactive tool aiding students in career and financial planning, empowering informed decisions.">
 
-<title>Brian Cervantes Alvarez - College Debt Shiny App</title>
+<title>College Debt Shiny App – Brian Cervantes Alvarez</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,7 +37,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -125,7 +125,7 @@ div.csl-indent {
 }</script>
 
 
-<meta property="og:title" content="Brian Cervantes Alvarez - College Debt Shiny App">
+<meta property="og:title" content="College Debt Shiny App – Brian Cervantes Alvarez">
 <meta property="og:description" content="Collaborating with Corey Cassell, we’ve developed an interactive tool aiding students in career and financial planning, empowering informed decisions.">
 <meta property="og:image" content="uni.jpeg">
 <meta property="og:site_name" content="Brian Cervantes Alvarez">
@@ -143,7 +143,7 @@ div.csl-indent {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -170,7 +170,7 @@ div.csl-indent {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -638,11 +638,17 @@ Ihaka, Ross, Paul Murrell, Kurt Hornik, Jason C. Fisher, Reto Stauffer, Claus O.
 <div id="ref-R-tibble" class="csl-entry" role="listitem">
 Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://tibble.tidyverse.org/">https://tibble.tidyverse.org/</a>.
 </div>
+<div id="ref-R-RColorBrewer" class="csl-entry" role="listitem">
+Neuwirth, Erich. 2022. <em>RColorBrewer: ColorBrewer Palettes</em>. <a href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a>.
+</div>
 <div id="ref-R-shinyWidgets" class="csl-entry" role="listitem">
 Perrier, Victor, Fanny Meyer, and David Granjon. 2024. <em>shinyWidgets: Custom Inputs Widgets for Shiny</em>. <a href="https://github.com/dreamRs/shinyWidgets">https://github.com/dreamRs/shinyWidgets</a>.
 </div>
+<div id="ref-R-showtextdb" class="csl-entry" role="listitem">
+Qiu, Yixuan, and authors/contributors of the included fonts. See file AUTHORS for details. 2020. <em>Showtextdb: Font Files for the Showtext Package</em>. <a href="https://CRAN.R-project.org/package=showtextdb">https://CRAN.R-project.org/package=showtextdb</a>.
+</div>
 <div id="ref-R-sysfonts" class="csl-entry" role="listitem">
-Qiu, Yixuan, and authors/contributors of the included fonts. See file AUTHORS for details. 2022. <em>Sysfonts: Loading Fonts into r</em>. <a href="https://github.com/yixuan/sysfonts">https://github.com/yixuan/sysfonts</a>.
+———. 2022. <em>Sysfonts: Loading Fonts into r</em>. <a href="https://github.com/yixuan/sysfonts">https://github.com/yixuan/sysfonts</a>.
 </div>
 <div id="ref-R-showtext" class="csl-entry" role="listitem">
 Qiu, Yixuan, and authors/contributors of the included software. See file AUTHORS for details. 2023. <em>Showtext: Using Fonts More Easily in r Graphs</em>. <a href="https://github.com/yixuan/showtext">https://github.com/yixuan/showtext</a>.
@@ -737,18 +743,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -780,7 +775,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -815,7 +850,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

@@ -765,7 +765,7 @@ header#title-block-header {
 
 
 
-// ----------- FOR BLOG PAGE ------------
+// ----------- FOR BLOG PAGE ------------ //
 
 .quarto-post.image-right {
   flex-direction: row;
@@ -933,6 +933,24 @@ div.quarto-post .thumbnail img {
   }
 }
 
+
+
+// ----------- QUARTO DASHBOARD ------------ //
+
+
+.quarto-dashboard .bslib-value-box .value-box-showcase .bi {
+  font-size: clamp(.1em,max(18cqw,5.2cqh),5em);
+  text-align: center;
+  height: 0.5em;
+}
+
+.quarto-dashboard #quarto-dashboard-header .navbar .navbar-logo {
+  max-height: 50px;
+  min-height: 30px;
+  object-fit: cover;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
 
 
 // ----------- OTHER ------------

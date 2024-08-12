@@ -1,0 +1,25 @@
+---
+title: "UK Accident Time Series"
+author: "Brian Cervantes Alvarez" 
+date: today
+description: "This accident time series app allows you to explore and analyze data related accidents in UK. Feel free to download the data and explore other methods of analysis."
+image: /Assets/Images/accident.jpeg
+format:  
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+output: html_document
+categories: [R, Shiny, Data Visualization, Dashboard]
+---
+
+![](/Assets/Images/accident.jpeg)
+
+This accident time series app allows you to explore and analyze data related accidents in UK. Feel free to download the data and explore other methods of analysis.
+
+
+<iframe src="https://bcervantesalvarez.shinyapps.io/UKAccidentTimeSeries/" title="UKAccidentTimeSeries" width="100%" height="800"></iframe>
+
+
+
