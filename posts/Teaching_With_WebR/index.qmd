@@ -21,6 +21,8 @@ filters:
 - webr
 ---
 
+![](/Assets/Images/webR.png)
+
 
 ## What is Data Wrangling?
 
