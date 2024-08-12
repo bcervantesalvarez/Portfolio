@@ -495,7 +495,7 @@ This creates a new column, `year_date`, which is now in the proper date format.
 
 ```{webr-r}
 ggplot(countriesDs, aes(x = year_date, y = population, color = country)) +
-  geom_line(size = 1) +
+  geom_line(linewidth = 1) +
   labs(title = "Population Trends Over Time by Country",
        x = "Year", y = "Population") +
   theme_minimal()
@@ -630,8 +630,8 @@ filteredData <- countriesDs %>%
   filter(year >= 2020 & year <= 2023)
 
 # Step 2: Select relevant columns for analysis
-selectedData <- joinedData %>%
-  select(country, year, population, gdp_per_capita, life_expectancy, birth_rate, continent)
+selectedData <- filteredData %>%
+  select(country, year, population, gdp_per_capita, life_expectancy, birth_rate)
 
 # Step 3: Mutate the data to create new metrics
 mutatedData <- selectedData %>%

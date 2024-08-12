@@ -1,5 +1,6 @@
 ---
 title: "Olympic Dashboard"
+subtitle: "Demonstration"
 author: "Posit::conf2024"
 date: today
 description: "TBH"
