@@ -11,7 +11,6 @@ image: /Assets/Images/olympics-logo.svg
 execute: 
   warning: false
   message: false
-theme: 
 ---
 
 ```{r}
@@ -20,6 +19,8 @@ theme:
 library(tidyverse)
 library(gt)
 library(scales)
+library(plotly)
+library(forcats)
 ```
 
 ```{r}
@@ -52,39 +53,43 @@ summer_olympics <- olympics |>
 ```{r}
 #| title: Medals by sport
 #| fig-width: 8
-#| fig-height: 3
-summer_olympics |>
+#| fig-height: 6
+plot_data <- summer_olympics |>
   mutate(
     sport = fct_lump_n(sport, n = 15),
     sport = fct_infreq(sport),
     sport = fct_rev(sport),
     sport = fct_relevel(sport, "Other", after = 0)
   ) |>
-  ggplot(aes(y = sport, fill = medal)) +
-  geom_bar(color = "white") +
-  guides(fill = guide_legend(reverse = TRUE)) +
-  scale_fill_manual(values = c(
-    "Gold" = "#d4af37",
-    "Silver" = "#c0c0c0",
-    "Bronze" = "#cd7f32"
-    )
-  ) +
-  scale_x_continuous(
-    breaks = seq(0, 7000, 1000),
-    labels = label_number(big.mark = ",")
-  ) +
-  labs(
-    x = NULL,
-    y = NULL,
-    fill = "Medal"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "inside",
-    legend.position.inside = c(0.8, 0.2),
-    legend.direction = "horizontal",
-    legend.background = element_rect(fill = "white", color = "gray")
+  count(sport, medal)
+
+plot_ly(
+  plot_data,
+  x = ~n,
+  y = ~sport,
+  color = ~medal,
+  colors = c("Gold" = "#d4af37", "Silver" = "#c0c0c0", "Bronze" = "#cd7f32"),
+  type = 'bar',
+  orientation = 'h'
+) |>
+  layout(
+    barmode = 'stack',
+    xaxis = list(
+      title = "Medals",
+      tickvals = seq(0, 7000, 1000),
+      ticktext = format(seq(0, 7000, 1000), big.mark = ",")
+    ),
+    yaxis = list(title = "Sport"),
+    legend = list(
+      x = 0.8, y = 0.2,
+      orientation = 'h',
+      bgcolor = 'white',
+      bordercolor = 'gray',
+      borderwidth = 1
+    ),
+    margin = list(l = 60, r = 30, t = 20, b = 30)
   )
+
 ```
 
 ### Row - Medals by year {height=40%}
@@ -95,41 +100,36 @@ Due to World War II, no olympic games were held in 1940 and 1944.
 ```{r}
 #| title: Medals by year
 #| fig-width: 11
-#| fig-height: 2
-summer_olympics |>
-  count(year, medal) |>
-  ggplot(aes(x = year, y = n, fill = medal)) +
-  geom_line(aes(color = medal), linewidth = 0.8) +
-  geom_point(size = 2, color = "white", shape = "circle filled") +
-  guides(
-    color = guide_legend(reverse = TRUE),
-    fill = guide_legend(reverse = TRUE)
-  ) +
-  scale_color_manual(values = c(
-    "Gold" = "#d4af37",
-    "Silver" = "#c0c0c0",
-    "Bronze" = "#cd7f32"
-    )
-  ) +
-  scale_fill_manual(values = c(
-    "Gold" = "#d4af37",
-    "Silver" = "#c0c0c0",
-    "Bronze" = "#cd7f32"
-    )
-  ) +  
-  scale_x_continuous(breaks = seq(1896, 2020, 8)) +
-  labs(
-    x = "Year",
-    y = NULL,
-    color = "Medal",
-    fill = "Medal"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "inside",
-    legend.position.inside = c(0.8, 0.2),
-    legend.direction = "horizontal",
-    legend.background = element_rect(fill = "white", color = "gray")
+#| fig-height: 12
+# Prepare the data
+plot_data <- summer_olympics |>
+  count(year, medal)
+
+# Create the plotly plot
+plot_ly(
+  plot_data,
+  x = ~year,
+  y = ~n,
+  type = 'scatter',
+  mode = 'lines+markers',
+  color = ~medal,
+  colors = c("Gold" = "#d4af37", "Silver" = "#c0c0c0", "Bronze" = "#cd7f32"),
+  marker = list(size = 8, color = 'white', symbol = 'circle')
+) |>
+  layout(
+    xaxis = list(
+      title = "Year",
+      tickvals = seq(1896, 2020, 8)
+    ),
+    yaxis = list(title = "Medals"),
+    legend = list(
+      x = 0.8, y = 0.2,
+      orientation = 'h',
+      bgcolor = 'white',
+      bordercolor = 'gray',
+      borderwidth = 1
+    ),
+    margin = list(l = 60, r = 30, t = 20, b = 30)
   )
 ```
 :::
@@ -157,32 +157,36 @@ summer_most_bronzes <- summer_olympics |>
 ```
 
 ::: {.valuebox icon="award-fill" color="#d4af37"}
+
 Most golds: 
 
 `{r} summer_most_golds$n`
 
-`{r} summer_most_golds$team`
+**`{r} summer_most_golds$team`**
 :::
 
 ::: {.valuebox icon="award-fill" color="#c0c0c0"}
+
 Most silvers: 
 
 `{r} summer_most_silvers$n`
 
-`{r} summer_most_silvers$team`
+**`{r} summer_most_silvers$team`**
 :::
 
 ::: {.valuebox icon="award-fill" color="#cd7f32"}
+
 Most bronzes: 
 
 `{r} summer_most_bronzes$n`
 
-`{r} summer_most_bronzes$team`
+**`{r} summer_most_bronzes$team`**
 :::
 
 ### Row - Tabsets of tables {height=70% .tabset}
 
 ::: {.card title="Top 30 teams"}
+
 Teams sorted in descending order of total medals.
 
 ```{r}
@@ -200,7 +204,8 @@ summer_olympics |>
   data_color(
     method = "numeric",
     palette = "nord::aurora"
-  )
+  ) |>
+  opt_interactive(use_compact_mode = TRUE)
 ```
 :::
 
@@ -221,7 +226,8 @@ summer_olympics |>
   data_color(
     method = "numeric",
     palette = "nord::frost"
-  )
+  ) |>
+  opt_interactive(use_compact_mode = TRUE,)
 ```
 :::
 
@@ -240,39 +246,45 @@ winter_olympics <- olympics |>
 ```{r}
 #| title: Medals by sport
 #| fig-width: 8
-#| fig-height: 3
-winter_olympics |>
+#| fig-height: 6
+# Prepare the data
+plot_data <- winter_olympics |>
   mutate(
     sport = fct_lump_n(sport, n = 15),
     sport = fct_infreq(sport),
     sport = fct_rev(sport),
     sport = fct_relevel(sport, "Other", after = 0)
   ) |>
-  ggplot(aes(y = sport, fill = medal)) +
-  geom_bar(color = "white") +
-  guides(fill = guide_legend(reverse = TRUE)) +
-  scale_fill_manual(values = c(
-    "Gold" = "#d4af37",
-    "Silver" = "#c0c0c0",
-    "Bronze" = "#cd7f32"
-    )
-  ) +
-  scale_x_continuous(
-    breaks = seq(0, 1500, 250),
-    labels = label_number(big.mark = ",")
-  ) +
-  labs(
-    x = NULL,
-    y = NULL,
-    fill = "Medal"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "inside",
-    legend.position.inside = c(0.7, 0.2),
-    legend.direction = "horizontal",
-    legend.background = element_rect(fill = "white", color = "gray")
+  count(sport, medal)
+
+# Create the plotly plot
+plot_ly(
+  plot_data,
+  x = ~n,
+  y = ~sport,
+  color = ~medal,
+  colors = c("Gold" = "#d4af37", "Silver" = "#c0c0c0", "Bronze" = "#cd7f32"),
+  type = 'bar',
+  orientation = 'h'
+) |>
+  layout(
+    barmode = 'stack',
+    xaxis = list(
+      title = "Medals",
+      tickvals = seq(0, 1500, 250),
+      ticktext = format(seq(0, 1500, 250), big.mark = ",")
+    ),
+    yaxis = list(title = "Sport"),
+    legend = list(
+      x = 0.7, y = 0.2,
+      orientation = 'h',
+      bgcolor = 'white',
+      bordercolor = 'gray',
+      borderwidth = 1
+    ),
+    margin = list(l = 60, r = 30, t = 20, b = 30)
   )
+
 ```
 
 ### Row - Medals by year {height=40%}
@@ -283,42 +295,41 @@ Due to World War II, no olympic games were held in 1940 and 1944.
 ```{r}
 #| title: Medals by year
 #| fig-width: 11
-#| fig-height: 2
-winter_olympics |>
-  count(year, medal) |>
-  ggplot(aes(x = year, y = n, fill = medal)) +
-  geom_line(aes(color = medal), linewidth = 0.8) +
-  geom_point(size = 2, color = "white", shape = "circle filled") +
-  guides(
-    color = guide_legend(reverse = TRUE),
-    fill = guide_legend(reverse = TRUE)
-  ) +
-  scale_color_manual(values = c(
-    "Gold" = "#d4af37",
-    "Silver" = "#c0c0c0",
-    "Bronze" = "#cd7f32"
-    )
-  ) +
-  scale_fill_manual(values = c(
-    "Gold" = "#d4af37",
-    "Silver" = "#c0c0c0",
-    "Bronze" = "#cd7f32"
-    )
-  ) +  
-  scale_x_continuous(breaks = seq(1896, 2020, 8)) +
-  labs(
-    x = "Year",
-    y = NULL,
-    color = "Medal",
-    fill = "Medal"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "inside",
-    legend.position.inside = c(0.2, 0.8),
-    legend.direction = "horizontal",
-    legend.background = element_rect(fill = "white", color = "gray")
+#| fig-height: 12
+library(dplyr)
+library(plotly)
+
+# Prepare the data
+plot_data <- winter_olympics |>
+  count(year, medal)
+
+# Create the plotly plot
+plot_ly(
+  plot_data,
+  x = ~year,
+  y = ~n,
+  type = 'scatter',
+  mode = 'lines+markers',
+  color = ~medal,
+  colors = c("Gold" = "#d4af37", "Silver" = "#c0c0c0", "Bronze" = "#cd7f32"),
+  marker = list(size = 8, color = 'white', symbol = 'circle')
+) |>
+  layout(
+    xaxis = list(
+      title = "Year",
+      tickvals = seq(1896, 2020, 8)
+    ),
+    yaxis = list(title = "Medals"),
+    legend = list(
+      x = 0.2, y = 0.8,
+      orientation = 'h',
+      bgcolor = 'white',
+      bordercolor = 'gray',
+      borderwidth = 1
+    ),
+    margin = list(l = 60, r = 30, t = 20, b = 30)
   )
+
 ```
 :::
 
@@ -345,27 +356,30 @@ winter_most_bronzes <- winter_olympics |>
 ```
 
 ::: {.valuebox icon="award-fill" color="#d4af37"}
+
 Most golds: 
 
 `{r} winter_most_golds$n`
 
-`{r} winter_most_golds$team`
+**`{r} winter_most_golds$team`**
 :::
 
 ::: {.valuebox icon="award-fill" color="#c0c0c0"}
+
 Most silvers: 
 
 `{r} winter_most_silvers$n`
 
-`{r} winter_most_silvers$team`
+**`{r} winter_most_silvers$team`**
 :::
 
 ::: {.valuebox icon="award-fill" color="#cd7f32"}
+
 Most bronzes: 
 
 `{r} winter_most_bronzes$n`
 
-`{r} winter_most_bronzes$team`
+**`{r} winter_most_bronzes$team`**
 :::
 
 ### Row - Tabsets of tables {height=70% .tabset}
@@ -386,7 +400,8 @@ winter_olympics |>
   data_color(
     method = "numeric",
     palette = "nord::aurora"
-  )
+  ) |>
+  opt_interactive(use_compact_mode = TRUE,)
 ```
 :::
 
@@ -407,6 +422,7 @@ winter_olympics |>
   data_color(
     method = "numeric",
     palette = "nord::frost"
-  )
+  ) |>
+  opt_interactive(use_compact_mode = TRUE,)
 ```
 :::
