@@ -3,7 +3,7 @@ title: "Olympic Dashboard"
 subtitle: "Demonstration"
 author: "Posit::conf2024"
 date: today
-description: "TBH"
+description: "The 100m Dashboard! Dash your way to victory and look beyond! Take your gold medal and observe that this dashboard was built using just quarto."
 format: 
     dashboard:
         orientation: columns
