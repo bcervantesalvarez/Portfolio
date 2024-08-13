@@ -23,6 +23,12 @@ filters:
 
 ![](/Assets/Images/webR.png)
 
+
+## Demonstrating the power of webR
+
+
+
+
 ## What is Data Wrangling?
 
 Data wrangling is the process of converting messy, untidy data into a tidy format, making it suitable for data visualization and analysis.
