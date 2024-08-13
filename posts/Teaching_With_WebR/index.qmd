@@ -4,6 +4,7 @@ subtitle: "Lab Demonstration"
 author: "Brian Cervantes Alvarez"
 date: today
 date-format: long
+image: /Assets/Images/webR.png
 format: 
     html:
         toc: true
