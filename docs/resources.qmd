@@ -1,6 +1,0 @@
----
-format: 
-  html:
-    css: resourcesCustom.css
-    include-after-body: resourcesCustom.html
----

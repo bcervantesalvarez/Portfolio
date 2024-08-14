@@ -2,21 +2,6 @@
   {
     "listing": "/Content/blog.html",
     "items": [
-<<<<<<< HEAD
-      "/posts/Build-a-Dashboard/index.html",
-      "/posts/Teaching_With_WebR/index.html",
-      "/posts/Automakers/index.html",
-      "/posts/Capstone/index.html",
-      "/posts/FraudML/index.html",
-      "/posts/AmazonProductsEN/index.html",
-      "/posts/AppleInc_IncomeStatement/index.html",
-      "/posts/PredictPremiumDefault_ML/index.html",
-      "/posts/GymRat_Plotly/index.html",
-      "/posts/FancyTables/index.html",
-      "/posts/Pokemon_Database/index.html",
-      "/posts/CollegeStudent_Debt_Tool/index.html",
-      "/posts/US_HealthIns_Costs/index.html"
-=======
       "/Content/Blog/Teaching_With_WebR/index.html",
       "/Content/Blog/FraudML/index.html",
       "/Content/Blog/AmazonProductsEN/index.html",
@@ -27,7 +12,6 @@
       "/Content/Blog/Pokemon_Database/index.html",
       "/Content/Blog/CollegeStudent_Debt_Tool/index.html",
       "/Content/Blog/US_HealthIns_Costs/index.html"
->>>>>>> d368b6c (Version 4.00 MAJOR UPDATE | Repo Folder Restructuring)
     ]
   },
   {
