@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.55">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Cervantes Alvarez">
+<meta name="dcterms.date" content="2024-08-14">
+
+<title>Interactive Teaching with WebR – Brian Cervantes Alvarez</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<<<<<<< HEAD:docs/posts/Teaching_With_WebR/index.html
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+=======
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+>>>>>>> d368b6c (Version 4.00 MAJOR UPDATE | Repo Folder Restructuring):docs/Content/Blog/Teaching_With_WebR/index.html
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+<style type="text/css">.monaco-editor pre {
+  background-color: unset !important;
+}
+
+.qwebr-icon-status-spinner {
+  color: #7894c4;
+}
+
+.qwebr-icon-run-code {
+  color: #0d9c29
+}
+
+.qwebr-output-code-stdout {
+  color: #111;
+}
+
+.qwebr-output-code-stderr {
+  color: #db4133;
+}
+
+.qwebr-editor {
+  font-size: 14px !important;
+  overflow: auto;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+.qwebr-button-run {
+  font-size: 14px;  /* Updated font size */
+  background-color: #4b7195;
+  text-align: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;  /* White text color */
+  border: none;
+  border-radius: 0.5rem;  /* Updated border-radius */
+  display: inline-block;
+  line-height: 1.5;
+  font-weight: 600;
+  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.qwebr-button-run:active {
+  background-color: #346594 !important;  /* Your orange color */;
+  transform: translateY(4px);  /* Button moves down when clicked */
+}
+
+.qwebr-button-run:disabled,
+.qwebr-button-run.disabled,
+fieldset:disabled .qwebr-button-run {
+  pointer-events: none;
+  opacity: .65;
+}
+
+/* Custom styling for RevealJS Presentations*/
+
+/* Reset the style of the interactive area */
+.reveal div.qwebr-interactive-area {
+  display: block;
+  box-shadow: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px !important;
+} 
+
+/* Provide space to entries */
+.reveal div.qwebr-output-code-area pre div {
+  margin: 1px 2px 1px 10px;
+}
+
+/* Collapse the inside code tags to avoid extra space between line outputs */
+.reveal pre div code.qwebr-output-code-stdout, .reveal pre div code.qwebr-output-code-stderr {
+  padding: 0;
+  display: contents;
+}
+
+.reveal pre div code.qwebr-output-code-stdout {
+  color: #111;
+  font-size: 14px !important;
+}
+
+.reveal pre div code.qwebr-output-code-stderr {
+  color: #db4133;
+  font-size: 14px !important;
+}
+
+
+/* Create a border around console and output (does not effect graphs) */
+.reveal div.qwebr-console-area {
+  border: 1px solid #EEEEEE;
+  box-shadow: 2px 2px 10px #EEEEEE;
+  font-size: 14px !important;
+}
+
+/* Cap output height and allow text to scroll */
+/* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
+.reveal div.qwebr-output-code-area pre {
+  max-height: 400px;
+  overflow: scroll;
+  font-size: 14px !important;
+}
+</style>
+<script type="module">// Start a timer
+const initializeWebRTimerStart = performance.now();
+
+// Determine if we need to install R packages
+var installRPackagesList = ['lubridate', 'ggplot2', 'readr', 'dplyr', 'lubridate', 'tidyr'];
+// Check to see if we have an empty array, if we do set to skip the installation.
+var setupRPackages = !(installRPackagesList.indexOf("") !== -1);
+var autoloadRPackages = true;
+
+// Display a startup message?
+var showStartupMessage = false;
+var showHeaderMessage = false;
+if (showStartupMessage) {
+
+  // Get references to header elements
+  const headerHTML = document.getElementById("title-block-header");
+  const headerRevealJS = document.getElementById("title-slide");
+
+  // Create the outermost div element for metadata
+  const quartoTitleMeta = document.createElement("div");
+  quartoTitleMeta.classList.add("quarto-title-meta");
+
+  // Create the first inner div element
+  const firstInnerDiv = document.createElement("div");
+  firstInnerDiv.setAttribute("id", "qwebr-status-message-area");
+
+  // Create the second inner div element for "WebR Status" heading and contents
+  const secondInnerDiv = document.createElement("div");
+  secondInnerDiv.setAttribute("id", "qwebr-status-message-title");
+  secondInnerDiv.classList.add("quarto-title-meta-heading");
+  secondInnerDiv.innerText = "WebR Status";
+
+  // Create another inner div for contents
+  const secondInnerDivContents = document.createElement("div");
+  secondInnerDivContents.setAttribute("id", "qwebr-status-message-body");
+  secondInnerDivContents.classList.add("quarto-title-meta-contents");
+
+  // Describe the WebR state
+  var startupMessageWebR = document.createElement("p");
+  startupMessageWebR.innerText = "🟡 Loading...";
+  startupMessageWebR.setAttribute("id", "qwebr-status-message-text");
+  // Add `aria-live` to auto-announce the startup status to screen readers
+  startupMessageWebR.setAttribute("aria-live", "assertive");
+
+  // Append the startup message to the contents
+  secondInnerDivContents.appendChild(startupMessageWebR);
+
+  // Add a status indicator for COOP and COEP Headers if needed
+  if (showHeaderMessage) {
+    const crossOriginMessage = document.createElement("p");
+    crossOriginMessage.innerText = `${crossOriginIsolated ? '🟢' : '🟡'} COOP & COEP Headers`;
+    crossOriginMessage.setAttribute("id", "qwebr-coop-coep-header");
+    secondInnerDivContents.appendChild(crossOriginMessage);
+  }
+
+  // Combine the inner divs and contents
+  firstInnerDiv.appendChild(secondInnerDiv);
+  firstInnerDiv.appendChild(secondInnerDivContents);
+  quartoTitleMeta.appendChild(firstInnerDiv);
+
+  // Determine where to insert the quartoTitleMeta element
+  if (headerHTML) {
+    // Append to the existing "title-block-header" element
+    headerHTML.appendChild(quartoTitleMeta);
+  } else if (headerRevealJS) {
+    // If using RevealJS, add to the "title-slide" div
+    headerRevealJS.appendChild(firstInnerDiv);
+  } else {
+    // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
+    const monacoScript = document.getElementById("qwebr-monaco-editor-init");
+    const header = document.createElement("header");
+    header.setAttribute("id", "title-block-header");
+    header.appendChild(quartoTitleMeta);
+    monacoScript.after(header);
+  }
+}
+
+// Retrieve the webr.mjs
+import { WebR, ChannelType } from "https://webr.r-wasm.org/v0.2.2/webr.mjs";
+
+// Populate WebR options with defaults or new values based on 
+// webr meta
+globalThis.webR = new WebR({
+  "baseURL": "https://webr.r-wasm.org/v0.2.2/",
+  "serviceWorkerUrl": "",
+  "homedir": "/home/web_user", 
+  "channelType": ChannelType.Automatic
+});
+
+// Initialization WebR
+await webR.init();
+
+// Setup a shelter
+globalThis.webRCodeShelter = await new webR.Shelter();
+
+// Setup a pager to allow processing help documentation 
+await webR.evalRVoid('webr::pager_install()'); 
+
+// Function to set the button text
+function qwebrSetInteractiveButtonState(buttonText, enableCodeButton = true) {
+  document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+    btn.innerHTML = buttonText;
+    btn.disabled = !enableCodeButton;
+  });
+}
+
+// Function to update the status message
+function qwebrUpdateStatusHeader(message) {
+  startupMessageWebR.innerHTML = `
+    <i class="qwebr-icon-status-spinner"></i>
+    <span>${message}</span>`;
+}
+
+// Function to install a single package
+async function qwebrInstallRPackage(packageName) {
+  await globalThis.webR.installPackages([packageName]);
+}
+
+// Function to load a single package
+async function qwebrLoadRPackage(packageName) {
+  await globalThis.webR.evalRVoid(`library(${packageName});`);
+}
+
+// Generic function to process R packages
+async function qwebrProcessRPackagesWithStatus(packages, processType, displayStatusMessageUpdate = true) {
+  // Switch between contexts
+  const messagePrefix = processType === 'install' ? 'Installing' : 'Loading';
+
+  // Modify button state
+  qwebrSetInteractiveButtonState(`🟡 ${messagePrefix} package ...`, false);
+
+  // Iterate over packages
+  for (let i = 0; i < packages.length; i++) {
+    const activePackage = packages[i];
+    const formattedMessage = `${messagePrefix} package ${i + 1} out of ${packages.length}: ${activePackage}`;
+    
+    // Display the update
+    if (displayStatusMessageUpdate) {
+      qwebrUpdateStatusHeader(formattedMessage);
+    }
+
+    // Run package installation
+    if (processType === 'install') {
+      await qwebrInstallRPackage(activePackage);
+    } else {
+      await qwebrLoadRPackage(activePackage);
+    }
+  }
+
+  // Clean slate
+  if (processType === 'load') {
+    await globalThis.webR.flush();
+  }
+}
+
+
+// Check to see if any packages need to be installed
+if (setupRPackages) {
+  // Obtain only a unique list of packages
+  const uniqueRPackageList = Array.from(new Set(installRPackagesList));
+
+  // Install R packages one at a time (either silently or with a status update)
+  await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'install', showStartupMessage);
+
+  if(autoloadRPackages) {
+    // Load R packages one at a time (either silently or with a status update)
+    await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'load', showStartupMessage);
+  }
+}
+
+// Stop timer
+const initializeWebRTimerEnd = performance.now();
+
+// Release document status as ready
+if (showStartupMessage) {
+  startupMessageWebR.innerText = "🟢 Ready!"
+}
+
+qwebrSetInteractiveButtonState(
+  `<i class="qwebr-icon-run-code"></i> <span>Run Code</span>`, 
+  true
+);
+
+// Global version of the Escape HTML function that converts HTML 
+// characters to their HTML entities.
+globalThis.qwebrEscapeHTMLCharacters = function(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};</script>
+<script type="module">// Supported Evaluation Types for Context
+globalThis.EvalTypes = Object.freeze({
+    Interactive: 'interactive',
+    Setup: 'setup',
+    Output: 'output',
+});
+
+// Function to verify a given JavaScript Object is empty
+globalThis.qwebrIsObjectEmpty = function (arr) {
+    return Object.keys(arr).length === 0;
+}
+
+// Function to parse the pager results
+globalThis.qwebrParseTypePager = async function (msg) { 
+
+    // Split out the event data
+    const { path, title, deleteFile } = msg.data; 
+
+    // Process the pager data by reading the information from disk
+    const paged_data = await webR.FS.readFile(path).then((data) => {
+        // Obtain the file content
+        let content = new TextDecoder().decode(data);
+
+        // Remove excessive backspace characters until none remain
+        while(content.match(/.[\b]/)){
+        content = content.replace(/.[\b]/g, '');
+        }
+
+        // Returned cleaned data
+        return content;
+    });
+
+    // Unlink file if needed
+    if (deleteFile) { 
+        await webR.FS.unlink(path); 
+    } 
+
+    // Return extracted data with spaces
+    return paged_data;
+} 
+
+// Function to run the code using webR and parse the output
+globalThis.qwebrComputeEngine = async function(
+    codeToRun, 
+    elements, 
+    options) {
+
+    // Call into the R compute engine that persists within the document scope.
+    // To be prepared for all scenarios, the following happens: 
+    // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
+    // 2. We use values inside of the options array to set the figure size.
+    // 3. We capture the output stream information (STDOUT and STERR)
+    // 4. While parsing the results, we disable image creation.
+
+    // Create a canvas variable for graphics
+    let canvas = undefined;
+
+    // Create a pager variable for help/file contents
+    let pager = [];
+
+    // ---- 
+
+    // Initialize webR
+    await webR.init();
+
+    // Setup a webR canvas by making a namespace call into the {webr} package
+    await webR.evalRVoid(`webr::canvas(width=${options["fig-width"]}, height=${options["fig-height"]})`);
+
+    const result = await webRCodeShelter.captureR(codeToRun, {
+        withAutoprint: true,
+        captureStreams: true,
+        captureConditions: false//,
+        // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
+    });
+
+    // -----
+
+    // Start attempting to parse the result data
+    try {
+
+        // Stop creating images
+        await webR.evalRVoid("dev.off()");
+
+        // Merge output streams of STDOUT and STDErr (messages and errors are combined.)
+        const out = result.output
+        .filter(evt => evt.type === "stdout" || evt.type === "stderr")
+        .map((evt, index) => {
+            const className = `qwebr-output-code-${evt.type}`;
+            return `<code id="${className}-editor-${elements.id}-result-${index + 1}" class="${className}">${qwebrEscapeHTMLCharacters(evt.data)}</code>`;
+        })
+        .join("\n");
+
+
+        // Clean the state
+        // We're now able to process both graphics and pager events.
+        // As a result, we cannot maintain a true 1-to-1 output order 
+        // without individually feeding each line
+        const msgs = await webR.flush();
+
+        // Output each image event stored
+        msgs.forEach((msg) => {
+        // Determine if old canvas can be used or a new canvas is required.
+        if (msg.type === 'canvas'){
+            // Add image to the current canvas
+            if (msg.data.event === 'canvasImage') {
+                canvas.getContext('2d').drawImage(msg.data.image, 0, 0);
+            } else if (msg.data.event === 'canvasNewPage') {
+                // Generate a new canvas element
+                canvas = document.createElement("canvas");
+                canvas.setAttribute("width", 2 * options["fig-width"]);
+                canvas.setAttribute("height", 2 * options["fig-height"]);
+                canvas.style.width = "700px";
+                canvas.style.display = "block";
+                canvas.style.margin = "auto";
+            }
+        } 
+        });
+
+        // Use `map` to process the filtered "pager" events asynchronously
+        const pager = await Promise.all(
+            msgs.filter(msg => msg.type === 'pager').map(
+                async (msg) => {
+                    return await qwebrParseTypePager(msg);
+                }
+            )
+        );
+
+        // Nullify the output area of content
+        elements.outputCodeDiv.innerHTML = "";
+        elements.outputGraphDiv.innerHTML = "";
+
+        // Design an output object for messages
+        const pre = document.createElement("pre");
+        if (/\S/.test(out)) {
+            // Display results as HTML elements to retain output styling
+            const div = document.createElement("div");
+            div.innerHTML = out;
+            pre.appendChild(div);
+        } else {
+            // If nothing is present, hide the element.
+            pre.style.visibility = "hidden";
+        }
+
+        elements.outputCodeDiv.appendChild(pre);
+
+        // Place the graphics on the canvas
+        if (canvas) {
+            elements.outputGraphDiv.appendChild(canvas);
+        }
+
+        // Display the pager data
+        if (pager) {
+        // Use the `pre` element to preserve whitespace.
+        pager.forEach((paged_data, index) => {
+            let pre_pager = document.createElement("pre");
+            pre_pager.innerText = paged_data;
+            pre_pager.classList.add("qwebr-output-code-pager");
+            pre_pager.setAttribute("id", `qwebr-output-code-pager-editor-${elements.id}-result-${index + 1}`);
+            elements.outputCodeDiv.appendChild(pre_pager);
+        });
+        }
+    } finally {
+        // Clean up the remaining code
+        webRCodeShelter.purge();
+    }
+}
+
+// Function to execute the code (accepts code as an argument)
+globalThis.qwebrExecuteCode = async function (
+    codeToRun,
+    id,
+    evalType = EvalTypes.Interactive,
+    options = {}) {
+
+    // If options are not passed, we fall back on the bare minimum to handle the computation
+    if (qwebrIsObjectEmpty(options)) {
+        options = { "fig-width": 504, "fig-height": 360 };
+    }
+
+    // Next, we access the compute areas values
+    const elements = {
+        runButton: document.getElementById(`qwebr-button-run-${id}`),
+        outputCodeDiv: document.getElementById(`qwebr-output-code-area-${id}`),
+        outputGraphDiv: document.getElementById(`qwebr-output-graph-area-${id}`),
+        id: id,
+    }
+
+    // Disallowing execution of other code cells
+    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+        btn.disabled = true;
+    });
+
+    if (evalType == EvalTypes.Interactive) {
+        // Emphasize the active code cell
+        elements.runButton.innerHTML = '<i class="qwebr-icon-status-spinner"></i> <span>Run Code</span>';
+    }
+
+    // Evaluate the code and parse the output into the document
+    await qwebrComputeEngine(codeToRun, elements, options);
+
+    // Switch to allowing execution of code
+    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+        btn.disabled = false;
+    });
+
+    if (evalType == EvalTypes.Interactive) {
+        // Revert to the initial code cell state
+        elements.runButton.innerHTML = '<i class="qwebr-icon-run-code"></i> <span>Run Code</span>';
+    }
+}
+</script>
+<script type="module">// Function that dispatches the creation request
+globalThis.qwebrCreateHTMLElement = function (insertElement,
+  qwebrCounter, 
+  evalType = EvalTypes.Interactive,
+  options = {}) {
+
+  // Figure out the routine to use to insert the element.
+  let qwebrElement;
+  switch ( evalType ) {
+    case EvalTypes.Interactive: 
+      qwebrElement = qwebrCreateInteractiveElement(qwebrCounter);
+    case EvalTypes.Output: 
+      qwebrElement = qwebrCreateNonInteractiveOutputElement(qwebrCounter);
+    case EvalTypes.Setup: 
+      qwebrElement = qwebrCreateNonInteractiveSetupElement(qwebrCounter);
+    default: 
+      qwebrElement = document.createElement('div');
+      qwebrElement.textContent = 'Error creating element';
+  }
+
+  // Insert the dynamically generated object at the document location.
+  insertElement.appendChild(qwebrElement);
+};
+
+// Function that setups the interactive element creation
+globalThis.qwebrCreateInteractiveElement = function (qwebrCounter) {
+
+  // Create main div element
+  var mainDiv = document.createElement('div');
+  mainDiv.id = 'qwebr-interactive-area-' + qwebrCounter;
+  mainDiv.className = 'qwebr-interactive-area';
+
+  // Create button element
+  var button = document.createElement('button');
+  button.className = 'btn btn-default qwebr-button-run';
+  button.disabled = true;
+  button.type = 'button';
+  button.id = 'qwebr-button-run-' + qwebrCounter;
+  button.textContent = '🟡 Loading webR...';
+
+  // Create console area div
+  var consoleAreaDiv = document.createElement('div');
+  consoleAreaDiv.id = 'qwebr-console-area-' + qwebrCounter;
+  consoleAreaDiv.className = 'qwebr-console-area';
+
+  // Create editor div
+  var editorDiv = document.createElement('div');
+  editorDiv.id = 'qwebr-editor-' + qwebrCounter;
+  editorDiv.className = 'qwebr-editor';
+
+  // Create output code area div
+  var outputCodeAreaDiv = document.createElement('div');
+  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
+  outputCodeAreaDiv.className = 'qwebr-output-code-area';
+  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+  // Create pre element inside output code area
+  var preElement = document.createElement('pre');
+  preElement.style.visibility = 'hidden';
+  outputCodeAreaDiv.appendChild(preElement);
+
+  // Create output graph area div
+  var outputGraphAreaDiv = document.createElement('div');
+  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
+  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
+
+  // Append all elements to the main div
+  mainDiv.appendChild(button);
+  consoleAreaDiv.appendChild(editorDiv);
+  consoleAreaDiv.appendChild(outputCodeAreaDiv);
+  mainDiv.appendChild(consoleAreaDiv);
+  mainDiv.appendChild(outputGraphAreaDiv);
+
+  return mainDiv;
+}
+
+// Function that adds output structure for non-interactive output
+globalThis.qwebrCreateNonInteractiveOutputElement = function(qwebrCounter) {
+  // Create main div element
+  var mainDiv = document.createElement('div');
+  mainDiv.id = 'qwebr-noninteractive-area-' + qwebrCounter;
+  mainDiv.className = 'qwebr-noninteractive-area';
+
+  // Create output code area div
+  var outputCodeAreaDiv = document.createElement('div');
+  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
+  outputCodeAreaDiv.className = 'qwebr-output-code-area';
+  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+  // Create pre element inside output code area
+  var preElement = document.createElement('pre');
+  preElement.style.visibility = 'hidden';
+  outputCodeAreaDiv.appendChild(preElement);
+
+  // Create output graph area div
+  var outputGraphAreaDiv = document.createElement('div');
+  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
+  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
+
+  // Append all elements to the main div
+  mainDiv.appendChild(outputCodeAreaDiv);
+  mainDiv.appendChild(outputGraphAreaDiv);
+
+  return mainDiv;
+};
+
+// Function that adds a stub in the page to indicate a setup cell was used.
+globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
+  // Create main div element
+  var mainDiv = document.createElement('div');
+  mainDiv.id = 'qwebr-noninteractive-setup-area-' + qwebrCounter;
+  mainDiv.className = 'qwebr-noninteractive-setup-area';
+
+  return mainDiv;
+}</script>
+
+
+<meta property="og:title" content="Interactive Teaching with WebR – Brian Cervantes Alvarez">
+<meta property="og:description" content="Lab Demonstration">
+<meta property="og:image" content="/Assets/Images/webR.png">
+<meta property="og:site_name" content="Brian Cervantes Alvarez">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Brian Cervantes Alvarez</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../Content/portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../Content/blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../Content/talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../Content/resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#demonstrating-the-power-of-webr" id="toc-demonstrating-the-power-of-webr" class="nav-link active" data-scroll-target="#demonstrating-the-power-of-webr">Demonstrating the power of webR</a></li>
+  <li><a href="#what-is-data-wrangling" id="toc-what-is-data-wrangling" class="nav-link" data-scroll-target="#what-is-data-wrangling">What is Data Wrangling?</a>
+  <ul>
+  <li><a href="#what-is-tidy-data" id="toc-what-is-tidy-data" class="nav-link" data-scroll-target="#what-is-tidy-data">What is Tidy Data?</a></li>
+  <li><a href="#what-causes-untidy-data" id="toc-what-causes-untidy-data" class="nav-link" data-scroll-target="#what-causes-untidy-data">What Causes Untidy Data?</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
+  <ul>
+  <li><a href="#download-the-data" id="toc-download-the-data" class="nav-link" data-scroll-target="#download-the-data">Download the Data</a>
+  <ul>
+  <li><a href="#verify-datasets-with-head" id="toc-verify-datasets-with-head" class="nav-link" data-scroll-target="#verify-datasets-with-head">Verify Datasets with <code>head()</code></a></li>
+  <li><a href="#description-of-the-dataset" id="toc-description-of-the-dataset" class="nav-link" data-scroll-target="#description-of-the-dataset">Description of the Dataset</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tidy-data-wrangling" id="toc-tidy-data-wrangling" class="nav-link" data-scroll-target="#tidy-data-wrangling">Tidy Data Wrangling</a>
+  <ul>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering">Filtering</a>
+  <ul>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#filtering-process" id="toc-filtering-process" class="nav-link" data-scroll-target="#filtering-process">Filtering Process</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#what-did-we-do-here" id="toc-what-did-we-do-here" class="nav-link" data-scroll-target="#what-did-we-do-here">What did we do here?</a></li>
+  </ul></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a>
+  <ul class="collapse">
+  <li><a href="#filtering-process-1" id="toc-filtering-process-1" class="nav-link" data-scroll-target="#filtering-process-1">Filtering Process</a></li>
+  <li><a href="#visualization-1" id="toc-visualization-1" class="nav-link" data-scroll-target="#visualization-1">Visualization</a></li>
+  <li><a href="#what-did-we-do-here-1" id="toc-what-did-we-do-here-1" class="nav-link" data-scroll-target="#what-did-we-do-here-1">What did we do here?</a></li>
+  </ul></li>
+  <li><a href="#filtering-challenges" id="toc-filtering-challenges" class="nav-link" data-scroll-target="#filtering-challenges">Filtering Challenges</a></li>
+  </ul></li>
+  <li><a href="#selecting" id="toc-selecting" class="nav-link" data-scroll-target="#selecting">Selecting</a>
+  <ul>
+  <li><a href="#example-1-1" id="toc-example-1-1" class="nav-link" data-scroll-target="#example-1-1">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#visualization-2" id="toc-visualization-2" class="nav-link" data-scroll-target="#visualization-2">Visualization</a></li>
+  </ul></li>
+  <li><a href="#selecting-challenges" id="toc-selecting-challenges" class="nav-link" data-scroll-target="#selecting-challenges">Selecting Challenges</a></li>
+  </ul></li>
+  <li><a href="#mutating" id="toc-mutating" class="nav-link" data-scroll-target="#mutating">Mutating</a>
+  <ul>
+  <li><a href="#example-1-2" id="toc-example-1-2" class="nav-link" data-scroll-target="#example-1-2">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#visualization-3" id="toc-visualization-3" class="nav-link" data-scroll-target="#visualization-3">Visualization</a></li>
+  </ul></li>
+  <li><a href="#mutating-challenges" id="toc-mutating-challenges" class="nav-link" data-scroll-target="#mutating-challenges">Mutating Challenges</a></li>
+  </ul></li>
+  <li><a href="#summarizing" id="toc-summarizing" class="nav-link" data-scroll-target="#summarizing">Summarizing</a>
+  <ul>
+  <li><a href="#example-1-3" id="toc-example-1-3" class="nav-link" data-scroll-target="#example-1-3">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#visualization-4" id="toc-visualization-4" class="nav-link" data-scroll-target="#visualization-4">Visualization</a></li>
+  </ul></li>
+  <li><a href="#summarizing-challenges" id="toc-summarizing-challenges" class="nav-link" data-scroll-target="#summarizing-challenges">Summarizing Challenges</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#untidy-data-wrangling" id="toc-untidy-data-wrangling" class="nav-link" data-scroll-target="#untidy-data-wrangling">Untidy Data Wrangling</a>
+  <ul>
+  <li><a href="#handling-wide-vs.-long-formats" id="toc-handling-wide-vs.-long-formats" class="nav-link" data-scroll-target="#handling-wide-vs.-long-formats">Handling Wide vs.&nbsp;Long Formats</a>
+  <ul>
+  <li><a href="#creating-an-untidy-version" id="toc-creating-an-untidy-version" class="nav-link" data-scroll-target="#creating-an-untidy-version">Creating an Untidy Version</a></li>
+  </ul></li>
+  <li><a href="#handling-misspelled-header-column-names" id="toc-handling-misspelled-header-column-names" class="nav-link" data-scroll-target="#handling-misspelled-header-column-names">Handling Misspelled Header Column Names</a>
+  <ul>
+  <li><a href="#creating-misspelled-header-names" id="toc-creating-misspelled-header-names" class="nav-link" data-scroll-target="#creating-misspelled-header-names">Creating Misspelled Header Names</a></li>
+  <li><a href="#fixing-the-misspelled-column-names" id="toc-fixing-the-misspelled-column-names" class="nav-link" data-scroll-target="#fixing-the-misspelled-column-names">Fixing the Misspelled Column Names</a></li>
+  </ul></li>
+  <li><a href="#handling-row-content-split-and-reverse" id="toc-handling-row-content-split-and-reverse" class="nav-link" data-scroll-target="#handling-row-content-split-and-reverse">Handling Row Content Split and Reverse</a>
+  <ul>
+  <li><a href="#merging-two-columns-into-one" id="toc-merging-two-columns-into-one" class="nav-link" data-scroll-target="#merging-two-columns-into-one">Merging Two Columns into One</a></li>
+  <li><a href="#splitting-the-merged-column-back-into-two" id="toc-splitting-the-merged-column-back-into-two" class="nav-link" data-scroll-target="#splitting-the-merged-column-back-into-two">Splitting the Merged Column Back into Two</a></li>
+  </ul></li>
+  <li><a href="#handling-dates" id="toc-handling-dates" class="nav-link" data-scroll-target="#handling-dates">Handling Dates</a>
+  <ul>
+  <li><a href="#example-1-4" id="toc-example-1-4" class="nav-link" data-scroll-target="#example-1-4">Example 1</a>
+  <ul class="collapse">
+  <li><a href="#converting-year-to-a-date" id="toc-converting-year-to-a-date" class="nav-link" data-scroll-target="#converting-year-to-a-date">Converting <code>year</code> to a Date</a></li>
+  <li><a href="#what-did-we-do-here-2" id="toc-what-did-we-do-here-2" class="nav-link" data-scroll-target="#what-did-we-do-here-2">What did we do here?</a></li>
+  </ul></li>
+  <li><a href="#challenges-solutions" id="toc-challenges-solutions" class="nav-link" data-scroll-target="#challenges-solutions">Challenges [Solutions]</a></li>
+  </ul></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a>
+  <ul>
+  <li><a href="#types-of-missing-data" id="toc-types-of-missing-data" class="nav-link" data-scroll-target="#types-of-missing-data">Types of Missing Data</a></li>
+  <li><a href="#simulating-mar-data" id="toc-simulating-mar-data" class="nav-link" data-scroll-target="#simulating-mar-data">Simulating MAR Data</a></li>
+  <li><a href="#simulating-mnar-data" id="toc-simulating-mnar-data" class="nav-link" data-scroll-target="#simulating-mnar-data">Simulating MNAR Data</a></li>
+  <li><a href="#missing-data-before-wrangling" id="toc-missing-data-before-wrangling" class="nav-link" data-scroll-target="#missing-data-before-wrangling">Missing Data | Before Wrangling</a>
+  <ul class="collapse">
+  <li><a href="#before-handling-missing-data" id="toc-before-handling-missing-data" class="nav-link" data-scroll-target="#before-handling-missing-data">Before Handling Missing Data</a></li>
+  <li><a href="#visualization-with-mar-data" id="toc-visualization-with-mar-data" class="nav-link" data-scroll-target="#visualization-with-mar-data">Visualization with MAR Data</a></li>
+  <li><a href="#visualization-with-mnar-data" id="toc-visualization-with-mnar-data" class="nav-link" data-scroll-target="#visualization-with-mnar-data">Visualization with MNAR Data</a></li>
+  </ul></li>
+  <li><a href="#missing-data-how-to-wrangle" id="toc-missing-data-how-to-wrangle" class="nav-link" data-scroll-target="#missing-data-how-to-wrangle">Missing Data | How to Wrangle</a>
+  <ul class="collapse">
+  <li><a href="#imputing-missing-values-for-mar-data" id="toc-imputing-missing-values-for-mar-data" class="nav-link" data-scroll-target="#imputing-missing-values-for-mar-data">Imputing Missing Values for MAR Data</a></li>
+  </ul></li>
+  <li><a href="#missing-data-after-wrangling" id="toc-missing-data-after-wrangling" class="nav-link" data-scroll-target="#missing-data-after-wrangling">Missing Data | After Wrangling</a>
+  <ul class="collapse">
+  <li><a href="#visualization-with-mar-data-imputed" id="toc-visualization-with-mar-data-imputed" class="nav-link" data-scroll-target="#visualization-with-mar-data-imputed">Visualization with MAR Data (Imputed)</a></li>
+  <li><a href="#imputing-missing-values-for-mnar-data" id="toc-imputing-missing-values-for-mnar-data" class="nav-link" data-scroll-target="#imputing-missing-values-for-mnar-data">Imputing Missing Values for MNAR Data</a></li>
+  <li><a href="#visualization-with-mnar-data-imputed" id="toc-visualization-with-mnar-data-imputed" class="nav-link" data-scroll-target="#visualization-with-mnar-data-imputed">Visualization with MNAR Data (Imputed)</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#creating-a-pseudo-publication-ready-visualization" id="toc-creating-a-pseudo-publication-ready-visualization" class="nav-link" data-scroll-target="#creating-a-pseudo-publication-ready-visualization">Creating a Pseudo-Publication Ready Visualization</a>
+  <ul>
+  <li><a href="#creating-a-professional-quality-visualization" id="toc-creating-a-professional-quality-visualization" class="nav-link" data-scroll-target="#creating-a-professional-quality-visualization">Creating a Professional-Quality Visualization</a></li>
+  <li><a href="#review-scrutinize" id="toc-review-scrutinize" class="nav-link" data-scroll-target="#review-scrutinize">Review &amp; Scrutinize</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/loader.js"></script>
+<script type="module" id="qwebr-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs'
+    }
+  });
+</script>
+<script type="module">// Global dictionary to store Monaco Editor instances
+const qwebrEditorInstances = {};
+
+// Function that builds and registers a Monaco Editor instance    
+globalThis.qwebrCreateMonacoEditorInstance = function (
+    initialCode, 
+    qwebrCounter) {
+
+  // Retrieve the previously created document elements
+  let runButton = document.getElementById(`qwebr-button-run-${qwebrCounter}`);
+  let editorDiv = document.getElementById(`qwebr-editor-${qwebrCounter}`);
+  
+  // Load the Monaco Editor and create an instance
+  let editor;
+  require(['vs/editor/editor.main'], function () {
+    editor = monaco.editor.create(editorDiv, {
+      value: initialCode,
+      language: 'r',
+      theme: 'vs-dark',                // Use the vs-light theme
+      automaticLayout: true,            // Works wonderfully with RevealJS
+      scrollBeyondLastLine: false,
+      minimap: {
+        enabled: false
+      },
+      fontSize: '14px',                // Bootstrap is 1 rem
+      renderLineHighlight: "none",     // Disable current line highlighting
+      hideCursorInOverviewRuler: true  // Remove cursor indicator in right-hand side scroll bar
+    });
+
+    // Other editor initialization code remains the same...
+    editor.__qwebrCounter = qwebrCounter;
+    editor.__qwebrEditorId = `qwebr-editor-${qwebrCounter}`;
+    editor.__qwebrinitialCode = initialCode;
+
+    const updateHeight = () => {
+      const contentHeight = editor.getContentHeight();
+      editorDiv.style.height = `${contentHeight}px`;
+      editor.layout();
+    };
+
+    function isEmptyCodeText(selectedCodeText) {
+      return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
+    }
+
+    const addWebRKeyboardShortCutCommands = () => {
+      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
+        qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter);
+      });
+
+      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+        const selectedText = editor.getModel().getValueInRange(editor.getSelection());
+        if (isEmptyCodeText(selectedText)) {
+          let currentPosition = editor.getPosition();
+          let currentLine = editor.getModel().getLineContent(currentPosition.lineNumber);
+          let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
+
+          if (newPosition.lineNumber > editor.getModel().getLineCount()) {
+            editor.executeEdits("addNewLine", [{
+              range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
+              text: "\n", 
+              forceMoveMarkers: true,
+            }]);
+          }
+
+          qwebrExecuteCode(currentLine, editor.__qwebrCounter, EvalTypes.Interactive);
+          editor.setPosition(newPosition);
+        } else {
+          qwebrExecuteCode(selectedText, editor.__qwebrCounter, EvalTypes.Interactive);
+        }
+      });
+    }
+
+    editor.onDidFocusEditorText(addWebRKeyboardShortCutCommands);
+    editor.onDidContentSizeChange(updateHeight);
+    updateHeight();
+
+    qwebrEditorInstances[editor.__qwebrCounter] = editor;
+  });
+
+  runButton.onclick = function () {
+    qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, EvalTypes.Interactive);
+  };
+}
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Interactive Teaching with WebR</h1>
+<p class="subtitle lead">Lab Demonstration</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+<<<<<<< HEAD:docs/posts/Teaching_With_WebR/index.html
+      <p class="date">August 13, 2024</p>
+=======
+      <p class="date">August 14, 2024</p>
+>>>>>>> d368b6c (Version 4.00 MAJOR UPDATE | Repo Folder Restructuring):docs/Content/Blog/Teaching_With_WebR/index.html
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<<<<<<< HEAD:docs/posts/Teaching_With_WebR/index.html
+<p><img src="../../Assets/Images/webR.png" class="img-fluid"></p>
+=======
+<p><img src="../../../Assets/Images/webR.png" class="img-fluid"></p>
+>>>>>>> d368b6c (Version 4.00 MAJOR UPDATE | Repo Folder Restructuring):docs/Content/Blog/Teaching_With_WebR/index.html
+<section id="demonstrating-the-power-of-webr" class="level2">
+<h2 class="anchored" data-anchor-id="demonstrating-the-power-of-webr">Demonstrating the power of webR</h2>
+</section>
+<section id="what-is-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-data-wrangling">What is Data Wrangling?</h2>
+<p>Data wrangling is the process of converting messy, untidy data into a tidy format, making it suitable for data visualization and analysis.</p>
+<ul>
+<li><strong>Data is often messy:</strong> Real-world data is rarely provided in a tidy format.</li>
+<li><strong>Industry challenges:</strong> Many industries have poorly designed data structures, requiring data preparation before visualization.</li>
+<li><strong>Rarely tidy datasets:</strong> It is uncommon to receive a dataset that is already tidy.</li>
+</ul>
+<section id="what-is-tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-tidy-data">What is Tidy Data?</h3>
+<p>Tidy data is a structured format that aligns the organization of a dataset with its underlying meaning. In tidy data:</p>
+<ul>
+<li><strong>Each variable has its own column:</strong> Every column in the dataset corresponds to a specific variable or attribute.</li>
+<li><strong>Each observation has its own row:</strong> Every row captures a single observation or data entry.</li>
+<li><strong>Each cell contains a single value:</strong> Each cell holds one distinct piece of information for a particular variable and observation.</li>
+</ul>
+<p>In most cases, data is often imported using SQL to create narrower datasets. While we won’t cover SQL in this course, it’s a valuable skill to learn in the future. For now, we’ll focus on using R to manipulate and create subset datasets from larger datasets for focused analysis.</p>
+</section>
+<section id="what-causes-untidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="what-causes-untidy-data">What Causes Untidy Data?</h3>
+<ul>
+<li><p><strong>Incorrect/Inconsistent Dates:</strong> Dates can be tricky because they might be formatted differently across datasets or have errors like typos or missing parts. For example, some data might use “MM/DD/YYYY” while others use “YYYY-MM-DD,” leading to confusion and potential errors when analyzing time-based data.</p></li>
+<li><p><strong>Wide Format Times:</strong> Time data is sometimes presented in a wide format, where each column represents a different time period. This structure can make it difficult to perform certain types of analysis, as many statistical and visualization tools prefer data in a long format, where each row represents a single observation at a specific time.</p></li>
+<li><p><strong>Void or Misspelled Descriptions:</strong> Descriptions and labels are often incomplete, missing, or contain typos. These errors can make it challenging to interpret the data correctly, especially when variables are not clearly defined or are inconsistent across different parts of the dataset.</p></li>
+<li><p><strong>Missing Values:</strong> Missing data is common and can occur in any part of a dataset, leading to gaps that can skew analysis or result in errors. Handling these missing values is crucial for ensuring that any conclusions drawn from the data are accurate.</p></li>
+<li><p><strong>Condensed or Incorrect Headers:</strong> Column names might be too short, unclear, or incorrectly labeled, leading to confusion about what the data actually represents. For example, a column labeled “Pop” might be ambiguous—does it refer to population, popularity, or something else?</p></li>
+<li><p><strong>Row Content Split:</strong> Sometimes, a single column contains data that should be divided into multiple columns, such as when a “Location” column includes both city and state. This issue can make it difficult to analyze the data separately or perform operations that rely on more granular details. These common issues contribute to untidy data, which can complicate analysis and lead to inaccurate results.</p></li>
+</ul>
+<p>Mastering data wrangling is crucial because you might have to handle datasets with millions of rows and hundreds of columns.</p>
+</section>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>First, ensure you have the necessary packages installed and loaded. We will use the <code>dplyr</code>, <code>lubridate</code>, <code>readr</code>, <code>ggplot2</code>, and <code>tidyr</code> packages for our examples.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Downloading R-packages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <code>install.packages('Name of Package')</code> to install an R package. Careful! Package names are case sensitive, so install.packages(‘GGplot2’) will not work, but <code>install.packages('ggplot2')</code> will.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="download-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-the-data">Download the Data</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Running Code Block Shortcuts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Mac users</code>: Use ⌘ + return to run single or highlighted line(s). Use shift + return to run entire code block</p>
+<p><code>Windows users</code>: Use ctrl + enter to run single or highlighted line(s). Use shift + enter to run entire code block</p>
+</div>
+</div>
+<div id="qwebr-insertion-location-1"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-1");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    1
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Specify the data URL using HTTPS
+url <- "https://raw.githubusercontent.com/bcervantesalvarez/Portfolio/main/Assets/Datasets/countries.csv"
+
+# Download the data files from the HTTPS URL and save it as
+# countries.csv
+cat("Downloading the data ...\\n")
+download.file(url, "countries.csv")
+
+# Check for the data.
+cat("After downloading the data, we now have:\\n")
+list.files()
+
+# Read the countries data into R
+countriesDs <- read_csv("countries.csv", show_col_types = FALSE)`, 
+  1);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="verify-datasets-with-head" class="level4">
+<h4 class="anchored" data-anchor-id="verify-datasets-with-head">Verify Datasets with <code>head()</code></h4>
+<div id="qwebr-insertion-location-2"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-2");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    2
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `head(countriesDs, 5)`, 
+  2);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="description-of-the-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="description-of-the-dataset">Description of the Dataset</h4>
+<ul>
+<li><strong><code>country</code></strong>: Country name from a predefined list of 10 countries.</li>
+<li><strong><code>year</code></strong>: Years between 2010 and 2023.</li>
+<li><strong><code>population</code></strong>: Real-world population size for each country and year.</li>
+<li><strong><code>gdp</code></strong>: Gross Domestic Product (GDP) in USD millions for each country and year.</li>
+<li><strong><code>gdp_per_capita</code></strong>: GDP per capita, calculated as GDP divided by population.</li>
+<li><strong><code>life_expectancy</code></strong>: Life expectancy of citzens</li>
+<li><strong><code>birth_rate</code></strong>: Birth rate for each country and year</li>
+<li><strong><code>temperature</code></strong>: Average temperature in celsius per country</li>
+<li><strong><code>region</code></strong>: Geographical region corresponding to each country.</li>
+<li><strong><code>category</code></strong>: Classification of the country as “First World,” “Second World,” or “Third World.”</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tidy-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data-wrangling">Tidy Data Wrangling</h2>
+<p><strong>Important Concepts</strong></p>
+<ul>
+<li><code>Filtering</code>: Filter data based on conditions such as year, country, or region.</li>
+<li><code>Selecting</code>: Select specific columns for focused analysis.</li>
+<li><code>Mutating</code>: Create new columns, such as cases per 100,000 population.</li>
+<li><code>Summarizing</code>: Aggregate data by country, year, or region to find totals and averages.</li>
+</ul>
+<section id="filtering" class="level3">
+<h3 class="anchored" data-anchor-id="filtering">Filtering</h3>
+<p>Filtering is essential for narrowing down datasets to the most relevant information, making patterns easier to identify.</p>
+<section id="example-1" class="level4">
+<h4 class="anchored" data-anchor-id="example-1">Example 1</h4>
+<p>You are tasked with visualizing trends in life expectancy in Asian countries between 2010 and 2020.</p>
+<section id="filtering-process" class="level5">
+<h5 class="anchored" data-anchor-id="filtering-process">Filtering Process</h5>
+<div id="qwebr-insertion-location-3"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    3
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `filteredData <- countriesDs %>%
+  filter(year >= 2010 & year <= 2020 & region == "Asia")
+
+head(filteredData, 5)`, 
+  3);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="visualization" class="level5">
+<h5 class="anchored" data-anchor-id="visualization">Visualization</h5>
+<div id="qwebr-insertion-location-4"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-4");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    4
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(filteredData, aes(x = factor(year), y = life_expectancy, color = country)) +
+  geom_point(size = 2) +
+  labs(title = "Life Expectancy Trends in Asia (2010-2020)",
+       x = "Year", y = "Life Expectancy") +
+  theme_minimal()`, 
+  4);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="what-did-we-do-here" class="level5">
+<h5 class="anchored" data-anchor-id="what-did-we-do-here">What did we do here?</h5>
+<p>By focusing on specific countries and years, filtering allows for more targeted and relevant visualizations, making it easier to analyze trends and patterns specific to the context.</p>
+</section>
+</section>
+<section id="example-2" class="level4">
+<h4 class="anchored" data-anchor-id="example-2">Example 2</h4>
+<p>Analyze the relationship between GDP per capita and life expectancy in European countries with a GDP per capita above $30,000 for the years 2015-2020.</p>
+<section id="filtering-process-1" class="level5">
+<h5 class="anchored" data-anchor-id="filtering-process-1">Filtering Process</h5>
+<div id="qwebr-insertion-location-5"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    5
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `filteredData <- countriesDs %>%
+  filter(year >= 2015 & year <= 2020 & region == "Europe" & gdp_per_capita > 30000) %>%
+  left_join(countriesExtraDs, by = "country")
+
+head(filteredData, 5)`, 
+  5);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="visualization-1" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-1">Visualization</h5>
+<div id="qwebr-insertion-location-6"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-6");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    6
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(filteredData, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm") +
+  labs(title = "GDP per Capita vs. Life Expectancy in Europe (2015-2020)",
+       x = "GDP per Capita", y = "Life Expectancy") +
+  theme_minimal()`, 
+  6);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="what-did-we-do-here-1" class="level5">
+<h5 class="anchored" data-anchor-id="what-did-we-do-here-1">What did we do here?</h5>
+<p>Filtering based on economic indicators allows for focused analysis on the relationship between wealth and life expectancy, removing noise from countries with different economic conditions.</p>
+</section>
+</section>
+<section id="filtering-challenges" class="level4">
+<h4 class="anchored" data-anchor-id="filtering-challenges">Filtering Challenges</h4>
+<ol type="1">
+<li><strong>Population Size in Africa</strong>:
+<ul>
+<li><strong>Filter</strong>: Only countries from Africa where the population exceeds 50 million.</li>
+<li><strong>Purpose</strong>: Isolate data for large African nations to analyze trends specific to highly populated areas.</li>
+</ul></li>
+<li><strong>Economic Data in Europe</strong>:
+<ul>
+<li><strong>Filter</strong>: Show data only for the years 2015-2020 for European countries with GDP per capita above $30,000.</li>
+<li><strong>Purpose</strong>: Focus on wealthy European countries during a specific period to study economic outcomes.</li>
+</ul></li>
+<li><strong>High Birth Rates in Asia</strong>:
+<ul>
+<li><strong>Filter</strong>: Data for Asian countries where the birth rate is above 2.5.</li>
+<li><strong>Purpose</strong>: Analyze regions with high birth rates, possibly indicating population growth trends.</li>
+</ul></li>
+<li><strong>Cold Regions in Asia</strong>:
+<ul>
+<li><strong>Filter</strong>: Asian countries where the average temperature is below 10°C between 2010 and 2020.</li>
+<li><strong>Purpose</strong>: Focus on colder regions in Asia to study how temperature may correlate with other demographic factors.</li>
+</ul></li>
+<li><strong>GDP Data with Missing Values</strong>:
+<ul>
+<li><strong>Filter</strong>: Remove any entries with missing <code>gdp_per_capita</code> values for the years 2010-2020.</li>
+<li><strong>Purpose</strong>: Ensure clean data for economic analysis, removing incomplete records that could skew results.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="selecting" class="level3">
+<h3 class="anchored" data-anchor-id="selecting">Selecting</h3>
+<p>Selecting allows you to focus on specific columns relevant to your analysis.</p>
+<section id="example-1-1" class="level4">
+<h4 class="anchored" data-anchor-id="example-1-1">Example 1</h4>
+<div id="qwebr-insertion-location-7"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-7");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    7
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `selectedData <- filteredData %>%
+  select(country, year, gdp_per_capita, life_expectancy)
+
+head(selectedData, 5)`, 
+  7);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="visualization-2" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-2">Visualization</h5>
+<div id="qwebr-insertion-location-8"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-8");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    8
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(selectedData, aes(x = factor(year), y = gdp_per_capita, fill = country)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "GDP per Capita Over Time in Selected European Countries",
+       x = "Year", y = "GDP per Capita") +
+  theme_minimal()`, 
+  8);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="selecting-challenges" class="level4">
+<h4 class="anchored" data-anchor-id="selecting-challenges">Selecting Challenges</h4>
+<ol type="1">
+<li><strong>Select columns</strong> related to economic indicators (e.g., <code>country</code>, <code>gdp_per_capita</code>, <code>population</code>) for further analysis.</li>
+<li><strong>Create a dataset</strong> with only the <code>year</code>, <code>life_expectancy</code>, and <code>temperature</code> columns for all countries and show the first 5 rows.</li>
+<li><strong>Choose columns</strong> that exclude any geographical information and check the first 10 rows.</li>
+<li><strong>Select and rename</strong> the <code>country</code> and <code>population</code> columns to <code>nation</code> and <code>pop_size</code>, respectively.</li>
+<li><strong>Create a new dataset</strong> with only the <code>year</code>, <code>population</code>, and a newly created column, <code>population_in_millions</code> (which should be calculated as <code>population / 1e6</code>).</li>
+</ol>
+</section>
+</section>
+<section id="mutating" class="level3">
+<h3 class="anchored" data-anchor-id="mutating">Mutating</h3>
+<p>Mutating helps create new columns based on existing data.</p>
+<section id="example-1-2" class="level4">
+<h4 class="anchored" data-anchor-id="example-1-2">Example 1</h4>
+<div id="qwebr-insertion-location-9"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-9");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    9
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `mutatedData <- countriesDs %>%
+  mutate(gdp_total = gdp_per_capita * population)
+
+head(mutatedData, 5)`, 
+  9);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="visualization-3" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-3">Visualization</h5>
+<div id="qwebr-insertion-location-10"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-10");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    10
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(mutatedData, aes(x = population, y = gdp_total, color = region)) +
+  geom_point(size = 2) +
+  labs(title = "Population vs. Total GDP by Region",
+       x = "Population", y = "Total GDP") +
+  theme_minimal()`, 
+  10);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="mutating-challenges" class="level4">
+<h4 class="anchored" data-anchor-id="mutating-challenges">Mutating Challenges</h4>
+<ol type="1">
+<li><strong>Create a new column</strong> called <code>gdp_total</code> that multiplies <code>gdp_per_capita</code> by <code>population</code>.</li>
+<li><strong>Add a new column</strong> that indicates whether a country’s GDP per capita is above or below a certain threshold (e.g., $20,000).</li>
+<li><strong>Mutate the <code>temperature</code> column</strong> to create a new column, <code>temperature_f</code>, that converts Celsius to Fahrenheit.</li>
+<li><strong>Create a <code>population_density</code> column</strong> by dividing <code>population</code> by a given area (assuming you have area data).</li>
+<li><strong>Generate a column</strong> that calculates the ratio of birth rate to life expectancy for each country.</li>
+</ol>
+</section>
+</section>
+<section id="summarizing" class="level3">
+<h3 class="anchored" data-anchor-id="summarizing">Summarizing</h3>
+<p>Summarizing aggregates data by country, year, or region to find totals and averages.</p>
+<section id="example-1-3" class="level4">
+<h4 class="anchored" data-anchor-id="example-1-3">Example 1</h4>
+<div id="qwebr-insertion-location-11"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-11");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    11
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `summaryData <- countriesDs %>%
+  group_by(country) %>%
+  summarize(
+    avg_life_expectancy = mean(life_expectancy, na.rm = TRUE),
+    total_population = sum(population, na.rm = TRUE)
+  )
+
+head(summaryData, 5)`, 
+  11);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="visualization-4" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-4">Visualization</h5>
+<div id="qwebr-insertion-location-12"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-12");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    12
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(summaryData, aes(x = total_population, y = avg_life_expectancy, label = country)) +
+  geom_point(size = 2) +
+  geom_text(vjust = -0.5) +
+  labs(title = "Total Population vs. Average Life Expectancy by Country",
+       x = "Total Population", y = "Average Life Expectancy") +
+  theme_minimal()`, 
+  12);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="summarizing-challenges" class="level4">
+<h4 class="anchored" data-anchor-id="summarizing-challenges">Summarizing Challenges</h4>
+<ol type="1">
+<li><strong>Summarize the dataset</strong> by finding the average temperature for each region.</li>
+<li><strong>Aggregate the data</strong> to find the total population and average life expectancy for each continent.</li>
+<li><strong>Group the data</strong> by country and summarize to find the maximum and minimum GDP per capita for each country.</li>
+<li><strong>Summarize by year</strong> to find the total population and average birth rate each year.</li>
+<li><strong>Create a summary</strong> that calculates the total population and average GDP per capita for countries classified as “First World.”</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="untidy-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="untidy-data-wrangling">Untidy Data Wrangling</h2>
+<section id="handling-wide-vs.-long-formats" class="level3">
+<h3 class="anchored" data-anchor-id="handling-wide-vs.-long-formats">Handling Wide vs.&nbsp;Long Formats</h3>
+<p>Untidy data often comes in a “wide” format, where multiple variables are stored across columns rather than in a long format where each observation is a row.</p>
+<section id="creating-an-untidy-version" class="level4">
+<h4 class="anchored" data-anchor-id="creating-an-untidy-version">Creating an Untidy Version</h4>
+<p>To demonstrate this, let’s take our dataset and convert it into a wide format, then back to a long format.</p>
+<div id="qwebr-insertion-location-13"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-13");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    13
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Create a wide format from the existing long format
+wideData <- countriesDs %>%
+  pivot_wider(names_from = year, values_from = c(population, gdp))
+
+# Preview the wide data
+head(wideData, 5)`, 
+  13);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Now, let’s convert this wide data back to a long format.</p>
+<div id="qwebr-insertion-location-14"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-14");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    14
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Convert the wide format back to long format
+longData <- wideData %>%
+  pivot_longer(cols = starts_with(c("population", "gdp")),
+               names_to = c(".value", "year"),
+               names_sep = "_")
+
+# Preview the long data
+head(longData, 5)`, 
+  14);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>This process shows how data can be reshaped for different analytical needs. Wide format is useful for certain analyses but often needs to be converted to long format for modeling and visualization.</p>
+</section>
+</section>
+<section id="handling-misspelled-header-column-names" class="level3">
+<h3 class="anchored" data-anchor-id="handling-misspelled-header-column-names">Handling Misspelled Header Column Names</h3>
+<p>Sometimes datasets come with misspelled or inconsistent column names, which can lead to errors in data manipulation.</p>
+<section id="creating-misspelled-header-names" class="level4">
+<h4 class="anchored" data-anchor-id="creating-misspelled-header-names">Creating Misspelled Header Names</h4>
+<p>Let’s create a dataset with intentionally misspelled column names and then fix them.</p>
+<div id="qwebr-insertion-location-15"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-15");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    15
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Create a dataset with misspelled column names
+misspelledHeaders <- countriesDs %>%
+  rename(
+    poplation = population,
+    gdp_pper_capita = gdp_per_capita,
+    lif_expectancy = life_expectancy
+  )
+
+# Preview the dataset with misspelled headers
+head(misspelledHeaders, 5)`, 
+  15);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="fixing-the-misspelled-column-names" class="level4">
+<h4 class="anchored" data-anchor-id="fixing-the-misspelled-column-names">Fixing the Misspelled Column Names</h4>
+<div id="qwebr-insertion-location-16"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-16");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    16
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Correct the misspelled column names
+correctedHeaders <- misspelledHeaders %>%
+  rename(
+    population = poplation,
+    gdp_per_capita = gdp_pper_capita,
+    life_expectancy = lif_expectancy
+  )
+
+# Preview the corrected dataset
+head(correctedHeaders, 5)`, 
+  16);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>This illustrates how to identify and correct misspelled column names, which is a crucial step in data cleaning.</p>
+</section>
+</section>
+<section id="handling-row-content-split-and-reverse" class="level3">
+<h3 class="anchored" data-anchor-id="handling-row-content-split-and-reverse">Handling Row Content Split and Reverse</h3>
+<p>Sometimes, data stored in a single column needs to be split into multiple columns or vice versa.</p>
+<section id="merging-two-columns-into-one" class="level4">
+<h4 class="anchored" data-anchor-id="merging-two-columns-into-one">Merging Two Columns into One</h4>
+<p>Let’s take the <code>country</code> and <code>year</code> columns and merge them into a single column.</p>
+<div id="qwebr-insertion-location-17"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-17");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    17
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Combine 'country' and 'year' into a single column
+mergedData <- countriesDs %>%
+  unite("country_year", country, year, sep = "_")
+
+# Preview the merged dataset
+head(mergedData, 5)`, 
+  17);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="splitting-the-merged-column-back-into-two" class="level4">
+<h4 class="anchored" data-anchor-id="splitting-the-merged-column-back-into-two">Splitting the Merged Column Back into Two</h4>
+<div id="qwebr-insertion-location-18"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-18");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    18
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Split the 'country_year' column back into 'country' and 'year'
+splitData <- mergedData %>%
+  separate(country_year, into = c("country", "year"), sep = "_")
+
+# Preview the split dataset
+head(splitData, 5)`, 
+  18);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>This demonstrates how to handle situations where data needs to be recombined or separated for different purposes.</p>
+</section>
+</section>
+<section id="handling-dates" class="level3">
+<h3 class="anchored" data-anchor-id="handling-dates">Handling Dates</h3>
+<p>In some cases, it might be necessary to convert a <code>year</code> column from a numeric format (double) into a proper date format for time series analysis or plotting purposes. Here’s how you can do that in R using the <code>lubridate</code> package.</p>
+<section id="example-1-4" class="level4">
+<h4 class="anchored" data-anchor-id="example-1-4">Example 1</h4>
+<section id="converting-year-to-a-date" class="level5">
+<h5 class="anchored" data-anchor-id="converting-year-to-a-date">Converting <code>year</code> to a Date</h5>
+<p>Let’s convert the <code>year</code> column into a date format, setting it as January 1st of that year.</p>
+<div id="qwebr-insertion-location-19"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-19");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    19
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Ensure the lubridate package is loaded
+# Convert the year column to a date format (January 1st of each year)
+countriesDs <- countriesDs %>%
+  mutate(year_date = ymd(paste0(year, "-01-01")))
+
+# Check the first few rows to see the new column
+head(countriesDs, 5)`, 
+  19);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="what-did-we-do-here-2" class="level5">
+<h5 class="anchored" data-anchor-id="what-did-we-do-here-2">What did we do here?</h5>
+<ul>
+<li><strong><code>paste0(year, "-01-01")</code></strong>: Combines the year with the string “-01-01” to create a date string like “2010-01-01”.</li>
+<li><strong><code>ymd()</code></strong>: Converts the resulting string into a date object in the “Year-Month-Day” format.</li>
+</ul>
+<p>This creates a new column, <code>year_date</code>, which is now in the proper date format.</p>
+</section>
+</section>
+<section id="challenges-solutions" class="level4">
+<h4 class="anchored" data-anchor-id="challenges-solutions">Challenges [Solutions]</h4>
+<ol type="1">
+<li><strong>Convert year to end of year date</strong>:
+<ul>
+<li><strong>Task</strong>: Convert the <code>year</code> column to a date format, but set it as December 31st of that year.</li>
+<li><strong>Purpose</strong>: Useful for representing data that summarizes annual results.</li>
+</ul>
+<div id="qwebr-insertion-location-20"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-20");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    20
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `countriesDs <- countriesDs %>%
+  mutate(year_end_date = ymd(paste0(year, "-12-31")))
+
+head(countriesDs, 5)`, 
+  20);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><strong>Create a quarterly date</strong>:
+<ul>
+<li><strong>Task</strong>: Convert the <code>year</code> column into a date representing the first quarter (e.g., “2010-03-31”).</li>
+<li><strong>Purpose</strong>: Useful for quarterly analysis.</li>
+</ul>
+<div id="qwebr-insertion-location-21"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-21");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    21
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `countriesDs <- countriesDs %>%
+  mutate(quarter_date = ymd(paste0(year, "-03-31")))
+
+head(countriesDs, 5)`, 
+  21);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><strong>Mid-year date conversion</strong>:
+<ul>
+<li><strong>Task</strong>: Convert the <code>year</code> column to a date format, setting it as June 30th of each year.</li>
+<li><strong>Purpose</strong>: Represents mid-year data points.</li>
+</ul>
+<div id="qwebr-insertion-location-22"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-22");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    22
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `countriesDs <- countriesDs %>%
+  mutate(mid_year_date = ymd(paste0(year, "-06-30")))
+
+head(countriesDs, 5)`, 
+  22);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><strong>Use year as a dynamic time period</strong>:
+<ul>
+<li><strong>Task</strong>: Convert the <code>year</code> column to represent the last day of a chosen month (e.g., November).</li>
+<li><strong>Purpose</strong>: Allows for flexibility depending on the analysis context.</li>
+</ul>
+<div id="qwebr-insertion-location-23"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-23");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    23
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `chosen_month <- "11"
+countriesDs <- countriesDs %>%
+  mutate(chosen_month_date = ymd(paste0(year, "-", chosen_month, "-30")))
+
+head(countriesDs, 5)`, 
+  23);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><strong>Convert year to fiscal year start date</strong>:
+<ul>
+<li><strong>Task</strong>: Convert the <code>year</code> column into a date representing the start of the fiscal year (e.g., April 1st).</li>
+<li><strong>Purpose</strong>: Useful for financial and budgetary analyses.</li>
+</ul>
+<div id="qwebr-insertion-location-24"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-24");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    24
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `countriesDs <- countriesDs %>%
+  mutate(fiscal_year_start = ymd(paste0(year, "-04-01")))
+
+head(countriesDs, 5)`, 
+  24);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+</ol>
+<div id="qwebr-insertion-location-25"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-25");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    25
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(countriesDs, aes(x = year_date, y = population, color = country)) +
+  geom_line(linewidth = 1) +
+  labs(title = "Population Trends Over Time by Country",
+       x = "Year", y = "Population") +
+  theme_minimal()`, 
+  25);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="handling-missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h3>
+<p>Dealing with missing data is a crucial aspect of data wrangling. Missing data can occur for various reasons, and understanding the nature of these missing values is essential for appropriate handling.</p>
+<section id="types-of-missing-data" class="level4">
+<h4 class="anchored" data-anchor-id="types-of-missing-data">Types of Missing Data</h4>
+<ul>
+<li><strong>MCAR (Missing Completely at Random)</strong>: Data is missing entirely at random, with no relationship between the missing data and any other observed or unobserved data. The analysis remains unbiased if this missing data is ignored.</li>
+<li><strong>MAR (Missing at Random)</strong>: The likelihood of missing data on a variable is related to other observed variables but not to the value of the variable itself.</li>
+<li><strong>MNAR (Missing Not at Random)</strong>: The missingness is related to the unobserved data itself, meaning the missing values are related to the actual value that is missing.</li>
+</ul>
+</section>
+<section id="simulating-mar-data" class="level4">
+<h4 class="anchored" data-anchor-id="simulating-mar-data">Simulating MAR Data</h4>
+<p>We’ll create a scenario where <code>gdp_per_capita</code> is more likely to be missing if the population is below a certain threshold, making it “missing at random” based on population size.</p>
+<div id="qwebr-insertion-location-26"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-26");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    26
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `set.seed(10)  # For reproducibility
+# Directly introduce missing values in a random sample of rows
+mar_data <- countriesDs %>%
+  mutate(
+    gdp_per_capita = ifelse(runif(n()) < 0.4, NA, gdp_per_capita)  # 20% chance of being NA
+  )
+# Check for missing values
+summary(mar_data$gdp_per_capita)  # Provides a summary of the column, including missing values`, 
+  26);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="simulating-mnar-data" class="level4">
+<h4 class="anchored" data-anchor-id="simulating-mnar-data">Simulating MNAR Data</h4>
+<p>We’ll simulate a scenario where the likelihood of <code>life_expectancy</code> being missing is higher if life expectancy is lower than 60 years, making it “missing not at random.”</p>
+<div id="qwebr-insertion-location-27"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-27");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    27
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `set.seed(456)  # For reproducibility
+
+mnar_data <- countriesDs %>%
+  mutate(
+    life_expectancy = ifelse(life_expectancy < 60 & runif(n()) < 0.4, NA, life_expectancy)
+  )
+# Check for missing values
+summary(mnar_data$life_expectancy)`, 
+  27);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="missing-data-before-wrangling" class="level4">
+<h4 class="anchored" data-anchor-id="missing-data-before-wrangling">Missing Data | Before Wrangling</h4>
+<section id="before-handling-missing-data" class="level5">
+<h5 class="anchored" data-anchor-id="before-handling-missing-data">Before Handling Missing Data</h5>
+<p>Let’s visualize the data before handling missing values, focusing on the relationship between GDP per capita and life expectancy.</p>
+</section>
+<section id="visualization-with-mar-data" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-with-mar-data">Visualization with MAR Data</h5>
+<div id="qwebr-insertion-location-28"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-28");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    28
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(mar_data, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
+  geom_point(size = 2, alpha = 0.6) +
+  labs(title = "GDP per Capita vs. Life Expectancy (with MAR)",
+       x = "GDP per Capita", y = "Life Expectancy") +
+  theme_minimal()`, 
+  28);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="visualization-with-mnar-data" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-with-mnar-data">Visualization with MNAR Data</h5>
+<div id="qwebr-insertion-location-29"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-29");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    29
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(mnar_data, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
+  geom_point(size = 2, alpha = 0.6) +
+  labs(title = "GDP per Capita vs. Life Expectancy (with MNAR)",
+       x = "GDP per Capita", y = "Life Expectancy") +
+  theme_minimal()`, 
+  29);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="missing-data-how-to-wrangle" class="level4">
+<h4 class="anchored" data-anchor-id="missing-data-how-to-wrangle">Missing Data | How to Wrangle</h4>
+<p>To handle the missing data, we’ll apply a simple imputation strategy, filling in missing values with the median of the respective variable.</p>
+<section id="imputing-missing-values-for-mar-data" class="level5">
+<h5 class="anchored" data-anchor-id="imputing-missing-values-for-mar-data">Imputing Missing Values for MAR Data</h5>
+<div id="qwebr-insertion-location-30"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-30");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    30
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `mar_data_imputed <- mar_data %>%
+  mutate(
+    gdp_per_capita = ifelse(is.na(gdp_per_capita), median(gdp_per_capita, na.rm = TRUE), gdp_per_capita)
+  )
+# Check imputation
+summary(mar_data_imputed$gdp_per_capita)`, 
+  30);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="missing-data-after-wrangling" class="level4">
+<h4 class="anchored" data-anchor-id="missing-data-after-wrangling">Missing Data | After Wrangling</h4>
+<p>Let’s visualize the data again after imputing the missing values.</p>
+<section id="visualization-with-mar-data-imputed" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-with-mar-data-imputed">Visualization with MAR Data (Imputed)</h5>
+<div id="qwebr-insertion-location-31"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-31");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    31
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(mar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
+  geom_point(size = 2, alpha = 0.6) +
+  labs(title = "GDP per Capita vs. Life Expectancy (after MAR Imputation)",
+       x = "GDP per Capita", y = "Life Expectancy") +
+  theme_minimal()`, 
+  31);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="imputing-missing-values-for-mnar-data" class="level5">
+<h5 class="anchored" data-anchor-id="imputing-missing-values-for-mnar-data">Imputing Missing Values for MNAR Data</h5>
+<div id="qwebr-insertion-location-32"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-32");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    32
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `mnar_data_imputed <- mnar_data %>%
+  mutate(
+    life_expectancy = ifelse(is.na(life_expectancy), median(life_expectancy, na.rm = TRUE), life_expectancy)
+  )
+# Check imputation
+summary(mnar_data_imputed$life_expectancy)`, 
+  32);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="visualization-with-mnar-data-imputed" class="level5">
+<h5 class="anchored" data-anchor-id="visualization-with-mnar-data-imputed">Visualization with MNAR Data (Imputed)</h5>
+<div id="qwebr-insertion-location-33"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-33");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    33
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(mnar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
+  geom_point(size = 2, alpha = 0.6) +
+  labs(title = "GDP per Capita vs. Life Expectancy (after MNAR Imputation)",
+       x = "GDP per Capita", y = "Life Expectancy") +
+  theme_minimal()`, 
+  33);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="summary" class="level4">
+<h4 class="anchored" data-anchor-id="summary">Summary</h4>
+<p>Understanding the different types of missing data—MCAR, MAR, and MNAR—is crucial for choosing the right approach to handle them. We explored how to simulate and visualize MAR and MNAR scenarios in our dataset, highlighting the importance of addressing missing data for accurate analysis. By comparing visualizations before and after imputation, students can grasp the significant impact missing data can have on their results and learn effective strategies to mitigate these issues.</p>
+</section>
+</section>
+</section>
+<section id="creating-a-pseudo-publication-ready-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-pseudo-publication-ready-visualization">Creating a Pseudo-Publication Ready Visualization</h2>
+<p>We’ll combine all the data wrangling techniques you’ve learned—<code>filtering</code>, <code>selecting</code>, <code>mutating</code>, <code>summarizing</code>—to perform a detailed analysis and produce a polished, publication-ready visualization.</p>
+<section id="creating-a-professional-quality-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-professional-quality-visualization">Creating a Professional-Quality Visualization</h3>
+<p>Here’s a step-by-step guide to transform and visualize data from 10 countries in the dataset:</p>
+<div id="qwebr-insertion-location-34"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-34");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    34
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# Step 1: Filter the dataset for Asian and European countries from 2020 to 2023
+filteredData <- countriesDs %>%
+  filter(year >= 2020 & year <= 2023)
+
+# Step 2: Select relevant columns for analysis
+selectedData <- filteredData %>%
+  select(country, year, population, gdp_per_capita, life_expectancy, birth_rate)
+
+# Step 3: Mutate the data to create new metrics
+mutatedData <- selectedData %>%
+  mutate(
+    gdp_total = gdp_per_capita * population,
+    year_date = ymd(paste0(year, "-", ifelse(runif(n()) > 0.5, "06-30", "12-31")))
+  )
+
+# Step 4: Summarize the data to get average life expectancy, GDP per capita, and total population by country and continent
+summaryData <- mutatedData %>%
+  group_by(country) %>%
+  summarize(
+    avg_life_expectancy = mean(life_expectancy, na.rm = TRUE),
+    avg_gdp_per_capita = mean(gdp_per_capita, na.rm = TRUE),
+    total_population_millions = sum(population, na.rm = TRUE) / 1e6  # Convert population to millions
+  ) %>%
+  ungroup()
+
+# Step 6: Create a publication-ready visualization
+ggplot(summaryData, aes(
+  x = avg_gdp_per_capita, 
+  y = avg_life_expectancy, 
+  size = total_population_millions,  # Use population in millions for size mapping
+  color = country
+)) +
+  geom_point(alpha = 0.4) +
+  scale_y_continuous(limits = c(min(summaryData$avg_life_expectancy) - 1, 66)) +  # Adjust y-axis scale to go up to 66
+  scale_size_continuous(
+    range = c(5, 15),  # Adjust the bubble size range
+    name = "Total Population (Millions)", 
+    breaks = c(50, 200, 500, 1000, 1500),  # Adjust based on realistic population ranges in millions
+    labels = c("50M", "200M", "500M", "1B", "1.5B")  # Correct labels in millions
+  ) +
+  scale_color_viridis_d(guide = "none") +  # Hide the color legend
+  labs(
+    title = "Relationship Between GDP per Capita and Life Expectancy Across Countries",
+    subtitle = "Bubble size represents total population across 2020-2023",
+    x = "Average GDP per Capita (USD)",
+    y = "Average Life Expectancy (Years)",
+    caption = "Data Source: Synthetic Dataset"
+  ) +
+  geom_text(aes(label = country), hjust = 0.5, size = 3, color = "black") + # Labels centered
+  theme_minimal() +
+  theme(
+    text = element_text(family = "Georgia"),
+    plot.title = element_text(size = 11, face = "bold"), 
+    plot.subtitle = element_text(size = 9, face = "italic"), 
+    axis.title = element_text(size = 8),
+    legend.title = element_text(size = 8), 
+    legend.text = element_text(size = 8), 
+    legend.position = "bottom"
+  )`, 
+  34);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="review-scrutinize" class="level3">
+<h3 class="anchored" data-anchor-id="review-scrutinize">Review &amp; Scrutinize</h3>
+<p><strong>What is this visualization?</strong>: Write a brief paragraph describing the design, purpose, and key message of the plot. Explain what the visualization is intended to show and how it effectively communicates the data.</p>
+<p><strong>Why is this visualization nearly publication-ready?</strong>: In 2-3 sentences, discuss what makes the plot polished and professional, highlighting any elements that could make it suitable for publication.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.quarto.org">
+<p>Made with quarto®</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../../Content/license.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/bcervantesalvarez/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bcervantesalvarez/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:briancervantesalvarez@gmail.com">
+      <i class="bi bi-envelope-fill" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

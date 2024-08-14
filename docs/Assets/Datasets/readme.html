@@ -94,19 +94,19 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../portfolio.html"> 
+    <a class="nav-link" href="../../Content/portfolio.html"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html"> 
+    <a class="nav-link" href="../../Content/blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.qmd"> 
+    <a class="nav-link" href="../../Content/talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../resources.qmd"> 
+    <a class="nav-link" href="../../Content/resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -129,9 +129,44 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="list-of-datasets" class="level1">
 <h1>List of Datasets</h1>
-<p><a href="https://raw.githubusercontent.com/bcervantesalvarez/Portfolio/main/Assets/Datasets/countries.csv">countries.csv</a></p>
+<p>Here is a list of datasets available in this repository. Click on each dataset name to access the file directly.</p>
+<ul>
+<li><a href="./Assets/Datasets/all-ages.csv"><code>all-ages.csv</code></a></li>
+<li><a href="./Assets/Datasets/amazonProducts.csv"><code>amazonProducts.csv</code></a></li>
+<li><a href="./Assets/Datasets/AppleInc_Stocks.csv"><code>AppleInc_Stocks.csv</code></a></li>
+<li><a href="./Assets/Datasets/Card-Transaction_log.csv"><code>Card-Transaction_log.csv</code></a></li>
+<li><a href="./Assets/Datasets/countries.csv"><code>countries.csv</code></a></li>
+<li><a href="./Assets/Datasets/customerReturnTest.csv"><code>customerReturnTest.csv</code></a></li>
+<li><a href="./Assets/Datasets/customerReturnTrain.csv"><code>customerReturnTrain.csv</code></a></li>
+<li><a href="./Assets/Datasets/Final_dev_pub.csv"><code>Final_dev_pub.csv</code></a></li>
+<li><a href="./Assets/Datasets/fraud.png"><code>fraud.png</code></a></li>
+<li><a href="./Assets/Datasets/healthcareSpending.csv"><code>healthcareSpending.csv</code></a></li>
+<li><a href="./Assets/Datasets/insurance.csv"><code>insurance.csv</code></a></li>
+<li><a href="./Assets/Datasets/megaGymDataset.csv"><code>megaGymDataset.csv</code></a></li>
+<li><a href="./Assets/Datasets/olympics.csv"><code>olympics.csv</code></a></li>
+<li><a href="./Assets/Datasets/openml_1590.csv"><code>openml_1590.csv</code></a></li>
+<li><a href="./Assets/Datasets/pinot.rds"><code>pinot.rds</code></a></li>
+<li><a href="./Assets/Datasets/retail.csv"><code>retail.csv</code></a></li>
+<li><a href="./Assets/Datasets/salary_and_stats.csv"><code>salary_and_stats.csv</code></a></li>
+<li><a href="./Assets/Datasets/scuffed_pokedex.csv"><code>scuffed_pokedex.csv</code></a></li>
+<li><a href="./Assets/Datasets/severityLevels.csv"><code>severityLevels.csv</code></a></li>
+<li><a href="./Assets/Datasets/submission.csv"><code>submission.csv</code></a></li>
+<li><a href="./Assets/Datasets/tuition_cost.csv"><code>tuition_cost.csv</code></a></li>
+<li><a href="./Assets/Datasets/tuition_income.csv"><code>tuition_income.csv</code></a></li>
+<li><a href="./Assets/Datasets/winequality-red.csv"><code>winequality-red.csv</code></a></li>
+<li><a href="./Assets/Datasets/winequality-white.csv"><code>winequality-white.csv</code></a></li>
+</ul>
+<section id="load-data-correctly-project-development-in-progress" class="level2">
+<h2 class="anchored" data-anchor-id="load-data-correctly-project-development-in-progress">Load Data Correctly (PROJECT DEVELOPMENT | IN PROGRESS)</h2>
+<p>Use <code>read_csv(Assets/Datasets/data.csv)</code></p>
+</section>
+<section id="render-quarto-documents-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="render-quarto-documents-deployment">Render Quarto Documents (DEPLOYMENT)</h2>
+<p>Use <code>read_csv("../../../Assets/Datasets/data.csv")</code></p>
+<p>Replace <code>data.csv</code> with the dataset of your choice</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -573,7 +608,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../license.html">
+    <a class="nav-link" href="../../Content/license.html">
 <p>License</p>
 </a>
   </li>  

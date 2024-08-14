@@ -160,5 +160,6 @@ $RECYCLE.BIN/
 .DS_Store
 
 /.quarto/
-posts/CustomerSegmentationML/Card-Transaction_log.csv
-posts/FraudML/Card-Transaction_log.csv
+./Assets/Datasets/Card-Transaction_log.csv
+/Content/Blog/Capstone
+

@@ -3,7 +3,7 @@ title: "Brian Cervantes Alvarez"
 subtitle: "Data Scientist | Statistican | Academic"
 about:
   template: broadside
-  image: profile.jpeg
+  image: Assets/Images/profile.jpeg
   links:
     - icon: linkedin
       text: LinkedIn

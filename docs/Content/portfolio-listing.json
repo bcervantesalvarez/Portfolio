@@ -1,0 +1,13 @@
+{
+  "listing": "/Content/portfolio.html",
+  "items": [
+    "/Content/Portfolio/Statistical Analysis Wines/index.html",
+    "/Content/Portfolio/US_HealthCare_Spending/index.html",
+    "/Content/Portfolio/Build-a-Dashboard/index.html",
+    "/Content/Portfolio/Predicting_Income_Bracket/index.html",
+    "/Content/Portfolio/Customer Return ML/index.html",
+    "/Content/Portfolio/PredictPinotWine_ML/index.html",
+    "/Content/Portfolio/PredictSeverityLevels/index.html",
+    "/Content/Portfolio/UKAccidentShinyApp/index.html"
+  ]
+}

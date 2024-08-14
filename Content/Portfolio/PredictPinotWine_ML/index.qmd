@@ -1,0 +1,132 @@
+---
+title: "Predicting Wine Province Origin"
+author: "Brian Cervantes Alvarez"
+date: "03-01-2023"
+description: "Our project sets a new bar in wine origin identification, transforming how industry professionals use critic data."
+image: /Assets/Images/pinot.jpeg
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+output: html_document
+code-fold: false
+categories: [R, Machine Learning, Random Forest, Classification]
+---
+
+![](/Assets/Images/pinot.jpeg)
+
+## Purpose
+
+The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this goal, a random forest model was built and evaluated for its performance, achieving a kappa score of 0.82. This project aimed to provide a useful tool for wine connoisseurs and industry professionals in identifying the origin of wines based on their sensory characteristics.
+
+## Setup
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(caret)
+library(rpart)
+library(tidytext)
+library(SnowballC)
+```
+
+## Feature Engineering
+
+```{r}
+
+wine = read_rds("../../../Assets/Datasets/pinot.rds") 
+
+wine_words <- function(df, j, stem = T){ 
+  data(stop_words)
+  words <- df %>%
+    unnest_tokens(word, description) %>%
+    anti_join(stop_words) %>%
+    filter(str_detect(string = word, pattern = "[a-z+]")) %>% # get rid weird non alphas 
+    filter(str_length(word) >= 3) %>% # get rid of strings shorter than 3 characters 
+    filter(!(word %in% c("wine","pinot", "vineyard"))) %>%
+    group_by(word) %>%
+    mutate(total=n()) %>%
+    ungroup()
+  
+  if(stem){
+    words <- words %>% 
+      mutate(word = wordStem(word))
+  }
+  
+  words <- words %>% 
+    count(id, word) %>% 
+    group_by(id) %>% 
+    mutate(exists = (n>0)) %>% 
+    ungroup %>% 
+    group_by(word) %>% 
+    mutate(total = sum(n)) %>% 
+    filter(total > j) %>% 
+    pivot_wider(id_cols = id,
+                names_from = word,
+                values_from = exists,
+                values_fill = list(exists=0)) %>% 
+    right_join(select(df,id,province)) %>% 
+    select(-id) %>% 
+    mutate(across(-province, ~replace_na(.x, F)))
+}
+
+wino <- wine_words(wine, j = 190, stem = T)
+
+```
+
+## Specification
+
+```{r}
+set.seed(504) 
+
+ctrl <- trainControl(method = "cv", number = 3)
+
+
+wine_index <- createDataPartition(wino$province, p = 0.80, list = FALSE)
+train <- wino[ wine_index, ]
+test <- wino[-wine_index, ]
+
+fit <- train(province ~ .,
+             data = train, 
+             method = "rf",
+             ntree = 100,
+             tuneLength = 15,
+             nodesize = 10,
+             verbose = TRUE,
+             trControl = ctrl,
+             metric = "Kappa")
+```
+
+## Model Performance
+
+```{r}
+confusionMatrix(predict(fit, test),factor(test$province))
+```
+
+## Re-fit and evaluation
+
+```{r}
+set.seed(1504)
+
+wine_index <- createDataPartition(wino$province, p = 0.80, list = FALSE)
+train <- wino[ wine_index, ]
+test <- wino[-wine_index, ]
+
+# example spec for knn
+fit_final <- train(province ~ .,
+             data = train, 
+             method = "rf",
+             tuneGrid = fit$bestTune) 
+# The last line means we will fit a model using the best tune parameters your CV found above.
+```
+
+## Final Model Performance
+
+```{r}
+confusionMatrix(predict(fit_final, test),factor(test$province))
+```
+
+## Conclusion
+
+The kappa value of 0.82 for our random forest model signifies a high level of precision and accuracy, reflecting a very good agreement with the actual outcomes. This statistical measure, important for assessing classification model performance, confirms the model's efficacy in predicting the correct class labels. Thus, with a kappa value of 0.82, the model demonstrates reliable predictive performance.

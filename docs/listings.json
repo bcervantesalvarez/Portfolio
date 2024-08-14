@@ -1,7 +1,8 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/Content/blog.html",
     "items": [
+<<<<<<< HEAD
       "/posts/Build-a-Dashboard/index.html",
       "/posts/Teaching_With_WebR/index.html",
       "/posts/Automakers/index.html",
@@ -15,28 +16,40 @@
       "/posts/Pokemon_Database/index.html",
       "/posts/CollegeStudent_Debt_Tool/index.html",
       "/posts/US_HealthIns_Costs/index.html"
+=======
+      "/Content/Blog/Teaching_With_WebR/index.html",
+      "/Content/Blog/FraudML/index.html",
+      "/Content/Blog/AmazonProductsEN/index.html",
+      "/Content/Blog/Param_Report_Retail/index.html",
+      "/Content/Blog/AppleInc_IncomeStatement/index.html",
+      "/Content/Blog/GymRat_Plotly/index.html",
+      "/Content/Blog/FancyTables/index.html",
+      "/Content/Blog/Pokemon_Database/index.html",
+      "/Content/Blog/CollegeStudent_Debt_Tool/index.html",
+      "/Content/Blog/US_HealthIns_Costs/index.html"
+>>>>>>> d368b6c (Version 4.00 MAJOR UPDATE | Repo Folder Restructuring)
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/Content/portfolio.html",
     "items": [
-      "/highlights/Statistical Analysis Wines/index.html",
-      "/highlights/US_HealthCare_Spending/index.html",
-      "/highlights/Param_Report_Retail/index.html",
-      "/highlights/Predicting_Income_Bracket/index.html",
-      "/highlights/Customer Return ML/index.html",
-      "/highlights/PredictPinotWine_ML/index.html",
-      "/highlights/PredictSeverityLevels/index.html",
-      "/highlights/UKAccidentShinyApp/index.html"
+      "/Content/Portfolio/Statistical Analysis Wines/index.html",
+      "/Content/Portfolio/US_HealthCare_Spending/index.html",
+      "/Content/Portfolio/Build-a-Dashboard/index.html",
+      "/Content/Portfolio/Predicting_Income_Bracket/index.html",
+      "/Content/Portfolio/Customer Return ML/index.html",
+      "/Content/Portfolio/PredictPinotWine_ML/index.html",
+      "/Content/Portfolio/PredictSeverityLevels/index.html",
+      "/Content/Portfolio/UKAccidentShinyApp/index.html"
     ]
   },
   {
-    "listing": "/talks.html",
+    "listing": "/Content/talks.html",
     "items": [
-      "/talks/TeachingwithWebR/index.html",
-      "/talks/HowtoUseQuarto101/index.html",
-      "/talks/ParasiteSurvAnalysis/index.html",
-      "/talks/AboutMyself/index.html"
+      "/Content/Talks/TeachingwithWebR/index.html",
+      "/Content/Talks/HowtoUseQuarto101/index.html",
+      "/Content/Talks/ParasiteSurvAnalysis/index.html",
+      "/Content/Talks/AboutMyself/index.html"
     ]
   }
 ]
