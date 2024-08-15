@@ -1,8 +1,8 @@
 ---
-title: "Interactive Teaching with WebR"
+title: "Interactive Learning with WebR"
 subtitle: "Lab Demonstration"
 author: "Brian Cervantes Alvarez"
-date: today
+date: "08-12-2024"
 date-format: long
 image: /Assets/Images/webR.png
 format: 
@@ -22,16 +22,65 @@ filters:
 - webr
 ---
 
-![](/Assets/Images/webR.png)
+<div style="text-align: center; padding-top: 10px; padding-bottom: 10px;">
+  <img src="/Assets/Images/webR.png" style="height: 400px;">
+</div>
 
-## Demonstrating the power of webR
+
+# The Case for `webR`
+
+Integrating `webR` into your educational tools offers a robust way to elevate interactive learning experiences. This demonstration focuses on how webR enables real-time data wrangling and visualization within a web-based environment, allowing educators to create engaging, hands-on labs for students.
+
+## Why use webR in Education?
+
+`webR` seamlessly brings the power of R to the browser, removing the need for complex local installations. This accessibility is crucial for modern classrooms, where students might be working on different devices and operating systems. By embedding R code directly into educational materials, webR facilitates instant feedback, interactive exercises, and dynamic visualizations, making data science education more intuitive and approachable.
+
+## Key Features of webR
+
+- **Cross-Platform Compatibility**: Students can run R code on any device with a web browser, ensuring a consistent learning experience.
+
+- **Immediate Feedback**: webR allows for instant execution of code, enabling students to see the results of their actions right away.
+
+- **Interactive Visualizations**: By integrating with packages like `ggplot2`, educators can create interactive plots that students can manipulate directly in their browser.
+
+## Implementation in Data Wrangling Labs
+
+For example, when teaching data wrangling concepts such as filtering, selecting, mutating, and summarizing, webR allows students to experiment with real datasets interactively. They can instantly see the impact of different data manipulation techniques, reinforcing their understanding through practice.
+
+```{webr-r}
+#| autorun: TRUE
+# Sample code block for demonstration
+url <- "https://raw.githubusercontent.com/bcervantesalvarez/Portfolio/main/Assets/Datasets/countries.csv"
+download.file(url, "countries.csv")
+countriesDs <- read_csv("countries.csv", show_col_types = FALSE)
+```
+
+## Benefits for Educators
+
+`webR` enables educators to:
+
+- **Simplify Setup**: No more lengthy instructions on installing R and its dependencies.
+
+- **Enhance Engagement**: Interactive content keeps students involved, making complex topics more digestible.
+
+- **Facilitate Learning**: By allowing students to explore data manipulation and visualization in real time, webR helps solidify their understanding of essential concepts.
+
+### Summary
+
+`webR` transforms how data science is taught, making R's powerful features accessible and interactive in the classroom. Whether you're teaching undergraduates new to R or advanced students refining their skills, `webR` offers a dynamic platform that enhances learning and encourages exploration.
+
+---
+
+# Lab Demonstration
 
 ## What is Data Wrangling?
 
 Data wrangling is the process of converting messy, untidy data into a tidy format, making it suitable for data visualization and analysis.
 
 - **Data is often messy:** Real-world data is rarely provided in a tidy format.
+
 - **Industry challenges:** Many industries have poorly designed data structures, requiring data preparation before visualization.
+
 - **Rarely tidy datasets:** It is uncommon to receive a dataset that is already tidy.
 
 
@@ -40,7 +89,9 @@ Data wrangling is the process of converting messy, untidy data into a tidy forma
 Tidy data is a structured format that aligns the organization of a dataset with its underlying meaning. In tidy data:
 
 - **Each variable has its own column:** Every column in the dataset corresponds to a specific variable or attribute.
+
 - **Each observation has its own row:** Every row captures a single observation or data entry.
+
 - **Each cell contains a single value:** Each cell holds one distinct piece of information for a particular variable and observation.
 
 In most cases, data is often imported using SQL to create narrower datasets. While we won't cover SQL in this course, it's a valuable skill to learn in the future. For now, we'll focus on using R to manipulate and create subset datasets from larger datasets for focused analysis.
@@ -173,9 +224,7 @@ Analyze the relationship between GDP per capita and life expectancy in European 
 ##### Filtering Process
 ```{webr-r}
 filteredData <- countriesDs %>%
-  filter(year >= 2015 & year <= 2020 & region == "Europe" & gdp_per_capita > 30000) %>%
-  left_join(countriesExtraDs, by = "country")
-
+  filter(year >= 2015 & year <= 2020 & region == "Europe" & gdp_per_capita > 30000) 
 head(filteredData, 5)
 ```
 
@@ -223,7 +272,6 @@ Selecting allows you to focus on specific columns relevant to your analysis.
 ```{webr-r}
 selectedData <- filteredData %>%
   select(country, year, gdp_per_capita, life_expectancy)
-
 head(selectedData, 5)
 ```
 
@@ -512,7 +560,9 @@ Dealing with missing data is a crucial aspect of data wrangling. Missing data ca
 #### Types of Missing Data
 
 - **MCAR (Missing Completely at Random)**: Data is missing entirely at random, with no relationship between the missing data and any other observed or unobserved data. The analysis remains unbiased if this missing data is ignored.
-- **MAR (Missing at Random)**: The likelihood of missing data on a variable is related to other observed variables but not to the value of the variable itself.
+
+- **MAR (Missing at Random)**: The likelihood of missing data on a variable is related to other observed variables but not to the value of the variable itself
+.
 - **MNAR (Missing Not at Random)**: The missingness is related to the unobserved data itself, meaning the missing values are related to the actual value that is missing.
 
 
@@ -694,3 +744,15 @@ ggplot(summaryData, aes(
 **What is this visualization?**: Write a brief paragraph describing the design, purpose, and key message of the plot. Explain what the visualization is intended to show and how it effectively communicates the data.
 
 **Why is this visualization nearly publication-ready?**: In 2-3 sentences, discuss what makes the plot polished and professional, highlighting any elements that could make it suitable for publication.
+
+---
+
+# WebR in Pure Browser Form
+
+As the package gets support from the community, students could run their entire r scripts on the browser. Of course, learning how to use the IDE is still important.
+
+::: {.column-screen}
+
+<iframe src="https://webr.r-wasm.org/latest/" width="100%" height="700" allowfullscreen></iframe>
+
+:::

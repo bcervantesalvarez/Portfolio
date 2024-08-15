@@ -1,7 +1,8 @@
 ---
 title: "Interactive Teaching with webR"
 author: "Brian Cervantes Alvarez"
-date: today
+date: '08-06-2024'
+image: /Assets/Images/uni.jpeg
 description: "Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup."
 format:
   html:
@@ -22,4 +23,8 @@ Can be easily implemented using quarto.
 
 ## Slides
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="600" allowfullscreen></iframe>
+::: {.column-page}
+
+<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="800" allowfullscreen></iframe>
+
+:::

@@ -325,7 +325,6 @@ nav a:hover, nav a.active {
   }
 }
 
-
 // Background Colors
 .bg-primary {
   background-color: theme-color("primary") !important;
@@ -394,7 +393,17 @@ p {
   font-weight: 200;
 }
 
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 2px solid;
+  opacity: .3;
+}
 
+b, strong {
+  font-weight: bold !important;
+}
 
 // Navs Colors & Hover Over
 a {
@@ -402,6 +411,15 @@ a {
   &:hover {
     color: $cyan;
   }
+}
+
+code {
+  background-color: #f5f5f5;
+  color: rgb(75, 113, 149);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+   /* Enhanced styling */
+  box-shadow: 0 2px 4px rgb(75, 113, 149, 0.8);
 }
 
 // Quarto Title Block Pages

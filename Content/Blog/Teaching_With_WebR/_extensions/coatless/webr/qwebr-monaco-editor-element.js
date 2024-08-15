@@ -16,7 +16,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
     editor = monaco.editor.create(editorDiv, {
       value: initialCode,
       language: 'r',
-      theme: 'vs-dark',                // Use the vs-light theme
+      theme: 'vs-light',                // Use the vs-light theme
       automaticLayout: true,            // Works wonderfully with RevealJS
       scrollBeyondLastLine: false,
       minimap: {
