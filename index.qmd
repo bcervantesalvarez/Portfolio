@@ -1,6 +1,6 @@
 ---
 title: "Brian Cervantes Alvarez"
-subtitle: "Data Scientist | Statistican | Academic"
+subtitle: "Data Scientist | Educator | Statistician"
 about:
   template: broadside
   image: Assets/Images/profile.jpeg
@@ -14,6 +14,12 @@ about:
     - icon: envelope
       text: Email
       href: mailto:briancervantesalvarez@gmail.com
+format:
+  html:
+    include-in-header: 
+      - text: |
+          <script type="text/javascript" src="/Assets/Scripts/profileImg.js"></script>
+          <script type="text/javascript" src="/Assets/Scripts/alternatingText.js"></script>
 ---
 
 ### Educational Background

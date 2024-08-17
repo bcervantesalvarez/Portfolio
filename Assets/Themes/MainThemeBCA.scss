@@ -454,17 +454,47 @@ header#title-block-header {
 // ----------- FOR ABOUT PAGE ------------
 
 .about-entity {
-  width: 100% !important; // Use 100% to ensure it spans the full width of its container
-  height: auto; // Adjust the height as needed
-  background-size: cover; // This will ensure that your background image covers the div completely
-  background-position: center; // This centers the background image
+  width: 100% !important; /* Ensures it spans the full width of its container */
+  height: auto; /* Adjusts the height as needed */
+  background-size: 125% !important; /* Ensures that the background image covers the div completely */
+  background-position: center; /* Centers the background image */
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* Optional: Rounded corners for a refined look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
 }
+
+.about-entity::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -250%; /* Start well off-screen */
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(160deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-50deg); /* Creates the diagonal shine effect */
+}
+
+.about-entity.shining::before {
+  animation: shine 1.5s ease-in-out infinite; /* Infinite shining effect */
+}
+
+@keyframes shine {
+  0% {
+    left: -250%;
+  }
+  100% {
+    left: 250%;
+  }
+}
+
 
 .about-contents .quarto-title {
   margin-top: 50px; /* Adds space above the .quarto-title block */
+  margin-bottom: -20px;
 }
 
 
@@ -472,6 +502,15 @@ header#title-block-header {
 .about-contents h3 {
   position: relative;
   display: inline-block;
+}
+
+
+.about-contents .subtitle {
+  font-weight: 500;
+  border-right: 1px solid !important; /* Optional cursor effect */
+  padding-right: 2px;
+  display: inline-block;
+  min-height: 1.5em; /* Default fallback for when JS is disabled */
 }
 
 /* Hover effect for h3 headers */
