@@ -386,6 +386,12 @@ body {
   overflow-x: hidden;
 }
 
+.subtitle {
+  font-weight: 500;
+  display: inline-block;
+  min-height: 1.5em; /* Default fallback for when JS is disabled */
+}
+
 p {
   margin-bottom: 25px; /* Adjusts the bottom margin between paragraphs */
   line-height: 1.8rem;
@@ -504,14 +510,6 @@ header#title-block-header {
   display: inline-block;
 }
 
-
-.about-contents .subtitle {
-  font-weight: 500;
-  border-right: 1px solid !important; /* Optional cursor effect */
-  padding-right: 2px;
-  display: inline-block;
-  min-height: 1.5em; /* Default fallback for when JS is disabled */
-}
 
 /* Hover effect for h3 headers */
 .about-contents h3::before {
