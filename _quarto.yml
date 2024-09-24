@@ -5,7 +5,7 @@ website:
   search:
     type: textbox 
   open-graph: true
-  title: "Brian Cervantes Alvarez"
+  title: "Home"
   navbar:
     right:
       - text: "About"
