@@ -1,6 +1,28 @@
 [
   {
-    "listing": "/Content/blog.html",
+    "listing": "/Content/Talks/index.html",
+    "items": [
+      "/Content/Talks/TeachingwithWebR/index.html",
+      "/Content/Talks/HowtoUseQuarto101/index.html",
+      "/Content/Talks/ParasiteSurvAnalysis/index.html",
+      "/Content/Talks/AboutMyself/index.html"
+    ]
+  },
+  {
+    "listing": "/Content/Projects/index.html",
+    "items": [
+      "/Content/Projects/Statistical Analysis Wines/index.html",
+      "/Content/Projects/US_HealthCare_Spending/index.html",
+      "/Content/Projects/Build-a-Dashboard/index.html",
+      "/Content/Projects/Predicting_Income_Bracket/index.html",
+      "/Content/Projects/Customer Return ML/index.html",
+      "/Content/Projects/PredictPinotWine_ML/index.html",
+      "/Content/Projects/PredictSeverityLevels/index.html",
+      "/Content/Projects/UKAccidentShinyApp/index.html"
+    ]
+  },
+  {
+    "listing": "/Content/Blog/index.html",
     "items": [
       "/Content/Blog/Teaching_With_WebR/index.html",
       "/Content/Blog/FraudML/index.html",
@@ -12,28 +34,6 @@
       "/Content/Blog/Pokemon_Database/index.html",
       "/Content/Blog/CollegeStudent_Debt_Tool/index.html",
       "/Content/Blog/US_HealthIns_Costs/index.html"
-    ]
-  },
-  {
-    "listing": "/Content/portfolio.html",
-    "items": [
-      "/Content/Portfolio/Statistical Analysis Wines/index.html",
-      "/Content/Portfolio/US_HealthCare_Spending/index.html",
-      "/Content/Portfolio/Build-a-Dashboard/index.html",
-      "/Content/Portfolio/Predicting_Income_Bracket/index.html",
-      "/Content/Portfolio/Customer Return ML/index.html",
-      "/Content/Portfolio/PredictPinotWine_ML/index.html",
-      "/Content/Portfolio/PredictSeverityLevels/index.html",
-      "/Content/Portfolio/UKAccidentShinyApp/index.html"
-    ]
-  },
-  {
-    "listing": "/Content/talks.html",
-    "items": [
-      "/Content/Talks/TeachingwithWebR/index.html",
-      "/Content/Talks/HowtoUseQuarto101/index.html",
-      "/Content/Talks/ParasiteSurvAnalysis/index.html",
-      "/Content/Talks/AboutMyself/index.html"
     ]
   }
 ]

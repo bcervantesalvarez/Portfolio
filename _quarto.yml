@@ -9,22 +9,22 @@ website:
   navbar:
     right:
       - text: "About"
-        href: index.qmd
-      - text: "Portfolio"
-        href: Content/portfolio.qmd
+        href: Content/About/index.qmd
+      - text: "Projects"
+        href: Content/Projects/index.qmd
       - text: "Blog"
-        href: Content/blog.qmd
+        href: Content/Blog/index.qmd
       - text: "Talks"
-        href: Content/talks.qmd
+        href: Content/Talks/index.qmd
       - text: "Resources"
-        href: Content/resources.qmd
+        href: Content/Resources/index.qmd
       
   page-footer:
     left:
       - href: https://www.quarto.org
         text: Made with quarto®
     right: 
-      - href: Content/license.qmd
+      - href: Content/License/index.qmd
         text: License
       - icon: linkedin
         href: https://www.linkedin.com/in/bcervantesalvarez/
