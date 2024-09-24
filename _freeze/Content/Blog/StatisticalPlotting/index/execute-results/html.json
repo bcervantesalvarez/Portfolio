@@ -1,0 +1,12 @@
+{
+  "hash": "3c4a96ede02205dcaaff1b0a24bee12b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Statistical Plotting\"\nauthor: \"Brian Cervantes Alvarez\"\ndate: \"08-08-2023\"\ndraft: true\nformat:\n  html:\n    smooth-scroll: true\n    toc: true\n    toc-location: right\n    html-math-method: katex\n    page-layout: article\nexecute: \n  warning: false\n  message: false\njupyter: python3\n---\n\n::: {#319cf73c .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Age range (20 to 90 years)\nage = np.linspace(20, 90, 100)\n\n# Calculate predicted physical function based on age for each treatment\ntb_effect = 48.5 - 37.2 + 0.05 * age  # Diet plus exercise\nte_effect = 48.5 - 13.9 - 0.11 * age  # Exercise only\ntd_effect = 48.5 - 8.0 - 0.21 * age   # Diet only\n\n# Plotting the results\nplt.figure(figsize=(8, 6))\nplt.plot(age, tb_effect, label=\"Diet + Exercise\", color='b', linestyle='-', linewidth=2)\nplt.plot(age, te_effect, label=\"Exercise Only\", color='g', linestyle='--', linewidth=2)\nplt.plot(age, td_effect, label=\"Diet Only\", color='r', linestyle='-.', linewidth=2)\n\n# Add labels and title\nplt.xlabel(\"Age\", fontsize=12)\nplt.ylabel(\"Predicted Physical Function (Y-hat)\", fontsize=12)\nplt.title(\"Effect of Age on Physical Function by Treatment Type\", fontsize=14)\nplt.axhline(y=48.5, color='k', linestyle=':', label=\"Baseline Function\")\nplt.legend()\nplt.grid(True)\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=662 height=528}\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

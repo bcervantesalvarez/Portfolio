@@ -1,0 +1,46 @@
+---
+title: "Statistical Plotting"
+author: "Brian Cervantes Alvarez"
+date: "08-08-2023"
+draft: true
+format:
+  html:
+    smooth-scroll: true
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+execute: 
+  warning: false
+  message: false
+jupyter: python3
+---
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Age range (20 to 90 years)
+age = np.linspace(20, 90, 100)
+
+# Calculate predicted physical function based on age for each treatment
+tb_effect = 48.5 - 37.2 + 0.05 * age  # Diet plus exercise
+te_effect = 48.5 - 13.9 - 0.11 * age  # Exercise only
+td_effect = 48.5 - 8.0 - 0.21 * age   # Diet only
+
+# Plotting the results
+plt.figure(figsize=(8, 6))
+plt.plot(age, tb_effect, label="Diet + Exercise", color='b', linestyle='-', linewidth=2)
+plt.plot(age, te_effect, label="Exercise Only", color='g', linestyle='--', linewidth=2)
+plt.plot(age, td_effect, label="Diet Only", color='r', linestyle='-.', linewidth=2)
+
+# Add labels and title
+plt.xlabel("Age", fontsize=12)
+plt.ylabel("Predicted Physical Function (Y-hat)", fontsize=12)
+plt.title("Effect of Age on Physical Function by Treatment Type", fontsize=14)
+plt.axhline(y=48.5, color='k', linestyle=':', label="Baseline Function")
+plt.legend()
+plt.grid(True)
+plt.show()
+```

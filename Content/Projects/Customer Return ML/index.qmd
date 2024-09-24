@@ -1,0 +1,248 @@
+---
+title: "Predicting Customer Returns"
+author: Brian Cervantes Alvarez
+description: "Leveraging logistic regression and random forest to advance the prediction of retail item returns with increased precision."
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+date: "3-11-2023"
+image: /Assets/Images/return.jpeg
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+execute: 
+  warning: false
+  message: false
+categories: [R, Machine Learning, Random Forest]
+---
+
+![](/Assets/Images/return.jpeg)
+
+# Project Summary
+
+## Objective
+This project aimed to predict customer return behavior using a dataset with various product and customer attributes. By employing logistic regression and Random Forest models, we sought to determine the likelihood of a customer returning a purchased item.
+
+## Methodology
+Our analysis began with loading essential libraries and datasets, followed by an exploratory data analysis (EDA) to understand the distribution of returns across different attributes like product department, size, and customer state. Key features such as season, customer age, manufacturer's suggested retail price (MSRP), and price range were engineered to enrich the dataset.
+
+We initially applied logistic regression for its suitability for binary outcomes. However, to improve our model's predictive accuracy, we transitioned to a Random Forest approach. This model yielded an AUC score of 0.625, indicating moderate predictive capability and highlighting areas for potential improvement through further feature engineering or model tuning.
+
+### Key Steps and Code Highlights
+
+1. **Preparation and EDA:**
+   - Loaded necessary R packages: `tidyverse`, `lubridate`, `caret`, and `glmnet`.
+   - Imported and glimpsed at the training and testing data.
+   - Conducted EDA to analyze returns by product department, size, and customer state.
+
+2. **Feature Engineering:**
+   - Developed a feature engineering function to create relevant variables such as `Season`, `CustomerAge`, `MSRP`, and `PriceRange`.
+   - Cleaned the dataset by transforming data types and removing irrelevant columns.
+
+3. **Modeling:**
+   - Fitted a Random Forest model with cross-validation, optimizing for the ROC metric.
+   - Predictions were made on the test dataset.
+
+4. **Final Output:**
+   - Generated a submission file containing predictions.
+
+### Improvements and Considerations
+
+- The logistic regression model served as an initial step, indicating the need for refinement.
+- The moderate AUC score from the Random Forest model suggests exploring additional feature engineering or alternative modeling techniques could enhance predictive performance.
+
+### Technical Documentation
+
+- **Data Loading and Exploration:**
+  - Essential libraries for data manipulation and modeling were loaded.
+  - Initial exploration involved visualizing returns across different attributes to identify trends.
+
+- **Feature Engineering Function:**
+  - Transformed categorical variables and engineered new features to improve model input.
+  - Simplified the dataset by excluding non-essential columns and adjusting data types.
+
+- **Random Forest Modeling:**
+  - Implemented a Random Forest model with a focus on the ROC metric for evaluation.
+  - Applied cross-validation for model training to ensure robustness.
+
+- **Prediction and Submission:**
+  - Predicted probabilities of returns on the test set.
+  - Prepared the submission file with ID and predicted probabilities.
+
+### Comments and Clarifications
+
+- **Data Cleaning and Preparation:** Made clear the purpose of data transformations and feature engineering to prepare for modeling.
+- **Model Selection and Evaluation:** Explained the choice of models and their evaluation, highlighting the transition from logistic regression to Random Forest for improved accuracy.
+- **Submission Process:** Detailed the steps for preparing the final submission, ensuring clarity on the expected output format.
+
+
+## Load the required packages
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(caret)
+library(glmnet)
+```
+
+## Load the training and test data
+
+```{r}
+train <- read_csv("../../../Assets/Datasets/customerReturnTrain.csv") 
+test <- read_csv("../../../Assets/Datasets/customerReturnTest.csv") 
+
+glimpse(train)
+```
+
+## Data Exploration
+
+```{r}
+# Look at Product Department
+train %>% 
+  filter(Returned == 1) %>%
+  ggplot(aes(x = ProductDepartment)) +
+  geom_bar(fill = "#e67838") +
+  labs(title = "Number of Returns Per Department") + 
+  theme_minimal()
+
+
+# Look at Product Size
+train %>% 
+  filter(Returned == 1) %>%
+  ggplot(aes(x = ProductSize)) +
+  geom_bar(fill = "#e67838") +
+  labs(title = "Number of Returns Per Product Size") + 
+  theme_minimal()
+
+
+#This won't be that valuable
+train %>% 
+  mutate(CustomerState = factor(CustomerState)) %>%
+  filter(Returned == 1) %>%
+  ggplot(aes(x = CustomerState)) +
+  coord_flip() +
+  geom_bar(fill = "#e67838") +
+  labs(title = "Number of Returns Per State") + 
+  theme_minimal()
+
+
+```
+
+## Feature Engineering
+
+```{r}
+# Creates the features
+buildFeatures <- function(ds){
+  CurrentDate <- Sys.Date()
+  ds %>%
+  mutate(Returned = factor(Returned, levels = c(0, 1), labels = c("No","Yes")),
+         Season = factor(case_when(months(OrderDate) %in% month.name[1:3] ~ "Winter",
+                            months(OrderDate) %in% month.name[4:6] ~ "Spring",
+                            months(OrderDate) %in% month.name[7:9] ~ "Summer",
+                            months(OrderDate) %in% month.name[10:12] ~ "Fall")), 
+         CustomerAge = year(as.period(interval(CustomerBirthDate,CurrentDate))),
+         MSRP = round(PurchasePrice / (1 - DiscountPct)),
+         PriceRange = factor(case_when(MSRP >= 13 & MSRP <= 30 ~ "$13-$30",
+                             MSRP > 30 & MSRP <= 60 ~ "$31-$60",
+                             MSRP > 60 & MSRP <= 100 ~ "$61-$100",
+                             MSRP > 100 ~ ">$100")),
+         ProductDepartment = as.factor(ProductDepartment),
+         ProductSize = as.factor(ProductSize),
+         CustomerState = as.factor(CustomerState)
+  ) %>%
+  select(-OrderDate, 
+         -CustomerBirthDate, 
+         -ID, 
+         -OrderID, 
+         -CustomerID)
+}
+
+IDCols <- test$ID
+
+#Removes and adds columns for train and test sets
+train <- buildFeatures(train)
+test <- buildFeatures(test)
+
+
+#Inspect the dataset before training the model
+glimpse(train)
+summary(train)
+table(train$Returned)
+
+```
+
+## Fit a Random Forest Model
+
+```{r}
+set.seed(345)
+
+#Model using Random Forest 
+ctrl <- trainControl(method = "cv", number = 3, classProbs = TRUE, summaryFunction = twoClassSummary)
+fit <- train(Returned ~ .,
+             data = train, 
+             method = "rf",
+             ntree = 50,
+             tuneLength = 3,
+             metric = "ROC",
+             trControl = ctrl)
+
+fit
+
+```
+
+## Make prediction on the test data
+
+```{r}
+testPredictions <- predict(fit, newdata = test, type = "prob")[,2]
+```
+
+## Writing the Submission File
+
+```{r}
+submission <- data.frame(ID = IDCols, Prediction = testPredictions)
+# write.csv(submission, "submission.csv", row.names = FALSE)
+```
+
+## Leftout Features that were considered
+
+```{r}
+
+#odds_ratio <- exp(coef(fit$finalModel))
+#data.frame(name = names(odds_ratio), odds_ratio = odds_ratio) %>%  
+#  arrange(desc(odds_ratio)) %>% 
+#  head()
+
+#Sampling
+#train_index <- createDataPartition(returns_train$Returned, times = 1, p = 0.7, list = FALSE)
+#train <- returns_train[train_index, ]
+#test <- returns_train[-train_index, ]
+
+
+#Returned = factor(Returned, levels = c(0, 1), labels = c("No","Yes"))
+#AgeGroup = factor(case_when(CustomerAge >= 18 & CustomerAge <= 30 ~ "18-30",
+#                              CustomerAge > 30 & CustomerAge <= 45 ~ "31-45",
+#                              CustomerAge > 45 & CustomerAge <= 60 ~ "46-60",
+#                              CustomerAge > 60 ~ ">61"),
+#                           levels = c("18-30", "31-45", "46-60", ">61"))
+
+
+#select(-OrderDate, 
+#         -CustomerBirthDate, 
+#         -ID, 
+#         -OrderID, 
+#         -CustomerID,
+#         -PurchasePrice,
+#         -DiscountPct,
+#         -MSRP,
+#         -ProductCost,
+#         -CustomerState)
+```
+
+## Data References
+
+```{r, echo=FALSE, eval=TRUE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```

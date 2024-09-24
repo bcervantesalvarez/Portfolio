@@ -1,0 +1,171 @@
+/* Updated CSS Styles keeping original structure */
+.center {
+    text-align: center;
+}
+
+.title-section {
+    font-size: 2.3em;
+    margin-top: -35px;
+    margin-bottom: 10px;
+}
+
+.intro-text {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.resource-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0);
+    border: transparent;
+    transition: background-color 0.5s ease;
+    position: relative;
+}
+
+.resource-item::before {
+    content: "";
+    background: #dde9f2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    transform: scaleX(0);
+}
+
+.resource-item:hover::before {
+    transform: scaleX(1);
+}
+
+.resource-img {
+    flex: 1;
+    text-align: right;
+    margin-left: -135px;
+}
+
+.resource-img img {
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    transition: border-color 0.5s ease, transform 0.3s ease; /* Adjusted for smooth transition */
+}
+
+.resource-description {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+    word-wrap: break-word;
+}
+
+.resource-description h3 {
+    font-size: 1.7em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: black;
+    transition: color 0.5s ease; /* Adjusted for smooth transition */
+}
+
+.resource-description p {
+    font-size: 1.2em;
+    color: black;
+    transition: color 0.5s ease; /* Adjusted for smooth transition */
+}
+
+.resource-item:hover img {
+    transform: scale(1.1);
+}
+
+.content-section a.resource-item,
+.content-section a.resource-item:visited,
+.content-section a.resource-item:hover,
+.content-section a.resource-item:active {
+    text-decoration: none;
+    color: black;
+}
+
+.content-section .resource-item h3 a,
+.content-section .resource-item p a,
+.content-section .resource-item h3 a:visited,
+.content-section .resource-item p a:visited,
+.content-section .resource-item h3 a:hover,
+.content-section .resource-item p a:hover,
+.content-section .resource-item h3 a:active,
+.content-section .resource-item p a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 600px) {
+    .title-section {
+        font-size: 1.5em; /* Smaller font size */
+        margin-top: 0; /* Adjust top margin */
+    }
+
+    .intro-text {
+        font-size: 0.9em; /* Smaller font size */
+    }
+
+    .resource-item {
+        flex-direction: column-reverse; /* Stack elements vertically */
+        width: 90%; /* Increase width for smaller screens */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+        background-color: rgba(255, 255, 255, 0); /* Default state background */
+    }
+
+    .resource-img {
+        margin: 0 auto; /* Center image and remove negative margin */
+        margin-top: -30px;
+        text-align: center;
+    }
+
+    .resource-img img {
+        width: 150px; /* Smaller image size */
+        height: 150px; /* Smaller image size */
+    }
+
+    .resource-description {
+        margin: 20px; /* Add more margin */
+        text-align: center; /* Center text */
+    }
+
+    .resource-description h3 {
+        font-size: 1.5em; /* Adjust heading size */
+    }
+
+    .resource-description p {
+        font-size: 1em; /* Adjust paragraph size */
+    }
+
+    /* Override PC version hover effects for mobile */
+    .resource-item:hover, .resource-item:focus {
+        background-color: rgba(255, 255, 255, 0.5); /* Lighten background on tap */
+    }
+
+    /* Ensure no hover effect from PC version is applied */
+    .resource-item:hover::before {
+        transform: scaleX(0); /* Keep the element not stretched */
+    }
+
+    .resource-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Override link color changes on hover from PC version, if necessary */
+    .content-section a.resource-item:hover,
+    .content-section .resource-item h3 a:hover,
+    .content-section .resource-item p a:hover {
+        color: inherit; /* Keep the color consistent on tap */
+    }
+}

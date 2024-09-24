@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  search:
+    type: textbox 
+  open-graph: true
+  title: "Brian Cervantes Alvarez"
+  navbar:
+    right:
+      - text: "About"
+        href: Content/About/index.qmd
+      - text: "Projects"
+        href: Content/Projects/index.qmd
+      - text: "Blog"
+        href: Content/Blog/index.qmd
+      - text: "Talks"
+        href: Content/Talks/index.qmd
+      - text: "Resources"
+        href: Content/Resources/index.qmd
+      
+  page-footer:
+    left:
+      - href: https://www.quarto.org
+        text: Made with quarto®
+    right: 
+      - href: Content/License/index.qmd
+        text: License
+      - icon: linkedin
+        href: https://www.linkedin.com/in/bcervantesalvarez/
+      - icon: github
+        href: https://github.com/bcervantesalvarez/
+      - icon: envelope-fill
+        href: mailto:briancervantesalvarez@gmail.com
+format:
+  html:
+    citations-hover: true
+    footnotes-hover: true
+    theme: Assets/Themes/MainThemeBCA.scss
+    highlight-style: github-dark
+editor: visual
+
