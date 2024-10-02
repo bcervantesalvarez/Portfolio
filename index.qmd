@@ -1,3 +1,7 @@
 ---
 title: "Home Page"
 ---
+
+### Home page coming soon!
+
+Please visit **About** page by clicking above in the navigation bar or click [here](https://bcervantesalvarez.github.io/Portfolio/Content/About/)
