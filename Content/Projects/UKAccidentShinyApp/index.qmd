@@ -17,10 +17,8 @@ This accident time series app allows you to explore and analyze data related acc
 
 Here is the link to the full page: [UKAccidentTimeSeries](https://bcervantesalvarez.shinyapps.io/UKAccidentTimeSeries/)
 
-::: {.column-screen}
+::: column-screen
+<iframe src="https://bcervantesalvarez.shinyapps.io/UKAccidentTimeSeries/" title="UKAccidentTimeSeries" width="100%" height="800">
 
-<iframe src="https://bcervantesalvarez.shinyapps.io/UKAccidentTimeSeries/" title="UKAccidentTimeSeries" width="100%" height="800"></iframe>
-
+</iframe>
 :::
-
-

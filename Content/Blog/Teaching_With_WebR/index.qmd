@@ -22,10 +22,9 @@ filters:
 - webr
 ---
 
-<div style="text-align: center; padding-top: 10px; padding-bottom: 10px;">
-  <img src="/Assets/Images/webR.png" style="height: 400px;">
-</div>
-
+::: {style="text-align: center; padding-top: 10px; padding-bottom: 10px;"}
+<img src="/Assets/Images/webR.png" style="height: 400px;"/>
+:::
 
 # The Case for `webR`
 
@@ -37,11 +36,11 @@ Integrating `webR` into your educational tools offers a robust way to elevate in
 
 ## Key Features of webR
 
-- **Cross-Platform Compatibility**: Students can run R code on any device with a web browser, ensuring a consistent learning experience.
+-   **Cross-Platform Compatibility**: Students can run R code on any device with a web browser, ensuring a consistent learning experience.
 
-- **Immediate Feedback**: webR allows for instant execution of code, enabling students to see the results of their actions right away.
+-   **Immediate Feedback**: webR allows for instant execution of code, enabling students to see the results of their actions right away.
 
-- **Interactive Visualizations**: By integrating with packages like `ggplot2`, educators can create interactive plots that students can manipulate directly in their browser.
+-   **Interactive Visualizations**: By integrating with packages like `ggplot2`, educators can create interactive plots that students can manipulate directly in their browser.
 
 ## Implementation in Data Wrangling Labs
 
@@ -59,17 +58,17 @@ countriesDs <- read_csv("countries.csv", show_col_types = FALSE)
 
 `webR` enables educators to:
 
-- **Simplify Setup**: No more lengthy instructions on installing R and its dependencies.
+-   **Simplify Setup**: No more lengthy instructions on installing R and its dependencies.
 
-- **Enhance Engagement**: Interactive content keeps students involved, making complex topics more digestible.
+-   **Enhance Engagement**: Interactive content keeps students involved, making complex topics more digestible.
 
-- **Facilitate Learning**: By allowing students to explore data manipulation and visualization in real time, webR helps solidify their understanding of essential concepts.
+-   **Facilitate Learning**: By allowing students to explore data manipulation and visualization in real time, webR helps solidify their understanding of essential concepts.
 
 ### Summary
 
 `webR` transforms how data science is taught, making R's powerful features accessible and interactive in the classroom. Whether you're teaching undergraduates new to R or advanced students refining their skills, `webR` offers a dynamic platform that enhances learning and encourages exploration.
 
----
+------------------------------------------------------------------------
 
 # Lab Demonstration
 
@@ -77,49 +76,45 @@ countriesDs <- read_csv("countries.csv", show_col_types = FALSE)
 
 Data wrangling is the process of converting messy, untidy data into a tidy format, making it suitable for data visualization and analysis.
 
-- **Data is often messy:** Real-world data is rarely provided in a tidy format.
+-   **Data is often messy:** Real-world data is rarely provided in a tidy format.
 
-- **Industry challenges:** Many industries have poorly designed data structures, requiring data preparation before visualization.
+-   **Industry challenges:** Many industries have poorly designed data structures, requiring data preparation before visualization.
 
-- **Rarely tidy datasets:** It is uncommon to receive a dataset that is already tidy.
-
+-   **Rarely tidy datasets:** It is uncommon to receive a dataset that is already tidy.
 
 ### What is Tidy Data?
 
 Tidy data is a structured format that aligns the organization of a dataset with its underlying meaning. In tidy data:
 
-- **Each variable has its own column:** Every column in the dataset corresponds to a specific variable or attribute.
+-   **Each variable has its own column:** Every column in the dataset corresponds to a specific variable or attribute.
 
-- **Each observation has its own row:** Every row captures a single observation or data entry.
+-   **Each observation has its own row:** Every row captures a single observation or data entry.
 
-- **Each cell contains a single value:** Each cell holds one distinct piece of information for a particular variable and observation.
+-   **Each cell contains a single value:** Each cell holds one distinct piece of information for a particular variable and observation.
 
 In most cases, data is often imported using SQL to create narrower datasets. While we won't cover SQL in this course, it's a valuable skill to learn in the future. For now, we'll focus on using R to manipulate and create subset datasets from larger datasets for focused analysis.
 
 ### What Causes Untidy Data?
 
-- **Incorrect/Inconsistent Dates:** Dates can be tricky because they might be formatted differently across datasets or have errors like typos or missing parts. For example, some data might use "MM/DD/YYYY" while others use "YYYY-MM-DD," leading to confusion and potential errors when analyzing time-based data.
+-   **Incorrect/Inconsistent Dates:** Dates can be tricky because they might be formatted differently across datasets or have errors like typos or missing parts. For example, some data might use "MM/DD/YYYY" while others use "YYYY-MM-DD," leading to confusion and potential errors when analyzing time-based data.
 
-- **Wide Format Times:** Time data is sometimes presented in a wide format, where each column represents a different time period. This structure can make it difficult to perform certain types of analysis, as many statistical and visualization tools prefer data in a long format, where each row represents a single observation at a specific time.
+-   **Wide Format Times:** Time data is sometimes presented in a wide format, where each column represents a different time period. This structure can make it difficult to perform certain types of analysis, as many statistical and visualization tools prefer data in a long format, where each row represents a single observation at a specific time.
 
-- **Void or Misspelled Descriptions:** Descriptions and labels are often incomplete, missing, or contain typos. These errors can make it challenging to interpret the data correctly, especially when variables are not clearly defined or are inconsistent across different parts of the dataset.
+-   **Void or Misspelled Descriptions:** Descriptions and labels are often incomplete, missing, or contain typos. These errors can make it challenging to interpret the data correctly, especially when variables are not clearly defined or are inconsistent across different parts of the dataset.
 
-- **Missing Values:** Missing data is common and can occur in any part of a dataset, leading to gaps that can skew analysis or result in errors. Handling these missing values is crucial for ensuring that any conclusions drawn from the data are accurate.
+-   **Missing Values:** Missing data is common and can occur in any part of a dataset, leading to gaps that can skew analysis or result in errors. Handling these missing values is crucial for ensuring that any conclusions drawn from the data are accurate.
 
-- **Condensed or Incorrect Headers:** Column names might be too short, unclear, or incorrectly labeled, leading to confusion about what the data actually represents. For example, a column labeled "Pop" might be ambiguous—does it refer to population, popularity, or something else?
+-   **Condensed or Incorrect Headers:** Column names might be too short, unclear, or incorrectly labeled, leading to confusion about what the data actually represents. For example, a column labeled "Pop" might be ambiguous—does it refer to population, popularity, or something else?
 
-- **Row Content Split:** Sometimes, a single column contains data that should be divided into multiple columns, such as when a "Location" column includes both city and state. This issue can make it difficult to analyze the data separately or perform operations that rely on more granular details.
-These common issues contribute to untidy data, which can complicate analysis and lead to inaccurate results. 
+-   **Row Content Split:** Sometimes, a single column contains data that should be divided into multiple columns, such as when a "Location" column includes both city and state. This issue can make it difficult to analyze the data separately or perform operations that rely on more granular details. These common issues contribute to untidy data, which can complicate analysis and lead to inaccurate results.
 
-
-Mastering data wrangling is crucial because you might have to handle datasets with millions of rows and hundreds of columns. 
-
+Mastering data wrangling is crucial because you might have to handle datasets with millions of rows and hundreds of columns.
 
 ## Getting Started
 
-First, ensure you have the necessary packages installed and loaded. We will use the `dplyr`, `lubridate`, `readr`, `ggplot2`, and `tidyr` packages for our examples. 
+First, ensure you have the necessary packages installed and loaded. We will use the `dplyr`, `lubridate`, `readr`, `ggplot2`, and `tidyr` packages for our examples.
 
-::: {.callout-important}
+::: callout-important
 ## Downloading R-packages
 
 Use `install.packages('Name of Package')` to install an R package. Careful! Package names are case sensitive, so install.packages('GGplot2') will not work, but `install.packages('ggplot2')` will.
@@ -136,14 +131,13 @@ library(lubridate)
 
 ### Download the Data
 
-::: {.callout-tip}
+::: callout-tip
 ## Running Code Block Shortcuts
 
 `Mac users`: Use ⌘ + return to run single or highlighted line(s). Use shift + return to run entire code block
 
 `Windows users`: Use ctrl + enter to run single or highlighted line(s). Use shift + enter to run entire code block
 :::
-
 
 ```{webr-r}
 #| autorun: TRUE
@@ -170,34 +164,37 @@ head(countriesDs, 5)
 ```
 
 #### Description of the Dataset
-- **`country`**: Country name from a predefined list of 10 countries.
-- **`year`**: Years between 2010 and 2023.
-- **`population`**: Real-world population size for each country and year.
-- **`gdp`**: Gross Domestic Product (GDP) in USD millions for each country and year.
-- **`gdp_per_capita`**: GDP per capita, calculated as GDP divided by population.
-- **`life_expectancy`**: Life expectancy of citzens
-- **`birth_rate`**: Birth rate for each country and year
-- **`temperature`**: Average temperature in celsius per country
-- **`region`**: Geographical region corresponding to each country.
-- **`category`**: Classification of the country as "First World," "Second World," or "Third World."
+
+-   **`country`**: Country name from a predefined list of 10 countries.
+-   **`year`**: Years between 2010 and 2023.
+-   **`population`**: Real-world population size for each country and year.
+-   **`gdp`**: Gross Domestic Product (GDP) in USD millions for each country and year.
+-   **`gdp_per_capita`**: GDP per capita, calculated as GDP divided by population.
+-   **`life_expectancy`**: Life expectancy of citzens
+-   **`birth_rate`**: Birth rate for each country and year
+-   **`temperature`**: Average temperature in celsius per country
+-   **`region`**: Geographical region corresponding to each country.
+-   **`category`**: Classification of the country as "First World," "Second World," or "Third World."
 
 ## Tidy Data Wrangling
 
 **Important Concepts**
 
-- `Filtering`: Filter data based on conditions such as year, country, or region.
-- `Selecting`: Select specific columns for focused analysis.
-- `Mutating`: Create new columns, such as cases per 100,000 population.
-- `Summarizing`: Aggregate data by country, year, or region to find totals and averages.
+-   `Filtering`: Filter data based on conditions such as year, country, or region.
+-   `Selecting`: Select specific columns for focused analysis.
+-   `Mutating`: Create new columns, such as cases per 100,000 population.
+-   `Summarizing`: Aggregate data by country, year, or region to find totals and averages.
 
 ### Filtering
 
 Filtering is essential for narrowing down datasets to the most relevant information, making patterns easier to identify.
 
 #### Example 1
+
 You are tasked with visualizing trends in life expectancy in Asian countries between 2010 and 2020.
 
 ##### Filtering Process
+
 ```{webr-r}
 filteredData <- countriesDs %>%
   filter(year >= 2010 & year <= 2020 & region == "Asia")
@@ -206,6 +203,7 @@ head(filteredData, 5)
 ```
 
 ##### Visualization
+
 ```{webr-r}
 ggplot(filteredData, aes(x = factor(year), y = life_expectancy, color = country)) +
   geom_point(size = 2) +
@@ -219,9 +217,11 @@ ggplot(filteredData, aes(x = factor(year), y = life_expectancy, color = country)
 By focusing on specific countries and years, filtering allows for more targeted and relevant visualizations, making it easier to analyze trends and patterns specific to the context.
 
 #### Example 2
-Analyze the relationship between GDP per capita and life expectancy in European countries with a GDP per capita above $30,000 for the years 2015-2020.
+
+Analyze the relationship between GDP per capita and life expectancy in European countries with a GDP per capita above \$30,000 for the years 2015-2020.
 
 ##### Filtering Process
+
 ```{webr-r}
 filteredData <- countriesDs %>%
   filter(year >= 2015 & year <= 2020 & region == "Europe" & gdp_per_capita > 30000) 
@@ -229,6 +229,7 @@ head(filteredData, 5)
 ```
 
 ##### Visualization
+
 ```{webr-r}
 ggplot(filteredData, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
   geom_point(size = 2) +
@@ -243,25 +244,22 @@ ggplot(filteredData, aes(x = gdp_per_capita, y = life_expectancy, color = countr
 Filtering based on economic indicators allows for focused analysis on the relationship between wealth and life expectancy, removing noise from countries with different economic conditions.
 
 #### Filtering Challenges
-1. **Population Size in Africa**:
-   - **Filter**: Only countries from Africa where the population exceeds 50 million.
-   - **Purpose**: Isolate data for large African nations to analyze trends specific to highly populated areas.
 
-2. **Economic Data in Europe**:
-   - **Filter**: Show data only for the years 2015-2020 for European countries with GDP per capita above $30,000.
-   - **Purpose**: Focus on wealthy European countries during a specific period to study economic outcomes.
-
-3. **High Birth Rates in Asia**:
-   - **Filter**: Data for Asian countries where the birth rate is above 2.5.
-   - **Purpose**: Analyze regions with high birth rates, possibly indicating population growth trends.
-
-4. **Cold Regions in Asia**:
-   - **Filter**: Asian countries where the average temperature is below 10°C between 2010 and 2020.
-   - **Purpose**: Focus on colder regions in Asia to study how temperature may correlate with other demographic factors.
-
-5. **GDP Data with Missing Values**:
-   - **Filter**: Remove any entries with missing `gdp_per_capita` values for the years 2010-2020.
-   - **Purpose**: Ensure clean data for economic analysis, removing incomplete records that could skew results.
+1.  **Population Size in Africa**:
+    -   **Filter**: Only countries from Africa where the population exceeds 50 million.
+    -   **Purpose**: Isolate data for large African nations to analyze trends specific to highly populated areas.
+2.  **Economic Data in Europe**:
+    -   **Filter**: Show data only for the years 2015-2020 for European countries with GDP per capita above \$30,000.
+    -   **Purpose**: Focus on wealthy European countries during a specific period to study economic outcomes.
+3.  **High Birth Rates in Asia**:
+    -   **Filter**: Data for Asian countries where the birth rate is above 2.5.
+    -   **Purpose**: Analyze regions with high birth rates, possibly indicating population growth trends.
+4.  **Cold Regions in Asia**:
+    -   **Filter**: Asian countries where the average temperature is below 10°C between 2010 and 2020.
+    -   **Purpose**: Focus on colder regions in Asia to study how temperature may correlate with other demographic factors.
+5.  **GDP Data with Missing Values**:
+    -   **Filter**: Remove any entries with missing `gdp_per_capita` values for the years 2010-2020.
+    -   **Purpose**: Ensure clean data for economic analysis, removing incomplete records that could skew results.
 
 ### Selecting
 
@@ -276,6 +274,7 @@ head(selectedData, 5)
 ```
 
 ##### Visualization
+
 ```{webr-r}
 ggplot(selectedData, aes(x = factor(year), y = gdp_per_capita, fill = country)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -285,11 +284,12 @@ ggplot(selectedData, aes(x = factor(year), y = gdp_per_capita, fill = country)) 
 ```
 
 #### Selecting Challenges
-1. **Select columns** related to economic indicators (e.g., `country`, `gdp_per_capita`, `population`) for further analysis.
-2. **Create a dataset** with only the `year`, `life_expectancy`, and `temperature` columns for all countries and show the first 5 rows.
-3. **Choose columns** that exclude any geographical information and check the first 10 rows.
-4. **Select and rename** the `country` and `population` columns to `nation` and `pop_size`, respectively.
-5. **Create a new dataset** with only the `year`, `population`, and a newly created column, `population_in_millions` (which should be calculated as `population / 1e6`).
+
+1.  **Select columns** related to economic indicators (e.g., `country`, `gdp_per_capita`, `population`) for further analysis.
+2.  **Create a dataset** with only the `year`, `life_expectancy`, and `temperature` columns for all countries and show the first 5 rows.
+3.  **Choose columns** that exclude any geographical information and check the first 10 rows.
+4.  **Select and rename** the `country` and `population` columns to `nation` and `pop_size`, respectively.
+5.  **Create a new dataset** with only the `year`, `population`, and a newly created column, `population_in_millions` (which should be calculated as `population / 1e6`).
 
 ### Mutating
 
@@ -305,6 +305,7 @@ head(mutatedData, 5)
 ```
 
 ##### Visualization
+
 ```{webr-r}
 ggplot(mutatedData, aes(x = population, y = gdp_total, color = region)) +
   geom_point(size = 2) +
@@ -314,11 +315,12 @@ ggplot(mutatedData, aes(x = population, y = gdp_total, color = region)) +
 ```
 
 #### Mutating Challenges
-1. **Create a new column** called `gdp_total` that multiplies `gdp_per_capita` by `population`.
-2. **Add a new column** that indicates whether a country's GDP per capita is above or below a certain threshold (e.g., $20,000).
-3. **Mutate the `temperature` column** to create a new column, `temperature_f`, that converts Celsius to Fahrenheit.
-4. **Create a `population_density` column** by dividing `population` by a given area (assuming you have area data).
-5. **Generate a column** that calculates the ratio of birth rate to life expectancy for each country.
+
+1.  **Create a new column** called `gdp_total` that multiplies `gdp_per_capita` by `population`.
+2.  **Add a new column** that indicates whether a country's GDP per capita is above or below a certain threshold (e.g., \$20,000).
+3.  **Mutate the `temperature` column** to create a new column, `temperature_f`, that converts Celsius to Fahrenheit.
+4.  **Create a `population_density` column** by dividing `population` by a given area (assuming you have area data).
+5.  **Generate a column** that calculates the ratio of birth rate to life expectancy for each country.
 
 ### Summarizing
 
@@ -348,17 +350,15 @@ ggplot(summaryData, aes(x = total_population, y = avg_life_expectancy, label = c
   theme_minimal()
 ```
 
-
 #### Summarizing Challenges
-1. **Summarize the dataset** by finding the average temperature for each region.
-2. **Aggregate the data** to find the total population and average life expectancy for each continent.
-3. **Group the data** by country and summarize to find the maximum and minimum GDP per capita for each country.
-4. **Summarize by year** to find the total population and average birth rate each year.
-5. **Create a summary** that calculates the total population and average GDP per capita for countries classified as "First World."
 
+1.  **Summarize the dataset** by finding the average temperature for each region.
+2.  **Aggregate the data** to find the total population and average life expectancy for each continent.
+3.  **Group the data** by country and summarize to find the maximum and minimum GDP per capita for each country.
+4.  **Summarize by year** to find the total population and average birth rate each year.
+5.  **Create a summary** that calculates the total population and average GDP per capita for countries classified as "First World."
 
 ## Untidy Data Wrangling
-
 
 ### Handling Wide vs. Long Formats
 
@@ -481,68 +481,74 @@ head(countriesDs, 5)
 ```
 
 ##### What did we do here?
-- **`paste0(year, "-01-01")`**: Combines the year with the string "-01-01" to create a date string like "2010-01-01".
-- **`ymd()`**: Converts the resulting string into a date object in the "Year-Month-Day" format.
+
+-   **`paste0(year, "-01-01")`**: Combines the year with the string "-01-01" to create a date string like "2010-01-01".
+-   **`ymd()`**: Converts the resulting string into a date object in the "Year-Month-Day" format.
 
 This creates a new column, `year_date`, which is now in the proper date format.
 
-#### Challenges [Solutions]
+#### Challenges \[Solutions\]
 
-1. **Convert year to end of year date**:
-   - **Task**: Convert the `year` column to a date format, but set it as December 31st of that year.
-   - **Purpose**: Useful for representing data that summarizes annual results.
+1.  **Convert year to end of year date**:
 
-   ```{webr-r}
-   countriesDs <- countriesDs %>%
-     mutate(year_end_date = ymd(paste0(year, "-12-31")))
+    -   **Task**: Convert the `year` column to a date format, but set it as December 31st of that year.
+    -   **Purpose**: Useful for representing data that summarizes annual results.
 
-   head(countriesDs, 5)
-   ```
+    ```{webr-r}
+    countriesDs <- countriesDs %>%
+      mutate(year_end_date = ymd(paste0(year, "-12-31")))
 
-2. **Create a quarterly date**:
-   - **Task**: Convert the `year` column into a date representing the first quarter (e.g., "2010-03-31").
-   - **Purpose**: Useful for quarterly analysis.
+    head(countriesDs, 5)
+    ```
 
-   ```{webr-r}
-   countriesDs <- countriesDs %>%
-     mutate(quarter_date = ymd(paste0(year, "-03-31")))
+2.  **Create a quarterly date**:
 
-   head(countriesDs, 5)
-   ```
+    -   **Task**: Convert the `year` column into a date representing the first quarter (e.g., "2010-03-31").
+    -   **Purpose**: Useful for quarterly analysis.
 
-3. **Mid-year date conversion**:
-   - **Task**: Convert the `year` column to a date format, setting it as June 30th of each year.
-   - **Purpose**: Represents mid-year data points.
+    ```{webr-r}
+    countriesDs <- countriesDs %>%
+      mutate(quarter_date = ymd(paste0(year, "-03-31")))
 
-   ```{webr-r}
-   countriesDs <- countriesDs %>%
-     mutate(mid_year_date = ymd(paste0(year, "-06-30")))
+    head(countriesDs, 5)
+    ```
 
-   head(countriesDs, 5)
-   ```
+3.  **Mid-year date conversion**:
 
-4. **Use year as a dynamic time period**:
-   - **Task**: Convert the `year` column to represent the last day of a chosen month (e.g., November).
-   - **Purpose**: Allows for flexibility depending on the analysis context.
+    -   **Task**: Convert the `year` column to a date format, setting it as June 30th of each year.
+    -   **Purpose**: Represents mid-year data points.
 
-   ```{webr-r}
-   chosen_month <- "11"
-   countriesDs <- countriesDs %>%
-     mutate(chosen_month_date = ymd(paste0(year, "-", chosen_month, "-30")))
+    ```{webr-r}
+    countriesDs <- countriesDs %>%
+      mutate(mid_year_date = ymd(paste0(year, "-06-30")))
 
-   head(countriesDs, 5)
-   ```
+    head(countriesDs, 5)
+    ```
 
-5. **Convert year to fiscal year start date**:
-   - **Task**: Convert the `year` column into a date representing the start of the fiscal year (e.g., April 1st).
-   - **Purpose**: Useful for financial and budgetary analyses.
+4.  **Use year as a dynamic time period**:
 
-   ```{webr-r}
-   countriesDs <- countriesDs %>%
-     mutate(fiscal_year_start = ymd(paste0(year, "-04-01")))
+    -   **Task**: Convert the `year` column to represent the last day of a chosen month (e.g., November).
+    -   **Purpose**: Allows for flexibility depending on the analysis context.
 
-   head(countriesDs, 5)
-   ```
+    ```{webr-r}
+    chosen_month <- "11"
+    countriesDs <- countriesDs %>%
+      mutate(chosen_month_date = ymd(paste0(year, "-", chosen_month, "-30")))
+
+    head(countriesDs, 5)
+    ```
+
+5.  **Convert year to fiscal year start date**:
+
+    -   **Task**: Convert the `year` column into a date representing the start of the fiscal year (e.g., April 1st).
+    -   **Purpose**: Useful for financial and budgetary analyses.
+
+    ```{webr-r}
+    countriesDs <- countriesDs %>%
+      mutate(fiscal_year_start = ymd(paste0(year, "-04-01")))
+
+    head(countriesDs, 5)
+    ```
 
 ```{webr-r}
 ggplot(countriesDs, aes(x = year_date, y = population, color = country)) +
@@ -552,21 +558,20 @@ ggplot(countriesDs, aes(x = year_date, y = population, color = country)) +
   theme_minimal()
 ```
 
-
 ### Handling Missing Data
 
 Dealing with missing data is a crucial aspect of data wrangling. Missing data can occur for various reasons, and understanding the nature of these missing values is essential for appropriate handling.
 
 #### Types of Missing Data
 
-- **MCAR (Missing Completely at Random)**: Data is missing entirely at random, with no relationship between the missing data and any other observed or unobserved data. The analysis remains unbiased if this missing data is ignored.
+-   **MCAR (Missing Completely at Random)**: Data is missing entirely at random, with no relationship between the missing data and any other observed or unobserved data. The analysis remains unbiased if this missing data is ignored.
 
-- **MAR (Missing at Random)**: The likelihood of missing data on a variable is related to other observed variables but not to the value of the variable itself
-.
-- **MNAR (Missing Not at Random)**: The missingness is related to the unobserved data itself, meaning the missing values are related to the actual value that is missing.
+-   **MAR (Missing at Random)**: The likelihood of missing data on a variable is related to other observed variables but not to the value of the variable itself .
 
+-   **MNAR (Missing Not at Random)**: The missingness is related to the unobserved data itself, meaning the missing values are related to the actual value that is missing.
 
 #### Simulating MAR Data
+
 We'll create a scenario where `gdp_per_capita` is more likely to be missing if the population is below a certain threshold, making it "missing at random" based on population size.
 
 ```{webr-r}
@@ -581,6 +586,7 @@ summary(mar_data$gdp_per_capita)  # Provides a summary of the column, including 
 ```
 
 #### Simulating MNAR Data
+
 We'll simulate a scenario where the likelihood of `life_expectancy` being missing is higher if life expectancy is lower than 60 years, making it "missing not at random."
 
 ```{webr-r}
@@ -594,13 +600,14 @@ mnar_data <- countriesDs %>%
 summary(mnar_data$life_expectancy)
 ```
 
-#### Missing Data | Before Wrangling
+#### Missing Data \| Before Wrangling
 
 ##### Before Handling Missing Data
 
 Let's visualize the data before handling missing values, focusing on the relationship between GDP per capita and life expectancy.
 
 ##### Visualization with MAR Data
+
 ```{webr-r}
 ggplot(mar_data, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
   geom_point(size = 2, alpha = 0.6) +
@@ -610,6 +617,7 @@ ggplot(mar_data, aes(x = gdp_per_capita, y = life_expectancy, color = country)) 
 ```
 
 ##### Visualization with MNAR Data
+
 ```{webr-r}
 ggplot(mnar_data, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
   geom_point(size = 2, alpha = 0.6) +
@@ -618,11 +626,12 @@ ggplot(mnar_data, aes(x = gdp_per_capita, y = life_expectancy, color = country))
   theme_minimal()
 ```
 
-#### Missing Data | How to Wrangle
+#### Missing Data \| How to Wrangle
 
 To handle the missing data, we'll apply a simple imputation strategy, filling in missing values with the median of the respective variable.
 
 ##### Imputing Missing Values for MAR Data
+
 ```{webr-r}
 mar_data_imputed <- mar_data %>%
   mutate(
@@ -632,11 +641,12 @@ mar_data_imputed <- mar_data %>%
 summary(mar_data_imputed$gdp_per_capita)
 ```
 
-#### Missing Data | After Wrangling
+#### Missing Data \| After Wrangling
 
 Let's visualize the data again after imputing the missing values.
 
 ##### Visualization with MAR Data (Imputed)
+
 ```{webr-r}
 ggplot(mar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
   geom_point(size = 2, alpha = 0.6) +
@@ -646,6 +656,7 @@ ggplot(mar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = co
 ```
 
 ##### Imputing Missing Values for MNAR Data
+
 ```{webr-r}
 mnar_data_imputed <- mnar_data %>%
   mutate(
@@ -656,6 +667,7 @@ summary(mnar_data_imputed$life_expectancy)
 ```
 
 ##### Visualization with MNAR Data (Imputed)
+
 ```{webr-r}
 ggplot(mnar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = country)) +
   geom_point(size = 2, alpha = 0.6) +
@@ -667,7 +679,6 @@ ggplot(mnar_data_imputed, aes(x = gdp_per_capita, y = life_expectancy, color = c
 #### Summary
 
 Understanding the different types of missing data—MCAR, MAR, and MNAR—is crucial for choosing the right approach to handle them. We explored how to simulate and visualize MAR and MNAR scenarios in our dataset, highlighting the importance of addressing missing data for accurate analysis. By comparing visualizations before and after imputation, students can grasp the significant impact missing data can have on their results and learn effective strategies to mitigate these issues.
-
 
 ## Creating a Pseudo-Publication Ready Visualization
 
@@ -745,14 +756,14 @@ ggplot(summaryData, aes(
 
 **Why is this visualization nearly publication-ready?**: In 2-3 sentences, discuss what makes the plot polished and professional, highlighting any elements that could make it suitable for publication.
 
----
+------------------------------------------------------------------------
 
 # WebR in Pure Browser Form
 
 As the package gets support from the community, students could run their entire r scripts on the browser. Of course, learning how to use the IDE is still important.
 
-::: {.column-screen}
+::: column-screen
+<iframe src="https://webr.r-wasm.org/latest/" width="100%" height="700" allowfullscreen>
 
-<iframe src="https://webr.r-wasm.org/latest/" width="100%" height="700" allowfullscreen></iframe>
-
+</iframe>
 :::

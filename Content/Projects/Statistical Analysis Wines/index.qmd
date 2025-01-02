@@ -30,7 +30,6 @@ categories:
 
 I conducted an exploratory data analysis in comparing means for the 11 chemical attributes in the red and white wines. Notably, 'totalSulfurDioxide' showed significant mean differences, followed by 'freeSulfurDioxide' and 'residualSugar.' These attributes currently stand out showing a clear difference between the means of white and red wines.
 
-
 ## Perform MANOVA to determine if there are a significant difference in mean vectors between red and white wines with a 95% confidence level.
 
 \begin{align*}
@@ -52,17 +51,15 @@ I performed a train-test split to ensure the models can handle new, unseen data.
 
 For my models, I've selected Random Forest, Support Vector Machine, and Logistic Regression as promising candidates for effective classification. Logistic Regression is particularly beneficial in binary classification scenarios due to its simplicity and interpretability. Meanwhile, Random Forest excels in capturing complex relationships through ensemble learning, and Support Vector Machine demonstrates proficiency in handling both linear and non-linear patterns. As the results will show later, Random Forest performed the best followed by SVM. Note, the models were not tuned to use their best hyperparameters.
 
-
 ### Metrics & Variable Importance
 
 The confusion matrix for the red and white wine classification using the Random Forest model shows strong performance. The model correctly identified $474$ red wines and $1464$ white wines, with only $5$ red wines and $5$ white wines misclassified. This indicates high accuracy in both precision and recall. In comparison to the Support Vector Machine (SVM) and Logistic Regression models, the Random Forest performed better by minimizing misclassifications. The SVM model had slightly more misclassified instances ($13$ in total), while the Logistic Regression model had $17$ misclassifications. The Random Forest's performance makes it a better choice for this classifying red and white wines compared to SVM and Logistic Regression.
-
 
 The variable importance analysis shows that "chlorides," with a significance of $100%$, is the most crucial feature for distinguishing red and white wines. Additionally, "totalSulfurDioxide" $(96.92%)$ and "volatileAcidity" $(43.47%)$ also played key roles, contributing to the model's clear performance in wine classification.
 
 ### Classifying a New Red Wine Drawn From The Same Population
 
-To estimate the probability of correctly classifying a new red wine drawn from the same population, we can use the concept of recall. 
+To estimate the probability of correctly classifying a new red wine drawn from the same population, we can use the concept of recall.
 
 In our confusion matrix:
 
@@ -72,7 +69,7 @@ To find the probability:
 
 $$ \text{Recall (for red wine)} = \frac{474}{474 + 5} = \frac{474}{479}  = 0.9896$$
 
-So, the estimated probability of correctly classifying a new red wine, drawn from the same population, is approximately  $\frac{474}{479}$, or roughly $98.96\%$. This suggests a very high probability of correctly identifying red wines based on the model's current performance.
+So, the estimated probability of correctly classifying a new red wine, drawn from the same population, is approximately $\frac{474}{479}$, or roughly $98.96\%$. This suggests a very high probability of correctly identifying red wines based on the model's current performance.
 
 ## K-Means Clustering
 
@@ -91,8 +88,7 @@ I chose k-means clustering with Euclidean distance for its efficiency with stand
 
 In the first analysis, we looked at the Original Quality Scores, and the results were highly significant. The p-value was super close to zero, less than $2.2 x 10^{-16}$. This means there are big differences in the average chemical properties for different quality scores. Therefore, the mean vectors for each quality level varied, providing strong support for rejecting the null hypothesis.
 
-
-### MANOVA for Quality Groups [Low, Medium, High]
+### MANOVA for Quality Groups \[Low, Medium, High\]
 
 \begin{align*}
 &H_0: \mu_{\text{Low}} = \mu_{\text{Medium}} = \mu_{\text{High}} \\
@@ -104,7 +100,6 @@ In the second analysis, we focused on Quality Groups (Low, Medium, High), and th
 ### Overall MANOVA Test Conclusion
 
 To summarize, our MANOVA tests reveal significant differences in average values for both original quality scores and quality groups. For original scores, statistics like Pillai's trace and Wilks' lambda had extremely low p-values $p < 2.2 x 10^{-16}$. Quality groups exhibited similar results.
-
 
 ## Perform Classification on Quality for Red Wines
 
@@ -128,22 +123,17 @@ PC2 can be labeled as "Fermentation Characteristics." Additionally, red wines wi
 
 In the confusion matrix, it's evident that the model struggled to accurately predict certain classes, particularly in categories 3, 4, and 7, where the predicted values differ from the actual values. To add, random forest model achieved an accuracy of 58.07% which is quite below the previous models. Despite its limitations, the model demonstrated some success in capturing patterns related to "Wine Body" and "Fermentation Characteristics." And it's with just 2 variables with linear combinations.
 
-
 ### Random Forest Model with 11 PCAs
 
 The random forest model attained an accuracy of 68.13%. Plus, it excelled in predicting class 5 but faced challenges in classes 3, 4, 6, and 7. Principal Component Analysis (PCA) highlights PC2 as the most influential (100%), followed by PC3 (80.49%), PC5 (32.47%), and others. This suggests a need for further analysis to enhance predictions in specific classes and leverage insights from key Principal Components for optimization.
-
 
 ### Comparison between Random Forest Models (normal, 2PCs, 11PCs)
 
 In comparing the Random Forest models, both the normal model and the 11 PCs model achieve an accuracy of approximately 68%, surpassing the 2 PCs model, which attains an accuracy of 58.07%. It's noteworthy that the 2 PCs model demonstrates the potency of PCA, albeit with a trade-off in interpretability. Despite the challenges encountered, each model variant provides valuable insights for optimizing the predictive power. The room for improvement is wide open. Factors such as hyperparameter tuning, other models that were not explored, feature engineering, and delving further into factor analysis are instances that could be used to maximize performance.
 
-
-
 {{< pagebreak >}}
 
 # Appendix
-
 
 # Goal 1: Distinguish White Wines From Red Wines
 
@@ -206,7 +196,6 @@ glimpse(wineDs)
 sum(is.na(wineDs))
 
 ```
-
 
 ## Perform EDA on Red & White Wine Means:
 
@@ -383,9 +372,7 @@ varImp(rfModel)
 
 ### Classifying a New Red Wine Drawn From The Same Population
 
-
 ## Clustering:
-
 
 ```{r}
 set.seed(123)
@@ -411,7 +398,6 @@ fviz_cluster(km.final, data = ds,
 
 ### MANOVA for Quality Levels 3, 4, 5, 6, 7, 8
 
-
 ```{r}
 redWineDs <- wine %>%
   filter(wineType == "red") %>%
@@ -430,7 +416,7 @@ manaovaTest <- manova(colVars ~ quality, data = redWineDs)
 summary(manaovaTest)
 ```
 
-### MANOVA for Quality Groups [Low, Medium, High]
+### MANOVA for Quality Groups \[Low, Medium, High\]
 
 ```{r}
 # Adding qualityGroup
@@ -590,7 +576,6 @@ prc2 <- prc2 %>%
 prc2
 ```
 
-
 ### Part 2
 
 ```{r}
@@ -647,7 +632,6 @@ rfConfMatrix$table
 varImp(rfModel)
 ```
 
-
 ```{r}
 set.seed(2013)
 splitIndex <- createDataPartition(prc2$Quality, p = 0.7, list = FALSE)
@@ -699,7 +683,6 @@ rfConfMatrix
 # Variable Importance
 varImp(rfModel)
 ```
-
 
 ## Repeat for Grouped Quality Setting (Low, Medium, High)
 
@@ -783,43 +766,3 @@ plotCM(svmConfMatrix, "SVM")
 ```{r}
 plot(varImp(rfModel))
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

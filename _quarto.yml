@@ -23,6 +23,8 @@ website:
     left:
       - href: https://www.quarto.org
         text: Made with quarto®
+      - href: https://chatgpt.com/
+        text: Built with ChatGPT®
     right: 
       - href: Content/License/index.qmd
         text: License

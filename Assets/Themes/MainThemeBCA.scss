@@ -341,6 +341,11 @@ nav a:hover, nav a.active {
   margin-right: 2rem;
 }
 
+.nav-footer-left .footer-items .nav-link, .nav-footer-center .footer-items .nav-link, .nav-footer-right .footer-items .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 // Sidebar Table of Content
 .sidebar nav[role="doc-toc"] {
   position: sticky;
@@ -376,7 +381,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-weight: 200;
+  font-weight: 100 !important;
   font-family: "DM Sans", sans-serif;
   background-color: $background-color;
   font-size: $body-font-size;
@@ -394,8 +399,15 @@ body {
 
 p {
   margin-bottom: 25px; /* Adjusts the bottom margin between paragraphs */
-  line-height: 1.8rem;
-  font-size: 1rem;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+li {
+  margin-bottom: 10px; /* Adjusts the bottom margin between paragraphs */
+  line-height: 2rem;
+  font-size: 1.1rem;
   font-weight: 200;
 }
 
@@ -457,212 +469,264 @@ header#title-block-header {
 }
 
 
-// ----------- FOR ABOUT PAGE ------------
+/* -------------------------------------------------------------
+   FOR ABOUT PAGE
+   ------------------------------------------------------------- */
 
+/* The element containing your profile image */
 .about-entity {
-  width: 100% !important; /* Ensures it spans the full width of its container */
-  height: auto; /* Adjusts the height as needed */
-  background-size: 125% !important; /* Ensures that the background image covers the div completely */
-  background-position: center; /* Centers the background image */
+  /* Circle shape */
+  width: 600px !important;
+  height: 600px !important;
+  border-radius: 5%;
+
+  /* Sticky positioning on desktop */
+  position: sticky;
+  top: 150px;
+
+  /* Background image styling */
+  background-size: cover !important; 
+  background-position: center !important;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   overflow: hidden;
-  border-radius: 10px; /* Optional: Rounded corners for a refined look */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+
+  /* Floats to the right on larger screens */
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
+/* Shining effect overlay (optional) */
 .about-entity::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -250%; /* Start well off-screen */
+  left: -250%; /* Start off-screen */
   width: 50%;
   height: 100%;
-  background: linear-gradient(160deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transform: skewX(-50deg); /* Creates the diagonal shine effect */
+  background: linear-gradient(
+    160deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-50deg);
 }
 
+/* Add .shining class to enable the infinite shining effect */
 .about-entity.shining::before {
-  animation: shine 1.5s ease-in-out infinite; /* Infinite shining effect */
+  animation: shine 1.5s ease-in-out infinite;
 }
 
 @keyframes shine {
-  0% {
-    left: -250%;
-  }
-  100% {
-    left: 250%;
-  }
+  0%   { left: -250%; }
+  100% { left:  250%; }
 }
 
-
+/* Adjusts title margins in .about-contents */
 .about-contents .quarto-title {
-  margin-top: 50px; /* Adds space above the .quarto-title block */
+  margin-top: 50px;
   margin-bottom: -20px;
 }
 
-
-/* Targeting h3 headers within .about-contents */
+/* Targeting and hover effect for h3 within .about-contents */
 .about-contents h3 {
   position: relative;
   display: inline-block;
 }
 
-
-/* Hover effect for h3 headers */
+/* The highlight background on hover */
 .about-contents h3::before {
-  content: " ";
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   bottom: 0;
-  background:  rgb(219, 228, 237);
+  background: rgb(219, 228, 237);
   z-index: -1;
   transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
 }
 
 .about-contents h3:hover::before {
-  transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* -----------------------------------
+   CARDED SECTIONS (LEVEL3)
+   Each .level3 becomes a "card"
+----------------------------------- */
+.about-contents .level3 {
+  /* Card-like appearance */
+  background-color: #ffffff; 
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; /* Required for the H3 pseudo-elements */
+  overflow: hidden;   /* Ensures child elements don’t spill beyond corners */
 }
 
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Hover effect: subtle “lift” */
+.about-contents .level3:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.about-contents {
-  .level3 {
-    position: relative;
-    // Apply hover effects to h3 when the section is hovered
-    &:hover h3 {
-      color: #fff; // Change text color to white on hover
-      &:before {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-      &:after {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-    }
-
-    h3 {
-      position: relative;
-      display: inline-block; // Adjusted to inline-block for proper effect
-      text-transform: uppercase;
-      margin: 10px 0;
-      padding: 5px 5px;
-      text-decoration: none;
-      color: #262626; // Initial color
-      font-family: sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      transition: color .5s, transform .3s; // Transition for color and transform
-      z-index: 1;
-      cursor: pointer; // To indicate hover effect
-      
-      &:before, &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transition: transform .3s, opacity .3s; // Smooth transition for transform and opacity
-        z-index: -1;
-        border-radius: 5px; // Rounded corners for the effect
-      }
-
-      &:before {
-        top: 0;
-        left: 0;
-        border-top: 2px solid #262626;
-        border-bottom: 2px solid #262626;
-        transform: scaleY(2);
-        opacity: 0;
-      }
-
-      &:after {
-        top: 2px;
-        left: 0;
-        background-color: #262626;
-        transform: scale(0);
-        opacity: 0;
-      }
-    }
-  }
+/* -----------------------------------
+   H3 HEADING INSIDE THE CARD
+   WITH HIGHLIGHTING EFFECT
+----------------------------------- */
+.about-contents .level3 h3 {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 10px 0;
+  padding: 5px 5px;
+  text-decoration: none;
+  color: #262626; 
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  transition: color 0.5s;
+  z-index: 1;
+  cursor: pointer;
 }
 
-.about-links {
-  .about-link {
-    // Apply a larger padding around the icons for better visibility
-    padding: 100px;
-    
-    // Targets the icons inside the links
-    i {
-      font-size: 25px; // Adjust the icon size as needed
-      display: inline-block; // Ensures transform applies correctly
-      transition: transform 0.3s ease; // Smooth transition for the transform
-    }
-
-    // Adjusts the size of the text next to the icons
-    .about-link-text {
-      font-size: 16px; // Adjust text size as needed
-    }
-
-    // Apply the hover effect to the icon when the parent link is hovered
-    &:hover i {
-      transform: scale(1.2); // Scales up the icon
-    }
-  }
+/*
+   Two pseudo-elements for the “highlight”
+   effect: border lines + dark background
+*/
+.about-contents .level3 h3::before,
+.about-contents .level3 h3::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s, opacity 0.3s;
+  z-index: -1;
+  border-radius: 5px;
 }
 
-/* Original CSS for PC/Mac remains unchanged */
+/* 
+   The top & bottom borders
+   (initially “hidden”: scaleY(2) with 0 opacity)
+*/
+.about-contents .level3 h3::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #262626;
+  border-bottom: 2px solid #262626;
+  transform: scaleY(2);
+  opacity: 0;
+}
 
-/* Media query for mobile devices */
+/* 
+   The dark fill behind the heading 
+   (initially scale(0) with 0 opacity)
+*/
+.about-contents .level3 h3::after {
+  top: 2px;
+  left: 0;
+  background-color: #262626;
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* 
+   Hovering over the entire section 
+   => heading highlights
+*/
+.about-contents .level3:hover h3 {
+  color: #ffffff; /* text goes white */
+}
+
+/* 
+   Also reveal the pseudo-elements
+   (the highlight “stripe” and borders)
+*/
+.about-contents .level3:hover h3::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+.about-contents .level3:hover h3::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------
+   ABOUT LINKS
+   ------------------------------------------------------------- */
+
+.about-links .about-link {
+  padding: 100px; /* Larger padding around icons for visibility */
+}
+
+.about-links .about-link i {
+  font-size: 25px;
+  display: inline-block; 
+  transition: transform 0.3s ease;
+}
+
+.about-links .about-link .about-link-text {
+  font-size: 16px; 
+}
+
+/* Hover effect on icon */
+.about-links .about-link:hover i {
+  transform: scale(1.2);
+}
+
+/* -------------------------------------------------------------
+   MEDIA QUERIES FOR MOBILE
+   ------------------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Adjust .about-entity for mobile */
-  div.about-entity {
-    margin-top: 20px !important;
-    margin-bottom: 0px !important;
-    height: auto; /* Adjust height to be more flexible on mobile devices */
-    background-position: center 10%;
+
+  /* Disable sticky for mobile; make it static */
+  .about-entity {
+    position: static !important;
+    float: none !important; /* Remove floating */
+    margin: 0 auto 1rem auto;
+    width: 300px !important;
+    height: 400px !important;
+    margin-top: 40px;
   }
-  div.about-contents{
+
+  div.about-contents {
     margin-top: -20px !important;
   }
 
-  /* Adjust padding for .about-link for better spacing on mobile */
   .about-links .about-link {
-    padding: 20px; /* Reduced padding for mobile screens */
+    padding: 20px;
   }
 
-  /* Adjust font size for icons and text within .about-link on mobile */
   .about-links .about-link i {
-    font-size: 20px; /* Adjust icon size for better visibility on smaller screens */
+    font-size: 20px;
   }
 
   .about-links .about-link .about-link-text {
-    font-size: 14px; /* Adjust text size for better readability on mobile */
+    font-size: 14px;
   }
+}
 
-  
+@media (min-width: 1200px) {
+  body.fullcontent .page-columns {
+    display: grid;
+    gap: 0;
+    grid-template-columns:
+      [screen-start] 1em
+      [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start]
+      minmax(0px, 1fr)
+      [body-content-end body-end body-end-outset page-end-inset page-end screen-end-inset] 1em
+      [screen-end];
+  }
 }
 
 
@@ -1077,4 +1141,185 @@ th {
 .dropdown-menu {
   font-size: $font-size-sm;
   text-transform: none;
+}
+
+/* CAROUSEL NAVIGATION (ARROWS) --------------------------------------------- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* Make the icons larger and invert/brighten them for visibility */
+  width: 40px;
+  height: 40px;
+  filter: invert(100%) brightness(200%);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  /* Increase clickable area a bit */
+  width: 5%;
+}
+
+/* PORTFOLIO CARDS --------------------------------------------------------- */
+.portfolio-card {
+  position: relative; /* Allows absolutely-positioned badge to sit inside card */
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card img {
+  /* Center the image and fix height to a consistent size */
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.portfolio-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 10px;
+  padding-bottom: 10px;
+  letter-spacing: 0.5px; 
+  text-align: center; 
+}
+
+.portfolio-card p {
+  /* Align description text left */
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0 5px 0;
+  text-align: left;
+  max-width: 600px; /* Keep long text comfortably readable */
+
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.portfolio-card a {
+  display: inline-block;
+  font-weight: 700;
+  color: $black;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 10px;
+  border: 2px solid $black;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-card a:hover {
+  background-color: #f0f8ff;
+  color: $black;
+  text-decoration: none;
+}
+
+/* BADGE TAG (top-right pop-up label) --------------------------------------- */
+.badge-tag {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 10;
+  background: #f0f8ff;
+  color: $black;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transform: scale(0);         /* Start invisible (scaled down) */
+  transform-origin: top right; /* Animate from the corner */
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Reveal badge when the slide is active */
+.carousel-item.active .badge-tag {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Hide heading anchors for all heading levels (h1-h6) ---------------------- */
+h1 .header-anchor,
+h2 .header-anchor,
+h3 .header-anchor,
+h4 .header-anchor,
+h5 .header-anchor,
+h6 .header-anchor {
+  display: none;
+}
+
+.anchorjs-link {
+  display: none !important;
+}
+
+
+.travel-card {
+  background-color: #ffffff;
+  max-width: 700px;    /* Adjust as desired */
+  margin: 0 auto;      /* Center the card */
+  height: 500px;       /* Fixed height for consistent layout */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
+  position: relative;  /* for absolutely positioned details if you prefer */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* The large image that takes ~80% of the card's height */
+.travel-card img {
+  width: 100%;
+  height: 80%; 
+  object-fit: cover; 
+  display: block;
+}
+
+/* Bottom bar for location/date */
+.travel-details {
+  height: 20%; /* the remaining space */
+  background-color: #f8f9fa; /* subtle background */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* Location on the bottom-left */
+.travel-location {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Date on the bottom-right */
+.travel-date {
+  font-style: italic;
+  color: #555;
+}
+
+/* (Optional) Tweak the carousel arrows so they appear clearly */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%) brightness(50%);
 }

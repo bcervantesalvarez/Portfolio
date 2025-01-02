@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-setup-and-import" class="level2">
 <h2 class="anchored" data-anchor-id="data-setup-and-import">Data Setup and Import</h2>
-<div id="7c6866b0" class="cell" data-execution_count="1">
+<div id="8e1ef7c6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Nonsmoker Count: 1064</li>
 </ul>
 <p>To visually illustrate the distribution of smokers and nonsmokers within the dataset, a histogram plot was generated. The plot showcases the count of individuals categorized as smokers or nonsmokers. The number of smokers is 274, while the count of nonsmokers is 1064.</p>
-<div id="1e176444" class="cell" data-execution_count="2">
+<div id="21df0e52" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#while a histogram is not necessary, it can really show in the visual count of smokers vs nonsmokers</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.5</span>)</span>
@@ -307,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="boxplot-and-histogram-distribution-of-insurance-costs-for-smokers">Boxplot and Histogram Distribution of Insurance Costs for Smokers</h3>
 <p>Upon analyzing the insurance costs specifically for smokers, a boxplot and histogram were constructed. The interquartile range indicates a substantial spread of $20,125.33 between the first and third quartiles.</p>
 <p>Notably, the distribution of insurance costs for smokers exhibits a bimodal pattern, suggesting the presence of a contributing factor that significantly impacts insurance expenses. Further investigation is required to identify the specific variable responsible for the observed increase in insurance costs among smokers. Potential factors to consider include region, BMI, sex, number of children, and age.</p>
-<div id="42626259" class="cell" data-execution_count="3">
+<div id="e0491f59" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_smokers <span class="op">=</span> df[df.smoker <span class="op">==</span> <span class="st">'yes'</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_smokers.head())</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.8</span>)</span>
@@ -352,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Standard Deviation: $11,520.47</li>
 <li>Variance: 132,721,153.14</li>
 </ul>
-<div id="aad08495" class="cell" data-execution_count="4">
+<div id="beade2a6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for smokers</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>smoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_smokers.charges), <span class="dv">2</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The average insurance cost for being a smoker: ${mean}'.format(mean = smoker_mean))</span></span>
@@ -398,7 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Graph Five: Average Cost per Region The bar plot representing the average insurance costs per region does not yield any significant insights.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost The boxplot provides valuable visual information regarding the spread of insurance costs among male smokers. It allows for a better understanding of the distribution and variability within this group.</p>
 <p>These analyses shed light on the various factors impacting insurance costs for male smokers, including BMI, age, and the presence of children. By comprehensively examining these relationships, the medical industry can gain valuable insights to inform decision-making and enhance understanding of cost dynamics.</p>
-<div id="e9e669b9" class="cell" data-execution_count="5">
+<div id="6d301887" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male smokers from the main data set</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_male_smoker <span class="op">=</span> df_smokers[df_smokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df_nonsmokers <span class="op">=</span> df[df.smoker <span class="op">==</span> <span class="st">'no'</span>]</span>
@@ -475,7 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-male-smokers-highlighting-bmi" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-male-smokers-highlighting-bmi">Analysis of Male Smokers: Highlighting BMI</h3>
 <p>As previously mentioned, the presence of two clusters in the cost distribution of male smokers can be attributed to variations in BMI. Notably, male smokers with a BMI greater than or equal to 30 experience a significant increase in expenses, approximately 47%, compared to their counterparts with a lower BMI. This finding underscores the impact of obesity on insurance costs for male smokers in the medical industry.</p>
-<div id="b8f67867" class="cell" data-execution_count="6">
+<div id="43a27d97" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight BMI graph</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> df_male_smoker.bmi, y <span class="op">=</span> df_male_smoker.charges,</span>
@@ -486,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Male Smoker Insurance Cost vs BMI'</span>)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'BMI'</span>)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Insurance Costs (USD)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Text(0, 0.5, 'Insurance Costs (USD)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -497,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="5eafe494" class="cell" data-execution_count="7">
+<div id="427376fd" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>male_df_bmi <span class="op">=</span> df_male_smoker[df_male_smoker.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
@@ -527,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Average Cost per Region: The barplot of average cost per region does not provide any valuable insights for female smokers.</p>
 <p>Boxplot of Female Smoker Insurance Cost: The boxplot displays the spread of insurance cost among female smokers, highlighting the range of variation in costs.</p>
 <p>Overall, the analysis of female smokers provides insights into the relationship between factors such as BMI, age, and insurance cost.</p>
-<div id="1788c204" class="cell" data-execution_count="8">
+<div id="7f4180d7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female smokers from the main data set</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_female_smoker <span class="op">=</span> df_smokers[df_smokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -597,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The analysis of female smokers reveals findings that align with the observations made for male smokers. Specifically, the relationship between insurance cost and BMI for female smokers follows a similar pattern as observed in male smokers. Therefore, the conclusions drawn from the previous analysis regarding the impact of BMI on insurance cost can be applied to female smokers as well.</p>
-<div id="41fbe283" class="cell" data-execution_count="9">
+<div id="499a3fb5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#analyze BMI &lt; 30</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>female_df_bmi <span class="op">=</span> df_female_smoker[df_female_smoker.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
@@ -618,7 +618,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="comparing-average-insurance-costs-male-vs.-female-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="comparing-average-insurance-costs-male-vs.-female-smokers">Comparing Average Insurance Costs: Male vs.&nbsp;Female Smokers</h3>
 <p>When comparing the average insurance costs of male and female smokers, some notable observations emerge. Among smokers with a BMI below 30, male smokers pay approximately 1.34% more than their female counterparts. However, for smokers with a BMI of 30 or higher, male smokers pay approximately 1.42% less than their female counterparts. These findings indicate a gender-based variation in insurance costs, influenced by both BMI and smoking status.</p>
-<div id="d1b9f6ad" class="cell" data-execution_count="10">
+<div id="d04120d0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot average insurance cost for male and female </span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_bmi_less_than_30 <span class="op">=</span> df_smokers[df_smokers.bmi <span class="op">&lt;</span> <span class="dv">30</span>]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df_one <span class="op">=</span> df_bmi_less_than_30.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
@@ -694,7 +694,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-insurance-costs-for-nonsmokers-boxplot-and-histogram-distribution">Analysis of Insurance Costs for Nonsmokers: Boxplot and Histogram Distribution</h3>
 <p>The distribution of insurance costs for nonsmokers exhibits a right-skewed pattern, indicating a higher concentration of lower-cost cases. The interquartile range suggests a relatively narrow spread between the first and third quartiles.</p>
-<div id="9a7eeaba" class="cell" data-execution_count="11">
+<div id="70788f57" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> stats.iqr(df_nonsmokers.charges, interpolation <span class="op">=</span> <span class="st">'midpoint'</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> <span class="bu">round</span>(IQR, <span class="dv">2</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(IQR)</span>
@@ -733,7 +733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-insurance-costs-for-nonsmokers" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-of-insurance-costs-for-nonsmokers">Analysis of Insurance Costs for Nonsmokers</h3>
 <p>The interquartile range of insurance costs for nonsmokers is $7,378.07, indicating a relatively narrow spread of data between the first and third quartiles.</p>
-<div id="9618c6b4" class="cell" data-execution_count="12">
+<div id="626095a3" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean of insurance cost for nonsmokers</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(np.mean(df_nonsmokers.charges), <span class="dv">2</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print('The nonsmoker average insurance cost for being a smoker: ${mean}'.format(mean = nonsmoker_mean))</span></span>
@@ -770,7 +770,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Graph Five: Average Cost per Region No significant insights can be drawn from the barplot of average cost per region for male nonsmokers. The data does not reveal any distinct variations among different regions in terms of insurance costs.</p>
 <p>Graph Six: Boxplot of Male Nonsmoker Insurance Cost The boxplot provides valuable information about the spread of insurance costs for male nonsmokers. It allows for visualizing the range, quartiles, and potential outliers within the data.</p>
 <p>Overall, these analyses shed light on various factors influencing insurance costs for male nonsmokers, such as the number of children and age. However, the relationship between BMI and insurance cost appears to be inconclusive, while regional differences do not show significant variations.</p>
-<div id="dbf7e9b2" class="cell" data-execution_count="13">
+<div id="75f7f0d7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all male nonsmokers from the main data set</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_male_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'male'</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -837,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
-<div id="ffff5661" class="cell" data-execution_count="14">
+<div id="e06a0a9f" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#highlight scatter plot for linear trend</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">0.8</span>)</span>
@@ -876,7 +876,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Graph Four: Cost vs Age with Children In line with the observations for male nonsmokers, there is a strong linear relationship between insurance cost and age among female nonsmokers. A secondary trend is also evident, indicating that insurance costs tend to be lower for females with fewer children and higher for those with more children. It is worth noting that outliers do not conform to the overall trend line.</p>
 <p>Graph Five: Average Cost per Region There is a slight trend suggesting regional differences in insurance costs among female nonsmokers. On average, the northeast region exhibits higher costs compared to the southwest region.</p>
 <p>Graph Six: Boxplot of Male Smoker Insurance Cost While not directly related to the analysis of female nonsmokers, it is noteworthy to examine the spread of insurance costs among male smokers for comparative purposes</p>
-<div id="b2b22ef8" class="cell" data-execution_count="15">
+<div id="a98d2105" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#seperate all female nonsmokers from the main data set</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df_female_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers.sex <span class="op">==</span> <span class="st">'female'</span>]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -949,7 +949,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="nonsmokers-vs-smokers" class="level2">
 <h2 class="anchored" data-anchor-id="nonsmokers-vs-smokers">Nonsmokers vs Smokers</h2>
 <p>Based on the analysis conducted on smokers and nonsmokers, it can be observed that smoking status significantly impacts health insurance costs. Both male and female smokers experience higher insurance costs compared to their nonsmoking counterparts. Furthermore, nonsmokers tend to have a more favorable cost distribution, characterized by lower median costs and less variability. This highlights the importance of smoking cessation interventions and promoting a nonsmoking lifestyle to mitigate the financial burden associated with health insurance for both individuals and the healthcare system.</p>
-<div id="9c70df26" class="cell" data-execution_count="16">
+<div id="046b8c6d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Nonsmokers</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_avg <span class="op">=</span> df_nonsmokers.groupby(<span class="st">'sex'</span>).mean().reset_index()</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>

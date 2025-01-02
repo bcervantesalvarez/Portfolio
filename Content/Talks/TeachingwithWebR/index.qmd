@@ -16,15 +16,14 @@ categories: [R, webR, Education, Interactivity]
 
 ## What is webR?
 
-- webR is a version of R that runs directly in a web browser.
-- It eliminates the need for local installation or server setup.
-- It just works (even on your phone).
-Can be easily implemented using quarto.
+-   webR is a version of R that runs directly in a web browser.
+-   It eliminates the need for local installation or server setup.
+-   It just works (even on your phone). Can be easily implemented using quarto.
 
 ## Slides
 
-::: {.column-page}
+::: column-page
+<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="800" allowfullscreen>
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="800" allowfullscreen></iframe>
-
+</iframe>
 :::

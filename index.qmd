@@ -1,7 +1,87 @@
 ---
-title: "Home Page"
+title: "Welcome to My Portfolio"
+format:
+  html:
+    anchor-location: none
+    include-in-header:
+      - "<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'/>"
+    include-after-body:
+      - "<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'></script>"
+  
 ---
 
-### Home page coming soon!
+```{=html}
+<div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
 
-Please visit **About** page by clicking above in the navigation bar or click [here](https://bcervantesalvarez.github.io/Portfolio/Content/About/)
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="portfolio-card">
+        <!-- Top-right Badge -->
+        <div class="badge-tag">Education!</div>
+        <h3>Interactive Teaching with webR</h3>
+        <img src="Assets/Images/webR.png" alt="Interactive Teaching with webR" />
+        <p>
+          Using <strong>webR</strong>, 
+          I created interactive experiences for modern statistical 
+          methods and data visualization techniques.
+        </p>
+        <p>
+          <a href="https://bcervantesalvarez.github.io/...">Learn More</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="portfolio-card">
+        <!-- Top-right Badge -->
+        <div class="badge-tag">Data Science!</div>
+        <h3>Shiny Application for UK Accident Data</h3>
+        <img src="Assets/Images/ukCarAccident.webp" alt="Shiny Application for UK Accident Data" />
+        <p>
+          Developed a Shiny app to 
+          explore <strong>UK traffic accident trends</strong> with 
+          dynamic dashboards and an intuitive design.
+        </p>
+        <p>
+          <a href="https://bcervantesalvarez.github.io/...">Learn More</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="portfolio-card">
+        <!-- Top-right Badge -->
+        <div class="badge-tag">Statistics!</div>
+        <h3>Applied Multivariate Analysis on Wine Data</h3>
+        <img src="Assets/Images/redwhite.jpeg" alt="Applied Multivariate Analysis on Wine Data" />
+        <p>
+          Detailed multivariate analysis 
+          on <strong>wine quality data</strong>, offering insights 
+          and recommendations based on observed relationships.
+        </p>
+        <p>
+          <a href="https://bcervantesalvarez.github.io/...">Learn More</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel Navigation (arrows) -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+```
+
+I’m Brian Cervantes Alvarez—a Data Science Educator, Statistician, and Data Scientist passionate about transforming data into meaningful insights. This portfolio showcases my journey through the world of data, combining analytical rigor, interactive teaching, and innovative problem-solving.  
+
+From developing interactive educational tools to tackling real-world challenges with cutting-edge statistical techniques, my work reflects a deep commitment to data-driven solutions. Whether you’re here to explore my projects, learn more about my expertise, or collaborate on new ideas, you’ll find a wealth of resources highlighting my skills and experiences.  
+
