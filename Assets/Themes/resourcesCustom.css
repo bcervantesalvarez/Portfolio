@@ -10,19 +10,16 @@
 }
 
 .intro-text {
-    font-size: 1em;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    font-weight: 300;
+    font-size: 1.4em;
 }
 
 .resource-item {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 30px;
     background-color: rgba(255, 255, 255, 0);
     border: transparent;
     transition: background-color 0.5s ease;
@@ -47,11 +44,6 @@
     transform: scaleX(1);
 }
 
-.resource-img {
-    flex: 1;
-    text-align: right;
-    margin-left: -135px;
-}
 
 .resource-img img {
     width: 200px;
@@ -107,45 +99,46 @@
 }
 
 /* Media queries for mobile devices */
-@media (max-width: 600px) {
+@media (max-width: 792px) {
     .title-section {
-        font-size: 1.5em; /* Smaller font size */
+        font-size: 1.8em; /* Smaller font size */
         margin-top: 0; /* Adjust top margin */
     }
 
     .intro-text {
-        font-size: 0.9em; /* Smaller font size */
+        font-size: 1.2em; /* Smaller font size */
     }
 
     .resource-item {
         flex-direction: column-reverse; /* Stack elements vertically */
-        width: 90%; /* Increase width for smaller screens */
         transition: background-color 0.3s ease; /* Smooth transition for background color */
         background-color: rgba(255, 255, 255, 0); /* Default state background */
+        border: solid 2px #cdd8e1 !important;
+        padding: 20px; 
     }
 
     .resource-img {
         margin: 0 auto; /* Center image and remove negative margin */
-        margin-top: -30px;
         text-align: center;
+        margin-bottom: 50px;
     }
 
     .resource-img img {
-        width: 150px; /* Smaller image size */
-        height: 150px; /* Smaller image size */
+        width: 250px; /* Smaller image size */
+        height: 250px; /* Smaller image size */
     }
-
     .resource-description {
-        margin: 20px; /* Add more margin */
-        text-align: center; /* Center text */
+        flex: 1;
+        text-align: left;
     }
 
     .resource-description h3 {
-        font-size: 1.5em; /* Adjust heading size */
+        font-size: 2em; /* Adjust heading size */
     }
 
     .resource-description p {
         font-size: 1em; /* Adjust paragraph size */
+        margin-bottom: 20px;
     }
 
     /* Override PC version hover effects for mobile */

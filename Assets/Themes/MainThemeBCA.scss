@@ -108,54 +108,80 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
 @import url($web-monofont-path);
 
 
-// Navbar
+/* Navbar */
+.navbar {
+  background-color: #1d1c1c !important;
+  color: #F0F8FF !important;
+  padding: 0.7em !important;
+}
 
-// Navbar Brand
+/* Navbar Brand */
+.navbar-brand-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+}
 
+/* Navbar Brand */
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F0F8FF !important;
+  font-weight: 600;
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Special Hover Effect for Navbar Brand */
+.navbar-brand:hover {
+  transform: scale(1.1); /* Slightly enlarges the brand */
+  text-shadow: 0 0 8px rgba(77, 168, 218, 0.8); /* Adds a glowing blue effect */
+}
+
+
+
+.nav-link {
+  display: block;
+  padding: 0;
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  text-decoration: none;
+  -webkit-text-decoration: none;
+  -moz-text-decoration: none;
+  -ms-text-decoration: none;
+  -o-text-decoration: none;
+  background: none;
+  border: 0;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+/* Mobile-Specific Adjustments */
 @media (max-width: 768px) {
-  .navbar .navbar-container>.navbar-brand-container {
+  .navbar .navbar-container > .navbar-brand-container {
     margin-left: 26px !important;
     margin-right: 0 !important;
   }
 
-  .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
     --bs-gutter-x: 0rem;
     --bs-gutter-y: 0;
     width: 100%;
-    padding-right: calc(var(--bs-gutter-x)*.5);
-    padding-left: calc(var(--bs-gutter-x)*.5);
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
     margin-right: auto;
     margin-left: auto;
-}
-}
-
-
-
-// Mobile devices
-@media (max-width: 768px) {
-  .navbar-brand-container {
-    display: flex; // Use flexbox to align children
-    justify-content: center; // Center children horizontally in the container
-    align-items: center; // Center children vertically in the container
-    width: 100%; // Ensure the container takes full width
-
-    .navbar-brand {
-      display: flex; // Enable flexbox for the brand itself
-      justify-content: center; // Center the brand content horizontally
-      align-items: center; // Center the brand content vertically
-    }
   }
+
   .navbar-nav {
-    --bs-nav-link-padding-x: 0;
-    --bs-nav-link-padding-y: 0.5rem;
-    --bs-nav-link-font-weight: ;
-    --bs-nav-link-color: var(--bs-navbar-color);
-    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
-    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
     display: flex;
-    display: -webkit-flex;
     flex-direction: column;
-    -webkit-flex-direction: column;
     padding-left: 2em !important;
     margin-bottom: 0;
     list-style: none;
@@ -167,48 +193,53 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
     right: 0;
     left: 0;
     z-index: 1030;
+  }
 }
 
-}
-
-// Navigation Bar
+/* Navigation Links */
 nav a {
-  position: relative; /* Needed to position the pseudo-element */
-  display: inline-block; /* Ensures the pseudo-element is aligned correctly */
-  transition: color 0.5s ease; /* Transition for color change */
-  color: inherit; /* Use the parent's color or define a specific color */
-  text-decoration: none; /* Optional: Removes the default underline */
-}
-
-/* Targeting the text within the nav links directly */
-.nav-link .menu-text {
-  font-size: 1rem; /* Adjust the font size as desired */
-  letter-spacing: 0.05em; /* Adjust the letter spacing as desired */
+  position: relative;
+  display: inline-block;
+  color: inherit; /* Use parent's color */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.5s ease; /* Smooth color change */
 }
 
 nav a::after {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px; /* Height of the underline */
-  bottom: -5px; /* Adjust based on the desired distance from the text */
+  height: 2px; /* Underline height */
+  bottom: -5px; /* Distance from text */
   left: 50%;
-  background-color: $white; /* Color of the underline */
-  transition: width 0.5s ease, left 0.5s ease; /* Transition for expanding effect */
+  background-color: #fff; /* Underline color */
+  transition: width 0.5s ease, left 0.5s ease; /* Smooth expand effect */
 }
 
-nav a:hover::after, nav a.active::after {
+nav a:hover::after,
+nav a.active::after {
   width: 100%;
-  left: 0; /* Aligns the start of the underline with the start of the element */
+  left: 0;
 }
 
-nav a:hover, nav a.active {
-  color: $white !important; /* Keeps your existing color change on hover and active */
+nav a:hover,
+nav a.active {
+  color: #fff !important; /* Ensure consistent hover and active states */
 }
+
+/* Navigation Link Text */
+.nav-link .menu-text {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Sticky Tools */
 .quarto-navbar-tools {
   position: sticky;
-  transform: translateX(-50%); // Adjust for the element's height
+  transform: translateX(-50%);
 }
+
+
 
 // Footer
 .nav-footer {
@@ -357,7 +388,6 @@ nav a:hover, nav a.active {
 
 .sidebar nav[role="doc-toc"] .nav-link:hover {
   border-left: 1px solid rgb(75, 113, 149)!important; // Keeps the left border color change on hover
-  text-decoration: underline !important; // Adds an underline to indicate hover state
 }
 
 // Removing custom underline effects for TOC links
@@ -367,7 +397,14 @@ nav a:hover, nav a.active {
 
 #TOC .nav-link:hover, #TOC .nav-link.active {
   color: rgb(75, 113, 149) !important; // Keeps the text color the same on hover and active states
-  text-decoration: underline !important; // Adds standard underline for clarity
+}
+
+.sidebar nav[role=doc-toc]>h2, .sidebar nav[role=doc-toc]>.h2 {
+  font-size: 1.2rem;
+}
+
+.sidebar nav[role=doc-toc] a{
+  font-size: 0.85em;
 }
 
 
@@ -381,8 +418,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-weight: 100 !important;
-  font-family: "DM Sans", sans-serif;
   background-color: $background-color;
   font-size: $body-font-size;
   line-height: $body-line-stretch;
@@ -392,7 +427,7 @@ body {
 }
 
 .subtitle {
-  font-weight: 500;
+  font-weight: 300;
   display: inline-block;
   min-height: 1.5em; /* Default fallback for when JS is disabled */
 }
@@ -519,7 +554,7 @@ header#title-block-header {
 
 /* Add .shining class to enable the infinite shining effect */
 .about-entity.shining::before {
-  animation: shine 1.5s ease-in-out infinite;
+  animation: shine 0.8s ease-in-out infinite;
 }
 
 @keyframes shine {
@@ -748,7 +783,7 @@ header#title-block-header {
 }
 
 
-/* ----------- FOR PORTFOLIO PAGE ------------ */
+/* ----------- FOR PROJECTS PAGE ------------ */
 
 .quarto-grid-item:hover .new-banner {
   opacity: 0; /* This makes the banner fully transparent when the card is hovered over */
@@ -761,7 +796,7 @@ header#title-block-header {
 
 .quarto-listing-container-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(1650px, 1fr)); // Increased min-width for 50% larger containers
   justify-content: center;
   margin: 0 auto;
 
@@ -769,26 +804,34 @@ header#title-block-header {
     display: flex;
     flex-direction: column;
     background-color: rgb(219, 228, 237);
-    box-shadow: 0 5px 7px rgba(0,0,0,0.1);
-    transition: transform 0.7s ease, box-shadow 0.7s ease;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
     overflow: hidden;
+    
 
     &:hover {
-      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
       .card-img-top img {
-        filter: blur(1.4px);
-        transform: scale(2);
+        filter: blur(1.6px);
+        transform: scale(2.2); // Adjusted hover scaling for larger containers
       }
-      .card-title, .card-text, .card-attribution {
-        background-color:rgb(219, 228, 237);
+      .card-title,
+      .card-text,
+      .card-attribution {
+        background-color: rgb(219, 228, 237);
       }
       .card-title {
         margin-left: -20px;
         margin-right: -20px;
         transform: translateY(-150px);
-        transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+        transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.8s ease;
       }
-      .card-text, .card-attribution {
+      .card-text {
+        opacity: 1; // Fully visible on hover
+        transform: translateY(0); // Reset to its original position
+        transition: opacity 0.8s ease, transform 0.8s ease; // Smooth transition for description
+      }
+      .card-attribution {
         opacity: 0.9;
         transform: translateY(0);
       }
@@ -799,11 +842,12 @@ header#title-block-header {
     }
 
     .card-img-top img {
+      height: 225px; // Increased height for proportional resizing
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .card-title {
-      font-size: 1.1em;
+      font-size: 1.4em; // Enlarged font size
       font-weight: 600;
       position: relative;
       justify-content: center;
@@ -811,27 +855,24 @@ header#title-block-header {
       color: $gray-700;
       opacity: 1;
       transform: translateY(0px);
-      transition: opacity 0.7s ease, transform 0.7s ease, background-color 0.4s ease;
-    }
-    
-    .card-text, .card-attribution {
       transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.8s ease;
     }
 
     .card-text {
       position: absolute;
-      font-size: 0.8em;
+      font-size: 1.1em; // Slightly larger font for readability
       bottom: 45px;
       left: 0;
       right: 0;
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 0; // Initially hidden
+      transform: translateY(20px); // Start slightly offset
       overflow: hidden;
       padding: 0.2em 1em 1em;
+      transition: opacity 0.8s ease, transform 0.8s ease; // Smooth transition for hover
     }
 
     .card-attribution {
-      font-size: 0.5em;
+      font-size: 0.8em; // Adjusted attribution size for larger layout
       font-weight: 500;
       color: $gray-700;
       text-align: center;
@@ -846,11 +887,23 @@ header#title-block-header {
   }
 }
 
+#title-block-header.quarto-title-block.default .keywords,
+#title-block-header.quarto-title-block.default .description,
+#title-block-header.quarto-title-block.default .abstract {
+  margin-top: 0;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 1000px) {
   .quarto-listing-container-grid {
-    grid-template-columns: repeat(1, minmax(500px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(750px, 1fr)); // Adjusted for medium screens
+    gap: 1.5rem;
+  }
+
+  .quarto-grid-item {
+    transform: scale(1.2); // Reduce scaling for medium screens
   }
 }
 
@@ -862,25 +915,27 @@ header#title-block-header {
 
   .quarto-grid-item {
     margin-bottom: 1rem;
+    transform: scale(1); // Revert scaling for small screens
 
     &:hover {
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Revert box-shadow to its original state */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Revert box-shadow to original state */
       .card-img-top img {
         filter: none; /* Remove blur */
         transform: none; /* Remove scale */
       }
-      .card-title, .card-text, .card-attribution {
+      .card-title,
+      .card-text,
+      .card-attribution {
         background-color: transparent; /* Remove background-color change */
         opacity: 1; /* Ensure text is fully visible */
         transform: translateY(0); /* Reset text position */
       }
     }
   }
-  .subtitle{
+  .subtitle {
     text-align: center;
   }
 }
-
 
 
 
@@ -1002,55 +1057,94 @@ div.quarto-post .thumbnail img {
 
 
 // ----------- TALKS PAGE ------------
-
 .quarto-listing-container-table {
-  
-  // Styles for the table itself
+  max-width: 900px; // Adjust as needed to cap table width
+  border-radius: 8px;
+  overflow: hidden; // Ensures the rounded corners are visible
+  padding: 0;
+  margin: 0;
+
   .quarto-listing-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 1em;
-
-    th, td {
-      padding: 0.75em;
-      border-bottom: 1px solid #dde9f2;
-      text-align: left;
-    }
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed; // Helps ensure uniform column widths
 
     thead {
-      th {
-        background-color: #dde9f2;;
-        font-weight: bold;
+      // Bold header row with a thicker bottom border
+      tr {
+        th {
+          background-color: #e2e8f0; 
+          font-weight: 700;
+          padding: 0.9em 1em;
+          text-align: left;
+          font-size: 0.8em;
+        }
       }
     }
 
     tbody {
-      tr:hover {
-        background-color: #ebf4fb;;
+      // Zebra striping
+      tr:nth-of-type(odd) {
+        background-color: #f9fafb;
       }
-      
-      // Styling links within table rows
-      a.title.listing-title {
-        font-size: 1.2em; // Adjusted font size for titles // Default link color, adjust as needed
-        text-decoration: none; // Removes underline from links
-        
+
+      tr:nth-of-type(even) {
+        background-color: #ffffff;
+      }
+
+      // Standard row style
+      tr {
+        border-bottom: 1px solid #cbd5e0;
+        transition: 
+          background-color 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative; // Needed for z-index and pop-out effect
+        min-height: 3.2rem;
+
+        td {
+          padding: 0.8em 1em;
+          vertical-align: middle;
+        }
+
+        // Pop-out hover effect
         &:hover {
-          text-decoration: underline; // Underline on hover for visual feedback
-          color: #0056b3; // Darker color on hover
+          background-color: #ebf4fb;
+          transform: scale(1.02); // Slight enlargement
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+          z-index: 1; // Ensures the hovered row stays above adjacent elements
+        }
+      }
+
+      // Title link styling
+      a.title.listing-title {
+        font-size: 1.15em; 
+        text-decoration: none;
+        color: #0073cf;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #0056b3; 
+          text-decoration: underline;
         }
       }
     }
   }
 
-  // Responsive adjustments for better mobile display
+  // Responsive: reduce padding on smaller screens
   @media (max-width: 768px) {
     .quarto-listing-table {
-      th, td {
-        padding: 0.5em; // Adjusted padding for smaller screens
+      thead tr th {
+        padding: 0.7em 0.6em;
+      }
+      tbody tr td {
+        padding: 0.7em 0.6em;
       }
     }
   }
 }
+
 
 // ----------- QUARTO DASHBOARD ------------ //
 

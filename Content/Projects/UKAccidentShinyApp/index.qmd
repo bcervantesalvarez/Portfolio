@@ -1,7 +1,7 @@
 ---
 title: "UK Accident Time Series"
 author: "Brian Cervantes Alvarez" 
-date: today
+date: 09-24-2024
 description: "This accident time series app allows you to explore and analyze data related accidents in UK. Feel free to download the data and explore other methods of analysis."
 image: /Assets/Images/ukCarAccident.webp
 format:  

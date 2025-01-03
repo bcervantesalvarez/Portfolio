@@ -3,7 +3,7 @@ title: "Brian Cervantes Alvarez"
 subtitle: "Data Scientist | Educator | Statistician"
 about:
   template: broadside
-  image: ../../Assets/Images/profile.jpeg
+  image: ../../Assets/Images/profile.JPG
   links:
     - icon: linkedin
       text: LinkedIn
@@ -142,9 +142,7 @@ When I’m not learning about technology or statistics, you might find me doom-s
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
 ```
-
 
 ### What I Offer
 

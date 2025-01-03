@@ -2,7 +2,7 @@
 title: "Olympic Dashboard"
 subtitle: "Demonstration"
 author: "Posit::conf2024"
-date: today
+date: 08-21-2024
 description: "The 100m Dashboard! Dash your way to victory and look beyond! Take your gold medal and observe that this dashboard was built using just quarto."
 format: 
     dashboard:
@@ -47,9 +47,9 @@ summer_olympics <- olympics |>
   filter(season == "Summer")
 ```
 
-## Column - Medals by sport and year {width=65%}
+## Column - Medals by sport and year {width="65%"}
 
-### Row - Medals by sport {height=60%}
+### Row - Medals by sport {height="60%"}
 
 ```{r}
 #| title: Medals by sport
@@ -93,7 +93,7 @@ plot_ly(
 
 ```
 
-### Row - Medals by year {height=40%}
+### Row - Medals by year {height="40%"}
 
 ::: {.card title="Medals by year"}
 Due to World War II, no olympic games were held in 1940 and 1944.
@@ -135,9 +135,9 @@ plot_ly(
 ```
 :::
 
-## Column - Medals by country {width=35%}
+## Column - Medals by country {width="35%"}
 
-### Row - Value boxes {height=30%}
+### Row - Value boxes {height="30%"}
 
 ```{r}
 #| label: summer-calculate-most-medals
@@ -158,8 +158,7 @@ summer_most_bronzes <- summer_olympics |>
 ```
 
 ::: {.valuebox icon="award-fill" color="#d4af37"}
-
-Most golds: 
+Most golds:
 
 `{r} summer_most_golds$n`
 
@@ -167,8 +166,7 @@ Most golds:
 :::
 
 ::: {.valuebox icon="award-fill" color="#c0c0c0"}
-
-Most silvers: 
+Most silvers:
 
 `{r} summer_most_silvers$n`
 
@@ -176,18 +174,16 @@ Most silvers:
 :::
 
 ::: {.valuebox icon="award-fill" color="#cd7f32"}
-
-Most bronzes: 
+Most bronzes:
 
 `{r} summer_most_bronzes$n`
 
 **`{r} summer_most_bronzes$team`**
 :::
 
-### Row - Tabsets of tables {height=70% .tabset}
+### Row - Tabsets of tables {.tabset height="70%"}
 
 ::: {.card title="Top 30 teams"}
-
 Teams sorted in descending order of total medals.
 
 ```{r}
@@ -240,9 +236,9 @@ winter_olympics <- olympics |>
   filter(season == "Winter")
 ```
 
-## Column - Medals by sport and year {width=65%}
+## Column - Medals by sport and year {width="65%"}
 
-### Row - Medals by sport {height=60%}
+### Row - Medals by sport {height="60%"}
 
 ```{r}
 #| title: Medals by sport
@@ -288,7 +284,7 @@ plot_ly(
 
 ```
 
-### Row - Medals by year {height=40%}
+### Row - Medals by year {height="40%"}
 
 ::: {.card title="Medals by year"}
 Due to World War II, no olympic games were held in 1940 and 1944.
@@ -334,9 +330,9 @@ plot_ly(
 ```
 :::
 
-## Column - Medals by country {width=35%}
+## Column - Medals by country {width="35%"}
 
-### Row - Value boxes {height=30%}
+### Row - Value boxes {height="30%"}
 
 ```{r}
 #| label: wint-calculate-most-medals
@@ -357,8 +353,7 @@ winter_most_bronzes <- winter_olympics |>
 ```
 
 ::: {.valuebox icon="award-fill" color="#d4af37"}
-
-Most golds: 
+Most golds:
 
 `{r} winter_most_golds$n`
 
@@ -366,8 +361,7 @@ Most golds:
 :::
 
 ::: {.valuebox icon="award-fill" color="#c0c0c0"}
-
-Most silvers: 
+Most silvers:
 
 `{r} winter_most_silvers$n`
 
@@ -375,15 +369,14 @@ Most silvers:
 :::
 
 ::: {.valuebox icon="award-fill" color="#cd7f32"}
-
-Most bronzes: 
+Most bronzes:
 
 `{r} winter_most_bronzes$n`
 
 **`{r} winter_most_bronzes$team`**
 :::
 
-### Row - Tabsets of tables {height=70% .tabset}
+### Row - Tabsets of tables {.tabset height="70%"}
 
 ::: {.card title="Top 30 teams"}
 Teams sorted in descending order of total medals.
