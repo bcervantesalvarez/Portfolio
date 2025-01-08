@@ -15,16 +15,14 @@ execute:
   message: false
 ---
 
-
 ![](/Assets/Images/loan.png)
 
+Loan approval decisions are critical in balancing financial risk and accessibility. This analysis investigates the demographic and financial predictors that influence loan approvals using a dataset of 32,581 simulated applications. The study employs logistic regression and ANOVA to uncover key factors such as income, employment length, credit score, and loan intent that affect approval likelihood.
 
-Loan approval decisions are critical in balancing financial risk and accessibility. This analysis investigates the demographic and financial predictors that influence loan approvals using a dataset of 32,581 simulated applications. The study employs logistic regression and ANOVA to uncover key factors such as income, employment length, credit score, and loan intent that affect approval likelihood.  
-
-The logistic regression model identifies significant predictors, revealing that higher income and renting increase approval odds, while surprising patterns emerge, such as higher credit scores decreasing the likelihood of approval. Multicollinearity was addressed by excluding certain variables, ensuring robust model specification. Residual analysis suggests opportunities to refine the model further.  
+The logistic regression model identifies significant predictors, revealing that higher income and renting increase approval odds, while surprising patterns emerge, such as higher credit scores decreasing the likelihood of approval. Multicollinearity was addressed by excluding certain variables, ensuring robust model specification. Residual analysis suggests opportunities to refine the model further.
 
 ANOVA results provide additional insights, such as differences in loan interest rates based on loan intent and disparities in loan-to-income ratios across home ownership categories. This comprehensive approach highlights practical implications for lenders and borrowers while addressing potential limitations from the dataset's simulated nature.
 
+<iframe src="https://bcervantesalvarez.github.io/Presentations/LoanApproval/" width="100%" height="600" allowfullscreen>
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/LoanApproval/" width="100%" height="800" allowfullscreen></iframe>
-
+</iframe>

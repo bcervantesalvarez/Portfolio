@@ -21,6 +21,6 @@ Using Quarto and GitHub Pages, you can build a dynamic, evolving portfolio that 
 
 With clear sections for projects, personal branding, and achievements, a well-crafted portfolio becomes an essential resource for career advancement and professional impact.
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/BuildAQuartoPortfolio/" width="100%" height="800" allowfullscreen>
+<iframe src="https://bcervantesalvarez.github.io/Presentations/BuildAQuartoPortfolio/" width="100%" height="600" allowfullscreen>
 
 </iframe>

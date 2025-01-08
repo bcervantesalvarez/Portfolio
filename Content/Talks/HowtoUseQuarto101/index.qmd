@@ -15,8 +15,8 @@ execute:
 
 ## Why You Should Switch To Quarto Presentations
 
-::: {.column-page}
+::: column-page
+<iframe src="https://bcervantesalvarez.github.io/Presentations/TeachingQuarto/#/title-slide" width="100%" height="600" allowfullscreen>
 
-<iframe src="https://bcervantesalvarez.github.io/Presentations/TeachingQuarto/#/title-slide" width="100%" height="800" allowfullscreen></iframe>
-
+</iframe>
 :::

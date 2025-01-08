@@ -20,18 +20,18 @@ categories: [R, Reveal.JS, Survival Analysis]
 
 ![](/Assets/Images/parasite.jpeg)
 
-
 ## Unveiling Nature's Heatwave: The Hidden Impact of Temperature on Pesticide Toxicity
 
 In this captivating study, we embark on a quest to unravel the influence of temperature on the toxicity of pesticides, driven by growing concerns about the effects of climate change. Our mission extends beyond conventional pesticide testing, as we strive to shed light on the potential impacts of varying temperatures. We seek to answer a pivotal question: Does temperature significantly shape pesticide toxicity? To uncover the truth, we employ survival analysis, delving into the realm of time-to-death for the exposed subjects. By deciphering the intricate interplay between temperature and pesticide toxicity, we aim to reveal the magnitude of this effect and its implications for our changing world.
 
 ## Parasitic Marvels Unveiled: Delving into the Intricate World of Echinostoma trivolvis
+
 Prepare to be amazed as we take you on a captivating journey into the hidden intricacies of Echinostoma trivolvis, a remarkable species of trematode parasite. From its widespread infection of birds, mammals, and reptiles to its complex life cycle involving snails, birds, and mammals, this parasite holds many secrets waiting to be unlocked. Join us as we explore its adult worms' intriguing residence in the small intestine, where they feed on blood and nutrients, causing a range of symptoms from abdominal pain to malnutrition. Found abundantly in North American wetlands and aquatic environments, Echinostoma trivolvis is a true marvel of nature that continues to fascinate and astonish researchers and nature enthusiasts alike.
 
 ## Presentation
 
-::: {.column-page}
+::: column-page
+<iframe src="../../../Assets/HTML/Talks/SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="100%" height="600">
 
-<iframe src="../../../Assets/HTML/Talks/SurvivalAnalysis_Parasites.html" title="Parsite Reveal.Js" width="100%" height="800"></iframe>
-
+</iframe>
 :::

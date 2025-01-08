@@ -22,7 +22,7 @@ execute:
 ## Slides
 
 ::: column-page
-<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="800" allowfullscreen>
+<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="600" allowfullscreen>
 
 </iframe>
 :::
