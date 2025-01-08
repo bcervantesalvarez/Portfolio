@@ -16,4 +16,5 @@ format:
     include-in-header: 
       - text: |
           <script type="text/javascript" src="/Assets/Scripts/Blog/new-banner.js"></script>   
+          <script type="text/javascript" src="/Assets/Scripts/Blog/page-up.js"></script>
 ---
