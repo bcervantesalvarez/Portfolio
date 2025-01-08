@@ -7,10 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brian Cervantes Alvarez">
-<meta name="dcterms.date" content="2024-08-06">
-<meta name="description" content="Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup.">
+<meta name="author" content="Wylea Walker">
+<meta name="dcterms.date" content="2024-12-04">
+<meta name="description" content="This study examines key factors influencing loan approval using logistic regression and ANOVA on 32,581 simulated applications. Significant predictors include income, home ownership, and loan amount, with higher income increasing approval odds. Unexpected findings, like lower odds for higher credit scores, suggest potential model refinement. ANOVA further explores differences in interest rates and loan-to-income ratios across categories, offering practical insights for both lenders and applicants.">
 
-<title>Interactive Teaching with webR – Home</title>
+<title>Loan Approval Logistic Regression Analysis – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Interactive Teaching with webR – Home">
-<meta property="og:description" content="Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup.">
-<meta property="og:image" content="/Assets/Images/uni.jpeg">
+<meta property="og:title" content="Loan Approval Logistic Regression Analysis – Home">
+<meta property="og:description" content="This study examines key factors influencing loan approval using logistic regression and ANOVA on 32,581 simulated applications. Significant predictors include income, home ownership, and loan amount, with higher income increasing approval odds. Unexpected findings, like lower odds for higher credit scores, suggest potential model refinement. ANOVA further explores differences in interest rates and loan-to-income ratios across categories, offering practical insights for both lenders and applicants.">
+<meta property="og:image" content="/Assets/Images/loan.png">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -126,16 +127,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interactive Teaching with webR</h1>
+<h1 class="title">Loan Approval Logistic Regression Analysis</h1>
 </div>
 
 <div>
   <div class="description">
-    Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup.
+    This study examines key factors influencing loan approval using logistic regression and ANOVA on 32,581 simulated applications. Significant predictors include income, home ownership, and loan amount, with higher income increasing approval odds. Unexpected findings, like lower odds for higher credit scores, suggest potential model refinement. ANOVA further explores differences in interest rates and loan-to-income ratios across categories, offering practical insights for both lenders and applicants.
   </div>
 </div>
 
@@ -143,16 +144,17 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
              <p>Brian Cervantes Alvarez </p>
+             <p>Wylea Walker </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 6, 2024</p>
+      <p class="date">December 4, 2024</p>
     </div>
   </div>
   
@@ -164,23 +166,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-is-webr" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-webr">What is webR?</h2>
-<ul>
-<li>webR is a version of R that runs directly in a web browser.</li>
-<li>It eliminates the need for local installation or server setup.</li>
-<li>It just works (even on your phone). Can be easily implemented using quarto.</li>
-</ul>
-</section>
-<section id="slides" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<div class="column-page">
-<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="800" allowfullscreen="">
+<p><img src="../../../Assets/Images/loan.png" class="img-fluid"></p>
+<p>Loan approval decisions are critical in balancing financial risk and accessibility. This analysis investigates the demographic and financial predictors that influence loan approvals using a dataset of 32,581 simulated applications. The study employs logistic regression and ANOVA to uncover key factors such as income, employment length, credit score, and loan intent that affect approval likelihood.</p>
+<p>The logistic regression model identifies significant predictors, revealing that higher income and renting increase approval odds, while surprising patterns emerge, such as higher credit scores decreasing the likelihood of approval. Multicollinearity was addressed by excluding certain variables, ensuring robust model specification. Residual analysis suggests opportunities to refine the model further.</p>
+<p>ANOVA results provide additional insights, such as differences in loan interest rates based on loan intent and disparities in loan-to-income ratios across home ownership categories. This comprehensive approach highlights practical implications for lenders and borrowers while addressing potential limitations from the dataset’s simulated nature.</p>
+<iframe src="https://bcervantesalvarez.github.io/Presentations/LoanApproval/" width="100%" height="800" allowfullscreen="">
 </iframe>
-</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -2,6 +2,9 @@
   {
     "listing": "/Content/Talks/index.html",
     "items": [
+      "/Content/Talks/BuildingQuartoPortfolio/index.html",
+      "/Content/Talks/LoanAnalysis/index.html",
+      "/Content/Talks/MissingData/index.html",
       "/Content/Talks/TeachingwithWebR/index.html",
       "/Content/Talks/HowtoUseQuarto101/index.html",
       "/Content/Talks/ParasiteSurvAnalysis/index.html",
@@ -25,6 +28,7 @@
     "listing": "/Content/Blog/index.html",
     "items": [
       "/Content/Blog/Teaching_With_WebR/index.html",
+      "/Content/Blog/Capstone/index.html",
       "/Content/Blog/FraudML/index.html",
       "/Content/Blog/AmazonProductsEN/index.html",
       "/Content/Blog/Param_Report_Retail/index.html",

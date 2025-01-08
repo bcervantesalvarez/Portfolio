@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brian Cervantes Alvarez">
-<meta name="dcterms.date" content="2024-08-06">
-<meta name="description" content="Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup.">
+<meta name="dcterms.date" content="2024-12-03">
+<meta name="description" content="Missing data is a common challenge in data analysis, affecting everything from accuracy to interpretability. This presentation explores how missing data arises, why it matters, and practical strategies to handle it effectively.">
 
-<title>Interactive Teaching with webR – Home</title>
+<title>Missing Data &amp; Application of M.I.C.E. – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Interactive Teaching with webR – Home">
-<meta property="og:description" content="Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup.">
-<meta property="og:image" content="/Assets/Images/uni.jpeg">
+<meta property="og:title" content="Missing Data &amp; Application of M.I.C.E. – Home">
+<meta property="og:description" content="Missing data is a common challenge in data analysis, affecting everything from accuracy to interpretability. This presentation explores how missing data arises, why it matters, and practical strategies to handle it effectively.">
+<meta property="og:image" content="/Assets/Images/missing.png">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -126,16 +126,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interactive Teaching with webR</h1>
+<h1 class="title">Missing Data &amp; Application of M.I.C.E.</h1>
 </div>
 
 <div>
   <div class="description">
-    Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup.
+    Missing data is a common challenge in data analysis, affecting everything from accuracy to interpretability. This presentation explores how missing data arises, why it matters, and practical strategies to handle it effectively.
   </div>
 </div>
 
@@ -152,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 6, 2024</p>
+      <p class="date">December 3, 2024</p>
     </div>
   </div>
   
@@ -164,20 +164,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-is-webr" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-webr">What is webR?</h2>
-<ul>
-<li>webR is a version of R that runs directly in a web browser.</li>
-<li>It eliminates the need for local installation or server setup.</li>
-<li>It just works (even on your phone). Can be easily implemented using quarto.</li>
-</ul>
-</section>
-<section id="slides" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<div class="column-page">
-<iframe src="https://bcervantesalvarez.github.io/Presentations/WebR/" width="100%" height="800" allowfullscreen="">
+<p><img src="../../../Assets/Images/missing.png" class="img-fluid"></p>
+<section id="handling-missing-data-exploring-causes-types-and-solutions-with-mice" class="level3">
+<h3 class="anchored" data-anchor-id="handling-missing-data-exploring-causes-types-and-solutions-with-mice">Handling Missing Data: Exploring Causes, Types, and Solutions with MICE</h3>
+<p>Missing data is a critical issue in data analysis, capable of skewing results, introducing bias, and undermining confidence in findings. This article delves into the causes of missing data—ranging from human error to deliberate omission—and its implications for statistical analysis, such as reduced accuracy and loss of statistical power.</p>
+<p>We explore the three primary types of missing data: <strong>MCAR</strong> (Missing Completely at Random), <strong>MAR</strong> (Missing at Random), and <strong>MNAR</strong> (Missing Not at Random), highlighting the assumptions necessary for effective imputation. Particular emphasis is placed on <strong>Multiple Imputation by Chained Equations (MICE)</strong>, a sophisticated technique that generates multiple plausible datasets to address the uncertainty inherent in missingness.</p>
+<p>Through practical examples, we examine how MICE iteratively imputes missing values using predictive models and preserves multivariate relationships. This article also includes a case study on simulated missing data patterns in product sales data, demonstrating how MICE can recover accurate regression estimates.</p>
+<p>Whether you’re a data scientist, researcher, or analyst, this piece offers valuable insights into handling incomplete datasets while maintaining the integrity and reliability of your analysis.</p>
+<iframe src="https://bcervantesalvarez.github.io/Presentations/MissingData/" width="100%" height="800" allowfullscreen="">
 </iframe>
-</div>
 
 
 </section>
