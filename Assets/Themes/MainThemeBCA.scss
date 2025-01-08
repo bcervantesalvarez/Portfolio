@@ -51,19 +51,19 @@ $body-color: $gray-800 !default;
 
 // Fonts
 $font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$body-font-size: 0.9rem !default;
+$body-font-size: 1.05rem !default;
 $font-size-sm: 0.5rem !default;
-$h1-font-size: 1.75rem !default;
-$h2-font-size: 1.5rem !default;
-$h3-font-size: 1.2rem !default;
-$h4-font-size: 1.15rem !default;
-$h5-font-size: 1rem !default;
-$h6-font-size: 0.8rem !default;
+$h1-font-size: 1.8rem !default;
+$h2-font-size: 1.6rem !default;
+$h3-font-size: 1.3rem !default;
+$h4-font-size: 1.2rem !default;
+$h5-font-size: 1.1rem !default;
+$h6-font-size: 0.9rem !default;
 $headings-font-weight: 900 !default;
 $headings-color: $primary !default;
 
 // Word Spacing
-$body-line-stretch: 1.4rem !default;
+$body-line-stretch: 1.5rem !default;
 
 // Tables
 $table-border-color: rgba(0, 2, 0, 0.05) !default;
@@ -158,11 +158,16 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
 
 /* Mobile-Specific Adjustments */
 @media (max-width: 768px) {
-  .navbar .navbar-container > .navbar-brand-container {
-    margin-left: 26px !important;
-    margin-right: 0 !important;
-  }
-
+  .navbar-brand {
+    display: flex;
+    position: absolute !important;
+    margin-left: 122px !important;
+    justify-content: center;
+    align-items: center;
+    color: #f0f8ff !important;
+    font-weight: 600;
+    transition: transform .3s ease,color .3s ease;
+}
   .container,
   .container-fluid,
   .container-xxl,
@@ -785,157 +790,156 @@ header#title-block-header {
 
 /* ----------- FOR PROJECTS PAGE ------------ */
 
+/* "New!" banner overlay on hover */
 .quarto-grid-item:hover .new-banner {
-  opacity: 0; /* This makes the banner fully transparent when the card is hovered over */
+  opacity: 0;
 }
 
-.quarto-listing-cols-4 {
-  row-gap: 4rem;
-  column-gap: 2rem;
-}
 
-.quarto-listing-container-grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1650px, 1fr)); // Increased min-width for 50% larger containers
-  justify-content: center;
-  margin: 0 auto;
+  /* Desktop (≥ 1201px): 4 columns × 2 rows */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+body.fullcontent:not(.floating):not(.docked) .page-columns {
+  display: grid;
+  gap: 1rem;
 
-  .quarto-grid-item {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(219, 228, 237);
-    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
-    transition: transform 0.8s ease, box-shadow 0.8s ease;
-    overflow: hidden;
-    
+  grid-template-columns: 
+    [screen-start] 0.5em
+    [screen-start-inset] 2fr
+    [page-start page-start-inset] 35px
+    [body-start-outset] 35px
+    [body-start] 0.5em
+    [body-content-start] minmax(250px, 800px)
+    [body-content-end] 0.5em
+    [body-end] 35px
+    [body-end-outset] 35px
+    [page-end-inset page-end] 2fr
+    [screen-end-inset] 0.5em;
+}
 
-    &:hover {
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-      .card-img-top img {
-        filter: blur(1.6px);
-        transform: scale(2.2); // Adjusted hover scaling for larger containers
-      }
-      .card-title,
-      .card-text,
-      .card-attribution {
-        background-color: rgb(219, 228, 237);
-      }
-      .card-title {
-        margin-left: -20px;
-        margin-right: -20px;
-        transform: translateY(-150px);
-        transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.8s ease;
-      }
-      .card-text {
-        opacity: 1; // Fully visible on hover
-        transform: translateY(0); // Reset to its original position
-        transition: opacity 0.8s ease, transform 0.8s ease; // Smooth transition for description
-      }
-      .card-attribution {
-        opacity: 0.9;
-        transform: translateY(0);
-      }
-    }
+/* Medium (763px–1300px): 2 columns × 4 rows */
+@media (min-width: 801px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
 
-    &:active {
-      transform: scale(0.95); // Example transformation on click
-    }
+/* Small (≤ 762px): 1 column × 8 rows */
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 5rem;
+  }
+  body.fullcontent:not(.floating):not(.docked) .page-columns {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-columns: [screen-start] 0 [screen-start-inset] 0 [page-start page-start-inset] 0 [body-start-outset] 0 [body-start] 0 [body-content-start] minmax(250px, 1400px) [body-content-end] 0 [body-end] 0 [body-end-outset] 0 [page-end-inset page-end] 0 [screen-end-inset] 0;
+  }
+}
+
+
+
+/* Individual card styling */
+.quarto-listing-container-grid .quarto-grid-item {
+  --title-shift: 200px; /* Base shift for the title */
+  --description-shift: calc(var(--title-shift) - 320px); /* Dynamic shift for description */
+
+  background-color: rgb(219, 228, 237);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure no layout overflow */
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  will-change: transform, box-shadow;
+  box-sizing: border-box; /* Prevent layout shifts */
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Purely visual effect */
 
     .card-img-top img {
-      height: 225px; // Increased height for proportional resizing
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      filter: blur(2px);
+      transform: scale(1.5);
+      will-change: transform, filter;
     }
 
     .card-title {
-      font-size: 1.4em; // Enlarged font size
-      font-weight: 600;
-      position: relative;
-      justify-content: center;
-      text-align: center;
-      color: $gray-700;
-      opacity: 1;
-      transform: translateY(0px);
-      transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.8s ease;
+      transform: translateY(calc(-1 * var(--title-shift))); /* Title shift */
+      background-color: rgb(255, 255, 255);
+      padding: 0.3em 0.5em;
+      border-radius: 5px;
     }
 
     .card-text {
-      position: absolute;
-      font-size: 1.1em; // Slightly larger font for readability
-      bottom: 45px;
-      left: 0;
-      right: 0;
-      opacity: 0; // Initially hidden
-      transform: translateY(20px); // Start slightly offset
-      overflow: hidden;
-      padding: 0.2em 1em 1em;
-      transition: opacity 0.8s ease, transform 0.8s ease; // Smooth transition for hover
+      transform: translateY(calc(-1 * var(--description-shift))); /* Description shift */
+      opacity: 1;
     }
 
     .card-attribution {
-      font-size: 0.8em; // Adjusted attribution size for larger layout
-      font-weight: 500;
-      color: $gray-700;
-      text-align: center;
-      position: absolute;
-      bottom: 0px;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      transform: translateY(30px);
-      padding: 0.5em;
+      opacity: 1;
+      transform: translateY(0); /* Default positioning */
     }
   }
-}
 
-#title-block-header.quarto-title-block.default .keywords,
-#title-block-header.quarto-title-block.default .description,
-#title-block-header.quarto-title-block.default .abstract {
-  margin-top: 0;
-  font-size: 1.2em;
-  line-height: 1.5em;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 1000px) {
-  .quarto-listing-container-grid {
-    grid-template-columns: repeat(1, minmax(750px, 1fr)); // Adjusted for medium screens
-    gap: 1.5rem;
+  &:active {
+    transform: scale(0.95);
   }
 
-  .quarto-grid-item {
-    transform: scale(1.2); // Reduce scaling for medium screens
-  }
-}
-
-@media (max-width: 480px) {
-  .quarto-listing-container-grid {
-    grid-template-columns: 1fr;
-    padding: 10px;
+  .card-img-top img {
+    width: 100%;
+    height: 205px !important;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
   }
 
-  .quarto-grid-item {
-    margin-bottom: 1rem;
-    transform: scale(1); // Revert scaling for small screens
-
-    &:hover {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Revert box-shadow to original state */
-      .card-img-top img {
-        filter: none; /* Remove blur */
-        transform: none; /* Remove scale */
-      }
-      .card-title,
-      .card-text,
-      .card-attribution {
-        background-color: transparent; /* Remove background-color change */
-        opacity: 1; /* Ensure text is fully visible */
-        transform: translateY(0); /* Reset text position */
-      }
-    }
-  }
-  .subtitle {
+  .card-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    position: relative;
     text-align: center;
+    color: #454545;
+    transition: all 0.6s ease;
+    will-change: transform, background-color;
+    background-color: rgb(255, 255, 255);
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    margin: 0 auto; /* Center alignment */
+  }
+
+  .card-text {
+    position: absolute;
+    font-size: 1em;
+    left: 0;
+    right: 0;
+    top: 0; /* Fix position to avoid affecting layout */
+    opacity: 0;
+    padding: 0.4em 1em;
+    transition: all 0.6s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+  }
+
+  .card-attribution {
+    font-size: 0.8em;
+    font-weight: 500;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #454545;
+    opacity: 0;
+    transform: translateY(0);
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    transition: all 0.6s ease;
   }
 }
+
 
 
 
@@ -1240,17 +1244,52 @@ th {
 /* CAROUSEL NAVIGATION (ARROWS) --------------------------------------------- */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  /* Make the icons larger and invert/brighten them for visibility */
-  width: 40px;
-  height: 40px;
-  filter: invert(100%) brightness(200%);
+  background-color: black; /* Solid black for visibility */
+  width: 32px;
+  height: 32px;
+
+  /* Use clean SVG for professional arrow design */
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 1.5l7 6.5-7 6.5'/%3E%3C/svg%3E");
+  mask-size: cover;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 1.5l7 6.5-7 6.5'/%3E%3C/svg%3E");
+
+  /* Smooth transition on hover */
+  transition: background-color 0.3s ease;
 }
 
+.carousel-control-prev-icon {
+  transform: rotate(180deg); /* Rotate left arrow to point left */
+}
+
+.carousel-control-next-icon {
+  transform: rotate(0deg); /* Keep right arrow pointing right */
+}
+
+/* Positioning the navigation buttons */
 .carousel-control-prev,
 .carousel-control-next {
-  /* Increase clickable area a bit */
-  width: 5%;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  width: 5%; /* Maintain a good clickable area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.carousel-control-prev {
+  left: -1rem; /* Slightly outside the carousel boundary */
+}
+
+.carousel-control-next {
+  right: -1rem; /* Slightly outside the carousel boundary */
+}
+
+/* Hover effect */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  background-color: #555; /* Dark gray hover effect */
+}
+
 
 /* PORTFOLIO CARDS --------------------------------------------------------- */
 .portfolio-card {
@@ -1407,13 +1446,3 @@ h6 .header-anchor {
   color: #555;
 }
 
-/* (Optional) Tweak the carousel arrows so they appear clearly */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 5%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(100%) brightness(50%);
-}

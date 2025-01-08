@@ -1,5 +1,5 @@
 ---
-title: "Welcome to My Portfolio"
+title: "Welcome to My Portfolio!"
 format:
   html:
     anchor-location: none
@@ -11,6 +11,10 @@ echo: false
 message: false
 warning: false
 ---
+ 
+ Hi, I’m Brian Cervantes Alvarez—welcome to my portfolio! Take a look around and explore projects that reflect my passion for teaching, data science, and statistics. Below, you’ll find some of my current favorite projects showcased in the carousel—click through to learn more!  
+
+Whether it’s creating interactive educational tools, designing user-friendly applications, or diving into advanced statistical analysis, there’s something here to spark curiosity. Enjoy exploring, and feel free to reach out if you’d like to connect or collaborate!
 
 ```{=html}
 <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -82,8 +86,5 @@ warning: false
   </button>
 </div>
 ```
-
-I’m Brian Cervantes Alvarez—a Data Science Educator, Statistician, and Data Scientist passionate about transforming data into meaningful insights. This portfolio showcases my journey through the world of data, combining analytical rigor, interactive teaching, and innovative problem-solving.  
-
-From developing interactive educational tools to tackling real-world challenges with cutting-edge statistical techniques, my work reflects a deep commitment to data-driven solutions. Whether you’re here to explore my projects, learn more about my expertise, or collaborate on new ideas, you’ll find a wealth of resources highlighting my skills and experiences.  
+ 
 
