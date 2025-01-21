@@ -11,8 +11,8 @@ echo: false
 message: false
 warning: false
 ---
- 
- Hi, I’m Brian Cervantes Alvarez—welcome to my portfolio! Take a look around and explore projects that reflect my passion for teaching, data science, and statistics. Below, you’ll find some of my current favorite projects showcased in the carousel—click through to learn more!  
+
+Hi, I’m Brian Cervantes Alvarez—welcome to my portfolio! Take a look around and explore projects that reflect my passion for teaching, data science, and statistics. Below, you’ll find some of my current favorite projects showcased in the carousel—click through to learn more!
 
 Whether it’s creating interactive educational tools, designing user-friendly applications, or diving into advanced statistical analysis, there’s something here to spark curiosity. Enjoy exploring, and feel free to reach out if you’d like to connect or collaborate!
 
@@ -86,5 +86,3 @@ Whether it’s creating interactive educational tools, designing user-friendly a
   </button>
 </div>
 ```
- 
-
