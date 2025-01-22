@@ -11,6 +11,6 @@ This website represents my personal views and opinions and does not reflect the 
 
 The source code is released under the \[MIT license\] and can be used without restriction.
 
-**Use of Artificial Intelligence**\
+**Use of Artificial Intelligence**
 
-Some elements of this site (including text and code) were developed with assistance from OpenAI’s software. However, every final piece of content you see—along with the prompts, instructions, and ultimate decisions—are exclusively my own.
+Some elements of this site (including text, code and images) were developed with assistance from OpenAI’s software. However, every final piece of content you see—along with the prompts, instructions, and ultimate decisions—are exclusively my own.

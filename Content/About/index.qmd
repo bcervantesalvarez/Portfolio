@@ -46,29 +46,29 @@ I’ve worked to bring a modern data science approach to the Department of Stati
 
 ------------------------------------------------------------------------
 
-### Expertise and What I Offer  
+### Expertise and What I Offer
 
-------------------------------------------------------------------------  
+------------------------------------------------------------------------
 
-Here’s what I’m good at and what I’m always striving to get better at:  
+Here’s what I’m good at and what I’m always striving to get better at:
 
-- **Predictive Modeling & Statistical Methods**: I love digging into advanced techniques like time-to-event analysis, spatial stats, and simulations—especially when they’re solving real-world problems.  
-- **Machine Learning**: I’ve trained and interpreted models like Random Forests, SVMs, and Gradient Boosting Machines, figuring out how they can work best for different challenges.  
-- **Data Science Tools**: I know my way around R, Python, and a ton of tools for time series analysis, visualization, and reproducible research.  
-- **Experimentation & Consultation**: I’ve designed experiments and worked directly with clients, making sure they get honest, useful advice (no fluff).  
-- **Data Storytelling**: Breaking down complicated numbers into visuals and stories people actually care about is one of my favorite parts of the process.  
+-   **Predictive Modeling & Statistical Methods**: I love digging into advanced techniques like time-to-event analysis, spatial stats, and simulations—especially when they’re solving real-world problems.\
+-   **Machine Learning**: I’ve trained and interpreted models like Random Forests, SVMs, and Gradient Boosting Machines, figuring out how they can work best for different challenges.\
+-   **Data Science Tools**: I know my way around R, Python, and a ton of tools for time series analysis, visualization, and reproducible research.\
+-   **Experimentation & Consultation**: I’ve designed experiments and worked directly with clients, making sure they get honest, useful advice (no fluff).\
+-   **Data Storytelling**: Breaking down complicated numbers into visuals and stories people actually care about is one of my favorite parts of the process.
 
-I’m constantly learning new techniques, refining what I already know, and working on projects that combine interactive visualization, classification research, and meaningful insights.  
+I’m constantly learning new techniques, refining what I already know, and working on projects that combine interactive visualization, classification research, and meaningful insights.
 
-------------------------------------------------------------------------  
+------------------------------------------------------------------------
 
 ### Professional Aspirations
 
 ------------------------------------------------------------------------
 
-- Continue establishing a data science approach within the Department of Statistics, helping current and future faculty enhance their toolkits.  
-- Collaborate with faculty to exchange knowledge, learning from their expertise while contributing my skills.  
-- Advance my work on detailed, meticulously crafted statistical projects, focusing on simulations to address complex real-world challenges.  
+-   Continue establishing a data science approach within the Department of Statistics, helping current and future faculty enhance their toolkits.\
+-   Collaborate with faculty to exchange knowledge, learning from their expertise while contributing my skills.\
+-   Advance my work on detailed, meticulously crafted statistical projects, focusing on simulations to address complex real-world challenges.
 
 ------------------------------------------------------------------------
 
@@ -76,12 +76,12 @@ I’m constantly learning new techniques, refining what I already know, and work
 
 ------------------------------------------------------------------------
 
-When I’m not knee-deep in data or teaching, I’m usually diving into hobbies that keep me curious and entertained:  
+When I’m not knee-deep in data or teaching, I’m usually diving into hobbies that keep me curious and entertained:
 
-- **Travel**: I recently had the chance to roam around Europe—Madrid, Barcelona, Venice, Rome, and Paris were all on the itinerary. Every city had its own vibe, and I came back with more than just souvenirs (mostly ideas and a lot of photos).  
-- **Audio Enthusiast**: I’m a bit obsessed with good sound. Whether it’s tweaking my car audio setup or finding the perfect pair of headphones, I’m always chasing that crisp, balanced sound.  
-- **Gaming & Tech**: Gaming is more of a side quest these days, but I still love building PCs and geeking out over new gadgets. If there’s a shiny, overengineered device out there, it’s probably on my wishlist.  
-- **Learning & AI**: Lately, I’ve been nerding out on artificial intelligence—seeing how it works and imagining all the cool (and maybe slightly terrifying) ways it could evolve.  
+-   **Travel**: I recently had the chance to roam around Europe—Madrid, Barcelona, Venice, Rome, and Paris were all on the itinerary. Every city had its own vibe, and I came back with more than just souvenirs (mostly ideas and a lot of photos).\
+-   **Audio Enthusiast**: I’m a bit obsessed with good sound. Whether it’s tweaking my car audio setup or finding the perfect pair of headphones, I’m always chasing that crisp, balanced sound.\
+-   **Gaming & Tech**: Gaming is more of a side quest these days, but I still love building PCs and geeking out over new gadgets. If there’s a shiny, overengineered device out there, it’s probably on my wishlist.\
+-   **Learning & AI**: Lately, I’ve been nerding out on artificial intelligence—seeing how it works and imagining all the cool (and maybe slightly terrifying) ways it could evolve.
 
 And yeah, sometimes you’ll catch me scrolling TikTok or YouTube Shorts a little too long—it’s my go-to for random but oddly inspiring rabbit holes.
 
