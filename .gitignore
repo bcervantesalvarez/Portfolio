@@ -3,8 +3,7 @@
 .RData
 .Ruserdata
 .env
-.code-workspace
-.Rproj
+
 
 
 ## Ignore Visual Studio temporary files, build results, and
