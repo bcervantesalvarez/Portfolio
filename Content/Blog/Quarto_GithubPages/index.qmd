@@ -2,12 +2,16 @@
 title: "Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages"
 author: "Brian Cervantes Alvarez"
 date: "2025-01-29"
-image: /Assets/Images/githubLogo.png
+image: Assets/Images/githubLogo.png
 format: 
   html:
     page-layout: article
 eval: false
 ---
+
+::: {style="text-align: center; padding-top: 10px; padding-bottom: 10px;"}
+<img src="/Assets/Images/githubLogo.png" style="height: 400px;"/>
+:::
 
 ## Overview
 

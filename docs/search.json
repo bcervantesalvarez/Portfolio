@@ -1306,14 +1306,14 @@
     "href": "Content/Blog/Quarto_GithubPages/index.html",
     "title": "Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages",
     "section": "",
-    "text": "In this short guide, we’ll ensure you have all the pieces in place for our Quarto + GitHub Pages workshop. By the end of this setup, you’ll have:\n\nGit installed and configured,\nA GitHub account (with a Personal Access Token),\nRStudio connected to both Git and GitHub,\nThe ability to push commits so you’re good to go!"
+    "text": "![](Assets/Images/githubLogo.png)"
   },
   {
     "objectID": "Content/Blog/Quarto_GithubPages/index.html#overview",
     "href": "Content/Blog/Quarto_GithubPages/index.html#overview",
     "title": "Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages",
-    "section": "",
-    "text": "In this short guide, we’ll ensure you have all the pieces in place for our Quarto + GitHub Pages workshop. By the end of this setup, you’ll have:\n\nGit installed and configured,\nA GitHub account (with a Personal Access Token),\nRStudio connected to both Git and GitHub,\nThe ability to push commits so you’re good to go!"
+    "section": "Overview",
+    "text": "Overview\nIn this short guide, we’ll ensure you have all the pieces in place for our Quarto + GitHub Pages workshop. By the end of this setup, you’ll have:\n\nGit installed and configured,\nA GitHub account (with a Personal Access Token),\nRStudio connected to both Git and GitHub,\nThe ability to push commits so you’re good to go!"
   },
   {
     "objectID": "Content/Blog/Quarto_GithubPages/index.html#install-git",

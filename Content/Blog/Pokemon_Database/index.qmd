@@ -31,7 +31,6 @@ The successful implementation of this project was dependent on the utilization o
 
 The inquiry of identifying the optimal base stat Pokemon type sparked my interest, prompting me to delve into the realm of data engineering. In order to craft a well-informed response to this question, I began by utilizing the expansive and multifaceted "Pokémon of Kanto, Johto, and Hoenn Region" dataset to establish a structured and organized database.
 
-
 ## Unleashing the Power of PostgreSQL: Building a Database
 
 This SQL code creates several tables for storing Pokémon data. The tables include information about Pokémon, their types, abilities, generations, and moves. The code establishes primary keys, foreign key constraints, and defines the data types for each column. These tables form the foundation for a comprehensive Pokémon database, enabling efficient storage and retrieval of Pokémon-related information.
@@ -194,12 +193,10 @@ WITH (FORMAT CSV, HEADER);
 
 Through the power of data analysis and visualization, we have delved into the world of Pokémon to uncover insights about types, damage output, accuracy, and their relationships. Our exploration has shed light on the best Pokémon type for damage output, the most accurate contenders, and the interplay between power and accuracy. By combining the captivating nature of Pokémon with the analytical capabilities of R, we have gained valuable knowledge and set the stage for further investigations in the vast Pokémon universe.
 
-
 ```{r, message=FALSE,output=FALSE}
 library(tidyverse)
 library(RColorBrewer)
 ```
-
 
 ```{r, eval=FALSE}
 pokemon <- read_csv("../../../Assets/Datasets/scuffed_pokedex.csv")
