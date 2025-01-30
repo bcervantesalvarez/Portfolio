@@ -228,7 +228,7 @@ warning: false
 <div class="container">
   <div class="testimonial text-center">
     <blockquote class="mb-4" style="font-size: 1.25rem;">
-      "You miss 100% of the shots you don't take. -Wane Gretzky"
+      "You miss 100% of the shots you don't take. -Wayne Gretzky"
     </blockquote>
     <p class="h5" style="color: var(--primary-color);">
       — Michael Scott
