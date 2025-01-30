@@ -41,7 +41,7 @@ $min-contrast-ratio: 2.25 !default;
 $enable-rounded: true !default;
 
 // Background Color
-$background-color: #F0F8FF !default;
+$background-color: #c5e5ff1c !default;
 
 // Title Banner
 $title-banner: true !default;
@@ -477,7 +477,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
    /* Enhanced styling */
-  box-shadow: 0 2px 4px rgb(75, 113, 149, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 // Quarto Title Block Pages
@@ -1277,11 +1277,11 @@ th {
 }
 
 .carousel-control-prev {
-  left: -1rem; /* Slightly outside the carousel boundary */
+  left: -2.5rem; /* Slightly outside the carousel boundary */
 }
 
 .carousel-control-next {
-  right: -1rem; /* Slightly outside the carousel boundary */
+  right: -2.5rem; /* Slightly outside the carousel boundary */
 }
 
 /* Hover effect */
@@ -1291,80 +1291,9 @@ th {
 }
 
 
-/* PORTFOLIO CARDS --------------------------------------------------------- */
-.portfolio-card {
-  position: relative; /* Allows absolutely-positioned badge to sit inside card */
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.portfolio-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.portfolio-card img {
-  /* Center the image and fix height to a consistent size */
-  display: block;
-  margin: 0 auto 15px auto;
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.portfolio-card h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin: 10px;
-  padding-bottom: 10px;
-  letter-spacing: 0.5px; 
-  text-align: center; 
-}
-
-.portfolio-card p {
-  /* Align description text left */
-  font-size: 1rem;
-  color: #555;
-  margin: 5px 0 5px 0;
-  text-align: left;
-  max-width: 600px; /* Keep long text comfortably readable */
-
-  border-radius: 4px;
-  padding: 5px;
-}
-
-.portfolio-card a {
-  display: inline-block;
-  font-weight: 700;
-  color: $black;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 10px 10px;
-  border: 2px solid $black;
-  border-radius: 4px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-card a:hover {
-  background-color: #f0f8ff;
-  color: $black;
-  text-decoration: none;
-}
-
 /* BADGE TAG (top-right pop-up label) --------------------------------------- */
 .badge-tag {
   position: absolute;
-  bottom: 15px;
   right: 15px;
   z-index: 10;
   background: #f0f8ff;
@@ -1373,16 +1302,36 @@ th {
   font-size: 1rem;
   padding: 6px 10px;
   border-radius: 4px;
-  transform: scale(0);         /* Start invisible (scaled down) */
-  transform-origin: top right; /* Animate from the corner */
+  /* Start invisible & slightly rotated */
+  transform: scale(0) rotate(15deg);
+  transform-origin: top right;
   opacity: 0;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  /* Remove the old "transition:" since we’ll rely on keyframes */
 }
 
-/* Reveal badge when the slide is active */
+/* When the carousel item becomes active, fire the pop animation */
 .carousel-item.active .badge-tag {
-  transform: scale(1);
-  opacity: 1;
+  animation: nintendo-pop 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframes: 
+   0% -> scale(0), rotate(15deg), hidden
+   50% -> overshoot scale(1.3), rotate(0deg)
+   100% -> final scale(1), fully visible
+*/
+@keyframes nintendo-pop {
+  0% {
+    transform: scale(0) rotate(15deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 /* Hide heading anchors for all heading levels (h1-h6) ---------------------- */
@@ -1444,5 +1393,382 @@ h6 .header-anchor {
 .travel-date {
   font-style: italic;
   color: #555;
+}
+
+/* ---------------------------------------
+   Hero Section
+---------------------------------------- */
+
+.hero-section {
+  padding: 5rem 0;
+  text-align: center;
+  background: linear-gradient(45deg, $gray-100 0%, $white 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 8px 24px rgba(42, 93, 176, 0.15);
+  margin: 0 auto 2rem auto;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(42, 93, 176, 0.25);
+}
+
+/* Optional: Add decorative elements */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 120px;
+  height: 120px;
+  background: rgba(42, 93, 176, 0.1);
+  border-radius: 30% 70% 70% 30%;
+  transform: rotate(45deg);
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 160px;
+  height: 160px;
+  background: rgba(42, 93, 176, 0.08);
+  border-radius: 70% 30% 30% 70%;
+  transform: rotate(-20deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+}
+/* ---------------------------------------
+   CTA (Call to Action) Button
+---------------------------------------- */
+.cta-button {
+  background: $blue;                /* Replaces var(--primary-color) */
+  color: $white !important;
+  padding: 12px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin: 1rem 0;
+  display: inline-block;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    /* Soft shadow on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ---------------------------------------
+   Carousel & Portfolio Cards
+---------------------------------------- */
+
+/* PORTFOLIO CARDS --------------------------------------------------------- */
+.portfolio-card {
+  position: relative; /* Allows absolutely-positioned badge to sit inside card */
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 16px;
+  min-height: 500px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.portfolio-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 10px;
+  padding-bottom: 10px;
+  letter-spacing: 0.5px; 
+  text-align: center; 
+}
+
+.portfolio-card p {
+  /* Align description text left */
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0 5px 0;
+  text-align: left;
+  max-width: 600px; /* Keep long text comfortably readable */
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.portfolio-card a {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 22px;
+  border: 0.5px solid $black;
+  border-radius: 50px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    /* Soft shadow on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Keep images centered and consistent size */
+.portfolio-card img {
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+
+/* The corner badge */
+.badge-tag {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background: $blue;     /* Replaces var(--primary-color) */
+  color: $white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transform: rotate(3deg);
+}
+
+
+
+/* ---------------------------------------
+   Skills Grid
+---------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid;
+  min-height: 320px;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(42,93,176,0.15);
+}
+
+/* Wide Card Specific Styles */
+.skill-card--wide {
+  grid-column: span 2;
+  min-height: auto;
+  margin: 3rem 0;
+}
+
+.skill-card--wide .skill-desc {
+  min-height: auto;
+}
+
+/* Category Colors */
+[data-category="development"] { border-color: #2A5DB0; }
+[data-category="data-science"] { border-color: #4B8BBE; }
+[data-category="analytics"] { border-color: #e18080; }
+[data-category="data-engineering"] { border-color: #34A853; }
+[data-category="consulting"] { border-color: #8A2BE2; }
+[data-category="ai"] { border-color: #00c871; }
+[data-category="cloud-computing"] { border-color: #ae0000; }
+
+
+/* Icon Styling */
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(42,93,176,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #2A5DB0;
+}
+
+.skill-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Typography */
+.skill-card h3 {
+  color: #2A5DB0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.skill-meta {
+  margin-bottom: 1rem;
+}
+
+.skill-experience {
+  background: rgba(42,93,176,0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #2A5DB0;
+  display: inline-block;
+  font-size: 0.9em;
+}
+
+.skill-desc {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-card--wide {
+    grid-column: span 1;
+    margin: 2rem 0;
+  }
+  
+  .skill-card {
+    min-height: auto;
+  }
+}
+
+/* ---------------------------------------
+   Testimonial Section
+---------------------------------------- */
+.testimonial {
+  background: $gray-100;  /* Replaces var(--secondary-color) */
+  padding: 2.5rem;
+  margin: 4rem auto;
+  border-radius: 16px;
+  max-width: 800px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/* ---------------------------------------
+   Final CTA / Contact Section
+---------------------------------------- */
+#contact {
+  background: linear-gradient(45deg, rgba(42, 93, 176, 0.03) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 24px;
+  margin: 4rem 0;
+  border: 1px solid rgba(42, 93, 176, 0.1);
+}
+
+.cta-deco {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(42, 93, 176, 0.05);
+  border-radius: 30%;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.cta-deco--1 {
+  top: -60px;
+  left: -60px;
+  transform: rotate(45deg);
+  background: linear-gradient(45deg, rgba(42, 93, 176, 0.08), transparent);
+}
+
+.cta-deco--2 {
+  bottom: -60px;
+  right: -60px;
+  transform: rotate(-45deg);
+  background: linear-gradient(-45deg, rgba(42, 93, 176, 0.08), transparent);
+}
+
+.cta-button--main {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cta-button--main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-button--main:hover::before {
+  left: 100%;
+}
+
+.resume-download {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.resume-download::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.resume-download:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .cta-deco {
+    display: none;
+  }
 }
 

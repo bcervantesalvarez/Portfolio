@@ -1,0 +1,163 @@
+---
+title: "Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages"
+author: "Brian Cervantes Alvarez"
+date: "2025-01-29"
+image: /Assets/Images/githubLogo.png
+format: 
+  html:
+    page-layout: article
+eval: false
+---
+
+## Overview
+
+In this short guide, we'll ensure you have all the pieces in place for our Quarto + GitHub Pages workshop. By the end of this setup, you'll have:
+
+1.  **Git installed** and configured,
+2.  **A GitHub account** (with a Personal Access Token),
+3.  **RStudio** connected to both Git and GitHub,
+4.  The ability to **push commits** so you’re good to go!
+
+------------------------------------------------------------------------
+
+## 1. Install Git
+
+**What is Git?**\
+Git is a version control system that tracks changes in your files and makes collaboration easier. You’ll need it for publishing your Quarto site to GitHub.
+
+1.  **Windows**
+    -   [Download Git for Windows](https://git-scm.com/download/win).\
+    -   Launch the installer; the default options generally work fine.
+2.  **Mac**
+    -   [Download Git for Mac](https://git-scm.com/download/mac), or use Homebrew:
+
+        ``` bash
+        brew install git
+        ```
+3.  **Linux**
+    -   Use your distribution’s package manager. For example, on Ubuntu/Debian:
+
+        ``` bash
+        sudo apt-get install git
+        ```
+
+**Verify Installation**\
+Open a terminal or command prompt and type:
+
+``` bash
+git --version
+```
+
+You should see something like `git version 2.42.0` (version numbers may vary).
+
+::: callout-note
+As of January 29th, 2025, I am running on git version 2.39.5 (Apple Git-154)
+:::
+
+------------------------------------------------------------------------
+
+## 2. Create or Confirm Your GitHub Account
+
+1.  Go to <https://github.com> and **sign up** if you don’t have an account yet.\
+2.  If you already have one, just **sign in** and remember your username and password (we'll need them).
+
+------------------------------------------------------------------------
+
+## 3. Configure Git on Your Computer
+
+In a terminal or command prompt, configure your Git username and email (use the same email as on GitHub):
+
+``` bash
+git config --global user.name "YourGitHubUserName"
+git config --global user.email "YourEmail@example.com"
+```
+
+Git uses this info to label your commits.
+
+------------------------------------------------------------------------
+
+## 4. Generate a Personal Access Token (PAT)
+
+GitHub no longer uses passwords for Git operations; you’ll need a **Personal Access Token**.
+
+1.  Log in to GitHub and click your **profile pic** (top-right corner).\
+2.  Go to **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)**.\
+3.  Choose **Generate new token** → **Generate new token (classic)** (if prompted).\
+4.  Name your token something like **RStudio-GitHub**.\
+5.  Select the **repo** scope (so you can push to repositories).\
+6.  **Generate** and **copy** the token somewhere safe (you won’t see it again after leaving the page).
+
+::: callout-warning
+Do not share your Personal Access Token! Don't put it in your repo or save it on your computer. Treat it like a private API key.
+:::
+
+------------------------------------------------------------------------
+
+## 5. Connect Git & GitHub in RStudio
+
+1.  **Open RStudio**.\
+2.  Navigate to **Tools** → **Global Options** → **Git/SVN** (or **Version Control** in newer versions).\
+3.  Ensure the **Git executable** path is correctly detected (e.g., `/usr/bin/git` on Mac/Linux or `C:/Program Files/Git/bin/git.exe` on Windows).
+
+### Optional: Using `usethis` to manage credentials
+
+To store your PAT in R, you can use the `usethis` package. In RStudio:
+
+```{r}
+install.packages("usethis")
+library(usethis)
+create_github_token()  # This opens a browser to create a token.
+gitcreds_set()         # This will prompt you to enter your PAT.
+```
+
+After following the prompts, your token will be securely saved.
+
+------------------------------------------------------------------------
+
+## 6. Test Your Setup (Commit & Push)
+
+1.  **Create or open an RStudio Project linked to Git**:
+    -   **File** → **New Project** → **Version Control** → **Git**.\
+    -   Paste in your GitHub repo URL.\
+    -   Select where to clone it locally.
+2.  **Make a small change** to a file (e.g., add “Hello, Quarto!” to a `.qmd` or `README.md`).
+3.  Save, then go to RStudio’s **Git** tab, check the file, and **Commit** with a message (e.g., “Testing my setup”).
+4.  Click **Push**. If you’re asked for username and password:
+    -   **Username**: Your GitHub username.
+    -   **Password**: Your Personal Access Token (PAT).
+
+If it succeeds, you’ll see a success message or “Everything up to date.”
+
+------------------------------------------------------------------------
+
+## 7. Troubleshooting Repeated Login Prompts
+
+If RStudio keeps asking for your username/password on every push:
+
+```{r}
+library(usethis)
+gitcreds_set()
+```
+
+Enter your Personal Access Token when prompted. That should do the trick.
+
+------------------------------------------------------------------------
+
+## 8. Ready for the Workshop: Quarto + GitHub Pages
+
+With Git and GitHub all set, you’re ready to rock your Quarto-based portfolio! In the workshop, we’ll:
+
+1.  Create a **Quarto project**.
+2.  Add `.qmd` files for your portfolio pages.
+3.  Commit and push to GitHub.
+4.  Activate **GitHub Pages** to share your site with the world.
+
+::: callout-tip
+## Pro Tip
+
+If anything goes sideways, **screenshot the error** and note what step you were on. We’ll troubleshoot together during the workshop.
+:::
+
+------------------------------------------------------------------------
+
+**That’s it!** Make sure you finish these steps so you can jump right into creating your Quarto-based portfolio during the workshop. See you there!

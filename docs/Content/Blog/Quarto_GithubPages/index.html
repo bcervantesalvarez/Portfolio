@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Cervantes Alvarez">
+<meta name="dcterms.date" content="2025-01-29">
 
-<title>Home</title>
+<title>Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,7 +103,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Home">
+<meta property="og:title" content="Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages – Home">
+<meta property="og:description" content="">
+<meta property="og:image" content="/Assets/Images/githubLogo.png">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -78,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -89,23 +127,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Content/About/index.html"> 
+    <a class="nav-link" href="../../../Content/About/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Content/Projects/index.html"> 
+    <a class="nav-link" href="../../../Content/Projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Content/Blog/index.html"> 
+    <a class="nav-link" href="../../../Content/Blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Content/Talks/index.html"> 
+    <a class="nav-link" href="../../../Content/Talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Content/Resources/index.html"> 
+    <a class="nav-link" href="../../../Content/Resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -123,261 +161,218 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-
-<!-- =========================
-       Hero Section
-========================= -->
-<div class="hero-section">
-  <div class="container">
-    <img src="./Assets/Images/profile2.JPG" alt="Brian Cervantes Alvarez" class="hero-img">
-    <h1 class="display-4 mb-3">Brian Cervantes Alvarez</h1>
-    <h3 class="mb-4 anchored" style="color: var(--primary-color);">
-      Storytelling Statistics with Data Science
-    </h3>
-    <p class="lead" style="max-width: 700px; margin: 0 auto 2rem auto;">
-      Building tools that simplify complex data and empower learners through interactive education
-    </p>
-    <a href="#contact" class="cta-button">Let's Collaborate →</a>
-  </div>
-</div>
-
-<!-- =========================
-       Featured Projects
-========================= -->
-<div class="container">
-  <h2 class="text-center mb-5 anchored">Featured Projects</h2>
-  <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <div class="portfolio-card mx-auto" style="max-width: 800px;">
-          <div class="badge-tag">Education!</div>
-          <img src="Assets/Images/webR.png" class="img-fluid mb-4" alt="Interactive Teaching with webR">
-          <h3 class="mb-3 anchored">Interactive Teaching with webR</h3>
-          <p class="px-3">
-            Created interactive lessons using <strong>webR</strong> that
-            <span style="color: var(--primary-color); font-weight: bold;">
-              improves student attention
-            </span>
-            for complex statistical concepts.
-          </p>
-          <a href="https://bcervantesalvarez.github.io/Portfolio/Content/Blog/Teaching_With_WebR/" class="cta-button mt-auto">See Project →</a>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <div class="portfolio-card mx-auto" style="max-width: 800px;">
-          <div class="badge-tag">Data Science!</div>
-          <img src="Assets/Images/ukCarAccident.webp" class="img-fluid mb-4" alt="Shiny Application for UK Accident Data">
-          <h3 class="mb-3 anchored">Shiny Application for UK Accident Data</h3>
-          <p class="px-3">
-            Developed a Shiny app to 
-            explore <strong>UK traffic accident trends</strong> with dynamic dashboards and an intuitive design.
-          </p>
-          <a href="https://bcervantesalvarez.github.io/Portfolio/Content/Projects/UKAccidentShinyApp/" class="cta-button mt-auto">See Project →</a>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="carousel-item">
-        <div class="portfolio-card mx-auto" style="max-width: 800px;">
-          <div class="badge-tag">Statistics!</div>
-          <img src="Assets/Images/redwhite.jpeg" class="img-fluid mb-4" alt="Applied Multivariate Analysis on Wine Data">
-          <h3 class="mb-3 anchored">Applied Multivariate Analysis on Wine Data</h3>
-          <p class="px-3">
-            Detailed multivariate analysis on 
-            <strong>wine quality data</strong>, offering insights and recommendations based on observed relationships.
-          </p>
-          <a href="https://bcervantesalvarez.github.io/Portfolio/Content/Projects/Statistical%20Analysis%20Wines/" class="cta-button mt-auto">See Project →</a>
-        </div>
-      </div>
-
-    </div>
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-
-<!-- =========================
-       Skills Grid
-========================= -->
-<div class="container">
-  <h2 class="text-center mb-5 anchored">Data Science Toolkit</h2>
-  <div class="skills-grid">
-    <!-- R/Shiny Development -->
-    <div class="skill-card" data-category="development">
-      <div class="skill-icon">
-        <img src="https://www.r-project.org/logo/Rlogo.svg" alt="R Logo">
-      </div>
-      <h3 class="anchored">R/Shiny Development</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">4+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        Building production-grade dashboards, statistical packages, and interactive educational tools
-      </div>
-    </div>
-
-    <!-- Python -->
-    <div class="skill-card" data-category="data-science">
-      <div class="skill-icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
-      </div>
-      <h3 class="anchored">Python</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">3+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        Developing machine learning pipelines, automation scripts, and data analysis workflows
-      </div>
-    </div>
-
-    <!-- Statistical Analysis -->
-    <div class="skill-card" data-category="analytics">
-      <div class="skill-icon">
-        <i class="bi bi-clipboard-data"></i>
-      </div>
-      <h3 class="anchored">Statistical Analysis</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">2+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        Hypothesis testing, regression analysis, and experimental design implementation
-      </div>
-    </div>
-
-    <!-- Database Management -->
-    <div class="skill-card" data-category="data-engineering">
-      <div class="skill-icon">
-        <i class="bi bi-database"></i>
-      </div>
-      <h3 class="anchored">SQL Databases</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">1+ Year Experience</span>
-      </div>
-      <div class="skill-desc">
-        Designing optimized schemas, writing complex queries, and managing large datasets
-      </div>
-    </div>
-
-    <!-- Statistical Consulting -->
-    <div class="skill-card" data-category="consulting">
-      <div class="skill-icon">
-        <i class="bi bi-people"></i>
-      </div>
-      <h3 class="anchored">Statistical Consulting</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">1+ Year Experience</span>
-      </div>
-      <div class="skill-desc">
-        Translating business problems into statistical solutions with actionable insights
-      </div>
-    </div>
-
-    <!-- Cloud Computing -->
-    <div class="skill-card" data-category="cloud-computing">
-      <div class="skill-icon">
-        <i class="bi bi-cloud"></i> <!-- Changed to cloud icon -->
-      </div>
-      <h3 class="anchored">Cloud Computing</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">1+ Year Experience</span>
-      </div>
-      <div class="skill-desc">
-        Developing and deploying scalable data solutions on Google Cloud and AWS platforms.
-      </div>
-    </div>
-  </div>
-  <!-- Generative AI Section -->
-  <div class="skill-card skill-card--wide" data-category="ai">
-    <div class="skill-icon">
-      <i class="bi bi-diagram-3" style="font-size: 2.5rem;"></i>
-    </div>
-    <h3 class="anchored">Generative AI &amp; Workflow Automation</h3>
-    <div class="skill-meta">
-      <span class="skill-experience">2+ Years Experience</span>
-    </div>
-    <div class="skill-desc">
-      <div class="skill-columns">
-        <div>
-          <h4 class="anchored">Core Capabilities</h4>
-          <ul class="skill-list">
-            <li>AI-assisted code generation</li>
-            <li>Prompt engineering for technical docs</li>
-            <li>Workflow automation scripts</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages</h1>
 </div>
 
 
 
-<!-- =========================
-       Testimonial
-========================= -->
-<div class="container">
-  <div class="testimonial text-center">
-    <blockquote class="mb-4 blockquote" style="font-size: 1.25rem;">
-      "You miss 100% of the shots you don't take. -Wayne Gretzky"
-    </blockquote>
-    <p class="h5" style="color: var(--primary-color);">
-      — Michael Scott
-    </p>
-  </div>
-</div>
+<div class="quarto-title-meta">
 
-<!-- =========================
-       Final CTA / Contact
-========================= -->
-<div class="container">
-  <div id="contact" class="text-center py-5 position-relative overflow-hidden">
-    <!-- Decorative Elements -->
-    <div class="cta-deco cta-deco--1"></div>
-    <div class="cta-deco cta-deco--2"></div>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
     
-    <h2 class="mb-4 position-relative anchored">Ready to Solve Problems with Data?</h2>
-    <p class="lead mb-5 position-relative">
-      Let's discuss how I can contribute to your team or project.
-    </p>
-    
-    <div class="d-flex justify-content-center gap-3 mb-4 position-relative">
-      <!-- Email Button -->
-      <a href="mailto:your.email@example.com" class="cta-button cta-button--main">
-        <svg style="width:1.3em; height:1.5em; vertical-align: top; margin-right: 0.4rem;" viewbox="0 0 24 24">
-          <path fill="currentColor" d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
-        </svg>
-        Email Me
-      </a>
-
-      <!-- LinkedIn Button -->
-      <a href="https://linkedin.com/in/bcervantesalvarez" class="cta-button cta-button--linkedin" target="_blank" rel="noreferrer">
-        <i class="bi bi-linkedin" style="margin-right: 0.4rem;"></i>
-        LinkedIn
-      </a>
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 29, 2025</p>
     </div>
-
-    <!-- Download Resume -->
-    <a href="Assets/Resume.pdf" download="" class="download-link resume-download position-relative">
-      <i class="bi bi-file-earmark-arrow-down" style="font-size: 1.2rem; margin-right: 0.4rem;"></i>
-      Download Full Resume
-    </a>
   </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>In this short guide, we’ll ensure you have all the pieces in place for our Quarto + GitHub Pages workshop. By the end of this setup, you’ll have:</p>
+<ol type="1">
+<li><strong>Git installed</strong> and configured,</li>
+<li><strong>A GitHub account</strong> (with a Personal Access Token),</li>
+<li><strong>RStudio</strong> connected to both Git and GitHub,</li>
+<li>The ability to <strong>push commits</strong> so you’re good to go!</li>
+</ol>
+<hr>
+</section>
+<section id="install-git" class="level2">
+<h2 class="anchored" data-anchor-id="install-git">1. Install Git</h2>
+<p><strong>What is Git?</strong><br>
+Git is a version control system that tracks changes in your files and makes collaboration easier. You’ll need it for publishing your Quarto site to GitHub.</p>
+<ol type="1">
+<li><strong>Windows</strong>
+<ul>
+<li><a href="https://git-scm.com/download/win">Download Git for Windows</a>.<br>
+</li>
+<li>Launch the installer; the default options generally work fine.</li>
+</ul></li>
+<li><strong>Mac</strong>
+<ul>
+<li><p><a href="https://git-scm.com/download/mac">Download Git for Mac</a>, or use Homebrew:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Linux</strong>
+<ul>
+<li><p>Use your distribution’s package manager. For example, on Ubuntu/Debian:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+<p><strong>Verify Installation</strong><br>
+Open a terminal or command prompt and type:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You should see something like <code>git version 2.42.0</code> (version numbers may vary).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As of January 29th, 2025, I am running on git version 2.39.5 (Apple Git-154)</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="create-or-confirm-your-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="create-or-confirm-your-github-account">2. Create or Confirm Your GitHub Account</h2>
+<ol type="1">
+<li>Go to <a href="https://github.com" class="uri">https://github.com</a> and <strong>sign up</strong> if you don’t have an account yet.<br>
+</li>
+<li>If you already have one, just <strong>sign in</strong> and remember your username and password (we’ll need them).</li>
+</ol>
+<hr>
+</section>
+<section id="configure-git-on-your-computer" class="level2">
+<h2 class="anchored" data-anchor-id="configure-git-on-your-computer">3. Configure Git on Your Computer</h2>
+<p>In a terminal or command prompt, configure your Git username and email (use the same email as on GitHub):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"YourGitHubUserName"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"YourEmail@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Git uses this info to label your commits.</p>
+<hr>
+</section>
+<section id="generate-a-personal-access-token-pat" class="level2">
+<h2 class="anchored" data-anchor-id="generate-a-personal-access-token-pat">4. Generate a Personal Access Token (PAT)</h2>
+<p>GitHub no longer uses passwords for Git operations; you’ll need a <strong>Personal Access Token</strong>.</p>
+<ol type="1">
+<li>Log in to GitHub and click your <strong>profile pic</strong> (top-right corner).<br>
+</li>
+<li>Go to <strong>Settings</strong> → <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong>.<br>
+</li>
+<li>Choose <strong>Generate new token</strong> → <strong>Generate new token (classic)</strong> (if prompted).<br>
+</li>
+<li>Name your token something like <strong>RStudio-GitHub</strong>.<br>
+</li>
+<li>Select the <strong>repo</strong> scope (so you can push to repositories).<br>
+</li>
+<li><strong>Generate</strong> and <strong>copy</strong> the token somewhere safe (you won’t see it again after leaving the page).</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not share your Personal Access Token! Don’t put it in your repo or save it on your computer. Treat it like a private API key.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="connect-git-github-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="connect-git-github-in-rstudio">5. Connect Git &amp; GitHub in RStudio</h2>
+<ol type="1">
+<li><strong>Open RStudio</strong>.<br>
+</li>
+<li>Navigate to <strong>Tools</strong> → <strong>Global Options</strong> → <strong>Git/SVN</strong> (or <strong>Version Control</strong> in newer versions).<br>
+</li>
+<li>Ensure the <strong>Git executable</strong> path is correctly detected (e.g., <code>/usr/bin/git</code> on Mac/Linux or <code>C:/Program Files/Git/bin/git.exe</code> on Windows).</li>
+</ol>
+<section id="optional-using-usethis-to-manage-credentials" class="level3">
+<h3 class="anchored" data-anchor-id="optional-using-usethis-to-manage-credentials">Optional: Using <code>usethis</code> to manage credentials</h3>
+<p>To store your PAT in R, you can use the <code>usethis</code> package. In RStudio:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">create_github_token</span>()  <span class="co"># This opens a browser to create a token.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gitcreds_set</span>()         <span class="co"># This will prompt you to enter your PAT.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After following the prompts, your token will be securely saved.</p>
+<hr>
+</section>
+</section>
+<section id="test-your-setup-commit-push" class="level2">
+<h2 class="anchored" data-anchor-id="test-your-setup-commit-push">6. Test Your Setup (Commit &amp; Push)</h2>
+<ol type="1">
+<li><strong>Create or open an RStudio Project linked to Git</strong>:
+<ul>
+<li><strong>File</strong> → <strong>New Project</strong> → <strong>Version Control</strong> → <strong>Git</strong>.<br>
+</li>
+<li>Paste in your GitHub repo URL.<br>
+</li>
+<li>Select where to clone it locally.</li>
+</ul></li>
+<li><strong>Make a small change</strong> to a file (e.g., add “Hello, Quarto!” to a <code>.qmd</code> or <code>README.md</code>).</li>
+<li>Save, then go to RStudio’s <strong>Git</strong> tab, check the file, and <strong>Commit</strong> with a message (e.g., “Testing my setup”).</li>
+<li>Click <strong>Push</strong>. If you’re asked for username and password:
+<ul>
+<li><strong>Username</strong>: Your GitHub username.</li>
+<li><strong>Password</strong>: Your Personal Access Token (PAT).</li>
+</ul></li>
+</ol>
+<p>If it succeeds, you’ll see a success message or “Everything up to date.”</p>
+<hr>
+</section>
+<section id="troubleshooting-repeated-login-prompts" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-repeated-login-prompts">7. Troubleshooting Repeated Login Prompts</h2>
+<p>If RStudio keeps asking for your username/password on every push:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Enter your Personal Access Token when prompted. That should do the trick.</p>
+<hr>
+</section>
+<section id="ready-for-the-workshop-quarto-github-pages" class="level2">
+<h2 class="anchored" data-anchor-id="ready-for-the-workshop-quarto-github-pages">8. Ready for the Workshop: Quarto + GitHub Pages</h2>
+<p>With Git and GitHub all set, you’re ready to rock your Quarto-based portfolio! In the workshop, we’ll:</p>
+<ol type="1">
+<li>Create a <strong>Quarto project</strong>.</li>
+<li>Add <code>.qmd</code> files for your portfolio pages.</li>
+<li>Commit and push to GitHub.</li>
+<li>Activate <strong>GitHub Pages</strong> to share your site with the world.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pro Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If anything goes sideways, <strong>screenshot the error</strong> and note what step you were on. We’ll troubleshoot together during the workshop.</p>
+</div>
+</div>
+<hr>
+<p><strong>That’s it!</strong> Make sure you finish these steps so you can jump right into creating your Quarto-based portfolio during the workshop. See you there!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -823,7 +818,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./Content/License/index.html">
+    <a class="nav-link" href="../../../Content/License/index.html">
 <p>License</p>
 </a>
   </li>  
