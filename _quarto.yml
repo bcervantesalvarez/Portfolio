@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
+  google-analytics: "G-HN44V7BZHS"
   search:
     type: textbox 
   open-graph: true
