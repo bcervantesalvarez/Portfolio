@@ -1772,3 +1772,82 @@ h6 .header-anchor {
   }
 }
 
+// Common Policy Section Styling
+.policy-section {
+  background-color: $white; // Ensure it matches your theme’s white (#fff)
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Matches the subtle shadow used across sections
+  // Note: The container utility classes (my-5, px-4, py-5) already handle spacing;
+  // additional padding is not added here to preserve consistency.
+  padding: 2em !important;
+}
+
+// Contact Form Specific Adjustments
+.policy-form-section {
+  // Optionally, adjust vertical spacing (if needed)
+  padding-bottom: 1.5rem;
+  // The horizontal padding is inherited from the container class (px-4)
+}
+
+// Policy Form Heading and Lead Text
+.policy-form-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.policy-form-lead {
+  margin-bottom: 1rem;
+  color: $gray-700;
+}
+
+// Policy Form Structure
+.policy-form {
+  display: flex;
+  flex-direction: column;
+}
+
+// Form Group & Label
+.policy-form-group {
+  margin-bottom: 1rem;
+}
+
+.policy-form-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: $gray-900;
+}
+
+// Input, Select, and Textarea Styling
+.policy-form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: $gray-900;
+  background-color: $white;
+  
+  &:focus {
+    border-color: $blue;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+  }
+}
+
+// Submit Button Styling
+.policy-form-submit {
+  cursor: pointer;
+  background-color: $blue;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+}

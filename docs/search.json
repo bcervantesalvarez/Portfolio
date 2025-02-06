@@ -1419,5 +1419,19 @@
     "title": "Brian Cervantes Alvarez - Resume",
     "section": "Technical Skills",
     "text": "Technical Skills\n\n\nProgramming Languages\n- R\n- Python\n- SQL\n\nData Science Tools\n- Machine Learning\n- Bayesian Statistics\n- MICE\n- Monte Carlo\n\nVisualization\n- R/Shiny\n- ggplot2\n- Plotly\n- Leaflet"
+  },
+  {
+    "objectID": "Content/Privacy/index.html",
+    "href": "Content/Privacy/index.html",
+    "title": "Privacy Policy",
+    "section": "",
+    "text": "My Website Policy\n  Thank you for visiting my portfolio. I want to be fully transparent about how I collect and use information to keep improving the site.\n\n\n\n  Transparency\n  Your privacy matters to me. This page outlines how this portfolio gathers data (automatically or provided by you) and how it’s used to enhance your experience.\n  \n  Scope: This policy applies solely to this website and doesn’t extend to any external links you may follow.\n\n\n\n  What Data is Collected?\n  \n    Pages Visited: Which sections of the site people check out the most.\n    Time Spent: How long users stay on individual pages.\n    Browser & Device Info: Basic data on your browser and device (desktop, tablet, or phone).\n  \n  Google Analytics is used to collect this information. No personally identifiable information (PII) is collected.\n\n\n\n  How is This Data Used?\n  I use anonymous usage data to figure out which parts of the site are most interesting or need improvement. For example:\n  \n    Refining navigation to make popular sections easier to find\n    Focusing on content that people spend more time reading\n  \n  Your data isn’t sold or shared with outside parties beyond the analytics tools that process it for me.\n\n\n\n  Cookie Usage\n  Cookies are small files stored on your device to improve performance and gather anonymous metrics. By default, this site only uses cookies to track analytics. If you disable cookies, all features remain available, but analytics may not work as intended.\n\n\n\n  Your Choices\n  Here’s how you can control data collection:\n  \n    Use the cookie consent banner to manage analytics preferences.\n    Install browser add-ons like Google Analytics Opt-out.\n    Disable cookies in your browser settings if you’d prefer no tracking at all.\n  \n  These options ensure you’re in charge of what data is collected.\n\n\n\n\n  Contact Me\n  \n    Got questions or feedback about how data is managed on this site? Fill out the form below to get in touch.\n  \n  \n    Suggestions for improving this policy are always welcome!\n  \n\n  \n    \n\n    \n    \n      First Name\n      \n    \n\n    \n    \n      Last Name\n      \n    \n\n    \n    \n      Profession\n      \n        -- Select Your Profession --\n        Student\n        Professor\n        Recruiter\n        Data Scientist\n        Other\n      \n    \n\n    \n    \n      Email\n      \n    \n\n    \n    \n      Message\n      \n    \n\n    \n    \n      Send Message"
+  },
+  {
+    "objectID": "Content/Forms/ThankYou/index.html",
+    "href": "Content/Forms/ThankYou/index.html",
+    "title": "\n    Thank You!\n  ",
+    "section": "",
+    "text": "Thank You!\n  \n  \n    I've received your submission and will get back to you soon!"
   }
 ]
