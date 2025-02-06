@@ -63,7 +63,7 @@ format: html
     Suggestions for improving this policy are always welcome!
   </p>
 
-  <!-- Remove the action attribute so that JavaScript handles submission -->
+  <!-- Form without an action attribute; submission is handled via JavaScript -->
   <form id="policyForm" class="policy-form">
     <input
       type="hidden"
@@ -145,24 +145,30 @@ format: html
     <button type="submit" class="policy-form-submit">
       Send Message
     </button>
+    <!-- Loading message, initially hidden -->
+    <div id="loadingMessage" style="display:none; margin-top:10px;">Please wait...</div>
   </form>
 </section>
 
 <!-- Client-side submission handling -->
 <script>
-  // Ensure the code runs after the DOM is fully loaded
   document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("policyForm");
+    const submitButton = document.querySelector(".policy-form-submit");
+    const loadingMessage = document.getElementById("loadingMessage");
+    
     form.addEventListener("submit", function(event) {
       event.preventDefault(); // Prevent default form submission
       console.log("Form submission intercepted.");
 
-      // Create a FormData object from the form
+      // Disable the submit button and show loading message/animation
+      submitButton.disabled = true;
+      submitButton.innerHTML = "Sending...";
+      loadingMessage.style.display = "block";
+
       const formData = new FormData(form);
-      // Your Google Apps Script URL
       const scriptUrl = "https://script.google.com/macros/s/AKfycbz121r5O9G8YUIvGmYbSFGnC0U8nuoKfouPgqCsZHd7DFGaXv_Po81Au3JJjcc63oliCg/exec";
 
-      // Submit the form data via fetch
       fetch(scriptUrl, {
         method: "POST",
         body: formData
@@ -170,16 +176,21 @@ format: html
       .then(response => response.json())
       .then(data => {
         console.log("Submission success:", data);
-        // Redirect the user to the Thank You page using the _next field from the form
+        // Redirect the user to the Thank You page
         const redirectUrl = formData.get("_next");
         window.location.href = redirectUrl;
       })
       .catch(error => {
         console.error("Error submitting form:", error);
+        // Optionally re-enable the button and hide the loading message if there's an error
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Send Message";
+        loadingMessage.style.display = "none";
       });
     });
   });
 </script>
+
 
 </section>
 

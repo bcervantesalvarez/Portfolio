@@ -4,7 +4,7 @@ format:
     page-layout: full
 ---
 
-```{=html} 
+```{=html}
 <!-- Centered container for the thank-you message -->
 <div style="
   max-width: 600px;
