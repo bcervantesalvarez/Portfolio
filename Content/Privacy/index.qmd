@@ -63,11 +63,8 @@ format: html
     Suggestions for improving this policy are always welcome!
   </p>
 
-  <form 
-    action="https://script.google.com/macros/s/AKfycbz121r5O9G8YUIvGmYbSFGnC0U8nuoKfouPgqCsZHd7DFGaXv_Po81Au3JJjcc63oliCg/exec"  
-    method="POST"
-    class="policy-form"
-  >
+  <!-- Removed the action attribute to let JavaScript handle the submission -->
+  <form id="policyForm" method="POST" class="policy-form">
     <input
       type="hidden"
       name="_next"
@@ -149,5 +146,34 @@ format: html
       Send Message
     </button>
   </form>
+
+  <!-- Client-side submission handling -->
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("policyForm");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        console.log("Form submit intercepted.");
+
+        const formData = new FormData(form);
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbz121r5O9G8YUIvGmYbSFGnC0U8nuoKfouPgqCsZHd7DFGaXv_Po81Au3JJjcc63oliCg/exec";
+
+        fetch(scriptUrl, {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Submission success:", data);
+          const redirectUrl = formData.get("_next");
+          window.location.href = redirectUrl;
+        })
+        .catch(error => {
+          console.error("Error submitting form: ", error);
+        });
+      });
+    });
+  </script>
 </section>
+
 ```
