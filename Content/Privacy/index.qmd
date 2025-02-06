@@ -63,8 +63,8 @@ format: html
     Suggestions for improving this policy are always welcome!
   </p>
 
-  <!-- Removed the action attribute to let JavaScript handle the submission -->
-  <form id="policyForm" method="POST" class="policy-form">
+  <!-- Remove the action attribute so that JavaScript handles submission -->
+  <form id="policyForm" class="policy-form">
     <input
       type="hidden"
       name="_next"
@@ -146,34 +146,41 @@ format: html
       Send Message
     </button>
   </form>
+</section>
 
-  <!-- Client-side submission handling -->
-  <script>
-    window.addEventListener("DOMContentLoaded", function() {
-      const form = document.getElementById("policyForm");
-      form.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        console.log("Form submit intercepted.");
+<!-- Client-side submission handling -->
+<script>
+  // Ensure the code runs after the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("policyForm");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+      console.log("Form submission intercepted.");
 
-        const formData = new FormData(form);
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbz121r5O9G8YUIvGmYbSFGnC0U8nuoKfouPgqCsZHd7DFGaXv_Po81Au3JJjcc63oliCg/exec";
+      // Create a FormData object from the form
+      const formData = new FormData(form);
+      // Your Google Apps Script URL
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbz121r5O9G8YUIvGmYbSFGnC0U8nuoKfouPgqCsZHd7DFGaXv_Po81Au3JJjcc63oliCg/exec";
 
-        fetch(scriptUrl, {
-          method: "POST",
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log("Submission success:", data);
-          const redirectUrl = formData.get("_next");
-          window.location.href = redirectUrl;
-        })
-        .catch(error => {
-          console.error("Error submitting form: ", error);
-        });
+      // Submit the form data via fetch
+      fetch(scriptUrl, {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Submission success:", data);
+        // Redirect the user to the Thank You page using the _next field from the form
+        const redirectUrl = formData.get("_next");
+        window.location.href = redirectUrl;
+      })
+      .catch(error => {
+        console.error("Error submitting form:", error);
       });
     });
-  </script>
+  });
+</script>
+
 </section>
 
 ```
