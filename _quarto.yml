@@ -3,8 +3,12 @@ project:
   output-dir: docs
 metadata:
   og:image: Assets/Images/preview.png
+  og:title: "Data Science Yapper"
+  og:description: "Exploring the intersection of Data Science and Storytelling."
   twitter:card: summary_large_image
-  twitter:image: Assets/Images/preview.png
+  twitter:image: /Assets/Images/preview.png
+  twitter:title: "Data Science Yapper"
+  twitter:description: "Exploring the intersection of Data Science and Storytelling."
 website:
   search:
     type: textbox 
