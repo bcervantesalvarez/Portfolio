@@ -24,9 +24,11 @@ website:
   page-footer:
     left:
       - href: https://www.quarto.org
-        text: Made with quarto®
+        text: Made with Quarto®
       - href: https://chatgpt.com/
         text: Built with ChatGPT®
+      - href: https://www.cloudflare.com/
+        text: Hosted with Cloudflare®
     right: 
       - href: Content/Privacy/index.qmd
         text: Privacy Policy
