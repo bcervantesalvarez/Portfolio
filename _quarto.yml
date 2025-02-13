@@ -2,9 +2,9 @@ project:
   type: website
   output-dir: docs
 metadata:
-  og:image: Assets/Images/preview.jpg
+  og:image: Assets/Images/preview.png
   twitter:card: summary_large_image
-  twitter:image: Assets/Images/preview.jpg
+  twitter:image: Assets/Images/preview.png
 website:
   search:
     type: textbox 
