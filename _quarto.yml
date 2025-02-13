@@ -1,19 +1,13 @@
 project:
   type: website
   output-dir: docs
-metadata:
-  og:image: Assets/Images/preview.png
-  og:title: "Data Science Yapper"
-  og:description: "Exploring the intersection of Data Science and Storytelling."
-  twitter:card: summary_large_image
-  twitter:image: /Assets/Images/preview.png
-  twitter:title: "Data Science Yapper"
-  twitter:description: "Exploring the intersection of Data Science and Storytelling."
 website:
+  favicon: Assets/Images/preview.png
+  twitter-card: true
+  site-url: https://datascienceyapper.com
   search:
     type: textbox 
   open-graph: true
-  site-url: "https://datascienceyapper.com"
   title: "Home"
   navbar:
     right:
