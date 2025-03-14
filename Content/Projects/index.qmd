@@ -7,7 +7,7 @@ listing:
     - "**/*.qmd"    # Grabs all project .qmd files from their subdirectory folders
 format:
   html:
-    css: "../../Assets/Themes/projectsCustom.css"
+    css: ../../Assets/Themes/projectsCustom.css
     page-layout: full
     include-in-header: 
       - text: |
