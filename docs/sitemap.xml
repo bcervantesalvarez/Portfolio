@@ -2,6 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://datascienceyapper.com/index.html</loc>
-    <lastmod>2025-02-13T03:29:13.747Z</lastmod>
+    <lastmod>2025-03-12T08:03:52.416Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/Customer Return ML/index.html</loc>
+    <lastmod>2025-03-14T02:07:41.741Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/index.html</loc>
+    <lastmod>2025-03-14T03:07:30.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Blog/index.html</loc>
+    <lastmod>2025-01-31T18:11:16.884Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Blog/Capstone/index.html</loc>
+    <lastmod>2024-12-02T22:54:45.832Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/About/index.html</loc>
+    <lastmod>2025-03-12T08:21:57.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Talks/index.html</loc>
+    <lastmod>2025-01-08T10:27:07.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Resources/index.html</loc>
+    <lastmod>2025-01-30T04:41:59.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/US_HealthCare_Spending/index.html</loc>
+    <lastmod>2025-03-13T22:45:15.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/Statistical Analysis Wines/index.html</loc>
+    <lastmod>2025-03-13T22:44:32.638Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/Build-a-Dashboard/index.html</loc>
+    <lastmod>2025-03-13T22:42:50.305Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/Predicting_Income_Bracket/index.html</loc>
+    <lastmod>2025-03-13T22:43:57.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/PredictPinotWine_ML/index.html</loc>
+    <lastmod>2025-03-13T22:44:12.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/UKAccidentShinyApp/index.html</loc>
+    <lastmod>2025-03-13T22:45:35.300Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/PredictSeverityLevels/index.html</loc>
+    <lastmod>2025-03-13T23:37:31.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Blog/Quarto_GithubPages/index.html</loc>
+    <lastmod>2025-02-06T07:08:08.036Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Talks/AboutMyself/index.html</loc>
+    <lastmod>2025-01-08T10:26:08.121Z</lastmod>
   </url>
 </urlset>

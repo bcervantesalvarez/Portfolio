@@ -6,7 +6,8 @@ website:
   twitter-card: true
   site-url: https://datascienceyapper.com
   search:
-    type: textbox 
+    location: navbar
+    type: overlay
   open-graph: true
   title: "Home"
   navbar:

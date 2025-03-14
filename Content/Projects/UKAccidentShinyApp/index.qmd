@@ -1,15 +1,19 @@
 ---
 title: "UK Accident Time Series"
 author: "Brian Cervantes Alvarez" 
-date: 09-24-2024
+date: "09-24-2024"
 description: "This accident time series app allows you to explore and analyze data related accidents in UK. Feel free to download the data and explore other methods of analysis."
+teaser: "A Shiny-based approach for analyzing historical accident data across the UK."
+categories: ["Interactive Visualizations"]
 image: /Assets/Images/ukCarAccident.webp
 format:  
   html:
     page-layout: article
-output: html_document
-categories: [R, Shiny, Data Visualization, Dashboard]
+execute:
+  message: false
+  warning: false
 ---
+
 
 ![](/Assets/Images/ukCarAccident.webp)
 

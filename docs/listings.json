@@ -17,9 +17,9 @@
       "/Content/Projects/Statistical Analysis Wines/index.html",
       "/Content/Projects/US_HealthCare_Spending/index.html",
       "/Content/Projects/Build-a-Dashboard/index.html",
+      "/Content/Projects/PredictPinotWine_ML/index.html",
       "/Content/Projects/Predicting_Income_Bracket/index.html",
       "/Content/Projects/Customer Return ML/index.html",
-      "/Content/Projects/PredictPinotWine_ML/index.html",
       "/Content/Projects/PredictSeverityLevels/index.html",
       "/Content/Projects/UKAccidentShinyApp/index.html"
     ]
@@ -29,7 +29,6 @@
     "items": [
       "/Content/Blog/Quarto_GithubPages/index.html",
       "/Content/Blog/Teaching_With_WebR/index.html",
-      "/Content/Blog/Capstone/index.html",
       "/Content/Blog/FraudML/index.html",
       "/Content/Blog/AmazonProductsEN/index.html",
       "/Content/Blog/Param_Report_Retail/index.html",

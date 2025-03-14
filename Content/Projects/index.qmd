@@ -1,13 +1,15 @@
 ---
-title: "Projects"
-subtitle: "Overview of my statistical & data science projects"
+title: "Statistical & Data Science Portfolio"
+subtitle: "A curated collection of real-world statistical analyses and data-driven insights."
 listing:
-  max-description-length: 150
-  type: grid
-  grid-columns: 4
+  template: ../../Assets/Templates/Listings/projects.ejs  # The EJS template file
+  contents: 
+    - "**/*.qmd"    # Grabs all project .qmd files from their subdirectory folders
 format:
   html:
+    page-layout: full
     include-in-header: 
       - text: |
           <script type="text/javascript" src="/Assets/Scripts/Portfolio/new-banner.js"></script>
 ---
+

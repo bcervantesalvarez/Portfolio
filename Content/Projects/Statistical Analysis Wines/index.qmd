@@ -3,6 +3,8 @@ title: "Applied Multivariate Analysis"
 author: "Brian Cervantes Alvarez"
 date: "12-14-2023"
 description: "Exploring wine attributes through EDA, MANOVA, and classification models reveals significant chemical differences and predictors of wine type and quality."
+teaser: "Bringing modern stats to uncover wine attribute patterns and differences."
+categories: ["Statistics"]
 image: /Assets/Images/redwhite.jpeg
 format:
   html:
@@ -13,14 +15,8 @@ format:
 execute: 
   warning: false
   message: false
-categories: 
-    - R
-    - Machine Learning
-    - Support Vector Machines
-    - Logistic Regression
-    - Random Forest
-    - Statistics
 ---
+
 
 ![](/Assets/Images/redwhite.jpeg)
 

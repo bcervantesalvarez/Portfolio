@@ -1,8 +1,10 @@
 ---
-title: "Predicting Wine Province Origin"
+title: "Pinot Province Prediction"
 author: "Brian Cervantes Alvarez"
 date: "03-01-2023"
 description: "Our project sets a new bar in wine origin identification, transforming how industry professionals use critic data."
+teaser: "Classifying wine origin with advanced data analysis and ML."
+categories: ["Machine Learning"]
 image: /Assets/Images/pinot.jpeg
 format:
   html:
@@ -12,8 +14,11 @@ format:
     page-layout: article
 output: html_document
 code-fold: false
-categories: [R, Machine Learning, Random Forest, Classification]
+execute:
+  warning: false
+  message: false
 ---
+
 
 ![](/Assets/Images/pinot.jpeg)
 

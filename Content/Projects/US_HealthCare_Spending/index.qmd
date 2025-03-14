@@ -1,12 +1,14 @@
 ---
 title: "Healthcare Spending Analysis"  
 author: "Brian Cervantes Alvarez"
-date: "December 12, 2022"
+date: "12-12-2022"
 description: "This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world's most expensive countries for healthcare."
+teaser: "In-depth exploration of rising U.S. healthcare costs from 1980 to 2014."
 image: /Assets/Images/healthcareSpending.jpeg
+categories: ["Statistics"]
 bibliography: "bibliography.bib"
 nocite: |
-     @*
+  @*
 format:
   html:
     page-layout: article
@@ -19,8 +21,8 @@ execute:
   warning: false
   echo: false
 code-fold: true
-categories: [R, Linear Regression, Statistics]
 ---
+
 
 ![](/Assets/Images/healthcareSpending.jpeg)
 

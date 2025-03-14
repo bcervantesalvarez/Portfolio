@@ -1,8 +1,10 @@
 ---
 title: "Symptom Severity Analysis"
 author: "Brian Cervantes Alvarez"
-date: "6-26-2023"
+date: "06-26-2023"
 description: "Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making."
+teaser: "Exploring patient symptom data for improved healthcare insights."
+categories: ["Statistics"]
 image: /Assets/Images/severity.jpeg
 format:
   html:
@@ -13,11 +15,6 @@ format:
 execute: 
   warning: false
   message: false
-categories: 
-    - Python
-    - Machine Learning
-    - Random Forest
-    - Classification
 jupyter: python3
 ---
 

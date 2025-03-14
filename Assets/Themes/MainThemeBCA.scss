@@ -108,35 +108,14 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
 @import url($web-monofont-path);
 
 
+#quarto-search {
+  min-width: 50px; /* or an appropriate width for your layout */
+  transition: none; /* Avoid transitions that might cause reflow */
+}
+
 /* Navbar */
 .navbar {
-  background-color: #1d1c1c !important;
-  color: #F0F8FF !important;
   padding: 0.7em !important;
-}
-
-/* Navbar Brand */
-.navbar-brand-container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding-left: 10px;
-}
-
-/* Navbar Brand */
-.navbar-brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F0F8FF !important;
-  font-weight: 600;
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
-}
-
-/* Special Hover Effect for Navbar Brand */
-.navbar-brand:hover {
-  transform: scale(1.1); /* Slightly enlarges the brand */
-  text-shadow: 0 0 8px rgba(77, 168, 218, 0.8); /* Adds a glowing blue effect */
 }
 
 
@@ -156,50 +135,6 @@ $web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
-/* Mobile-Specific Adjustments */
-@media (max-width: 768px) {
-  .navbar-brand {
-    display: flex;
-    position: absolute !important;
-    margin-left: 122px !important;
-    justify-content: center;
-    align-items: center;
-    color: #f0f8ff !important;
-    font-weight: 600;
-    transition: transform .3s ease,color .3s ease;
-}
-  .container,
-  .container-fluid,
-  .container-xxl,
-  .container-xl,
-  .container-lg,
-  .container-md,
-  .container-sm {
-    --bs-gutter-x: 0rem;
-    --bs-gutter-y: 0;
-    width: 100%;
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    padding-left: 2em !important;
-    margin-bottom: 0;
-    list-style: none;
-  }
-
-  .fixed-top {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-  }
-}
 
 /* Navigation Links */
 nav a {
@@ -211,20 +146,21 @@ nav a {
 }
 
 nav a::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 0;
-  height: 2px; /* Underline height */
-  bottom: -5px; /* Distance from text */
-  left: 50%;
-  background-color: #fff; /* Underline color */
-  transition: width 0.5s ease, left 0.5s ease; /* Smooth expand effect */
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 nav a:hover::after,
 nav a.active::after {
-  width: 100%;
-  left: 0;
+  transform: scaleX(1);
 }
 
 nav a:hover,
@@ -243,8 +179,6 @@ nav a.active {
   position: sticky;
   transform: translateX(-50%);
 }
-
-
 
 // Footer
 .nav-footer {
@@ -303,63 +237,6 @@ nav a.active {
   }
 }
 
-// Media query for mobile devices
-@media (max-width: 768px) {
-  .nav-footer {
-    flex-direction: column;
-  }
-
-  .nav-footer-left, .nav-footer-right {
-    width: 100%;
-    justify-content: center; // Center these sections within the footer
-    align-items: center; // Center align items vertically within each section
-  }
-
-  .nav-footer-left {
-    order: 1; // Ensure it's above the right section
-    margin-top: 5px;
-    margin-bottom: 10px; // Add some space below this section for clarity
-  }
-
-  .nav-footer-right {
-    order: 2; // Ensure it's below the left section
-    flex-direction: row; // Lay out the items in a row
-    justify-content: center; // Center the row of items if there's extra space
-    flex-wrap: wrap; // Allow items to wrap to new line if not enough space
-    gap: 10px; // Space between items when they wrap
-  }
-
-  .footer-items {
-    display: flex; // Enables flexbox layout
-    flex-direction: row; // Ensure items are laid out in a row
-    justify-content: center; // Center items horizontally
-    align-items: center; // Center items vertically
-    flex-wrap: wrap; // Allow items to wrap on small screens
-    list-style-type: none; // Remove default list styling
-    padding: 0; // Remove default padding
-    margin: 0 auto; // Center the list itself in the footer
-    width: 100%; // Ensure the list takes full width
-  }
-
-  .footer-items li, .nav-item {
-    margin: 0; // Remove all margins from the list items and nav-items for proper centering
-    display: flex; // Apply flex to align items properly
-    justify-content: center; // Center content within each nav item
-    align-items: center; // Center items vertically within each nav item
-  }
-
-  .nav-item {
-    margin: 10px; // Add some margin for spacing, adjusted as needed for wrapping items
-  }
-  .nav-footer-center{
-    margin-top: 0;
-    min-height: 0;
-  }
-  .nav-footer a {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-}
 
 // Background Colors
 .bg-primary {
@@ -540,32 +417,6 @@ header#title-block-header {
   margin-bottom: 1rem;
 }
 
-/* Shining effect overlay (optional) */
-.about-entity::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -250%; /* Start off-screen */
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    160deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transform: skewX(-50deg);
-}
-
-/* Add .shining class to enable the infinite shining effect */
-.about-entity.shining::before {
-  animation: shine 0.8s ease-in-out infinite;
-}
-
-@keyframes shine {
-  0%   { left: -250%; }
-  100% { left:  250%; }
-}
 
 /* Adjusts title margins in .about-contents */
 .about-contents .quarto-title {
@@ -790,154 +641,252 @@ header#title-block-header {
 
 /* ----------- FOR PROJECTS PAGE ------------ */
 
-/* "New!" banner overlay on hover */
-.quarto-grid-item:hover .new-banner {
-  opacity: 0;
+
+
+/*************************************************
+ * Make Banners Edge-to-Edge
+ *************************************************/
+/* 
+   Each .ho-band now spans the full viewport width (100vw), 
+   is positioned so that it aligns with the page center, 
+   and still has 25px rounded corners + shadow.
+*/
+.ho-band {
+  position: relative;
+  /* Force full viewport width */
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Optional vertical spacing from other content */
+  margin: 2rem 0;
+
+  /* Keep your existing styling */
+  padding: 4rem;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  min-height: 800px;             /* Big enough to show the full text + button */
 }
 
+/* Ensure all immediate children appear above the ::before overlay */
+.ho-band > * {
+  position: relative;
+  z-index: 1;
+}
 
-.grid {
+/* Remove background/box-shadow from the top heading region 
+   ONLY within your ho-band sections */
+.ho-band .layout__region.layout__region--top {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/*************************************************
+ * Example Background Gradients + SVG Overlays
+ *************************************************/
+/* Statistics Band */
+.stats-band {
+  background: linear-gradient(135deg, #8b1c28 0%, #c23549 100%);
+}
+.stats-band::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  background: url("Assets/Images/stats-pattern.svg") no-repeat center / cover;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Interactive Visualizations Band */
+.viz-band {
+  background: linear-gradient(135deg, #1c8b28 0%, #35c24a 100%);
+}
+.viz-band::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  background: url("Assets/Images/viz-pattern.svg") no-repeat center / cover;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Machine Learning Band */
+.ml-band {
+  background: linear-gradient(185deg, #1c288b 0%, #354ac2 100%);
+}
+.ml-band::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: inherit;
+  background: url("Assets/Images/ml-pattern.svg") no-repeat center / cover;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/*************************************************
+ * Section Title
+ *************************************************/
+.band-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  position: relative; 
+  z-index: 1;
+}
+
+/*************************************************
+ * Gap Between Sections (Optional)
+ *************************************************/
+.section-gap {
+  height: 120px; 
+}
+
+/*************************************************
+ * 3-Column Grid (Inside Each Banner)
+ *************************************************/
+.my-grid-container {
   display: grid;
-  /* Desktop (≥ 1201px): 4 columns × 2 rows */
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;  /* Cards stay centered within the banner */
+  margin: 0 auto;
 }
-body.fullcontent:not(.floating):not(.docked) .page-columns {
-  display: grid;
-  gap: 1rem;
-
-  grid-template-columns: 
-    [screen-start] 0.5em
-    [screen-start-inset] 2fr
-    [page-start page-start-inset] 35px
-    [body-start-outset] 35px
-    [body-start] 0.5em
-    [body-content-start] minmax(250px, 800px)
-    [body-content-end] 0.5em
-    [body-end] 35px
-    [body-end-outset] 35px
-    [page-end-inset page-end] 2fr
-    [screen-end-inset] 0.5em;
-}
-
-/* Medium (763px–1300px): 2 columns × 4 rows */
-@media (min-width: 801px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-  }
-}
-
-/* Small (≤ 762px): 1 column × 8 rows */
-@media (max-width: 800px) {
-  .grid {
+@media (max-width: 640px) {
+  .my-grid-container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(8, 1fr);
-    gap: 5rem;
   }
-  body.fullcontent:not(.floating):not(.docked) .page-columns {
-    display: grid;
-    gap: 0.25rem;
-    grid-template-columns: [screen-start] 0 [screen-start-inset] 0 [page-start page-start-inset] 0 [body-start-outset] 0 [body-start] 0 [body-content-start] minmax(250px, 1400px) [body-content-end] 0 [body-end] 0 [body-end-outset] 0 [page-end-inset page-end] 0 [screen-end-inset] 0;
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .my-grid-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/*************************************************
+ * Card Styles (ho-card)
+ *************************************************/
+.ho-card {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+            rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+            rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, max-height 0.5s ease;
+  padding-bottom: 3rem; /* room for the button */
+  max-height: 325px; /* Enough to show title + teaser */
+}
 
+.ho-card:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  max-height: 550px; /* Expanded height for description + button */
+}
 
-/* Individual card styling */
-.quarto-listing-container-grid .quarto-grid-item {
-  --title-shift: 200px; /* Base shift for the title */
-  --description-shift: calc(var(--title-shift) - 320px); /* Dynamic shift for description */
+/*************************************************
+ * Description Animation (Shifting Up + Fade In)
+ *************************************************/
+.description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition-delay: var(--desc-delay, 0s); /* defaults to 0s on hover-out */
+}
 
-  background-color: rgb(219, 228, 237);
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensure no layout overflow */
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-  will-change: transform, box-shadow;
-  box-sizing: border-box; /* Prevent layout shifts */
+.ho-card:hover .description::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1rem;    /* Extend a bit left */
+  right: -1rem;   /* Extend a bit right */
+  bottom: 0;
+  background: $gray-400; /* Use your banner gradient */
+  opacity: 0.2;   /* Adjust for desired highlight intensity */
+  z-index: -1;    /* Ensure it sits behind the text */
+  border-radius: 8px; /* Optional: smooth the edges */
+  transition: opacity 0.3s ease;
+}
 
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Purely visual effect */
+.ho-card:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+  /* Set delay only on hover-in */
+  --desc-delay: 0.3s;
+}
 
-    .card-img-top img {
-      filter: blur(2px);
-      transform: scale(1.5);
-      will-change: transform, filter;
-    }
+/*************************************************
+ * Read More Button Animation
+ *************************************************/
+.read-more-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transition-delay: var(--btn-delay, 0s);
+}
+.ho-card:hover .read-more-btn {
+  opacity: 1;
+  /* Appear at the same time as description */
+  --btn-delay: 0.5s;
+}
 
-    .card-title {
-      transform: translateY(calc(-1 * var(--title-shift))); /* Title shift */
-      background-color: rgb(255, 255, 255);
-      padding: 0.3em 0.5em;
-      border-radius: 5px;
-    }
+/*************************************************
+ * Hidden Top-Right Link (for Harvard markup)
+ *************************************************/
+.read-more-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
 
-    .card-text {
-      transform: translateY(calc(-1 * var(--description-shift))); /* Description shift */
-      opacity: 1;
-    }
+/*************************************************
+ * Card Image
+ *************************************************/
+.image {
+  width: 100%;
+  height: 180px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-    .card-attribution {
-      opacity: 1;
-      transform: translateY(0); /* Default positioning */
-    }
-  }
+/*************************************************
+ * Card Content (Title, Teaser, Description)
+ *************************************************/
+.group-info {
+  padding: 1rem;
+  color: #333;
+}
+.group-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+.group-info .teaser,
+.group-info .description {
+  margin: 0 0 1rem;
+  color: #555;
+  line-height: 1.4;
+}
 
-  &:active {
-    transform: scale(0.95);
-  }
-
-  .card-img-top img {
-    width: 100%;
-    height: 205px !important;
-    object-fit: cover;
-    transition: transform 0.6s ease, filter 0.6s ease;
-  }
-
-  .card-title {
-    font-size: 1.4em;
-    font-weight: 600;
-    position: relative;
-    text-align: center;
-    color: #454545;
-    transition: all 0.6s ease;
-    will-change: transform, background-color;
-    background-color: rgb(255, 255, 255);
-    padding: 0.3em 0.5em;
-    border-radius: 5px;
-    margin: 0 auto; /* Center alignment */
-  }
-
-  .card-text {
-    position: absolute;
-    font-size: 1em;
-    left: 0;
-    right: 0;
-    top: 0; /* Fix position to avoid affecting layout */
-    opacity: 0;
-    padding: 0.4em 1em;
-    transition: all 0.6s ease;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-  }
-
-  .card-attribution {
-    font-size: 0.8em;
-    font-weight: 500;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: #454545;
-    opacity: 0;
-    transform: translateY(0);
-    padding: 0.5em;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    transition: all 0.6s ease;
-  }
+/*************************************************
+ * "Read More" Button Placement
+ *************************************************/
+.node-link {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  margin: 0;
 }
 
 
