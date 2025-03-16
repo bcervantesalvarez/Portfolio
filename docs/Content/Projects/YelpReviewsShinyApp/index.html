@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Cervantes Alvarez">
+<meta name="dcterms.date" content="2025-03-15">
+<meta name="description" content="An interactive Shiny dashboard for exploring Yelp business reviews, spatial patterns, and advanced spatial modeling.">
 
-<title>Statistical &amp; Data Science Portfolio – Home</title>
+<title>Yelp Reviews Spatial Analysis – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../Assets/Images/preview.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../Assets/Images/preview.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,84 +69,26 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-editor','listing-language','listing-freeze','listing-title','listing-author','listing-date','listing-description','listing-teaser','listing-categories','listing-image','listing-execute','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-bibliography','listing-nocite','listing-output','listing-code-fold','listing-jupyter',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-editor","listing-language","listing-freeze","listing-title","listing-author","listing-date","listing-description","listing-teaser","listing-categories","listing-image","listing-execute","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-bibliography","listing-nocite","listing-output","listing-code-fold","listing-jupyter"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<script type="text/javascript" src="../../Assets/Scripts/Portfolio/new-banner.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../../Assets/Themes/projectsCustom.css">
-<meta property="og:title" content="Statistical &amp; Data Science Portfolio – Home">
-<meta property="og:description" content="A curated collection of real-world statistical analyses and data-driven insights.">
+<meta property="og:title" content="Yelp Reviews Spatial Analysis – Home">
+<meta property="og:description" content="An interactive Shiny dashboard for exploring Yelp business reviews, spatial patterns, and advanced spatial modeling.">
+<meta property="og:image" content="https://datascienceyapper.com/Assets/Images/yelpBurst.svg">
 <meta property="og:site_name" content="Home">
-<meta name="twitter:title" content="Statistical &amp; Data Science Portfolio – Home">
-<meta name="twitter:description" content="A curated collection of real-world statistical analyses and data-driven insights.">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yelp Reviews Spatial Analysis – Home">
+<meta name="twitter:description" content="An interactive Shiny dashboard for exploring Yelp business reviews, spatial patterns, and advanced spatial modeling.">
+<meta name="twitter:image" content="https://datascienceyapper.com/Assets/Images/yelpBurst.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -156,23 +99,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../Content/About/index.html"> 
+    <a class="nav-link" href="../../../Content/About/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../Content/Projects/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../Content/Projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Content/Blog/index.html"> 
+    <a class="nav-link" href="../../../Content/Blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Content/Talks/index.html"> 
+    <a class="nav-link" href="../../../Content/Talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Content/Resources/index.html"> 
+    <a class="nav-link" href="../../../Content/Resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -183,24 +126,43 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistical &amp; Data Science Portfolio</h1>
-<p class="subtitle lead">A curated collection of real-world statistical analyses and data-driven insights.</p>
+<h1 class="title">Yelp Reviews Spatial Analysis</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Interactive Visualizations</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    An interactive Shiny dashboard for exploring Yelp business reviews, spatial patterns, and advanced spatial modeling.
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 15, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -210,271 +172,18 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
-<!-- projects.ejs -->
-
-<!-- Section 1: "Statistics" -->
-<section class="ho-band stats-band">
-  <h2 class="band-title anchored">Statistics</h2>
-  <div class="my-grid-container">
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/Statistical Analysis Wines/index.html" class="read-more-link">Read More</a>
-          
-          <div class="image" style="background-image:url('/Assets/Images/redwhite.jpeg');">
-          </div>
-          
-          <div class="group-info">
-            <h3 class="anchored">Applied Multivariate Analysis</h3>
-            <p class="teaser">Bringing modern stats to uncover wine attribute patterns and differences.</p>
-            <p class="description">Exploring wine attributes through EDA, MANOVA, and classification models reveals significant chemical differences and predictors of wine type and quality.</p>
-          </div>
-          
-          <div class="node-link">
-            <a href="../../Content/Projects/Statistical Analysis Wines/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-        
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/US_HealthCare_Spending/index.html" class="read-more-link">Read More</a>
-          
-          <div class="image" style="background-image:url('/Assets/Images/healthcareSpending.jpeg');">
-          </div>
-          
-          <div class="group-info">
-            <h3 class="anchored">Healthcare Spending Analysis</h3>
-            <p class="teaser">In-depth exploration of rising U.S. healthcare costs from 1980 to 2014.</p>
-            <p class="description">This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world's most expensive countries for healthcare.</p>
-          </div>
-          
-          <div class="node-link">
-            <a href="../../Content/Projects/US_HealthCare_Spending/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/PredictSeverityLevels/index.html" class="read-more-link">Read More</a>
-          
-          <div class="image" style="background-image:url('/Assets/Images/severity.jpeg');">
-          </div>
-          
-          <div class="group-info">
-            <h3 class="anchored">Symptom Severity Analysis</h3>
-            <p class="teaser">Exploring patient symptom data for improved healthcare insights.</p>
-            <p class="description">Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making.</p>
-          </div>
-          
-          <div class="node-link">
-            <a href="../../Content/Projects/PredictSeverityLevels/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-        
-      
-    
-      
-    
-      
-    
-  </div>
-</section>
-
-<!-- Vertical gap of 100px before next band -->
-<div class="section-gap"></div>
-
-<!-- Section 2: "Interactive Visualizations" -->
-<section class="ho-band viz-band">
-  <h2 class="band-title anchored">Interactive Visualizations</h2>
-  <div class="my-grid-container">
-    
-      
-    
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/Build-a-Dashboard/index.html" class="read-more-link">Read More</a>
-          
-          <div class="image" style="background-image:url('/Assets/Images/olympics-logo.svg');">
-          </div>
-          
-          <div class="group-info">
-            <h3 class="anchored">Lightning-Fast 100m Dashboard</h3>
-            <p class="teaser">A dynamic Quarto-based dashboard analyzing 100m results.</p>
-            <p class="description">The 100m Dashboard! Dash your way to victory and look beyond! Take your gold medal and observe that this dashboard was built using just quarto.</p>
-          </div>
-          
-          <div class="node-link">
-            <a href="../../Content/Projects/Build-a-Dashboard/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/UKAccidentShinyApp/index.html" class="read-more-link">Read More</a>
-          
-          <div class="image" style="background-image:url('/Assets/Images/ukCarAccident.webp');">
-          </div>
-          
-          <div class="group-info">
-            <h3 class="anchored">UK Accident Time Series</h3>
-            <p class="teaser">A Shiny-based approach for analyzing historical accident data across the UK.</p>
-            <p class="description">This accident time series app allows you to explore and analyze data related accidents in UK. Feel free to download the data and explore other methods of analysis.</p>
-          </div>
-          
-          <div class="node-link">
-            <a href="../../Content/Projects/UKAccidentShinyApp/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-        
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/YelpReviewsShinyApp/index.html" class="read-more-link">Read More</a>
-          
-          <div class="image" style="background-image:url('/Assets/Images/yelpBurst.svg');">
-          </div>
-          
-          <div class="group-info">
-            <h3 class="anchored">Yelp Reviews Spatial Analysis</h3>
-            <p class="teaser">Explore Yelp reviews and spatial trends using our interactive dashboard.</p>
-            <p class="description">An interactive Shiny dashboard for exploring Yelp business reviews, spatial patterns, and advanced spatial modeling.</p>
-          </div>
-          
-          <div class="node-link">
-            <a href="../../Content/Projects/YelpReviewsShinyApp/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-        
-      
-    
-  </div>
-</section>
-
-<!-- Another 100px gap -->
-<div class="section-gap"></div>
-
-<!-- Section 3: "Machine Learning" -->
-<section class="ho-band ml-band">
-  <h2 class="band-title anchored">Machine Learning</h2>
-  <div class="my-grid-container">
-    
-      
-    
-      
-    
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/PredictPinotWine_ML/index.html" class="read-more-link">Read More</a>
-
-          <div class="image" style="background-image:url('/Assets/Images/pinot.jpeg');">
-          </div>
-
-          <div class="group-info">
-            <h3 class="anchored">Pinot Province Prediction</h3>
-            <p class="teaser">Classifying wine origin with advanced data analysis and ML.</p>
-            <p class="description">Our project sets a new bar in wine origin identification, transforming how industry professionals use critic data.</p>
-          </div>
-
-          <div class="node-link">
-            <a href="../../Content/Projects/PredictPinotWine_ML/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/Predicting_Income_Bracket/index.html" class="read-more-link">Read More</a>
-
-          <div class="image" style="background-image:url('/Assets/Images/income.jpeg');">
-          </div>
-
-          <div class="group-info">
-            <h3 class="anchored">Predicting 50K+ Salaries</h3>
-            <p class="teaser">Accurately classify individuals by income bracket using advanced ML.</p>
-            <p class="description">Expertly predicting $50K+ incomes through ML, our project highlights the synergy of data science skills and team collaboration.</p>
-          </div>
-
-          <div class="node-link">
-            <a href="../../Content/Projects/Predicting_Income_Bracket/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-
-      
-    
-      
-        
-        <article class="ho-card">
-          <a href="../../Content/Projects/Customer Return ML/index.html" class="read-more-link">Read More</a>
-
-          <div class="image" style="background-image:url('/Assets/Images/return.jpeg');">
-          </div>
-
-          <div class="group-info">
-            <h3 class="anchored">Smarter Customer Return Forecasts</h3>
-            <p class="teaser">Combining advanced ML algorithms to forecast if items will be returned.</p>
-            <p class="description">Leveraging logistic regression and random forest to advance the prediction of retail item returns with increased precision.</p>
-          </div>
-
-          <div class="node-link">
-            <a href="../../Content/Projects/Customer Return ML/index.html" class="read-more-btn">Read More &gt;</a>
-          </div>
-        </article>
-
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-</section>
-<div class="listing-no-matching d-none">
-No matching items
+<p><img src="../../../Assets/Images/yelpBurst.svg" class="img-fluid"></p>
+<p>Welcome to the Yelp Review Dashboard – an interactive Shiny application designed to help you explore and analyze Yelp business reviews and spatial patterns. This dashboard allows you to:</p>
+<p>Visualize Spatial Patterns: Navigate an interactive map that displays Yelp business locations filtered by city and star ratings. Markers reveal essential business information, while clusters provide an aggregated view that you can zoom in on. Explore Data Visualizations: Switch between multiple interactive plots to examine relationships between credit card acceptance, open hours, and star ratings. Use dynamic filters to refine your view and uncover hidden trends. Engage in Spatial Modeling: Dive into geostatistical analysis with variogram modeling. Adjust parameters like Partial Sill, Range, Nugget, and Kappa to see how spatial autocorrelation influences Yelp star ratings. Explore the Dashboard Access the full application here: Yelp Review Dashboard</p>
+<div class="column-screen">
+<iframe src="https://bcervantesalvarez.shinyapps.io/YelpReviewsDashboard/" title="Yelp Review Dashboard" width="100%" height="800">
+</iframe>
 </div>
-</div></main> <!-- /main -->
+<p>Feel free to interact with the filters and explore each visualization. The dashboard is designed with user-friendly controls and clear, informative visualizations to help you gain insights into Yelp review data. Enjoy exploring the spatial dynamics and trends across Yelp businesses!</p>
+
+
+
+</main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
 <style>
     /* Cookie Consent Banner Styling */
@@ -1037,12 +746,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../Content/Privacy/index.html">
+    <a class="nav-link" href="../../../Content/Privacy/index.html">
 <p>Privacy Policy</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../Content/License/index.html">
+    <a class="nav-link" href="../../../Content/License/index.html">
 <p>License</p>
 </a>
   </li>  

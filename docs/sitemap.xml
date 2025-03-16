@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://datascienceyapper.com/index.html</loc>
-    <lastmod>2025-03-15T21:08:01.519Z</lastmod>
+    <lastmod>2025-03-15T21:10:50.964Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/Content/Projects/Customer Return ML/index.html</loc>
@@ -63,5 +63,9 @@
   <url>
     <loc>https://datascienceyapper.com/Content/Talks/AboutMyself/index.html</loc>
     <lastmod>2025-01-08T10:26:08.121Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/Content/Projects/YelpReviewsShinyApp/index.html</loc>
+    <lastmod>2025-03-16T02:42:13.941Z</lastmod>
   </url>
 </urlset>
