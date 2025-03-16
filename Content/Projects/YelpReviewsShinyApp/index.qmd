@@ -23,7 +23,7 @@ Visualize Spatial Patterns: Navigate an interactive map that displays Yelp busin
 Explore Data Visualizations: Switch between multiple interactive plots to examine relationships between credit card acceptance, open hours, and star ratings. Use dynamic filters to refine your view and uncover hidden trends.
 Engage in Spatial Modeling: Dive into geostatistical analysis with variogram modeling. Adjust parameters like Partial Sill, Range, Nugget, and Kappa to see how spatial autocorrelation influences Yelp star ratings.
 Explore the Dashboard
-Access the full application here: Yelp Review Dashboard
+Access the full application here: [Yelp Review Dashboard](https://bcervantesalvarez.shinyapps.io/YelpReviewsDashboard/)
 
 ::: column-screen
 <iframe src="https://bcervantesalvarez.shinyapps.io/YelpReviewsDashboard/" title="Yelp Review Dashboard" width="100%" height="800"></iframe>
