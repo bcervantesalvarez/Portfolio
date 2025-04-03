@@ -1,5 +1,289 @@
 ---
-title: "index"
-format: html
+title: "Effective Data Visualizations for DataFest"
+author: "Brian Cervantes Alvarez"
+date: "April 3, 2025"
+image: /assets/images/datafest_GPT4o.png
+format: 
+  html:
+    toc: true
+    toc-location: right
+warning: false
+message: false
 ---
+
+
+![](/assets/images/datafest_GPT4o.png)
+
+## Introduction
+
+The American Statistical Association (ASA) DataFest is a 48-hour data analysis competition where undergraduate teams work on large, real-world datasets. Creating clear, purposeful, and persuasive visualizations is essential to stand out and communicate your results effectively.
+
+When you’re working under tight deadlines (as you will in DataFest), it pays off to plan your visuals carefully. The goal is to **highlight insights quickly** and **engage** both technical and non-technical audiences. Here we’ll discuss:
+
+1. **Choosing the Right Visualization** for your data type.  
+2. The **differences** between static and interactive charts, along with pros and cons.  
+3. **Helpful resources** for further learning.  
+4. **Examples** of good vs. poor visualizations.
+
+---
+
+## Choosing the Right Visualization: Data Type Matters
+
+Data comes in many flavors—**continuous**, **categorical**, **binary**, **ranked/ordinal**, **time series**, etc. Each type often suggests a specific set of chart types:
+
+- **Continuous** (e.g., height, weight, temperature): Histograms, boxplots, or scatter plots help show distribution or relationships between continuous variables.
+- **Categorical** (e.g., gender, product category): Bar charts or mosaic plots make category comparisons clear.
+- **Binary** (e.g., yes/no, 0/1): Similar to categorical, but often bars or pie charts if you only have two categories (though pie charts can be misleading with many segments).
+- **Ranked/Ordinal** (e.g., Likert scale responses): Bar plots or ordered boxplots help display the progression from one rank to another.
+- **Time Series** (continuous or discrete time): Line charts, area charts, or spark lines for concise trend viewing.
+
+Always match the **question** you’re answering to the **chart type**: a time-trend question typically calls for a line chart, while a comparison across categories suggests a bar chart. This deliberate pairing of data type and visualization style helps keep your visuals clean and intuitive.
+
+---
+
+
+
+## Static vs. Interactive Visualizations
+
+### Static Visualizations
+
+Static plots (like **bar charts**, **line charts**, **scatter plots**) are quick to produce and easy to embed in **reports** or **presentations**. Their major advantage is **simplicity**: you can share a single image (e.g., `.png` or `.pdf`), ensuring everyone sees the same information. However, viewers can’t probe or explore the data beyond what you explicitly present.
+
+**Pros**  
+- Easy to produce and share (e.g., in PDFs, slides).  
+- Good for final, polished, and unchanging presentations.  
+- Typically less prone to technical issues.  
+
+**Cons**  
+- No user interaction or deeper data exploration.  
+- You might need multiple static visuals to explore different angles.
+
+### Interactive Visualizations
+
+Interactive charts allow users to **hover**, **zoom**, and **filter** data in real-time. Tools like **Plotly**, **Altair**, **Bokeh**, or JavaScript libraries like **D3.js** can bring your data to life. The main advantage is **flexibility**—audiences can explore aspects of the data that interest them, often uncovering deeper insights on their own.
+
+**Pros**  
+- Engaging for end users; encourages exploration.  
+- Can handle richer datasets, with on-demand drilldowns.  
+- Allows a single figure to convey multiple layers of detail (via tooltips, dynamic filters, etc.).
+
+**Cons**  
+- Requires more programming and environment setup (JavaScript or Python libraries, etc.).  
+- Harder to embed in static documents.  
+- Potential performance issues with large datasets or if viewers have older browsers/hardware.
+
+---
+
+
+
+## Recommended Resources
+
+Below are three resources to help deepen your visualization skillset:
+
+### Static Visualizations  
+
+**“Top 10 Proven Data Visualization Best Practices”** [GoodData Blog](https://www.gooddata.com/blog/data-visualization-best-practices/)  
+
+This post emphasizes clarity, simplicity, and matching chart types to data.  
+       
+
+### Interactive Visualizations  
+
+**“Interactive Python Plots: Getting Started and Best Packages”** [Fabi.ai](https://fabi.ai/blog/interactive-python-plots/)  
+
+A beginner-friendly guide covering Plotly, Altair, and Bokeh. Demonstrates tooltips, panning, and zooming.  
+      
+
+### Misleading/Poor Visualizations  
+
+**“Misleading Data Visualization – What to Avoid”** [Coupler.io Blog](https://blog.coupler.io/misleading-data-visualization/)  
+
+Showcases common pitfalls (truncated axes, chartjunk, misleading color scales) and how to avoid them.  
+       
+
+---
+
+
+
+## Good Visualizations
+
+### Example 1: Good Static Visualization
+
+```{r, fig.width=6, fig.height=6}
+#| echo: false
+#| fig-alt: "A bar chart of Toyota Tacoma Sales in Mexico, with the y-axis labeled in MX$. Each bar shows a different quarter's sales."
+#| fig-cap: "Toyota Tacoma Sales in Mexico per Quarter"
+
+library(cowplot)
+library(ggplot2)
+library(scales)
+library(magick)
+
+# Sample data (sales in millions of Mexican Pesos)
+df <- data.frame(
+  Quarter = factor(c("Q1", "Q2", "Q3", "Q4"), 
+                   levels = c("Q1","Q2","Q3","Q4")),
+  Sales = c(30, 70, 80, 150)
+)
+
+p <- ggplot(df, aes(x = Quarter, y = Sales)) +
+  geom_col(fill = "#EB0A1E", width = 0.4) +
+  geom_text(
+    aes(label = label_dollar(
+      suffix = "M", big.mark = ","
+    )(Sales)),
+    vjust = -0.5,  # Moves the text just above the bar
+    size = 3.5       # Increase/decrease text size as needed
+  ) +
+  labs(
+    title = "Toyota Tacoma Sales in Mexico",
+    subtitle = "Growth Performance from Q1 to Q4, 2019",
+    caption  = "All figures in millions of Mexican Pesos (MX$). Data Source: Toyota Internal Sales (Simulated Data)",
+    x = NULL,
+    y = "Sales (Mexican Pesos)"
+  ) +
+  # Format the y-axis in MX$ currency
+  scale_y_continuous(labels = label_dollar(suffix = "M")) +
+  theme_classic()
+
+
+p_with_logo <- ggdraw(p) +
+  draw_image(
+    "../../../assets/images/toyotaLogo.png",
+    x = 1,        # X position near the right edge
+    y = 1,        # Y position near the top edge
+    hjust = 1,    # Right-align the image
+    vjust = 1,    # Top-align the image
+    width  = 0.1, # Adjust logo width as desired
+    height = 0.1  # Adjust logo height as desired
+  )
+
+# Print the final plot
+p_with_logo
+
+```
+
+*Why it’s effective:*  
+
+- Clear labels on both axes.  
+- Minimal “chartjunk.”  
+- Focuses on the key trend (sales vs. quarter).  
+
+### Example 2: Good Interactive Visualization
+
+```{r}
+#| echo: false
+#| fig-alt: "An interactive Plotly scatter plot displaying a relationship between two continuous variables with hover text."
+#| fig-cap: "Good Interactive Visualization Example"
+
+library(plotly)
+library(ggplot2)
+
+# Using mtcars data as an example
+p <- ggplot(mtcars, aes(x = wt, y = mpg, 
+                        color = factor(cyl),
+                        text = paste0("Model: ", rownames(mtcars),
+                                      "<br>HP: ", hp,
+                                      "<br>Displacement: ", disp))) +
+  geom_point(size = 3) +
+  labs( title    = "Fuel Efficiency vs. Weight: An Interactive MTCars Analysis",
+        subtitle = "Comparing Miles per Gallon Across Different Cylinder Counts",
+        x        = "Weight (1000 lbs)",
+        y        = "Miles per Gallon (MPG)",
+        color    = "Cylinders",
+        caption  = "Data Source: R's built-in 'mtcars' dataset"
+      ) + theme_minimal()
+
+ggplotly(p, tooltip = "text")
+
+
+```
+
+*Why it’s effective:*  
+
+- Allows viewers to hover on each point to see make/model and exact values.  
+- Zoom/pan features let readers explore sub-regions of interest.  
+- Clear legend and use of color to delineate categories.
+
+---
+
+## Bad Visualizations
+
+### Example 1: Poor Visualization (Misleading Axis)
+
+```{r}
+#| echo: false
+#| fig-alt: "A bar chart starting the y-axis at 100 instead of 0, exaggerating small differences."
+#| fig-cap: "Example of a Misleading Axis"
+
+library(ggplot2)
+
+# Sample data
+df_misleading <- data.frame(
+  Category = c("Category 1", "Category 2", "Category 3"),
+  Value    = c(100, 105, 108)
+)
+
+ggplot(df_misleading, aes(x = Category, y = Value)) +
+  geom_col(fill = "firebrick") +
+  # Truncating the y-axis to exaggerate differences:
+  coord_cartesian(ylim = c(100, 108)) +
+  labs(
+    title = "Truncated Axis Example",
+    x = NULL,
+    y = "Value"
+  ) +
+  theme_minimal()
+
+```
+
+*Issue:* The y-axis doesn’t start at zero, so the 3-point increase from 100 to 103 looks massive. This visual can mislead viewers into thinking the change is more significant than it is.
+
+### Example 2: Poor Visualization (Excessive Chartjunk)
+
+```{r}
+#| echo: false
+#| fig-alt: "A 3D pie chart with too many slices and distracting colors."
+#| fig-cap: "Example of Chartjunk"
+
+library(plotrix)
+
+slices <- c(30,20,15,10,8,7,5,5)
+labels <- c("A","B","C","D","E","F","G","H")
+
+pie3D(
+  slices,
+  labels = labels,
+  explode = 0.1,
+  main = "Overcomplicated 3D Pie Chart",
+  col = rainbow(length(slices))
+)
+
+```
+
+*Issue:*  
+
+- Too many slices, making comparisons difficult.  
+- 3D perspective distorts slice sizes, making it harder to read actual proportions.  
+- Colors are overwhelming, especially with no legend to clarify each slice.
+
+---
+
+
+## Conclusion
+
+Data visualization is both an **art** and a **science**. Picking the right chart type begins with understanding your **data structure** (continuous, categorical, binary, etc.) and the **question** you need to answer. From there, weigh the **trade-offs** between static and interactive visuals:
+
+- **Static** plots are simpler to share and best for final, polished presentations.  
+- **Interactive** charts enable on-the-spot data exploration but can be more complex to build.
+
+As you gear up for **DataFest**, remember:
+
+1. Keep your visuals **clean** and **focused**.  
+2. Make sure they **honestly** represent the underlying data.  
+3. Encourage **engagement** where possible (especially for complex insights).  
+
+By planning early, you can leverage visual storytelling to impress both the judges and your peers—helping you stand out in the competition. Good luck, and happy **visualizing**!
+
+
 

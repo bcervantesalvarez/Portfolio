@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-58c04e4ce6b0d29951789082bc706ede.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -766,25 +766,25 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 
           Reference
 Prediction  red white
-     red    476     8
-     white    3  1461
+     red    475     5
+     white    4  1464
                                              
-               Accuracy : 0.9944             
-                 95% CI : (0.9899, 0.9972)   
+               Accuracy : 0.9954             
+                 95% CI : (0.9912, 0.9979)   
     No Information Rate : 0.7541             
     P-Value [Acc &gt; NIR] : &lt;0.0000000000000002
                                              
-                  Kappa : 0.9848             
+                  Kappa : 0.9876             
                                              
- Mcnemar's Test P-Value : 0.2278             
+ Mcnemar's Test P-Value : 1                  
                                              
-            Sensitivity : 0.9937             
-            Specificity : 0.9946             
-         Pos Pred Value : 0.9835             
-         Neg Pred Value : 0.9980             
+            Sensitivity : 0.9916             
+            Specificity : 0.9966             
+         Pos Pred Value : 0.9896             
+         Neg Pred Value : 0.9973             
              Prevalence : 0.2459             
-         Detection Rate : 0.2444             
-   Detection Prevalence : 0.2485             
+         Detection Rate : 0.2438             
+   Detection Prevalence : 0.2464             
       Balanced Accuracy : 0.9941             
                                              
        'Positive' Class : red                
@@ -824,7 +824,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyRF, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9944"</code></pre>
+<pre><code>[1] "Accuracy: 0.9959"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Logistic Regression Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -832,7 +832,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyLogistic, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9944"</code></pre>
+<pre><code>[1] "Accuracy: 0.9954"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Support Vector Machine (SVM) Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -840,7 +840,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracySVM, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9954"</code></pre>
+<pre><code>[1] "Accuracy: 0.9969"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get variable importance from the best model</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,16 +848,16 @@ Prediction  red white
 <pre><code>rf variable importance
 
                    Overall
-chlorides          100.000
-totalSulfurDioxide  95.648
-volatileAcidity     49.171
-density             27.398
-sulphates           21.903
-freeSulfurDioxide   20.044
-fixedAcidity        19.007
-residualSugar       18.626
-citricAcid           9.374
-pH                   5.997
+totalSulfurDioxide 100.000
+chlorides           86.978
+volatileAcidity     42.339
+density             23.211
+sulphates           17.890
+residualSugar       16.996
+fixedAcidity        16.702
+freeSulfurDioxide   16.630
+pH                   4.597
+citricAcid           4.122
 alcohol              0.000</code></pre>
 </div>
 </div>

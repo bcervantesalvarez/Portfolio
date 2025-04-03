@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-58c04e4ce6b0d29951789082bc706ede.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,7 +105,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -289,7 +292,7 @@ window.Quarto = {
 </section>
 <section id="data-setup-and-import" class="level2">
 <h2 class="anchored" data-anchor-id="data-setup-and-import">Data Setup and Import</h2>
-<div id="0ca1ce1a" class="cell" data-execution_count="1">
+<div id="d5e56fe8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -303,7 +306,7 @@ window.Quarto = {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../../../assets/datasets/insurance.csv"</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="79">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -381,7 +384,7 @@ window.Quarto = {
 <section id="high-level-exploratory-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="high-level-exploratory-analysis">High-Level Exploratory Analysis</h2>
 <p>We start by exploring the dataset at a high level: checking for missing data, data types, and general statistics.</p>
-<div id="adf204a6" class="cell" data-execution_count="2">
+<div id="8fb6067f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Dataset Info:"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Basic Description:"</span>)</span>
@@ -434,7 +437,7 @@ max     63770.428010  </code></pre>
 </div>
 <section id="distribution-of-smokers-vs.-non-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="distribution-of-smokers-vs.-non-smokers">Distribution of Smokers vs.&nbsp;Non-Smokers</h3>
-<div id="1fd6f580" class="cell" data-execution_count="3">
+<div id="839c24c0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of smokers vs. non-smokers</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>num_smokers <span class="op">=</span> (df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"yes"</span>).<span class="bu">sum</span>()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>num_nonsmokers <span class="op">=</span> (df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"no"</span>).<span class="bu">sum</span>()</span>
@@ -467,7 +470,7 @@ Number of nonsmokers: 1064</code></pre>
 <section id="analysis-of-factors-affecting-insurance-costs" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-of-factors-affecting-insurance-costs">Analysis of Factors Affecting Insurance Costs</h2>
 <p>We now focus on identifying the relationship between smoking status and insurance charges. We also investigate gender differences, BMI (Body Mass Index), age, and other features.</p>
-<div id="5f1c3207" class="cell" data-execution_count="4">
+<div id="adc8b3e2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Overall mean charges:"</span>, <span class="bu">round</span>(df[<span class="st">'charges'</span>].mean(), <span class="dv">2</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Overall median charges:"</span>, <span class="bu">round</span>(df[<span class="st">'charges'</span>].median(), <span class="dv">2</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Overall standard deviation:"</span>, <span class="bu">round</span>(df[<span class="st">'charges'</span>].std(), <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -481,7 +484,7 @@ Overall standard deviation: 12110.01</code></pre>
 <h3 class="anchored" data-anchor-id="insurance-costs-smokers-only">Insurance Costs: Smokers Only</h3>
 <section id="boxplot-and-histogram" class="level4">
 <h4 class="anchored" data-anchor-id="boxplot-and-histogram">Boxplot and Histogram</h4>
-<div id="8e4755c4" class="cell" data-execution_count="5">
+<div id="89a36514" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_smokers <span class="op">=</span> df[df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"yes"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
@@ -507,7 +510,7 @@ Overall standard deviation: 12110.01</code></pre>
 </section>
 <section id="summary-statistics-smokers" class="level4">
 <h4 class="anchored" data-anchor-id="summary-statistics-smokers">Summary Statistics (Smokers)</h4>
-<div id="56feac70" class="cell" data-execution_count="6">
+<div id="e8826533" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>smoker_mean <span class="op">=</span> <span class="bu">round</span>(df_smokers[<span class="st">"charges"</span>].mean(), <span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>smoker_median <span class="op">=</span> <span class="bu">round</span>(df_smokers[<span class="st">"charges"</span>].median(), <span class="dv">2</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>smoker_std <span class="op">=</span> <span class="bu">round</span>(df_smokers[<span class="st">"charges"</span>].std(), <span class="dv">2</span>)</span>
@@ -535,7 +538,7 @@ Smoker Var: 133207311.21</code></pre>
 <section id="male-vs.-female-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="male-vs.-female-smokers">Male vs.&nbsp;Female Smokers</h3>
 <p>Below we compare male smokers and female smokers, highlighting BMI and how it affects insurance cost.</p>
-<div id="beb46537" class="cell" data-execution_count="7">
+<div id="f1833018" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_male_smoker <span class="op">=</span> df_smokers[df_smokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"male"</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_female_smoker <span class="op">=</span> df_smokers[df_smokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"female"</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -608,7 +611,7 @@ Smoker Var: 133207311.21</code></pre>
 </div>
 <section id="bmi-30-vs.-bmi-30-male-smokers" class="level4">
 <h4 class="anchored" data-anchor-id="bmi-30-vs.-bmi-30-male-smokers">BMI &lt; 30 vs.&nbsp;BMI &gt;= 30 (Male Smokers)</h4>
-<div id="a2aeaebe" class="cell" data-execution_count="8">
+<div id="4871d78f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>male_bmi_under_30 <span class="op">=</span> df_male_smoker[df_male_smoker[<span class="st">"bmi"</span>] <span class="op">&lt;</span> <span class="dv">30</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>male_bmi_over_30 <span class="op">=</span> df_male_smoker[df_male_smoker[<span class="st">"bmi"</span>] <span class="op">&gt;=</span> <span class="dv">30</span>]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -632,7 +635,7 @@ Relative Increase: ~90.0% higher cost</code></pre>
 </section>
 <section id="female-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="female-smokers">Female Smokers</h3>
-<div id="de7fc247" class="cell" data-execution_count="9">
+<div id="f3e99f8c" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale<span class="op">=</span><span class="fl">0.9</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -699,7 +702,7 @@ Relative Increase: ~90.0% higher cost</code></pre>
 </div>
 </div>
 </div>
-<div id="6dda7f41" class="cell" data-execution_count="10">
+<div id="23bf2805" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>female_bmi_under_30 <span class="op">=</span> df_female_smoker[df_female_smoker[<span class="st">"bmi"</span>] <span class="op">&lt;</span> <span class="dv">30</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>female_bmi_over_30 <span class="op">=</span> df_female_smoker[df_female_smoker[<span class="st">"bmi"</span>] <span class="op">&gt;=</span> <span class="dv">30</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -722,7 +725,7 @@ Relative Increase: ~101.0% higher cost</code></pre>
 </section>
 <section id="smokers-vs.-non-smokers" class="level3">
 <h3 class="anchored" data-anchor-id="smokers-vs.-non-smokers">Smokers vs.&nbsp;Non-Smokers</h3>
-<div id="682496a2" class="cell" data-execution_count="11">
+<div id="e62c1579" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_nonsmokers <span class="op">=</span> df[df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"no"</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(df_nonsmokers[<span class="st">"charges"</span>].mean(), <span class="dv">2</span>)</span>
@@ -755,7 +758,7 @@ Non-smoker Median: $7345.41</code></pre>
 </div>
 <section id="comparison-by-gender-non-smokers" class="level4">
 <h4 class="anchored" data-anchor-id="comparison-by-gender-non-smokers">Comparison by Gender (Non-Smokers)</h4>
-<div id="1655477c" class="cell" data-execution_count="12">
+<div id="d0eb9a17" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_male_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"male"</span>]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_female_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"female"</span>]</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -793,7 +796,7 @@ Female Non-smoker Avg: $8762.3</code></pre>
 <section id="correlation-heatmap" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-heatmap">Correlation Heatmap</h2>
 <p>To quickly see how numeric variables (like <em>age, bmi, children, charges</em>) relate to each other, we can look at a correlation heatmap.</p>
-<div id="9f0ef29c" class="cell" data-execution_count="13">
+<div id="bdd647ac" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only numeric columns</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_numeric <span class="op">=</span> df[[<span class="st">"age"</span>, <span class="st">"bmi"</span>, <span class="st">"children"</span>, <span class="st">"charges"</span>]].copy()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>

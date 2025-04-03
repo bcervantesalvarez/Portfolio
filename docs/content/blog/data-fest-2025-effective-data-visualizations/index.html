@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Cervantes Alvarez">
+<meta name="dcterms.date" content="2025-04-03">
 
-<title>index – Home</title>
+<title>Effective Data Visualizations for DataFest – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-58c04e4ce6b0d29951789082bc706ede.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,15 +68,41 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="../../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../../../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="../../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="../../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="../../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="../../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="../../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="../../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
-<meta property="og:title" content="index – Home">
+
+<meta property="og:title" content="Effective Data Visualizations for DataFest – Home">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://datascienceyapper.com/assets/images/datafest_GPT4o.png">
 <meta property="og:site_name" content="Home">
-<meta name="twitter:title" content="index – Home">
-<meta name="twitter:card" content="summary">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+<meta name="twitter:title" content="Effective Data Visualizations for DataFest – Home">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://datascienceyapper.com/assets/images/datafest_GPT4o.png">
+<meta name="twitter:image-height" content="1024">
+<meta name="twitter:image-width" content="1024">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -122,20 +150,63 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#choosing-the-right-visualization-data-type-matters" id="toc-choosing-the-right-visualization-data-type-matters" class="nav-link" data-scroll-target="#choosing-the-right-visualization-data-type-matters">Choosing the Right Visualization: Data Type Matters</a></li>
+  <li><a href="#static-vs.-interactive-visualizations" id="toc-static-vs.-interactive-visualizations" class="nav-link" data-scroll-target="#static-vs.-interactive-visualizations">Static vs.&nbsp;Interactive Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#static-visualizations" id="toc-static-visualizations" class="nav-link" data-scroll-target="#static-visualizations">Static Visualizations</a></li>
+  <li><a href="#interactive-visualizations" id="toc-interactive-visualizations" class="nav-link" data-scroll-target="#interactive-visualizations">Interactive Visualizations</a></li>
+  </ul></li>
+  <li><a href="#recommended-resources" id="toc-recommended-resources" class="nav-link" data-scroll-target="#recommended-resources">Recommended Resources</a>
+  <ul class="collapse">
+  <li><a href="#static-visualizations-1" id="toc-static-visualizations-1" class="nav-link" data-scroll-target="#static-visualizations-1">Static Visualizations</a></li>
+  <li><a href="#interactive-visualizations-1" id="toc-interactive-visualizations-1" class="nav-link" data-scroll-target="#interactive-visualizations-1">Interactive Visualizations</a></li>
+  <li><a href="#misleadingpoor-visualizations" id="toc-misleadingpoor-visualizations" class="nav-link" data-scroll-target="#misleadingpoor-visualizations">Misleading/Poor Visualizations</a></li>
+  </ul></li>
+  <li><a href="#good-visualizations" id="toc-good-visualizations" class="nav-link" data-scroll-target="#good-visualizations">Good Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#example-1-good-static-visualization" id="toc-example-1-good-static-visualization" class="nav-link" data-scroll-target="#example-1-good-static-visualization">Example 1: Good Static Visualization</a></li>
+  <li><a href="#example-2-good-interactive-visualization" id="toc-example-2-good-interactive-visualization" class="nav-link" data-scroll-target="#example-2-good-interactive-visualization">Example 2: Good Interactive Visualization</a></li>
+  </ul></li>
+  <li><a href="#bad-visualizations" id="toc-bad-visualizations" class="nav-link" data-scroll-target="#bad-visualizations">Bad Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#example-1-poor-visualization-misleading-axis" id="toc-example-1-poor-visualization-misleading-axis" class="nav-link" data-scroll-target="#example-1-poor-visualization-misleading-axis">Example 1: Poor Visualization (Misleading Axis)</a></li>
+  <li><a href="#example-2-poor-visualization-excessive-chartjunk" id="toc-example-2-poor-visualization-excessive-chartjunk" class="nav-link" data-scroll-target="#example-2-poor-visualization-excessive-chartjunk">Example 2: Poor Visualization (Excessive Chartjunk)</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">index</h1>
+<h1 class="title">Effective Data Visualizations for DataFest</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Cervantes Alvarez </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 3, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -145,8 +216,184 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="../../..\assets/images/datafest_GPT4o.png" class="img-fluid"></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The American Statistical Association (ASA) DataFest is a 48-hour data analysis competition where undergraduate teams work on large, real-world datasets. Creating clear, purposeful, and persuasive visualizations is essential to stand out and communicate your results effectively.</p>
+<p>When you’re working under tight deadlines (as you will in DataFest), it pays off to plan your visuals carefully. The goal is to <strong>highlight insights quickly</strong> and <strong>engage</strong> both technical and non-technical audiences. Here we’ll discuss:</p>
+<ol type="1">
+<li><strong>Choosing the Right Visualization</strong> for your data type.<br>
+</li>
+<li>The <strong>differences</strong> between static and interactive charts, along with pros and cons.<br>
+</li>
+<li><strong>Helpful resources</strong> for further learning.<br>
+</li>
+<li><strong>Examples</strong> of good vs.&nbsp;poor visualizations.</li>
+</ol>
+<hr>
+</section>
+<section id="choosing-the-right-visualization-data-type-matters" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-the-right-visualization-data-type-matters">Choosing the Right Visualization: Data Type Matters</h2>
+<p>Data comes in many flavors—<strong>continuous</strong>, <strong>categorical</strong>, <strong>binary</strong>, <strong>ranked/ordinal</strong>, <strong>time series</strong>, etc. Each type often suggests a specific set of chart types:</p>
+<ul>
+<li><strong>Continuous</strong> (e.g., height, weight, temperature): Histograms, boxplots, or scatter plots help show distribution or relationships between continuous variables.</li>
+<li><strong>Categorical</strong> (e.g., gender, product category): Bar charts or mosaic plots make category comparisons clear.</li>
+<li><strong>Binary</strong> (e.g., yes/no, 0/1): Similar to categorical, but often bars or pie charts if you only have two categories (though pie charts can be misleading with many segments).</li>
+<li><strong>Ranked/Ordinal</strong> (e.g., Likert scale responses): Bar plots or ordered boxplots help display the progression from one rank to another.</li>
+<li><strong>Time Series</strong> (continuous or discrete time): Line charts, area charts, or spark lines for concise trend viewing.</li>
+</ul>
+<p>Always match the <strong>question</strong> you’re answering to the <strong>chart type</strong>: a time-trend question typically calls for a line chart, while a comparison across categories suggests a bar chart. This deliberate pairing of data type and visualization style helps keep your visuals clean and intuitive.</p>
+<hr>
+</section>
+<section id="static-vs.-interactive-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="static-vs.-interactive-visualizations">Static vs.&nbsp;Interactive Visualizations</h2>
+<section id="static-visualizations" class="level3">
+<h3 class="anchored" data-anchor-id="static-visualizations">Static Visualizations</h3>
+<p>Static plots (like <strong>bar charts</strong>, <strong>line charts</strong>, <strong>scatter plots</strong>) are quick to produce and easy to embed in <strong>reports</strong> or <strong>presentations</strong>. Their major advantage is <strong>simplicity</strong>: you can share a single image (e.g., <code>.png</code> or <code>.pdf</code>), ensuring everyone sees the same information. However, viewers can’t probe or explore the data beyond what you explicitly present.</p>
+<p><strong>Pros</strong><br>
+- Easy to produce and share (e.g., in PDFs, slides).<br>
+- Good for final, polished, and unchanging presentations.<br>
+- Typically less prone to technical issues.</p>
+<p><strong>Cons</strong><br>
+- No user interaction or deeper data exploration.<br>
+- You might need multiple static visuals to explore different angles.</p>
+</section>
+<section id="interactive-visualizations" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-visualizations">Interactive Visualizations</h3>
+<p>Interactive charts allow users to <strong>hover</strong>, <strong>zoom</strong>, and <strong>filter</strong> data in real-time. Tools like <strong>Plotly</strong>, <strong>Altair</strong>, <strong>Bokeh</strong>, or JavaScript libraries like <strong>D3.js</strong> can bring your data to life. The main advantage is <strong>flexibility</strong>—audiences can explore aspects of the data that interest them, often uncovering deeper insights on their own.</p>
+<p><strong>Pros</strong><br>
+- Engaging for end users; encourages exploration.<br>
+- Can handle richer datasets, with on-demand drilldowns.<br>
+- Allows a single figure to convey multiple layers of detail (via tooltips, dynamic filters, etc.).</p>
+<p><strong>Cons</strong><br>
+- Requires more programming and environment setup (JavaScript or Python libraries, etc.).<br>
+- Harder to embed in static documents.<br>
+- Potential performance issues with large datasets or if viewers have older browsers/hardware.</p>
+<hr>
+</section>
+</section>
+<section id="recommended-resources" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-resources">Recommended Resources</h2>
+<p>Below are three resources to help deepen your visualization skillset:</p>
+<section id="static-visualizations-1" class="level3">
+<h3 class="anchored" data-anchor-id="static-visualizations-1">Static Visualizations</h3>
+<p><strong>“Top 10 Proven Data Visualization Best Practices”</strong> <a href="https://www.gooddata.com/blog/data-visualization-best-practices/">GoodData Blog</a></p>
+<p>This post emphasizes clarity, simplicity, and matching chart types to data.</p>
+</section>
+<section id="interactive-visualizations-1" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-visualizations-1">Interactive Visualizations</h3>
+<p><strong>“Interactive Python Plots: Getting Started and Best Packages”</strong> <a href="https://fabi.ai/blog/interactive-python-plots/">Fabi.ai</a></p>
+<p>A beginner-friendly guide covering Plotly, Altair, and Bokeh. Demonstrates tooltips, panning, and zooming.</p>
+</section>
+<section id="misleadingpoor-visualizations" class="level3">
+<h3 class="anchored" data-anchor-id="misleadingpoor-visualizations">Misleading/Poor Visualizations</h3>
+<p><strong>“Misleading Data Visualization – What to Avoid”</strong> <a href="https://blog.coupler.io/misleading-data-visualization/">Coupler.io Blog</a></p>
+<p>Showcases common pitfalls (truncated axes, chartjunk, misleading color scales) and how to avoid them.</p>
+<hr>
+</section>
+</section>
+<section id="good-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="good-visualizations">Good Visualizations</h2>
+<section id="example-1-good-static-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-good-static-visualization">Example 1: Good Static Visualization</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" alt="A bar chart of Toyota Tacoma Sales in Mexico, with the y-axis labeled in MX$. Each bar shows a different quarter's sales." width="576"></p>
+<figcaption>Toyota Tacoma Sales in Mexico per Quarter</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Why it’s effective:</em></p>
+<ul>
+<li>Clear labels on both axes.<br>
+</li>
+<li>Minimal “chartjunk.”<br>
+</li>
+<li>Focuses on the key trend (sales vs.&nbsp;quarter).</li>
+</ul>
+</section>
+<section id="example-2-good-interactive-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-good-interactive-visualization">Example 2: Good Interactive Visualization</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f010ea1636f3a17f2fc3" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f010ea1636f3a17f2fc3">{"x":{"data":[{"x":[2.3199999999999998,3.1899999999999999,3.1499999999999999,2.2000000000000002,1.615,1.835,2.4649999999999999,1.9350000000000001,2.1400000000000001,1.5129999999999999,2.7799999999999998],"y":[22.800000000000001,24.399999999999999,22.800000000000001,32.399999999999999,30.399999999999999,33.899999999999999,21.5,27.300000000000001,26,30.399999999999999,21.399999999999999],"text":["Model: Datsun 710<br>HP: 93<br>Displacement: 108","Model: Merc 240D<br>HP: 62<br>Displacement: 146.7","Model: Merc 230<br>HP: 95<br>Displacement: 140.8","Model: Fiat 128<br>HP: 66<br>Displacement: 78.7","Model: Honda Civic<br>HP: 52<br>Displacement: 75.7","Model: Toyota Corolla<br>HP: 65<br>Displacement: 71.1","Model: Toyota Corona<br>HP: 97<br>Displacement: 120.1","Model: Fiat X1-9<br>HP: 66<br>Displacement: 79","Model: Porsche 914-2<br>HP: 91<br>Displacement: 120.3","Model: Lotus Europa<br>HP: 113<br>Displacement: 95.1","Model: Volvo 142E<br>HP: 109<br>Displacement: 121"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"4","legendgroup":"4","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.6200000000000001,2.875,3.2149999999999999,3.46,3.4399999999999999,3.4399999999999999,2.77],"y":[21,21,21.399999999999999,18.100000000000001,19.199999999999999,17.800000000000001,19.699999999999999],"text":["Model: Mazda RX4<br>HP: 110<br>Displacement: 160","Model: Mazda RX4 Wag<br>HP: 110<br>Displacement: 160","Model: Hornet 4 Drive<br>HP: 110<br>Displacement: 258","Model: Valiant<br>HP: 105<br>Displacement: 225","Model: Merc 280<br>HP: 123<br>Displacement: 167.6","Model: Merc 280C<br>HP: 123<br>Displacement: 167.6","Model: Ferrari Dino<br>HP: 175<br>Displacement: 145"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"6","legendgroup":"6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.4399999999999999,3.5699999999999998,4.0700000000000003,3.73,3.7799999999999998,5.25,5.4240000000000004,5.3449999999999998,3.52,3.4350000000000001,3.8399999999999999,3.8450000000000002,3.1699999999999999,3.5699999999999998],"y":[18.699999999999999,14.300000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,15.5,15.199999999999999,13.300000000000001,19.199999999999999,15.800000000000001,15],"text":["Model: Hornet Sportabout<br>HP: 175<br>Displacement: 360","Model: Duster 360<br>HP: 245<br>Displacement: 360","Model: Merc 450SE<br>HP: 180<br>Displacement: 275.8","Model: Merc 450SL<br>HP: 180<br>Displacement: 275.8","Model: Merc 450SLC<br>HP: 180<br>Displacement: 275.8","Model: Cadillac Fleetwood<br>HP: 205<br>Displacement: 472","Model: Lincoln Continental<br>HP: 215<br>Displacement: 460","Model: Chrysler Imperial<br>HP: 230<br>Displacement: 440","Model: Dodge Challenger<br>HP: 150<br>Displacement: 318","Model: AMC Javelin<br>HP: 150<br>Displacement: 304","Model: Camaro Z28<br>HP: 245<br>Displacement: 350","Model: Pontiac Firebird<br>HP: 175<br>Displacement: 400","Model: Ford Pantera L<br>HP: 264<br>Displacement: 351","Model: Maserati Bora<br>HP: 335<br>Displacement: 301"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":11.338582677165356,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"8","legendgroup":"8","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":37.260273972602747},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Fuel Efficiency vs. Weight: An Interactive MTCars Analysis","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1.3174499999999998,5.6195500000000003],"tickmode":"array","ticktext":["2","3","4","5"],"tickvals":[2,3,4,5],"categoryorder":"array","categoryarray":["2","3","4","5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Weight (1000 lbs)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.2249999999999996,35.074999999999996],"tickmode":"array","ticktext":["10","15","20","25","30","35"],"tickvals":[10,15,20,25,30,35],"categoryorder":"array","categoryarray":["10","15","20","25","30","35"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Miles per Gallon (MPG)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Cylinders","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3b746091ce8":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"}},"cur_data":"3b746091ce8","visdat":{"3b746091ce8":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Good Interactive Visualization Example</p>
+</div>
+</div>
+<p><em>Why it’s effective:</em></p>
+<ul>
+<li>Allows viewers to hover on each point to see make/model and exact values.<br>
+</li>
+<li>Zoom/pan features let readers explore sub-regions of interest.<br>
+</li>
+<li>Clear legend and use of color to delineate categories.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="bad-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="bad-visualizations">Bad Visualizations</h2>
+<section id="example-1-poor-visualization-misleading-axis" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-poor-visualization-misleading-axis">Example 1: Poor Visualization (Misleading Axis)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" alt="A bar chart starting the y-axis at 100 instead of 0, exaggerating small differences." width="672"></p>
+<figcaption>Example of a Misleading Axis</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Issue:</em> The y-axis doesn’t start at zero, so the 3-point increase from 100 to 103 looks massive. This visual can mislead viewers into thinking the change is more significant than it is.</p>
+</section>
+<section id="example-2-poor-visualization-excessive-chartjunk" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-poor-visualization-excessive-chartjunk">Example 2: Poor Visualization (Excessive Chartjunk)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="A 3D pie chart with too many slices and distracting colors." width="672"></p>
+<figcaption>Example of Chartjunk</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Issue:</em></p>
+<ul>
+<li>Too many slices, making comparisons difficult.<br>
+</li>
+<li>3D perspective distorts slice sizes, making it harder to read actual proportions.<br>
+</li>
+<li>Colors are overwhelming, especially with no legend to clarify each slice.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Data visualization is both an <strong>art</strong> and a <strong>science</strong>. Picking the right chart type begins with understanding your <strong>data structure</strong> (continuous, categorical, binary, etc.) and the <strong>question</strong> you need to answer. From there, weigh the <strong>trade-offs</strong> between static and interactive visuals:</p>
+<ul>
+<li><strong>Static</strong> plots are simpler to share and best for final, polished presentations.<br>
+</li>
+<li><strong>Interactive</strong> charts enable on-the-spot data exploration but can be more complex to build.</li>
+</ul>
+<p>As you gear up for <strong>DataFest</strong>, remember:</p>
+<ol type="1">
+<li>Keep your visuals <strong>clean</strong> and <strong>focused</strong>.<br>
+</li>
+<li>Make sure they <strong>honestly</strong> represent the underlying data.<br>
+</li>
+<li>Encourage <strong>engagement</strong> where possible (especially for complex insights).</li>
+</ol>
+<p>By planning early, you can leverage visual storytelling to impress both the judges and your peers—helping you stand out in the competition. Good luck, and happy <strong>visualizing</strong>!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
