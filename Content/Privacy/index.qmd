@@ -4,7 +4,7 @@ format:
   html:
     include-in-header: 
       - text: |
-          <script type="text/javascript" src="/Assets/Scripts/Portfolio/privacyForm.js"></script>
+          <script type="text/javascript" src="/assets/scripts/privacy/privacyForm.js"></script>
 ---
 
 ```{=html}
@@ -72,7 +72,7 @@ format:
     <input
       type="hidden"
       name="_next"
-      value="https://bcervantesalvarez.github.io/Portfolio/Content/Forms/ThankYou/"
+      value="https://www.datascienceyapper.com/content/forms/thank-you/"
     />
 
     <!-- First Name Field -->

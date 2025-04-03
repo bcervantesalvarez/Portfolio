@@ -1,0 +1,675 @@
+---
+title: "Enhanced Customer Return Forecasting"
+author: "Brian Cervantes Alvarez"
+date: "03-11-2023"
+date-modified: "03-31-2025"
+description: "Random Forest model trained via 5-fold CV (3 repeats), achieving ~97.8% accuracy, 0.95 Kappa, and ~0.98 AUC."
+teaser: "A swift 56% leap from earlier approaches—don’t miss how we redefined item return forecasting!"
+categories: ["Machine Learning"]
+bibliography: "bibliography.bib"
+image: /assets/images/return.jpeg
+nocite: |
+  @*
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+    code-tools: true
+execute:
+  warning: false
+  message: false
+---
+
+
+![](/assets/images/return.jpeg)
+## Predicting Customer Returns: Enhanced Accuracy and Business Impact
+
+### Project Overview
+
+This analysis aimed to predict customer product returns, leveraging detailed product characteristics and customer demographics. The objective was to proactively identify returns, enabling strategic interventions to enhance profitability and customer satisfaction.
+
+### Key Achievements
+
+- **Significant improvement in predictive performance**:
+  - Increased **model accuracy** from a moderate AUC of **0.625** (initial baseline) to a robust **AUC of 0.98**.
+  - Enhanced overall accuracy to **97.8%** with a Kappa statistic of **0.95**.
+  
+  
+### Exploratory Data Analysis
+
+
+We then generated the following plots to visualize return behavior in more depth:
+
+1. **Returned Orders by Department**  
+   ![](/assets/images/ReturnedOrdersByDept.png)
+
+2. **Returned Orders by Product Size**  
+   ![](/assets/images/ReturnedOrdersBySize.png)
+
+3. **Returned Orders by State and Region**  
+   ![](/assets/images/ReturnedOrdersByStateRegion.png)
+
+4. **State Contribution to Total Returns** (Lollipop Chart)  
+   ![](/assets/images/StateContribution.png)
+
+5. **Standardized Returns by State** (Per 100k Population)  
+   ![](/assets/images/StandardizedReturnsByState.png)
+
+### Strategic Feature Engineering
+
+To drive predictive accuracy, we enriched our dataset through targeted enhancements:
+
+- Integrated **regional demographics and population data**, offering context-sensitive insights.
+- Engineered impactful features such as:
+  - **CustomerAge**: Capturing age-driven buying behaviors.
+  - **PriceRange**: Classifying products by price sensitivity.
+  - **Seasonality**: Reflecting seasonal purchasing patterns.
+- Standardized returns per 100,000 population, enabling fair comparisons across regions.
+
+### Data-Driven Insights
+
+Visual analyses identified crucial return patterns, directly informing strategic business decisions:
+
+- **Departments and Product Sizes**:
+  - Identified product categories with disproportionately high return rates, suggesting areas for targeted product reviews.
+
+- **Geographic Analysis**:
+  - States and regions contributing most to return volumes were visualized through comprehensive charts, including state-level standardized returns and overall contribution metrics, facilitating focused regional strategies.
+
+### Model Development and Performance
+
+Building upon insights from an initial logistic regression and baseline Random Forest model, we:
+
+- Implemented an advanced **Random Forest model with repeated 5-fold cross-validation** (3 repeats), enhancing stability and predictive consistency.
+- Achieved exceptional performance metrics on validation data:
+
+| Metric            | Performance |
+|-------------------|-------------|
+| **Accuracy**      | 97.8%       |
+| **Kappa**         | 0.95        |
+| **AUC**           | 0.98        |
+
+**Confusion Matrix:**
+
+```
+               Actual
+Predicted     No     Yes
+No           8202     80
+Yes           205   4495
+```
+
+The refined model substantially reduced false predictions, significantly outperforming previous benchmarks.
+
+### Actionable Final Predictions
+
+Applied to unseen test data, the refined model produced actionable predictions by:
+
+- Generating clear, binary indicators (**Predicted_Return**), directly supporting decision-making.
+- Providing stakeholders with an **interactive dashboard** featuring real-time filtering, sorting, and export functionalities to quickly identify and act upon at-risk purchases.
+
+### Conclusions & Strategic Next Steps
+
+- **Historical context**: Initial model (AUC = 0.625) established the importance of detailed feature engineering.
+- **Current approach**: Advanced techniques boosted **predictive accuracy to 97.8%**, demonstrating substantial business value through proactive return management.
+- **Future opportunities**:
+  - Explore **alternative ensemble methods** for potential incremental gains.
+  - Investigate **cost-sensitive learning approaches** to optimize financial outcomes related to returns.
+  - Further incorporate **advanced explainability tools** to enhance stakeholder understanding and strategic alignment.
+
+This enhanced predictive framework positions the business to significantly reduce return-related losses, optimize inventory management, and deliver improved customer experiences.
+
+
+
+
+
+## Appendix
+
+Below is a summary of the **key steps** and **full script** to reproduce the results:
+
+1. **Loading and Merging Datasets**: Combined **region** and **population** data with the original training and test CSVs.
+2. **Feature Engineering**: Created **CustomerAge**, **PriceRange**, and other derived features, and removed irrelevant columns.
+3. **Model Training**:  
+   - Defined a **Random Forest** approach with repeated **5‑fold cross‑validation**.  
+   - Tuned hyperparameters (`mtry`, number of trees, etc.) to maximize the **ROC** metric.
+4. **Evaluation**:  
+   - Calculated **Accuracy**, **Kappa**, **AUC**, and confusion matrix results on the validation set.  
+   - Produced **plots** for confusion matrix and ROC curve, verifying high accuracy and minimal misclassification.
+5. **Test Predictions**:  
+   - Generated final predictions (`Yes`/`No`) for the unseen test data.  
+   - Created an **interactive DT table** for user-friendly inspection.
+
+### A. Package Loading
+
+```{r}
+# A.1 -- Load Required Packages
+library(dplyr)
+library(tidyr)
+library(lubridate)
+library(caret)
+library(glmnet)
+library(gbm)
+library(nnet)
+library(lightgbm)
+library(ggplot2)
+library(readr)
+library(forcats)
+library(DT)
+library(htmltools)
+library(pROC)
+```
+
+### B. Data Loading and Merging
+
+```{r}
+# A.2 -- Read CSVs, Merge Region & Population
+train <- read_csv("../../../assets/datasets/customerReturnTrain.csv") 
+test  <- read_csv("../../../assets/datasets/customerReturnTest.csv") 
+
+state_regions <- tibble::tribble(
+  ~CustomerState,    ~Region,
+  # Pacific Northwest
+  "Washington",      "Pacific Northwest",
+  "Oregon",          "Pacific Northwest",
+  "Idaho",           "Pacific Northwest",
+  # Southwest
+  "Arizona",         "Southwest",
+  "California",      "Southwest",
+  "Nevada",          "Southwest",
+  "New Mexico",      "Southwest",
+  "Utah",            "Southwest",
+  # Rocky Mountain
+  "Colorado",        "Rocky Mountain",
+  "Montana",         "Rocky Mountain",
+  "Wyoming",         "Rocky Mountain",
+  "Alaska",          "Rocky Mountain",
+  "Hawaii",          "Rocky Mountain",
+  # Midwest
+  "Illinois",        "Midwest",
+  "Indiana",         "Midwest",
+  "Iowa",            "Midwest",
+  "Kansas",          "Midwest",
+  "Michigan",        "Midwest",
+  "Minnesota",       "Midwest",
+  "Missouri",        "Midwest",
+  "Nebraska",        "Midwest",
+  "North Dakota",    "Midwest",
+  "Ohio",            "Midwest",
+  "South Dakota",    "Midwest",
+  "Wisconsin",       "Midwest",
+  # Southeast
+  "Alabama",         "Southeast",
+  "Arkansas",        "Southeast",
+  "Florida",         "Southeast",
+  "Georgia",         "Southeast",
+  "Kentucky",        "Southeast",
+  "Louisiana",       "Southeast",
+  "Mississippi",     "Southeast",
+  "North Carolina",  "Southeast",
+  "South Carolina",  "Southeast",
+  "Tennessee",       "Southeast",
+  "Virginia",        "Southeast",
+  "West Virginia",   "Southeast",
+  "Oklahoma",        "Southeast",
+  "Texas",           "Southeast",
+  # Northeast
+  "Connecticut",     "Northeast",
+  "Delaware",        "Northeast",
+  "Maine",           "Northeast",
+  "Maryland",        "Northeast",
+  "Massachusetts",   "Northeast",
+  "New Hampshire",   "Northeast",
+  "New Jersey",      "Northeast",
+  "New York",        "Northeast",
+  "Pennsylvania",    "Northeast",
+  "Rhode Island",    "Northeast",
+  "Vermont",         "Northeast",
+  "DC",              "Northeast"
+)
+state_populations <- tribble(
+  ~CustomerState,     ~Population,
+  "Alabama",          5024279,
+  "Alaska",           733391,
+  "Arizona",          7151502,
+  "Arkansas",         3011524,
+  "California",       39538223,
+  "Colorado",         5773714,
+  "Connecticut",      3605944,
+  "Delaware",         989948,
+  "DC",               689545,
+  "Florida",          21538187,
+  "Georgia",          10711908,
+  "Hawaii",           1455271,
+  "Idaho",            1839106,
+  "Illinois",         12812508,
+  "Indiana",          6785528,
+  "Iowa",             3190369,
+  "Kansas",           2937880,
+  "Kentucky",         4505836,
+  "Louisiana",        4657757,
+  "Maine",            1362359,
+  "Maryland",         6177224,
+  "Massachusetts",    7029917,
+  "Michigan",         10077331,
+  "Minnesota",        5706494,
+  "Mississippi",      2961279,
+  "Missouri",         6154913,
+  "Montana",          1084225,
+  "Nebraska",         1961504,
+  "Nevada",           3104614,
+  "New Hampshire",    1377529,
+  "New Jersey",       9288994,
+  "New Mexico",       2117522,
+  "New York",         20201249,
+  "North Carolina",   10439388,
+  "North Dakota",     779094,
+  "Ohio",             11799448,
+  "Oklahoma",         3959353,
+  "Oregon",           4237256,
+  "Pennsylvania",     13002700,
+  "Rhode Island",     1097379,
+  "South Carolina",   5118425,
+  "South Dakota",     886667,
+  "Tennessee",        6910840,
+  "Texas",            29145505,
+  "Utah",             3271616,
+  "Vermont",          643077,
+  "Virginia",         8631393,
+  "Washington",       7705281,
+  "West Virginia",    1793716,
+  "Wisconsin",        5893718,
+  "Wyoming",          576851
+)
+
+# Merge region and population
+train <- train %>% 
+  left_join(state_regions, by = "CustomerState") %>% 
+  left_join(state_populations, by = "CustomerState")
+
+test <- test %>% 
+  left_join(state_regions, by = "CustomerState") %>% 
+  left_join(state_populations, by = "CustomerState")
+
+glimpse(train)
+glimpse(test)
+```
+
+
+
+### C. Exploratory Data Analysis & Plot Saving
+
+```{r}
+# A.3 -- Exploratory Plots
+# We'll save each plot to a local image file (e.g. .png), which the report can reference.
+
+# 1. Returned Orders by Department
+ReturnedOrdersByDept <- ggplot(
+  data = train %>% filter(Returned == 1),
+  aes(x = fct_infreq(ProductDepartment))
+) +
+  geom_bar(fill = "#1B9E77") +
+  labs(
+    title = "Returned Orders by Department",
+    subtitle = "Frequency of Returns Across Product Departments",
+    x = "Product Department",
+    y = "Number of Returns"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "gray20")
+  )
+ggsave("ReturnedOrdersByDept.png", plot = ReturnedOrdersByDept, width = 10, height = 10)
+
+# 2. Returned Orders by Product Size
+ReturnedOrdersBySize <- ggplot(
+  data = train %>% filter(Returned == 1),
+  aes(x = fct_infreq(ProductSize))
+) +
+  geom_bar(fill = "#EFC000FF") +
+  labs(
+    title = "Returned Orders by Product Size",
+    subtitle = "Distribution of Returns Across Product Sizes",
+    x = "Product Size",
+    y = "Number of Returns"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "gray20")
+  )
+ggsave("ReturnedOrdersBySize.png", plot = ReturnedOrdersBySize, width = 10, height = 10)
+
+# 3. Returned Orders by State & Region
+ReturnedOrdersByStateRegion <- ggplot(
+  data = train %>% filter(Returned == 1),
+  aes(x = fct_infreq(CustomerState))
+) +
+  geom_bar(fill = "#7570B3") +
+  coord_flip() +
+  facet_wrap(~ Region, scales = "free_y") +
+  labs(
+    title = "Returned Orders by State and Region",
+    subtitle = "Count of Returns Faceted by U.S. Region",
+    x = "State",
+    y = "Number of Returns"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    strip.background = element_rect(fill = "#D95F02", color = NA),
+    strip.text = element_text(face = "bold", color = "white"),
+    plot.title = element_text(face = "bold")
+  )
+ggsave("ReturnedOrdersByStateRegion.png", plot = ReturnedOrdersByStateRegion, width = 10, height = 10)
+
+# 4. State Contribution (Lollipop)
+train_returns_by_state <- train %>%
+  filter(Returned == 1) %>%            
+  group_by(CustomerState) %>%
+  summarise(n_returns = n()) %>%       
+  ungroup() %>%
+  mutate(pct_of_all_returns = 100 * n_returns / sum(n_returns))
+
+StateContribution <- ggplot(train_returns_by_state, 
+  aes(x = fct_reorder(CustomerState, pct_of_all_returns), y = pct_of_all_returns)
+) +
+  geom_segment(aes(xend = CustomerState, y = 0, yend = pct_of_all_returns),
+               color = "#66A61E", size = 1) +
+  geom_point(color = "#66A61E", size = 3) +
+  coord_flip() +
+  labs(
+    title = "State Contribution to Total Returns",
+    subtitle = "Percentage Share of Overall Returned Orders",
+    x = "State",
+    y = "Share (%)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "gray30")
+  )
+ggsave("StateContribution.png", plot = StateContribution, width = 10, height = 10)
+
+# 5. Standardized Returns by State
+train_returns_by_state_pop <- train %>%
+  filter(Returned == 1) %>%
+  group_by(CustomerState) %>%
+  summarise(n_returns = n(), Population = first(Population)) %>% 
+  ungroup() %>%
+  mutate(returns_per_100k = (n_returns / Population) * 100000)
+
+StandardizedReturnsByState <- ggplot(
+  train_returns_by_state_pop,
+  aes(x = fct_reorder(CustomerState, returns_per_100k), y = returns_per_100k)
+) +
+  geom_segment(aes(xend = CustomerState, y = 0, yend = returns_per_100k),
+               color = "cyan4", size = 0.4) +
+  geom_text(aes(label = sprintf("%.2f", returns_per_100k)),
+            color = "black", hjust = -0.3, size = 3) +
+  coord_flip() +
+  scale_y_continuous(breaks = c(0, 2.5, 5, 7.5, 10)) +
+  labs(
+    title = "Standardized Returns by State",
+    subtitle = "Returns per 100,000 People",
+    x = "Customer State",
+    y = "Returns per 100k"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "gray30")
+  )
+ggsave("StandardizedReturnsByState.png", plot = StandardizedReturnsByState, width = 10, height = 10)
+```
+
+
+
+### D. Feature Engineering Functions
+
+```{r}
+# A.4 -- Feature Engineering and Dummy-Creation
+build_features <- function(df) {
+  df <- df %>%
+    mutate(
+      OrderDate = as.Date(OrderDate),
+      CustomerBirthDate = as.Date(CustomerBirthDate),
+      CustomerAge = floor(as.numeric(OrderDate - CustomerBirthDate) / 365),
+      Returned = if("Returned" %in% names(df)) {
+        if(is.numeric(Returned)) {
+          factor(Returned, levels = c(0, 1), labels = c("No", "Yes"))
+        } else {
+          factor(trimws(Returned) %>% recode("0" = "No", "1" = "Yes", "no" = "No", "yes" = "Yes"),
+                 levels = c("No", "Yes"))
+        }
+      } else {
+        Returned
+      },
+      ProductDepartment = as.factor(ProductDepartment),
+      ProductSize = as.factor(ProductSize),
+      OrderYear = as.character(year(OrderDate)),
+      OrderMonth = as.character(month(OrderDate)),
+      OrderDayOfWeek = weekdays(OrderDate),
+      Season = case_when(
+        month(OrderDate) %in% c(12, 1, 2) ~ "Winter",
+        month(OrderDate) %in% c(3, 4, 5) ~ "Spring",
+        month(OrderDate) %in% c(6, 7, 8) ~ "Summer",
+        month(OrderDate) %in% c(9, 10, 11) ~ "Fall"
+      ),
+      MSRP = round(PurchasePrice / (1 - DiscountPct), 2),
+      PriceRange = case_when(
+        MSRP >= 13 & MSRP <= 30 ~ "$13-$30",
+        MSRP > 30 & MSRP <= 60 ~ "$31-$60",
+        MSRP > 60 & MSRP <= 100 ~ "$61-$100",
+        MSRP > 100 ~ ">$100",
+        TRUE ~ "Other"
+      ),
+      DiscountAmount = PurchasePrice * DiscountPct,
+      CustomerAgeGroup = cut(CustomerAge,
+        breaks = c(0, 30, 45, 60, Inf),
+        labels = c("18-30", "31-45", "46-60", ">60"),
+        right = FALSE
+      )
+    ) %>%
+    select(-OrderDate, -CustomerBirthDate, -CustomerState)
+  return(df)
+}
+
+remove_ids <- function(df) {
+  drop_cols <- c("ID", "OrderID", "CustomerID")
+  df <- df %>% select(-one_of(drop_cols))
+  return(df)
+}
+
+make_dummies <- function(df, outcome = "Returned") {
+  outcome_vec <- NULL
+  if(outcome %in% names(df)) {
+    if(all(is.na(df[[outcome]]))) {
+      df <- df %>% select(-all_of(outcome))
+    } else {
+      outcome_vec <- df[[outcome]]
+      df <- df %>% select(-all_of(outcome))
+    }
+  }
+  df <- df[, sapply(df, function(x) length(unique(na.omit(x))) >= 2), drop = FALSE]
+  
+  dmy <- caret::dummyVars("~ .", data = df, fullRank = TRUE)
+  df_dummy <- as.data.frame(predict(dmy, newdata = df))
+  if(!is.null(outcome_vec)) {
+    df_dummy[[outcome]] <- outcome_vec
+  }
+  return(df_dummy)
+}
+
+align_columns <- function(train_df, test_df, outcome = "Returned") {
+  train_predictors <- setdiff(names(train_df), outcome)
+  test_predictors  <- names(test_df)
+  
+  missing_in_test <- setdiff(train_predictors, test_predictors)
+  if(length(missing_in_test) > 0) {
+    for(col in missing_in_test) {
+      test_df[[col]] <- 0
+    }
+  }
+  
+  extra_in_test <- setdiff(test_predictors, train_predictors)
+  if(length(extra_in_test) > 0) {
+    test_df <- test_df %>% select(-one_of(extra_in_test))
+  }
+  
+  test_df <- test_df[, train_predictors, drop = FALSE]
+  return(list(train = train_df, test = test_df))
+}
+```
+
+
+### E. Creating Final Training & Testing Sets
+
+```{r}
+# A.5 -- Creating the Feature-Engineered Datasets
+
+train_path <- file.path("../../../assets/datasets", "customerReturnTrain.csv")
+test_path  <- file.path("../../../assets/datasets", "customerReturnTest.csv")
+
+train_df <- read.csv(train_path, stringsAsFactors = FALSE)
+test_df  <- read.csv(test_path, stringsAsFactors = FALSE)
+
+train_with_feat <- build_features(train_df) %>% remove_ids()
+test_with_feat  <- build_features(test_df) %>% remove_ids()
+
+train_with_feat_dummies <- make_dummies(train_with_feat, outcome = "Returned")
+test_with_feat_dummies  <- make_dummies(test_with_feat, outcome = "Returned")
+
+aligned_with_feat  <- align_columns(train_with_feat_dummies, test_with_feat_dummies, outcome = "Returned")
+train_with_feat_final <- aligned_with_feat$train
+test_with_feat_final  <- aligned_with_feat$test
+
+cat("WITH Features set dimensions:", dim(train_with_feat_final), dim(test_with_feat_final), "\n")
+cat("Outcome distribution (WITH Features):\n")
+print(table(train_with_feat_final$Returned))
+```
+
+
+
+### F. Modeling (Random Forest), Validation, and Metrics
+
+```{r}
+# A.6 -- Random Forest Training and Validation
+
+set.seed(123)
+trainIndex_fe <- caret::createDataPartition(train_with_feat_final$Returned, p = 0.8, list = FALSE)
+trainData_fe  <- train_with_feat_final[trainIndex_fe, ]
+valData_fe    <- train_with_feat_final[-trainIndex_fe, ]
+
+ctrl <- caret::trainControl(
+  method = "repeatedcv",
+  number = 5,
+  repeats = 3,
+  sampling = "up",
+  classProbs = TRUE,
+  summaryFunction = caret::twoClassSummary
+)
+
+rf_model <- caret::train(
+  Returned ~ .,
+  data = train_with_feat_final,
+  method = "rf",
+  ntree = 50,
+  tuneLength = 3,
+  metric = "ROC",
+  trControl = ctrl
+)
+print(rf_model)
+
+pred_probs_fe <- predict(rf_model, newdata = valData_fe, type = "prob")[, "Yes"]
+pred_class_fe <- ifelse(pred_probs_fe >= 0.5, "Yes", "No")
+
+cm_fe <- caret::confusionMatrix(
+  factor(pred_class_fe, levels = c("No", "Yes")),
+  valData_fe$Returned
+)
+print(cm_fe)
+```
+
+```{r}
+# A.7 -- Confusion Matrix Plot & ROC
+cm_df <- as.data.frame(cm_fe$table)
+
+# Plot Confusion Matrix
+ConfMatPlot <- ggplot(cm_df, aes(x = Prediction, y = Reference, fill = Freq)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = Freq), size = 5, color = "black") +
+  scale_fill_gradient(low = "#D6EAF8", high = "#154360") +
+  labs(
+    title = "Confusion Matrix",
+    x = "Predicted Class",
+    y = "Actual Class"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+
+ggsave("ConfMatrixRF.png", plot = ConfMatPlot, width = 8, height = 6)
+
+# ROC Curve
+roc_obj <- pROC::roc(
+  response  = valData_fe$Returned,
+  predictor = pred_probs_fe,
+  levels    = c("No", "Yes")
+)
+plot(roc_obj, col = "#1B9E77", lwd = 2, main = "ROC Curve (Random Forest)")
+auc_val <- pROC::auc(roc_obj)
+legend("bottomright", legend = sprintf("AUC = %.3f", auc_val), bty = "n")
+```
+
+*(The confusion matrix plot is also saved as `ConfMatrixRF.png`.)*
+
+---
+
+### G. Final Test Predictions & Interactive Table
+
+```{r}
+# A.8 -- Final Test Predictions
+pred_probs_test <- predict(rf_model, newdata = test_with_feat_final, type = "prob")[, "Yes"]
+pred_class_test <- ifelse(pred_probs_test >= 0.5, "Yes", "No")
+
+test_df$Predicted_Return <- pred_class_test
+head(test_df)
+
+# Show an interactive DT table with 'Predicted_Return' first
+test_df <- test_df[, c("Predicted_Return", setdiff(names(test_df), "Predicted_Return"))]
+
+caption_text <- htmltools::tags$caption(
+  style = 'caption-side: top; text-align: center; font-size: 16px; font-weight: bold; color: #2E86C1;',
+  "Random Forest Model Performance (~97.8% Accuracy, Kappa ~0.95) | Test Dataset"
+)
+
+DT::datatable(
+  test_df,
+  filter = "top",
+  rownames = FALSE,
+  caption = caption_text,
+  extensions = 'Buttons',
+  options = list(
+    dom = 'Blfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    pageLength = 10,
+    autoWidth = TRUE,
+    initComplete = JS(
+      "function(settings, json) {",
+      "$(this.api().table().header()).css({'background-color': '#4CAF50','color': '#fff','font-size': '14px'});",
+      "}"
+    )
+  )
+) %>%
+  formatStyle(
+    columns = names(test_df),
+    fontSize = '12px',
+    color = '#333',
+    backgroundColor = styleInterval(0, c('white', '#F8F8F8'))
+  ) %>%
+  formatStyle(
+    "Predicted_Return",
+    backgroundColor = styleEqual(c("Yes", "No"), c("#c6efce", "#ffc7ce")),
+    fontWeight = "bold"
+  )
+```

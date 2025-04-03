@@ -1,6 +1,6 @@
 ---
 format: 
   html:
-    css: ../../Assets/Themes/resourcesCustom.css
-    include-after-body: ../../Assets/HTML/Resources/resourcesCustom.html
+    css: ../../assets/themes/resourcesCustom.css
+    include-after-body: ../../assets/html/resources/resourcesCustom.html
 ---

@@ -1,44 +1,42 @@
 [
   {
-    "listing": "/Content/Talks/index.html",
+    "listing": "/content/talks/index.html",
     "items": [
-      "/Content/Talks/BuildingQuartoPortfolio/index.html",
-      "/Content/Talks/LoanAnalysis/index.html",
-      "/Content/Talks/MissingData/index.html",
-      "/Content/Talks/TeachingwithWebR/index.html",
-      "/Content/Talks/HowtoUseQuarto101/index.html",
-      "/Content/Talks/ParasiteSurvAnalysis/index.html",
-      "/Content/Talks/AboutMyself/index.html"
+      "/content/talks/building-professional-portfolio-via-quarto/index.html",
+      "/content/talks/loan-application-statistical-analysis/index.html",
+      "/content/talks/missing-data-with-mice-statistical-analysis/index.html",
+      "/content/talks/teaching-with-webr/index.html",
+      "/content/talks/understanding-quarto/index.html",
+      "/content/talks/water-parasites-survival-analysis/index.html"
     ]
   },
   {
-    "listing": "/Content/Projects/index.html",
+    "listing": "/content/projects/index.html",
     "items": [
-      "/Content/Projects/Statistical Analysis Wines/index.html",
-      "/Content/Projects/US_HealthCare_Spending/index.html",
-      "/Content/Projects/Build-a-Dashboard/index.html",
-      "/Content/Projects/PredictPinotWine_ML/index.html",
-      "/Content/Projects/Predicting_Income_Bracket/index.html",
-      "/Content/Projects/Customer Return ML/index.html",
-      "/Content/Projects/PredictSeverityLevels/index.html",
-      "/Content/Projects/UKAccidentShinyApp/index.html",
-      "/Content/Projects/YelpReviewsShinyApp/index.html"
+      "/content/projects/wine-multivariate-statistical-analysis/index.html",
+      "/content/projects/predicting-customer-returns-machine-learning/index.html",
+      "/content/projects/united-states-healthcare-spending-statistical-analysis/index.html",
+      "/content/projects/olympic-dashboard-posit-2024/index.html",
+      "/content/projects/predicting-wine-province-machine-learning/index.html",
+      "/content/projects/predicting-salaries-machine-learning/index.html",
+      "/content/projects/predicting-patient-severity-machine-learning/index.html",
+      "/content/projects/united-kingdom-car-accident-shiny-app/index.html",
+      "/content/projects/yelp-business-reviews-shiny-app/index.html"
     ]
   },
   {
-    "listing": "/Content/Blog/index.html",
+    "listing": "/content/blog/index.html",
     "items": [
-      "/Content/Blog/Quarto_GithubPages/index.html",
-      "/Content/Blog/Teaching_With_WebR/index.html",
-      "/Content/Blog/FraudML/index.html",
-      "/Content/Blog/AmazonProductsEN/index.html",
-      "/Content/Blog/Param_Report_Retail/index.html",
-      "/Content/Blog/AppleInc_IncomeStatement/index.html",
-      "/Content/Blog/GymRat_Plotly/index.html",
-      "/Content/Blog/FancyTables/index.html",
-      "/Content/Blog/Pokemon_Database/index.html",
-      "/Content/Blog/CollegeStudent_Debt_Tool/index.html",
-      "/Content/Blog/US_HealthIns_Costs/index.html"
+      "/content/blog/quarto-github-pages-preworkshop/index.html",
+      "/content/blog/interactive-teaching-with-webr/index.html",
+      "/content/blog/amazon-indian-products-shiny-app/index.html",
+      "/content/blog/automatic-reports-using-rmarkdown-parameters/index.html",
+      "/content/blog/plotly-apple-stocks/index.html",
+      "/content/blog/plotly-gym-exercises-showcase/index.html",
+      "/content/blog/gt-tables-showcase/index.html",
+      "/content/blog/pokemon-database-data-engineering/index.html",
+      "/content/blog/college-student-debt-shiny-app/index.html",
+      "/content/blog/health-insurance-premiums-analysis/index.html"
     ]
   }
 ]

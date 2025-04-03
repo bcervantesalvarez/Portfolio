@@ -1,0 +1,275 @@
+---
+title: "Pokédex Database"
+author: "Brian Cervantes Alvarez"
+description: "Unveil the power of PostgreSQL! Explore the intricate ETL process, advanced tools, and meticulous schema design that created a functional database. Join the journey of unraveling Pokémon mysteries through data engineering."
+date: "12-05-2022"
+bibliography: "bibliography.bib"
+nocite: |
+     @*
+format:
+  html:
+    toc: true
+    toc-location: right
+    html-math-method: katex
+    page-layout: article
+image: /assets/images/pokemon.jpeg
+output: html_document
+categories: [R, PostgreSQL, Data Visualization, Data Engineering]
+---
+
+![](/assets/images/pokemon.jpeg)
+
+## Purpose
+
+The main objective of this project was to construct a fully operational Postgresql database in a time frame of fewer than two weeks by employing the Extract, Transform, Load (ETL) methodology. The purpose of this approach was to extract data from various sources, transform it into a format that could be easily integrated into the database, and finally load the transformed data into the database.
+
+The process involved several intricate steps, including identifying the relevant data sources, cleansing the extracted data to remove inconsistencies, standardizing the data to a uniform format, and applying data validation and verification techniques to ensure accuracy and completeness. Furthermore, it required careful consideration of the database schema, including the design of tables, relationships between tables, and the use of appropriate data types.
+
+The successful implementation of this project was dependent on the utilization of cutting-edge technologies and tools, such as data integration software, data profiling tools, and scripting languages. The result was a functional database that can efficiently store and manage data, making it readily available for analysis, decision-making, and reporting purposes.
+
+## Summary
+
+The inquiry of identifying the optimal base stat Pokemon type sparked my interest, prompting me to delve into the realm of data engineering. In order to craft a well-informed response to this question, I began by utilizing the expansive and multifaceted "Pokémon of Kanto, Johto, and Hoenn Region" dataset to establish a structured and organized database.
+
+## Unleashing the Power of PostgreSQL: Building a Database
+
+This SQL code creates several tables for storing Pokémon data. The tables include information about Pokémon, their types, abilities, generations, and moves. The code establishes primary keys, foreign key constraints, and defines the data types for each column. These tables form the foundation for a comprehensive Pokémon database, enabling efficient storage and retrieval of Pokémon-related information.
+
+```{sql, include=FALSE, eval=FALSE}
+
+CREATE TABLE IF NOT EXISTS pokemon (
+    id SMALLINT PRIMARY KEY,
+    identifier TEXT,
+    species_id SMALLINT,
+    height SMALLINT,
+    weight SMALLINT,
+    base_experience SMALLINT,
+    "order" SMALLINT,
+    is_default BOOLEAN
+);
+
+
+CREATE TABLE IF NOT EXISTS pokemon_types (
+    pokemon_id SMALLINT,
+    type_id SMALLINT PRIMARY KEY,
+    slot SMALLINT,
+    CONSTRAINT ref_pokemon
+        FOREIGN KEY(pokemon_id)
+            REFERENCES pokemon(id)
+);
+
+CREATE TABLE IF NOT EXISTS pokemon_abilities (
+    pokemon_id SMALLINT,
+    ability_id SMALLINT PRIMARY KEY,
+    is_hidden BOOLEAN,
+    slot SMALLINT,
+    CONSTRAINT ref_pokemon
+        FOREIGN KEY(pokemon_id)
+            REFERENCES pokemon(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS generations (
+    id SMALLINT,
+    main_region_id SMALLINT PRIMARY KEY,
+    identifier CHAR(15) 
+);
+
+CREATE TABLE IF NOT EXISTS types (
+    id SMALLINT PRIMARY KEY,
+    identifier CHAR(8),
+    generation_id SMALLINT,
+    damage_class_id SMALLINT,
+    CONSTRAINT ref_pokemon_types
+        FOREIGN KEY(id)
+            REFERENCES pokemon_types(type_id),
+    CONSTRAINT ref_generations 
+        FOREIGN KEY(generation_id)
+            REFERENCES generations(main_region_id)
+);
+
+CREATE TABLE IF NOT EXISTS abilities (
+    id SMALLINT,
+    identifier TEXT,
+    generation_id SMALLINT,
+    is_main_series BOOLEAN,
+    CONSTRAINT ref_pokemon_abilities
+        FOREIGN KEY(id)
+            REFERENCES pokemon_abilities(ability_id),
+    CONSTRAINT ref_generations 
+        FOREIGN KEY(generation_id)
+            REFERENCES generations(main_region_id)
+);
+
+CREATE TABLE IF NOT EXISTS moves (
+  id SMALLINT,
+  identifier TEXT,
+  generation_id SMALLINT,
+  type_id SMALLINT,
+  power SMALLINT,
+  pp SMALLINT,
+  accuracy SMALLINT,
+  priority SMALLINT,
+  target_id SMALLINT,
+  damage_class_id SMALLINT,
+  effect_id SMALLINT,
+  effect_chance SMALLINT,
+  contest_type_id SMALLINT,
+  contest_effect_id SMALLINT,
+  super_contest_effect_id SMALLINT,
+  CONSTRAINT ref_types
+        UNIQUE(damage_class_id, type_id),
+  CONSTRAINT ref_generations 
+        FOREIGN KEY(generation_id)
+            REFERENCES generations(main_region_id),
+  CONSTRAINT ref_types_2
+        FOREIGN KEY(type_id)
+            REFERENCES types(id)
+);
+```
+
+## Data Transformation and CSV Preparation in SQL: A Step-by-Step Guide
+
+This section of the SQL file focuses on transforming and preparing a CSV file for analysis. It involves multiple SELECT statements that extract relevant data from different tables and join them together. The extracted data is then inserted into temporary tables, including 'temp1', 'temp2', and 'temp3', with each step refining the data further. Finally, the transformed data in 'temp3' is selected and filtered based on specific conditions, ordered, and then exported to a CSV file named 'scuffed_pokedex.csv'. This process prepares the data for further analysis and exploration in external tools or applications.
+
+```{sql, eval=FALSE}
+
+SELECT 
+    identifier AS pokemon_name, 
+    pokemon_types.type_id,
+    pokemon_abilities.ability_id
+INTO temp1
+FROM pokemon
+LEFT JOIN pokemon_types
+ON pokemon.id = pokemon_types.pokemon_id
+LEFT JOIN pokemon_abilities
+ON pokemon.id  = pokemon_abilities.pokemon_id;
+
+
+SELECT 
+    pokemon_name,
+    types.identifier AS pokemon_type,
+    abilities.identifier AS pokemon_ability,
+    types.generation_id AS gen_id,
+    types.id AS type_id
+INTO temp2
+FROM temp1
+LEFT JOIN types
+ON temp1.type_id = types.id
+LEFT JOIN abilities
+ON temp1.ability_id = abilities.id;
+
+
+DROP TABLE temp3;
+SELECT 
+    pokemon_name,
+    pokemon_type,
+    pokemon_ability,
+    generations.identifier AS pokemon_generation,
+    moves.identifier AS pokemon_move,
+    moves.power AS pokemon_power,
+    moves.accuracy AS pokemon_accuracy,
+    moves.pp AS pokemon_pp
+INTO temp3
+FROM temp2
+LEFT JOIN generations
+ON temp2.gen_id = generations.main_region_id
+LEFT JOIN moves
+ON temp2.type_id = moves.type_id;
+
+SELECT *
+FROM temp3
+WHERE pokemon_power IS NOT NULL 
+    AND pokemon_accuracy IS NOT NULL
+ORDER BY pokemon_accuracy, pokemon_power;
+
+
+COPY temp3
+TO '/Users/Shared/Data_503/Datasets/scuffed_pokedex.csv'
+WITH (FORMAT CSV, HEADER);
+```
+
+## Unveiling Pokémon Insights: Analyzing Damage Output and Accuracy
+
+Through the power of data analysis and visualization, we have delved into the world of Pokémon to uncover insights about types, damage output, accuracy, and their relationships. Our exploration has shed light on the best Pokémon type for damage output, the most accurate contenders, and the interplay between power and accuracy. By combining the captivating nature of Pokémon with the analytical capabilities of R, we have gained valuable knowledge and set the stage for further investigations in the vast Pokémon universe.
+
+```{r, message=FALSE,output=FALSE}
+library(tidyverse)
+library(RColorBrewer)
+```
+
+```{r, eval=FALSE}
+pokemon <- read_csv("../../../Assets/Datasets/scuffed_pokedex.csv")
+
+names(pokemon)
+
+nb.cols <- 18
+mycolors <- colorRampPalette(brewer.pal(8, "YlOrRd"))(nb.cols)
+
+pokemon %>% 
+  mutate(pokemon_type = str_to_title(pokemon_type)) %>%
+  group_by(pokemon_type) %>%
+  summarise(avg_power = mean(pokemon_power, na.rm = TRUE),
+            avg_accuracy = mean(pokemon_accuracy, na.rm = TRUE)) %>%
+  ggplot(aes(x = avg_power, y = reorder(pokemon_type, avg_power), fill = reorder(pokemon_type, avg_power)))+
+  geom_col(show.legend = FALSE, color = "black") +
+  labs(x = "Average power",
+       y = "Pokemon type",
+       title = "FIRE! The Best Pokemon Type For Damage Output Is...?",
+       subtitle = "Based on an Average of All Moves Per Pokemon Type",
+       caption = "Source: Pokédex of Kanto, Johto, and Hoenn Regions @ Kaggle.com") +
+  scale_fill_manual(values = mycolors) +
+  theme(plot.background = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.grid.major.x = element_line(color = "grey"))
+
+
+nb.cols <- 18
+mycolors <- colorRampPalette(brewer.pal(8, "Blues"))(nb.cols)
+
+pokemon %>% 
+  mutate(pokemon_type = str_to_title(pokemon_type)) %>%
+  group_by(pokemon_type) %>%
+  summarise(avg_power = mean(pokemon_power, na.rm = TRUE),
+            avg_accuracy = mean(pokemon_accuracy, na.rm = TRUE)) %>%
+  ggplot(aes(x = avg_accuracy, y = reorder(pokemon_type, avg_accuracy), fill = reorder(pokemon_type, avg_accuracy)))+
+  geom_col(show.legend = FALSE, color = "black") +
+  labs(x = "Average accuracy",
+       y = "Pokemon type",
+       title = "Ouch! Who wins the bullseye competition?",
+       subtitle = "Based on an Average of All Moves Per Pokemon Type",
+       caption = "Source: Pokédex of Kanto, Johto, and Hoenn Regions @ Kaggle.com") +
+  scale_fill_manual(values = mycolors) +
+  theme(plot.background = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.grid.major.x = element_line(color = "grey"))
+
+
+pokemon %>% 
+  group_by(pokemon_type) %>%
+  summarise(avg_power = mean(pokemon_power, na.rm = TRUE),
+            avg_accuarcy = mean(pokemon_accuracy, na.rm = TRUE)) %>%
+  ggplot(aes(x = avg_power, y = avg_accuarcy, color = pokemon_type)) +
+  geom_point()
+
+
+stats <- pokemon %>% 
+  group_by(pokemon_type) %>%
+  summarise(avg_power = mean(pokemon_power, na.rm = TRUE),
+            avg_accuarcy = mean(pokemon_accuracy, na.rm = TRUE))
+            
+model <- lm(data = stats, avg_accuracy ~ avg_power)
+plot(model)
+```
+
+## Presentation
+
+![](/assets/images/pokedex_presentation.jpg)
+
+## Data References
+
+```{r, echo=FALSE}
+knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
+```

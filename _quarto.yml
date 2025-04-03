@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  favicon: Assets/Images/preview.png
+  favicon: assets/images/preview.png
   twitter-card: true
   site-url: https://datascienceyapper.com
   search:
@@ -13,15 +13,15 @@ website:
   navbar:
     right:
       - text: "About"
-        href: Content/About/index.qmd
+        href: content/about/index.qmd
       - text: "Projects"
-        href: Content/Projects/index.qmd
+        href: content/projects/index.qmd
       - text: "Blog"
-        href: Content/Blog/index.qmd
+        href: content/blog/index.qmd
       - text: "Talks"
-        href: Content/Talks/index.qmd
+        href: content/talks/index.qmd
       - text: "Resources"
-        href: Content/Resources/index.qmd
+        href: content/resources/index.qmd
   page-footer:
     left:
       - href: https://www.quarto.org
@@ -31,9 +31,9 @@ website:
       - href: https://www.cloudflare.com/
         text: Hosted with Cloudflare®
     right: 
-      - href: Content/Privacy/index.qmd
+      - href: content/privacy/index.qmd
         text: Privacy Policy
-      - href: Content/License/index.qmd
+      - href: content/license/index.qmd
         text: License
       - icon: linkedin
         href: https://www.linkedin.com/in/bcervantesalvarez/
@@ -45,7 +45,7 @@ format:
   html:
     citations-hover: true
     footnotes-hover: true
-    theme: Assets/Themes/MainThemeBCA.scss
+    theme: assets/themes/MainThemeBCA.scss
     highlight-style: github-dark
-    include-after-body: Assets/HTML/Cookies/custom-cookie-consent.html
+    include-after-body: assets/html/cookies/custom-cookie-consent.html
 editor: source
