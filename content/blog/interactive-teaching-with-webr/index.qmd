@@ -142,7 +142,7 @@ library(lubridate)
 ```{webr-r}
 #| autorun: TRUE
 # Specify the data URL using HTTPS
-url <- "https://raw.githubusercontent.com/bcervantesalvarez/Portfolio/main/Assets/Datasets/countries.csv"
+url <- "https://raw.githubusercontent.com/bcervantesalvarez/Portfolio/main/assets/datasets/countries.csv"
 
 # Download the data files from the HTTPS URL and save it as
 # countries.csv
