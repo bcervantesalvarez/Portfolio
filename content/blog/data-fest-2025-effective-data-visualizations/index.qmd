@@ -71,39 +71,9 @@ Interactive charts allow users to **hover**, **zoom**, and **filter** data in re
 - Requires more programming and environment setup (JavaScript or Python libraries, etc.).  
 - Harder to embed in static documents.  
 - Potential performance issues with large datasets or if viewers have older browsers/hardware.
-
----
-
-
-
-## Recommended Resources
-
-Below are three resources to help deepen your visualization skillset:
-
-### Static Visualizations  
-
-**“Top 10 Proven Data Visualization Best Practices”** [GoodData Blog](https://www.gooddata.com/blog/data-visualization-best-practices/)  
-
-This post emphasizes clarity, simplicity, and matching chart types to data.  
-       
-
-### Interactive Visualizations  
-
-**“Interactive Python Plots: Getting Started and Best Packages”** [Fabi.ai](https://fabi.ai/blog/interactive-python-plots/)  
-
-A beginner-friendly guide covering Plotly, Altair, and Bokeh. Demonstrates tooltips, panning, and zooming.  
-      
-
-### Misleading/Poor Visualizations  
-
-**“Misleading Data Visualization – What to Avoid”** [Coupler.io Blog](https://blog.coupler.io/misleading-data-visualization/)  
-
-Showcases common pitfalls (truncated axes, chartjunk, misleading color scales) and how to avoid them.  
        
 
 ---
-
-
 
 ## Good Visualizations
 
@@ -174,7 +144,6 @@ p_with_logo
 ```{r}
 #| echo: false
 #| fig-alt: "An interactive Plotly scatter plot displaying a relationship between two continuous variables with hover text."
-#| fig-cap: "Good Interactive Visualization Example"
 
 library(plotly)
 library(ggplot2)
@@ -214,7 +183,6 @@ ggplotly(p, tooltip = "text")
 ```{r}
 #| echo: false
 #| fig-alt: "A bar chart starting the y-axis at 100 instead of 0, exaggerating small differences."
-#| fig-cap: "Example of a Misleading Axis"
 
 library(ggplot2)
 
@@ -244,7 +212,6 @@ ggplot(df_misleading, aes(x = Category, y = Value)) +
 ```{r}
 #| echo: false
 #| fig-alt: "A 3D pie chart with too many slices and distracting colors."
-#| fig-cap: "Example of Chartjunk"
 
 library(plotrix)
 
@@ -285,5 +252,34 @@ As you gear up for **DataFest**, remember:
 
 By planning early, you can leverage visual storytelling to impress both the judges and your peers—helping you stand out in the competition. Good luck, and happy **visualizing**!
 
+
+
+---
+
+
+
+## Recommended Resources
+
+Below are three resources to help deepen your visualization skillset:
+
+### Static Visualizations  
+
+**“Top 10 Proven Data Visualization Best Practices”** [GoodData](https://www.gooddata.com/blog/5-data-visualization-best-practices/)  
+
+This post emphasizes clarity, simplicity, and matching chart types to data.  
+       
+
+### Interactive Visualizations  
+
+**“Interactive Python Plots: Getting Started and Best Packages”** [Fabi.ai](https://www.fabi.ai/blog/interactive-python-plots-getting-started-and-best-packages/)  
+
+A beginner-friendly guide covering Plotly, Altair, and Bokeh. Demonstrates tooltips, panning, and zooming.  
+      
+
+### Misleading/Poor Visualizations  
+
+**“Misleading Data Visualization – What to Avoid”** [Coupler.io](https://blog.coupler.io/misleading-data-visualization/)  
+
+Showcases common pitfalls (truncated axes, chartjunk, misleading color scales) and how to avoid them.  
 
 

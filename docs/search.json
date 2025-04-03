@@ -494,21 +494,21 @@
     "href": "content/blog/data-fest-2025-effective-data-visualizations/index.html#recommended-resources",
     "title": "Effective Data Visualizations for DataFest",
     "section": "Recommended Resources",
-    "text": "Recommended Resources\nBelow are three resources to help deepen your visualization skillset:\n\nStatic Visualizations\n“Top 10 Proven Data Visualization Best Practices” GoodData Blog\nThis post emphasizes clarity, simplicity, and matching chart types to data.\n\n\nInteractive Visualizations\n“Interactive Python Plots: Getting Started and Best Packages” Fabi.ai\nA beginner-friendly guide covering Plotly, Altair, and Bokeh. Demonstrates tooltips, panning, and zooming.\n\n\nMisleading/Poor Visualizations\n“Misleading Data Visualization – What to Avoid” Coupler.io Blog\nShowcases common pitfalls (truncated axes, chartjunk, misleading color scales) and how to avoid them."
+    "text": "Recommended Resources\nBelow are three resources to help deepen your visualization skillset:\n\nStatic Visualizations\n“Top 10 Proven Data Visualization Best Practices” GoodData\nThis post emphasizes clarity, simplicity, and matching chart types to data.\n\n\nInteractive Visualizations\n“Interactive Python Plots: Getting Started and Best Packages” Fabi.ai\nA beginner-friendly guide covering Plotly, Altair, and Bokeh. Demonstrates tooltips, panning, and zooming.\n\n\nMisleading/Poor Visualizations\n“Misleading Data Visualization – What to Avoid” Coupler.io\nShowcases common pitfalls (truncated axes, chartjunk, misleading color scales) and how to avoid them."
   },
   {
     "objectID": "content/blog/data-fest-2025-effective-data-visualizations/index.html#good-visualizations",
     "href": "content/blog/data-fest-2025-effective-data-visualizations/index.html#good-visualizations",
     "title": "Effective Data Visualizations for DataFest",
     "section": "Good Visualizations",
-    "text": "Good Visualizations\n\nExample 1: Good Static Visualization\n\n\n\n\n\nToyota Tacoma Sales in Mexico per Quarter\n\n\n\n\nWhy it’s effective:\n\nClear labels on both axes.\n\nMinimal “chartjunk.”\n\nFocuses on the key trend (sales vs. quarter).\n\n\n\nExample 2: Good Interactive Visualization\n\n\n\n\nGood Interactive Visualization Example\n\n\nWhy it’s effective:\n\nAllows viewers to hover on each point to see make/model and exact values.\n\nZoom/pan features let readers explore sub-regions of interest.\n\nClear legend and use of color to delineate categories."
+    "text": "Good Visualizations\n\nExample 1: Good Static Visualization\n\n\n\n\n\nToyota Tacoma Sales in Mexico per Quarter\n\n\n\n\nWhy it’s effective:\n\nClear labels on both axes.\n\nMinimal “chartjunk.”\n\nFocuses on the key trend (sales vs. quarter).\n\n\n\nExample 2: Good Interactive Visualization\n\n\n\n\n\n\nWhy it’s effective:\n\nAllows viewers to hover on each point to see make/model and exact values.\n\nZoom/pan features let readers explore sub-regions of interest.\n\nClear legend and use of color to delineate categories."
   },
   {
     "objectID": "content/blog/data-fest-2025-effective-data-visualizations/index.html#bad-visualizations",
     "href": "content/blog/data-fest-2025-effective-data-visualizations/index.html#bad-visualizations",
     "title": "Effective Data Visualizations for DataFest",
     "section": "Bad Visualizations",
-    "text": "Bad Visualizations\n\nExample 1: Poor Visualization (Misleading Axis)\n\n\n\n\n\nExample of a Misleading Axis\n\n\n\n\nIssue: The y-axis doesn’t start at zero, so the 3-point increase from 100 to 103 looks massive. This visual can mislead viewers into thinking the change is more significant than it is.\n\n\nExample 2: Poor Visualization (Excessive Chartjunk)\n\n\n\n\n\nExample of Chartjunk\n\n\n\n\nIssue:\n\nToo many slices, making comparisons difficult.\n\n3D perspective distorts slice sizes, making it harder to read actual proportions.\n\nColors are overwhelming, especially with no legend to clarify each slice."
+    "text": "Bad Visualizations\n\nExample 1: Poor Visualization (Misleading Axis)\n\n\n\n\n\n\n\n\n\nIssue: The y-axis doesn’t start at zero, so the 3-point increase from 100 to 103 looks massive. This visual can mislead viewers into thinking the change is more significant than it is.\n\n\nExample 2: Poor Visualization (Excessive Chartjunk)\n\n\n\n\n\n\n\n\n\nIssue:\n\nToo many slices, making comparisons difficult.\n\n3D perspective distorts slice sizes, making it harder to read actual proportions.\n\nColors are overwhelming, especially with no legend to clarify each slice."
   },
   {
     "objectID": "content/blog/data-fest-2025-effective-data-visualizations/index.html#conclusion",
