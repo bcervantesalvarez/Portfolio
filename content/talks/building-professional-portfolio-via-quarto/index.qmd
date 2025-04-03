@@ -1,0 +1,46 @@
+---
+title: "Building a Professional Portfolio with Quarto and GitHub Pages"
+author: "Brian Cervantes Alvarez"
+date: '01-08-2025'
+image: /assets/images/portfolio.png
+description: "This presentation explores how to create a professional portfolio using Quarto and GitHub Pages. A portfolio showcases your work, boosts visibility, and builds your personal brand. Key sections include projects, blogs, and talks, tailored to highlight your expertise in data science, academia, or industry. With dynamic content and regular updates, your portfolio becomes a powerful tool for networking and career growth."
+format:
+  html:
+    html-math-method: katex
+    page-layout: full
+execute: 
+  warning: false
+  message: false
+---
+
+
+:::{.column-page}
+
+```{=html}
+<div style="
+  position: relative;
+  width: 100%;
+  height: 70vh;        /* 70% of the viewport height */
+  min-height: 10vh;   /* fallback on very short screens */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  margin: 1rem 0;
+">
+  <iframe 
+    src="https://bcervantesalvarez.github.io/Presentations/BuildAQuartoPortfolio/"
+    title="Build a Quarto Portfolio"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+```
+:::

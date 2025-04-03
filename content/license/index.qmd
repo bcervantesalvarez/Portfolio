@@ -1,0 +1,16 @@
+---
+title: "License"
+format: 
+  html:
+    page-layout: article
+---
+
+© 2024-2025 Brian Adolfo Cervantes Alvarez
+
+This website represents my personal views and opinions and does not reflect the endorsement of my employer or any affiliated organizations. The content on this site is licensed under the \[Creative Commons (CC-BY) 4.0 license\]. You are welcome to reuse the material, provided you credit me as the author and link back to the original.
+
+The source code is released under the \[MIT license\] and can be used without restriction.
+
+**Use of Artificial Intelligence**
+
+Some elements of this site (including text, code and images) were developed with assistance from OpenAI’s software. However, every final piece of content you see—along with the prompts, instructions, and ultimate decisions—are exclusively my own.
