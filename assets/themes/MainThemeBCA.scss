@@ -1,0 +1,1554 @@
+/*-- scss:defaults --*/
+
+$theme: "MainThemeBCA" !default;
+
+// Color system
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #f7f7f9 !default;
+$gray-300: #eceeef !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #919aa1 !default;
+$gray-700: #55595c !default;
+$gray-800: #343a40 !default;
+$gray-900: #1a1a1a !default;
+$black: #000 !default;
+
+$blue: #0073cf !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #d9534f !default;
+$orange: #fd7e14 !default;
+$yellow: #f0ad4e !default;
+$green: #4bbf73 !default;
+$teal: #20c997 !default;
+$cyan: #1f9bcf !default;
+
+$primary: $gray-900 !default;
+$secondary: $white !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $white !default;
+$dark: $gray-400 !default;
+
+$min-contrast-ratio: 2.25 !default;
+
+// Options
+$enable-rounded: true !default;
+
+// Background Color
+$background-color: #c5e5ff1c !default;
+
+// Title Banner
+$title-banner: true !default;
+
+// Body
+$body-color: $gray-800 !default;
+
+// Fonts
+$font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$body-font-size: 1.05rem !default;
+$font-size-sm: 0.5rem !default;
+$h1-font-size: 1.8rem !default;
+$h2-font-size: 1.6rem !default;
+$h3-font-size: 1.3rem !default;
+$h4-font-size: 1.2rem !default;
+$h5-font-size: 1.1rem !default;
+$h6-font-size: 0.9rem !default;
+$headings-font-weight: 900 !default;
+$headings-color: $primary !default;
+
+// Word Spacing
+$body-line-stretch: 1.5rem !default;
+
+// Tables
+$table-border-color: rgba(0, 2, 0, 0.05) !default;
+
+// Buttons
+$btn-line-height: 1.5rem !default;
+$input-btn-padding-y: 0.75rem !default;
+$input-btn-padding-x: 1.5rem !default;
+$input-btn-padding-y-sm: 0.5rem !default;
+$input-btn-padding-x-sm: 1rem !default;
+$input-btn-padding-y-lg: 2rem !default;
+$input-btn-padding-x-lg: 2rem !default;
+$btn-font-weight: 600 !default;
+
+// Forms
+$input-line-height: 1.5 !default;
+$input-bg: $gray-200 !default;
+$input-disabled-bg: $gray-300 !default;
+$input-group-addon-bg: $gray-300 !default;
+
+// Navbar
+$navbar-padding-y: 1.5rem !default;
+$navbar-dark-hover-color: $secondary !default;
+$navbar-light-color: rgba($black, 0.3) !default;
+$navbar-light-hover-color: $primary !default;
+$navbar-light-active-color: $primary !default;
+
+// Pagination
+$pagination-color: $blue !default;
+$pagination-hover-color: color-contrast($blue) !default;
+$pagination-border-color: transparent !default;
+$pagination-hover-border-color: $pagination-border-color !default;
+$pagination-disabled-border-color: $pagination-border-color !default;
+
+/*-- scss:rules --*/
+
+// Variables and Font Imports
+$web-font-path: "https://fonts.cdnfonts.com/css/dm-sans" !default;
+$web-monofont-path: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" !default;
+
+@import url($web-font-path);
+@import url($web-monofont-path);
+
+
+#quarto-search {
+  min-width: 50px; /* or an appropriate width for your layout */
+  transition: none; /* Avoid transitions that might cause reflow */
+}
+
+/* Navbar */
+.navbar {
+  padding: 0.7em !important;
+}
+
+
+
+.nav-link {
+  display: block;
+  padding: 0;
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  text-decoration: none;
+  -webkit-text-decoration: none;
+  -moz-text-decoration: none;
+  -ms-text-decoration: none;
+  -o-text-decoration: none;
+  background: none;
+  border: 0;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+
+/* Navigation Links */
+nav a {
+  position: relative;
+  display: inline-block;
+  color: inherit; /* Use parent's color */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.5s ease; /* Smooth color change */
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+nav a:hover,
+nav a.active {
+  color: #fff !important; /* Ensure consistent hover and active states */
+}
+
+/* Navigation Link Text */
+.nav-link .menu-text {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Sticky Tools */
+.quarto-navbar-tools {
+  position: sticky;
+  transform: translateX(-50%);
+}
+
+// Footer
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  background-color: $primary;
+  font-weight: 200;
+  font-size: 1.2rem;
+
+  .nav-item, .nav-link {
+    display: flex;
+    align-items: center; // Ensures vertical centering of text and icons
+    justify-content: center; // Centers the content horizontally within the nav link
+  }
+
+  .nav-link {
+    color: $gray-500;
+    position: relative;
+    display: inline-block; // Overwritten by flex in .nav-item, .nav-link but kept for fallback
+    text-decoration: none; // Removes the default underline
+    transition: color 0.3s ease; // Smooth transition for color change
+    width: 100%; // Ensures the link utilizes the full available width
+
+    p {
+      font-size: 0.9rem; // Adjusted font size for footer links
+      letter-spacing: 0.04em; // Adjusted letter spacing for footer links
+    }
+
+    // Expanding underline effect
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px; // Height of the underline
+      bottom: -5px; // Distance from the text
+      left: 50%;
+      background-color: $gray-100; // Use SCSS variable for consistency
+      transition: width 0.3s ease, left 0.3s ease; // Transition for the expanding effect
+    }
+    &:hover {
+      color: $gray-100; // Color change on hover
+
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+
+  i {
+    margin-right: 8px; // Adds space between the icon and text
+  }
+}
+
+
+// Background Colors
+.bg-primary {
+  background-color: theme-color("primary") !important;
+}
+
+.bg-light {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  &.navbar-fixed-top { border-width: 0 0 1px; }
+  &.navbar-bottom-top { border-width: 1px 0 0; }
+}
+
+// Nav Item
+.nav-item {
+  margin-right: 2rem;
+}
+
+.nav-footer-left .footer-items .nav-link, .nav-footer-center .footer-items .nav-link, .nav-footer-right .footer-items .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Sidebar Table of Content
+.sidebar nav[role="doc-toc"] {
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  color: $black !important; // Text color for TOC links
+}
+
+.sidebar nav[role="doc-toc"] .nav-link:hover {
+  border-left: 1px solid rgb(75, 113, 149)!important; // Keeps the left border color change on hover
+}
+
+// Removing custom underline effects for TOC links
+#TOC .nav-link::after, #TOC .nav-link:hover::after, #TOC .nav-link.active::after {
+  content: none; // Removes the ::after pseudo-element used for custom underline
+}
+
+#TOC .nav-link:hover, #TOC .nav-link.active {
+  color: rgb(75, 113, 149) !important; // Keeps the text color the same on hover and active states
+}
+
+.sidebar nav[role=doc-toc]>h2, .sidebar nav[role=doc-toc]>.h2 {
+  font-size: 1.2rem;
+}
+
+.sidebar nav[role=doc-toc] a{
+  font-size: 0.85em;
+}
+
+
+// Typography and Headings Transformations
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+
+.text-secondary {
+  color: $body-color !important;
+}
+
+body {
+  background-color: $background-color;
+  font-size: $body-font-size;
+  line-height: $body-line-stretch;
+  color: $gray-800;
+  touch-action: pan-y;
+  overflow-x: hidden;
+}
+
+.subtitle {
+  font-weight: 300;
+  display: inline-block;
+  min-height: 1.5em; /* Default fallback for when JS is disabled */
+}
+
+p {
+  margin-bottom: 25px; /* Adjusts the bottom margin between paragraphs */
+  line-height: 2rem;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+li {
+  margin-bottom: 10px; /* Adjusts the bottom margin between paragraphs */
+  line-height: 2rem;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 2px solid;
+  opacity: .3;
+}
+
+b, strong {
+  font-weight: bold !important;
+}
+
+// Navs Colors & Hover Over
+a {
+  color: $gray-900;
+  &:hover {
+    color: $cyan;
+  }
+}
+
+code {
+  background-color: #f5f5f5;
+  color: rgb(75, 113, 149);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+   /* Enhanced styling */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+// Quarto Title Block Pages
+
+
+// THIS IS FOR THE OVERVIEW WEBSITE BEFORE THE INDIVIDUAL ONES
+
+
+// ----------- FOR INDIVIDUAL QUARTO DOCUMENTS ------------
+
+header#title-block-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1rem; /* Adds some space below the header content */
+
+  .quarto-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align title to the left */
+    width: 100%;
+
+    h1.title {
+      margin: 0;
+      font-size: 2rem;
+      text-align: center; /* Ensure text is aligned to the left */
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------
+   FOR ABOUT PAGE
+   ------------------------------------------------------------- */
+
+/* The element containing your profile image */
+.about-entity {
+  /* Circle shape */
+  width: 600px !important;
+  height: 600px !important;
+  border-radius: 5%;
+
+  /* Sticky positioning on desktop */
+  position: sticky;
+  top: 150px;
+
+  /* Background image styling */
+  background-size: cover !important; 
+  background-position: center !important;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+
+  /* Floats to the right on larger screens */
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+/* Adjusts title margins in .about-contents */
+.about-contents .quarto-title {
+  margin-top: 50px;
+  margin-bottom: -20px;
+}
+
+/* Targeting and hover effect for h3 within .about-contents */
+.about-contents h3 {
+  position: relative;
+  display: inline-block;
+}
+
+/* The highlight background on hover */
+.about-contents h3::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: rgb(219, 228, 237);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.4s ease;
+}
+
+.about-contents h3:hover::before {
+  transform-origin: bottom left;
+}
+
+/* -----------------------------------
+   CARDED SECTIONS (LEVEL3)
+   Each .level3 becomes a "card"
+----------------------------------- */
+.about-contents .level3 {
+  /* Card-like appearance */
+  background-color: #ffffff; 
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; /* Required for the H3 pseudo-elements */
+  overflow: hidden;   /* Ensures child elements don’t spill beyond corners */
+}
+
+/* Hover effect: subtle “lift” */
+.about-contents .level3:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* -----------------------------------
+   H3 HEADING INSIDE THE CARD
+   WITH HIGHLIGHTING EFFECT
+----------------------------------- */
+.about-contents .level3 h3 {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 10px 0;
+  padding: 5px 5px;
+  text-decoration: none;
+  color: #262626; 
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  transition: color 0.5s;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/*
+   Two pseudo-elements for the “highlight”
+   effect: border lines + dark background
+*/
+.about-contents .level3 h3::before,
+.about-contents .level3 h3::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s, opacity 0.3s;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+/* 
+   The top & bottom borders
+   (initially “hidden”: scaleY(2) with 0 opacity)
+*/
+.about-contents .level3 h3::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #262626;
+  border-bottom: 2px solid #262626;
+  transform: scaleY(2);
+  opacity: 0;
+}
+
+/* 
+   The dark fill behind the heading 
+   (initially scale(0) with 0 opacity)
+*/
+.about-contents .level3 h3::after {
+  top: 2px;
+  left: 0;
+  background-color: #262626;
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* 
+   Hovering over the entire section 
+   => heading highlights
+*/
+.about-contents .level3:hover h3 {
+  color: #ffffff; /* text goes white */
+}
+
+/* 
+   Also reveal the pseudo-elements
+   (the highlight “stripe” and borders)
+*/
+.about-contents .level3:hover h3::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+.about-contents .level3:hover h3::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------
+   ABOUT LINKS
+   ------------------------------------------------------------- */
+
+.about-links .about-link {
+  padding: 100px; /* Larger padding around icons for visibility */
+}
+
+.about-links .about-link i {
+  font-size: 25px;
+  display: inline-block; 
+  transition: transform 0.3s ease;
+}
+
+.about-links .about-link .about-link-text {
+  font-size: 16px; 
+}
+
+/* Hover effect on icon */
+.about-links .about-link:hover i {
+  transform: scale(1.2);
+}
+
+/* -------------------------------------------------------------
+   MEDIA QUERIES FOR MOBILE
+   ------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Disable sticky for mobile; make it static */
+  .about-entity {
+    position: static !important;
+    float: none !important; /* Remove floating */
+    margin: 0 auto 1rem auto;
+    width: 300px !important;
+    height: 400px !important;
+    margin-top: 40px;
+  }
+
+  div.about-contents {
+    margin-top: -20px !important;
+  }
+
+  .about-links .about-link {
+    padding: 20px;
+  }
+
+  .about-links .about-link i {
+    font-size: 20px;
+  }
+
+  .about-links .about-link .about-link-text {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.fullcontent .page-columns {
+    display: grid;
+    gap: 0;
+    grid-template-columns:
+      [screen-start] 1em
+      [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start]
+      minmax(0px, 1fr)
+      [body-content-end body-end body-end-outset page-end-inset page-end screen-end-inset] 1em
+      [screen-end];
+  }
+}
+
+
+
+/* ------------ NEW! BANNER REFERENCE JAVASCRIPT --------- */
+
+.new-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(219, 228, 237);
+  color: $gray-700; /* Assuming $gray-700 is a shade of gray, replace with the exact color if needed */
+  font-weight: 600;
+  font-size: 15px;
+  padding: 5px;
+  z-index: 10;
+  transition: opacity 0.5s ease; /* This will control the fade effect */
+  opacity: 1; /* Default state is fully visible */
+}
+
+
+/* ----------- FOR PROJECTS PAGE ------------ */
+
+
+
+
+// ----------- FOR BLOG PAGE ------------ //
+
+.quarto-post.image-right {
+  flex-direction: row;
+  align-items: center; /* Center content vertically */
+}
+
+div.quarto-post {
+  display: flex;
+  gap: 0em;
+  margin-bottom: 4em;
+  border-bottom: 2px solid rgb(219, 228, 237);
+  min-height: 200px; /* Minimum height for each post */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+  position: relative; /* Needed for pseudo-element positioning */
+  overflow: hidden; /* Ensures the pseudo-element animation is contained */
+}
+
+div.quarto-post:before {
+  content: "";
+  position: absolute;
+  top: 100%; /* Start hidden below the element */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dde9f2; /* Lavender fill */
+  transition: top 0.5s ease; /* Smooth transition for the fill */
+  z-index: 0; /* Ensure it's below the content */
+}
+
+div.quarto-post:hover {
+  transform: scale(1.2); /* Slightly enlarge the post */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow for a lifted effect */
+}
+
+div.quarto-post:hover:before {
+  top: 0; /* Move to cover the element on hover */
+}
+
+
+div.quarto-post .body {
+  flex-basis: 41%;
+  padding: 1em;
+  margin-right: 0.5em;
+  position: relative; /* Ensure this element stays above the pseudo-element */
+  z-index: 1;
+}
+
+div.quarto-post .thumbnail {
+  padding: 1.5em;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center content vertically */
+  flex-basis: 30%;
+  margin-right: 2em;
+  flex-direction: row-reverse;
+  position: relative; /* Ensure this element stays above the pseudo-element */
+  z-index: 1;
+}
+
+div.quarto-post .thumbnail img {
+  width: 225px; /* Force the width to be exactly 200px */
+  height: 175px; /* Force the height to be exactly 150px */
+  object-fit: cover; /* Ensures the aspect ratio is maintained while covering the area */
+  z-index: 1; /* Ensure the image stays above the pseudo-element */
+  border: 5px solid $black;
+} 
+
+/* Media query adjustments for devices with width less than 768px */
+
+@media (max-width: 768px) {
+  div.quarto-post {
+    flex-direction: column !important; /* This ensures vertical stacking */
+    align-items: center !important; /* Center align the flex items */
+    gap: 1em; /* Optional: adds space between stacked items for clarity */
+    transform: none !important; /* Disables scaling transformation */
+    transition: none !important; /* Disables transition to prevent scaling */
+  }
+
+  /* Thumbnail first */
+  div.quarto-post .thumbnail {
+    order: 2 !important;
+    align-items: center !important;
+    width: 90%; /* Adjust width as necessary */
+    margin: 0; /* Remove any specific right margin */
+    padding: 0.5em 0; /* Adjust padding as needed */
+  }
+
+  div.quarto-post .thumbnail img {
+    width: 100%; /* Full width of its container */
+    height: 50%; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area of the container without stretching */
+  }
+
+  /* Body content second */
+  div.quarto-post .body {
+    order: 1 !important;
+    width: 90%; /* Adjust width as necessary */
+    margin-top: -0.5em;
+  }
+
+  /* Metadata last */
+  div.quarto-post .metadata {
+    order: 3 !important;
+    width: 90%; /* Adjust width as necessary */
+    margin-top: -1em;
+  }
+
+  /* Adjust hover effects for mobile */
+  div.quarto-post:hover {
+    transform: none !important; /* Ensures no scaling on hover */
+    /* Retain or adjust other hover effects as needed */
+    /* Example: box-shadow for a subtle hover effect without scaling */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
+
+// ----------- TALKS PAGE ------------
+.quarto-listing-container-table {
+  max-width: 900px; // Adjust as needed to cap table width
+  border-radius: 8px;
+  overflow: hidden; // Ensures the rounded corners are visible
+  padding: 0;
+  margin: 0;
+
+  .quarto-listing-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed; // Helps ensure uniform column widths
+
+    thead {
+      // Bold header row with a thicker bottom border
+      tr {
+        th {
+          background-color: #e2e8f0; 
+          font-weight: 700;
+          padding: 0.9em 1em;
+          text-align: left;
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    tbody {
+      // Zebra striping
+      tr:nth-of-type(odd) {
+        background-color: #f9fafb;
+      }
+
+      tr:nth-of-type(even) {
+        background-color: #ffffff;
+      }
+
+      // Standard row style
+      tr {
+        border-bottom: 1px solid #cbd5e0;
+        transition: 
+          background-color 0.3s ease,
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative; // Needed for z-index and pop-out effect
+        min-height: 3.2rem;
+
+        td {
+          padding: 0.8em 1em;
+          vertical-align: middle;
+        }
+
+        // Pop-out hover effect
+        &:hover {
+          background-color: #ebf4fb;
+          transform: scale(1.02); // Slight enlargement
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+          z-index: 1; // Ensures the hovered row stays above adjacent elements
+        }
+      }
+
+      // Title link styling
+      a.title.listing-title {
+        font-size: 1.15em; 
+        text-decoration: none;
+        color: #0073cf;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #0056b3; 
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Responsive: reduce padding on smaller screens
+  @media (max-width: 768px) {
+    .quarto-listing-table {
+      thead tr th {
+        padding: 0.7em 0.6em;
+      }
+      tbody tr td {
+        padding: 0.7em 0.6em;
+      }
+    }
+  }
+}
+
+
+// ----------- QUARTO DASHBOARD ------------ //
+
+
+.quarto-dashboard .bslib-value-box .value-box-showcase .bi {
+  font-size: clamp(.1em,max(18cqw,5.2cqh),5em);
+  text-align: center;
+  height: 0.5em;
+}
+
+.quarto-dashboard #quarto-dashboard-header .navbar .navbar-logo {
+  max-height: 50px;
+  min-height: 30px;
+  object-fit: cover;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+
+// ----------- OTHER ------------
+
+// Indicators
+.badge {
+  padding-top: 0.28rem;
+  &-pill {
+    border-radius: 10rem;
+  }
+  &.bg-secondary, &.bg-light {
+    color: $dark;
+  }
+}
+
+// Buttons
+.btn {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+
+  &-sm {
+    font-size: 10px;
+  }
+
+  &-warning,
+  &-warning:hover,
+  &-warning:not([disabled]):not(.disabled):active,
+  &-warning:focus {
+    color: $secondary;
+  }
+}
+
+.btn-outline-secondary {
+  border-color: $gray-600;
+  color: $gray-600;
+  &:not([disabled]):not(.disabled):hover,
+  &:not([disabled]):not(.disabled):focus,
+  &:not([disabled]):not(.disabled):active {
+    background-color: $gray-400;
+    border-color: $gray-400;
+    color: $secondary;
+  }
+  &:not([disabled]):not(.disabled):focus {
+    box-shadow: 0 0 0 0.2rem rgba($gray-400, 0.5);
+  }
+}
+
+[class*="btn-outline-"] {
+  border-width: 2px;
+}
+
+.border-secondary {
+  border: 1px solid $gray-400 !important;
+}
+
+// Tables
+th {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+}
+
+.table {
+  th, td {
+    padding: 1.5rem;
+  }
+  &-sm th, &-sm td {
+    padding: 0.75rem;
+  }
+}
+
+.dropdown-menu {
+  font-size: $font-size-sm;
+  text-transform: none;
+}
+
+/* CAROUSEL NAVIGATION (ARROWS) --------------------------------------------- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black; /* Solid black for visibility */
+  width: 32px;
+  height: 32px;
+
+  /* Use clean SVG for professional arrow design */
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 1.5l7 6.5-7 6.5'/%3E%3C/svg%3E");
+  mask-size: cover;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 1.5l7 6.5-7 6.5'/%3E%3C/svg%3E");
+
+  /* Smooth transition on hover */
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev-icon {
+  transform: rotate(180deg); /* Rotate left arrow to point left */
+}
+
+.carousel-control-next-icon {
+  transform: rotate(0deg); /* Keep right arrow pointing right */
+}
+
+/* Positioning the navigation buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  width: 5%; /* Maintain a good clickable area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: -2.5rem; /* Slightly outside the carousel boundary */
+}
+
+.carousel-control-next {
+  right: -2.5rem; /* Slightly outside the carousel boundary */
+}
+
+/* Hover effect */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  background-color: #555; /* Dark gray hover effect */
+}
+
+
+/* BADGE TAG (top-right pop-up label) --------------------------------------- */
+.badge-tag {
+  position: absolute;
+  right: 15px;
+  z-index: 10;
+  background: #f0f8ff;
+  color: $black;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  /* Start invisible & slightly rotated */
+  transform: scale(0) rotate(15deg);
+  transform-origin: top right;
+  opacity: 0;
+  /* Remove the old "transition:" since we’ll rely on keyframes */
+}
+
+/* When the carousel item becomes active, fire the pop animation */
+.carousel-item.active .badge-tag {
+  animation: nintendo-pop 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframes: 
+   0% -> scale(0), rotate(15deg), hidden
+   50% -> overshoot scale(1.3), rotate(0deg)
+   100% -> final scale(1), fully visible
+*/
+@keyframes nintendo-pop {
+  0% {
+    transform: scale(0) rotate(15deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Hide heading anchors for all heading levels (h1-h6) ---------------------- */
+h1 .header-anchor,
+h2 .header-anchor,
+h3 .header-anchor,
+h4 .header-anchor,
+h5 .header-anchor,
+h6 .header-anchor {
+  display: none;
+}
+
+.anchorjs-link {
+  display: none !important;
+}
+
+
+.travel-card {
+  background-color: #ffffff;
+  max-width: 700px;    /* Adjust as desired */
+  margin: 0 auto;      /* Center the card */
+  height: 500px;       /* Fixed height for consistent layout */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
+  position: relative;  /* for absolutely positioned details if you prefer */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* The large image that takes ~80% of the card's height */
+.travel-card img {
+  width: 100%;
+  height: 80%; 
+  object-fit: cover; 
+  display: block;
+}
+
+/* Bottom bar for location/date */
+.travel-details {
+  height: 20%; /* the remaining space */
+  background-color: #f8f9fa; /* subtle background */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* Location on the bottom-left */
+.travel-location {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Date on the bottom-right */
+.travel-date {
+  font-style: italic;
+  color: #555;
+}
+
+/* ---------------------------------------
+   Hero Section
+---------------------------------------- */
+
+.hero-section {
+  padding: 5rem 0;
+  text-align: center;
+  background: linear-gradient(45deg, $gray-100 0%, $white 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 8px 24px rgba(42, 93, 176, 0.15);
+  margin: 0 auto 2rem auto;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(42, 93, 176, 0.25);
+}
+
+/* Optional: Add decorative elements */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 120px;
+  height: 120px;
+  background: rgba(42, 93, 176, 0.1);
+  border-radius: 30% 70% 70% 30%;
+  transform: rotate(45deg);
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 160px;
+  height: 160px;
+  background: rgba(42, 93, 176, 0.08);
+  border-radius: 70% 30% 30% 70%;
+  transform: rotate(-20deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+}
+/* ---------------------------------------
+   CTA (Call to Action) Button
+---------------------------------------- */
+.cta-button {
+  background: $blue;                /* Replaces var(--primary-color) */
+  color: $white !important;
+  padding: 12px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin: 1rem 0;
+  display: inline-block;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    /* Soft shadow on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ---------------------------------------
+   Carousel & Portfolio Cards
+---------------------------------------- */
+
+/* PORTFOLIO CARDS --------------------------------------------------------- */
+.portfolio-card {
+  position: relative; /* Allows absolutely-positioned badge to sit inside card */
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 16px;
+  min-height: 500px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.portfolio-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 10px;
+  padding-bottom: 10px;
+  letter-spacing: 0.5px; 
+  text-align: center; 
+}
+
+.portfolio-card p {
+  /* Align description text left */
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0 5px 0;
+  text-align: left;
+  max-width: 600px; /* Keep long text comfortably readable */
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.portfolio-card a {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 22px;
+  border: 0.5px solid $black;
+  border-radius: 50px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    /* Soft shadow on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Keep images centered and consistent size */
+.portfolio-card img {
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+
+/* The corner badge */
+.badge-tag {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background: $blue;     /* Replaces var(--primary-color) */
+  color: $white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transform: rotate(3deg);
+}
+
+
+
+/* ---------------------------------------
+   Skills Grid
+---------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid;
+  min-height: 320px;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(42,93,176,0.15);
+}
+
+/* Wide Card Specific Styles */
+.skill-card--wide {
+  grid-column: span 2;
+  min-height: auto;
+  margin: 3rem 0;
+}
+
+.skill-card--wide .skill-desc {
+  min-height: auto;
+}
+
+/* Category Colors */
+[data-category="development"] { border-color: #2A5DB0; }
+[data-category="data-science"] { border-color: #4B8BBE; }
+[data-category="analytics"] { border-color: #e18080; }
+[data-category="data-engineering"] { border-color: #34A853; }
+[data-category="consulting"] { border-color: #8A2BE2; }
+[data-category="ai"] { border-color: #00c871; }
+[data-category="cloud-computing"] { border-color: #ae0000; }
+
+
+/* Icon Styling */
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(42,93,176,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #2A5DB0;
+}
+
+.skill-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Typography */
+.skill-card h3 {
+  color: #2A5DB0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.skill-meta {
+  margin-bottom: 1rem;
+}
+
+.skill-experience {
+  background: rgba(42,93,176,0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #2A5DB0;
+  display: inline-block;
+  font-size: 0.9em;
+}
+
+.skill-desc {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-card--wide {
+    grid-column: span 1;
+    margin: 2rem 0;
+  }
+  
+  .skill-card {
+    min-height: auto;
+  }
+}
+
+/* ---------------------------------------
+   Testimonial Section
+---------------------------------------- */
+.testimonial {
+  background: $gray-100;  /* Replaces var(--secondary-color) */
+  padding: 2.5rem;
+  margin: 4rem auto;
+  border-radius: 16px;
+  max-width: 800px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/* ---------------------------------------
+   Final CTA / Contact Section
+---------------------------------------- */
+#contact {
+  background: linear-gradient(45deg, rgba(42, 93, 176, 0.03) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 24px;
+  margin: 4rem 0;
+  border: 1px solid rgba(42, 93, 176, 0.1);
+}
+
+.cta-deco {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(42, 93, 176, 0.05);
+  border-radius: 30%;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.cta-deco--1 {
+  top: -60px;
+  left: -60px;
+  transform: rotate(45deg);
+  background: linear-gradient(45deg, rgba(42, 93, 176, 0.08), transparent);
+}
+
+.cta-deco--2 {
+  bottom: -60px;
+  right: -60px;
+  transform: rotate(-45deg);
+  background: linear-gradient(-45deg, rgba(42, 93, 176, 0.08), transparent);
+}
+
+.cta-button--main {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cta-button--main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-button--main:hover::before {
+  left: 100%;
+}
+
+.resume-download {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.resume-download::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.resume-download:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .cta-deco {
+    display: none;
+  }
+}
+
+// Common Policy Section Styling
+.policy-section {
+  background-color: $white; // Ensure it matches your theme’s white (#fff)
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Matches the subtle shadow used across sections
+  // Note: The container utility classes (my-5, px-4, py-5) already handle spacing;
+  // additional padding is not added here to preserve consistency.
+  padding: 2em !important;
+}
+
+// Contact Form Specific Adjustments
+.policy-form-section {
+  // Optionally, adjust vertical spacing (if needed)
+  padding-bottom: 1.5rem;
+  // The horizontal padding is inherited from the container class (px-4)
+}
+
+// Policy Form Heading and Lead Text
+.policy-form-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.policy-form-lead {
+  margin-bottom: 1rem;
+  color: $gray-700;
+}
+
+// Policy Form Structure
+.policy-form {
+  display: flex;
+  flex-direction: column;
+}
+
+// Form Group & Label
+.policy-form-group {
+  margin-bottom: 1rem;
+}
+
+.policy-form-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: $gray-900;
+}
+
+// Input, Select, and Textarea Styling
+.policy-form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: $gray-900;
+  background-color: $white;
+  
+  &:focus {
+    border-color: $blue;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+  }
+}
+
+// Submit Button Styling
+.policy-form-submit {
+  cursor: pointer;
+  background-color: $blue;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+}

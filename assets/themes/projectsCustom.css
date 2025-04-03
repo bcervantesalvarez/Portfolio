@@ -1,0 +1,249 @@
+
+/*************************************************
+ * Make Banners Edge-to-Edge
+ *************************************************/
+/* 
+   Each .ho-band now spans the full viewport width (100vw), 
+   is positioned so that it aligns with the page center, 
+   and still has 25px rounded corners + shadow.
+*/
+.ho-band {
+    position: relative;
+    /* Force full viewport width */
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    /* Optional vertical spacing from other content */
+    margin: 2rem 0;
+  
+    /* Keep your existing styling */
+    padding: 4rem;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    min-height: 800px;             /* Big enough to show the full text + button */
+  }
+  
+  /* Ensure all immediate children appear above the ::before overlay */
+  .ho-band > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Remove background/box-shadow from the top heading region 
+     ONLY within your ho-band sections */
+  .ho-band .layout__region.layout__region--top {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  
+  /*************************************************
+   * Example Background Gradients + SVG Overlays
+   *************************************************/
+  /* Statistics Band */
+  .stats-band {
+    background: linear-gradient(135deg, #8b1c28 0%, #c23549 100%);
+  }
+  .stats-band::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    background: url("../Images/stats-pattern.svg") no-repeat center / cover;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* Interactive Visualizations Band */
+  .viz-band {
+    background: linear-gradient(135deg, #1c8b28 0%, #35c24a 100%);
+  }
+  .viz-band::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    background: url("../Images/viz-pattern.svg") no-repeat center / cover;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* Machine Learning Band */
+  .ml-band {
+    background: linear-gradient(185deg, #1c288b 0%, #354ac2 100%);
+  }
+  .ml-band::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    background: url("../Images/ml-pattern.svg") no-repeat center / cover;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /*************************************************
+   * Section Title
+   *************************************************/
+  .band-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    position: relative; 
+    z-index: 1;
+  }
+  
+  /*************************************************
+   * Gap Between Sections (Optional)
+   *************************************************/
+  .section-gap {
+    height: 120px; 
+  }
+  
+  /*************************************************
+   * 3-Column Grid (Inside Each Banner)
+   *************************************************/
+  .my-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;  /* Cards stay centered within the banner */
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) {
+    .my-grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .my-grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /*************************************************
+   * Card Styles (ho-card)
+   *************************************************/
+  .ho-card {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+              rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+              rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, max-height 0.5s ease;
+    padding-bottom: 3rem; /* room for the button */
+    max-height: 325px; /* Enough to show title + teaser */
+  }
+  
+  .ho-card:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    max-height: 550px; /* Expanded height for description + button */
+  }
+  
+  /*************************************************
+   * Description Animation (Shifting Up + Fade In)
+   *************************************************/
+  .description {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition-delay: var(--desc-delay, 0s); /* defaults to 0s on hover-out */
+  }
+  
+  .ho-card:hover .description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1rem;    /* Extend a bit left */
+    right: -1rem;   /* Extend a bit right */
+    bottom: 0;
+    background: $gray-400; /* Use your banner gradient */
+    opacity: 0.2;   /* Adjust for desired highlight intensity */
+    z-index: -1;    /* Ensure it sits behind the text */
+    border-radius: 8px; /* Optional: smooth the edges */
+    transition: opacity 0.3s ease;
+  }
+  
+  .ho-card:hover .description {
+    opacity: 1;
+    transform: translateY(0);
+    /* Set delay only on hover-in */
+    --desc-delay: 0.3s;
+  }
+  
+  /*************************************************
+   * Read More Button Animation
+   *************************************************/
+  .read-more-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transition-delay: var(--btn-delay, 0s);
+  }
+  .ho-card:hover .read-more-btn {
+    opacity: 1;
+    /* Appear at the same time as description */
+    --btn-delay: 0.5s;
+  }
+  
+  /*************************************************
+   * Hidden Top-Right Link (for Harvard markup)
+   *************************************************/
+  .read-more-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+  }
+  
+  /*************************************************
+   * Card Image
+   *************************************************/
+  .image {
+    width: 100%;
+    height: 180px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  /*************************************************
+   * Card Content (Title, Teaser, Description)
+   *************************************************/
+  .group-info {
+    padding: 1rem;
+    color: #333;
+  }
+  .group-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  .group-info .teaser,
+  .group-info .description {
+    margin: 0 0 1rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  /*************************************************
+   * "Read More" Button Placement
+   *************************************************/
+  .node-link {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    margin: 0;
+  }
+  
+  
+  
