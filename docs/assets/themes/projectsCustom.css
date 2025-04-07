@@ -165,7 +165,7 @@
     left: -1rem;    /* Extend a bit left */
     right: -1rem;   /* Extend a bit right */
     bottom: 0;
-    background: $gray-400; /* Use your banner gradient */
+    background: #BDBDBD; /* Use your banner gradient */
     opacity: 0.2;   /* Adjust for desired highlight intensity */
     z-index: -1;    /* Ensure it sits behind the text */
     border-radius: 8px; /* Optional: smooth the edges */
