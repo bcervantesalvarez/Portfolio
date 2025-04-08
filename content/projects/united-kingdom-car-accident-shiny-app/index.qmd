@@ -2,16 +2,23 @@
 title: "UK Accident Time Series"
 author: "Brian Cervantes Alvarez" 
 date: "09-24-2024"
+date-modified: today
 description: "This accident time series app allows you to explore and analyze data related accidents in UK. Feel free to download the data and explore other methods of analysis."
 teaser: "A Shiny-based approach for analyzing historical accident data across the UK."
 categories: ["Interactive Visualizations"]
 image: /assets/images/ukCarAccident.webp
 format:  
   html:
+    code-tools: true
     page-layout: article
 execute:
   message: false
   warning: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I developed an interactive Shiny dashboard to analyze time-series data on UK accidents, enabling users to visualize and explore trends, seasonality, and accident severity over custom date ranges. I included the ability to perform advanced statistical analyses including detrending, autocorrelation assessment, and day-of-week frequency evaluations in the shiny application; clearly demonstrating insights such as higher accident occurrences on weekends. Key visual metrics included daily fatality counts and detrended accident trends, enhancing data interpretability and enabling targeted decision-making."
 ---
 
 

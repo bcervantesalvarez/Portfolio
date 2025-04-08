@@ -2,16 +2,26 @@
 title: "Symptom Severity Analysis"
 author: "Brian Cervantes Alvarez"
 date: "06-26-2023"
+date-modified: today
 description: "Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making."
 teaser: "Exploring patient symptom data for improved healthcare insights."
 categories: ["Statistics"]
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I conducted symptom-based severity prediction using a Random Forest model, performing exploratory analysis, strategic feature engineering, and comprehensive evaluations. I successfully classified patient severity into Mild, Moderate, and Severe categories, achieving strong model performance metrics (ROC AUC = 0.95, Recall = 90%, Precision = 91.3%, Kappa = 0.85). These results enable personalized healthcare strategies by providing clear classification rules based on symptoms."
 image: /assets/images/severity.jpeg
 format:
   html:
+    code-tools: true
     toc: true
     toc-location: right
     html-math-method: katex
     page-layout: article
+    include-in-header: 
+      - text: |
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 execute: 
   warning: false
   message: false
@@ -20,16 +30,17 @@ jupyter: python3
 
 ![](/assets/images/severity.jpeg)
 
-## Abstract
+
+# Abstract
 
 This paper presents a machine learning study that aims to predict severity levels in patients by utilizing a random forest approach based on symptom analysis. The objective of the study was to develop accurate rules for classifying patients into three severity levels: Mild, Moderate, and Severe. The dataset consisted of patient symptoms, which were used in conjunction with a random forest model for the classification task. The results indicated that patients with 1 to 3 symptoms, including depression, were classified as Mild, while those with at least 3 symptoms, including depression and cramps, were classified as Moderate. Patients with 4 symptoms, including cramps and spasms, were classified as Severe. The study conducted comprehensive evaluations using metrics such as the confusion matrix, ROC AUC, precision vs recall, and kappa to assess the performance of the random forest model. The results highlighted the promising performance of the model in accurately predicting severity levels among patients. The findings from this study provide robust evidence that can contribute to personalized healthcare and effective treatment planning.
 
-## Introduction
+# Introduction
 
 In the field of rare diseases, physicians often observe variations in the severity levels of patients; however, there is a lack of established guidelines to map individual patients directly to specific severity levels. Our client, who is developing a product for this rare disease, aims to target patients with moderate to severe conditions. To address this challenge, the client possesses a comprehensive database containing clinically relevant information about the disease, including symptom flags and a symptom count variable. Additionally, each patient in the database has been rated by a physician as mild, moderate, or severe. The client has approached [REDACTED] with the objective of extracting the mental heuristics employed by physicians when assigning severity labels to patients. The task at hand involves deriving simple rules (1-3 per severity level) from the database that can effectively classify patients. For instance, a set of rules might involve identifying patients as severe if they exhibit fatigue or have exactly two symptoms. By extracting these rules, our aim is to provide the client with a clearer understanding of the factors influencing severity levels in order to enhance their product development and enable more personalized patient care.
 
 
-## Methodology
+# Methodology
 ```{python}
 # Import the required libraries
 import pandas as pd                 # Library for data manipulation and analysis
@@ -62,7 +73,7 @@ ds = pd.read_csv("../../../assets/datasets/severityLevels.csv")
 ds.head(10)  # Display the first 10 rows of the dataset
 ```
 
-### Exploratory Data Analysis
+## Exploratory Data Analysis
 
 ```{python}
 # Display basic statistics of the dataset
@@ -102,7 +113,7 @@ plt.show()
 ```
 
 
-### Feature Engineering
+## Feature Engineering
 
 The code performs some data preprocessing and feature selection to prepare the data for a Random Forest model. Let's go through each step:
 
@@ -184,7 +195,7 @@ for label, features in top_features.items():
     print()
 ```
 
-#### Features Explained
+### Features Explained
 
 The feature selection process aims to identify the most important factors (features) that contribute to determining the severity of a patient's condition. In this case, the severity levels are categorized as "Mild," "Moderate," and "Severe." The top three features that were found to be most indicative for each severity level are as follows:
 
@@ -239,7 +250,7 @@ Given this information, a last threshold can be established. It can be inferred 
 
 In summary, the top features identified for each severity level provide insights into the specific symptoms and factors that contribute to determining the severity of a patient's condition. By considering the presence or absence of these features, the model can make predictions about the severity rating of a patient's condition, helping healthcare professionals assess the level of severity and provide appropriate care and treatment.
 
-### Random Forest Model
+## Random Forest Model
 
 The code performs machine learning tasks using a Random Forest model with the selected features from the earlier model. Let's go through each step:
 
@@ -336,11 +347,11 @@ print()
 ```
 
 
-### Metrics Explained
+## Metrics Explained
 
 Let's break down the provided metrics based on the given confusion matrix:
 
-#### Confusion Matrix
+### Confusion Matrix
 
 The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.
 
@@ -362,7 +373,7 @@ First, the number 18 in the first row and column indicates that the model correc
 Similarly, the other numbers in the confusion matrix represent the model's predictions for the other severity rating categories. Given that this was a dataset with only 300 patients, it is very intriguing that it can label each patient with high accuarcy. 
 
 
-#### ROC Curve
+### ROC Curve
 
 Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.948 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.
 
@@ -409,7 +420,7 @@ plt.close()
 plt.show()
 ```
 
-#### Recall vs. Precision Curve
+### Recall vs. Precision Curve
 
 Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.9 means that the model identified nearly 90.0% of the patients with their correct severity rating.
 
@@ -433,14 +444,14 @@ plt.close()
 plt.show()
 ```
 
-#### Kappa
+### Kappa
 
 The Kappa statistic is a measure of agreement between the model's predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.849 indicates a substantial level of agreement between the model's predictions and the actual severity ratings, suggesting a reliable performance of the model.
 
 Overall, these metrics indicate that the model has performed well in predicting the severity ratings of the patients, with high accuracy, good distinction between severity levels, and substantial agreement with the actual severity ratings provided by physicians.
 
 
-### Visualizing Random Forest's Best Decision Tree
+## Visualizing Random Forest's Best Decision Tree
 ```{python}
 # Perform 10-fold cross-validation
 cv_scores = cross_val_score(rf_model, X, y, cv=10)
@@ -461,7 +472,7 @@ plt.show()
 
 
 
-## Results
+# Results
 
 1. If a patient has between 1 to 3 symptoms, and one of those symptoms includes depression, they are classified as 'Mild'.
 
@@ -469,7 +480,7 @@ plt.show()
 
 3. Lastly, if a patient has 4 symptoms, and two of those symptoms are cramps and spasms, they are classified as 'Severe'.
 
-## Conclusion
+# Conclusion
 
 This study focused on predicting severity levels in patients with a rare disease using a random forest approach based on symptom analysis. The client's goal was to map individual patients to appropriate severity levels, given the absence of established guidelines. By leveraging a comprehensive database containing clinically relevant information and severity ratings provided by physicians, we extracted simple rules to classify patients.
 
@@ -477,13 +488,13 @@ The study revealed that patients with 1 to 3 symptoms, including depression, wer
 
 The derived rules provide valuable insights into the mental heuristics employed by physicians when assessing severity levels in patients. By incorporating these rules into the client's product development, personalized healthcare targeting patients with moderate to severe disease can be enhanced. Furthermore, these findings contribute to filling the existing gap in severity level guidelines for this rare disease.
 
-## Further Research
+# Further Research
 
 It is recommended to validate and refine these rules using larger datasets. By expanding the dataset, researchers can ensure the generalizability of the derived rules and improve the accuracy of the classification. Additionally, exploring additional factors that may influence severity levels, such as demographic information, medical history, or genetic markers, can provide a more comprehensive understanding of the disease and enhance the prediction models.
 
 By continuing to refine and validate the rules and incorporating more factors into the analysis, personalized treatment for patients with this rare disease can be further optimized, leading to improved patient outcomes. The combination of symptom analysis and machine learning approaches holds significant potential for facilitating accurate classification and personalized healthcare in various medical domains.
 
-## References
+# References
 
 **Pandas:**
 McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 445-451. [Link: https://conference.scipy.org/proceedings/scipy2010/mckinney.html]

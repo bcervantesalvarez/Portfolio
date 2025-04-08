@@ -1,187 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://datascienceyapper.com/readme.html</loc>
-    <lastmod>2025-04-03T05:48:11.392Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/talks/water-parasites-survival-analysis/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.488Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/talks/teaching-with-webr/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.488Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/talks/loan-application-statistical-analysis/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.487Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/talks/building-professional-portfolio-via-quarto/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.487Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.486Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/wine-multivariate-statistical-analysis/index.html</loc>
-    <lastmod>2025-04-03T05:22:36.040Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/united-kingdom-car-accident-shiny-app/index.html</loc>
-    <lastmod>2025-04-03T05:19:44.723Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/predicting-salaries-machine-learning/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.484Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/predicting-customer-returns-machine-learning/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.483Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/index.html</loc>
-    <lastmod>2025-04-07T18:25:23.061Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/license/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.473Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/blog/quarto-github-pages-preworkshop/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.472Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/blog/plotly-gym-exercises-showcase/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.471Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/blog/interactive-teaching-with-webr/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.469Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/blog/health-insurance-premiums-analysis/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.457Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/blog/data-fest-2025-effective-data-visualizations/index.html</loc>
-    <lastmod>2025-04-04T09:57:05.287Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/blog/automatic-reports-using-rmarkdown-parameters/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.456Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/about/index.html</loc>
-    <lastmod>2025-04-04T06:09:27.846Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/scripts/projects/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/scripts/about/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.452Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/html/blog/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.236Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/extensions/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.236Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/datasets/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.125Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/html/about/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.236Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/assets/html/projects/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.236Z</lastmod>
-  </url>
-  <url>
     <loc>https://datascienceyapper.com/assets/scripts/blog/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.453Z</lastmod>
+    <lastmod>2025-04-04T06:09:27.845Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/assets/scripts/resources/readme.html</loc>
-    <lastmod>2025-04-03T05:16:15.453Z</lastmod>
+    <lastmod>2025-04-04T06:09:27.845Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/blog/amazon-indian-products-shiny-app/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.456Z</lastmod>
+    <loc>https://datascienceyapper.com/assets/extensions/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.738Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/blog/college-student-debt-shiny-app/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.457Z</lastmod>
+    <loc>https://datascienceyapper.com/assets/html/about/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.738Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/blog/gt-tables-showcase/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.457Z</lastmod>
+    <loc>https://datascienceyapper.com/assets/datasets/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/health-insurance-premiums-analysis/index.html</loc>
+    <lastmod>2025-04-08T06:40:02.682Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/data-fest-2025-effective-data-visualizations/index.html</loc>
+    <lastmod>2025-04-08T04:16:47.608Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/blog/index.html</loc>
-    <lastmod>2025-04-04T06:09:27.849Z</lastmod>
+    <lastmod>2025-04-08T03:49:51.993Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/automatic-reports-using-rmarkdown-parameters/index.html</loc>
+    <lastmod>2025-04-08T06:22:24.104Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/blog/plotly-apple-stocks/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.470Z</lastmod>
+    <lastmod>2025-04-08T06:54:30.469Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/blog/pokemon-database-data-engineering/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.472Z</lastmod>
+    <loc>https://datascienceyapper.com/content/blog/college-student-debt-shiny-app/index.html</loc>
+    <lastmod>2025-04-08T06:27:28.316Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/forms/thank-you/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.472Z</lastmod>
+    <loc>https://datascienceyapper.com/content/about/index.html</loc>
+    <lastmod>2025-04-08T07:17:37.063Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/privacy/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.473Z</lastmod>
+    <loc>https://datascienceyapper.com/content/talks/teaching-with-webr/index.html</loc>
+    <lastmod>2025-04-08T05:52:25.829Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/projects/olympic-dashboard-posit-2024/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.473Z</lastmod>
+    <loc>https://datascienceyapper.com/content/talks/index.html</loc>
+    <lastmod>2025-04-08T06:46:22.112Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/projects/predicting-patient-severity-machine-learning/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.484Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/predicting-wine-province-machine-learning/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/united-states-healthcare-spending-statistical-analysis/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/projects/yelp-business-reviews-shiny-app/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.486Z</lastmod>
+    <loc>https://datascienceyapper.com/content/talks/missing-data-with-mice-statistical-analysis/index.html</loc>
+    <lastmod>2025-04-08T05:52:20.502Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/resources/index.html</loc>
     <lastmod>2025-04-04T06:09:27.866Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/talks/index.html</loc>
-    <lastmod>2025-04-04T06:09:27.866Z</lastmod>
+    <loc>https://datascienceyapper.com/content/projects/predicting-patient-severity-machine-learning/index.html</loc>
+    <lastmod>2025-04-08T02:25:03.183Z</lastmod>
   </url>
   <url>
-    <loc>https://datascienceyapper.com/content/talks/missing-data-with-mice-statistical-analysis/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.488Z</lastmod>
+    <loc>https://datascienceyapper.com/content/projects/yelp-business-reviews-shiny-app/index.html</loc>
+    <lastmod>2025-04-08T04:51:24.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/united-kingdom-car-accident-shiny-app/index.html</loc>
+    <lastmod>2025-04-08T04:53:06.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/wine-multivariate-statistical-analysis/index.html</loc>
+    <lastmod>2025-04-08T04:50:53.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/predicting-salaries-machine-learning/index.html</loc>
+    <lastmod>2025-04-08T04:29:06.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/privacy/index.html</loc>
+    <lastmod>2025-04-08T03:58:44.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/forms/thank-you/index.html</loc>
+    <lastmod>2025-04-04T06:09:27.857Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/license/index.html</loc>
+    <lastmod>2025-04-08T02:51:49.477Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/predicting-customer-returns-machine-learning/index.html</loc>
+    <lastmod>2025-04-08T01:55:26.072Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/index.html</loc>
+    <lastmod>2025-04-08T03:59:24.450Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/olympic-dashboard-posit-2024/index.html</loc>
+    <lastmod>2025-04-08T04:52:01.812Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/united-states-healthcare-spending-statistical-analysis/index.html</loc>
+    <lastmod>2025-04-08T04:38:47.432Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/projects/predicting-wine-province-machine-learning/index.html</loc>
+    <lastmod>2025-04-08T04:51:06.692Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/talks/understanding-quarto/index.html</loc>
-    <lastmod>2025-04-03T05:16:15.488Z</lastmod>
+    <lastmod>2025-04-08T05:52:33.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/talks/building-professional-portfolio-via-quarto/index.html</loc>
+    <lastmod>2025-04-08T05:30:01.385Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/talks/loan-application-statistical-analysis/index.html</loc>
+    <lastmod>2025-04-08T05:38:07.661Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/talks/water-parasites-survival-analysis/index.html</loc>
+    <lastmod>2025-04-08T05:55:34.297Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/plotly-gym-exercises-showcase/index.html</loc>
+    <lastmod>2025-04-08T06:57:17.112Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/amazon-indian-products-shiny-app/index.html</loc>
+    <lastmod>2025-04-08T06:13:58.948Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/gt-tables-showcase/index.html</loc>
+    <lastmod>2025-04-08T06:33:47.062Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/quarto-github-pages-preworkshop/index.html</loc>
+    <lastmod>2025-04-08T07:03:57.368Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/interactive-teaching-with-webr/index.html</loc>
+    <lastmod>2025-04-08T06:50:35.377Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/content/blog/pokemon-database-data-engineering/index.html</loc>
+    <lastmod>2025-04-08T07:00:54.164Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/index.html</loc>
-    <lastmod>2025-04-07T18:20:46.701Z</lastmod>
+    <lastmod>2025-04-08T03:55:44.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/assets/html/projects/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/assets/html/blog/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/assets/scripts/projects/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.845Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/assets/scripts/about/readme.html</loc>
+    <lastmod>2025-04-04T06:09:27.844Z</lastmod>
   </url>
 </urlset>

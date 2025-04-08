@@ -3,10 +3,15 @@ title: "Enhanced Customer Return Forecasting"
 author: "Brian Cervantes Alvarez"
 date: "03-11-2023"
 date-modified: "03-31-2025"
-description: "Random Forest model trained via 5-fold CV (3 repeats), achieving ~97.8% accuracy, 0.95 Kappa, and ~0.98 AUC."
-teaser: "A swift 56% leap from earlier approaches—don’t miss how we redefined item return forecasting!"
+description: "Predict customer product returns, leveraging detailed product characteristics and customer demographics."
+teaser: "A swift 56% leap in performance in customer return forecasting!"
 categories: ["Machine Learning"]
 bibliography: "bibliography.bib"
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I developed a Random Forest model with repeated 5-fold cross-validation (3 repeats) to accurately predict customer product returns, achieving 97.8% accuracy, a Kappa of 0.95, and an AUC of 0.98—significantly outperforming the baseline (AUC=0.625). He executed comprehensive exploratory data analysis, engineered strategic features like customer demographics, product price sensitivity, and seasonal trends, and created an interactive dashboard for actionable decision-making. This model greatly enhances profitability and customer satisfaction by proactively identifying potential returns."
 image: /assets/images/return.jpeg
 nocite: |
   @*
@@ -24,20 +29,22 @@ execute:
 
 
 ![](/assets/images/return.jpeg)
-## Predicting Customer Returns: Enhanced Accuracy and Business Impact
 
-### Project Overview
+
+
+
+## Project Overview
 
 This analysis aimed to predict customer product returns, leveraging detailed product characteristics and customer demographics. The objective was to proactively identify returns, enabling strategic interventions to enhance profitability and customer satisfaction.
 
-### Key Achievements
+## Key Achievements
 
 - **Significant improvement in predictive performance**:
   - Increased **model accuracy** from a moderate AUC of **0.625** (initial baseline) to a robust **AUC of 0.98**.
   - Enhanced overall accuracy to **97.8%** with a Kappa statistic of **0.95**.
   
   
-### Exploratory Data Analysis
+## Exploratory Data Analysis
 
 
 We then generated the following plots to visualize return behavior in more depth:
@@ -57,7 +64,7 @@ We then generated the following plots to visualize return behavior in more depth
 5. **Standardized Returns by State** (Per 100k Population)  
    ![](/assets/images/StandardizedReturnsByState.png)
 
-### Strategic Feature Engineering
+## Strategic Feature Engineering
 
 To drive predictive accuracy, we enriched our dataset through targeted enhancements:
 
@@ -68,7 +75,7 @@ To drive predictive accuracy, we enriched our dataset through targeted enhanceme
   - **Seasonality**: Reflecting seasonal purchasing patterns.
 - Standardized returns per 100,000 population, enabling fair comparisons across regions.
 
-### Data-Driven Insights
+## Data-Driven Insights
 
 Visual analyses identified crucial return patterns, directly informing strategic business decisions:
 
@@ -78,7 +85,7 @@ Visual analyses identified crucial return patterns, directly informing strategic
 - **Geographic Analysis**:
   - States and regions contributing most to return volumes were visualized through comprehensive charts, including state-level standardized returns and overall contribution metrics, facilitating focused regional strategies.
 
-### Model Development and Performance
+## Model Development and Performance
 
 Building upon insights from an initial logistic regression and baseline Random Forest model, we:
 
@@ -102,14 +109,14 @@ Yes           205   4495
 
 The refined model substantially reduced false predictions, significantly outperforming previous benchmarks.
 
-### Actionable Final Predictions
+## Actionable Final Predictions
 
 Applied to unseen test data, the refined model produced actionable predictions by:
 
 - Generating clear, binary indicators (**Predicted_Return**), directly supporting decision-making.
 - Providing stakeholders with an **interactive dashboard** featuring real-time filtering, sorting, and export functionalities to quickly identify and act upon at-risk purchases.
 
-### Conclusions & Strategic Next Steps
+## Conclusions & Strategic Next Steps
 
 - **Historical context**: Initial model (AUC = 0.625) established the importance of detailed feature engineering.
 - **Current approach**: Advanced techniques boosted **predictive accuracy to 97.8%**, demonstrating substantial business value through proactive return management.
@@ -140,7 +147,7 @@ Below is a summary of the **key steps** and **full script** to reproduce the res
    - Generated final predictions (`Yes`/`No`) for the unseen test data.  
    - Created an **interactive DT table** for user-friendly inspection.
 
-### A. Package Loading
+## A. Package Loading
 
 ```{r}
 # A.1 -- Load Required Packages
@@ -160,7 +167,7 @@ library(htmltools)
 library(pROC)
 ```
 
-### B. Data Loading and Merging
+## B. Data Loading and Merging
 
 ```{r}
 # A.2 -- Read CSVs, Merge Region & Population
@@ -297,7 +304,7 @@ glimpse(test)
 
 
 
-### C. Exploratory Data Analysis & Plot Saving
+## C. Exploratory Data Analysis & Plot Saving
 
 ```{r}
 # A.3 -- Exploratory Plots
@@ -425,7 +432,7 @@ ggsave("StandardizedReturnsByState.png", plot = StandardizedReturnsByState, widt
 
 
 
-### D. Feature Engineering Functions
+## D. Feature Engineering Functions
 
 ```{r}
 # A.4 -- Feature Engineering and Dummy-Creation
@@ -523,7 +530,7 @@ align_columns <- function(train_df, test_df, outcome = "Returned") {
 ```
 
 
-### E. Creating Final Training & Testing Sets
+## E. Creating Final Training & Testing Sets
 
 ```{r}
 # A.5 -- Creating the Feature-Engineered Datasets
@@ -551,7 +558,7 @@ print(table(train_with_feat_final$Returned))
 
 
 
-### F. Modeling (Random Forest), Validation, and Metrics
+## F. Modeling (Random Forest), Validation, and Metrics
 
 ```{r}
 # A.6 -- Random Forest Training and Validation
@@ -625,7 +632,7 @@ legend("bottomright", legend = sprintf("AUC = %.3f", auc_val), bty = "n")
 
 ---
 
-### G. Final Test Predictions & Interactive Table
+## G. Final Test Predictions & Interactive Table
 
 ```{r}
 # A.8 -- Final Test Predictions

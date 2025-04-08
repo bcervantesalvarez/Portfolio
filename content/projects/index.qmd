@@ -1,12 +1,18 @@
 ---
 title: "Statistical & Data Science Portfolio"
-subtitle: "A curated collection of real-world statistical analyses and data-driven insights."
+subtitle: "A curated collection of statistical analyses and data-driven insights."
 listing:
   template: ../../assets/templates/listings/projects.ejs  # The EJS template file
   contents: 
     - "**/*.qmd"    # Grabs all project .qmd files from their subdirectory folders
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I've completed various projects applying advanced statistical and machine learning techniques to solve practical problems. Notably, I leveraged MANOVA and classification methods to uncover significant predictors of wine type and quality, analyzed U.S. healthcare spending trends from 1980-2014 to identify factors behind rising costs, and developed a Random Forest model achieving high accuracy to classify patient symptom severity. Additionally, I've created interactive dashboards—including a Quarto dashboard visualizing 100m sprint results and Shiny apps analyzing UK accident data and Yelp spatial reviews—and delivered machine learning models with measurable outcomes, such as a 56% performance increase in forecasting customer returns and accurate classification of wine origins and income brackets exceeding $50K."
 format:
   html:
+    code-tools: true
     css: ../../assets/themes/projectsCustom.css
     page-layout: full
     include-in-header: 

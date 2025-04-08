@@ -16,6 +16,7 @@ about:
       href: mailto:briancervantesalvarez@gmail.com
 format:
   html:
+    code-tools: true
     include-in-header: 
       - text: |
           <script type="text/javascript" src="/assets/scripts/about/profileImg.js"></script>
@@ -38,8 +39,8 @@ I’ve worked to bring a modern data science approach to the Department of Stati
 
 -   **B.S. in Mathematics** – Linfield University
 -   **M.S. in Data Science** – Willamette University
--   **Current Goal**: Pursuing M.S. in Statistics – Oregon State University
--   **Future Aspiration**: Ph.D. in Data Science/Statistics
+-   **Current Goal**: Finishing M.S. in Statistics – Oregon State University, June 2025
+-   **Future Aspiration**: Work in Industry for 5-7 years before returning for Ph.D in Data Science
 
 ------------------------------------------------------------------------
 

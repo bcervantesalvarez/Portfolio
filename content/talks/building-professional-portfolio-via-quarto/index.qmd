@@ -2,15 +2,22 @@
 title: "Building a Professional Portfolio with Quarto and GitHub Pages"
 author: "Brian Cervantes Alvarez"
 date: '01-08-2025'
+date-modified: today
 image: /assets/images/portfolio.png
 description: "This presentation explores how to create a professional portfolio using Quarto and GitHub Pages. A portfolio showcases your work, boosts visibility, and builds your personal brand. Key sections include projects, blogs, and talks, tailored to highlight your expertise in data science, academia, or industry. With dynamic content and regular updates, your portfolio becomes a powerful tool for networking and career growth."
 format:
   html:
+    code-tools: true
     html-math-method: katex
     page-layout: full
 execute: 
   warning: false
   message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I built a professional portfolio using Quarto and GitHub Pages to effectively showcase my data science and analytics projects, enhance professional branding, and increase visibility through interactive online presentations. I established a structured workflow, implemented best practices for version control using Git, and created an engaging, customizable website featuring clear sections for projects, blogs, and talks. This approach not only improved immediate visibility and recruiter engagement but also provided long-term career advantages through demonstrated expertise in HTML, CSS, JavaScript, and modern web development frameworks."
 ---
 
 

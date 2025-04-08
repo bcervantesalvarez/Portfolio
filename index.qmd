@@ -1,6 +1,7 @@
 ---
 format:
   html:
+    code-tools: true
     anchor-location: none
 echo: false
 message: false

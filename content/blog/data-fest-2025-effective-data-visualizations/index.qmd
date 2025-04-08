@@ -5,10 +5,16 @@ date: "April 3, 2025"
 image: /assets/images/datafest_GPT4o.png
 format: 
   html:
+    code-tools: true
     toc: true
     toc-location: right
 warning: false
 message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I created a professional guide on effective data visualization tailored for the ASA DataFest competition, emphasizing the appropriate selection of chart types based on data structures, and clearly differentiating static and interactive visualizations. I included practical examples demonstrating both strong and weak visuals, highlighting common pitfalls like misleading axes and unnecessary complexity. I provided guidance to participants, so they can enhance visualization effectiveness under tight deadlines."
 ---
 
 

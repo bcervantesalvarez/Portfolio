@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -184,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pinot Province Prediction</h1>
+<div class="quarto-title-block"><div><h1 class="title">Pinot Province Prediction</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">Machine Learning</div>
   </div>
@@ -213,6 +213,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 8, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -221,7 +227,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="../../..\assets/images/pinot.jpeg" class="img-fluid"></p>
+<style>
+.AI-Summary {
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+  max-width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.mini-banner .openai-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 1px;
+}
+.AI-Summary p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+</style>
+
+<div class="AI-Summary" markdown="1">
+  <div class="mini-banner">
+    <span class="left-banner">Yapper Labs | AI Summary</span>
+    <span class="right-banner">
+      <img src="../../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
+      Model: ChatGPT 4.5    </span>
+  </div>
+  <p>I developed a predictive Random Forest model to classify the province of wine origin using critic-provided descriptions, utilizing advanced text preprocessing and feature engineering techniques such as tokenization, stemming, and stop-word removal. Through hyperparameter tuning and cross-validation, I achieved a strong Kappa score of 82%, indicating high accuracy and reliability in predicting wine origins based on sensory descriptors. The project demonstrates my proficiency in NLP, machine learning model building, and rigorous evaluation methodologies.</p>
+</div>
+
+<p><img src="../../../assets/images/pinot.jpeg" class="img-fluid"></p>
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
 <p>The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this goal, a random forest model was built and evaluated for its performance, achieving a kappa score of 0.82. This project aimed to provide a useful tool for wine connoisseurs and industry professionals in identifying the origin of wines based on their sensory characteristics.</p>
@@ -310,52 +366,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
                    Reference
 Prediction          Burgundy California Casablanca_Valley Marlborough New_York
-  Burgundy               216          5                 0           1        1
-  California              11        757                17          19       19
-  Casablanca_Valley        0          0                 7           0        0
-  Marlborough              0          0                 0          14        0
+  Burgundy               216          5                 0           0        1
+  California              13        758                14          23       19
+  Casablanca_Valley        0          0                10           0        0
+  Marlborough              0          0                 0          12        0
   New_York                 0          0                 0           0        0
-  Oregon                  11         29                 2          11        6
+  Oregon                   9         28                 2          10        6
                    Reference
 Prediction          Oregon
   Burgundy              10
-  California            58
+  California            62
   Casablanca_Valley      0
   Marlborough            0
   New_York               0
-  Oregon               479
+  Oregon               475
 
 Overall Statistics
                                           
-               Accuracy : 0.8805          
-                 95% CI : (0.8639, 0.8956)
+               Accuracy : 0.8793          
+                 95% CI : (0.8627, 0.8945)
     No Information Rate : 0.4728          
     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
                                           
-                  Kappa : 0.809           
+                  Kappa : 0.8069          
                                           
  Mcnemar's Test P-Value : NA              
 
 Statistics by Class:
 
                      Class: Burgundy Class: California Class: Casablanca_Valley
-Sensitivity                   0.9076            0.9570                 0.269231
-Specificity                   0.9882            0.8594                 1.000000
-Pos Pred Value                0.9270            0.8593                 1.000000
-Neg Pred Value                0.9847            0.9571                 0.988595
+Sensitivity                   0.9076            0.9583                 0.384615
+Specificity                   0.9889            0.8515                 1.000000
+Pos Pred Value                0.9310            0.8526                 1.000000
+Neg Pred Value                0.9847            0.9579                 0.990379
 Prevalence                    0.1423            0.4728                 0.015541
-Detection Rate                0.1291            0.4525                 0.004184
-Detection Prevalence          0.1393            0.5266                 0.004184
-Balanced Accuracy             0.9479            0.9082                 0.634615
+Detection Rate                0.1291            0.4531                 0.005977
+Detection Prevalence          0.1387            0.5314                 0.005977
+Balanced Accuracy             0.9482            0.9049                 0.692308
                      Class: Marlborough Class: New_York Class: Oregon
-Sensitivity                    0.311111         0.00000        0.8757
-Specificity                    1.000000         1.00000        0.9476
-Pos Pred Value                 1.000000             NaN        0.8903
-Neg Pred Value                 0.981314         0.98446        0.9401
+Sensitivity                    0.266667         0.00000        0.8684
+Specificity                    1.000000         1.00000        0.9512
+Pos Pred Value                 1.000000             NaN        0.8962
+Neg Pred Value                 0.980132         0.98446        0.9370
 Prevalence                     0.026898         0.01554        0.3270
-Detection Rate                 0.008368         0.00000        0.2863
-Detection Prevalence           0.008368         0.00000        0.3216
-Balanced Accuracy              0.655556         0.50000        0.9116</code></pre>
+Detection Rate                 0.007173         0.00000        0.2839
+Detection Prevalence           0.007173         0.00000        0.3168
+Balanced Accuracy              0.633333         0.50000        0.9098</code></pre>
 </div>
 </div>
 </section>
@@ -385,52 +441,52 @@ Balanced Accuracy              0.655556         0.50000        0.9116</code></pr
 
                    Reference
 Prediction          Burgundy California Casablanca_Valley Marlborough New_York
-  Burgundy               217          7                 0           0        0
-  California               9        754                12          13       20
+  Burgundy               219          7                 0           0        0
+  California               7        752                12          13       20
   Casablanca_Valley        0          0                12           0        0
   Marlborough              0          1                 0          22        0
   New_York                 0          0                 0           0        1
-  Oregon                  12         29                 2          10        5
+  Oregon                  12         31                 2          10        5
                    Reference
 Prediction          Oregon
   Burgundy               7
-  California            59
+  California            55
   Casablanca_Valley      0
   Marlborough            0
   New_York               0
-  Oregon               481
+  Oregon               485
 
 Overall Statistics
                                           
-               Accuracy : 0.8888          
-                 95% CI : (0.8728, 0.9035)
+               Accuracy : 0.8912          
+                 95% CI : (0.8753, 0.9057)
     No Information Rate : 0.4728          
     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
                                           
-                  Kappa : 0.8234          
+                  Kappa : 0.8274          
                                           
  Mcnemar's Test P-Value : NA              
 
 Statistics by Class:
 
                      Class: Burgundy Class: California Class: Casablanca_Valley
-Sensitivity                   0.9118            0.9532                 0.461538
-Specificity                   0.9902            0.8719                 1.000000
-Pos Pred Value                0.9394            0.8697                 1.000000
-Neg Pred Value                0.9854            0.9541                 0.991571
+Sensitivity                   0.9202            0.9507                 0.461538
+Specificity                   0.9902            0.8787                 1.000000
+Pos Pred Value                0.9399            0.8754                 1.000000
+Neg Pred Value                0.9868            0.9521                 0.991571
 Prevalence                    0.1423            0.4728                 0.015541
-Detection Rate                0.1297            0.4507                 0.007173
-Detection Prevalence          0.1381            0.5182                 0.007173
-Balanced Accuracy             0.9510            0.9126                 0.730769
+Detection Rate                0.1309            0.4495                 0.007173
+Detection Prevalence          0.1393            0.5134                 0.007173
+Balanced Accuracy             0.9552            0.9147                 0.730769
                      Class: Marlborough Class: New_York Class: Oregon
-Sensitivity                     0.48889       0.0384615        0.8793
-Specificity                     0.99939       1.0000000        0.9485
-Pos Pred Value                  0.95652       1.0000000        0.8924
-Neg Pred Value                  0.98606       0.9850478        0.9418
+Sensitivity                     0.48889       0.0384615        0.8867
+Specificity                     0.99939       1.0000000        0.9467
+Pos Pred Value                  0.95652       1.0000000        0.8899
+Neg Pred Value                  0.98606       0.9850478        0.9450
 Prevalence                      0.02690       0.0155409        0.3270
-Detection Rate                  0.01315       0.0005977        0.2875
-Detection Prevalence            0.01375       0.0005977        0.3222
-Balanced Accuracy               0.74414       0.5192308        0.9139</code></pre>
+Detection Rate                  0.01315       0.0005977        0.2899
+Detection Prevalence            0.01375       0.0005977        0.3258
+Balanced Accuracy               0.74414       0.5192308        0.9167</code></pre>
 </div>
 </div>
 </section>
@@ -439,235 +495,124 @@ Balanced Accuracy               0.74414       0.5192308        0.9139</code></pr
 <p>The kappa value of 0.82 for our random forest model signifies a high level of precision and accuracy, reflecting a very good agreement with the actual outcomes. This statistical measure, important for assessing classification model performance, confirms the model’s efficacy in predicting the correct class labels. Thus, with a kappa value of 0.82, the model demonstrates reliable predictive performance.</p>
 
 
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
-
 <style>
-
     /* Cookie Consent Banner Styling */
-
     .cookie-consent-banner {
-
       position: fixed;
-
       bottom: 0;
-
       width: 100%;
-
       background-color: #f7f7f9; /* Using $gray-200 from your theme */
-
       color: #1a1a1a; /* Using $primary ($gray-900) for contrast */
-
       padding: 1rem;
-
       text-align: center;
-
       z-index: 1000;
-
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-
     }
-
     
-
     .cookie-consent-banner button {
-
       margin-left: 1rem;
-
       background-color: #0073cf; /* Using $blue */
-
       color: #fff;
-
       border: none;
-
       padding: 0.5rem 1rem;
-
       border-radius: 0.25rem;
-
       cursor: pointer;
-
       font-size: 1rem;
-
       transition: background-color 0.3s ease;
-
     }
-
     
-
     /* Styling for the Deny button */
-
     .cookie-consent-banner button#deny-cookies {
-
       margin-left: 0.5rem;
-
       background-color: #ced4da; /* Using a gray tone similar to $gray-400 */
-
       color: #1a1a1a;
-
     }
-
     
-
     /* Optional hover effects */
-
     .cookie-consent-banner button:hover {
-
       opacity: 0.9;
-
     }
-
   </style>
-
   
-
   <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
-
     <span>This website uses Google Analytics to improve its functionality.</span>
-
     <button id="accept-cookies">Accept</button>
-
     <button id="deny-cookies">Deny</button>
-
   </div>
-
   
-
   <script>
-
     (function() {
-
       // Function to dynamically load Google Analytics and update consent mode.
-
       function loadGoogleAnalytics() {
-
         const gaScript = document.createElement('script');
-
         gaScript.async = true;
-
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN44V7BZHS";
-
         document.head.appendChild(gaScript);
-
         
-
         gaScript.onload = function() {
-
           window.dataLayer = window.dataLayer || [];
-
           function gtag(){ dataLayer.push(arguments); }
-
           
-
           // Update consent mode to grant storage upon acceptance.
-
           gtag('consent', 'update', {
-
             'analytics_storage': 'granted',
-
             'ad_storage': 'granted'
-
           });
-
           
-
           gtag('js', new Date());
-
           gtag('config', 'G-HN44V7BZHS');
-
         };
-
       }
-
     
-
       // Helper functions to get and set cookies.
-
       function getCookie(name) {
-
         const value = "; " + document.cookie;
-
         const parts = value.split("; " + name + "=");
-
         if (parts.length === 2) return parts.pop().split(";").shift();
-
       }
-
     
-
       function setCookie(name, value, days) {
-
         let expires = "";
-
         if (days) {
-
           const date = new Date();
-
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-
           expires = "; expires=" + date.toUTCString();
-
         }
-
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
-
       }
-
     
-
       document.addEventListener("DOMContentLoaded", function() {
-
         const consent = getCookie("cookie_consent");
-
         
-
         // If consent was previously given, load GA immediately; otherwise, show the banner.
-
         if (consent === "accepted") {
-
           loadGoogleAnalytics();
-
         } else {
-
           document.getElementById("cookie-consent-banner").style.display = "block";
-
         }
-
     
-
         // When the user accepts cookies...
-
         document.getElementById("accept-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "accepted", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           loadGoogleAnalytics();
-
         });
-
     
-
         // When the user denies cookies...
-
         document.getElementById("deny-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "denied", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           // Optionally, add logic to disable tracking.
-
         });
-
       });
-
     })();
-
   </script>
-
   
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -751,11 +696,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -861,6 +859,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1085,7 +1084,153 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Pinot Province Prediction"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Brian Cervantes Alvarez"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "03-01-2023"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Our project sets a new bar in wine origin identification, transforming how industry professionals use critic data."</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="an">teaser:</span><span class="co"> "Classifying wine origin with advanced data analysis and ML."</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["Machine Learning"]</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> /assets/images/pinot.jpeg</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT 4.5"</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "I developed a predictive Random Forest model to classify the province of wine origin using critic-provided descriptions, utilizing advanced text preprocessing and feature engineering techniques such as tokenization, stemming, and stop-word removal. Through hyperparameter tuning and cross-validation, I achieved a strong Kappa score of 82%, indicating high accuracy and reliability in predicting wine origins based on sensory descriptors. The project demonstrates my proficiency in NLP, machine learning model building, and rigorous evaluation methodologies."</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/pinot.jpeg)</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Purpose</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>The purpose of this project was to develop a predictive model for identifying the province of origin for wines based on descriptions provided by critics. To achieve this goal, a random forest model was built and evaluated for its performance, achieving a kappa score of 0.82. This project aimed to provide a useful tool for wine connoisseurs and industry professionals in identifying the origin of wines based on their sensory characteristics.</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setup</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="in">library(caret)</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="in">library(rpart)</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidytext)</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="in">library(SnowballC)</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feature Engineering</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>wine <span class="ot">=</span> <span class="fu">read_rds</span>(<span class="st">"../../../assets/datasets/pinot.rds"</span>) </span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>wine_words <span class="ot">&lt;-</span> <span class="cf">function</span>(df, j, <span class="at">stem =</span> T){ </span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data</span>(stop_words)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>  words <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest_tokens</span>(word, description) <span class="sc">%&gt;%</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(<span class="at">string =</span> word, <span class="at">pattern =</span> <span class="st">"[a-z+]"</span>)) <span class="sc">%&gt;%</span> <span class="co"># get rid weird non alphas </span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_length</span>(word) <span class="sc">&gt;=</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="co"># get rid of strings shorter than 3 characters </span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>(word <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"wine"</span>,<span class="st">"pinot"</span>, <span class="st">"vineyard"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">total=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(stem){</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>    words <span class="ot">&lt;-</span> words <span class="sc">%&gt;%</span> </span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">wordStem</span>(word))</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>  words <span class="ot">&lt;-</span> words <span class="sc">%&gt;%</span> </span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(id, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">exists =</span> (n<span class="sc">&gt;</span><span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>    ungroup <span class="sc">%&gt;%</span> </span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">total =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(total <span class="sc">&gt;</span> j) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> id,</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>                <span class="at">names_from =</span> word,</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> exists,</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_fill =</span> <span class="fu">list</span>(<span class="at">exists=</span><span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">right_join</span>(<span class="fu">select</span>(df,id,province)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>id) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>province, <span class="sc">~</span><span class="fu">replace_na</span>(.x, F)))</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>wino <span class="ot">&lt;-</span> <span class="fu">wine_words</span>(wine, <span class="at">j =</span> <span class="dv">190</span>, <span class="at">stem =</span> T)</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Specification</span></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">504</span>) </span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">3</span>)</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>wine_index <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(wino<span class="sc">$</span>province, <span class="at">p =</span> <span class="fl">0.80</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> wino[ wine_index, ]</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> wino[<span class="sc">-</span>wine_index, ]</span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">train</span>(province <span class="sc">~</span> .,</span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> train, </span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>             <span class="at">ntree =</span> <span class="dv">100</span>,</span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>             <span class="at">tuneLength =</span> <span class="dv">15</span>,</span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>             <span class="at">nodesize =</span> <span class="dv">10</span>,</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>             <span class="at">verbose =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>             <span class="at">trControl =</span> ctrl,</span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>             <span class="at">metric =</span> <span class="st">"Kappa"</span>)</span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Performance</span></span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a><span class="fu">confusionMatrix</span>(<span class="fu">predict</span>(fit, test),<span class="fu">factor</span>(test<span class="sc">$</span>province))</span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## Re-fit and evaluation</span></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1504</span>)</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>wine_index <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(wino<span class="sc">$</span>province, <span class="at">p =</span> <span class="fl">0.80</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> wino[ wine_index, ]</span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> wino[<span class="sc">-</span>wine_index, ]</span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a><span class="co"># example spec for knn</span></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>fit_final <span class="ot">&lt;-</span> <span class="fu">train</span>(province <span class="sc">~</span> .,</span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> train, </span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>             <span class="at">tuneGrid =</span> fit<span class="sc">$</span>bestTune) </span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="co"># The last line means we will fit a model using the best tune parameters your CV found above.</span></span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Model Performance</span></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a><span class="fu">confusionMatrix</span>(<span class="fu">predict</span>(fit_final, test),<span class="fu">factor</span>(test<span class="sc">$</span>province))</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>The kappa value of 0.82 for our random forest model signifies a high level of precision and accuracy, reflecting a very good agreement with the actual outcomes. This statistical measure, important for assessing classification model performance, confirms the model's efficacy in predicting the correct class labels. Thus, with a kappa value of 0.82, the model demonstrates reliable predictive performance.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

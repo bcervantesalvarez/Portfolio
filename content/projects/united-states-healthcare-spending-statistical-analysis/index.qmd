@@ -2,6 +2,7 @@
 title: "Healthcare Spending Analysis"  
 author: "Brian Cervantes Alvarez"
 date: "12-12-2022"
+date-modified: today
 description: "This report examines the surging healthcare costs in the U.S. from 1980 to 2014, revealing the factors behind its status as one of the world's most expensive countries for healthcare."
 teaser: "In-depth exploration of rising U.S. healthcare costs from 1980 to 2014."
 image: /assets/images/healthcareSpending.jpeg
@@ -11,16 +12,21 @@ nocite: |
   @*
 format:
   html:
+    code-fold: true
+    code-tools: true
     page-layout: article
     toc: true
     toc-location: right
     html-math-method: katex
-output: html_document
 execute:
   message: false
   warning: false
   echo: false
-code-fold: true
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I conducted a comprehensive statistical analysis of U.S. healthcare spending from 1980 to 2014, performing extensive data wrangling, visualization, and regional comparisons to uncover expenditure trends. My analysis revealed healthcare costs increased by over 500% nationally, with Personal Healthcare expenses alone rising from approximately $10,000 to nearly $80,000 per capita. Notably, significant regional disparities were identified, with spending in traditionally cheaper regions like New England, Plains, and Rocky Mountains still growing by 18%, highlighting persistent nationwide increases."
 ---
 
 

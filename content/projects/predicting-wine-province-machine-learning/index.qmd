@@ -2,22 +2,30 @@
 title: "Pinot Province Prediction"
 author: "Brian Cervantes Alvarez"
 date: "03-01-2023"
+date-modified: today
 description: "Our project sets a new bar in wine origin identification, transforming how industry professionals use critic data."
 teaser: "Classifying wine origin with advanced data analysis and ML."
 categories: ["Machine Learning"]
 image: /assets/images/pinot.jpeg
 format:
   html:
+    code-tools: true
+    code-fold: false
     toc: true
     toc-location: right
     html-math-method: katex
     page-layout: article
-output: html_document
-code-fold: false
 execute:
   warning: false
   message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I developed a predictive Random Forest model to classify the province of wine origin using critic-provided descriptions, utilizing advanced text preprocessing and feature engineering techniques such as tokenization, stemming, and stop-word removal. Through hyperparameter tuning and cross-validation, I achieved a strong Kappa score of 82%, indicating high accuracy and reliability in predicting wine origins based on sensory descriptors. The project demonstrates my proficiency in NLP, machine learning model building, and rigorous evaluation methodologies."
 ---
+
+
 
 
 ![](/assets/images/pinot.jpeg)

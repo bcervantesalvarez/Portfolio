@@ -4,15 +4,22 @@ author:
   - "Brian Cervantes Alvarez"
   - "Wylea Walker"
 date: '12-04-2024'
+date-modifed: today
 image: /assets/images/loan.png
 description: "This study examines key factors influencing loan approval using logistic regression and ANOVA on 32,581 simulated applications. Significant predictors include income, home ownership, and loan amount, with higher income increasing approval odds. Unexpected findings, like lower odds for higher credit scores, suggest potential model refinement. ANOVA further explores differences in interest rates and loan-to-income ratios across categories, offering practical insights for both lenders and applicants."
 format:
   html:
+    code-tools: true
     html-math-method: katex
     page-layout: full
 execute: 
   warning: false
   message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I conducted logistic regression analysis and ANOVA tests on 32,581 simulated loan applications to determine the key demographic and financial predictors influencing loan approvals. My logistic regression model achieved strong interpretability, revealing that higher income and renting significantly increased approval odds, while higher credit scores unexpectedly decreased approval likelihood; notably, multicollinearity was minimal with all VIF values below 5. ANOVA results highlighted statistically significant differences in loan interest rates across loan intents and loan-to-income percentages across home ownership statuses, providing actionable insights for refining lending practices."
 ---
 
 :::{.column-page}

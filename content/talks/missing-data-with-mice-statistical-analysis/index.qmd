@@ -2,15 +2,22 @@
 title: "Missing Data & Application of M.I.C.E."
 author: "Brian Cervantes Alvarez"
 date: '12-03-2024'
+date-modifed: today
 image: /assets/images/missing.png
 description: "Missing data is a common challenge in data analysis, affecting everything from accuracy to interpretability. This presentation explores how missing data arises, why it matters, and practical strategies to handle it effectively."
 format:
   html:
+    code-tools: true
     html-math-method: katex
     page-layout: full
 execute: 
   warning: false
   message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I explored the impact of missing data patterns (MCAR, MAR, MNAR) on regression analysis using Multiple Imputation by Chained Equations (MICE), a method that leverages relationships among variables to fill gaps. My analysis showed MICE effectively preserved data integrity and provided unbiased parameter estimates, even when missingness reached 70%. Evaluation metrics like Percent Bias, Coverage Rate, and RMSE confirmed MICE's statistical validity, highlighting its advantage over simpler imputation techniques."
 ---
 
 :::{.column-page}

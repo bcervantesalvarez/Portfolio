@@ -3,6 +3,7 @@ title: "Do You Like Stretching? I Would Reconsider!"
 author: "Brian Cervantes Alvarez"
 image: /assets/images/gymRat.jpeg
 date: "2-24-2023"
+date-modified: today
 description: "Stretching enhances flexibility but lacks muscle-building benefits. Weight training and resistance exercises stimulate muscle growth. Supplement, not substitute, for effective muscle building."
 bibliography: "bibliography.bib"
 nocite: |
@@ -10,6 +11,7 @@ nocite: |
 params:
 format:
   html:
+    code-tools: true
     toc: true
     toc-location: right
     html-math-method: katex
@@ -19,6 +21,11 @@ execute:
   warning: false
   message: false
 categories: [R, Data Visualization, Plotly]
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o3-mini-high"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I imported and cleaned a gym dataset using tidyverse to properly factorize variables, remove missing values, and prepare the data for analysis. I then computed mean workout ratings by exercise type and experience level and created interactive Plotly visualizations with a custom ggplot theme to rank these exercises. My analysis revealed that while stretching improves flexibility and reduces injury risk, it consistently ranks the lowest for muscle building compared to weight training, emphasizing its role as a supplementary activity."
 ---
 
 ![](/assets/images/gymRat.jpeg)

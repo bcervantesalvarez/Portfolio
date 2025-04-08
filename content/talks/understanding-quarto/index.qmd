@@ -2,15 +2,22 @@
 title: "Quarto 101"
 author: "Brian Cervantes Alvarez"
 date: "11-14-2023"
+date-modified: today
 description: "Why Quarto is the next tool in the line up"
 image: /assets/images/quartoLogo.jpeg
 format:
   html:
+    code-tools: true
     html-math-method: katex
     page-layout: full
 execute: 
   warning: false
   message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o1"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I created a dynamic Quarto presentation integrating code examples in R, Python, Julia, and ObservableJS, as well as embedded Shiny applications. I showcased the generation of multiple simulated datasets, multi-language FizzBuzz tabsets, and a serverless Shiny approach. This methodology emphasizes cross-language interoperability, reproducible workflows, and streamlined deployment for advanced data visualization."
 ---
 
 :::{.column-page}

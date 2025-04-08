@@ -2,69 +2,169 @@
 title: "Privacy Policy"
 format: 
   html:
+    code-tools: true
     include-in-header: 
       - text: |
           <script type="text/javascript" src="/assets/scripts/privacy/privacyForm.js"></script>
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o1"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "This policy details how personal and non-personal data is gathered, stored, and utilized on this site under a transparent, user-focused approach. Anonymous usage data helps improve navigation and content, while ensuring minimal disruption to your browsing. AI-assisted elements reflect thoughtful final edits, so if you're curious about the process or have concerns, you're encouraged to reach out."
 ---
 
 ```{=html}
-<!-- Standard Policy Sections -->
-<section class="container my-5 px-4 py-5 policy-section">
-  <h2 class="mb-4">My Website Policy</h2>
-  <p class="lead">Thank you for visiting my portfolio. I want to be fully transparent about how I collect and use information to keep improving the site.</p>
+<!-- Policy Container #1: Intro & Purpose -->
+<section class="policy-block policy-section">
+  <h2>My Website Policy</h2>
+  <p>
+    Thank you for visiting my portfolio. I want to be fully transparent about 
+    how I collect, store, and use information to keep improving the site.
+  </p>
+  <p>
+    The goal of this policy is to inform you about the nature of the data gathered, 
+    whether you choose to provide it directly (e.g., via contact forms) or it’s 
+    collected automatically (e.g., analytics). By clarifying these points, I 
+    hope you can navigate and enjoy the site with peace of mind.
+  </p>
 </section>
 
-<section class="container my-5 px-4 py-5 policy-section">
-  <h2 class="mb-3">Transparency</h2>
-  <p>Your privacy matters to me. This page outlines how this portfolio gathers data (automatically or provided by you) and how it’s used to enhance your experience.</p>
-  <hr class="my-4"/>
-  <p><strong>Scope:</strong> This policy applies solely to this website and doesn’t extend to any external links you may follow.</p>
+<!-- Policy Container #2: Transparency -->
+<section class="policy-block policy-section">
+  <h2>Transparency</h2>
+  <p>
+    Your privacy matters to me. This policy outlines how my portfolio gathers data—both
+    automatically (e.g., usage metrics) and voluntarily (e.g., you submitting a form).
+    It also covers how that information is used to enhance your experience.
+  </p>
+  <hr />
+  <p>
+    <strong>Scope:</strong> This policy applies solely to this website and doesn’t extend 
+    to external platforms or services you might access through hyperlinks. Once you leave 
+    this site, any interaction is bound by that external platform’s privacy rules.
+  </p>
 </section>
 
-<section class="container my-5 px-4 py-5 policy-section">
-  <h2 class="mb-3">What Data is Collected?</h2>
-  <ul class="list-disc list-inside">
-    <li><strong>Pages Visited:</strong> Which sections of the site people check out the most.</li>
-    <li><strong>Time Spent:</strong> How long users stay on individual pages.</li>
-    <li><strong>Browser &amp; Device Info:</strong> Basic data on your browser and device (desktop, tablet, or phone).</li>
+<!-- Policy Container #3: What Data is Collected? -->
+<section class="policy-block policy-section">
+  <h2>What Data Is Collected?</h2>
+  <p>
+    My data collection can be categorized into two types: anonymous usage data and optional 
+    personal data you choose to provide.
+  </p>
+  <ul>
+    <li>
+      <strong>Pages Visited:</strong> The specific pages you explore, helping me see 
+      which sections are popular or may need improvement.
+    </li>
+    <li>
+      <strong>Time Spent:</strong> Average duration on each page to gauge how engaging 
+      or valuable the content is.
+    </li>
+    <li>
+      <strong>Browser &amp; Device Info:</strong> Basic data about your device type, 
+      operating system, and browser—this helps me optimize layout and performance.
+    </li>
+    <li>
+      <strong>Voluntary Information:</strong> Anything you might type into forms, such as 
+      your name, email, or message content, if you contact me directly.
+    </li>
   </ul>
-  <p>Google Analytics is used to collect this information. No personally identifiable information (PII) is collected.</p>
+  <p>
+    Google Analytics is used to collect anonymous metrics. No personally identifiable 
+    information (PII) is automatically gathered by my analytics unless you voluntarily 
+    provide it (e.g., via contact forms).
+  </p>
 </section>
 
-<section class="container my-5 px-4 py-5 policy-section">
-  <h2 class="mb-3">How is This Data Used?</h2>
-  <p>I use anonymous usage data to figure out which parts of the site are most interesting or need improvement. For example:</p>
-  <ul class="list-disc list-inside">
-    <li>Refining navigation to make popular sections easier to find</li>
-    <li>Focusing on content that people spend more time reading</li>
+<!-- Policy Container #4: How Is This Data Used? -->
+<section class="policy-block policy-section">
+  <h2>How Is This Data Used?</h2>
+  <p>
+    I use anonymous usage data to understand which areas of the site resonate with
+    visitors. For example:
+  </p>
+  <ul>
+    <li>
+      Enhancing navigation so frequently visited sections are easier to access 
+      and explore
+    </li>
+    <li>
+      Creating or refining content in areas where users show high engagement 
+      or interest
+    </li>
+    <li>
+      Diagnosing performance bottlenecks or design issues on specific pages
+    </li>
   </ul>
-  <p>Your data isn’t sold or shared with outside parties beyond the analytics tools that process it for me.</p>
+  <p>
+    Your data is never sold or passed to third parties beyond the analytics 
+    processors that supply aggregated metrics. Where personal data is shared 
+    voluntarily, such as in a contact form, it’s strictly used to respond 
+    to your inquiries or feedback.
+  </p>
 </section>
 
-<section class="container my-5 px-4 py-5 policy-section">
-  <h2 class="mb-3">Cookie Usage</h2>
-  <p>Cookies are small files stored on your device to improve performance and gather anonymous metrics. By default, this site only uses cookies to track analytics. If you disable cookies, all features remain available, but analytics may not work as intended.</p>
+<!-- Policy Container #5: Cookie Usage -->
+<section class="policy-block policy-section">
+  <h2>Cookie Usage</h2>
+  <p>
+    Cookies are small data files stored on your device that enable better 
+    functionality and anonymous statistical analysis. By default, this site 
+    primarily employs cookies for analytics. If you choose to block cookies 
+    within your browser, the core features of the site will remain accessible, 
+    but certain analytics or performance enhancements may not function as intended.
+  </p>
+  <p>
+    Any cookies used here do not collect PII but rather facilitate session 
+    continuity and usage metrics. You remain in control: you can delete 
+    existing cookies or prevent new ones from being set at any time.
+  </p>
 </section>
 
-<section class="container my-5 px-4 py-5 policy-section">
-  <h2 class="mb-3">Your Choices</h2>
-  <p class="mb-2">Here’s how you can control data collection:</p>
-  <ul class="list-disc list-inside">
-    <li>Use the cookie consent banner to manage analytics preferences.</li>
-    <li>Install browser add-ons like <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out</a>.</li>
-    <li>Disable cookies in your browser settings if you’d prefer no tracking at all.</li>
+<!-- Policy Container #6: Your Choices -->
+<section class="policy-block policy-section">
+  <h2>Your Choices</h2>
+  <p>
+    You have several ways to manage your data and privacy preferences:
+  </p>
+  <ul>
+    <li>
+      <strong>Cookie Consent Banner:</strong> If provided, allows you to opt in 
+      or out of certain tracking.
+    </li>
+    <li>
+      <strong>Browser Extensions:</strong> 
+      <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">
+        Google Analytics Opt-out
+      </a> 
+      or similar tools can block analytics tracking.
+    </li>
+    <li>
+      <strong>Browser Settings:</strong> Adjust your settings to disable cookies 
+      altogether.
+    </li>
+    <li>
+      <strong>Personal Data Requests:</strong> If you submit personal info (like 
+      through a contact form), you can request its deletion or modification at 
+      any time by contacting me directly.
+    </li>
   </ul>
-  <p>These options ensure you’re in charge of what data is collected.</p>
+  <p>
+    I encourage you to choose whichever methods align best with your comfort 
+    level regarding data collection and personalization.
+  </p>
 </section>
 
 <!-- Contact Form Section -->
-<section class="container my-5 policy-section policy-form-section">
+<section class="policy-block policy-section policy-form-section">
   <h2 class="policy-form-heading">Contact Me</h2>
   <p class="policy-form-lead">
-    Got questions or feedback about how data is managed on this site? Fill out the form below to get in touch.
+    Got questions, concerns, or suggestions related to how data is managed 
+    on this site? Fill out the form below, and I’ll do my best to respond.
   </p>
   <p class="policy-form-lead">
-    Suggestions for improving this policy are always welcome!
+    Constructive feedback about improving this policy is always welcome!
   </p>
 
   <!-- Form with submission handled by external JavaScript -->
@@ -112,9 +212,9 @@ format:
       >
         <option value="">-- Select Your Profession --</option>
         <option value="Student">Student</option>
-        <option value="Professor">Professor</option>
+        <option value="Instructor/Professor">Instructor/Professor</option>
         <option value="Recruiter">Recruiter</option>
-        <option value="Data Scientist">Data Scientist</option>
+        <option value="Professional">Professional</option>
         <option value="Other">Other</option>
       </select>
     </div>
@@ -153,6 +253,4 @@ format:
     <div id="loadingMessage" style="display:none; margin-top:10px;">Please wait...</div>
   </form>
 </section>
-
-
 ```

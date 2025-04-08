@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,10 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -222,9 +220,18 @@ window.Quarto = {
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
   <ul class="collapse">
   <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
-  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering">Feature Engineering</a></li>
+  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering">Feature Engineering</a>
+  <ul class="collapse">
+  <li><a href="#features-explained" id="toc-features-explained" class="nav-link" data-scroll-target="#features-explained">Features Explained</a></li>
+  </ul></li>
   <li><a href="#random-forest-model" id="toc-random-forest-model" class="nav-link" data-scroll-target="#random-forest-model">Random Forest Model</a></li>
-  <li><a href="#metrics-explained" id="toc-metrics-explained" class="nav-link" data-scroll-target="#metrics-explained">Metrics Explained</a></li>
+  <li><a href="#metrics-explained" id="toc-metrics-explained" class="nav-link" data-scroll-target="#metrics-explained">Metrics Explained</a>
+  <ul class="collapse">
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
+  <li><a href="#roc-curve" id="toc-roc-curve" class="nav-link" data-scroll-target="#roc-curve">ROC Curve</a></li>
+  <li><a href="#recall-vs.-precision-curve" id="toc-recall-vs.-precision-curve" class="nav-link" data-scroll-target="#recall-vs.-precision-curve">Recall vs.&nbsp;Precision Curve</a></li>
+  <li><a href="#kappa" id="toc-kappa" class="nav-link" data-scroll-target="#kappa">Kappa</a></li>
+  </ul></li>
   <li><a href="#visualizing-random-forests-best-decision-tree" id="toc-visualizing-random-forests-best-decision-tree" class="nav-link" data-scroll-target="#visualizing-random-forests-best-decision-tree">Visualizing Random Forest’s Best Decision Tree</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
@@ -239,7 +246,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Symptom Severity Analysis</h1>
+<div class="quarto-title-block"><div><h1 class="title">Symptom Severity Analysis</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">Statistics</div>
   </div>
@@ -268,6 +275,12 @@ window.Quarto = {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 8, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -276,18 +289,68 @@ window.Quarto = {
 </header>
 
 
-<p><img src="../../..\assets/images/severity.jpeg" class="img-fluid"></p>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<style>
+.AI-Summary {
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+  max-width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.mini-banner .openai-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 1px;
+}
+.AI-Summary p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+</style>
+
+<div class="AI-Summary" markdown="1">
+  <div class="mini-banner">
+    <span class="left-banner">Yapper Labs | AI Summary</span>
+    <span class="right-banner">
+      <img src="../../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
+      Model: ChatGPT 4.5    </span>
+  </div>
+  <p>I conducted symptom-based severity prediction using a Random Forest model, performing exploratory analysis, strategic feature engineering, and comprehensive evaluations. I successfully classified patient severity into Mild, Moderate, and Severe categories, achieving strong model performance metrics (ROC AUC = 0.95, Recall = 90%, Precision = 91.3%, Kappa = 0.85). These results enable personalized healthcare strategies by providing clear classification rules based on symptoms.</p>
+</div>
+
+<p><img src="../../../assets/images/severity.jpeg" class="img-fluid"></p>
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
 <p>This paper presents a machine learning study that aims to predict severity levels in patients by utilizing a random forest approach based on symptom analysis. The objective of the study was to develop accurate rules for classifying patients into three severity levels: Mild, Moderate, and Severe. The dataset consisted of patient symptoms, which were used in conjunction with a random forest model for the classification task. The results indicated that patients with 1 to 3 symptoms, including depression, were classified as Mild, while those with at least 3 symptoms, including depression and cramps, were classified as Moderate. Patients with 4 symptoms, including cramps and spasms, were classified as Severe. The study conducted comprehensive evaluations using metrics such as the confusion matrix, ROC AUC, precision vs recall, and kappa to assess the performance of the random forest model. The results highlighted the promising performance of the model in accurately predicting severity levels among patients. The findings from this study provide robust evidence that can contribute to personalized healthcare and effective treatment planning.</p>
 </section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p>In the field of rare diseases, physicians often observe variations in the severity levels of patients; however, there is a lack of established guidelines to map individual patients directly to specific severity levels. Our client, who is developing a product for this rare disease, aims to target patients with moderate to severe conditions. To address this challenge, the client possesses a comprehensive database containing clinically relevant information about the disease, including symptom flags and a symptom count variable. Additionally, each patient in the database has been rated by a physician as mild, moderate, or severe. The client has approached [REDACTED] with the objective of extracting the mental heuristics employed by physicians when assigning severity labels to patients. The task at hand involves deriving simple rules (1-3 per severity level) from the database that can effectively classify patients. For instance, a set of rules might involve identifying patients as severe if they exhibit fatigue or have exactly two symptoms. By extracting these rules, our aim is to provide the client with a clearer understanding of the factors influencing severity levels in order to enhance their product development and enable more personalized patient care.</p>
 </section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<div id="ce298ed1" class="cell" data-execution_count="1">
+<section id="methodology" class="level1">
+<h1>Methodology</h1>
+<div id="c4dc56d2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the required libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd                 <span class="co"># Library for data manipulation and analysis</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np                  <span class="co"># Library for numerical computations</span></span>
@@ -496,9 +559,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="exploratory-data-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
-<div id="8f5eeedc" class="cell" data-execution_count="2">
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
+<div id="7e5371f6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic statistics of the dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ds.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -641,7 +704,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="55aabfc6" class="cell" data-execution_count="3">
+<div id="0fb7f3c3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distribution of the target variable 'Final Category'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ds[<span class="st">'Final Category'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
@@ -661,7 +724,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="e848306b" class="cell" data-execution_count="4">
+<div id="07c0576e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation matrix</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only numeric columns</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>numeric_ds <span class="op">=</span> ds.select_dtypes(include<span class="op">=</span><span class="st">'number'</span>)</span>
@@ -684,8 +747,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="feature-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="feature-engineering">Feature Engineering</h3>
+<section id="feature-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="feature-engineering">Feature Engineering</h2>
 <p>The code performs some data preprocessing and feature selection to prepare the data for a Random Forest model. Let’s go through each step:</p>
 <ol type="1">
 <li><p>Drop the ID column: The code removes a column named “Patient” from the dataset. This column likely contains unique identifiers for each patient, and since it’s not relevant for our analysis, we can safely remove it.</p></li>
@@ -698,7 +761,7 @@ window.Quarto = {
 <li><p>Print the top 3 features for each label: The code then prints the top three features for each category in the target variable. This information helps us understand which features are most influential in determining the predicted category.</p></li>
 </ol>
 <p>Overall, this code prepares the data by transforming categorical data into a suitable format and identifies the top features that contribute to predicting different categories. This sets the stage for further analysis and building the final machine learning model based on these selected features.</p>
-<div id="258a0a40" class="cell" data-execution_count="5">
+<div id="f31bf959" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the ID column</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Patient'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -754,15 +817,15 @@ window.Quarto = {
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
@@ -776,15 +839,15 @@ window.Quarto = {
 <td>1</td>
 <td>1</td>
 <td>0</td>
-<td>False</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
@@ -798,15 +861,15 @@ window.Quarto = {
 <td>1</td>
 <td>1</td>
 <td>0</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
@@ -820,15 +883,15 @@ window.Quarto = {
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
@@ -842,15 +905,15 @@ window.Quarto = {
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
@@ -864,15 +927,15 @@ window.Quarto = {
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
@@ -886,15 +949,15 @@ window.Quarto = {
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
@@ -908,15 +971,15 @@ window.Quarto = {
 <td>0</td>
 <td>1</td>
 <td>0</td>
-<td>False</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
@@ -930,15 +993,15 @@ window.Quarto = {
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>False</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
@@ -952,15 +1015,15 @@ window.Quarto = {
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
@@ -968,7 +1031,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="007a6d33" class="cell" data-execution_count="6">
+<div id="6e015cb7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the features (X) and the target variable (y)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> ds.drop(<span class="st">'Final Category'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'Final Category'</span>]</span>
@@ -1020,8 +1083,8 @@ Top 3 features for Moderate:
 </code></pre>
 </div>
 </div>
-<section id="features-explained" class="level4">
-<h4 class="anchored" data-anchor-id="features-explained">Features Explained</h4>
+<section id="features-explained" class="level3">
+<h3 class="anchored" data-anchor-id="features-explained">Features Explained</h3>
 <p>The feature selection process aims to identify the most important factors (features) that contribute to determining the severity of a patient’s condition. In this case, the severity levels are categorized as “Mild,” “Moderate,” and “Severe.” The top three features that were found to be most indicative for each severity level are as follows:</p>
 <p><strong>For patients rated as “Mild”:</strong></p>
 <ol type="1">
@@ -1068,8 +1131,8 @@ Top 3 features for Moderate:
 <p>In summary, the top features identified for each severity level provide insights into the specific symptoms and factors that contribute to determining the severity of a patient’s condition. By considering the presence or absence of these features, the model can make predictions about the severity rating of a patient’s condition, helping healthcare professionals assess the level of severity and provide appropriate care and treatment.</p>
 </section>
 </section>
-<section id="random-forest-model" class="level3">
-<h3 class="anchored" data-anchor-id="random-forest-model">Random Forest Model</h3>
+<section id="random-forest-model" class="level2">
+<h2 class="anchored" data-anchor-id="random-forest-model">Random Forest Model</h2>
 <p>The code performs machine learning tasks using a Random Forest model with the selected features from the earlier model. Let’s go through each step:</p>
 <ol type="1">
 <li><p>Separate the features (X) and the target variable (y) using only the top features: The code selects specific features from the dataset based on their importance in predicting the target variable. These features are obtained from the “top_features” dictionary, which contains the top three features for each category (Mild, Moderate, and Severe) in the target variable.</p></li>
@@ -1083,7 +1146,7 @@ Top 3 features for Moderate:
 <li><p>Calculate and print other evaluation metrics: The code calculates additional evaluation metrics such as ROC AUC score, recall, precision, and Kappa metric. These metrics help assess the model’s performance in terms of classification accuracy, sensitivity, precision, and agreement beyond chance.</p></li>
 </ol>
 <p>Overall, this code builds a Random Forest model using selected features, evaluates its performance through cross-validation, and provides insights into the model’s predictive capabilities using various evaluation metrics. The goal is to understand how well the model can predict the categories in the target variable based on the selected features.</p>
-<div id="c3bc19a8" class="cell" data-execution_count="7">
+<div id="d667dfbf" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the features (X) and the target variable (y) using only the top features</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> ds[top_features[<span class="st">'Mild'</span>] <span class="op">+</span> top_features[<span class="st">'Moderate'</span>] <span class="op">+</span> top_features[<span class="st">'Severe'</span>]]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'Final Category'</span>]</span>
@@ -1124,7 +1187,7 @@ Mean CV Score: 0.8933333333333333
 </code></pre>
 </div>
 </div>
-<div id="fdae0d63" class="cell" data-execution_count="8">
+<div id="48146813" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">87</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1175,11 +1238,11 @@ Kappa: 0.8493723849372385
 </div>
 </div>
 </section>
-<section id="metrics-explained" class="level3">
-<h3 class="anchored" data-anchor-id="metrics-explained">Metrics Explained</h3>
+<section id="metrics-explained" class="level2">
+<h2 class="anchored" data-anchor-id="metrics-explained">Metrics Explained</h2>
 <p>Let’s break down the provided metrics based on the given confusion matrix:</p>
-<section id="confusion-matrix" class="level4">
-<h4 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h4>
+<section id="confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
 <p>The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.</p>
 <p><span class="math display">
 \begin{array}{c|ccc}
@@ -1194,10 +1257,10 @@ Kappa: 0.8493723849372385
 <p>First, the number 18 in the first row and column indicates that the model correctly predicted 18 patients as “mild” which coincides with the actual “mild” severity label. Next, the number 4 in the first row and second column indicates that the model incorrectly predicted 4 patients as “moderate” when their actual severity rating was “mild.” Lastly, the number 0 in the first row and third column indicates that the model correctly predicted 0 patients as being “severe”, meaning that those patients were labeled correctly as “mild”.</p>
 <p>Similarly, the other numbers in the confusion matrix represent the model’s predictions for the other severity rating categories. Given that this was a dataset with only 300 patients, it is very intriguing that it can label each patient with high accuarcy.</p>
 </section>
-<section id="roc-curve" class="level4">
-<h4 class="anchored" data-anchor-id="roc-curve">ROC Curve</h4>
+<section id="roc-curve" class="level3">
+<h3 class="anchored" data-anchor-id="roc-curve">ROC Curve</h3>
 <p>Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model’s ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.948 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.</p>
-<div id="64f17f32" class="cell" data-execution_count="9">
+<div id="c5bcddc8" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate predicted probabilities for each class</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y_pred_proba <span class="op">=</span> rf_model.predict_proba(X_test)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1247,11 +1310,11 @@ Kappa: 0.8493723849372385
 </div>
 </div>
 </section>
-<section id="recall-vs.-precision-curve" class="level4">
-<h4 class="anchored" data-anchor-id="recall-vs.-precision-curve">Recall vs.&nbsp;Precision Curve</h4>
+<section id="recall-vs.-precision-curve" class="level3">
+<h3 class="anchored" data-anchor-id="recall-vs.-precision-curve">Recall vs.&nbsp;Precision Curve</h3>
 <p>Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.9 means that the model identified nearly 90.0% of the patients with their correct severity rating.</p>
 <p>Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.913 indicates that out of all the patients the model identified as having a specific severity rating, 91.3% of them were correct.</p>
-<div id="b2245cfe" class="cell" data-execution_count="10">
+<div id="8776422e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate precision and recall values for each class</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>precision, recall, thresholds <span class="op">=</span> precision_recall_curve(y_test, rf_model.predict_proba(X_test)[:, <span class="dv">1</span>], pos_label<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1275,15 +1338,15 @@ Kappa: 0.8493723849372385
 </div>
 </div>
 </section>
-<section id="kappa" class="level4">
-<h4 class="anchored" data-anchor-id="kappa">Kappa</h4>
+<section id="kappa" class="level3">
+<h3 class="anchored" data-anchor-id="kappa">Kappa</h3>
 <p>The Kappa statistic is a measure of agreement between the model’s predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.849 indicates a substantial level of agreement between the model’s predictions and the actual severity ratings, suggesting a reliable performance of the model.</p>
 <p>Overall, these metrics indicate that the model has performed well in predicting the severity ratings of the patients, with high accuracy, good distinction between severity levels, and substantial agreement with the actual severity ratings provided by physicians.</p>
 </section>
 </section>
-<section id="visualizing-random-forests-best-decision-tree" class="level3">
-<h3 class="anchored" data-anchor-id="visualizing-random-forests-best-decision-tree">Visualizing Random Forest’s Best Decision Tree</h3>
-<div id="ee870c24" class="cell" data-execution_count="11">
+<section id="visualizing-random-forests-best-decision-tree" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-random-forests-best-decision-tree">Visualizing Random Forest’s Best Decision Tree</h2>
+<div id="35f81881" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform 10-fold cross-validation</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf_model, X, y, cv<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1308,27 +1371,27 @@ Kappa: 0.8493723849372385
 </div>
 </section>
 </section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="results" class="level1">
+<h1>Results</h1>
 <ol type="1">
 <li><p>If a patient has between 1 to 3 symptoms, and one of those symptoms includes depression, they are classified as ‘Mild’.</p></li>
 <li><p>If a patient has at least 3 symptoms, and two of those symptoms are depression and cramps, they are classified as ‘Moderate’.</p></li>
 <li><p>Lastly, if a patient has 4 symptoms, and two of those symptoms are cramps and spasms, they are classified as ‘Severe’.</p></li>
 </ol>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
 <p>This study focused on predicting severity levels in patients with a rare disease using a random forest approach based on symptom analysis. The client’s goal was to map individual patients to appropriate severity levels, given the absence of established guidelines. By leveraging a comprehensive database containing clinically relevant information and severity ratings provided by physicians, we extracted simple rules to classify patients.</p>
 <p>The study revealed that patients with 1 to 3 symptoms, including depression, were classified as ‘Mild’. For patients with at least 3 symptoms, the presence of depression and cramps (at least 2 symptoms) indicated a classification of ‘Moderate’. Lastly, patients presenting with 4 symptoms, including cramps and spasms (at least 2 symptoms), were categorized as ‘Severe’.</p>
 <p>The derived rules provide valuable insights into the mental heuristics employed by physicians when assessing severity levels in patients. By incorporating these rules into the client’s product development, personalized healthcare targeting patients with moderate to severe disease can be enhanced. Furthermore, these findings contribute to filling the existing gap in severity level guidelines for this rare disease.</p>
 </section>
-<section id="further-research" class="level2">
-<h2 class="anchored" data-anchor-id="further-research">Further Research</h2>
+<section id="further-research" class="level1">
+<h1>Further Research</h1>
 <p>It is recommended to validate and refine these rules using larger datasets. By expanding the dataset, researchers can ensure the generalizability of the derived rules and improve the accuracy of the classification. Additionally, exploring additional factors that may influence severity levels, such as demographic information, medical history, or genetic markers, can provide a more comprehensive understanding of the disease and enhance the prediction models.</p>
 <p>By continuing to refine and validate the rules and incorporating more factors into the analysis, personalized treatment for patients with this rare disease can be further optimized, leading to improved patient outcomes. The combination of symptom analysis and machine learning approaches holds significant potential for facilitating accurate classification and personalized healthcare in various medical domains.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+<section id="references" class="level1">
+<h1>References</h1>
 <p><strong>Pandas:</strong> McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 445-451. [Link: https://conference.scipy.org/proceedings/scipy2010/mckinney.html]</p>
 <p><strong>NumPy:</strong> Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., … Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. [Link: https://www.nature.com/articles/s41586-020-2649-2]</p>
 <p><strong>Matplotlib:</strong> Hunter, J. D. (2007). Matplotlib: A 2D Graphics Environment. Computing in Science &amp; Engineering, 9(3), 90-95. [Link: https://ieeexplore.ieee.org/document/4160265]</p>
@@ -1336,235 +1399,124 @@ Kappa: 0.8493723849372385
 <p><strong>Scikit-learn:</strong> Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830. [Link: https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html]</p>
 
 
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
-
 <style>
-
     /* Cookie Consent Banner Styling */
-
     .cookie-consent-banner {
-
       position: fixed;
-
       bottom: 0;
-
       width: 100%;
-
       background-color: #f7f7f9; /* Using $gray-200 from your theme */
-
       color: #1a1a1a; /* Using $primary ($gray-900) for contrast */
-
       padding: 1rem;
-
       text-align: center;
-
       z-index: 1000;
-
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-
     }
-
     
-
     .cookie-consent-banner button {
-
       margin-left: 1rem;
-
       background-color: #0073cf; /* Using $blue */
-
       color: #fff;
-
       border: none;
-
       padding: 0.5rem 1rem;
-
       border-radius: 0.25rem;
-
       cursor: pointer;
-
       font-size: 1rem;
-
       transition: background-color 0.3s ease;
-
     }
-
     
-
     /* Styling for the Deny button */
-
     .cookie-consent-banner button#deny-cookies {
-
       margin-left: 0.5rem;
-
       background-color: #ced4da; /* Using a gray tone similar to $gray-400 */
-
       color: #1a1a1a;
-
     }
-
     
-
     /* Optional hover effects */
-
     .cookie-consent-banner button:hover {
-
       opacity: 0.9;
-
     }
-
   </style>
-
   
-
   <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
-
     <span>This website uses Google Analytics to improve its functionality.</span>
-
     <button id="accept-cookies">Accept</button>
-
     <button id="deny-cookies">Deny</button>
-
   </div>
-
   
-
   <script>
-
     (function() {
-
       // Function to dynamically load Google Analytics and update consent mode.
-
       function loadGoogleAnalytics() {
-
         const gaScript = document.createElement('script');
-
         gaScript.async = true;
-
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN44V7BZHS";
-
         document.head.appendChild(gaScript);
-
         
-
         gaScript.onload = function() {
-
           window.dataLayer = window.dataLayer || [];
-
           function gtag(){ dataLayer.push(arguments); }
-
           
-
           // Update consent mode to grant storage upon acceptance.
-
           gtag('consent', 'update', {
-
             'analytics_storage': 'granted',
-
             'ad_storage': 'granted'
-
           });
-
           
-
           gtag('js', new Date());
-
           gtag('config', 'G-HN44V7BZHS');
-
         };
-
       }
-
     
-
       // Helper functions to get and set cookies.
-
       function getCookie(name) {
-
         const value = "; " + document.cookie;
-
         const parts = value.split("; " + name + "=");
-
         if (parts.length === 2) return parts.pop().split(";").shift();
-
       }
-
     
-
       function setCookie(name, value, days) {
-
         let expires = "";
-
         if (days) {
-
           const date = new Date();
-
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-
           expires = "; expires=" + date.toUTCString();
-
         }
-
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
-
       }
-
     
-
       document.addEventListener("DOMContentLoaded", function() {
-
         const consent = getCookie("cookie_consent");
-
         
-
         // If consent was previously given, load GA immediately; otherwise, show the banner.
-
         if (consent === "accepted") {
-
           loadGoogleAnalytics();
-
         } else {
-
           document.getElementById("cookie-consent-banner").style.display = "block";
-
         }
-
     
-
         // When the user accepts cookies...
-
         document.getElementById("accept-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "accepted", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           loadGoogleAnalytics();
-
         });
-
     
-
         // When the user denies cookies...
-
         document.getElementById("deny-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "denied", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           // Optionally, add logic to disable tracking.
-
         });
-
       });
-
     })();
-
   </script>
-
   
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1648,11 +1600,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1758,6 +1763,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1982,7 +1988,521 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Symptom Severity Analysis"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Brian Cervantes Alvarez"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "06-26-2023"</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Using symptom analysis, this study employs a Random Forest approach to predict severity levels in patients, aiming to enhance healthcare decision-making."</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="an">teaser:</span><span class="co"> "Exploring patient symptom data for improved healthcare insights."</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["Statistics"]</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT 4.5"</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "I conducted symptom-based severity prediction using a Random Forest model, performing exploratory analysis, strategic feature engineering, and comprehensive evaluations. I successfully classified patient severity into Mild, Moderate, and Severe categories, achieving strong model performance metrics (ROC AUC = 0.95, Recall = 90%, Precision = 91.3%, Kappa = 0.85). These results enable personalized healthcare strategies by providing clear classification rules based on symptoms."</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> /assets/images/severity.jpeg</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co">    include-in-header: </span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">      - text: |</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/severity.jpeg)</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># Abstract</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>This paper presents a machine learning study that aims to predict severity levels in patients by utilizing a random forest approach based on symptom analysis. The objective of the study was to develop accurate rules for classifying patients into three severity levels: Mild, Moderate, and Severe. The dataset consisted of patient symptoms, which were used in conjunction with a random forest model for the classification task. The results indicated that patients with 1 to 3 symptoms, including depression, were classified as Mild, while those with at least 3 symptoms, including depression and cramps, were classified as Moderate. Patients with 4 symptoms, including cramps and spasms, were classified as Severe. The study conducted comprehensive evaluations using metrics such as the confusion matrix, ROC AUC, precision vs recall, and kappa to assess the performance of the random forest model. The results highlighted the promising performance of the model in accurately predicting severity levels among patients. The findings from this study provide robust evidence that can contribute to personalized healthcare and effective treatment planning.</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>In the field of rare diseases, physicians often observe variations in the severity levels of patients; however, there is a lack of established guidelines to map individual patients directly to specific severity levels. Our client, who is developing a product for this rare disease, aims to target patients with moderate to severe conditions. To address this challenge, the client possesses a comprehensive database containing clinically relevant information about the disease, including symptom flags and a symptom count variable. Additionally, each patient in the database has been rated by a physician as mild, moderate, or severe. The client has approached <span class="co">[</span><span class="ot">REDACTED</span><span class="co">]</span> with the objective of extracting the mental heuristics employed by physicians when assigning severity labels to patients. The task at hand involves deriving simple rules (1-3 per severity level) from the database that can effectively classify patients. For instance, a set of rules might involve identifying patients as severe if they exhibit fatigue or have exactly two symptoms. By extracting these rules, our aim is to provide the client with a clearer understanding of the factors influencing severity levels in order to enhance their product development and enable more personalized patient care.</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Methodology</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the required libraries</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd                 <span class="co"># Library for data manipulation and analysis</span></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np                  <span class="co"># Library for numerical computations</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt     <span class="co"># Library for data visualization</span></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Machine Learning libraries</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree            <span class="co"># Library for decision tree models</span></span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier  <span class="co"># Library for random forest models</span></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> (</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>  cross_val_score,                   <span class="co"># Library for cross-validation</span></span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>  train_test_split,</span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a>  GridSearchCV</span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a>)  </span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder      <span class="co"># Library for label encoding</span></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (                        <span class="co"># Library for model evaluation metrics</span></span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a>    confusion_matrix,                                <span class="co"># Confusion matrix</span></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a>    roc_auc_score,                                   <span class="co"># ROC AUC score</span></span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a>    roc_curve,                                       <span class="co"># ROC Curve plot</span></span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a>    recall_score,                                    <span class="co"># Recall score</span></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a>    precision_score,                                 <span class="co"># Precision score</span></span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>    precision_recall_curve,                          <span class="co"># Recall vs. Precision Curve</span></span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a>    cohen_kappa_score                                <span class="co"># Cohen's kappa score</span></span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.read_csv(<span class="st">"../../../assets/datasets/severityLevels.csv"</span>)  </span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)  <span class="co"># Display the first 10 rows of the dataset</span></span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory Data Analysis</span></span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic statistics of the dataset</span></span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a>ds.describe()</span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distribution of the target variable 'Final Category'</span></span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a>ds[<span class="st">'Final Category'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Symptom Category'</span>)</span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Number of Cases'</span>)</span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Final Category'</span>)</span>
+<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Set rotation to 0 degrees for horizontal x-axis labels</span></span>
+<span id="cb15-97"><a href="#cb15-97" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-103"><a href="#cb15-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-106"><a href="#cb15-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-107"><a href="#cb15-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation matrix</span></span>
+<span id="cb15-108"><a href="#cb15-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only numeric columns</span></span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a>numeric_ds <span class="op">=</span> ds.select_dtypes(include<span class="op">=</span><span class="st">'number'</span>)</span>
+<span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the correlation matrix</span></span>
+<span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> numeric_ds.corr()</span>
+<span id="cb15-113"><a href="#cb15-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-114"><a href="#cb15-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the correlation matrix</span></span>
+<span id="cb15-115"><a href="#cb15-115" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb15-116"><a href="#cb15-116" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Correlation Matrix'</span>)</span>
+<span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feature Engineering</span></span>
+<span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a>The code performs some data preprocessing and feature selection to prepare the data for a Random Forest model. Let's go through each step:</span>
+<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Drop the ID column: The code removes a column named "Patient" from the dataset. This column likely contains unique identifiers for each patient, and since it's not relevant for our analysis, we can safely remove it.</span>
+<span id="cb15-129"><a href="#cb15-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-130"><a href="#cb15-130" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create dummy columns for "Number of Symptoms": The code converts a column called "Number of Symptoms" into multiple binary columns, known as dummy variables. Each dummy variable represents a unique value in the original column. This transformation helps us to use categorical data in our machine learning model.</span>
+<span id="cb15-131"><a href="#cb15-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-132"><a href="#cb15-132" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Concatenate the dummy columns with the original dataframe: The code combines the newly created dummy columns with the original dataset. This ensures that we retain all the existing information while incorporating the transformed categorical data.</span>
+<span id="cb15-133"><a href="#cb15-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-134"><a href="#cb15-134" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Drop the original "Number of Symptoms" column: Since we have created the dummy columns, we no longer need the original "Number of Symptoms" column. Therefore, the code removes this column from the dataset.</span>
+<span id="cb15-135"><a href="#cb15-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-136"><a href="#cb15-136" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Separate the features (X) and the target variable (y): The code splits the dataset into two parts. The features, represented by the variable X, contain all the columns except the "Final Category" column, which is the target variable we want to predict. The target variable, represented by the variable y, contains only the "Final Category" column. This is the severity cases of 'Mild', 'Moderate' and 'Severe'</span>
+<span id="cb15-137"><a href="#cb15-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-138"><a href="#cb15-138" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Perform feature selection using Random Forest: The code utilizes a machine learning algorithm called Random Forest to identify the most important features for each category in the target variable. It trains a separate Random Forest model for each category and determines the top three features that contribute the most to predicting that category.</span>
+<span id="cb15-139"><a href="#cb15-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-140"><a href="#cb15-140" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Store the top features for each category: The code stores the top three features for each category in a dictionary called "top_features." Each category is represented by a label, and the corresponding top features are stored as a list.</span>
+<span id="cb15-141"><a href="#cb15-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-142"><a href="#cb15-142" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Print the top 3 features for each label: The code then prints the top three features for each category in the target variable. This information helps us understand which features are most influential in determining the predicted category.</span>
+<span id="cb15-143"><a href="#cb15-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-144"><a href="#cb15-144" aria-hidden="true" tabindex="-1"></a>Overall, this code prepares the data by transforming categorical data into a suitable format and identifies the top features that contribute to predicting different categories. This sets the stage for further analysis and building the final machine learning model based on these selected features.</span>
+<span id="cb15-145"><a href="#cb15-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-146"><a href="#cb15-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-149"><a href="#cb15-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-150"><a href="#cb15-150" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the ID column</span></span>
+<span id="cb15-151"><a href="#cb15-151" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Patient'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-152"><a href="#cb15-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-153"><a href="#cb15-153" aria-hidden="true" tabindex="-1"></a><span class="co"># Create dummy columns from the "Number of Symptoms" column</span></span>
+<span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a>dummy_cols <span class="op">=</span> pd.get_dummies(ds[<span class="st">'Number of Symptoms'</span>], prefix<span class="op">=</span><span class="st">'Symptom'</span>)</span>
+<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate the dummy columns with the original dataframe</span></span>
+<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> pd.concat([ds, dummy_cols], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original "Number of Symptoms" column</span></span>
+<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a>ds.drop(<span class="st">'Number of Symptoms'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a>ds.head(<span class="dv">10</span>)</span>
+<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the features (X) and the target variable (y)</span></span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> ds.drop(<span class="st">'Final Category'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'Final Category'</span>]</span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a dictionary to store top features per label</span></span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a>top_features <span class="op">=</span> {}</span>
+<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform feature selection for each label</span></span>
+<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label <span class="kw">in</span> y_train.unique():</span>
+<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Encode the target variable for the current label</span></span>
+<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a>    y_label_train <span class="op">=</span> (y_train <span class="op">==</span> label).astype(<span class="bu">int</span>)</span>
+<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a>    y_label_test <span class="op">=</span> (y_test <span class="op">==</span> label).astype(<span class="bu">int</span>)</span>
+<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a Random Forest model</span></span>
+<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a>    rf_model <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">60</span>)</span>
+<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Train the model</span></span>
+<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a>    rf_model.fit(X_train, y_label_train)</span>
+<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-191"><a href="#cb15-191" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get feature importances</span></span>
+<span id="cb15-192"><a href="#cb15-192" aria-hidden="true" tabindex="-1"></a>    feature_importances <span class="op">=</span> rf_model.feature_importances_</span>
+<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sort features by importance in descending order</span></span>
+<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a>    sorted_features <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">zip</span>(X_train.columns, feature_importances), key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-196"><a href="#cb15-196" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-197"><a href="#cb15-197" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the top 3 features for the current label</span></span>
+<span id="cb15-198"><a href="#cb15-198" aria-hidden="true" tabindex="-1"></a>    selected_features <span class="op">=</span> [feature <span class="cf">for</span> feature, _ <span class="kw">in</span> sorted_features[:<span class="dv">3</span>]]</span>
+<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the top features for the current label</span></span>
+<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a>    top_features[label] <span class="op">=</span> selected_features</span>
+<span id="cb15-202"><a href="#cb15-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-203"><a href="#cb15-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the top 3 features for each label</span></span>
+<span id="cb15-204"><a href="#cb15-204" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> label, features <span class="kw">in</span> top_features.items():</span>
+<span id="cb15-205"><a href="#cb15-205" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Top 3 features for </span><span class="sc">{</span>label<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(features)</span>
+<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span>
+<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### Features Explained</span></span>
+<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a>The feature selection process aims to identify the most important factors (features) that contribute to determining the severity of a patient's condition. In this case, the severity levels are categorized as "Mild," "Moderate," and "Severe." The top three features that were found to be most indicative for each severity level are as follows:</span>
+<span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a>**For patients rated as "Mild":**</span>
+<span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Has 1 symptom:**</span>
+<span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a>This feature indicates the presence of a specific symptom (let's say, symptom X) that is associated with a mild severity rating. If a patient has symptom X, it suggests a higher likelihood of being classified as "Mild."</span>
+<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Depression:** </span>
+<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a>This feature refers to the presence or absence of depression symptoms in the patient. The presence of depression symptoms is considered important in determining a mild severity rating.</span>
+<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-224"><a href="#cb15-224" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Has 3 symptoms:** </span>
+<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a>This feature represents the presence of 3 symptoms (let's call them symptoms A,B,C) that are associated with a mild severity rating. If a patient has symptoms A,B,C, it suggests a higher likelihood of being classified as "Mild."</span>
+<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>Given this information, it can be recommended that a threshold is established. It can be inferred that if a patient has 1-3 symptoms and/or has depression, they can be classified as "Mild." This is addressed with the model later in the study.</span>
+<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a>**For patients rated as "Moderate":**</span>
+<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Has 3 symptoms:** </span>
+<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a>This feature represents the presence of 3 symptoms (let's call them symptoms A,B,C again) that are associated with a moderate severity rating. If a patient has symptoms A,B,C, it suggests a higher likelihood of being classified as "Moderate." </span>
+<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-236"><a href="#cb15-236" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Depression:** </span>
+<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a>The presence or absence of depression symptoms also plays a role in determining a moderate severity rating.</span>
+<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Cramps:** </span>
+<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a>This feature represents the presence or absence of cramps in the patient. The presence of cramps is considered important in predicting a moderate severity rating.</span>
+<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>Given this information, another threshold can be established. It can be inferred that if a patient has at least 3 symptoms and/or has depression and/or cramps, they can be classified as "Moderate." This is addressed with the model later in the study.</span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>**For patients rated as "Severe":**</span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Cramps:** </span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>This feature indicates the presence or absence of cramps, which is associated with a severe severity rating. If a patient has cramps, it suggests a higher likelihood of being classified as "Severe."</span>
+<span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Spasms:** </span>
+<span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-254"><a href="#cb15-254" aria-hidden="true" tabindex="-1"></a>This feature refers to the presence or absence of muscle spasms in the patient. The presence of spasms is considered important in predicting a severe severity rating.</span>
+<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Has 4 symptoms:** </span>
+<span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-258"><a href="#cb15-258" aria-hidden="true" tabindex="-1"></a>This feature represents the presence of symptoms (let's call it symptoms A,B,C,D) that are associated with a severe severity rating. If a patient has symptoms , it suggests a higher likelihood of being classified as "Severe."</span>
+<span id="cb15-259"><a href="#cb15-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-260"><a href="#cb15-260" aria-hidden="true" tabindex="-1"></a>Given this information, a last threshold can be established. It can be inferred that if a patient has at least 4 symptoms and/or has cramps and/or spasms, they can be classified as "Severe." This is addressed with the model later in the study.</span>
+<span id="cb15-261"><a href="#cb15-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-262"><a href="#cb15-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-263"><a href="#cb15-263" aria-hidden="true" tabindex="-1"></a>In summary, the top features identified for each severity level provide insights into the specific symptoms and factors that contribute to determining the severity of a patient's condition. By considering the presence or absence of these features, the model can make predictions about the severity rating of a patient's condition, helping healthcare professionals assess the level of severity and provide appropriate care and treatment.</span>
+<span id="cb15-264"><a href="#cb15-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-265"><a href="#cb15-265" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random Forest Model</span></span>
+<span id="cb15-266"><a href="#cb15-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-267"><a href="#cb15-267" aria-hidden="true" tabindex="-1"></a>The code performs machine learning tasks using a Random Forest model with the selected features from the earlier model. Let's go through each step:</span>
+<span id="cb15-268"><a href="#cb15-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-269"><a href="#cb15-269" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Separate the features (X) and the target variable (y) using only the top features: The code selects specific features from the dataset based on their importance in predicting the target variable. These features are obtained from the "top_features" dictionary, which contains the top three features for each category (Mild, Moderate, and Severe) in the target variable.</span>
+<span id="cb15-270"><a href="#cb15-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-271"><a href="#cb15-271" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Encode the target variable using label encoding: The target variable "Final Category" is a categorical variable. To use it in the machine learning model, we need to convert it into numeric form. The code uses label encoding, which assigns a unique numeric value to each category in the target variable.</span>
+<span id="cb15-272"><a href="#cb15-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-273"><a href="#cb15-273" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Create a random forest model using the top features: The code initializes a Random Forest model with a specific random state. Random Forest is an ensemble learning algorithm that combines multiple decision trees to make predictions.</span>
+<span id="cb15-274"><a href="#cb15-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-275"><a href="#cb15-275" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Perform 10-fold cross-validation: The code evaluates the performance of the Random Forest model using a technique called cross-validation. Cross-validation helps estimate how well the model will generalize to new, unseen data. In this case, 10-fold cross-validation is performed, which means the dataset is divided into 10 equal parts (folds). The model is trained and tested 10 times, with each fold serving as the test set once.</span>
+<span id="cb15-276"><a href="#cb15-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-277"><a href="#cb15-277" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Print the cross-validation scores: The code prints the cross-validation scores obtained from each fold. These scores indicate how well the model performed on each fold. Additionally, the mean cross-validation score is calculated, which provides an overall measure of the model's performance.</span>
+<span id="cb15-278"><a href="#cb15-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-279"><a href="#cb15-279" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Train the model: The code trains the Random Forest model using all the available data, as specified by the features (X) and target variable (y).</span>
+<span id="cb15-280"><a href="#cb15-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-281"><a href="#cb15-281" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Make predictions on the training set: The code uses the trained model to make predictions on the same dataset that was used for training. This helps evaluate how well the model can predict the target variable for the given features.</span>
+<span id="cb15-282"><a href="#cb15-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-283"><a href="#cb15-283" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Print the confusion matrix: The code prints a confusion matrix, which is a table that shows the number of correct and incorrect predictions made by the model. It provides insights into the model's performance for each category in the target variable.</span>
+<span id="cb15-284"><a href="#cb15-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-285"><a href="#cb15-285" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Calculate and print other evaluation metrics: The code calculates additional evaluation metrics such as ROC AUC score, recall, precision, and Kappa metric. These metrics help assess the model's performance in terms of classification accuracy, sensitivity, precision, and agreement beyond chance.</span>
+<span id="cb15-286"><a href="#cb15-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-287"><a href="#cb15-287" aria-hidden="true" tabindex="-1"></a>Overall, this code builds a Random Forest model using selected features, evaluates its performance through cross-validation, and provides insights into the model's predictive capabilities using various evaluation metrics. The goal is to understand how well the model can predict the categories in the target variable based on the selected features.</span>
+<span id="cb15-288"><a href="#cb15-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-291"><a href="#cb15-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-292"><a href="#cb15-292" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the features (X) and the target variable (y) using only the top features</span></span>
+<span id="cb15-293"><a href="#cb15-293" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> ds[top_features[<span class="st">'Mild'</span>] <span class="op">+</span> top_features[<span class="st">'Moderate'</span>] <span class="op">+</span> top_features[<span class="st">'Severe'</span>]]</span>
+<span id="cb15-294"><a href="#cb15-294" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> ds[<span class="st">'Final Category'</span>]</span>
+<span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode the target variable using label encoding</span></span>
+<span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> label_encoder.fit_transform(y)</span>
+<span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a random forest model</span></span>
+<span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a>rf_model <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">60</span>)</span>
+<span id="cb15-302"><a href="#cb15-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-303"><a href="#cb15-303" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameter grid for hyperparameter optimization</span></span>
+<span id="cb15-304"><a href="#cb15-304" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb15-305"><a href="#cb15-305" aria-hidden="true" tabindex="-1"></a>    <span class="st">'max_depth'</span>: [<span class="va">None</span>],</span>
+<span id="cb15-306"><a href="#cb15-306" aria-hidden="true" tabindex="-1"></a>    <span class="st">'min_samples_leaf'</span>: [<span class="dv">4</span>],</span>
+<span id="cb15-307"><a href="#cb15-307" aria-hidden="true" tabindex="-1"></a>    <span class="st">'min_samples_split'</span>: [<span class="dv">2</span>],</span>
+<span id="cb15-308"><a href="#cb15-308" aria-hidden="true" tabindex="-1"></a>    <span class="st">'n_estimators'</span>: [<span class="dv">100</span>]</span>
+<span id="cb15-309"><a href="#cb15-309" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-310"><a href="#cb15-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-311"><a href="#cb15-311" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform hyperparameter optimization using grid search and 10-fold cross-validation</span></span>
+<span id="cb15-312"><a href="#cb15-312" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(rf_model, param_grid, cv<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb15-313"><a href="#cb15-313" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X, y)</span>
+<span id="cb15-314"><a href="#cb15-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-315"><a href="#cb15-315" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the best random forest model with optimized hyperparameters</span></span>
+<span id="cb15-316"><a href="#cb15-316" aria-hidden="true" tabindex="-1"></a>rf_model <span class="op">=</span> grid_search.best_estimator_</span>
+<span id="cb15-317"><a href="#cb15-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-318"><a href="#cb15-318" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform 10-fold cross-validation with the optimized model</span></span>
+<span id="cb15-319"><a href="#cb15-319" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf_model, X, y, cv<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb15-320"><a href="#cb15-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-321"><a href="#cb15-321" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the cross-validation scores</span></span>
+<span id="cb15-322"><a href="#cb15-322" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cross-Validation Scores:"</span>, cv_scores)</span>
+<span id="cb15-323"><a href="#cb15-323" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean CV Score:"</span>, cv_scores.mean())</span>
+<span id="cb15-324"><a href="#cb15-324" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-325"><a href="#cb15-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-326"><a href="#cb15-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">87</span>)</span>
+<span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a>rf_model.fit(X_train, y_train)</span>
+<span id="cb15-335"><a href="#cb15-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set</span></span>
+<span id="cb15-337"><a href="#cb15-337" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> rf_model.predict(X_test)</span>
+<span id="cb15-338"><a href="#cb15-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-339"><a href="#cb15-339" aria-hidden="true" tabindex="-1"></a><span class="co"># Print confusion matrix</span></span>
+<span id="cb15-340"><a href="#cb15-340" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Confusion Matrix:"</span>)</span>
+<span id="cb15-341"><a href="#cb15-341" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(confusion_matrix(y_test, y_pred))</span>
+<span id="cb15-342"><a href="#cb15-342" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-343"><a href="#cb15-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-344"><a href="#cb15-344" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print ROC AUC score</span></span>
+<span id="cb15-345"><a href="#cb15-345" aria-hidden="true" tabindex="-1"></a>roc_auc <span class="op">=</span> roc_auc_score(y_test, rf_model.predict_proba(X_test), multi_class<span class="op">=</span><span class="st">'ovr'</span>)</span>
+<span id="cb15-346"><a href="#cb15-346" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ROC AUC:"</span>, roc_auc)</span>
+<span id="cb15-347"><a href="#cb15-347" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-348"><a href="#cb15-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-349"><a href="#cb15-349" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print recall score</span></span>
+<span id="cb15-350"><a href="#cb15-350" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb15-351"><a href="#cb15-351" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Recall:"</span>, recall)</span>
+<span id="cb15-352"><a href="#cb15-352" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-353"><a href="#cb15-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-354"><a href="#cb15-354" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print precision score</span></span>
+<span id="cb15-355"><a href="#cb15-355" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb15-356"><a href="#cb15-356" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Precision:"</span>, precision)</span>
+<span id="cb15-357"><a href="#cb15-357" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-358"><a href="#cb15-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-359"><a href="#cb15-359" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and print Kappa metric</span></span>
+<span id="cb15-360"><a href="#cb15-360" aria-hidden="true" tabindex="-1"></a>kappa <span class="op">=</span> cohen_kappa_score(y_test, y_pred)</span>
+<span id="cb15-361"><a href="#cb15-361" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Kappa:"</span>, kappa)</span>
+<span id="cb15-362"><a href="#cb15-362" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-363"><a href="#cb15-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-364"><a href="#cb15-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-365"><a href="#cb15-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-366"><a href="#cb15-366" aria-hidden="true" tabindex="-1"></a><span class="fu">## Metrics Explained</span></span>
+<span id="cb15-367"><a href="#cb15-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-368"><a href="#cb15-368" aria-hidden="true" tabindex="-1"></a>Let's break down the provided metrics based on the given confusion matrix:</span>
+<span id="cb15-369"><a href="#cb15-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-370"><a href="#cb15-370" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confusion Matrix</span></span>
+<span id="cb15-371"><a href="#cb15-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-372"><a href="#cb15-372" aria-hidden="true" tabindex="-1"></a>The confusion matrix is a table that helps us understand the performance of a classification model. It shows the predicted labels versus the actual labels for each class. In this case, the confusion matrix has three rows and three columns, representing the three severity rating categories. In this case, since I set the test set to be 20% of the sample of 300, there is 60 total patients that were randomly tested.</span>
+<span id="cb15-373"><a href="#cb15-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-374"><a href="#cb15-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-375"><a href="#cb15-375" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb15-376"><a href="#cb15-376" aria-hidden="true" tabindex="-1"></a>\begin{array}{c|ccc}</span>
+<span id="cb15-377"><a href="#cb15-377" aria-hidden="true" tabindex="-1"></a>&amp; {\text{Actual}} <span class="sc">\\</span> </span>
+<span id="cb15-378"><a href="#cb15-378" aria-hidden="true" tabindex="-1"></a>\text{Predicted} &amp; \text{Mild} &amp; \text{Moderate} &amp; \text{Severe} <span class="sc">\\</span></span>
+<span id="cb15-379"><a href="#cb15-379" aria-hidden="true" tabindex="-1"></a>\hline</span>
+<span id="cb15-380"><a href="#cb15-380" aria-hidden="true" tabindex="-1"></a>\text{Mild} &amp; 18 &amp; 4 &amp; 0 <span class="sc">\\</span></span>
+<span id="cb15-381"><a href="#cb15-381" aria-hidden="true" tabindex="-1"></a>\text{Moderate} &amp; 0 &amp; 20 &amp; 1 <span class="sc">\\</span></span>
+<span id="cb15-382"><a href="#cb15-382" aria-hidden="true" tabindex="-1"></a>\text{Severe} &amp; 0 &amp; 1 &amp; 16 <span class="sc">\\</span></span>
+<span id="cb15-383"><a href="#cb15-383" aria-hidden="true" tabindex="-1"></a>\end{array}</span>
+<span id="cb15-384"><a href="#cb15-384" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb15-385"><a href="#cb15-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-386"><a href="#cb15-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-387"><a href="#cb15-387" aria-hidden="true" tabindex="-1"></a>First, the number 18 in the first row and column indicates that the model correctly predicted 18 patients as "mild" which coincides with the actual "mild" severity label. Next, the number 4 in the first row and second column indicates that the model incorrectly predicted 4 patients as "moderate" when their actual severity rating was "mild." Lastly, the number 0 in the first row and third column indicates that the model correctly predicted 0 patients as being "severe", meaning that those patients were labeled correctly as "mild".</span>
+<span id="cb15-388"><a href="#cb15-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-389"><a href="#cb15-389" aria-hidden="true" tabindex="-1"></a>Similarly, the other numbers in the confusion matrix represent the model's predictions for the other severity rating categories. Given that this was a dataset with only 300 patients, it is very intriguing that it can label each patient with high accuarcy. </span>
+<span id="cb15-390"><a href="#cb15-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-391"><a href="#cb15-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-392"><a href="#cb15-392" aria-hidden="true" tabindex="-1"></a><span class="fu">### ROC Curve</span></span>
+<span id="cb15-393"><a href="#cb15-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-394"><a href="#cb15-394" aria-hidden="true" tabindex="-1"></a>Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.948 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings.</span>
+<span id="cb15-395"><a href="#cb15-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-398"><a href="#cb15-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-399"><a href="#cb15-399" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate predicted probabilities for each class</span></span>
+<span id="cb15-400"><a href="#cb15-400" aria-hidden="true" tabindex="-1"></a>y_pred_proba <span class="op">=</span> rf_model.predict_proba(X_test)</span>
+<span id="cb15-401"><a href="#cb15-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-402"><a href="#cb15-402" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the ROC curve for each class</span></span>
+<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a>fpr <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb15-404"><a href="#cb15-404" aria-hidden="true" tabindex="-1"></a>tpr <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb15-405"><a href="#cb15-405" aria-hidden="true" tabindex="-1"></a>roc_auc <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb15-406"><a href="#cb15-406" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> class_index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(label_encoder.classes_)):</span>
+<span id="cb15-407"><a href="#cb15-407" aria-hidden="true" tabindex="-1"></a>    fpr[class_index], tpr[class_index], _ <span class="op">=</span> roc_curve(</span>
+<span id="cb15-408"><a href="#cb15-408" aria-hidden="true" tabindex="-1"></a>        (y_test <span class="op">==</span> class_index).astype(<span class="bu">int</span>), y_pred_proba[:, class_index]</span>
+<span id="cb15-409"><a href="#cb15-409" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-410"><a href="#cb15-410" aria-hidden="true" tabindex="-1"></a>    roc_auc[class_index] <span class="op">=</span> roc_auc_score(</span>
+<span id="cb15-411"><a href="#cb15-411" aria-hidden="true" tabindex="-1"></a>        (y_test <span class="op">==</span> class_index).astype(<span class="bu">int</span>), y_pred_proba[:, class_index]</span>
+<span id="cb15-412"><a href="#cb15-412" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-413"><a href="#cb15-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-414"><a href="#cb15-414" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the ROC curve for each class</span></span>
+<span id="cb15-415"><a href="#cb15-415" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">8</span>))</span>
+<span id="cb15-416"><a href="#cb15-416" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> class_index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(label_encoder.classes_)):</span>
+<span id="cb15-417"><a href="#cb15-417" aria-hidden="true" tabindex="-1"></a>    plt.plot(</span>
+<span id="cb15-418"><a href="#cb15-418" aria-hidden="true" tabindex="-1"></a>        fpr[class_index],</span>
+<span id="cb15-419"><a href="#cb15-419" aria-hidden="true" tabindex="-1"></a>        tpr[class_index],</span>
+<span id="cb15-420"><a href="#cb15-420" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f"Class </span><span class="sc">{</span>label_encoder<span class="sc">.</span>classes_[class_index]<span class="sc">}</span><span class="ss"> (AUC = </span><span class="sc">{</span>roc_auc[class_index]<span class="sc">:.2f}</span><span class="ss">)"</span>,</span>
+<span id="cb15-421"><a href="#cb15-421" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-422"><a href="#cb15-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-423"><a href="#cb15-423" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot random guessing line</span></span>
+<span id="cb15-424"><a href="#cb15-424" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], <span class="st">"k--"</span>)</span>
+<span id="cb15-425"><a href="#cb15-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-426"><a href="#cb15-426" aria-hidden="true" tabindex="-1"></a><span class="co"># Set plot properties</span></span>
+<span id="cb15-427"><a href="#cb15-427" aria-hidden="true" tabindex="-1"></a>plt.xlim([<span class="fl">0.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb15-428"><a href="#cb15-428" aria-hidden="true" tabindex="-1"></a>plt.ylim([<span class="fl">0.0</span>, <span class="fl">1.05</span>])</span>
+<span id="cb15-429"><a href="#cb15-429" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"False Positive Rate"</span>)</span>
+<span id="cb15-430"><a href="#cb15-430" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"True Positive Rate"</span>)</span>
+<span id="cb15-431"><a href="#cb15-431" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Receiver Operating Characteristic"</span>)</span>
+<span id="cb15-432"><a href="#cb15-432" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
+<span id="cb15-433"><a href="#cb15-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-434"><a href="#cb15-434" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb15-435"><a href="#cb15-435" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-436"><a href="#cb15-436" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb15-437"><a href="#cb15-437" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
+<span id="cb15-438"><a href="#cb15-438" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-439"><a href="#cb15-439" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-440"><a href="#cb15-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-441"><a href="#cb15-441" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recall vs. Precision Curve</span></span>
+<span id="cb15-442"><a href="#cb15-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-443"><a href="#cb15-443" aria-hidden="true" tabindex="-1"></a>Recall, also known as sensitivity or true positive rate, measures the proportion of actual positive instances (patients with a particular severity rating) that the model correctly identified. A recall value of 0.9 means that the model identified nearly 90.0% of the patients with their correct severity rating.</span>
+<span id="cb15-444"><a href="#cb15-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-445"><a href="#cb15-445" aria-hidden="true" tabindex="-1"></a>Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.913 indicates that out of all the patients the model identified as having a specific severity rating, 91.3% of them were correct.</span>
+<span id="cb15-446"><a href="#cb15-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-447"><a href="#cb15-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-450"><a href="#cb15-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-451"><a href="#cb15-451" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate precision and recall values for each class</span></span>
+<span id="cb15-452"><a href="#cb15-452" aria-hidden="true" tabindex="-1"></a>precision, recall, thresholds <span class="op">=</span> precision_recall_curve(y_test, rf_model.predict_proba(X_test)[:, <span class="dv">1</span>], pos_label<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-453"><a href="#cb15-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-454"><a href="#cb15-454" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the recall vs. precision curve</span></span>
+<span id="cb15-455"><a href="#cb15-455" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">8</span>))</span>
+<span id="cb15-456"><a href="#cb15-456" aria-hidden="true" tabindex="-1"></a>plt.plot(recall, precision, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb15-457"><a href="#cb15-457" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Recall'</span>)</span>
+<span id="cb15-458"><a href="#cb15-458" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Precision'</span>)</span>
+<span id="cb15-459"><a href="#cb15-459" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Recall vs. Precision Curve'</span>)</span>
+<span id="cb15-460"><a href="#cb15-460" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb15-461"><a href="#cb15-461" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-462"><a href="#cb15-462" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb15-463"><a href="#cb15-463" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
+<span id="cb15-464"><a href="#cb15-464" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-465"><a href="#cb15-465" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-466"><a href="#cb15-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-467"><a href="#cb15-467" aria-hidden="true" tabindex="-1"></a><span class="fu">### Kappa</span></span>
+<span id="cb15-468"><a href="#cb15-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-469"><a href="#cb15-469" aria-hidden="true" tabindex="-1"></a>The Kappa statistic is a measure of agreement between the model's predictions and the actual severity ratings, taking into account the possibility of agreement occurring by chance. A Kappa value of 0.849 indicates a substantial level of agreement between the model's predictions and the actual severity ratings, suggesting a reliable performance of the model.</span>
+<span id="cb15-470"><a href="#cb15-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-471"><a href="#cb15-471" aria-hidden="true" tabindex="-1"></a>Overall, these metrics indicate that the model has performed well in predicting the severity ratings of the patients, with high accuracy, good distinction between severity levels, and substantial agreement with the actual severity ratings provided by physicians.</span>
+<span id="cb15-472"><a href="#cb15-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-473"><a href="#cb15-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-474"><a href="#cb15-474" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualizing Random Forest's Best Decision Tree</span></span>
+<span id="cb15-477"><a href="#cb15-477" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb15-478"><a href="#cb15-478" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform 10-fold cross-validation</span></span>
+<span id="cb15-479"><a href="#cb15-479" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(rf_model, X, y, cv<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb15-480"><a href="#cb15-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-481"><a href="#cb15-481" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the best decision tree</span></span>
+<span id="cb15-482"><a href="#cb15-482" aria-hidden="true" tabindex="-1"></a>best_tree_index <span class="op">=</span> np.argmax(cv_scores)</span>
+<span id="cb15-483"><a href="#cb15-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-484"><a href="#cb15-484" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the best decision tree from the random forest</span></span>
+<span id="cb15-485"><a href="#cb15-485" aria-hidden="true" tabindex="-1"></a>best_tree <span class="op">=</span> rf_model.estimators_[best_tree_index]</span>
+<span id="cb15-486"><a href="#cb15-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-487"><a href="#cb15-487" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the best decision tree using matplotlib</span></span>
+<span id="cb15-488"><a href="#cb15-488" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>))</span>
+<span id="cb15-489"><a href="#cb15-489" aria-hidden="true" tabindex="-1"></a>tree.plot_tree(best_tree, feature_names<span class="op">=</span>X.columns, class_names<span class="op">=</span>label_encoder.classes_, filled<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-490"><a href="#cb15-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-491"><a href="#cb15-491" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-492"><a href="#cb15-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-493"><a href="#cb15-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-494"><a href="#cb15-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-495"><a href="#cb15-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-496"><a href="#cb15-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-497"><a href="#cb15-497" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb15-498"><a href="#cb15-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-499"><a href="#cb15-499" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If a patient has between 1 to 3 symptoms, and one of those symptoms includes depression, they are classified as 'Mild'.</span>
+<span id="cb15-500"><a href="#cb15-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-501"><a href="#cb15-501" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>If a patient has at least 3 symptoms, and two of those symptoms are depression and cramps, they are classified as 'Moderate'.</span>
+<span id="cb15-502"><a href="#cb15-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-503"><a href="#cb15-503" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Lastly, if a patient has 4 symptoms, and two of those symptoms are cramps and spasms, they are classified as 'Severe'.</span>
+<span id="cb15-504"><a href="#cb15-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-505"><a href="#cb15-505" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conclusion</span></span>
+<span id="cb15-506"><a href="#cb15-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-507"><a href="#cb15-507" aria-hidden="true" tabindex="-1"></a>This study focused on predicting severity levels in patients with a rare disease using a random forest approach based on symptom analysis. The client's goal was to map individual patients to appropriate severity levels, given the absence of established guidelines. By leveraging a comprehensive database containing clinically relevant information and severity ratings provided by physicians, we extracted simple rules to classify patients.</span>
+<span id="cb15-508"><a href="#cb15-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-509"><a href="#cb15-509" aria-hidden="true" tabindex="-1"></a>The study revealed that patients with 1 to 3 symptoms, including depression, were classified as 'Mild'. For patients with at least 3 symptoms, the presence of depression and cramps (at least 2 symptoms) indicated a classification of 'Moderate'. Lastly, patients presenting with 4 symptoms, including cramps and spasms (at least 2 symptoms), were categorized as 'Severe'.</span>
+<span id="cb15-510"><a href="#cb15-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-511"><a href="#cb15-511" aria-hidden="true" tabindex="-1"></a>The derived rules provide valuable insights into the mental heuristics employed by physicians when assessing severity levels in patients. By incorporating these rules into the client's product development, personalized healthcare targeting patients with moderate to severe disease can be enhanced. Furthermore, these findings contribute to filling the existing gap in severity level guidelines for this rare disease.</span>
+<span id="cb15-512"><a href="#cb15-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-513"><a href="#cb15-513" aria-hidden="true" tabindex="-1"></a><span class="fu"># Further Research</span></span>
+<span id="cb15-514"><a href="#cb15-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-515"><a href="#cb15-515" aria-hidden="true" tabindex="-1"></a>It is recommended to validate and refine these rules using larger datasets. By expanding the dataset, researchers can ensure the generalizability of the derived rules and improve the accuracy of the classification. Additionally, exploring additional factors that may influence severity levels, such as demographic information, medical history, or genetic markers, can provide a more comprehensive understanding of the disease and enhance the prediction models.</span>
+<span id="cb15-516"><a href="#cb15-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-517"><a href="#cb15-517" aria-hidden="true" tabindex="-1"></a>By continuing to refine and validate the rules and incorporating more factors into the analysis, personalized treatment for patients with this rare disease can be further optimized, leading to improved patient outcomes. The combination of symptom analysis and machine learning approaches holds significant potential for facilitating accurate classification and personalized healthcare in various medical domains.</span>
+<span id="cb15-518"><a href="#cb15-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-519"><a href="#cb15-519" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span>
+<span id="cb15-520"><a href="#cb15-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-521"><a href="#cb15-521" aria-hidden="true" tabindex="-1"></a>**Pandas:**</span>
+<span id="cb15-522"><a href="#cb15-522" aria-hidden="true" tabindex="-1"></a>McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference, 445-451. <span class="co">[</span><span class="ot">Link: https://conference.scipy.org/proceedings/scipy2010/mckinney.html</span><span class="co">]</span></span>
+<span id="cb15-523"><a href="#cb15-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-524"><a href="#cb15-524" aria-hidden="true" tabindex="-1"></a>**NumPy:**</span>
+<span id="cb15-525"><a href="#cb15-525" aria-hidden="true" tabindex="-1"></a>Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., ... Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585(7825), 357-362. <span class="co">[</span><span class="ot">Link: https://www.nature.com/articles/s41586-020-2649-2</span><span class="co">]</span></span>
+<span id="cb15-526"><a href="#cb15-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-527"><a href="#cb15-527" aria-hidden="true" tabindex="-1"></a>**Matplotlib:**</span>
+<span id="cb15-528"><a href="#cb15-528" aria-hidden="true" tabindex="-1"></a>Hunter, J. D. (2007). Matplotlib: A 2D Graphics Environment. Computing in Science &amp; Engineering, 9(3), 90-95. <span class="co">[</span><span class="ot">Link: https://ieeexplore.ieee.org/document/4160265</span><span class="co">]</span></span>
+<span id="cb15-529"><a href="#cb15-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-530"><a href="#cb15-530" aria-hidden="true" tabindex="-1"></a>**Seaborn:**</span>
+<span id="cb15-531"><a href="#cb15-531" aria-hidden="true" tabindex="-1"></a>Waskom, M., Botvinnik, O., Hobson, P., … Halchenko, Y. (2021). mwaskom/seaborn: v0.11.1 (February 2021). Zenodo. <span class="co">[</span><span class="ot">Link: https://doi.org/10.5281/zenodo.4473861</span><span class="co">]</span></span>
+<span id="cb15-532"><a href="#cb15-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-533"><a href="#cb15-533" aria-hidden="true" tabindex="-1"></a>**Scikit-learn:**</span>
+<span id="cb15-534"><a href="#cb15-534" aria-hidden="true" tabindex="-1"></a>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830. <span class="co">[</span><span class="ot">Link: https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html</span><span class="co">]</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

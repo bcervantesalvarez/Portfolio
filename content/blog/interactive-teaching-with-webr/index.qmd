@@ -3,10 +3,12 @@ title: "Interactive Learning with WebR"
 subtitle: "Lab Demonstration"
 author: "Brian Cervantes Alvarez"
 date: "08-12-2024"
+date-modified: today
 date-format: long
 image: /assets/images/webR.png
 format: 
     html:
+        code-tools: true
         toc: true
         toc-location: right
         toc-depth: 5
@@ -19,7 +21,12 @@ webr:
   packages: ['lubridate', 'ggplot2', 'readr', 'dplyr', 'lubridate', 'tidyr'] # Install R packages on document open
   show-startup-message: false    # Disable displaying status of webR initialization
 filters:
-- webr
+  - webr
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o3-mini-high"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I built an interactive lab using webR to run R code directly in the browser, streamlining the setup process and providing students with immediate access to real-time data wrangling and visualization tools. I demonstrated key techniques—filtering, selecting, mutating, summarizing, reshaping data, and handling missing values—integrated with dynamic visualizations using ggplot2 to make complex concepts tangible and accessible. This lab showcases how webR transforms the learning experience by offering instant feedback and hands-on exploration, enabling students to master data manipulation skills efficiently."
 ---
 
 ::: {style="text-align: center; padding-top: 10px; padding-bottom: 10px;"}

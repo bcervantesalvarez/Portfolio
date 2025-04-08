@@ -2,15 +2,22 @@
 title: "Interactive Teaching with webR"
 author: "Brian Cervantes Alvarez"
 date: '08-06-2024'
+date-modified: today
 image: /assets/images/uni.jpeg
 description: "Teaching R, but better! The package webR by George Stagg transforms traditional lectures into dynamic and interactive sessions. It helps maintain student interest and improves comprehension through hands-on practice. Plus, it simplifies the teaching process, allowing instructors to focus on content delivery rather than technical setup."
 format:
   html:
+    code-tools: true
     html-math-method: katex
     page-layout: full
 execute: 
   warning: false
   message: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I introduced Quarto, highlighting its capabilities for creating dynamic presentations, interactive Shiny applications, and professional portfolio websites using multiple languages like R, Python, Julia, and ObservableJS. I demonstrated practical uses, including generating simulated datasets, implementing cross-language coding examples with tabsets, and deploying interactive visualizations and Shiny apps directly within Quarto. Additionally, I emphasized mastering GitHub, RMarkdown, and Shiny as foundational skills before fully leveraging Quarto’s extensive features."
 ---
 
 

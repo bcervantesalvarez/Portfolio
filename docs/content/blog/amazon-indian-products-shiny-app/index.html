@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,10 +93,10 @@ div.csl-indent {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -191,6 +191,10 @@ div.csl-indent {
   <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#further-improvement-questions" id="toc-further-improvement-questions" class="nav-link" data-scroll-target="#further-improvement-questions">Further Improvement Questions</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
   <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries">Load Libraries</a></li>
   <li><a href="#part-1-data-wrangling-multiple-datasets" id="toc-part-1-data-wrangling-multiple-datasets" class="nav-link" data-scroll-target="#part-1-data-wrangling-multiple-datasets">Part 1: Data Wrangling Multiple Datasets</a>
   <ul class="collapse">
@@ -202,18 +206,16 @@ div.csl-indent {
   </ul></li>
   <li><a href="#part-1-shiny-ui" id="toc-part-1-shiny-ui" class="nav-link" data-scroll-target="#part-1-shiny-ui">Part 1: Shiny UI</a></li>
   <li><a href="#part-2-shiny-server" id="toc-part-2-shiny-server" class="nav-link" data-scroll-target="#part-2-shiny-server">Part 2: Shiny Server</a></li>
-  <li><a href="#further-improvement-questions" id="toc-further-improvement-questions" class="nav-link" data-scroll-target="#further-improvement-questions">Further Improvement Questions</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#data-references" id="toc-data-references" class="nav-link" data-scroll-target="#data-references">Data References</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Building A Quick Dashboard For Amazon Products (EN.)</h1>
+<div class="quarto-title-block"><div><h1 class="title">Building A Quick Dashboard For Amazon Products (EN.)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
     <div class="quarto-category">Shiny</div>
@@ -247,6 +249,12 @@ div.csl-indent {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 8, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -255,7 +263,57 @@ div.csl-indent {
 </header>
 
 
-<p><img src="../../..\assets/images/AmazonLogo.jpeg" class="img-fluid"></p>
+<style>
+.AI-Summary {
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+  max-width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.mini-banner .openai-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 1px;
+}
+.AI-Summary p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+</style>
+
+<div class="AI-Summary" markdown="1">
+  <div class="mini-banner">
+    <span class="left-banner">Yapper Labs | AI Summary</span>
+    <span class="right-banner">
+      <img src="../../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
+      Model: ChatGPT o3-mini-high    </span>
+  </div>
+  <p>I built a Shiny dashboard to analyze Amazon products in India by integrating multiple datasets, performing extensive data wrangling, and applying advanced CSS theming to enhance design and efficiency. I developed interactive visualizations using Plotly and DT to display average product ratings and review counts across categories, facilitating easy exploration and comparison. My work demonstrates strong skills in data processing, dynamic UI development, and effective dashboard design for clear, insightful data analysis.</p>
+</div>
+
+<p><img src="../../../assets/images/AmazonLogo.jpeg" class="img-fluid"></p>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <p>This project focuses on the development of a Shiny application to analyze Amazon products in India. Using a dataset sourced from Kaggle, the application aims to create an informative dashboard showcasing categories with the highest average ratings and reviews. Despite encountering challenges with product categorization, the project prioritizes efficiency and design improvements.</p>
@@ -271,13 +329,32 @@ div.csl-indent {
 <li><p>What is the average <strong>rating</strong> for each category and subcategory?</p></li>
 <li><p>What is the average <strong>review</strong> for each category and subcategory?</p></li>
 </ul>
-<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="100%" height="800" allowfullscreen="">
+</section>
+<section id="further-improvement-questions" class="level2">
+<h2 class="anchored" data-anchor-id="further-improvement-questions">Further Improvement Questions</h2>
+<ul>
+<li>Is there a correlation between the number of ratings and the product rating?</li>
+<li>What is the average discount percentage for each main category and subcategory?</li>
+<li>What is the price range for each main category and subcategory?</li>
+<li>Which products have the highest ratings and how do they compare in terms of price and number of ratings?</li>
+</ul>
+</section>
+<section id="conclusion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.</p>
+<div class="column-screen">
+<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" title="UKAccidentTimeSeries" width="100%" height="800">
 </iframe>
+</div>
 <p><a href="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/">Fullscreen</a></p>
 </section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load Libraries</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -285,11 +362,14 @@ div.csl-indent {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="part-1-data-wrangling-multiple-datasets" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-data-wrangling-multiple-datasets">Part 1: Data Wrangling Multiple Datasets</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ORIGINAL DATA WRANGLING </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>datasets <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">"~/Documents/ShinyApps/AmazonProducts/AmazonProductApp"</span>, <span class="at">pattern =</span> <span class="st">"csv"</span>))</span>
@@ -324,17 +404,23 @@ div.csl-indent {
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># amazonProducts %&gt;%</span></span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># write_csv("amazonProducts.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="reload-data" class="level3">
 <h3 class="anchored" data-anchor-id="reload-data">Reload Data</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>products <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../../Assets/Datasets/amazonProducts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
 <section id="part-2-data-wrangling-for-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-data-wrangling-for-visualization">Part 2: Data Wrangling For Visualization</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>products <span class="ot">&lt;-</span> products <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">DiscountPrice =</span> <span class="fu">round</span>(DiscountPrice82<span class="fl">.04</span>,<span class="dv">2</span>), <span class="at">Price =</span> <span class="fu">round</span>(Price82<span class="fl">.04</span>,<span class="dv">2</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#For Plot 1</span></span>
@@ -346,10 +432,13 @@ div.csl-indent {
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>top10Products <span class="ot">&lt;-</span> products <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ProductRating <span class="sc">&gt;</span> <span class="fl">4.5</span>, NumberOfRatings <span class="sc">&gt;</span> <span class="dv">50</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SubCategory) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(ProductRating)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(ProductImage, Name, ProductLink))</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#unique(products$MainCategory)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="color-theming" class="level3">
 <h3 class="anchored" data-anchor-id="color-theming">Color Theming</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot 1 </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>num_colors <span class="ot">&lt;-</span> <span class="dv">21</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#f2f2f2"</span>, <span class="st">"#ff9900"</span>) </span>
@@ -361,12 +450,15 @@ div.csl-indent {
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>num_colors <span class="ot">&lt;-</span> <span class="dv">21</span> </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#f2f2f2"</span>,<span class="st">"#00a8e1"</span>) </span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>pal2 <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(colors)(num_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
 <section id="part-1-shiny-ui" class="level2">
 <h2 class="anchored" data-anchor-id="part-1-shiny-ui">Part 1: Shiny UI</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -416,11 +508,14 @@ div.csl-indent {
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="part-2-shiny-server" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-shiny-server">Part 2: Shiny Server</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw Dashboard</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -509,29 +604,17 @@ div.csl-indent {
 <span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
 <span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</section>
-<section id="further-improvement-questions" class="level2">
-<h2 class="anchored" data-anchor-id="further-improvement-questions">Further Improvement Questions</h2>
-<ul>
-<li>Is there a correlation between the number of ratings and the product rating?</li>
-<li>What is the average discount percentage for each main category and subcategory?</li>
-<li>What is the price range for each main category and subcategory?</li>
-<li>Which products have the highest ratings and how do they compare in terms of price and number of ratings?</li>
-</ul>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.</p>
-</section>
-<section id="data-references" class="level2">
 
 
+<!-- -->
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Data References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-R-shiny" class="csl-entry" role="listitem">
 Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges. 2024. <em>Shiny: Web Application Framework for r</em>. <a href="https://shiny.posit.co/">https://shiny.posit.co/</a>.
 </div>
@@ -548,7 +631,7 @@ Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with r, Plot
 Sievert, Carson, Chris Parmer, Toby Hocking, Scott Chamberlain, Karthik Ram, Marianne Corvellec, and Pedro Despouy. 2024. <em>Plotly: Create Interactive Web Graphics via Plotly.js</em>. <a href="https://plotly-r.com">https://plotly-r.com</a>.
 </div>
 <div id="ref-R-lubridate" class="csl-entry" role="listitem">
-Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2023. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://lubridate.tidyverse.org">https://lubridate.tidyverse.org</a>.
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2024. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://lubridate.tidyverse.org">https://lubridate.tidyverse.org</a>.
 </div>
 <div id="ref-ggplot22016" class="csl-entry" role="listitem">
 Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
@@ -572,7 +655,7 @@ Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takaha
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
 </div>
 <div id="ref-R-purrr" class="csl-entry" role="listitem">
-Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
+Wickham, Hadley, and Lionel Henry. 2025. <em>Purrr: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
 </div>
 <div id="ref-R-readr" class="csl-entry" role="listitem">
 Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
@@ -585,231 +668,118 @@ Xie, Yihui, Joe Cheng, and Xianying Tan. 2024. <em>DT: A Wrapper of the JavaScri
 </div>
 </div></section></div></main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
-
 <style>
-
     /* Cookie Consent Banner Styling */
-
     .cookie-consent-banner {
-
       position: fixed;
-
       bottom: 0;
-
       width: 100%;
-
       background-color: #f7f7f9; /* Using $gray-200 from your theme */
-
       color: #1a1a1a; /* Using $primary ($gray-900) for contrast */
-
       padding: 1rem;
-
       text-align: center;
-
       z-index: 1000;
-
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-
     }
-
     
-
     .cookie-consent-banner button {
-
       margin-left: 1rem;
-
       background-color: #0073cf; /* Using $blue */
-
       color: #fff;
-
       border: none;
-
       padding: 0.5rem 1rem;
-
       border-radius: 0.25rem;
-
       cursor: pointer;
-
       font-size: 1rem;
-
       transition: background-color 0.3s ease;
-
     }
-
     
-
     /* Styling for the Deny button */
-
     .cookie-consent-banner button#deny-cookies {
-
       margin-left: 0.5rem;
-
       background-color: #ced4da; /* Using a gray tone similar to $gray-400 */
-
       color: #1a1a1a;
-
     }
-
     
-
     /* Optional hover effects */
-
     .cookie-consent-banner button:hover {
-
       opacity: 0.9;
-
     }
-
   </style>
-
   
-
   <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
-
     <span>This website uses Google Analytics to improve its functionality.</span>
-
     <button id="accept-cookies">Accept</button>
-
     <button id="deny-cookies">Deny</button>
-
   </div>
-
   
-
   <script>
-
     (function() {
-
       // Function to dynamically load Google Analytics and update consent mode.
-
       function loadGoogleAnalytics() {
-
         const gaScript = document.createElement('script');
-
         gaScript.async = true;
-
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN44V7BZHS";
-
         document.head.appendChild(gaScript);
-
         
-
         gaScript.onload = function() {
-
           window.dataLayer = window.dataLayer || [];
-
           function gtag(){ dataLayer.push(arguments); }
-
           
-
           // Update consent mode to grant storage upon acceptance.
-
           gtag('consent', 'update', {
-
             'analytics_storage': 'granted',
-
             'ad_storage': 'granted'
-
           });
-
           
-
           gtag('js', new Date());
-
           gtag('config', 'G-HN44V7BZHS');
-
         };
-
       }
-
     
-
       // Helper functions to get and set cookies.
-
       function getCookie(name) {
-
         const value = "; " + document.cookie;
-
         const parts = value.split("; " + name + "=");
-
         if (parts.length === 2) return parts.pop().split(";").shift();
-
       }
-
     
-
       function setCookie(name, value, days) {
-
         let expires = "";
-
         if (days) {
-
           const date = new Date();
-
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-
           expires = "; expires=" + date.toUTCString();
-
         }
-
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
-
       }
-
     
-
       document.addEventListener("DOMContentLoaded", function() {
-
         const consent = getCookie("cookie_consent");
-
         
-
         // If consent was previously given, load GA immediately; otherwise, show the banner.
-
         if (consent === "accepted") {
-
           loadGoogleAnalytics();
-
         } else {
-
           document.getElementById("cookie-consent-banner").style.display = "block";
-
         }
-
     
-
         // When the user accepts cookies...
-
         document.getElementById("accept-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "accepted", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           loadGoogleAnalytics();
-
         });
-
     
-
         // When the user denies cookies...
-
         document.getElementById("deny-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "denied", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           // Optionally, add logic to disable tracking.
-
         });
-
       });
-
     })();
-
   </script>
-
   
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -893,11 +863,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1003,6 +1026,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1227,7 +1251,317 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Building A Quick Dashboard For Amazon Products (EN.)"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Brian Cervantes Alvarez"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "04-21-2023"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> /assets/images/AmazonLogo.jpeg</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing."</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> "bibliography.bib"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="an">nocite:</span><span class="co"> |</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">     @*</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">  eval: false</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [R, Shiny, CSS, Data Tables, Data Visualization, Dashboard]</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT o3-mini-high"</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "I built a Shiny dashboard to analyze Amazon products in India by integrating multiple datasets, performing extensive data wrangling, and applying advanced CSS theming to enhance design and efficiency. I developed interactive visualizations using Plotly and DT to display average product ratings and review counts across categories, facilitating easy exploration and comparison. My work demonstrates strong skills in data processing, dynamic UI development, and effective dashboard design for clear, insightful data analysis."</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/AmazonLogo.jpeg)</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abstract</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>This project focuses on the development of a Shiny application to analyze Amazon products in India. Using a dataset sourced from Kaggle, the application aims to create an informative dashboard showcasing categories with the highest average ratings and reviews. Despite encountering challenges with product categorization, the project prioritizes efficiency and design improvements.</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>The objective of this project is to create a Shiny application that explores the Amazon products dataset from India. The dataset, obtained from Kaggle, presented challenges during development, particularly regarding product categories. However, the project's primary focus was on creating a concise and informative dashboard displaying categories with the highest average ratings and reviews.</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>Compared to previous Shiny app development experiences, this project demonstrated improved efficiency, taking significantly less time to complete. Furthermore, advanced CSS theming was implemented to enhance the overall design of the application. While additional features and visualizations could be incorporated, the decision was made to leave them for future exploration.</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Questions</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is the average **rating** for each category and subcategory?</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is the average **review** for each category and subcategory?</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Further Improvement Questions</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Is there a correlation between the number of ratings and the product rating?</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is the average discount percentage for each main category and subcategory?</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is the price range for each main category and subcategory?</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Which products have the highest ratings and how do they compare in terms of price and number of ratings?</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>::: column-screen</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>&lt;iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" title="UKAccidentTimeSeries" width="100%" height="800"&gt;</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>&lt;/iframe&gt;</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Fullscreen</span><span class="co">](https://bcervantesalvarez.shinyapps.io/AmazonProductApp/)</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu"># Appendix</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load Libraries</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=TRUE,output=FALSE}</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="in">library(shiny)</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="in">library(readr)</span></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="in">library(stringr)</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="in">library(plotly)</span></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="in">library(DT)</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="in">options(scipen = 999)</span></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1: Data Wrangling Multiple Datasets</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="co"># ORIGINAL DATA WRANGLING </span></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>datasets <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">"~/Documents/ShinyApps/AmazonProducts/AmazonProductApp"</span>, <span class="at">pattern =</span> <span class="st">"csv"</span>))</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datasets) <span class="ot">&lt;-</span> <span class="st">"Datasets"</span></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all the datasets</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">length</span>(<span class="fu">nrow</span>(datasets))){</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a> combinedDs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(datasets[[i]])</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>amazonProducts <span class="ot">&lt;-</span> combinedDs <span class="sc">%&gt;%</span></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">Name =</span> name,</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>       <span class="at">MainCategory =</span> <span class="fu">factor</span>(<span class="fu">str_to_title</span>((<span class="fu">sort</span>(main_category)))),</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>       <span class="at">SubCategory =</span> <span class="fu">factor</span>(<span class="fu">sort</span>(sub_category)),</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>       <span class="at">ProductImage =</span> image,</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>       <span class="at">ProductRating =</span> <span class="fu">as.numeric</span>(ratings),</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>       <span class="at">NumberOfRatings =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>,<span class="st">""</span>,no_of_ratings)),</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>       <span class="at">DiscountPrice =</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[</span><span class="sc">\\</span><span class="st">₹,]"</span>, <span class="st">""</span>, discount_price)) <span class="sc">/</span> <span class="fl">81.85</span>, <span class="dv">2</span>), <span class="co"># convert from Rupee to USD</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>       <span class="at">Price =</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[</span><span class="sc">\\</span><span class="st">₹,]"</span>, <span class="st">""</span>, actual_price)) <span class="sc">/</span> <span class="fl">81.85</span>, <span class="dv">2</span>),           <span class="co"># convert from Rupee to USD</span></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>       <span class="at">ProductLink =</span> link) <span class="sc">%&gt;%</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(name, </span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>           main_category, </span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>           sub_category, </span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>           image, </span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>           ratings, </span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>           no_of_ratings, </span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>           discount_price, </span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>           actual_price,</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>           link)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a> <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(SubCategory, <span class="st">"^All "</span>))</span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="co"># amazonProducts %&gt;%</span></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="co"># write_csv("amazonProducts.csv")</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reload Data</span></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>products <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../../Assets/Datasets/amazonProducts.csv"</span>)</span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2: Data Wrangling For Visualization</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>products <span class="ot">&lt;-</span> products <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">DiscountPrice =</span> <span class="fu">round</span>(DiscountPrice82<span class="fl">.04</span>,<span class="dv">2</span>), <span class="at">Price =</span> <span class="fu">round</span>(Price82<span class="fl">.04</span>,<span class="dv">2</span>))</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a><span class="co">#For Plot 1</span></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> products <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(ProductImage, Name, ProductLink)) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(MainCategory,SubCategory) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">AverageRating =</span> <span class="fu">mean</span>(ProductRating)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>reviews <span class="ot">&lt;-</span> products <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(ProductImage, Name, ProductLink)) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(MainCategory,SubCategory) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">AverageReview =</span> <span class="fu">mean</span>(NumberOfRatings)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="co">#For Plot 2 </span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>top10Products <span class="ot">&lt;-</span> products <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ProductRating <span class="sc">&gt;</span> <span class="fl">4.5</span>, NumberOfRatings <span class="sc">&gt;</span> <span class="dv">50</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(SubCategory) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(ProductRating)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(ProductImage, Name, ProductLink))</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a><span class="co">#unique(products$MainCategory)</span></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="fu">### Color Theming</span></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot 1 </span></span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a>num_colors <span class="ot">&lt;-</span> <span class="dv">21</span> </span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#f2f2f2"</span>, <span class="st">"#ff9900"</span>) </span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>pal1 <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(colors)(num_colors)</span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pal1)</span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot 2 </span></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>num_colors <span class="ot">&lt;-</span> <span class="dv">21</span> </span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#f2f2f2"</span>,<span class="st">"#00a8e1"</span>) </span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>pal2 <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(colors)(num_colors)</span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1: Shiny UI</span></span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application </span></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Background CSS</span></span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">head</span>(tags<span class="sc">$</span><span class="fu">style</span>(<span class="fu">HTML</span>(<span class="st">'</span></span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a><span class="st">  @import url(https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap);</span></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a><span class="st">    body {</span></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a><span class="st">      font-family: Montserrat, sans-serif;</span></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a><span class="st">      background-color: #FF9900;</span></span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a><span class="st">    .dataTables_wrapper {</span></span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a><span class="st">      background-color: #fff;</span></span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="st">    .sidebar {</span></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a><span class="st">      background-color: #fff;</span></span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a><span class="st">      width: 3/12;</span></span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a><span class="st">      height: 2/12;</span></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a><span class="st">    .nav-tabs &gt; li &gt; a {</span></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a><span class="st">      color: black;</span></span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a><span class="st">      background-color: #00a8e1;</span></span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a><span class="st">      border-color: #00a8e1;</span></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a><span class="st">    }'</span>))),</span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Application title</span></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Amazon Inc. Product Dashboard (EN.)"</span>),</span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sidebar</span></span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"MainCategoryChoice"</span>, </span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="fu">h3</span>(<span class="st">"Select Category:"</span>), </span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">unique</span>(products<span class="sc">$</span>MainCategory), </span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"Accessories"</span>),</span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>      <span class="fu">uiOutput</span>(<span class="st">"SubCategoryChoice"</span>)</span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tabs</span></span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabsetPanel</span>(</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">"Plot"</span>, </span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotlyOutput</span>(<span class="st">"RatingsPlot"</span>),</span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">plotlyOutput</span>(<span class="st">"ReviewsPlot"</span>)),</span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">"Data"</span>, <span class="fu">dataTableOutput</span>(<span class="st">"myDataTable"</span>))</span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2: Shiny Server</span></span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw Dashboard</span></span>
+<span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subcategory choices</span></span>
+<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>SubCategoryChoice <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
+<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a>    subcategories <span class="ot">&lt;-</span> <span class="fu">unique</span>(products<span class="sc">$</span>SubCategory[products<span class="sc">$</span>MainCategory <span class="sc">==</span> input<span class="sc">$</span>MainCategoryChoice])</span>
+<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a>    <span class="fu">checkboxGroupInput</span>(<span class="st">"SubCategoryChoice"</span>, </span>
+<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label =</span> <span class="fu">h3</span>(<span class="st">"Select Subcategories:"</span>), </span>
+<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a>                       <span class="at">choices =</span> subcategories, </span>
+<span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a>                       <span class="at">selected =</span> subcategories)</span>
+<span id="cb8-242"><a href="#cb8-242" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb8-243"><a href="#cb8-243" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-244"><a href="#cb8-244" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot 1: Product Rating</span></span>
+<span id="cb8-245"><a href="#cb8-245" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>RatingsPlot <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb8-246"><a href="#cb8-246" aria-hidden="true" tabindex="-1"></a>    ratings <span class="sc">%&gt;%</span></span>
+<span id="cb8-247"><a href="#cb8-247" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(MainCategory <span class="sc">==</span> input<span class="sc">$</span>MainCategoryChoice,</span>
+<span id="cb8-248"><a href="#cb8-248" aria-hidden="true" tabindex="-1"></a>             SubCategory <span class="sc">%in%</span> input<span class="sc">$</span>SubCategoryChoice) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-249"><a href="#cb8-249" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">SubCategory_ordered =</span> <span class="fu">factor</span>(SubCategory, </span>
+<span id="cb8-250"><a href="#cb8-250" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">levels =</span> <span class="fu">unique</span>(SubCategory[<span class="fu">order</span>(AverageRating)]))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-251"><a href="#cb8-251" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plot_ly</span>(<span class="at">x =</span> <span class="sc">~</span>SubCategory_ordered, </span>
+<span id="cb8-252"><a href="#cb8-252" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> <span class="sc">~</span><span class="fu">round</span>(AverageRating,<span class="dv">2</span>),</span>
+<span id="cb8-253"><a href="#cb8-253" aria-hidden="true" tabindex="-1"></a>              <span class="at">type =</span> <span class="st">'bar'</span>,</span>
+<span id="cb8-254"><a href="#cb8-254" aria-hidden="true" tabindex="-1"></a>              <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="sc">~</span>pal1[SubCategory_ordered])) <span class="sc">%&gt;%</span></span>
+<span id="cb8-255"><a href="#cb8-255" aria-hidden="true" tabindex="-1"></a>      <span class="fu">add_annotations</span>(<span class="at">x =</span> <span class="sc">~</span>SubCategory_ordered,</span>
+<span id="cb8-256"><a href="#cb8-256" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="sc">~</span><span class="fu">round</span>(AverageRating,<span class="dv">2</span>),</span>
+<span id="cb8-257"><a href="#cb8-257" aria-hidden="true" tabindex="-1"></a>                      <span class="at">text =</span> <span class="sc">~</span><span class="fu">paste0</span>(<span class="fu">round</span>(AverageRating,<span class="dv">2</span>)),</span>
+<span id="cb8-258"><a href="#cb8-258" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">'black'</span>, </span>
+<span id="cb8-259"><a href="#cb8-259" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb8-260"><a href="#cb8-260" aria-hidden="true" tabindex="-1"></a>                      <span class="at">showarrow =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-261"><a href="#cb8-261" aria-hidden="true" tabindex="-1"></a>                      <span class="at">yshift =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-262"><a href="#cb8-262" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Average Product Rating For "</span>,input<span class="sc">$</span>MainCategoryChoice),</span>
+<span id="cb8-263"><a href="#cb8-263" aria-hidden="true" tabindex="-1"></a>             <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>, <span class="at">tickangle =</span> <span class="dv">45</span>),</span>
+<span id="cb8-264"><a href="#cb8-264" aria-hidden="true" tabindex="-1"></a>             <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>),</span>
+<span id="cb8-265"><a href="#cb8-265" aria-hidden="true" tabindex="-1"></a>             <span class="at">showlegend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-266"><a href="#cb8-266" aria-hidden="true" tabindex="-1"></a>             <span class="at">margin =</span> <span class="fu">list</span>(<span class="at">t =</span> <span class="dv">50</span>,</span>
+<span id="cb8-267"><a href="#cb8-267" aria-hidden="true" tabindex="-1"></a>                           <span class="at">l =</span> <span class="dv">50</span>,</span>
+<span id="cb8-268"><a href="#cb8-268" aria-hidden="true" tabindex="-1"></a>                           <span class="at">r =</span> <span class="dv">50</span>,</span>
+<span id="cb8-269"><a href="#cb8-269" aria-hidden="true" tabindex="-1"></a>                           <span class="at">b =</span> <span class="dv">50</span>)) </span>
+<span id="cb8-270"><a href="#cb8-270" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb8-271"><a href="#cb8-271" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-272"><a href="#cb8-272" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot 2: Product Reviews</span></span>
+<span id="cb8-273"><a href="#cb8-273" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>ReviewsPlot <span class="ot">&lt;-</span> <span class="fu">renderPlotly</span>({</span>
+<span id="cb8-274"><a href="#cb8-274" aria-hidden="true" tabindex="-1"></a>    reviews <span class="sc">%&gt;%</span></span>
+<span id="cb8-275"><a href="#cb8-275" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(MainCategory <span class="sc">==</span> input<span class="sc">$</span>MainCategoryChoice,</span>
+<span id="cb8-276"><a href="#cb8-276" aria-hidden="true" tabindex="-1"></a>             SubCategory <span class="sc">%in%</span> input<span class="sc">$</span>SubCategoryChoice) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-277"><a href="#cb8-277" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">SubCategory_ordered =</span> <span class="fu">factor</span>(SubCategory, </span>
+<span id="cb8-278"><a href="#cb8-278" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">levels =</span> <span class="fu">unique</span>(SubCategory[<span class="fu">order</span>(AverageReview)]))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-279"><a href="#cb8-279" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plot_ly</span>(<span class="at">x =</span> <span class="sc">~</span>SubCategory_ordered, </span>
+<span id="cb8-280"><a href="#cb8-280" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> <span class="sc">~</span><span class="fu">round</span>(AverageReview),</span>
+<span id="cb8-281"><a href="#cb8-281" aria-hidden="true" tabindex="-1"></a>              <span class="at">type =</span> <span class="st">'bar'</span>,</span>
+<span id="cb8-282"><a href="#cb8-282" aria-hidden="true" tabindex="-1"></a>              <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="sc">~</span>pal2[SubCategory_ordered])) <span class="sc">%&gt;%</span></span>
+<span id="cb8-283"><a href="#cb8-283" aria-hidden="true" tabindex="-1"></a>      <span class="fu">add_annotations</span>(<span class="at">x =</span> <span class="sc">~</span>SubCategory_ordered,</span>
+<span id="cb8-284"><a href="#cb8-284" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="sc">~</span><span class="fu">round</span>(AverageReview),</span>
+<span id="cb8-285"><a href="#cb8-285" aria-hidden="true" tabindex="-1"></a>                      <span class="at">text =</span> <span class="sc">~</span><span class="fu">paste0</span>(<span class="fu">round</span>(AverageReview)),</span>
+<span id="cb8-286"><a href="#cb8-286" aria-hidden="true" tabindex="-1"></a>                      <span class="at">font =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">'black'</span>, </span>
+<span id="cb8-287"><a href="#cb8-287" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb8-288"><a href="#cb8-288" aria-hidden="true" tabindex="-1"></a>                      <span class="at">showarrow =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-289"><a href="#cb8-289" aria-hidden="true" tabindex="-1"></a>                      <span class="at">yshift =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-290"><a href="#cb8-290" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Average Number of Reviews For "</span>,input<span class="sc">$</span>MainCategoryChoice),</span>
+<span id="cb8-291"><a href="#cb8-291" aria-hidden="true" tabindex="-1"></a>             <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>, <span class="at">tickangle =</span> <span class="dv">45</span>),</span>
+<span id="cb8-292"><a href="#cb8-292" aria-hidden="true" tabindex="-1"></a>             <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>),</span>
+<span id="cb8-293"><a href="#cb8-293" aria-hidden="true" tabindex="-1"></a>             <span class="at">showlegend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-294"><a href="#cb8-294" aria-hidden="true" tabindex="-1"></a>             <span class="at">margin =</span> <span class="fu">list</span>(<span class="at">t =</span> <span class="dv">50</span>,</span>
+<span id="cb8-295"><a href="#cb8-295" aria-hidden="true" tabindex="-1"></a>                           <span class="at">l =</span> <span class="dv">50</span>,</span>
+<span id="cb8-296"><a href="#cb8-296" aria-hidden="true" tabindex="-1"></a>                           <span class="at">r =</span><span class="dv">50</span>,</span>
+<span id="cb8-297"><a href="#cb8-297" aria-hidden="true" tabindex="-1"></a>                           <span class="at">b =</span> <span class="dv">50</span>)) </span>
+<span id="cb8-298"><a href="#cb8-298" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb8-299"><a href="#cb8-299" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-300"><a href="#cb8-300" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>myDataTable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb8-301"><a href="#cb8-301" aria-hidden="true" tabindex="-1"></a>    products <span class="sc">%&gt;%</span></span>
+<span id="cb8-302"><a href="#cb8-302" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(MainCategory <span class="sc">==</span> input<span class="sc">$</span>MainCategoryChoice,</span>
+<span id="cb8-303"><a href="#cb8-303" aria-hidden="true" tabindex="-1"></a>             SubCategory <span class="sc">%in%</span> input<span class="sc">$</span>SubCategoryChoice) <span class="sc">%&gt;%</span></span>
+<span id="cb8-304"><a href="#cb8-304" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">ProductImage =</span> <span class="fu">sprintf</span>(<span class="st">'&lt;img src="%s" width="75px"/&gt;'</span>, ProductImage)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-305"><a href="#cb8-305" aria-hidden="true" tabindex="-1"></a>      DT<span class="sc">::</span><span class="fu">datatable</span>(., <span class="at">escape =</span> <span class="cn">FALSE</span>, <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb8-306"><a href="#cb8-306" aria-hidden="true" tabindex="-1"></a>        <span class="at">pageLength =</span> <span class="dv">10</span>,</span>
+<span id="cb8-307"><a href="#cb8-307" aria-hidden="true" tabindex="-1"></a>        <span class="at">lengthMenu =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>),</span>
+<span id="cb8-308"><a href="#cb8-308" aria-hidden="true" tabindex="-1"></a>        <span class="at">scrollY =</span> <span class="st">"600px"</span>,</span>
+<span id="cb8-309"><a href="#cb8-309" aria-hidden="true" tabindex="-1"></a>        <span class="at">scrollX =</span> <span class="cn">TRUE</span></span>
+<span id="cb8-310"><a href="#cb8-310" aria-hidden="true" tabindex="-1"></a>      )) <span class="sc">%&gt;%</span></span>
+<span id="cb8-311"><a href="#cb8-311" aria-hidden="true" tabindex="-1"></a>      DT<span class="sc">::</span><span class="fu">formatStyle</span>(<span class="at">columns =</span> <span class="fu">colnames</span>(products), </span>
+<span id="cb8-312"><a href="#cb8-312" aria-hidden="true" tabindex="-1"></a>                      <span class="at">backgroundColor =</span> <span class="fu">styleEqual</span>(<span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"white"</span>), <span class="fu">c</span>(<span class="st">"rgb(51, 102, 0)"</span>, <span class="st">"rgb(255, 255, 255)"</span>)))</span>
+<span id="cb8-313"><a href="#cb8-313" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb8-314"><a href="#cb8-314" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-315"><a href="#cb8-315" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-316"><a href="#cb8-316" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-317"><a href="#cb8-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-318"><a href="#cb8-318" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
+<span id="cb8-319"><a href="#cb8-319" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
+<span id="cb8-320"><a href="#cb8-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

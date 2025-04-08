@@ -2,6 +2,7 @@
 title: "Building A Quick Dashboard For Amazon Products (EN.)"
 author: "Brian Cervantes Alvarez"
 date: "04-21-2023"
+date-modified: today
 image: /assets/images/AmazonLogo.jpeg
 description: "Explore Amazon products in India with our Shiny app. Discover categories with the highest ratings and reviews. Efficient, informative, and visually appealing."
 bibliography: "bibliography.bib"
@@ -9,15 +10,22 @@ nocite: |
      @*
 format:
   html:
+    code-tools: true
+    code-fold: true
     toc: true
     toc-location: right
     html-math-method: katex
     page-layout: article
-output: html_document
-code-fold: false
 execute:
   eval: false
+  message: false
+  warning: false
 categories: [R, Shiny, CSS, Data Tables, Data Visualization, Dashboard]
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o3-mini-high"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I built a Shiny dashboard to analyze Amazon products in India by integrating multiple datasets, performing extensive data wrangling, and applying advanced CSS theming to enhance design and efficiency. I developed interactive visualizations using Plotly and DT to display average product ratings and review counts across categories, facilitating easy exploration and comparison. My work demonstrates strong skills in data processing, dynamic UI development, and effective dashboard design for clear, insightful data analysis."
 ---
 
 ![](/assets/images/AmazonLogo.jpeg)
@@ -38,11 +46,29 @@ Compared to previous Shiny app development experiences, this project demonstrate
 
 -   What is the average **review** for each category and subcategory?
 
-<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" width="100%" height="800" allowfullscreen>
+
+## Further Improvement Questions
+
+-   Is there a correlation between the number of ratings and the product rating?
+-   What is the average discount percentage for each main category and subcategory?
+-   What is the price range for each main category and subcategory?
+-   Which products have the highest ratings and how do they compare in terms of price and number of ratings?
+
+## Conclusion
+
+This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.
+
+
+::: column-screen
+<iframe src="https://bcervantesalvarez.shinyapps.io/AmazonProductApp/" title="UKAccidentTimeSeries" width="100%" height="800">
 
 </iframe>
+:::
 
 [Fullscreen](https://bcervantesalvarez.shinyapps.io/AmazonProductApp/)
+
+
+# Appendix
 
 ## Load Libraries
 
@@ -281,19 +307,3 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-## Further Improvement Questions
-
--   Is there a correlation between the number of ratings and the product rating?
--   What is the average discount percentage for each main category and subcategory?
--   What is the price range for each main category and subcategory?
--   Which products have the highest ratings and how do they compare in terms of price and number of ratings?
-
-## Conclusion
-
-This project served as a rewarding experience, providing opportunities to enhance data analysis and Shiny app development skills. The Shiny application developed enables users to analyze Amazon products in India and offers insights into categories with the highest average ratings and reviews. Despite encountering challenges related to product categorization, the project prioritized efficiency and introduced improvements in design. Future exploration of additional features and visualizations remains open for further development and enhancement.
-
-## Data References
-
-```{r, echo=FALSE, eval=TRUE}
-knitr::write_bib(names(sessionInfo()$otherPkgs), file = "bibliography.bib")
-```

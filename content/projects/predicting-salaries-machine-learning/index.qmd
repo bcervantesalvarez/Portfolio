@@ -4,6 +4,7 @@ author:
   - "Brian Cervantes Alvarez"
   - "Willa Van Liew"
 date: "04-11-2023"
+date-modified: today
 description: "Expertly predicting $50K+ incomes through ML, our project highlights the synergy of data science skills and team collaboration."
 teaser: "Accurately classify individuals by income bracket using advanced ML."
 categories: ["Machine Learning"]
@@ -13,6 +14,7 @@ nocite: |
   @*
 format:
   html:
+    code-tools: true
     page-layout: article
     toc: true
     toc-location: right
@@ -21,6 +23,11 @@ output: html_document
 execute:
   message: false
   warning: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "We conducted a comprehensive machine learning analysis aiming to predict if individuals earn more than $50K, involving feature engineering, PCA for dimensionality reduction, and building predictive models including Random Forest, Gradient Boosting Machines (GBM), Logistic Regression, and KMeans clustering. We achieved exceptional model performance, with the GBM model yielding a Kappa score of 0.9543 and an accuracy of 98.3%, significantly improved by careful hyperparameter tuning and PCA integration. KPIs clearly presented include Kappa scores, accuracy, sensitivity (99.3%), and specificity (95.3%), reflecting the robustness and precision of the model we developed"
 ---
 
 

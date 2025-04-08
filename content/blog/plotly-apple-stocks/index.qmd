@@ -3,21 +3,28 @@ title: "Apple's Journey In The Stock Market"
 author: "Brian Cervantes Alvarez"
 image: /assets/images/apple.jpeg
 date: "3-29-2023"
+date-modified: today
 description: "Explore the dynamic world of Time Series Graphs with R's plotly. Unveil trends in Apple's stock market and the impact of groundbreaking innovations"
 bibliography: "bibliography.bib"
 nocite: |
      @*
 format:
   html:
+    code-tools: true
     toc: true
     toc-location: right
     html-math-method: katex
     page-layout: article
-    code-fold: false
+    code-fold: true
 execute: 
   warning: false
   message: false
 categories: [R, Time Series, Data Visualization]
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o3-mini-high"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I imported and cleaned Apple's stock dataset spanning from 1981 to the present, and I performed data wrangling to aggregate and transform daily values into yearly averages using custom R functions. I built dynamic time series visualizations with R's plotly—both in regular and log-normalized formats—applying a custom theme to ensure a consistent, polished appearance, which revealed a substantial upward trend in stock prices post-2010 driven by the success of the iPhone. This project showcased my ability to integrate data manipulation, transformation, and interactive visualization to tell an engaging and insightful story about market trends."
 ---
 
 ![](/assets/images/apple.jpeg)

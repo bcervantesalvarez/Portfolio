@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-e3b182aea43aca510df6f3bd80ed40c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -300,7 +300,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Applied Multivariate Analysis</h1>
+<div class="quarto-title-block"><div><h1 class="title">Applied Multivariate Analysis</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">Statistics</div>
   </div>
@@ -329,6 +329,12 @@ window.Quarto = {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">April 8, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -337,7 +343,57 @@ window.Quarto = {
 </header>
 
 
-<p><img src="../../..\assets/images/redwhite.jpeg" class="img-fluid"></p>
+<style>
+.AI-Summary {
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+  max-width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.mini-banner .openai-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 1px;
+}
+.AI-Summary p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+</style>
+
+<div class="AI-Summary" markdown="1">
+  <div class="mini-banner">
+    <span class="left-banner">Yapper Labs | AI Summary</span>
+    <span class="right-banner">
+      <img src="../../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
+      Model: ChatGPT 4.5    </span>
+  </div>
+  <p>I performed exploratory data analysis and applied multivariate statistical methods, including MANOVA and Principal Component Analysis (PCA), to distinguish red from white wines and identify key variables predicting wine quality. My Random Forest classification model achieved an excellent recall of approximately 98.96% in distinguishing wine types, and an accuracy of 69.2% in predicting wine quality categories. PCA identified influential components like ‘Wine Body’ and ‘Fermentation Characteristics,’ contributing significantly (68.13% accuracy with 11 principal components) to effective classification performance.</p>
+</div>
+
+<p><img src="../../../assets/images/redwhite.jpeg" class="img-fluid"></p>
 <section id="distinguish-white-wines-from-red-wines" class="level1">
 <h1>Distinguish White Wines From Red Wines</h1>
 <section id="perform-eda-on-red-white-wine-means" class="level2">
@@ -766,26 +822,26 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 
           Reference
 Prediction  red white
-     red    475     5
-     white    4  1464
+     red    473     6
+     white    6  1463
                                              
-               Accuracy : 0.9954             
-                 95% CI : (0.9912, 0.9979)   
+               Accuracy : 0.9938             
+                 95% CI : (0.9893, 0.9968)   
     No Information Rate : 0.7541             
     P-Value [Acc &gt; NIR] : &lt;0.0000000000000002
                                              
-                  Kappa : 0.9876             
+                  Kappa : 0.9834             
                                              
  Mcnemar's Test P-Value : 1                  
                                              
-            Sensitivity : 0.9916             
-            Specificity : 0.9966             
-         Pos Pred Value : 0.9896             
-         Neg Pred Value : 0.9973             
+            Sensitivity : 0.9875             
+            Specificity : 0.9959             
+         Pos Pred Value : 0.9875             
+         Neg Pred Value : 0.9959             
              Prevalence : 0.2459             
-         Detection Rate : 0.2438             
-   Detection Prevalence : 0.2464             
-      Balanced Accuracy : 0.9941             
+         Detection Rate : 0.2428             
+   Detection Prevalence : 0.2459             
+      Balanced Accuracy : 0.9917             
                                              
        'Positive' Class : red                
                                              </code></pre>
@@ -824,7 +880,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyRF, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9959"</code></pre>
+<pre><code>[1] "Accuracy: 0.9938"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Logistic Regression Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -832,7 +888,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyLogistic, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9954"</code></pre>
+<pre><code>[1] "Accuracy: 0.9938"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Support Vector Machine (SVM) Model Results:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -840,7 +896,7 @@ Prediction  red white
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracySVM, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Accuracy: 0.9969"</code></pre>
+<pre><code>[1] "Accuracy: 0.9964"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get variable importance from the best model</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,16 +904,16 @@ Prediction  red white
 <pre><code>rf variable importance
 
                    Overall
-totalSulfurDioxide 100.000
-chlorides           86.978
-volatileAcidity     42.339
-density             23.211
-sulphates           17.890
-residualSugar       16.996
-fixedAcidity        16.702
-freeSulfurDioxide   16.630
-pH                   4.597
-citricAcid           4.122
+chlorides          100.000
+totalSulfurDioxide  80.296
+volatileAcidity     43.041
+freeSulfurDioxide   23.194
+density             22.347
+residualSugar       18.246
+sulphates           17.811
+fixedAcidity        12.766
+citricAcid           4.859
+pH                   3.794
 alcohol              0.000</code></pre>
 </div>
 </div>
@@ -1612,237 +1668,126 @@ Balanced Accuracy       0.50000        0.5878     0.61296</code></pre>
 </div>
 
 
+<!-- -->
+
 </section>
 </section>
 </section>
 
 </main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
-
 <style>
-
     /* Cookie Consent Banner Styling */
-
     .cookie-consent-banner {
-
       position: fixed;
-
       bottom: 0;
-
       width: 100%;
-
       background-color: #f7f7f9; /* Using $gray-200 from your theme */
-
       color: #1a1a1a; /* Using $primary ($gray-900) for contrast */
-
       padding: 1rem;
-
       text-align: center;
-
       z-index: 1000;
-
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-
     }
-
     
-
     .cookie-consent-banner button {
-
       margin-left: 1rem;
-
       background-color: #0073cf; /* Using $blue */
-
       color: #fff;
-
       border: none;
-
       padding: 0.5rem 1rem;
-
       border-radius: 0.25rem;
-
       cursor: pointer;
-
       font-size: 1rem;
-
       transition: background-color 0.3s ease;
-
     }
-
     
-
     /* Styling for the Deny button */
-
     .cookie-consent-banner button#deny-cookies {
-
       margin-left: 0.5rem;
-
       background-color: #ced4da; /* Using a gray tone similar to $gray-400 */
-
       color: #1a1a1a;
-
     }
-
     
-
     /* Optional hover effects */
-
     .cookie-consent-banner button:hover {
-
       opacity: 0.9;
-
     }
-
   </style>
-
   
-
   <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
-
     <span>This website uses Google Analytics to improve its functionality.</span>
-
     <button id="accept-cookies">Accept</button>
-
     <button id="deny-cookies">Deny</button>
-
   </div>
-
   
-
   <script>
-
     (function() {
-
       // Function to dynamically load Google Analytics and update consent mode.
-
       function loadGoogleAnalytics() {
-
         const gaScript = document.createElement('script');
-
         gaScript.async = true;
-
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN44V7BZHS";
-
         document.head.appendChild(gaScript);
-
         
-
         gaScript.onload = function() {
-
           window.dataLayer = window.dataLayer || [];
-
           function gtag(){ dataLayer.push(arguments); }
-
           
-
           // Update consent mode to grant storage upon acceptance.
-
           gtag('consent', 'update', {
-
             'analytics_storage': 'granted',
-
             'ad_storage': 'granted'
-
           });
-
           
-
           gtag('js', new Date());
-
           gtag('config', 'G-HN44V7BZHS');
-
         };
-
       }
-
     
-
       // Helper functions to get and set cookies.
-
       function getCookie(name) {
-
         const value = "; " + document.cookie;
-
         const parts = value.split("; " + name + "=");
-
         if (parts.length === 2) return parts.pop().split(";").shift();
-
       }
-
     
-
       function setCookie(name, value, days) {
-
         let expires = "";
-
         if (days) {
-
           const date = new Date();
-
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-
           expires = "; expires=" + date.toUTCString();
-
         }
-
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
-
       }
-
     
-
       document.addEventListener("DOMContentLoaded", function() {
-
         const consent = getCookie("cookie_consent");
-
         
-
         // If consent was previously given, load GA immediately; otherwise, show the banner.
-
         if (consent === "accepted") {
-
           loadGoogleAnalytics();
-
         } else {
-
           document.getElementById("cookie-consent-banner").style.display = "block";
-
         }
-
     
-
         // When the user accepts cookies...
-
         document.getElementById("accept-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "accepted", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           loadGoogleAnalytics();
-
         });
-
     
-
         // When the user denies cookies...
-
         document.getElementById("deny-cookies").addEventListener("click", function() {
-
           setCookie("cookie_consent", "denied", 365);
-
           document.getElementById("cookie-consent-banner").style.display = "none";
-
           // Optionally, add logic to disable tracking.
-
         });
-
       });
-
     })();
-
   </script>
-
   
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1926,11 +1871,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -2036,6 +2034,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -2260,7 +2259,780 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb96" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Applied Multivariate Analysis"</span></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Brian Cervantes Alvarez"</span></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "12-14-2023"</span></span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Exploring wine attributes through EDA, MANOVA, and classification models reveals significant chemical differences and predictors of wine type and quality."</span></span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a><span class="an">teaser:</span><span class="co"> "Bringing modern stats to uncover wine attribute patterns and differences."</span></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> ["Statistics"]</span></span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> /assets/images/redwhite.jpeg</span></span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb96-19"><a href="#cb96-19" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb96-20"><a href="#cb96-20" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
+<span id="cb96-21"><a href="#cb96-21" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
+<span id="cb96-22"><a href="#cb96-22" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT 4.5"</span></span>
+<span id="cb96-23"><a href="#cb96-23" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
+<span id="cb96-24"><a href="#cb96-24" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "I performed exploratory data analysis and applied multivariate statistical methods, including MANOVA and Principal Component Analysis (PCA), to distinguish red from white wines and identify key variables predicting wine quality. My Random Forest classification model achieved an excellent recall of approximately 98.96% in distinguishing wine types, and an accuracy of 69.2% in predicting wine quality categories. PCA identified influential components like 'Wine Body' and 'Fermentation Characteristics,' contributing significantly (68.13% accuracy with 11 principal components) to effective classification performance."</span></span>
+<span id="cb96-25"><a href="#cb96-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb96-26"><a href="#cb96-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-27"><a href="#cb96-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-28"><a href="#cb96-28" aria-hidden="true" tabindex="-1"></a><span class="al">![](/assets/images/redwhite.jpeg)</span></span>
+<span id="cb96-29"><a href="#cb96-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-30"><a href="#cb96-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Distinguish White Wines From Red Wines</span></span>
+<span id="cb96-31"><a href="#cb96-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-32"><a href="#cb96-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform EDA on Red &amp; White Wine Means:</span></span>
+<span id="cb96-33"><a href="#cb96-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-34"><a href="#cb96-34" aria-hidden="true" tabindex="-1"></a>I conducted an exploratory data analysis in comparing means for the 11 chemical attributes in the red and white wines. Notably, 'totalSulfurDioxide' showed significant mean differences, followed by 'freeSulfurDioxide' and 'residualSugar.' These attributes currently stand out showing a clear difference between the means of white and red wines.</span>
+<span id="cb96-35"><a href="#cb96-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-36"><a href="#cb96-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform MANOVA to determine if there are a significant difference in mean vectors between red and white wines with a 95% confidence level.</span></span>
+<span id="cb96-37"><a href="#cb96-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-38"><a href="#cb96-38" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb96-39"><a href="#cb96-39" aria-hidden="true" tabindex="-1"></a>&amp;H_0: \bar{\mu}_{\text{red}} = \bar{\mu}_{\text{white}} <span class="sc">\\</span></span>
+<span id="cb96-40"><a href="#cb96-40" aria-hidden="true" tabindex="-1"></a>&amp;H_A: \bar{\mu}_{\text{red}} \neq \bar{\mu}_{\text{white}}</span>
+<span id="cb96-41"><a href="#cb96-41" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb96-42"><a href="#cb96-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-43"><a href="#cb96-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### MANOVA Results</span></span>
+<span id="cb96-44"><a href="#cb96-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-45"><a href="#cb96-45" aria-hidden="true" tabindex="-1"></a>The MANOVA reveals a significant disparity in the means for specific chemical traits between red and white wines. Notably, Pillai's Trace $(0.86158)$ indicates a robust effect, accounting for approximately $86.128\%$ of the variance. The p-value of $2.2 \times 10^{-16}$ signifies significant differences in the mean vectors. Hence, the MANOVA decisively rejects the null hypothesis of no difference in means, and we have exceptionally high confidence in accepting the alternative-that there is a difference in means between each wine.</span>
+<span id="cb96-46"><a href="#cb96-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-47"><a href="#cb96-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform Classification Modeling on Red &amp; White Wines</span></span>
+<span id="cb96-48"><a href="#cb96-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-49"><a href="#cb96-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Train-Test Split &amp; Cross-Validation Set up</span></span>
+<span id="cb96-50"><a href="#cb96-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-51"><a href="#cb96-51" aria-hidden="true" tabindex="-1"></a>I performed a train-test split to ensure the models can handle new, unseen data. I allocated $70\%$ to the training data to have a larger sample for the testing data $(30\%)$. To enhance reliability, I employed cross-validation, repeatedly splitting the data into different training and testing sets. This approach provides a more comprehensive evaluation of the model's effectiveness.</span>
+<span id="cb96-52"><a href="#cb96-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-53"><a href="#cb96-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest, SVM and Logistic Models</span></span>
+<span id="cb96-54"><a href="#cb96-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-55"><a href="#cb96-55" aria-hidden="true" tabindex="-1"></a>For my models, I've selected Random Forest, Support Vector Machine, and Logistic Regression as promising candidates for effective classification. Logistic Regression is particularly beneficial in binary classification scenarios due to its simplicity and interpretability. Meanwhile, Random Forest excels in capturing complex relationships through ensemble learning, and Support Vector Machine demonstrates proficiency in handling both linear and non-linear patterns. As the results will show later, Random Forest performed the best followed by SVM. Note, the models were not tuned to use their best hyperparameters.</span>
+<span id="cb96-56"><a href="#cb96-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-57"><a href="#cb96-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metrics &amp; Variable Importance</span></span>
+<span id="cb96-58"><a href="#cb96-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-59"><a href="#cb96-59" aria-hidden="true" tabindex="-1"></a>The confusion matrix for the red and white wine classification using the Random Forest model shows strong performance. The model correctly identified $474$ red wines and $1464$ white wines, with only $5$ red wines and $5$ white wines misclassified. This indicates high accuracy in both precision and recall. In comparison to the Support Vector Machine (SVM) and Logistic Regression models, the Random Forest performed better by minimizing misclassifications. The SVM model had slightly more misclassified instances ($13$ in total), while the Logistic Regression model had $17$ misclassifications. The Random Forest's performance makes it a better choice for this classifying red and white wines compared to SVM and Logistic Regression.</span>
+<span id="cb96-60"><a href="#cb96-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-61"><a href="#cb96-61" aria-hidden="true" tabindex="-1"></a>The variable importance analysis shows that "chlorides," with a significance of $100%$, is the most crucial feature for distinguishing red and white wines. Additionally, "totalSulfurDioxide" $(96.92%)$ and "volatileAcidity" $(43.47%)$ also played key roles, contributing to the model's clear performance in wine classification.</span>
+<span id="cb96-62"><a href="#cb96-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-63"><a href="#cb96-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Classifying a New Red Wine Drawn From The Same Population</span></span>
+<span id="cb96-64"><a href="#cb96-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-65"><a href="#cb96-65" aria-hidden="true" tabindex="-1"></a>To estimate the probability of correctly classifying a new red wine drawn from the same population, we can use the concept of recall.</span>
+<span id="cb96-66"><a href="#cb96-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-67"><a href="#cb96-67" aria-hidden="true" tabindex="-1"></a>In our confusion matrix:</span>
+<span id="cb96-68"><a href="#cb96-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-69"><a href="#cb96-69" aria-hidden="true" tabindex="-1"></a>$$ \text{Recall (for red wine)} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP) + False Negatives (FN)}} $$</span>
+<span id="cb96-70"><a href="#cb96-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-71"><a href="#cb96-71" aria-hidden="true" tabindex="-1"></a>To find the probability:</span>
+<span id="cb96-72"><a href="#cb96-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-73"><a href="#cb96-73" aria-hidden="true" tabindex="-1"></a>$$ \text{Recall (for red wine)} = \frac{474}{474 + 5} = \frac{474}{479}  = 0.9896$$</span>
+<span id="cb96-74"><a href="#cb96-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-75"><a href="#cb96-75" aria-hidden="true" tabindex="-1"></a>So, the estimated probability of correctly classifying a new red wine, drawn from the same population, is approximately $\frac{474}{479}$, or roughly $98.96\%$. This suggests a very high probability of correctly identifying red wines based on the model's current performance.</span>
+<span id="cb96-76"><a href="#cb96-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-77"><a href="#cb96-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## K-Means Clustering</span></span>
+<span id="cb96-78"><a href="#cb96-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-79"><a href="#cb96-79" aria-hidden="true" tabindex="-1"></a>I chose k-means clustering with Euclidean distance for its efficiency with standardized numerical data. While k = 2 visually showed a clear distinction between red and white wines, higher k values (for example, 3 or 4) led to overlapping clusters, affecting the meaningful separation observed with k = 2.</span>
+<span id="cb96-80"><a href="#cb96-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-81"><a href="#cb96-81" aria-hidden="true" tabindex="-1"></a><span class="fu"># Which Variables Are The Most Important To Wine Quality In Red Wines?</span></span>
+<span id="cb96-82"><a href="#cb96-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-83"><a href="#cb96-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform MANOVAs To Determine If There Are A Significant Difference In Mean Vectors Between Wines With Different Quality/Quality Groups With A 95% Confidence Level.</span></span>
+<span id="cb96-84"><a href="#cb96-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-85"><a href="#cb96-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### MANOVA for Quality Levels 3, 4, 5, 6, 7, 8</span></span>
+<span id="cb96-86"><a href="#cb96-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-87"><a href="#cb96-87" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb96-88"><a href="#cb96-88" aria-hidden="true" tabindex="-1"></a>&amp;H_0: \mu_2 = \mu_3 = \mu_4 = \mu_5 = \mu_6 = \mu_7 = \mu_8 <span class="sc">\\</span></span>
+<span id="cb96-89"><a href="#cb96-89" aria-hidden="true" tabindex="-1"></a>&amp;H_A: \text{At least one of } \mu_2, \mu_3, \mu_4, \mu_5, \mu_6, \mu_7, \text{ or } \mu_8 \text{ is different}</span>
+<span id="cb96-90"><a href="#cb96-90" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb96-91"><a href="#cb96-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-92"><a href="#cb96-92" aria-hidden="true" tabindex="-1"></a>In the first analysis, we looked at the Original Quality Scores, and the results were highly significant. The p-value was super close to zero, less than $2.2 x 10^{-16}$. This means there are big differences in the average chemical properties for different quality scores. Therefore, the mean vectors for each quality level varied, providing strong support for rejecting the null hypothesis.</span>
+<span id="cb96-93"><a href="#cb96-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-94"><a href="#cb96-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### MANOVA for Quality Groups \[Low, Medium, High\]</span></span>
+<span id="cb96-95"><a href="#cb96-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-96"><a href="#cb96-96" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb96-97"><a href="#cb96-97" aria-hidden="true" tabindex="-1"></a>&amp;H_0: \mu_{\text{Low}} = \mu_{\text{Medium}} = \mu_{\text{High}} <span class="sc">\\</span></span>
+<span id="cb96-98"><a href="#cb96-98" aria-hidden="true" tabindex="-1"></a>&amp;H_A: \text{At least one of } \mu_{\text{Low}}, \mu_{\text{Medium}}, \text{ or } \mu_{\text{High}} \text{ is different}</span>
+<span id="cb96-99"><a href="#cb96-99" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb96-100"><a href="#cb96-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-101"><a href="#cb96-101" aria-hidden="true" tabindex="-1"></a>In the second analysis, we focused on Quality Groups (Low, Medium, High), and the results were also highly significant. The p-value was very close to zero, less than $2.2 x 10^{-16}$. This indicates significant differences in the average chemical properties across different quality groups. We have strong evidence that the mean vectors between each quality group differed. Therefore, we have evidence to reject the null and be in favor of the alternative.</span>
+<span id="cb96-102"><a href="#cb96-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-103"><a href="#cb96-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Overall MANOVA Test Conclusion</span></span>
+<span id="cb96-104"><a href="#cb96-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-105"><a href="#cb96-105" aria-hidden="true" tabindex="-1"></a>To summarize, our MANOVA tests reveal significant differences in average values for both original quality scores and quality groups. For original scores, statistics like Pillai's trace and Wilks' lambda had extremely low p-values $p &lt; 2.2 x 10^{-16}$. Quality groups exhibited similar results.</span>
+<span id="cb96-106"><a href="#cb96-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-107"><a href="#cb96-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform Classification on Quality for Red Wines</span></span>
+<span id="cb96-108"><a href="#cb96-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-109"><a href="#cb96-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest and SVM models</span></span>
+<span id="cb96-110"><a href="#cb96-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-111"><a href="#cb96-111" aria-hidden="true" tabindex="-1"></a>I performed the same procedure from the previous classification of red and white wines. I've selected Random Forest &amp; Support Vector Machine the top models for classification. Logistic Regression is not designed for multiple classes. Interestingly, the Random Forest performed the best again, followed by SVM. It's important to note that the models were not fine-tuned for hyperparameters at this stage.</span>
+<span id="cb96-112"><a href="#cb96-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-113"><a href="#cb96-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metrics &amp; Variable Importance</span></span>
+<span id="cb96-114"><a href="#cb96-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-115"><a href="#cb96-115" aria-hidden="true" tabindex="-1"></a>Random Forest emerged as the top-performing model once again, with an accuracy of $69.2\%$. For instance, we can observe that quality level 5 has the highest number of correct predictions $(163)$, while quality levels $4$ and $6$ have some misclassifications. Among the features, alcohol, total sulfur dioxide, and volatile acidity emerged as the top three influential variables, showcasing their significance in predicting wine quality in red wines.</span>
+<span id="cb96-116"><a href="#cb96-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-117"><a href="#cb96-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform Principal Component Analysis</span></span>
+<span id="cb96-118"><a href="#cb96-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-119"><a href="#cb96-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Explaining PC1 &amp; PC2</span></span>
+<span id="cb96-120"><a href="#cb96-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-121"><a href="#cb96-121" aria-hidden="true" tabindex="-1"></a>PC1 can be interpreted as representing "Wine Body." Red wines with higher fixed acidity, citric acid, free sulfur dioxide, and total sulfur dioxide contribute positively to this component, indicating a fuller and more robust body. Hence, higher levels of volatile acidity, residual sugar, and alcohol contribute negatively to this component.</span>
+<span id="cb96-122"><a href="#cb96-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-123"><a href="#cb96-123" aria-hidden="true" tabindex="-1"></a>PC2 can be labeled as "Fermentation Characteristics." Additionally, red wines with elevated levels of free sulfur dioxide, total sulfur dioxide, and density contribute positively to this component, highlighting aspects related to the fermentation process. On the other end, higher alcohol content and volatile acidity contribute negatively to PC2.</span>
+<span id="cb96-124"><a href="#cb96-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-125"><a href="#cb96-125" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest Model with 2 PCA</span></span>
+<span id="cb96-126"><a href="#cb96-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-127"><a href="#cb96-127" aria-hidden="true" tabindex="-1"></a>In the confusion matrix, it's evident that the model struggled to accurately predict certain classes, particularly in categories 3, 4, and 7, where the predicted values differ from the actual values. To add, random forest model achieved an accuracy of 58.07% which is quite below the previous models. Despite its limitations, the model demonstrated some success in capturing patterns related to "Wine Body" and "Fermentation Characteristics." And it's with just 2 variables with linear combinations.</span>
+<span id="cb96-128"><a href="#cb96-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-129"><a href="#cb96-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest Model with 11 PCAs</span></span>
+<span id="cb96-130"><a href="#cb96-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-131"><a href="#cb96-131" aria-hidden="true" tabindex="-1"></a>The random forest model attained an accuracy of 68.13%. Plus, it excelled in predicting class 5 but faced challenges in classes 3, 4, 6, and 7. Principal Component Analysis (PCA) highlights PC2 as the most influential (100%), followed by PC3 (80.49%), PC5 (32.47%), and others. This suggests a need for further analysis to enhance predictions in specific classes and leverage insights from key Principal Components for optimization.</span>
+<span id="cb96-132"><a href="#cb96-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-133"><a href="#cb96-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comparison between Random Forest Models (normal, 2PCs, 11PCs)</span></span>
+<span id="cb96-134"><a href="#cb96-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-135"><a href="#cb96-135" aria-hidden="true" tabindex="-1"></a>In comparing the Random Forest models, both the normal model and the 11 PCs model achieve an accuracy of approximately 68%, surpassing the 2 PCs model, which attains an accuracy of 58.07%. It's noteworthy that the 2 PCs model demonstrates the potency of PCA, albeit with a trade-off in interpretability. Despite the challenges encountered, each model variant provides valuable insights for optimizing the predictive power. The room for improvement is wide open. Factors such as hyperparameter tuning, other models that were not explored, feature engineering, and delving further into factor analysis are instances that could be used to maximize performance.</span>
+<span id="cb96-136"><a href="#cb96-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-137"><a href="#cb96-137" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb96-138"><a href="#cb96-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-139"><a href="#cb96-139" aria-hidden="true" tabindex="-1"></a><span class="fu"># Appendix</span></span>
+<span id="cb96-140"><a href="#cb96-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-141"><a href="#cb96-141" aria-hidden="true" tabindex="-1"></a><span class="fu"># Goal 1: Distinguish White Wines From Red Wines</span></span>
+<span id="cb96-142"><a href="#cb96-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-145"><a href="#cb96-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-146"><a href="#cb96-146" aria-hidden="true" tabindex="-1"></a><span class="co"># Set scipen to a high value to disable scientific notation</span></span>
+<span id="cb96-147"><a href="#cb96-147" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb96-148"><a href="#cb96-148" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb96-149"><a href="#cb96-149" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb96-150"><a href="#cb96-150" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cluster) </span>
+<span id="cb96-151"><a href="#cb96-151" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb96-152"><a href="#cb96-152" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb96-153"><a href="#cb96-153" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb96-154"><a href="#cb96-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-155"><a href="#cb96-155" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the wine datasets</span></span>
+<span id="cb96-156"><a href="#cb96-156" aria-hidden="true" tabindex="-1"></a>redWine <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../../assets/datasets/winequality-red.csv"</span>)</span>
+<span id="cb96-157"><a href="#cb96-157" aria-hidden="true" tabindex="-1"></a>whiteWine <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../../assets/datasets/winequality-white.csv"</span>)</span>
+<span id="cb96-158"><a href="#cb96-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-159"><a href="#cb96-159" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the structure of the wine data</span></span>
+<span id="cb96-160"><a href="#cb96-160" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(redWine)</span>
+<span id="cb96-161"><a href="#cb96-161" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(whiteWine)</span>
+<span id="cb96-162"><a href="#cb96-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-163"><a href="#cb96-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a quick summary for both datasets</span></span>
+<span id="cb96-164"><a href="#cb96-164" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(redWine)</span></span>
+<span id="cb96-165"><a href="#cb96-165" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(whiteWine)</span></span>
+<span id="cb96-166"><a href="#cb96-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-167"><a href="#cb96-167" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a 'wine_type' column to identify the wine type</span></span>
+<span id="cb96-168"><a href="#cb96-168" aria-hidden="true" tabindex="-1"></a>redWine<span class="sc">$</span>wineType <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
+<span id="cb96-169"><a href="#cb96-169" aria-hidden="true" tabindex="-1"></a>whiteWine<span class="sc">$</span>wineType <span class="ot">&lt;-</span> <span class="st">"white"</span></span>
+<span id="cb96-170"><a href="#cb96-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-171"><a href="#cb96-171" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the datasets</span></span>
+<span id="cb96-172"><a href="#cb96-172" aria-hidden="true" tabindex="-1"></a>wine <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(redWine, whiteWine)</span>
+<span id="cb96-173"><a href="#cb96-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-174"><a href="#cb96-174" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns for better readability and consistency</span></span>
+<span id="cb96-175"><a href="#cb96-175" aria-hidden="true" tabindex="-1"></a>wine <span class="ot">&lt;-</span> wine <span class="sc">%&gt;%</span> </span>
+<span id="cb96-176"><a href="#cb96-176" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">fixedAcidity =</span> <span class="st">`</span><span class="at">fixed acidity</span><span class="st">`</span>,</span>
+<span id="cb96-177"><a href="#cb96-177" aria-hidden="true" tabindex="-1"></a>         <span class="at">volatileAcidity =</span> <span class="st">`</span><span class="at">volatile acidity</span><span class="st">`</span>,</span>
+<span id="cb96-178"><a href="#cb96-178" aria-hidden="true" tabindex="-1"></a>         <span class="at">citricAcid =</span> <span class="st">`</span><span class="at">citric acid</span><span class="st">`</span>,</span>
+<span id="cb96-179"><a href="#cb96-179" aria-hidden="true" tabindex="-1"></a>         <span class="at">residualSugar =</span> <span class="st">`</span><span class="at">residual sugar</span><span class="st">`</span>,</span>
+<span id="cb96-180"><a href="#cb96-180" aria-hidden="true" tabindex="-1"></a>         <span class="at">freeSulfurDioxide =</span> <span class="st">`</span><span class="at">free sulfur dioxide</span><span class="st">`</span>,</span>
+<span id="cb96-181"><a href="#cb96-181" aria-hidden="true" tabindex="-1"></a>         <span class="at">totalSulfurDioxide =</span> <span class="st">`</span><span class="at">total sulfur dioxide</span><span class="st">`</span>,</span>
+<span id="cb96-182"><a href="#cb96-182" aria-hidden="true" tabindex="-1"></a>         <span class="at">wineType =</span> <span class="fu">factor</span>(wineType, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"white"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb96-183"><a href="#cb96-183" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">fixed acidity</span><span class="st">`</span>,</span>
+<span id="cb96-184"><a href="#cb96-184" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">volatile acidity</span><span class="st">`</span>,</span>
+<span id="cb96-185"><a href="#cb96-185" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">citric acid</span><span class="st">`</span>,</span>
+<span id="cb96-186"><a href="#cb96-186" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">residual sugar</span><span class="st">`</span>,</span>
+<span id="cb96-187"><a href="#cb96-187" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">free sulfur dioxide</span><span class="st">`</span>,</span>
+<span id="cb96-188"><a href="#cb96-188" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">total sulfur dioxide</span><span class="st">`</span>))</span>
+<span id="cb96-189"><a href="#cb96-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-190"><a href="#cb96-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-191"><a href="#cb96-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for quality counts</span></span>
+<span id="cb96-192"><a href="#cb96-192" aria-hidden="true" tabindex="-1"></a>wine <span class="sc">%&gt;%</span></span>
+<span id="cb96-193"><a href="#cb96-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(quality) <span class="sc">%&gt;%</span></span>
+<span id="cb96-194"><a href="#cb96-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">totalCount =</span> <span class="fu">n</span>())</span>
+<span id="cb96-195"><a href="#cb96-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-196"><a href="#cb96-196" aria-hidden="true" tabindex="-1"></a>wineDs <span class="ot">&lt;-</span> wine <span class="sc">%&gt;%</span></span>
+<span id="cb96-197"><a href="#cb96-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>quality)</span>
+<span id="cb96-198"><a href="#cb96-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-199"><a href="#cb96-199" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(wineDs)</span>
+<span id="cb96-200"><a href="#cb96-200" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(wineDs)</span>
+<span id="cb96-201"><a href="#cb96-201" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(wineDs))</span>
+<span id="cb96-202"><a href="#cb96-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-203"><a href="#cb96-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-204"><a href="#cb96-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-205"><a href="#cb96-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform EDA on Red &amp; White Wine Means:</span></span>
+<span id="cb96-206"><a href="#cb96-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-209"><a href="#cb96-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-210"><a href="#cb96-210" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean vectors for red and white wines </span></span>
+<span id="cb96-211"><a href="#cb96-211" aria-hidden="true" tabindex="-1"></a><span class="co"># separately for each of the 11 chemical attributes</span></span>
+<span id="cb96-212"><a href="#cb96-212" aria-hidden="true" tabindex="-1"></a>meanVectors <span class="ot">&lt;-</span> wineDs <span class="sc">%&gt;%</span> </span>
+<span id="cb96-213"><a href="#cb96-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(wineType) <span class="sc">%&gt;%</span></span>
+<span id="cb96-214"><a href="#cb96-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize_all</span>(mean)</span>
+<span id="cb96-215"><a href="#cb96-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-216"><a href="#cb96-216" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the mean vectors</span></span>
+<span id="cb96-217"><a href="#cb96-217" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meanVectors, <span class="dv">2</span>)</span>
+<span id="cb96-218"><a href="#cb96-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-219"><a href="#cb96-219" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long format for plotting</span></span>
+<span id="cb96-220"><a href="#cb96-220" aria-hidden="true" tabindex="-1"></a>meanDs <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">gather</span>(meanVectors,</span>
+<span id="cb96-221"><a href="#cb96-221" aria-hidden="true" tabindex="-1"></a>                        <span class="at">key =</span> <span class="st">"attribute"</span>, </span>
+<span id="cb96-222"><a href="#cb96-222" aria-hidden="true" tabindex="-1"></a>                        <span class="at">value =</span> <span class="st">"means"</span>, <span class="sc">-</span>wineType)</span>
+<span id="cb96-223"><a href="#cb96-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-224"><a href="#cb96-224" aria-hidden="true" tabindex="-1"></a><span class="co">#meanDs</span></span>
+<span id="cb96-225"><a href="#cb96-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-226"><a href="#cb96-226" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb96-227"><a href="#cb96-227" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(meanDs, <span class="fu">aes</span>(<span class="at">x =</span> means, <span class="at">y =</span> attribute, <span class="at">fill =</span> wineType)) <span class="sc">+</span></span>
+<span id="cb96-228"><a href="#cb96-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb96-229"><a href="#cb96-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Values for Red|White Wines"</span>,</span>
+<span id="cb96-230"><a href="#cb96-230" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mean Value"</span>,</span>
+<span id="cb96-231"><a href="#cb96-231" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Chemical Attributes"</span>) <span class="sc">+</span></span>
+<span id="cb96-232"><a href="#cb96-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb96-233"><a href="#cb96-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-234"><a href="#cb96-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-235"><a href="#cb96-235" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb96-236"><a href="#cb96-236" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(meanDs, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(means), <span class="at">y =</span> attribute, <span class="at">fill =</span> wineType)) <span class="sc">+</span></span>
+<span id="cb96-237"><a href="#cb96-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb96-238"><a href="#cb96-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Log-Transformed Mean Values for Red|White Wines"</span>,</span>
+<span id="cb96-239"><a href="#cb96-239" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mean Value"</span>,</span>
+<span id="cb96-240"><a href="#cb96-240" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Chemical Attributes"</span>) <span class="sc">+</span></span>
+<span id="cb96-241"><a href="#cb96-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb96-242"><a href="#cb96-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-243"><a href="#cb96-243" aria-hidden="true" tabindex="-1"></a>meanDifDs <span class="ot">&lt;-</span> meanDs <span class="sc">%&gt;%</span></span>
+<span id="cb96-244"><a href="#cb96-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(wineType, means) <span class="sc">%&gt;%</span></span>
+<span id="cb96-245"><a href="#cb96-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meanDifference =</span> red <span class="sc">-</span> white)</span>
+<span id="cb96-246"><a href="#cb96-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-247"><a href="#cb96-247" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the mean differences</span></span>
+<span id="cb96-248"><a href="#cb96-248" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(meanDifDs, <span class="fu">aes</span>(<span class="at">x =</span> meanDifference, <span class="at">y =</span> attribute)) <span class="sc">+</span></span>
+<span id="cb96-249"><a href="#cb96-249" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, </span>
+<span id="cb96-250"><a href="#cb96-250" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"red"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb96-251"><a href="#cb96-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Differences between Red &amp; White Wines"</span>,</span>
+<span id="cb96-252"><a href="#cb96-252" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mean Difference"</span>,</span>
+<span id="cb96-253"><a href="#cb96-253" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Chemical Attributes"</span>) <span class="sc">+</span></span>
+<span id="cb96-254"><a href="#cb96-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb96-255"><a href="#cb96-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-256"><a href="#cb96-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-257"><a href="#cb96-257" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot 1 for report</span></span>
+<span id="cb96-258"><a href="#cb96-258" aria-hidden="true" tabindex="-1"></a>p1</span>
+<span id="cb96-259"><a href="#cb96-259" aria-hidden="true" tabindex="-1"></a>p2</span>
+<span id="cb96-260"><a href="#cb96-260" aria-hidden="true" tabindex="-1"></a>p3</span>
+<span id="cb96-261"><a href="#cb96-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-262"><a href="#cb96-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-263"><a href="#cb96-263" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform MANOVA to determine if there are a significant difference in mean vectors between red and white wines with a 95% confidence level.</span></span>
+<span id="cb96-264"><a href="#cb96-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-267"><a href="#cb96-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-268"><a href="#cb96-268" aria-hidden="true" tabindex="-1"></a>wineManova <span class="ot">&lt;-</span> <span class="fu">manova</span>(<span class="fu">cbind</span>(chlorides, density, pH, sulphates, </span>
+<span id="cb96-269"><a href="#cb96-269" aria-hidden="true" tabindex="-1"></a>                           alcohol, fixedAcidity, volatileAcidity, </span>
+<span id="cb96-270"><a href="#cb96-270" aria-hidden="true" tabindex="-1"></a>                           citricAcid, residualSugar, freeSulfurDioxide,</span>
+<span id="cb96-271"><a href="#cb96-271" aria-hidden="true" tabindex="-1"></a>                           totalSulfurDioxide) <span class="sc">~</span> wineType, <span class="at">data =</span> wineDs) </span>
+<span id="cb96-272"><a href="#cb96-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-273"><a href="#cb96-273" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the summary of the MANOVA</span></span>
+<span id="cb96-274"><a href="#cb96-274" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(wineManova)</span>
+<span id="cb96-275"><a href="#cb96-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-276"><a href="#cb96-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-277"><a href="#cb96-277" aria-hidden="true" tabindex="-1"></a><span class="fu">### MANOVA Results</span></span>
+<span id="cb96-278"><a href="#cb96-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-279"><a href="#cb96-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform Classification Modeling on Red &amp; White Wines</span></span>
+<span id="cb96-280"><a href="#cb96-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-281"><a href="#cb96-281" aria-hidden="true" tabindex="-1"></a><span class="fu">### Train-Test Split &amp; Cross-Validation Set up</span></span>
+<span id="cb96-282"><a href="#cb96-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-285"><a href="#cb96-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-286"><a href="#cb96-286" aria-hidden="true" tabindex="-1"></a>splitIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(wineDs<span class="sc">$</span>wineType, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-287"><a href="#cb96-287" aria-hidden="true" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> wineDs[splitIndex, ]</span>
+<span id="cb96-288"><a href="#cb96-288" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> wineDs[<span class="sc">-</span>splitIndex, ]</span>
+<span id="cb96-289"><a href="#cb96-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-290"><a href="#cb96-290" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Repeated cross-validation</span></span>
+<span id="cb96-291"><a href="#cb96-291" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb96-292"><a href="#cb96-292" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb96-293"><a href="#cb96-293" aria-hidden="true" tabindex="-1"></a>                     <span class="at">repeats =</span> <span class="dv">3</span>, </span>
+<span id="cb96-294"><a href="#cb96-294" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-295"><a href="#cb96-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-296"><a href="#cb96-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-297"><a href="#cb96-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest, SVM and Logistic Models</span></span>
+<span id="cb96-298"><a href="#cb96-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-301"><a href="#cb96-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-302"><a href="#cb96-302" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2013</span>)</span>
+<span id="cb96-303"><a href="#cb96-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-304"><a href="#cb96-304" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Random Forest</span></span>
+<span id="cb96-305"><a href="#cb96-305" aria-hidden="true" tabindex="-1"></a>rfModel <span class="ot">&lt;-</span> <span class="fu">train</span>(wineType <span class="sc">~</span> ., </span>
+<span id="cb96-306"><a href="#cb96-306" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-307"><a href="#cb96-307" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb96-308"><a href="#cb96-308" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> ctrl,</span>
+<span id="cb96-309"><a href="#cb96-309" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ntree =</span> <span class="dv">200</span>)</span>
+<span id="cb96-310"><a href="#cb96-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-311"><a href="#cb96-311" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Logistic Regression</span></span>
+<span id="cb96-312"><a href="#cb96-312" aria-hidden="true" tabindex="-1"></a>logisticModel <span class="ot">&lt;-</span> <span class="fu">train</span>(wineType <span class="sc">~</span> ., </span>
+<span id="cb96-313"><a href="#cb96-313" aria-hidden="true" tabindex="-1"></a>                       <span class="at">data =</span> trainData,</span>
+<span id="cb96-314"><a href="#cb96-314" aria-hidden="true" tabindex="-1"></a>                       <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb96-315"><a href="#cb96-315" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb96-316"><a href="#cb96-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-317"><a href="#cb96-317" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Support Vector Machine</span></span>
+<span id="cb96-318"><a href="#cb96-318" aria-hidden="true" tabindex="-1"></a>svmModel <span class="ot">&lt;-</span> <span class="fu">train</span>(wineType <span class="sc">~</span> ., </span>
+<span id="cb96-319"><a href="#cb96-319" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-320"><a href="#cb96-320" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"svmRadial"</span>,</span>
+<span id="cb96-321"><a href="#cb96-321" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> ctrl)</span>
+<span id="cb96-322"><a href="#cb96-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-323"><a href="#cb96-323" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set for each model</span></span>
+<span id="cb96-324"><a href="#cb96-324" aria-hidden="true" tabindex="-1"></a>rfPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-325"><a href="#cb96-325" aria-hidden="true" tabindex="-1"></a>logisticPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(logisticModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-326"><a href="#cb96-326" aria-hidden="true" tabindex="-1"></a>svmPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(svmModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-327"><a href="#cb96-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-328"><a href="#cb96-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-329"><a href="#cb96-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metrics &amp; Variable Importance</span></span>
+<span id="cb96-330"><a href="#cb96-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-333"><a href="#cb96-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-334"><a href="#cb96-334" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest model metrics</span></span>
+<span id="cb96-335"><a href="#cb96-335" aria-hidden="true" tabindex="-1"></a>confMatrixRF <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(rfPred, testData<span class="sc">$</span>wineType, </span>
+<span id="cb96-336"><a href="#cb96-336" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-337"><a href="#cb96-337" aria-hidden="true" tabindex="-1"></a>accuracyRF <span class="ot">&lt;-</span> confMatrixRF<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-338"><a href="#cb96-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-339"><a href="#cb96-339" aria-hidden="true" tabindex="-1"></a><span class="co"># Logistic Regression model metrics</span></span>
+<span id="cb96-340"><a href="#cb96-340" aria-hidden="true" tabindex="-1"></a>confMatrixLogistic <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(logisticPred, testData<span class="sc">$</span>wineType, </span>
+<span id="cb96-341"><a href="#cb96-341" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-342"><a href="#cb96-342" aria-hidden="true" tabindex="-1"></a>accuracyLogistic <span class="ot">&lt;-</span> confMatrixLogistic<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-343"><a href="#cb96-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-344"><a href="#cb96-344" aria-hidden="true" tabindex="-1"></a><span class="co"># SVM model metrics</span></span>
+<span id="cb96-345"><a href="#cb96-345" aria-hidden="true" tabindex="-1"></a>confMatrixSVM <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(svmPred, testData<span class="sc">$</span>wineType, </span>
+<span id="cb96-346"><a href="#cb96-346" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-347"><a href="#cb96-347" aria-hidden="true" tabindex="-1"></a>accuracySVM <span class="ot">&lt;-</span> confMatrixSVM<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-348"><a href="#cb96-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-349"><a href="#cb96-349" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Confusion Matrices</span></span>
+<span id="cb96-350"><a href="#cb96-350" aria-hidden="true" tabindex="-1"></a>plotCM <span class="ot">&lt;-</span> <span class="cf">function</span>(confMatrix, modelName) {</span>
+<span id="cb96-351"><a href="#cb96-351" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(confMatrix<span class="sc">$</span>table)</span>
+<span id="cb96-352"><a href="#cb96-352" aria-hidden="true" tabindex="-1"></a>  plt<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(plt<span class="sc">$</span>Prediction, </span>
+<span id="cb96-353"><a href="#cb96-353" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(plt<span class="sc">$</span>Prediction)))</span>
+<span id="cb96-354"><a href="#cb96-354" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-355"><a href="#cb96-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plt, <span class="fu">aes</span>(Prediction, Reference, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-356"><a href="#cb96-356" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-357"><a href="#cb96-357" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"#00859B"</span>) <span class="sc">+</span></span>
+<span id="cb96-358"><a href="#cb96-358" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Confusion Matrix -"</span>, modelName),</span>
+<span id="cb96-359"><a href="#cb96-359" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Reference"</span>, <span class="at">y =</span> <span class="st">"Prediction"</span>) <span class="sc">+</span></span>
+<span id="cb96-360"><a href="#cb96-360" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>wineType)) <span class="sc">+</span></span>
+<span id="cb96-361"><a href="#cb96-361" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>wineType))</span>
+<span id="cb96-362"><a href="#cb96-362" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-363"><a href="#cb96-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-364"><a href="#cb96-364" aria-hidden="true" tabindex="-1"></a><span class="co">#confMatrixRF</span></span>
+<span id="cb96-365"><a href="#cb96-365" aria-hidden="true" tabindex="-1"></a>confMatrixLogistic</span>
+<span id="cb96-366"><a href="#cb96-366" aria-hidden="true" tabindex="-1"></a><span class="co">#confMatrixSVM</span></span>
+<span id="cb96-367"><a href="#cb96-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-368"><a href="#cb96-368" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Confusion Matrices for each model</span></span>
+<span id="cb96-369"><a href="#cb96-369" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(confMatrixRF, <span class="st">"Random Forest"</span>)</span>
+<span id="cb96-370"><a href="#cb96-370" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(confMatrixLogistic, <span class="st">"Logistic Regression"</span>)</span>
+<span id="cb96-371"><a href="#cb96-371" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(confMatrixSVM, <span class="st">"Support Vector Machine (SVM)"</span>)</span>
+<span id="cb96-372"><a href="#cb96-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-373"><a href="#cb96-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-374"><a href="#cb96-374" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the metrics for each model</span></span>
+<span id="cb96-375"><a href="#cb96-375" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Random Forest Model Results"</span>)</span>
+<span id="cb96-376"><a href="#cb96-376" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyRF, <span class="dv">4</span>)))</span>
+<span id="cb96-377"><a href="#cb96-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-378"><a href="#cb96-378" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Logistic Regression Model Results:"</span>)</span>
+<span id="cb96-379"><a href="#cb96-379" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracyLogistic, <span class="dv">4</span>)))</span>
+<span id="cb96-380"><a href="#cb96-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-381"><a href="#cb96-381" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Support Vector Machine (SVM) Model Results:"</span>)</span>
+<span id="cb96-382"><a href="#cb96-382" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Accuracy:"</span>, <span class="fu">round</span>(accuracySVM, <span class="dv">4</span>)))</span>
+<span id="cb96-383"><a href="#cb96-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-384"><a href="#cb96-384" aria-hidden="true" tabindex="-1"></a><span class="co"># Get variable importance from the best model</span></span>
+<span id="cb96-385"><a href="#cb96-385" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span>
+<span id="cb96-386"><a href="#cb96-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-387"><a href="#cb96-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-388"><a href="#cb96-388" aria-hidden="true" tabindex="-1"></a><span class="fu">### Classifying a New Red Wine Drawn From The Same Population</span></span>
+<span id="cb96-389"><a href="#cb96-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-390"><a href="#cb96-390" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clustering:</span></span>
+<span id="cb96-391"><a href="#cb96-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-394"><a href="#cb96-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-395"><a href="#cb96-395" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb96-396"><a href="#cb96-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-397"><a href="#cb96-397" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> wineDs <span class="sc">%&gt;%</span></span>
+<span id="cb96-398"><a href="#cb96-398" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wineType)</span>
+<span id="cb96-399"><a href="#cb96-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-400"><a href="#cb96-400" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">scale</span>(ds)</span>
+<span id="cb96-401"><a href="#cb96-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-402"><a href="#cb96-402" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(ds, kmeans, <span class="at">method=</span><span class="st">'silhouette'</span>)</span>
+<span id="cb96-403"><a href="#cb96-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-404"><a href="#cb96-404" aria-hidden="true" tabindex="-1"></a>km.final <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(ds, <span class="dv">2</span>, <span class="at">nstart =</span> <span class="dv">30</span>)</span>
+<span id="cb96-405"><a href="#cb96-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-406"><a href="#cb96-406" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.final, <span class="at">data =</span> ds, </span>
+<span id="cb96-407"><a href="#cb96-407" aria-hidden="true" tabindex="-1"></a>             <span class="at">geom =</span> <span class="st">"point"</span>,</span>
+<span id="cb96-408"><a href="#cb96-408" aria-hidden="true" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">"convex"</span>, </span>
+<span id="cb96-409"><a href="#cb96-409" aria-hidden="true" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_bw</span>())</span>
+<span id="cb96-410"><a href="#cb96-410" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-411"><a href="#cb96-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-412"><a href="#cb96-412" aria-hidden="true" tabindex="-1"></a><span class="fu"># Goal 2: Which Variables Are The Most Important To Wine Quality In Red Wines.</span></span>
+<span id="cb96-413"><a href="#cb96-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-414"><a href="#cb96-414" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform MANOVAs to determine if there are a significant difference in mean vectors between wines with different quality/quality groups with a 95% confidence level?</span></span>
+<span id="cb96-415"><a href="#cb96-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-416"><a href="#cb96-416" aria-hidden="true" tabindex="-1"></a><span class="fu">### MANOVA for Quality Levels 3, 4, 5, 6, 7, 8</span></span>
+<span id="cb96-417"><a href="#cb96-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-420"><a href="#cb96-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-421"><a href="#cb96-421" aria-hidden="true" tabindex="-1"></a>redWineDs <span class="ot">&lt;-</span> wine <span class="sc">%&gt;%</span></span>
+<span id="cb96-422"><a href="#cb96-422" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wineType <span class="sc">==</span> <span class="st">"red"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-423"><a href="#cb96-423" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wineType)</span>
+<span id="cb96-424"><a href="#cb96-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-425"><a href="#cb96-425" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting Columns</span></span>
+<span id="cb96-426"><a href="#cb96-426" aria-hidden="true" tabindex="-1"></a>colVars <span class="ot">&lt;-</span>  <span class="fu">cbind</span>(</span>
+<span id="cb96-427"><a href="#cb96-427" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>chlorides, redWineDs<span class="sc">$</span>density, redWineDs<span class="sc">$</span>pH, redWineDs<span class="sc">$</span>sulphates, </span>
+<span id="cb96-428"><a href="#cb96-428" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>alcohol, redWineDs<span class="sc">$</span>fixedAcidity, redWineDs<span class="sc">$</span>volatileAcidity, </span>
+<span id="cb96-429"><a href="#cb96-429" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>citricAcid, redWineDs<span class="sc">$</span>residualSugar, redWineDs<span class="sc">$</span>freeSulfurDioxide,</span>
+<span id="cb96-430"><a href="#cb96-430" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>totalSulfurDioxide</span>
+<span id="cb96-431"><a href="#cb96-431" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb96-432"><a href="#cb96-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-433"><a href="#cb96-433" aria-hidden="true" tabindex="-1"></a><span class="co"># MANOVA Analysis - Quality, levels = 3,4,5,6,7,8</span></span>
+<span id="cb96-434"><a href="#cb96-434" aria-hidden="true" tabindex="-1"></a>manaovaTest <span class="ot">&lt;-</span> <span class="fu">manova</span>(colVars <span class="sc">~</span> quality, <span class="at">data =</span> redWineDs)</span>
+<span id="cb96-435"><a href="#cb96-435" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(manaovaTest)</span>
+<span id="cb96-436"><a href="#cb96-436" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-437"><a href="#cb96-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-438"><a href="#cb96-438" aria-hidden="true" tabindex="-1"></a><span class="fu">### MANOVA for Quality Groups \[Low, Medium, High\]</span></span>
+<span id="cb96-439"><a href="#cb96-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-442"><a href="#cb96-442" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-443"><a href="#cb96-443" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding qualityGroup</span></span>
+<span id="cb96-444"><a href="#cb96-444" aria-hidden="true" tabindex="-1"></a>redWineDs <span class="ot">&lt;-</span> redWineDs <span class="sc">%&gt;%</span> </span>
+<span id="cb96-445"><a href="#cb96-445" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb96-446"><a href="#cb96-446" aria-hidden="true" tabindex="-1"></a>    <span class="at">qualityGroup =</span> <span class="fu">case_when</span>(</span>
+<span id="cb96-447"><a href="#cb96-447" aria-hidden="true" tabindex="-1"></a>      quality <span class="sc">%in%</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">~</span> <span class="st">"Low"</span>,</span>
+<span id="cb96-448"><a href="#cb96-448" aria-hidden="true" tabindex="-1"></a>      quality <span class="sc">%in%</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb96-449"><a href="#cb96-449" aria-hidden="true" tabindex="-1"></a>      quality <span class="sc">%in%</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">~</span> <span class="st">"High"</span></span>
+<span id="cb96-450"><a href="#cb96-450" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb96-451"><a href="#cb96-451" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb96-452"><a href="#cb96-452" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">qualityGroup =</span> <span class="fu">factor</span>(qualityGroup, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, </span>
+<span id="cb96-453"><a href="#cb96-453" aria-hidden="true" tabindex="-1"></a>                                                        <span class="st">"Medium"</span>, </span>
+<span id="cb96-454"><a href="#cb96-454" aria-hidden="true" tabindex="-1"></a>                                                        <span class="st">"High"</span>)))</span>
+<span id="cb96-455"><a href="#cb96-455" aria-hidden="true" tabindex="-1"></a>colVarsCategorized <span class="ot">&lt;-</span>  <span class="fu">cbind</span>(</span>
+<span id="cb96-456"><a href="#cb96-456" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>chlorides, redWineDs<span class="sc">$</span>density, redWineDs<span class="sc">$</span>pH, </span>
+<span id="cb96-457"><a href="#cb96-457" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>sulphates, redWineDs<span class="sc">$</span>alcohol, redWineDs<span class="sc">$</span>fixedAcidity, </span>
+<span id="cb96-458"><a href="#cb96-458" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>volatileAcidity, redWineDs<span class="sc">$</span>citricAcid, </span>
+<span id="cb96-459"><a href="#cb96-459" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>residualSugar, redWineDs<span class="sc">$</span>freeSulfurDioxide,</span>
+<span id="cb96-460"><a href="#cb96-460" aria-hidden="true" tabindex="-1"></a>  redWineDs<span class="sc">$</span>totalSulfurDioxide</span>
+<span id="cb96-461"><a href="#cb96-461" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb96-462"><a href="#cb96-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-463"><a href="#cb96-463" aria-hidden="true" tabindex="-1"></a><span class="co"># MANOVA Analysis - QualityGroup, Levels = "Low", "Medium", "High"</span></span>
+<span id="cb96-464"><a href="#cb96-464" aria-hidden="true" tabindex="-1"></a>manaovaTest <span class="ot">&lt;-</span> <span class="fu">manova</span>(colVars <span class="sc">~</span> qualityGroup, <span class="at">data =</span> redWineDs)</span>
+<span id="cb96-465"><a href="#cb96-465" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(manaovaTest)</span>
+<span id="cb96-466"><a href="#cb96-466" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-467"><a href="#cb96-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-468"><a href="#cb96-468" aria-hidden="true" tabindex="-1"></a><span class="fu">### Overall MANOVA Test Conclusion</span></span>
+<span id="cb96-469"><a href="#cb96-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-470"><a href="#cb96-470" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform Classification on Quality for Red Wines</span></span>
+<span id="cb96-471"><a href="#cb96-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-474"><a href="#cb96-474" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-475"><a href="#cb96-475" aria-hidden="true" tabindex="-1"></a>qualityDs <span class="ot">&lt;-</span> redWineDs <span class="sc">%&gt;%</span></span>
+<span id="cb96-476"><a href="#cb96-476" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quality =</span> <span class="fu">factor</span>(quality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"3"</span>,<span class="st">"4"</span>,<span class="st">"5"</span>,<span class="st">"6"</span>,<span class="st">"7"</span>,<span class="st">"8"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb96-477"><a href="#cb96-477" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>qualityGroup)</span>
+<span id="cb96-478"><a href="#cb96-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-479"><a href="#cb96-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-482"><a href="#cb96-482" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-483"><a href="#cb96-483" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the dataset into training and testing sets</span></span>
+<span id="cb96-484"><a href="#cb96-484" aria-hidden="true" tabindex="-1"></a>splitIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(qualityDs<span class="sc">$</span>quality, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-485"><a href="#cb96-485" aria-hidden="true" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> qualityDs[splitIndex, ]</span>
+<span id="cb96-486"><a href="#cb96-486" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> qualityDs[<span class="sc">-</span>splitIndex, ]</span>
+<span id="cb96-487"><a href="#cb96-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-488"><a href="#cb96-488" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a train control object for repeated cross-validation</span></span>
+<span id="cb96-489"><a href="#cb96-489" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb96-490"><a href="#cb96-490" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb96-491"><a href="#cb96-491" aria-hidden="true" tabindex="-1"></a>                     <span class="at">repeats =</span> <span class="dv">3</span>, </span>
+<span id="cb96-492"><a href="#cb96-492" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-493"><a href="#cb96-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-494"><a href="#cb96-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-495"><a href="#cb96-495" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest and SVM models</span></span>
+<span id="cb96-496"><a href="#cb96-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-499"><a href="#cb96-499" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-500"><a href="#cb96-500" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2013</span>)</span>
+<span id="cb96-501"><a href="#cb96-501" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest model</span></span>
+<span id="cb96-502"><a href="#cb96-502" aria-hidden="true" tabindex="-1"></a>rfModel <span class="ot">&lt;-</span> <span class="fu">train</span>(quality <span class="sc">~</span> ., </span>
+<span id="cb96-503"><a href="#cb96-503" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-504"><a href="#cb96-504" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb96-505"><a href="#cb96-505" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> ctrl,</span>
+<span id="cb96-506"><a href="#cb96-506" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ntree =</span> <span class="dv">200</span>)</span>
+<span id="cb96-507"><a href="#cb96-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-508"><a href="#cb96-508" aria-hidden="true" tabindex="-1"></a><span class="co"># (SVM) model</span></span>
+<span id="cb96-509"><a href="#cb96-509" aria-hidden="true" tabindex="-1"></a>svmModel <span class="ot">&lt;-</span> <span class="fu">train</span>(quality <span class="sc">~</span> ., </span>
+<span id="cb96-510"><a href="#cb96-510" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-511"><a href="#cb96-511" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"svmLinear"</span>,</span>
+<span id="cb96-512"><a href="#cb96-512" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> ctrl)</span>
+<span id="cb96-513"><a href="#cb96-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-514"><a href="#cb96-514" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set for each model</span></span>
+<span id="cb96-515"><a href="#cb96-515" aria-hidden="true" tabindex="-1"></a>rfPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-516"><a href="#cb96-516" aria-hidden="true" tabindex="-1"></a>svmPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(svmModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-517"><a href="#cb96-517" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-518"><a href="#cb96-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-519"><a href="#cb96-519" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metrics &amp; Variable Importance</span></span>
+<span id="cb96-520"><a href="#cb96-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-523"><a href="#cb96-523" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-524"><a href="#cb96-524" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest confusion matrix</span></span>
+<span id="cb96-525"><a href="#cb96-525" aria-hidden="true" tabindex="-1"></a>rfConfMatrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(rfPred, testData<span class="sc">$</span>quality, </span>
+<span id="cb96-526"><a href="#cb96-526" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-527"><a href="#cb96-527" aria-hidden="true" tabindex="-1"></a>rfAccuracy <span class="ot">&lt;-</span> rfConfMatrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-528"><a href="#cb96-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-529"><a href="#cb96-529" aria-hidden="true" tabindex="-1"></a><span class="co"># SVM confusion matrix</span></span>
+<span id="cb96-530"><a href="#cb96-530" aria-hidden="true" tabindex="-1"></a>svmConfMatrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(svmPred, testData<span class="sc">$</span>quality, </span>
+<span id="cb96-531"><a href="#cb96-531" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-532"><a href="#cb96-532" aria-hidden="true" tabindex="-1"></a>svmAccuracy <span class="ot">&lt;-</span> svmConfMatrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-533"><a href="#cb96-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-534"><a href="#cb96-534" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results</span></span>
+<span id="cb96-535"><a href="#cb96-535" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Random Forest Accuracy:"</span>, rfAccuracy))</span>
+<span id="cb96-536"><a href="#cb96-536" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"SVM Accuracy:"</span>, svmAccuracy))</span>
+<span id="cb96-537"><a href="#cb96-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-538"><a href="#cb96-538" aria-hidden="true" tabindex="-1"></a>rfConfMatrix</span>
+<span id="cb96-539"><a href="#cb96-539" aria-hidden="true" tabindex="-1"></a>svmConfMatrix</span>
+<span id="cb96-540"><a href="#cb96-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-541"><a href="#cb96-541" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Confusion Matrices</span></span>
+<span id="cb96-542"><a href="#cb96-542" aria-hidden="true" tabindex="-1"></a>plotCM <span class="ot">&lt;-</span> <span class="cf">function</span>(confMatrix, modelName) {</span>
+<span id="cb96-543"><a href="#cb96-543" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(confMatrix<span class="sc">$</span>table)</span>
+<span id="cb96-544"><a href="#cb96-544" aria-hidden="true" tabindex="-1"></a>  plt<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(plt<span class="sc">$</span>Prediction, </span>
+<span id="cb96-545"><a href="#cb96-545" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(plt<span class="sc">$</span>Prediction)))</span>
+<span id="cb96-546"><a href="#cb96-546" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-547"><a href="#cb96-547" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plt, <span class="fu">aes</span>(Prediction, Reference, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-548"><a href="#cb96-548" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-549"><a href="#cb96-549" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"#00859B"</span>) <span class="sc">+</span></span>
+<span id="cb96-550"><a href="#cb96-550" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Confusion Matrix -"</span>, modelName),</span>
+<span id="cb96-551"><a href="#cb96-551" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Reference"</span>, <span class="at">y =</span> <span class="st">"Prediction"</span>) <span class="sc">+</span></span>
+<span id="cb96-552"><a href="#cb96-552" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>quality)) <span class="sc">+</span></span>
+<span id="cb96-553"><a href="#cb96-553" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>quality))</span>
+<span id="cb96-554"><a href="#cb96-554" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-555"><a href="#cb96-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-556"><a href="#cb96-556" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(rfConfMatrix, <span class="st">"Random Forest"</span>)</span>
+<span id="cb96-557"><a href="#cb96-557" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(svmConfMatrix, <span class="st">"SVM"</span>)</span>
+<span id="cb96-558"><a href="#cb96-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-559"><a href="#cb96-559" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">varImp</span>(rfModel))</span>
+<span id="cb96-560"><a href="#cb96-560" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-561"><a href="#cb96-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-562"><a href="#cb96-562" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perform Principal Component Analysis</span></span>
+<span id="cb96-563"><a href="#cb96-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-564"><a href="#cb96-564" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 1</span></span>
+<span id="cb96-565"><a href="#cb96-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-568"><a href="#cb96-568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-569"><a href="#cb96-569" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">select</span>(qualityDs, <span class="sc">-</span>quality)</span>
+<span id="cb96-570"><a href="#cb96-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-571"><a href="#cb96-571" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform PCA</span></span>
+<span id="cb96-572"><a href="#cb96-572" aria-hidden="true" tabindex="-1"></a>pcaResults <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(ds, <span class="at">scale =</span> T, <span class="at">center =</span> T)</span>
+<span id="cb96-573"><a href="#cb96-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-574"><a href="#cb96-574" aria-hidden="true" tabindex="-1"></a><span class="co"># Print PCA summary</span></span>
+<span id="cb96-575"><a href="#cb96-575" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pcaResults)</span>
+<span id="cb96-576"><a href="#cb96-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-577"><a href="#cb96-577" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize PCA results</span></span>
+<span id="cb96-578"><a href="#cb96-578" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pcaResults, <span class="at">addlabels =</span> <span class="cn">TRUE</span>, <span class="at">kaiser =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb96-579"><a href="#cb96-579" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pcaResults, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">col.ind =</span> qualityDs<span class="sc">$</span>quality, <span class="at">palette =</span> <span class="st">"jco"</span>)</span>
+<span id="cb96-580"><a href="#cb96-580" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pcaResults, <span class="at">geom =</span> <span class="st">"arrow"</span>, <span class="at">col.var =</span> <span class="st">"contrib"</span>, <span class="at">palette =</span> <span class="st">"jco"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span>
+<span id="cb96-581"><a href="#cb96-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-582"><a href="#cb96-582" aria-hidden="true" tabindex="-1"></a>pcaDs <span class="ot">&lt;-</span> <span class="fu">rownames_to_column</span>(<span class="fu">as.data.frame</span>(pcaResults<span class="sc">$</span>rotation))</span>
+<span id="cb96-583"><a href="#cb96-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-584"><a href="#cb96-584" aria-hidden="true" tabindex="-1"></a>pcaDs <span class="sc">%&gt;%</span> </span>
+<span id="cb96-585"><a href="#cb96-585" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rowname, PC1, PC2)</span>
+<span id="cb96-586"><a href="#cb96-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-587"><a href="#cb96-587" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding back the quality with principal components</span></span>
+<span id="cb96-588"><a href="#cb96-588" aria-hidden="true" tabindex="-1"></a>prc <span class="ot">&lt;-</span> <span class="fu">select</span>(qualityDs, quality) <span class="sc">%&gt;%</span></span>
+<span id="cb96-589"><a href="#cb96-589" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">as.data.frame</span>(pcaResults<span class="sc">$</span>x)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-590"><a href="#cb96-590" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(quality, PC1, PC2) </span>
+<span id="cb96-591"><a href="#cb96-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-592"><a href="#cb96-592" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns</span></span>
+<span id="cb96-593"><a href="#cb96-593" aria-hidden="true" tabindex="-1"></a>prc <span class="ot">&lt;-</span> prc <span class="sc">%&gt;%</span></span>
+<span id="cb96-594"><a href="#cb96-594" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb96-595"><a href="#cb96-595" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Quality"</span> <span class="ot">=</span> quality,</span>
+<span id="cb96-596"><a href="#cb96-596" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Wine Body"</span> <span class="ot">=</span> PC1,</span>
+<span id="cb96-597"><a href="#cb96-597" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fermentation Characteristics"</span> <span class="ot">=</span> PC2</span>
+<span id="cb96-598"><a href="#cb96-598" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb96-599"><a href="#cb96-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-600"><a href="#cb96-600" aria-hidden="true" tabindex="-1"></a>prc2 <span class="ot">&lt;-</span> <span class="fu">select</span>(qualityDs, quality) <span class="sc">%&gt;%</span></span>
+<span id="cb96-601"><a href="#cb96-601" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">as.data.frame</span>(pcaResults<span class="sc">$</span>x)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-602"><a href="#cb96-602" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(quality, PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8, PC9, PC10, PC11) </span>
+<span id="cb96-603"><a href="#cb96-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-604"><a href="#cb96-604" aria-hidden="true" tabindex="-1"></a>prc2 <span class="ot">&lt;-</span> prc2 <span class="sc">%&gt;%</span></span>
+<span id="cb96-605"><a href="#cb96-605" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Quality"</span> <span class="ot">=</span> quality)</span>
+<span id="cb96-606"><a href="#cb96-606" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-607"><a href="#cb96-607" aria-hidden="true" tabindex="-1"></a>prc2</span>
+<span id="cb96-608"><a href="#cb96-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-609"><a href="#cb96-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-610"><a href="#cb96-610" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 2</span></span>
+<span id="cb96-611"><a href="#cb96-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-614"><a href="#cb96-614" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-615"><a href="#cb96-615" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2013</span>)</span>
+<span id="cb96-616"><a href="#cb96-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-617"><a href="#cb96-617" aria-hidden="true" tabindex="-1"></a>splitIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(prc<span class="sc">$</span>Quality, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-618"><a href="#cb96-618" aria-hidden="true" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> prc[splitIndex, ]</span>
+<span id="cb96-619"><a href="#cb96-619" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> prc[<span class="sc">-</span>splitIndex, ]</span>
+<span id="cb96-620"><a href="#cb96-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-621"><a href="#cb96-621" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Repeated cross-validation</span></span>
+<span id="cb96-622"><a href="#cb96-622" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb96-623"><a href="#cb96-623" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb96-624"><a href="#cb96-624" aria-hidden="true" tabindex="-1"></a>                     <span class="at">repeats =</span> <span class="dv">3</span>, </span>
+<span id="cb96-625"><a href="#cb96-625" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-626"><a href="#cb96-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-627"><a href="#cb96-627" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Random Forest</span></span>
+<span id="cb96-628"><a href="#cb96-628" aria-hidden="true" tabindex="-1"></a>rfModel <span class="ot">&lt;-</span> <span class="fu">train</span>(Quality <span class="sc">~</span> ., </span>
+<span id="cb96-629"><a href="#cb96-629" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-630"><a href="#cb96-630" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb96-631"><a href="#cb96-631" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> ctrl,</span>
+<span id="cb96-632"><a href="#cb96-632" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ntree =</span> <span class="dv">200</span>)</span>
+<span id="cb96-633"><a href="#cb96-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-634"><a href="#cb96-634" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set for each model</span></span>
+<span id="cb96-635"><a href="#cb96-635" aria-hidden="true" tabindex="-1"></a>rfPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-636"><a href="#cb96-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-637"><a href="#cb96-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-638"><a href="#cb96-638" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Confusion Matrices</span></span>
+<span id="cb96-639"><a href="#cb96-639" aria-hidden="true" tabindex="-1"></a>plotCM <span class="ot">&lt;-</span> <span class="cf">function</span>(confMatrix, modelName) {</span>
+<span id="cb96-640"><a href="#cb96-640" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(confMatrix<span class="sc">$</span>table)</span>
+<span id="cb96-641"><a href="#cb96-641" aria-hidden="true" tabindex="-1"></a>  plt<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(plt<span class="sc">$</span>Prediction, </span>
+<span id="cb96-642"><a href="#cb96-642" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(plt<span class="sc">$</span>Prediction)))</span>
+<span id="cb96-643"><a href="#cb96-643" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-644"><a href="#cb96-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plt, <span class="fu">aes</span>(Prediction, Reference, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-645"><a href="#cb96-645" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-646"><a href="#cb96-646" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"#00859B"</span>) <span class="sc">+</span></span>
+<span id="cb96-647"><a href="#cb96-647" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Confusion Matrix -"</span>, modelName),</span>
+<span id="cb96-648"><a href="#cb96-648" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Reference"</span>, <span class="at">y =</span> <span class="st">"Prediction"</span>) <span class="sc">+</span></span>
+<span id="cb96-649"><a href="#cb96-649" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>Quality)) <span class="sc">+</span></span>
+<span id="cb96-650"><a href="#cb96-650" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>Quality))</span>
+<span id="cb96-651"><a href="#cb96-651" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-652"><a href="#cb96-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-653"><a href="#cb96-653" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest metrics</span></span>
+<span id="cb96-654"><a href="#cb96-654" aria-hidden="true" tabindex="-1"></a>rfConfMatrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(rfPred, testData<span class="sc">$</span>Quality, </span>
+<span id="cb96-655"><a href="#cb96-655" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-656"><a href="#cb96-656" aria-hidden="true" tabindex="-1"></a>rfAccuracy <span class="ot">&lt;-</span> rfConfMatrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-657"><a href="#cb96-657" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Random Forest Accuracy:"</span>, rfAccuracy))</span>
+<span id="cb96-658"><a href="#cb96-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-659"><a href="#cb96-659" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(rfConfMatrix, <span class="st">"Random Forest"</span>)</span>
+<span id="cb96-660"><a href="#cb96-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-661"><a href="#cb96-661" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-662"><a href="#cb96-662" aria-hidden="true" tabindex="-1"></a>rfConfMatrix<span class="sc">$</span>table</span>
+<span id="cb96-663"><a href="#cb96-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-664"><a href="#cb96-664" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable Importance</span></span>
+<span id="cb96-665"><a href="#cb96-665" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span>
+<span id="cb96-666"><a href="#cb96-666" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-667"><a href="#cb96-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-670"><a href="#cb96-670" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-671"><a href="#cb96-671" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2013</span>)</span>
+<span id="cb96-672"><a href="#cb96-672" aria-hidden="true" tabindex="-1"></a>splitIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(prc2<span class="sc">$</span>Quality, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-673"><a href="#cb96-673" aria-hidden="true" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> prc2[splitIndex, ]</span>
+<span id="cb96-674"><a href="#cb96-674" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> prc2[<span class="sc">-</span>splitIndex, ]</span>
+<span id="cb96-675"><a href="#cb96-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-676"><a href="#cb96-676" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Repeated cross-validation</span></span>
+<span id="cb96-677"><a href="#cb96-677" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb96-678"><a href="#cb96-678" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb96-679"><a href="#cb96-679" aria-hidden="true" tabindex="-1"></a>                     <span class="at">repeats =</span> <span class="dv">3</span>, </span>
+<span id="cb96-680"><a href="#cb96-680" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-681"><a href="#cb96-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-682"><a href="#cb96-682" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Random Forest</span></span>
+<span id="cb96-683"><a href="#cb96-683" aria-hidden="true" tabindex="-1"></a>rfModel <span class="ot">&lt;-</span> <span class="fu">train</span>(Quality <span class="sc">~</span> ., </span>
+<span id="cb96-684"><a href="#cb96-684" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-685"><a href="#cb96-685" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb96-686"><a href="#cb96-686" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> ctrl,</span>
+<span id="cb96-687"><a href="#cb96-687" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ntree =</span> <span class="dv">200</span>)</span>
+<span id="cb96-688"><a href="#cb96-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-689"><a href="#cb96-689" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set for each model</span></span>
+<span id="cb96-690"><a href="#cb96-690" aria-hidden="true" tabindex="-1"></a>rfPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-691"><a href="#cb96-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-692"><a href="#cb96-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-693"><a href="#cb96-693" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Confusion Matrices</span></span>
+<span id="cb96-694"><a href="#cb96-694" aria-hidden="true" tabindex="-1"></a>plotCM <span class="ot">&lt;-</span> <span class="cf">function</span>(confMatrix, modelName) {</span>
+<span id="cb96-695"><a href="#cb96-695" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(confMatrix<span class="sc">$</span>table)</span>
+<span id="cb96-696"><a href="#cb96-696" aria-hidden="true" tabindex="-1"></a>  plt<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(plt<span class="sc">$</span>Prediction, </span>
+<span id="cb96-697"><a href="#cb96-697" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(plt<span class="sc">$</span>Prediction)))</span>
+<span id="cb96-698"><a href="#cb96-698" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-699"><a href="#cb96-699" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plt, <span class="fu">aes</span>(Prediction, Reference, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-700"><a href="#cb96-700" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-701"><a href="#cb96-701" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"#00859B"</span>) <span class="sc">+</span></span>
+<span id="cb96-702"><a href="#cb96-702" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Confusion Matrix -"</span>, modelName),</span>
+<span id="cb96-703"><a href="#cb96-703" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Reference"</span>, <span class="at">y =</span> <span class="st">"Prediction"</span>) <span class="sc">+</span></span>
+<span id="cb96-704"><a href="#cb96-704" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>Quality)) <span class="sc">+</span></span>
+<span id="cb96-705"><a href="#cb96-705" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>Quality))</span>
+<span id="cb96-706"><a href="#cb96-706" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-707"><a href="#cb96-707" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-708"><a href="#cb96-708" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest metrics</span></span>
+<span id="cb96-709"><a href="#cb96-709" aria-hidden="true" tabindex="-1"></a>rfConfMatrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(rfPred, testData<span class="sc">$</span>Quality, </span>
+<span id="cb96-710"><a href="#cb96-710" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-711"><a href="#cb96-711" aria-hidden="true" tabindex="-1"></a>rfAccuracy <span class="ot">&lt;-</span> rfConfMatrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb96-712"><a href="#cb96-712" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Random Forest Accuracy:"</span>, rfAccuracy))</span>
+<span id="cb96-713"><a href="#cb96-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-714"><a href="#cb96-714" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(rfConfMatrix, <span class="st">"Random Forest"</span>)</span>
+<span id="cb96-715"><a href="#cb96-715" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-716"><a href="#cb96-716" aria-hidden="true" tabindex="-1"></a>rfConfMatrix</span>
+<span id="cb96-717"><a href="#cb96-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-718"><a href="#cb96-718" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable Importance</span></span>
+<span id="cb96-719"><a href="#cb96-719" aria-hidden="true" tabindex="-1"></a><span class="fu">varImp</span>(rfModel)</span>
+<span id="cb96-720"><a href="#cb96-720" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-721"><a href="#cb96-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-722"><a href="#cb96-722" aria-hidden="true" tabindex="-1"></a><span class="fu">## Repeat for Grouped Quality Setting (Low, Medium, High)</span></span>
+<span id="cb96-723"><a href="#cb96-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-724"><a href="#cb96-724" aria-hidden="true" tabindex="-1"></a><span class="fu">### Setting up data for classification</span></span>
+<span id="cb96-725"><a href="#cb96-725" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-728"><a href="#cb96-728" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-729"><a href="#cb96-729" aria-hidden="true" tabindex="-1"></a>groupedQualityDs <span class="ot">&lt;-</span> redWineDs <span class="sc">%&gt;%</span></span>
+<span id="cb96-730"><a href="#cb96-730" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>quality)</span>
+<span id="cb96-731"><a href="#cb96-731" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-732"><a href="#cb96-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-733"><a href="#cb96-733" aria-hidden="true" tabindex="-1"></a><span class="fu">### Train-Test-Split &amp; Cross-Validation Set up</span></span>
+<span id="cb96-734"><a href="#cb96-734" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-737"><a href="#cb96-737" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-738"><a href="#cb96-738" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the dataset into training and testing sets</span></span>
+<span id="cb96-739"><a href="#cb96-739" aria-hidden="true" tabindex="-1"></a>splitIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(groupedQualityDs<span class="sc">$</span>qualityGroup, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-740"><a href="#cb96-740" aria-hidden="true" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> groupedQualityDs[splitIndex, ]</span>
+<span id="cb96-741"><a href="#cb96-741" aria-hidden="true" tabindex="-1"></a>testData <span class="ot">&lt;-</span> groupedQualityDs[<span class="sc">-</span>splitIndex, ]</span>
+<span id="cb96-742"><a href="#cb96-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-743"><a href="#cb96-743" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a train control object for repeated cross-validation</span></span>
+<span id="cb96-744"><a href="#cb96-744" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb96-745"><a href="#cb96-745" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb96-746"><a href="#cb96-746" aria-hidden="true" tabindex="-1"></a>                     <span class="at">repeats =</span> <span class="dv">3</span>, </span>
+<span id="cb96-747"><a href="#cb96-747" aria-hidden="true" tabindex="-1"></a>                     <span class="at">verboseIter =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb96-748"><a href="#cb96-748" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-749"><a href="#cb96-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-750"><a href="#cb96-750" aria-hidden="true" tabindex="-1"></a><span class="fu">### Random Forest and SVM models</span></span>
+<span id="cb96-751"><a href="#cb96-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-754"><a href="#cb96-754" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-755"><a href="#cb96-755" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2013</span>)</span>
+<span id="cb96-756"><a href="#cb96-756" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Random Forest classifier using caret</span></span>
+<span id="cb96-757"><a href="#cb96-757" aria-hidden="true" tabindex="-1"></a>rfModel <span class="ot">&lt;-</span> <span class="fu">train</span>(qualityGroup <span class="sc">~</span> ., </span>
+<span id="cb96-758"><a href="#cb96-758" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-759"><a href="#cb96-759" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"rf"</span>,</span>
+<span id="cb96-760"><a href="#cb96-760" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control =</span> ctrl,</span>
+<span id="cb96-761"><a href="#cb96-761" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ntree =</span> <span class="dv">200</span>)</span>
+<span id="cb96-762"><a href="#cb96-762" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-763"><a href="#cb96-763" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Support Vector Machine (SVM) model using caret</span></span>
+<span id="cb96-764"><a href="#cb96-764" aria-hidden="true" tabindex="-1"></a>svmModel <span class="ot">&lt;-</span> <span class="fu">train</span>(qualityGroup <span class="sc">~</span> ., </span>
+<span id="cb96-765"><a href="#cb96-765" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> trainData,</span>
+<span id="cb96-766"><a href="#cb96-766" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">"svmRadial"</span>,</span>
+<span id="cb96-767"><a href="#cb96-767" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> ctrl)</span>
+<span id="cb96-768"><a href="#cb96-768" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-769"><a href="#cb96-769" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set for each model</span></span>
+<span id="cb96-770"><a href="#cb96-770" aria-hidden="true" tabindex="-1"></a>rfPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-771"><a href="#cb96-771" aria-hidden="true" tabindex="-1"></a>svmPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(svmModel, <span class="at">newdata =</span> testData)</span>
+<span id="cb96-772"><a href="#cb96-772" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-773"><a href="#cb96-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-774"><a href="#cb96-774" aria-hidden="true" tabindex="-1"></a><span class="fu">### Metrics</span></span>
+<span id="cb96-775"><a href="#cb96-775" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-778"><a href="#cb96-778" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-779"><a href="#cb96-779" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Confusion Matrices</span></span>
+<span id="cb96-780"><a href="#cb96-780" aria-hidden="true" tabindex="-1"></a>plotCM <span class="ot">&lt;-</span> <span class="cf">function</span>(confMatrix, modelName) {</span>
+<span id="cb96-781"><a href="#cb96-781" aria-hidden="true" tabindex="-1"></a>  plt <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(confMatrix<span class="sc">$</span>table)</span>
+<span id="cb96-782"><a href="#cb96-782" aria-hidden="true" tabindex="-1"></a>  plt<span class="sc">$</span>Prediction <span class="ot">&lt;-</span> <span class="fu">factor</span>(plt<span class="sc">$</span>Prediction, </span>
+<span id="cb96-783"><a href="#cb96-783" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">levels</span>(plt<span class="sc">$</span>Prediction)))</span>
+<span id="cb96-784"><a href="#cb96-784" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-785"><a href="#cb96-785" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plt, <span class="fu">aes</span>(Prediction, Reference, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-786"><a href="#cb96-786" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>() <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb96-787"><a href="#cb96-787" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"#00859B"</span>) <span class="sc">+</span></span>
+<span id="cb96-788"><a href="#cb96-788" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Confusion Matrix -"</span>, modelName),</span>
+<span id="cb96-789"><a href="#cb96-789" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Reference"</span>, <span class="at">y =</span> <span class="st">"Prediction"</span>) <span class="sc">+</span></span>
+<span id="cb96-790"><a href="#cb96-790" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>qualityGroup)) <span class="sc">+</span></span>
+<span id="cb96-791"><a href="#cb96-791" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">levels</span>(testData<span class="sc">$</span>qualityGroup))</span>
+<span id="cb96-792"><a href="#cb96-792" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-793"><a href="#cb96-793" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-794"><a href="#cb96-794" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Forest metrics</span></span>
+<span id="cb96-795"><a href="#cb96-795" aria-hidden="true" tabindex="-1"></a>rfConfMatrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(rfPred, testData<span class="sc">$</span>qualityGroup, </span>
+<span id="cb96-796"><a href="#cb96-796" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-797"><a href="#cb96-797" aria-hidden="true" tabindex="-1"></a>svmConfMatrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(svmPred, testData<span class="sc">$</span>qualityGroup, </span>
+<span id="cb96-798"><a href="#cb96-798" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"Reference"</span>))</span>
+<span id="cb96-799"><a href="#cb96-799" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-800"><a href="#cb96-800" aria-hidden="true" tabindex="-1"></a>rfConfMatrix</span>
+<span id="cb96-801"><a href="#cb96-801" aria-hidden="true" tabindex="-1"></a>svmConfMatrix</span>
+<span id="cb96-802"><a href="#cb96-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-803"><a href="#cb96-803" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(rfConfMatrix, <span class="st">"Random Forest"</span>)</span>
+<span id="cb96-804"><a href="#cb96-804" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCM</span>(svmConfMatrix, <span class="st">"SVM"</span>)</span>
+<span id="cb96-805"><a href="#cb96-805" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-806"><a href="#cb96-806" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-807"><a href="#cb96-807" aria-hidden="true" tabindex="-1"></a><span class="fu">### Look at variable importance</span></span>
+<span id="cb96-808"><a href="#cb96-808" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-811"><a href="#cb96-811" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-812"><a href="#cb96-812" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">varImp</span>(rfModel))</span>
+<span id="cb96-813"><a href="#cb96-813" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

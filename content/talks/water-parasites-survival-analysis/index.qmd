@@ -7,8 +7,10 @@ author:
   - "Hans Lehndorff"
 image: /assets/images/parasite.jpeg
 date: "2-27-2023"
+date-modified: today
 format:
   html:
+    code-tools: true
     html-math-method: katex
     page-layout: full
     code-fold: true
@@ -16,6 +18,11 @@ execute:
   warning: false
   message: false
 categories: [R, Reveal.JS, Survival Analysis]
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o1"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "A study review examined 1,076 cercariae tadpoles exposed to three pesticides (Atrazine, Azoxystrobin, and Carbaryl) under varying temperature conditions to explore whether higher temperatures influence toxicity. The analysis focused on time to knockdown (TTKD) and observed status, revealing that elevated water temperatures markedly increased the pesticides’ toxic effects. These findings highlight the need to consider multiple temperature settings in pesticide toxicity studies, reflecting real-world environmental scenarios."
 ---
 
 :::{.column-page}

@@ -2,6 +2,7 @@
 title: "Lightning-Fast 100m Dashboard"
 author: "Posit::conf2024"
 date: "08-21-2024"
+date-modified: today
 description: "The 100m Dashboard! Dash your way to victory and look beyond! Take your gold medal and observe that this dashboard was built using just quarto."
 teaser: "A dynamic Quarto-based dashboard analyzing 100m results."
 categories: ["Interactive Visualizations"]
@@ -10,6 +11,7 @@ format:
     orientation: columns
     logo: /assets/images/olympics-logo.svg
 image: /assets/images/olympics-logo.svg
+code-tools: true
 execute: 
   warning: false
   message: false

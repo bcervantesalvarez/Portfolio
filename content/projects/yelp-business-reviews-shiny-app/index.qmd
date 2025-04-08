@@ -2,16 +2,23 @@
 title: "Yelp Reviews Spatial Analysis"
 author: "Brian Cervantes Alvarez" 
 date: "03-15-2025"
+date-modified: today
 description: "An interactive Shiny dashboard for exploring Yelp business reviews, spatial patterns, and advanced spatial modeling."
 teaser: "Explore Yelp reviews and spatial trends using our interactive dashboard."
 categories: ["Interactive Visualizations"]
 image: /assets/images/yelpBurst.svg
 format:  
   html:
+    code-tools: true
     page-layout: article
 execute:
   message: false
   warning: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT 4.5"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I developed an interactive Shiny dashboard for spatial analysis and visualization of Yelp business reviews, enabling users to explore geographic patterns, star ratings, and business attributes through interactive mapping and dynamic plots. The dashboard incorporates advanced geostatistical analysis features, including variogram modeling, allowing users to assess spatial autocorrelation effects on Yelp star ratings through customizable parameters such as Partial Sill, Range, Nugget, and Kappa. This interactive tool leverages spatial analytics and visualization to reveal hidden patterns and provide insightful spatial interpretations of Yelp review data."
 ---
 
 
@@ -19,14 +26,16 @@ execute:
 
 Welcome to the Yelp Review Dashboard – an interactive Shiny application designed to help you explore and analyze Yelp business reviews and spatial patterns. This dashboard allows you to:
 
-Visualize Spatial Patterns: Navigate an interactive map that displays Yelp business locations filtered by city and star ratings. Markers reveal essential business information, while clusters provide an aggregated view that you can zoom in on.
-Explore Data Visualizations: Switch between multiple interactive plots to examine relationships between credit card acceptance, open hours, and star ratings. Use dynamic filters to refine your view and uncover hidden trends.
-Engage in Spatial Modeling: Dive into geostatistical analysis with variogram modeling. Adjust parameters like Partial Sill, Range, Nugget, and Kappa to see how spatial autocorrelation influences Yelp star ratings.
-Explore the Dashboard
+- Visualize Spatial Patterns: Navigate an interactive map that displays Yelp business locations filtered by city and star ratings. Markers reveal essential business information, while clusters provide an aggregated view that you can zoom in on.
+- Explore Data Visualizations: Switch between multiple interactive plots to examine relationships between credit card acceptance, open hours, and star ratings. Use dynamic filters to refine your view and uncover hidden trends.
+- Engage in Spatial Modeling: Dive into geostatistical analysis with variogram modeling. Adjust parameters like Partial Sill, Range, Nugget, and Kappa to see how spatial autocorrelation influences Yelp star ratings.
+
+*Explore the Dashboard!*
 Access the full application here: [Yelp Review Dashboard](https://bcervantesalvarez.shinyapps.io/YelpReviewsDashboard/)
 
+Feel free to interact with the filters and explore each visualization. The dashboard is designed with user-friendly controls and clear, informative visualizations to help you gain insights into Yelp review data. Enjoy exploring the spatial dynamics and trends across Yelp businesses!
+
 ::: column-screen
-<iframe src="https://bcervantesalvarez.shinyapps.io/YelpReviewsDashboard/" title="Yelp Review Dashboard" width="100%" height="800"></iframe>
+<iframe src="https://bcervantesalvarez.shinyapps.io/YelpReviewsDashboard/" title="Yelp Review Dashboard" width="100%" height="900"></iframe>
 :::
 
-Feel free to interact with the filters and explore each visualization. The dashboard is designed with user-friendly controls and clear, informative visualizations to help you gain insights into Yelp review data. Enjoy exploring the spatial dynamics and trends across Yelp businesses!

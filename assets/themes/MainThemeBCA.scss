@@ -238,6 +238,12 @@ nav a.active {
 }
 
 
+.nav-footer .nav-footer-center {
+    font-size: .825em;
+    display: none;
+}
+
+
 // Background Colors
 .bg-primary {
   background-color: theme-color("primary") !important;
@@ -270,6 +276,12 @@ nav a.active {
 
 .sidebar nav[role="doc-toc"] .nav-link:hover {
   border-left: 1px solid rgb(75, 113, 149)!important; // Keeps the left border color change on hover
+}
+
+.sidebar nav[role=doc-toc]>ul li a {
+  line-height: 1.05rem;
+  padding: 5px;
+  color: inherit;
 }
 
 // Removing custom underline effects for TOC links
@@ -375,13 +387,13 @@ header#title-block-header {
   .quarto-title {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Align title to the left */
+    align-items: baseline; /* Align title to the left */
     width: 100%;
 
     h1.title {
       margin: 0;
       font-size: 2rem;
-      text-align: center; /* Ensure text is aligned to the left */
+      text-align: baseline; /* Ensure text is aligned to the left */
     }
   }
 }
@@ -656,6 +668,7 @@ div.quarto-post {
   display: flex;
   gap: 0em;
   margin-bottom: 4em;
+  margin-top: 3em;
   border-bottom: 2px solid rgb(219, 228, 237);
   min-height: 200px; /* Minimum height for each post */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
@@ -671,7 +684,7 @@ div.quarto-post:before {
   width: 100%;
   height: 100%;
   background-color: #dde9f2; /* Lavender fill */
-  transition: top 0.5s ease; /* Smooth transition for the fill */
+  transition: top 0.3s ease; /* Smooth transition for the fill */
   z-index: 0; /* Ensure it's below the content */
 }
 
@@ -693,6 +706,11 @@ div.quarto-post .body {
   z-index: 1;
 }
 
+div.quarto-post .metadata {
+  position: relative; /* Ensure this element stays above the pseudo-element */
+  z-index: 1;
+}
+
 div.quarto-post .thumbnail {
   padding: 1.5em;
   display: flex; /* Use flexbox for alignment */
@@ -706,7 +724,7 @@ div.quarto-post .thumbnail {
 
 div.quarto-post .thumbnail img {
   width: 225px; /* Force the width to be exactly 200px */
-  height: 175px; /* Force the height to be exactly 150px */
+  height: 175px; /* Force the height to be exactly 175px */
   object-fit: cover; /* Ensures the aspect ratio is maintained while covering the area */
   z-index: 1; /* Ensure the image stays above the pseudo-element */
   border: 5px solid $black;
@@ -763,6 +781,7 @@ div.quarto-post .thumbnail img {
 
 
 // ----------- TALKS PAGE ------------
+
 .quarto-listing-container-table {
   max-width: 900px; // Adjust as needed to cap table width
   border-radius: 8px;
@@ -1474,42 +1493,79 @@ h6 .header-anchor {
   }
 }
 
-// Common Policy Section Styling
+
+/* ------------------------------
+   Policy Sections
+------------------------------- */
+
+/* Outer block for each policy section */
+.policy-block {
+  margin: 3em auto;       /* Replaces 'my-5' style spacing */
+  padding: 2em 1.5em;     /* Replaces 'px-4', 'py-5' style spacing */
+  max-width: 70ch;        /* Optional: limit line width for readability */
+}
+
+/* Shared styling for the policy content */
 .policy-section {
-  background-color: $white; // Ensure it matches your theme’s white (#fff)
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Matches the subtle shadow used across sections
-  // Note: The container utility classes (my-5, px-4, py-5) already handle spacing;
-  // additional padding is not added here to preserve consistency.
-  padding: 2em !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-// Contact Form Specific Adjustments
-.policy-form-section {
-  // Optionally, adjust vertical spacing (if needed)
-  padding-bottom: 1.5rem;
-  // The horizontal padding is inherited from the container class (px-4)
-}
-
-// Policy Form Heading and Lead Text
-.policy-form-heading {
+/* Headings within policy sections */
+.policy-section h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-weight: 600;
   font-size: 1.5rem;
+}
+
+/* Lead paragraph (optional styling) */
+.policy-section .lead {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+/* Lists within policy sections */
+.policy-section ul {
+  list-style: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Horizontal Rule styling (optional) */
+.policy-section hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/* Contact form section overrides */
+.policy-form-section {
+  /* Extra or different styling for the contact form block if desired */
+}
+
+/* Contact Form Headings */
+.policy-form-heading {
   margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .policy-form-lead {
   margin-bottom: 1rem;
-  color: $gray-700;
+  color: #555;
 }
 
-// Policy Form Structure
+/* Form Layout */
 .policy-form {
   display: flex;
   flex-direction: column;
 }
 
-// Form Group & Label
+/* Form Groups & Labels */
 .policy-form-group {
   margin-bottom: 1rem;
 }
@@ -1518,38 +1574,160 @@ h6 .header-anchor {
   display: block;
   margin-bottom: 0.25rem;
   font-weight: 600;
-  color: $gray-900;
+  color: #333;
 }
 
-// Input, Select, and Textarea Styling
+/* Text Input, Select, and Textarea Styling */
 .policy-form-input {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-  color: $gray-900;
-  background-color: $white;
-  
-  &:focus {
-    border-color: $blue;
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
-  }
+  color: #333;
+  background-color: #fff;
 }
 
-// Submit Button Styling
+.policy-form-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Submit Button */
 .policy-form-submit {
   cursor: pointer;
-  background-color: $blue;
-  color: $white;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   border-radius: 4px;
   font-weight: 600;
   padding: 0.75rem 1rem;
   transition: background-color 0.3s ease;
-  
-  &:hover {
-    background-color: darken($blue, 10%);
-  }
+}
+
+.policy-form-submit:hover {
+  background-color: #0056b3;
+}
+
+
+/* ---------------------------------------
+   License Sections
+---------------------------------------- */
+/* Outer block for each license section */
+.license-block {
+  /* Replace the spacing from Bootstrap's my-5, px-4, py-5 */
+  margin: 3em auto;     /* roughly my-5 style (vertical spacing) */
+  padding: 2em 1.5em;   /* roughly px-4, py-5 style (horizontal & vertical) */
+  max-width: 70ch;      /* optional: limit the line width for readability */
+}
+
+/* Additional styling for the license sections */
+.license-section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings within license sections */
+.license-section h2 {
+  margin: 0 0 1em;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* Paragraph styling for license sections */
+.license-section p {
+  margin-bottom: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Links within license sections */
+.license-section a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.license-section a:hover {
+  color: #0056b3;
+}
+
+
+/* ---------------------------------------
+   AI-Summary Cards
+---------------------------------------- */
+
+.AI-Summary {
+  /* Spacing around the summary container */
+  margin-top: 40px; 
+  margin-bottom: 40px;
+  /* Internal padding for content breathing room */
+  padding: 20px;
+  /* Background and shadow */
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+}
+
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Slightly larger padding for the banner */
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  font-family: "Open Sans", sans-serif;
+  /* Use OpenAI’s dark gradient */
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.mini-banner .left-banner {
+  font-size: 1em;
+}
+
+.mini-banner .right-banner {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+/* Logo sizing and spacing to the right */
+.mini-banner .openai-logo {
+  width: 25x;
+  height: 25px;
+  margin-right: 6px;
+}
+
+/* Paragraph style for clearer reading */
+.AI-Summary p {
+  margin: 0; 
+  padding: 10px;
+  font-size: 1em; 
+  line-height: 1.5; 
+}
+
+
+.quarto-title .quarto-categories {
+  display: none;
+}
+
+
+#title-block-header.quarto-title-block.default .description {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#title-block-header.quarto-title-block.default .quarto-title-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1em;
 }

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -188,7 +222,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Talks</h1>
+<div class="quarto-title-block"><div><h1 class="title">Talks</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -205,8 +239,60 @@ window.Quarto = {
 </header>
 
 
+<style>
+.AI-Summary {
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+  max-width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.mini-banner .openai-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 1px;
+}
+.AI-Summary p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+</style>
+
+<div class="AI-Summary" markdown="1">
+  <div class="mini-banner">
+    <span class="left-banner">Yapper Labs | AI Summary</span>
+    <span class="right-banner">
+      <img src="../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
+      Model: ChatGPT o3-mini-high    </span>
+  </div>
+  <p>I’ve presented a series of talks that span a wide range of data science applications and methodologies. My recent discussions include practical strategies for building professional portfolios with Quarto and GitHub Pages, and in-depth analyses such as logistic regression for loan approval and survival analysis to assess pesticide toxicity under varying temperatures. Other sessions have focused on implementing MICE for handling missing data, leveraging interactive teaching tools like webR, and exploring the fundamentals of reproducible reporting with Quarto 101.</p>
+</div>
 
 
+
+
+<!-- -->
 
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
@@ -225,7 +311,7 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1736323200000" data-listing-file-modified-sort="1743746967866" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164" data-listing-title-sort="Building a Professional Portfolio with Quarto and GitHub Pages" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-date-sort="1736323200000" data-listing-file-modified-sort="1744090201385" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="164" data-listing-title-sort="Building a Professional Portfolio with Quarto and GitHub Pages" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Jan 8, 2025</span>
 </td>
@@ -236,7 +322,7 @@ Author
 <span class="listing-author">Brian Cervantes Alvarez</span>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1733299200000" data-listing-file-modified-sort="1743746967866" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Loan Approval Logistic Regression Analysis" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-listing-date-sort="1733299200000" data-listing-file-modified-sort="1744090687661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Loan Approval Logistic Regression Analysis" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Dec 4, 2024</span>
 </td>
@@ -247,7 +333,7 @@ Author
 <span class="listing-author">Brian Cervantes Alvarez, Wylea Walker</span>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1733212800000" data-listing-file-modified-sort="1743746967866" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Missing Data &amp; Application of M.I.C.E." data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-listing-date-sort="1733212800000" data-listing-file-modified-sort="1744091540502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Missing Data &amp; Application of M.I.C.E." data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Dec 3, 2024</span>
 </td>
@@ -258,7 +344,7 @@ Author
 <span class="listing-author">Brian Cervantes Alvarez</span>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1722927600000" data-listing-file-modified-sort="1743746967867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Interactive Teaching with webR" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-listing-date-sort="1722927600000" data-listing-file-modified-sort="1744091545829" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Interactive Teaching with webR" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Aug 6, 2024</span>
 </td>
@@ -269,7 +355,7 @@ Author
 <span class="listing-author">Brian Cervantes Alvarez</span>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1699948800000" data-listing-file-modified-sort="1743746967867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Quarto 101" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-listing-date-sort="1699948800000" data-listing-file-modified-sort="1744091553842" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Quarto 101" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Nov 14, 2023</span>
 </td>
@@ -280,7 +366,7 @@ Author
 <span class="listing-author">Brian Cervantes Alvarez</span>
 </td>
 </tr>
-<tr data-index="5" data-categories="R,Reveal.JS,Survival Analysis" data-listing-date-sort="1677484800000" data-listing-file-modified-sort="1743746967867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach" data-listing-filename-sort="index.qmd">
+<tr data-index="5" data-categories="R,Reveal.JS,Survival Analysis" data-listing-date-sort="1677484800000" data-listing-file-modified-sort="1744091734297" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Feb 27, 2023</span>
 </td>
@@ -500,6 +586,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -830,7 +967,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Talks"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  type: table</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: false</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT o3-mini-high"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "I’ve presented a series of talks that span a wide range of data science applications and methodologies. My recent discussions include practical strategies for building professional portfolios with Quarto and GitHub Pages, and in-depth analyses such as logistic regression for loan approval and survival analysis to assess pesticide toxicity under varying temperatures. Other sessions have focused on implementing MICE for handling missing data, leveraging interactive teaching tools like webR, and exploring the fundamentals of reproducible reporting with Quarto 101."</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

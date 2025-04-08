@@ -3,9 +3,12 @@ title: "The Impact of Smoking on Health Insurance Premiums: Unveiling the True C
 description: "In this investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining nuanced differences between genders, including both smokers and non-smokers."
 author: "Brian Cervantes Alvarez"
 date: "2022-07-14"
+date-modified: today
 image: /assets/images/insurance.jpeg
 format:
   html:
+    code-tools: true
+    code-fold: true
     page-layout: article
     toc: true
     toc-location: right
@@ -19,6 +22,11 @@ categories:
   - Jupyter Notebook
   - Data Visualization
 jupyter: python3
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o3-mini-high"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I analyzed a health insurance dataset by importing and cleaning the data, performing exploratory analysis, and creating detailed visualizations—such as histograms, boxplots, and correlation heatmaps—to compare insurance premiums between smokers and non-smokers. My analysis revealed that among smokers, male premiums increased by 52% (amounting to roughly 408.57% more than non-smokers) and female premiums increased by 49% (approximately 350.12% higher than non-smokers). Additionally, I examined the roles of BMI, age, and family size on premium costs, illustrating that these lifestyle factors further contribute to escalating health insurance expenses."
 ---
 
 ![](/assets/images/insurance.jpeg)

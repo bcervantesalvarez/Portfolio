@@ -2,11 +2,18 @@
 title: "Pre-Workshop Setup Guide for Quarto-based Portfolios on GitHub Pages"
 author: "Brian Cervantes Alvarez"
 date: "2025-01-29"
+date-modified: today
 image: /assets/images/githubLogo.png
 format: 
   html:
+    code-tools: true
     page-layout: article
 eval: false
+ai-summary:
+  banner-title: "Yapper Labs | AI Summary"
+  model-title: "Model: ChatGPT o3-mini-high"
+  model-img: "/assets/images/OpenAI-white-monoblossom.svg"
+  summary: "I developed a comprehensive setup guide that walks through installing Git, configuring a GitHub account with a Personal Access Token, and connecting Git with RStudio to enable seamless commit and push operations. I provided clear, step-by-step instructions and troubleshooting tips to ensure a smooth pre-workshop environment for building Quarto-based portfolios on GitHub Pages. This guide ensures participants are well-prepared to create, deploy, and maintain a reproducible, production-quality portfolio before the workshop begins."
 ---
 
 ::: {style="text-align: center; padding-top: 10px; padding-bottom: 10px;"}

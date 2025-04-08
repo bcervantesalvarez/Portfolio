@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -193,7 +227,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<div class="quarto-title-block"><div><h1 class="title">Blog</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">A curation of R, Python, data science, visualisations &amp; statistics projects</p>
 </div>
 
@@ -211,13 +245,65 @@ window.Quarto = {
 </header>
 
 
+<style>
+.AI-Summary {
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border-radius: 15px;
+  max-width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+.mini-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.mini-banner .openai-logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 1px;
+}
+.AI-Summary p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+</style>
+
+<div class="AI-Summary" markdown="1">
+  <div class="mini-banner">
+    <span class="left-banner">Yapper Labs | AI Summary</span>
+    <span class="right-banner">
+      <img src="../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
+      Model: ChatGPT o1    </span>
+  </div>
+  <p>My blog curates R, Python, and data science projects, highlighting advanced visualizations, real-world analyses, and innovative solutions. From ASA DataFest experiences to interactive dashboards and time series explorations, you’ll find actionable insights at every turn. Each post aims to demonstrate clear, impactful methods for tackling modern data challenges.</p>
+</div>
 
 
+
+
+<!-- -->
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1743663600000" data-listing-file-modified-sort="1744048791499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1657">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1743663600000" data-listing-file-modified-sort="1744085807608" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1657">
 <div class="thumbnail">
 <p><a href="../../content/blog/data-fest-2025-effective-data-visualizations/index.html" class="no-external"></a></p><a href="../../content/blog/data-fest-2025-effective-data-visualizations/index.html" class="no-external">
 <p><img loading="lazy" src="../../assets/images/datafest_GPT4o.png" class="thumbnail-image"></p>
@@ -231,7 +317,7 @@ window.Quarto = {
 <a href="../../content/blog/data-fest-2025-effective-data-visualizations/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<a href="../../content/blog/data-fest-2025-effective-data-visualizations/index.html" class="no-external">The American Statistical Association (ASA) DataFest is a 48-hour data analysis competition where undergraduate teams work on large, real-world…</a>
+<a href="../../content/blog/data-fest-2025-effective-data-visualizations/index.html" class="no-external">I created a professional guide on effective data visualization tailored for the ASA DataFest competition, emphasizing the appropriate selection of…</a>
 </div>
 </div>
 <div class="metadata">
@@ -248,7 +334,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1738137600000" data-listing-file-modified-sort="1743746967857" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="807">
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1738137600000" data-listing-file-modified-sort="1744095837368" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="807">
 <div class="thumbnail">
 <p><a href="../../content/blog/quarto-github-pages-preworkshop/index.html" class="no-external"></a></p><a href="../../content/blog/quarto-github-pages-preworkshop/index.html" class="no-external">
 <p><img loading="lazy" src="../../assets/images/githubLogo.png" class="thumbnail-image"></p>
@@ -262,7 +348,7 @@ Brian Cervantes Alvarez
 <a href="../../content/blog/quarto-github-pages-preworkshop/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<a href="../../content/blog/quarto-github-pages-preworkshop/index.html" class="no-external">In this short guide, we’ll ensure you have all the pieces in place for our Quarto + GitHub Pages workshop. By the end of this setup, you’ll have:</a>
+<a href="../../content/blog/quarto-github-pages-preworkshop/index.html" class="no-external">I developed a comprehensive setup guide that walks through installing Git, configuring a GitHub account with a Personal Access Token, and connecting…</a>
 </div>
 </div>
 <div class="metadata">
@@ -279,7 +365,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1723446000000" data-listing-file-modified-sort="1743746967855" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4374">
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1723446000000" data-listing-file-modified-sort="1744095035377" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="22" data-listing-word-count-sort="4374">
 <div class="thumbnail">
 <p><a href="../../content/blog/interactive-teaching-with-webr/index.html" class="no-external"></a></p><a href="../../content/blog/interactive-teaching-with-webr/index.html" class="no-external">
 <p><img loading="lazy" src="../../assets/images/webR.png" class="thumbnail-image"></p>
@@ -293,7 +379,7 @@ Brian Cervantes Alvarez
 <a href="../../content/blog/interactive-teaching-with-webr/index.html" class="no-external">Lab Demonstration</a>
 </div>
 <div class="listing-description">
-<a href="../../content/blog/interactive-teaching-with-webr/index.html" class="no-external">Integrating <code>webR</code> into your educational tools offers a robust way to elevate interactive learning experiences. This demonstration focuses on how webR…</a>
+<a href="../../content/blog/interactive-teaching-with-webr/index.html" class="no-external">I built an interactive lab using webR to run R code directly in the browser, streamlining the setup process and providing students with immediate…</a>
 </div>
 </div>
 <div class="metadata">
@@ -310,7 +396,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,Shiny,CSS,Data Tables,Data Visualization,Dashboard" data-listing-date-sort="1682060400000" data-listing-file-modified-sort="1743746967847" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2266">
+<div class="quarto-post image-right" data-index="3" data-categories="R,Shiny,CSS,Data Tables,Data Visualization,Dashboard" data-listing-date-sort="1682060400000" data-listing-file-modified-sort="1744092838948" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="12" data-listing-word-count-sort="2261">
 <div class="thumbnail">
 <p><a href="../../content/blog/amazon-indian-products-shiny-app/index.html" class="no-external"></a></p><a href="../../content/blog/amazon-indian-products-shiny-app/index.html" class="no-external">
 <p><img loading="lazy" src="../../assets/images/AmazonLogo.jpeg" class="thumbnail-image"></p>
@@ -361,7 +447,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,Plotly,Reports,Time Series,Data Visualization" data-listing-date-sort="1680505200000" data-listing-file-modified-sort="1743746967847" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1976">
+<div class="quarto-post image-right" data-index="4" data-categories="R,Plotly,Reports,Time Series,Data Visualization" data-listing-date-sort="1680505200000" data-listing-file-modified-sort="1744093344104" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1976">
 <div class="thumbnail">
 <p><a href="../../content/blog/automatic-reports-using-rmarkdown-parameters/index.html" class="no-external"></a></p><a href="../../content/blog/automatic-reports-using-rmarkdown-parameters/index.html" class="no-external">
 <p><img loading="lazy" src="../../assets/images/report.jpeg" class="thumbnail-image"></p>
@@ -409,7 +495,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1680073200000" data-listing-file-modified-sort="1743746967856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1751">
+<div class="quarto-post image-right" data-index="5" data-categories="R,Time Series,Data Visualization" data-listing-date-sort="1680073200000" data-listing-file-modified-sort="1744095270469" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1751">
 <div class="thumbnail">
 <p><a href="../../content/blog/plotly-apple-stocks/index.html" class="no-external"></a></p><a href="../../content/blog/plotly-apple-stocks/index.html" class="no-external">
 <p><img loading="lazy" data-src="../../assets/images/apple.jpeg" class="thumbnail-image"></p>
@@ -451,7 +537,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R,Data Visualization,Plotly" data-listing-date-sort="1677225600000" data-listing-file-modified-sort="1743746967856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767">
+<div class="quarto-post image-right" data-index="6" data-categories="R,Data Visualization,Plotly" data-listing-date-sort="1677225600000" data-listing-file-modified-sort="1744095437112" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="4" data-listing-word-count-sort="767">
 <div class="thumbnail">
 <p><a href="../../content/blog/plotly-gym-exercises-showcase/index.html" class="no-external"></a></p><a href="../../content/blog/plotly-gym-exercises-showcase/index.html" class="no-external">
 <p><img loading="lazy" data-src="../../assets/images/gymRat.jpeg" class="thumbnail-image"></p>
@@ -493,7 +579,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R,Data Tables" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1743746967848" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1067">
+<div class="quarto-post image-right" data-index="7" data-categories="R,Data Tables" data-listing-date-sort="1676880000000" data-listing-file-modified-sort="1744094027062" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1067">
 <div class="thumbnail">
 <p><a href="../../content/blog/gt-tables-showcase/index.html" class="no-external"></a></p><a href="../../content/blog/gt-tables-showcase/index.html" class="no-external">
 <p><img loading="lazy" data-src="../../assets/images/wine.jpeg" class="thumbnail-image"></p>
@@ -532,7 +618,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R,PostgreSQL,Data Visualization,Data Engineering" data-listing-date-sort="1670227200000" data-listing-file-modified-sort="1743746967857" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1532">
+<div class="quarto-post image-right" data-index="8" data-categories="R,PostgreSQL,Data Visualization,Data Engineering" data-listing-date-sort="1670227200000" data-listing-file-modified-sort="1744095654164" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="8" data-listing-word-count-sort="1532">
 <div class="thumbnail">
 <p><a href="../../content/blog/pokemon-database-data-engineering/index.html" class="no-external"></a></p><a href="../../content/blog/pokemon-database-data-engineering/index.html" class="no-external">
 <p><img loading="lazy" data-src="../../assets/images/pokemon.jpeg" class="thumbnail-image"></p>
@@ -577,7 +663,7 @@ Brian Cervantes Alvarez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="R,Shiny,Data Visualization,Dashboard" data-listing-date-sort="1669968000000" data-listing-file-modified-sort="1743746967848" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2909">
+<div class="quarto-post image-right" data-index="9" data-categories="R,Shiny,Data Visualization,Dashboard" data-listing-date-sort="1669968000000" data-listing-file-modified-sort="1744093648316" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2909">
 <div class="thumbnail">
 <p><a href="../../content/blog/college-student-debt-shiny-app/index.html" class="no-external"></a></p><a href="../../content/blog/college-student-debt-shiny-app/index.html" class="no-external">
 <p><img loading="lazy" data-src="../../assets/images/uni.jpeg" class="thumbnail-image"></p>
@@ -622,7 +708,7 @@ Brian Cervantes Alvarez, Corey Cassell
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Python,Statistics,Jupyter Notebook,Data Visualization" data-listing-date-sort="1657782000000" data-listing-file-modified-sort="1743746967849" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1176">
+<div class="quarto-post image-right" data-index="10" data-categories="Python,Statistics,Jupyter Notebook,Data Visualization" data-listing-date-sort="1657782000000" data-listing-file-modified-sort="1744094402682" data-listing-date-modified-sort="1744095600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1176">
 <div class="thumbnail">
 <p><a href="../../content/blog/health-insurance-premiums-analysis/index.html" class="no-external"></a></p><a href="../../content/blog/health-insurance-premiums-analysis/index.html" class="no-external">
 <p><img loading="lazy" data-src="../../assets/images/insurance.jpeg" class="thumbnail-image"></p>
@@ -878,6 +964,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1208,7 +1345,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Blog"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "A curation of R, Python, data science, visualisations &amp; statistics projects"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  page-size: 5</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  max-description-length: 150</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  type: default</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  date-format: long</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  fields: [image, date, title, author, description, categories, reading-time]</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: false</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: false</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    include-in-header: </span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">      - text: |</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;script type="text/javascript" src="/assets/scripts/blog/new-banner.js"&gt;&lt;/script&gt;   </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;script type="text/javascript" src="/assets/scripts/blog/page-up.js"&gt;&lt;/script&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT o1"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "My blog curates R, Python, and data science projects, highlighting advanced visualizations, real-world analyses, and innovative solutions. From ASA DataFest experiences to interactive dashboards and time series explorations, you’ll find actionable insights at every turn. Each post aims to demonstrate clear, impactful methods for tackling modern data challenges."</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
