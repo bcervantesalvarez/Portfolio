@@ -1307,5 +1307,40 @@
     "title": "Custom HTML Files go here",
     "section": "",
     "text": "Custom HTML Files go here"
+  },
+  {
+    "objectID": "readme.html",
+    "href": "readme.html",
+    "title": "Brian Cervantes Alvarez",
+    "section": "",
+    "text": "Building tools that simplify complex data and empower learners through interactive education.\nVisit My Website\n\n\n\n\n\nAn interactive project designed to enhance learning and engagement using webR for dynamic teaching experiences.\n\n\n\nA Shiny app that explores UK accident data, featuring dynamic dashboards and insightful visualizations.\n\n\n\nA comprehensive multivariate analysis project on wine data, revealing key factors and relationships through statistical techniques.\n\n\n\n\n\nR/Shiny Development: Extensive experience building interactive dashboards and production-grade statistical applications.\nPython: Skilled in developing machine learning pipelines, automation scripts, and data analysis workflows.\nStatistical Analysis: Proficient in hypothesis testing, regression analysis, and experimental design.\nSQL Databases: Expertise in designing schemas, writing complex queries, and managing large datasets.\nStatistical Consulting: Translating business problems into actionable statistical solutions.\nCloud Computing: Deploying scalable data solutions on platforms such as Google Cloud and AWS.\nGenerative AI & Workflow Automation: Leveraging AI for code generation, prompt engineering, and efficient workflow automation.\n\n\n\n\n\nEmail\nLinkedIn\nDownload Full Resume"
+  },
+  {
+    "objectID": "readme.html#storytelling-statistics-with-data-science",
+    "href": "readme.html#storytelling-statistics-with-data-science",
+    "title": "Brian Cervantes Alvarez",
+    "section": "",
+    "text": "Building tools that simplify complex data and empower learners through interactive education.\nVisit My Website"
+  },
+  {
+    "objectID": "readme.html#featured-projects",
+    "href": "readme.html#featured-projects",
+    "title": "Brian Cervantes Alvarez",
+    "section": "",
+    "text": "An interactive project designed to enhance learning and engagement using webR for dynamic teaching experiences.\n\n\n\nA Shiny app that explores UK accident data, featuring dynamic dashboards and insightful visualizations.\n\n\n\nA comprehensive multivariate analysis project on wine data, revealing key factors and relationships through statistical techniques."
+  },
+  {
+    "objectID": "readme.html#data-science-toolkit",
+    "href": "readme.html#data-science-toolkit",
+    "title": "Brian Cervantes Alvarez",
+    "section": "",
+    "text": "R/Shiny Development: Extensive experience building interactive dashboards and production-grade statistical applications.\nPython: Skilled in developing machine learning pipelines, automation scripts, and data analysis workflows.\nStatistical Analysis: Proficient in hypothesis testing, regression analysis, and experimental design.\nSQL Databases: Expertise in designing schemas, writing complex queries, and managing large datasets.\nStatistical Consulting: Translating business problems into actionable statistical solutions.\nCloud Computing: Deploying scalable data solutions on platforms such as Google Cloud and AWS.\nGenerative AI & Workflow Automation: Leveraging AI for code generation, prompt engineering, and efficient workflow automation."
+  },
+  {
+    "objectID": "readme.html#connect-with-me",
+    "href": "readme.html#connect-with-me",
+    "title": "Brian Cervantes Alvarez",
+    "section": "",
+    "text": "Email\nLinkedIn\nDownload Full Resume"
   }
 ]

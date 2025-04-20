@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Talks – Home</title>
+<title>readme – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,62 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../assets/images/preview.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0d8fe5eec9a66ad16e9968338a1c1f1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./assets/images/preview.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-0d8fe5eec9a66ad16e9968338a1c1f1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,74 +66,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Talks – Home">
-<meta property="og:image" content="https://datascienceyapper.com/assets/images/OpenAI-white-monoblossom.svg">
+<meta property="og:title" content="Home">
 <meta property="og:site_name" content="Home">
-<meta property="og:image:alt" content="Model Logo">
-<meta name="twitter:title" content="Talks – Home">
-<meta name="twitter:image" content="https://datascienceyapper.com/assets/images/OpenAI-white-monoblossom.svg">
-<meta name="twitter:image:alt" content="Model Logo">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -179,7 +81,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -190,23 +92,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../content/about/index.html"> 
+    <a class="nav-link" href="./content/about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../content/projects/index.html"> 
+    <a class="nav-link" href="./content/projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../content/blog/index.html"> 
+    <a class="nav-link" href="./content/blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../content/talks/index.html" aria-current="page"> 
+    <a class="nav-link" href="./content/talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../content/resources/index.html"> 
+    <a class="nav-link" href="./content/resources/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -222,171 +124,58 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Talks</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<style>
-.AI-Summary {
-  margin: 20px auto;
-  padding: 40px;
-  background-color: #fff;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
-              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
-              rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  border-radius: 15px;
-  max-width: 100%;
-  font-size: 1.2em;
-  line-height: 1.5;
-  font-family: "Open Sans", sans-serif;
-}
-.mini-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  margin-bottom: 15px;
-  background: linear-gradient(90deg, #2d2d2d, #1a1a1a);
-  color: #ffffff;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
-              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
-              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-.mini-banner .openai-logo {
-  width: 35px;
-  height: 35px;
-  margin-right: 1px;
-}
-.AI-Summary p {
-  margin: 0;
-  padding: 10px;
-  font-size: 1em;
-  line-height: 1.5;
-}
-</style>
-
-<div class="AI-Summary" markdown="1">
-  <div class="mini-banner">
-    <span class="left-banner">Yapper Labs | AI Summary</span>
-    <span class="right-banner">
-      <img src="../../assets/images/OpenAI-white-monoblossom.svg" alt="Model Logo" class="openai-logo">
-      Model: ChatGPT o3-mini-high    </span>
-  </div>
-  <p>I’ve presented a series of talks that span a wide range of data science applications and methodologies. My recent discussions include practical strategies for building professional portfolios with Quarto and GitHub Pages, and in-depth analyses such as logistic regression for loan approval and survival analysis to assess pesticide toxicity under varying temperatures. Other sessions have focused on implementing MICE for handling missing data, leveraging interactive teaching tools like webR, and exploring the fundamentals of reproducible reporting with Quarto 101.</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<!-- -->
+<section id="brian-cervantes-alvarez" class="level1">
+<h1>Brian Cervantes Alvarez</h1>
+<section id="storytelling-statistics-with-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="storytelling-statistics-with-data-science">Storytelling Statistics with Data Science</h2>
+<p>Building tools that simplify complex data and empower learners through interactive education.</p>
+<p><a href="https://www.datascienceyapper.com/">Visit My Website</a></p>
+</section>
+<section id="featured-projects" class="level2">
+<h2 class="anchored" data-anchor-id="featured-projects">Featured Projects</h2>
+<section id="interactive-teaching-with-webr" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-teaching-with-webr"><a href="https://www.datascienceyapper.com/content/blog/interactive-teaching-with-webr/">Interactive Teaching with webR</a></h3>
+<p>An interactive project designed to enhance learning and engagement using webR for dynamic teaching experiences.</p>
+</section>
+<section id="shiny-application-for-uk-accident-data" class="level3">
+<h3 class="anchored" data-anchor-id="shiny-application-for-uk-accident-data"><a href="https://www.datascienceyapper.com/content/projects/united-kingdom-car-accident-shiny-app/">Shiny Application for UK Accident Data</a></h3>
+<p>A Shiny app that explores UK accident data, featuring dynamic dashboards and insightful visualizations.</p>
+</section>
+<section id="applied-multivariate-analysis-on-wine-data" class="level3">
+<h3 class="anchored" data-anchor-id="applied-multivariate-analysis-on-wine-data"><a href="https://www.datascienceyapper.com/content/projects/wine-multivariate-statistical-analysis/">Applied Multivariate Analysis on Wine Data</a></h3>
+<p>A comprehensive multivariate analysis project on wine data, revealing key factors and relationships through statistical techniques.</p>
+</section>
+</section>
+<section id="data-science-toolkit" class="level2">
+<h2 class="anchored" data-anchor-id="data-science-toolkit">Data Science Toolkit</h2>
+<ul>
+<li><strong>R/Shiny Development</strong>: Extensive experience building interactive dashboards and production-grade statistical applications.</li>
+<li><strong>Python</strong>: Skilled in developing machine learning pipelines, automation scripts, and data analysis workflows.</li>
+<li><strong>Statistical Analysis</strong>: Proficient in hypothesis testing, regression analysis, and experimental design.</li>
+<li><strong>SQL Databases</strong>: Expertise in designing schemas, writing complex queries, and managing large datasets.</li>
+<li><strong>Statistical Consulting</strong>: Translating business problems into actionable statistical solutions.</li>
+<li><strong>Cloud Computing</strong>: Deploying scalable data solutions on platforms such as Google Cloud and AWS.</li>
+<li><strong>Generative AI &amp; Workflow Automation</strong>: Leveraging AI for code generation, prompt engineering, and efficient workflow automation.</li>
+</ul>
+</section>
+<section id="connect-with-me" class="level2">
+<h2 class="anchored" data-anchor-id="connect-with-me">Connect with Me</h2>
+<ul>
+<li><a href="mailto:briancervantesalvarez@gmail.com">Email</a></li>
+<li><a href="https://www.linkedin.com/in/bcervantesalvarez">LinkedIn</a></li>
+<li><a href="https://www.datascienceyapper.com/assets/documents/resume/Brian_Cervantes_Alvarez_Resume.pdf">Download Full Resume</a></li>
+</ul>
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1736323200000" data-listing-file-modified-sort="1745139406096" data-listing-date-modified-sort="1745132400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="164" data-listing-title-sort="Building a Professional Portfolio with Quarto and GitHub Pages" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jan 8, 2025</span>
-</td>
-<td>
-<a href="../../content/talks/building-professional-portfolio-via-quarto/index.html" class="title listing-title">Building a Professional Portfolio with Quarto and GitHub Pages</a>
-</td>
-<td>
-<span class="listing-author">Brian Cervantes Alvarez</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1733299200000" data-listing-file-modified-sort="1745139406096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Loan Approval Logistic Regression Analysis" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Dec 4, 2024</span>
-</td>
-<td>
-<a href="../../content/talks/loan-application-statistical-analysis/index.html" class="title listing-title">Loan Approval Logistic Regression Analysis</a>
-</td>
-<td>
-<span class="listing-author">Brian Cervantes Alvarez, Wylea Walker</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1733212800000" data-listing-file-modified-sort="1745139406097" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Missing Data &amp; Application of M.I.C.E." data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Dec 3, 2024</span>
-</td>
-<td>
-<a href="../../content/talks/missing-data-with-mice-statistical-analysis/index.html" class="title listing-title">Missing Data &amp; Application of M.I.C.E.</a>
-</td>
-<td>
-<span class="listing-author">Brian Cervantes Alvarez</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1722927600000" data-listing-file-modified-sort="1745139406097" data-listing-date-modified-sort="1745132400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Interactive Teaching with webR" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 6, 2024</span>
-</td>
-<td>
-<a href="../../content/talks/teaching-with-webr/index.html" class="title listing-title">Interactive Teaching with webR</a>
-</td>
-<td>
-<span class="listing-author">Brian Cervantes Alvarez</span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1699948800000" data-listing-file-modified-sort="1745139406097" data-listing-date-modified-sort="1745132400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Quarto 101" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Nov 14, 2023</span>
-</td>
-<td>
-<a href="../../content/talks/understanding-quarto/index.html" class="title listing-title">Quarto 101</a>
-</td>
-<td>
-<span class="listing-author">Brian Cervantes Alvarez</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="UiUyQ1JldmVhbC5KUyUyQ1N1cnZpdmFsJTIwQW5hbHlzaXM=" data-listing-date-sort="1677484800000" data-listing-file-modified-sort="1745139406098" data-listing-date-modified-sort="1745132400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Feb 27, 2023</span>
-</td>
-<td>
-<a href="../../content/talks/water-parasites-survival-analysis/index.html" class="title listing-title">Investigating the Impact of Temperature on Pesticide Toxicity: A Survival Analysis Approach</a>
-</td>
-<td>
-<span class="listing-author">Brian Cervantes Alvarez, Willa Van Liew, Hans Lehndorff</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</section>
+</section>
+
+</main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
 
 <style>
@@ -701,57 +490,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1081,26 +819,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Talks"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  type: table</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: false</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  sort-ui: false</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  filter-ui: false</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">ai-summary:</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  banner-title: "Yapper Labs | AI Summary"</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">  model-title: "Model: ChatGPT o3-mini-high"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">  model-img: "/assets/images/OpenAI-white-monoblossom.svg"</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">  summary: "I’ve presented a series of talks that span a wide range of data science applications and methodologies. My recent discussions include practical strategies for building professional portfolios with Quarto and GitHub Pages, and in-depth analyses such as logistic regression for loan approval and survival analysis to assess pesticide toxicity under varying temperatures. Other sessions have focused on implementing MICE for handling missing data, leveraging interactive teaching tools like webR, and exploring the fundamentals of reproducible reporting with Quarto 101."</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1129,12 +848,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../content/privacy/index.html">
+    <a class="nav-link" href="./content/privacy/index.html">
 <p>Privacy Policy</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../content/license/index.html">
+    <a class="nav-link" href="./content/license/index.html">
 <p>License</p>
 </a>
   </li>  

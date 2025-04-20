@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/blog/index.html</loc>
-    <lastmod>2025-04-08T03:49:51.993Z</lastmod>
+    <lastmod>2025-04-20T08:56:46.078Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/blog/automatic-reports-using-rmarkdown-parameters/index.html</loc>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/about/index.html</loc>
-    <lastmod>2025-04-08T07:17:37.063Z</lastmod>
+    <lastmod>2025-04-20T08:56:46.075Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/talks/teaching-with-webr/index.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/talks/index.html</loc>
-    <lastmod>2025-04-08T06:46:22.112Z</lastmod>
+    <lastmod>2025-04-20T08:56:46.096Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/talks/missing-data-with-mice-statistical-analysis/index.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/resources/index.html</loc>
-    <lastmod>2025-04-04T06:09:27.866Z</lastmod>
+    <lastmod>2025-04-03T05:16:15.487Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/projects/predicting-patient-severity-machine-learning/index.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/projects/index.html</loc>
-    <lastmod>2025-04-08T03:59:24.450Z</lastmod>
+    <lastmod>2025-04-20T08:56:46.082Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/projects/olympic-dashboard-posit-2024/index.html</loc>
@@ -158,7 +158,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/index.html</loc>
-    <lastmod>2025-04-08T03:55:44.593Z</lastmod>
+    <lastmod>2025-04-20T08:56:46.224Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/assets/html/projects/readme.html</loc>
@@ -175,5 +175,9 @@
   <url>
     <loc>https://datascienceyapper.com/assets/scripts/about/readme.html</loc>
     <lastmod>2025-04-04T06:09:27.844Z</lastmod>
+  </url>
+  <url>
+    <loc>https://datascienceyapper.com/readme.html</loc>
+    <lastmod>2025-04-03T05:48:11.392Z</lastmod>
   </url>
 </urlset>
