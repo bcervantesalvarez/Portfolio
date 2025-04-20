@@ -267,7 +267,7 @@ warning: false
     </div>
 
     <!-- Download Resume -->
-    <a href="assets/documents/resume/Brian_Cervantes_Alvarez_Resume.pdf" download 
+    <a href="assets/documents/resume/Brian_Cervantes_Alvarez_Resume.docx" download 
        class="download-link resume-download position-relative">
       <i class="bi bi-file-earmark-arrow-down" 
          style="font-size: 1.2rem; margin-right: 0.4rem;"></i>
