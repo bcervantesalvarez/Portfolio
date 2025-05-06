@@ -31,5 +31,5 @@ A comprehensive multivariate analysis project on wine data, revealing key factor
 
 - [Email](mailto:briancervantesalvarez@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/bcervantesalvarez)
-- [Download Full Resume](https://www.datascienceyapper.com/assets/documents/resume/Brian_Cervantes_Alvarez_Resume.pdf)
+- [Download Full Resume](https://www.datascienceyapper.com/assets/documents/resume/BCA-Resume.pdf)
 
