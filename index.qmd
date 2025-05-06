@@ -27,6 +27,75 @@ warning: false
 </div>
 
 <!-- =========================
+       How I Drive Impact
+========================= -->
+<div class="container">
+  <h2 class="text-center mb-5">How I Drive Impact</h2>
+  <div class="skills-grid">
+
+    <!-- Impact 1 -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <i class="bi bi-bar-chart-line"></i>
+      </div>
+      <h3>Analytics Aligned to Business Goals</h3>
+      <div class="skill-desc">
+        Translate strategic objectives into clear KPIs and measurable outcomes to directly support business growth.
+      </div>
+    </div>
+
+    <!-- Impact 2 -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <i class="bi bi-database-check"></i>
+      </div>
+      <h3>Scalable Data Engineering</h3>
+      <div class="skill-desc">
+        Build reliable ETL pipelines and data infrastructure in R, Python, SQL, and cloud platforms, ensuring accuracy and audit readiness.
+      </div>
+    </div>
+
+    <!-- Impact 3 -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <i class="bi bi-graph-up-arrow"></i>
+      </div>
+      <h3>High-Performance Predictive Models</h3>
+      <div class="skill-desc">
+        Deliver predictive analytics with proven accuracy (>90%) using advanced machine-learning methods (Random Forest, Bayesian models, GBM).
+      </div>
+    </div>
+
+    <!-- Impact 4 -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <i class="bi bi-easel2"></i>
+      </div>
+      <h3>Insightful Visual Communication</h3>
+      <div class="skill-desc">
+        Craft engaging, interactive dashboards and visualizations to simplify complex insights for technical and non-technical audiences.
+      </div>
+    </div>
+
+    <!-- Impact 5 -->
+    <div class="skill-card">
+      <div class="skill-icon">
+        <i class="bi bi-cloud-check"></i>
+      </div>
+      <h3>Continuous Improvement & Deployment</h3>
+      <div class="skill-desc">
+        Deploy solutions to cloud infrastructure with real-time monitoring, enabling iterative improvement and sustained business impact.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- =========================
        Featured Projects
 ========================= -->
 <div class="container">
@@ -267,7 +336,7 @@ warning: false
     </div>
 
     <!-- Download Resume -->
-    <a href="assets/documents/resume/Brian_Cervantes_Alvarez_Resume.docx" download 
+    <a href="assets/documents/resume/BCA-Resume.pdf" download 
        class="download-link resume-download position-relative">
       <i class="bi bi-file-earmark-arrow-down" 
          style="font-size: 1.2rem; margin-right: 0.4rem;"></i>
