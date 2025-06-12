@@ -1,21 +1,5 @@
 [
   {
-    "listing": "/content/blog/index.html",
-    "items": [
-      "/content/blog/data-fest-2025-effective-data-visualizations/index.html",
-      "/content/blog/quarto-github-pages-preworkshop/index.html",
-      "/content/blog/interactive-teaching-with-webr/index.html",
-      "/content/blog/amazon-indian-products-shiny-app/index.html",
-      "/content/blog/automatic-reports-using-rmarkdown-parameters/index.html",
-      "/content/blog/plotly-apple-stocks/index.html",
-      "/content/blog/plotly-gym-exercises-showcase/index.html",
-      "/content/blog/gt-tables-showcase/index.html",
-      "/content/blog/pokemon-database-data-engineering/index.html",
-      "/content/blog/college-student-debt-shiny-app/index.html",
-      "/content/blog/health-insurance-premiums-analysis/index.html"
-    ]
-  },
-  {
     "listing": "/content/talks/index.html",
     "items": [
       "/content/talks/building-professional-portfolio-via-quarto/index.html",
@@ -38,6 +22,22 @@
       "/content/projects/predicting-patient-severity-machine-learning/index.html",
       "/content/projects/united-kingdom-car-accident-shiny-app/index.html",
       "/content/projects/yelp-business-reviews-shiny-app/index.html"
+    ]
+  },
+  {
+    "listing": "/content/blog/index.html",
+    "items": [
+      "/content/blog/data-fest-2025-effective-data-visualizations/index.html",
+      "/content/blog/quarto-github-pages-preworkshop/index.html",
+      "/content/blog/interactive-teaching-with-webr/index.html",
+      "/content/blog/amazon-indian-products-shiny-app/index.html",
+      "/content/blog/automatic-reports-using-rmarkdown-parameters/index.html",
+      "/content/blog/plotly-apple-stocks/index.html",
+      "/content/blog/plotly-gym-exercises-showcase/index.html",
+      "/content/blog/gt-tables-showcase/index.html",
+      "/content/blog/pokemon-database-data-engineering/index.html",
+      "/content/blog/college-student-debt-shiny-app/index.html",
+      "/content/blog/health-insurance-premiums-analysis/index.html"
     ]
   }
 ]

@@ -1,13 +1,21 @@
+<!-- assets/llm/chat.html -->
 <button id="openChat" aria-label="Chat">💬</button>
 
 <div id="chatSidebar">
-  <header><h2>Ask Yapper&nbsp;LLM</h2><button id="closeChat">×</button></header>
+  <header>
+    <h2>Ask Yapper&nbsp;LLM</h2>
+    <button id="closeChat" aria-label="Close">×</button>
+  </header>
+
   <main id="chatLog"></main>
+
   <form id="chatForm">
     <textarea id="chatInput" rows="2"
-              placeholder="Type a question about this page…"></textarea>
-    <button>Send</button>
+              placeholder="Ask a question about this page…"></textarea>
+    <button type="submit">Send</button>
   </form>
+
+  <!-- load sidebar logic + styles -->
   <script type="module" src="/assets/llm/chat.js"></script>
-  <link   rel="stylesheet" href="/assets/llm/chat.css" />
+  <link  rel="stylesheet" href="/assets/llm/chat.css"/>
 </div>

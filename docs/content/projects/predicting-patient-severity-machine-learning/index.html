@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.6.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-3fe3df12cb322cd60d4f50ab5ce79ec8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-0d8fe5eec9a66ad16e9968338a1c1f1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,7 +105,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
@@ -278,7 +281,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">April 8, 2025</p>
+      <p class="date-modified">June 11, 2025</p>
     </div>
   </div>
     
@@ -339,7 +342,7 @@ window.Quarto = {
   <p>I conducted symptom-based severity prediction using a Random Forest model, performing exploratory analysis, strategic feature engineering, and comprehensive evaluations. I successfully classified patient severity into Mild, Moderate, and Severe categories, achieving strong model performance metrics (ROC AUC = 0.95, Recall = 90%, Precision = 91.3%, Kappa = 0.85). These results enable personalized healthcare strategies by providing clear classification rules based on symptoms.</p>
 </div>
 
-<p><img src="../../../assets/images/severity.jpeg" class="img-fluid"></p>
+<p><img src="../../..\assets/images/severity.jpeg" class="img-fluid"></p>
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
 <p>This paper presents a machine learning study that aims to predict severity levels in patients by utilizing a random forest approach based on symptom analysis. The objective of the study was to develop accurate rules for classifying patients into three severity levels: Mild, Moderate, and Severe. The dataset consisted of patient symptoms, which were used in conjunction with a random forest model for the classification task. The results indicated that patients with 1 to 3 symptoms, including depression, were classified as Mild, while those with at least 3 symptoms, including depression and cramps, were classified as Moderate. Patients with 4 symptoms, including cramps and spasms, were classified as Severe. The study conducted comprehensive evaluations using metrics such as the confusion matrix, ROC AUC, precision vs recall, and kappa to assess the performance of the random forest model. The results highlighted the promising performance of the model in accurately predicting severity levels among patients. The findings from this study provide robust evidence that can contribute to personalized healthcare and effective treatment planning.</p>
@@ -1405,118 +1408,231 @@ Kappa: 0.8493723849372385
 
 </main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
+
 <style>
+
     /* Cookie Consent Banner Styling */
+
     .cookie-consent-banner {
+
       position: fixed;
+
       bottom: 0;
+
       width: 100%;
+
       background-color: #f7f7f9; /* Using $gray-200 from your theme */
+
       color: #1a1a1a; /* Using $primary ($gray-900) for contrast */
+
       padding: 1rem;
+
       text-align: center;
+
       z-index: 1000;
+
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
     }
+
     
+
     .cookie-consent-banner button {
+
       margin-left: 1rem;
+
       background-color: #0073cf; /* Using $blue */
+
       color: #fff;
+
       border: none;
+
       padding: 0.5rem 1rem;
+
       border-radius: 0.25rem;
+
       cursor: pointer;
+
       font-size: 1rem;
+
       transition: background-color 0.3s ease;
+
     }
+
     
+
     /* Styling for the Deny button */
+
     .cookie-consent-banner button#deny-cookies {
+
       margin-left: 0.5rem;
+
       background-color: #ced4da; /* Using a gray tone similar to $gray-400 */
+
       color: #1a1a1a;
+
     }
+
     
+
     /* Optional hover effects */
+
     .cookie-consent-banner button:hover {
+
       opacity: 0.9;
+
     }
+
   </style>
+
   
+
   <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
+
     <span>This website uses Google Analytics to improve its functionality.</span>
+
     <button id="accept-cookies">Accept</button>
+
     <button id="deny-cookies">Deny</button>
+
   </div>
+
   
+
   <script>
+
     (function() {
+
       // Function to dynamically load Google Analytics and update consent mode.
+
       function loadGoogleAnalytics() {
+
         const gaScript = document.createElement('script');
+
         gaScript.async = true;
+
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN44V7BZHS";
+
         document.head.appendChild(gaScript);
+
         
+
         gaScript.onload = function() {
+
           window.dataLayer = window.dataLayer || [];
+
           function gtag(){ dataLayer.push(arguments); }
+
           
+
           // Update consent mode to grant storage upon acceptance.
+
           gtag('consent', 'update', {
+
             'analytics_storage': 'granted',
+
             'ad_storage': 'granted'
+
           });
+
           
+
           gtag('js', new Date());
+
           gtag('config', 'G-HN44V7BZHS');
+
         };
+
       }
+
     
+
       // Helper functions to get and set cookies.
+
       function getCookie(name) {
+
         const value = "; " + document.cookie;
+
         const parts = value.split("; " + name + "=");
+
         if (parts.length === 2) return parts.pop().split(";").shift();
+
       }
+
     
+
       function setCookie(name, value, days) {
+
         let expires = "";
+
         if (days) {
+
           const date = new Date();
+
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+
           expires = "; expires=" + date.toUTCString();
+
         }
+
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
       }
+
     
+
       document.addEventListener("DOMContentLoaded", function() {
+
         const consent = getCookie("cookie_consent");
+
         
+
         // If consent was previously given, load GA immediately; otherwise, show the banner.
+
         if (consent === "accepted") {
+
           loadGoogleAnalytics();
+
         } else {
+
           document.getElementById("cookie-consent-banner").style.display = "block";
+
         }
+
     
+
         // When the user accepts cookies...
+
         document.getElementById("accept-cookies").addEventListener("click", function() {
+
           setCookie("cookie_consent", "accepted", 365);
+
           document.getElementById("cookie-consent-banner").style.display = "none";
+
           loadGoogleAnalytics();
+
         });
+
     
+
         // When the user denies cookies...
+
         document.getElementById("deny-cookies").addEventListener("click", function() {
+
           setCookie("cookie_consent", "denied", 365);
+
           document.getElementById("cookie-consent-banner").style.display = "none";
+
           // Optionally, add logic to disable tracking.
+
         });
+
       });
+
     })();
+
   </script>
+
   
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1600,8 +1716,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1763,7 +1877,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

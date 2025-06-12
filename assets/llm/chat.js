@@ -1,25 +1,32 @@
-import * as llm from "./webllm-wrapper.js";   // ⇐ 1‑liner for WebLLM
+/* assets/llm/chat.js  – sidebar behaviour + chat loop */
+import { ask, loadVectors, search } from "./webllm-wrapper.js";
 
-/* slide‑out -------------------------------------------------------*/
+/* ── sidebar toggle ──────────────────────────────── */
 const bar = document.getElementById("chatSidebar");
 document.getElementById("openChat").onclick  = () => bar.classList.add("open");
 document.getElementById("closeChat").onclick = () => bar.classList.remove("open");
 
-/* chat loop -------------------------------------------------------*/
+/* ── load vector index once ───────────────────────── */
+await loadVectors("/assets/llm/vectors.json");   // ~ few MB, cached by browser
+
+/* ── chat loop ───────────────────────────────────── */
 const log = document.getElementById("chatLog");
-document.getElementById("chatForm").onsubmit = async (e) => {
+const form = document.getElementById("chatForm");
+form.onsubmit = async (e) => {
   e.preventDefault();
-  const q = chatInput.value.trim(); if (!q) return;
-  append("you", q); chatInput.value = "";
+  const prompt = chatInput.value.trim();
+  if (!prompt) return;
+  append("you", prompt);
+  chatInput.value = "";
 
-  // 1. find top‑k chunks in the local vector store (runs inside browser)
-  const ctx = await window.siteSearch(q, 4);      // tiny helper in wrapper
-  // 2. ask the LLM
-  const ans = await llm.ask(`${ctx}\n\nUser: ${q}\nAssistant:`);
+  append("bot", "…");                        // placeholder while thinking
+  const ctx = await search(prompt, 4).join("\n\n");
+  const answer = await ask(`${ctx}\n\nUser: ${prompt}\nAssistant:`);
 
-  append("bot", ans);
+  log.lastChild.textContent = answer;        // replace placeholder
 };
 
+/* ── helper to write a message ───────────────────── */
 function append(role, text){
   const div = document.createElement("div");
   div.className = role; div.textContent = text;
