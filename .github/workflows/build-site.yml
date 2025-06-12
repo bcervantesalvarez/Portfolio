@@ -1,0 +1,72 @@
+name: Build & Deploy Quarto Site
+
+on:
+  push:
+    branches: [ main ]          # build only when main changes
+  workflow_dispatch:            # …or when you click “Run workflow”
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1️⃣  Pull your repo (with LFS for any images/theme assets you have)
+    - uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    # 2️⃣  Install Quarto CLI (exact version = one you use locally)
+    - uses: quarto-dev/quarto-actions/setup@v2
+      with:
+        version: "1.5.42"
+
+    # 3️⃣  Python runtime + deps (sentence-transformers, bs4, HF hub)
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+    - name: Install Python deps
+      run: |
+        pip install --upgrade pip
+        pip install sentence-transformers beautifulsoup4 huggingface_hub tqdm
+        # huggingface_hub pulls the weights
+
+    # 4️⃣  (optional but speeds re-runs) cache HF downloads
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/huggingface
+        key: hf-${{ runner.os }}-qwen-1_5b
+
+    # 5️⃣  Download the Qwen 1.5 B 4-bit model into assets/llm/models/
+    - name: Fetch Qwen weights
+      run: |
+        python - <<'PY'
+        from huggingface_hub import snapshot_download
+        snapshot_download(
+            repo_id="mlc-ai/Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+            local_dir="assets/llm/models/Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+            local_dir_use_symlinks=False,
+        )
+        PY
+
+    # 6️⃣  Render the site, then regenerate vectors.json
+    - name: Build site & embeddings
+      run: |
+        quarto render                   # writes HTML into docs/
+        python tools/ingest_site.py \
+          --site-dir docs \
+          --out-file assets/llm/vectors.json
+
+    # 7️⃣  Upload docs/ as an artifact for the deploy step
+    - uses: actions/upload-pages-artifact@v2
+      with:
+        path: docs
+
+  deploy:             # separate job so GH-Pages gets a clean artefact
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - uses: actions/deploy-pages@v3
