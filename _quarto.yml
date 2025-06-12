@@ -47,6 +47,8 @@ format:
     footnotes-hover: true
     theme: assets/themes/MainThemeBCA.scss
     highlight-style: github-dark
-    include-after-body: assets/html/cookies/custom-cookie-consent.html
+    include-after-body:
+      - assets/html/cookies/custom-cookie-consent.html   # existing
+      - assets/llm/chat.html   
     filters: [assets/lua/ai-summary.lua]
 editor: source
