@@ -1867,46 +1867,54 @@ Be helpful, concise, and professional. When users ask about Brian or his work, d
     }
   }
 
-  // Initialize chat system
+  if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    document.getElementById("openChat").style.display = "none";
+  }
+
+
   async function initializeChat() {
     console.log("✅ Chat system initialized with Web-LLM");
+
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
     
-    if (!navigator.gpu) {
-      console.log("⚠️ WebGPU not available");
-      addMessage("system", "⚠️ WebGPU not supported in this browser.");
+    if (!navigator.gpu || isMobile) {
+      console.warn("🚫 WebGPU not supported or mobile device detected. Skipping model download.");
+      
+      addMessage("system", "⚠️ Yappify doesn't currently support mobile devices or browsers without WebGPU. Please try again on a desktop browser like Chrome or Edge.");
+      
+      // Optionally disable the input UI
+      document.getElementById("chatForm").style.display = "none";
       return;
     }
-    
+
+    // If device passes the check, proceed with model load
     try {
       engine = new webllm.MLCEngine();
       console.log("✅ Using prebuilt Web-LLM model: Qwen2.5-1.5B-Instruct-q4f16_1-MLC");
-      
+
       isLoading = true;
       addMessage("system", "Initializing AI assistant...");
-      
+
       await engine.reload("Qwen2.5-1.5B-Instruct-q4f16_1-MLC", {
         initProgressCallback: (progress) => {
           console.log(`Loading model: ${Math.round(progress.progress * 100)}% - ${progress.text}`);
         }
       });
-      
+
       isLoading = false;
       console.log("✅ Engine initialized successfully");
-      
-      // Welcome message with guiding questions
-      addMessage("system", "Hi there! I'm Yappify, your AI assistant. I'll do my best to help you answer your questions about my creator Brian! Would you like some guiding questions?");
-      
-      // Add guiding questions after a brief delay
-      setTimeout(() => {
-        showGuidingQuestions();
-      }, 1000);
-      
+
+      addMessage("system", "Hi there! I'm Yappify...");
+
+      setTimeout(() => showGuidingQuestions(), 1000);
+
     } catch (error) {
       isLoading = false;
       console.error("❌ Failed to initialize:", error);
       addMessage("system", "⚠️ Failed to initialize AI. Please refresh and try again.");
     }
   }
+
 
   // Event Listeners
   modelTabs.forEach(tab => {
