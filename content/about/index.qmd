@@ -21,6 +21,7 @@ format:
       - text: |
           <script type="text/javascript" src="/assets/scripts/about/profileImg.js"></script>
           <script type="text/javascript" src="/assets/scripts/about/alternatingText.js"></script>
+          
 ---
 
 ### About Me

@@ -3,9 +3,9 @@ project:
   output-dir: docs
   resources:
     - assets/llm/** 
-  post-render: 
-    - tools/generate_vectors.py
-    - tools/cleanup.py
+  #post-render: 
+  #  - tools/generate_vectors.py
+  #  - tools/cleanup.py
 website:
   favicon: assets/images/preview.png
   twitter-card: true

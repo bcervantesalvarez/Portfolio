@@ -3,15 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const roles = ['Data Scientist', 'Statistician', 'Educator'];
     let currentRoleIndex = 0;
     let charIndex = 0;
-    const typingSpeed = 100; // milliseconds per character
-    const deletingSpeed = 50; // milliseconds per character
-    const delayBetweenRoles = 2000; // delay before typing the next role
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBetweenRoles = 2000;
 
-    // Create a cursor element in JavaScript
+    // Store original content to preserve it
+    const originalContent = subtitleElement.innerHTML;
+    
+    // Create a wrapper for just the text content
+    const textWrapper = document.createElement('span');
+    textWrapper.className = 'role-text';
+    
+    // Create cursor element
     const cursorElement = document.createElement('span');
     cursorElement.textContent = '|';
     cursorElement.style.display = 'inline-block';
-    cursorElement.style.animation = 'none'; // Initially, no blinking while typing
+    cursorElement.style.animation = 'none';
 
     // CSS for blinking cursor
     const style = document.createElement('style');
@@ -22,22 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Add the cursor to the subtitle element
+    // Clear subtitle and add our controlled elements
+    subtitleElement.innerHTML = '';
+    subtitleElement.appendChild(textWrapper);
     subtitleElement.appendChild(cursorElement);
 
     function updateText() {
-        subtitleElement.textContent = roles[currentRoleIndex].substring(0, charIndex);
-        subtitleElement.appendChild(cursorElement); // Re-attach cursor after the text
+        // SAFE: Only update the text wrapper, not the entire subtitle
+        textWrapper.textContent = roles[currentRoleIndex].substring(0, charIndex);
     }
 
     function typeRole() {
         if (charIndex <= roles[currentRoleIndex].length) {
             updateText();
             charIndex++;
-            cursorElement.style.animation = 'none'; // Cursor is solid during typing
+            cursorElement.style.animation = 'none';
             setTimeout(typeRole, typingSpeed);
         } else {
-            cursorElement.style.animation = 'blink 0.7s step-start infinite'; // Cursor blinks after typing
+            cursorElement.style.animation = 'blink 0.7s step-start infinite';
             setTimeout(deleteRole, delayBetweenRoles);
         }
     }
@@ -46,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (charIndex >= 0) {
             updateText();
             charIndex--;
-            cursorElement.style.animation = 'none'; // Cursor is solid during deletion
+            cursorElement.style.animation = 'none';
             setTimeout(deleteRole, deletingSpeed);
         } else {
             currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-            cursorElement.style.animation = 'blink 0.7s step-start infinite'; // Cursor blinks while waiting
+            cursorElement.style.animation = 'blink 0.7s step-start infinite';
             setTimeout(typeRole, typingSpeed);
         }
     }
