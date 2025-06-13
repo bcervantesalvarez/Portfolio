@@ -1,6 +1,8 @@
-<!-- assets/llm/chat.html -->
+<!-- assets/llm/chat.html  -->
+<!-- Chat toggle button (always visible) ----------------------------------->
 <button id="openChat" aria-label="Chat">💬</button>
 
+<!-- Slide-out sidebar ----------------------------------------------------->
 <div id="chatSidebar">
   <header>
     <h2>Ask Yapper&nbsp;LLM</h2>
@@ -14,8 +16,11 @@
               placeholder="Ask a question about this page…"></textarea>
     <button type="submit">Send</button>
   </form>
-
-  <!-- load sidebar logic + styles -->
-  <script type="module" src="/assets/llm/chat.js"></script>
-  <link  rel="stylesheet" href="/assets/llm/chat.css"/>
 </div>
+
+<!-- Load CSS + JS using Quarto’s relpath helper so URLs work everywhere --->
+<link rel="stylesheet"
+      href="{{< relpath assets/llm/chat.css >}}" />
+
+<script type="module"
+        src="{{< relpath assets/llm/chat.js >}}"></script>
