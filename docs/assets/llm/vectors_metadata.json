@@ -1,0 +1,7 @@
+{
+  "generated_at": "2025-06-13T01:38:28.369540",
+  "model": "all-MiniLM-L6-v2",
+  "chunk_size": 1024,
+  "total_chunks": 311,
+  "source_files": 46
+}

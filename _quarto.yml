@@ -1,10 +1,11 @@
 project:
   type: website
   output-dir: docs
-  post-render: >
-    python tools/ingest_site.py
-    --site-dir docs
-    --out-file assets/llm/vectors.json
+  resources:
+    - assets/llm/** 
+  post-render: 
+    - tools/generate_vectors.py
+    - tools/cleanup.py
 website:
   favicon: assets/images/preview.png
   twitter-card: true
@@ -52,7 +53,10 @@ format:
     theme: assets/themes/MainThemeBCA.scss
     highlight-style: github-dark
     include-after-body:
-      - assets/html/cookies/custom-cookie-consent.html   # existing
-      - assets/llm/chat.html   
+      - assets/html/cookies/custom-cookie-consent.html
+      - assets/llm/chat.html  
     filters: [assets/lua/ai-summary.lua]
 editor: source
+execute:
+  freeze: auto
+  cache: true

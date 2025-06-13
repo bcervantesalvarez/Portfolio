@@ -27,9 +27,9 @@ format:
 
 ------------------------------------------------------------------------
 
-I turn data into stories and solutions that people can actually use. My journey started with a love for math, grew into a passion for data science, and now thrives at Oregon State University, where I’m earning my final master’s degree in Statistics. Being at Oregon State has deepened my understanding of what it means to be a statistician—not just about mastering methods but also about embracing ethical practices that ensure data work is both responsible and impactful.
+I turn data into stories and solutions that people can actually use. My journey started with a love for math, grew into a passion for data science, and led to completing a master’s degree in Statistics at Oregon State University. My time at OSU shaped me into a statistician who not only understands complex methods, but also values the ethical responsibility that comes with working in data.
 
-I’ve worked to bring a modern data science approach to the Department of Statistics, helping faculty upgrade their tools while learning from their expertise. Whether I’m teaching statistical methods, building simulations to tackle real-world challenges, or crafting meticulous research projects, I’m driven by the belief that good data work isn’t just about the numbers—it’s about the impact they create and the integrity behind them.
+While at Oregon State, I worked to bring a modern data science approach to the Department of Statistics—helping faculty upgrade their tools while continuing to learn from their deep expertise. Whether I’m teaching statistical methods, building simulations to tackle real-world problems, or developing research that bridges theory with practice, I’m guided by a core belief: data work should be impactful, responsible, and rooted in integrity.
 
 ------------------------------------------------------------------------
 
@@ -39,8 +39,9 @@ I’ve worked to bring a modern data science approach to the Department of Stati
 
 -   **B.S. in Mathematics** – Linfield University
 -   **M.S. in Data Science** – Willamette University
--   **Current Goal**: Finishing M.S. in Statistics – Oregon State University, June 2025
--   **Future Aspiration**: Work in Industry for 5-7 years before returning for Ph.D in Data Science
+-   **M.S. in Statistics** – Oregon State University
+-   **Current Goal**: Job Hunting!
+-   **Future Aspiration**: Work in Industry for 6-7 years before returning for a Ph.D in Data Science
 
 ------------------------------------------------------------------------
 
