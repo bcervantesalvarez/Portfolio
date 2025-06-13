@@ -1,44 +1,46 @@
+# .github/workflows/build-site.yml
 name: Build & Deploy Quarto Site
 
 on:
   push:
-    branches: [ main ]          # build only when main changes
-  workflow_dispatch:            # …or when you click “Run workflow”
+    branches: [ main ]            # run on every push to main
+  workflow_dispatch:              # or when you click “Run workflow”
 
 jobs:
+  # ──────────────────────────────────────────────────────────────
   build:
     runs-on: ubuntu-latest
 
     steps:
-    # 1️⃣  Pull your repo (with LFS for any images/theme assets you have)
-    - uses: actions/checkout@v4
+    # 1️⃣  Pull your repo (with Git LFS for any large assets you track)
+    - name: Checkout
+      uses: actions/checkout@v4
       with:
         lfs: true
 
-    # 2️⃣  Install Quarto CLI (exact version = one you use locally)
+    # 2️⃣  Install Quarto CLI
     - uses: quarto-dev/quarto-actions/setup@v2
       with:
-        version: "1.5.42"
+        version: "1.5.42"         # pin to the version you use locally
 
-    # 3️⃣  Python runtime + deps (sentence-transformers, bs4, HF hub)
+    # 3️⃣  Python + deps
     - uses: actions/setup-python@v5
       with:
         python-version: "3.10"
-    - name: Install Python deps
+
+    - name: Install Python packages
       run: |
         pip install --upgrade pip
         pip install sentence-transformers beautifulsoup4 huggingface_hub tqdm
-        # huggingface_hub pulls the weights
 
-    # 4️⃣  (optional but speeds re-runs) cache HF downloads
+    # 4️⃣  Cache Hugging Face downloads (speeds up subsequent runs)
     - uses: actions/cache@v3
       with:
-        path: |
-          ~/.cache/huggingface
-        key: hf-${{ runner.os }}-qwen-1_5b
+        path: ~/.cache/huggingface
+        key: hf-${{ runner.os }}-qwen1p5b
 
-    # 5️⃣  Download the Qwen 1.5 B 4-bit model into assets/llm/models/
-    - name: Fetch Qwen weights
+    # 5️⃣  Fetch Qwen-1.5 B 4-bit model into assets/llm/models/
+    - name: Download Qwen weights
       run: |
         python - <<'PY'
         from huggingface_hub import snapshot_download
@@ -49,24 +51,33 @@ jobs:
         )
         PY
 
-    # 6️⃣  Render the site, then regenerate vectors.json
+    # 6️⃣  Render the site + regenerate vectors.json
     - name: Build site & embeddings
       run: |
-        quarto render                   # writes HTML into docs/
+        quarto render
         python tools/ingest_site.py \
-          --site-dir docs \
-          --out-file assets/llm/vectors.json
+            --site-dir docs \
+            --out-file assets/llm/vectors.json
 
-    # 7️⃣  Upload docs/ as an artifact for the deploy step
-    - uses: actions/upload-pages-artifact@v2
+    # 7️⃣  Upload docs/ as artifact for Pages
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3        # ← NEW major
       with:
         path: docs
 
-  deploy:             # separate job so GH-Pages gets a clean artefact
+  # ──────────────────────────────────────────────────────────────
+  deploy:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
+      pages: write           # to deploy to Pages
+      id-token: write        # to authenticate deployment
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
     steps:
-    - uses: actions/deploy-pages@v3
+    - name: Deploy to GitHub Pages
+      id: deploy
+      uses: actions/deploy-pages@v4                 # ← NEW major
