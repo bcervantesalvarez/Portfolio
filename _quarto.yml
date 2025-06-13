@@ -1,9 +1,9 @@
 project:
   type: website
   output-dir: docs
-post-render: >
-    python tools/ingest_site.py                     \
-           --site-dir docs                          \
+  post-render: >
+    python tools/ingest_site.py \
+           --site-dir docs \
            --out-file assets/llm/vectors.json
 website:
   favicon: assets/images/preview.png
