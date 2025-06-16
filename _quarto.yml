@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   resources:
-    - assets/llm/** 
+    - assets/**
   #post-render: 
   #  - tools/generate_vectors.py
   #  - tools/cleanup.py

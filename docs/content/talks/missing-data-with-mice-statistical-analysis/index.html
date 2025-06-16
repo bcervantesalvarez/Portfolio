@@ -403,504 +403,224 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 <!-- assets/html/chat.html -->
 
-<!-- 1) Your Chat Button + Overlay -->
+<!-- 1) Liquid-Glass SVG Filter Definition -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
+  <defs>
+    <filter id="glass-distortion">
+      <feturbulence type="fractalNoise" basefrequency="0.015" numoctaves="2" result="noise"></feturbulence>
+      <fedisplacementmap in="SourceGraphic" in2="noise" scale="4" xchannelselector="R" ychannelselector="G"></fedisplacementmap>
+    </filter>
+  </defs>
+</svg>
+
+<!-- Chat Button -->
 <button id="openChat" aria-label="Open Chat">
   <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
   </svg>
 </button>
 
+<!-- Chat Overlay -->
 <div id="chatOverlay">
   <div id="chatContainer">
-    <header id="chatHeader">
+    <!-- Header -->
+    <div id="chatHeader">
       <h2>
-        <div class="status-indicator"></div>
-        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-          <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z"></path>
-          <path d="M15 9l-4 4 2 2 6-6"></path>
-        </svg>
-        Ask Brian's AI Assistant, Yappify!
+        <span class="status-indicator"></span>
+        Yappify Chat Assistant
       </h2>
-      <div class="model-tabs">
-        <button class="model-tab active" data-model="qwen">
-          <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-            <line x1="7" y1="2" x2="7" y2="22"></line>
-            <line x1="17" y1="2" x2="17" y2="22"></line>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-          </svg>
-          Yappify 1.0 (Qwen2.5-1.5B)
-        </button>
-        <button class="model-tab disabled" data-model="gpt">
-          <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
-          </svg>
-          GPT-4 <span class="coming-soon">Coming Soon</span>
-        </button>
-        <button class="model-tab disabled" data-model="claude">
-          <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-          </svg>
-          Claude <span class="coming-soon">Coming Soon</span>
+      
+      <!-- Header Controls Row -->
+      <div class="header-controls">
+        <!-- Model Selector -->
+        <div class="model-selector">
+          <button type="button" class="model-selector-btn" id="modelSelectorBtn">
+            <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10 8 10s8-4.45 8-10V7l-10-5z"></path>
+            </svg>
+            <span id="currentModelName">Yappify 1.0</span>
+            <svg class="dropdown-arrow" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="model-dropdown" id="modelDropdown">
+            <div class="model-option active" data-model="local">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7v10c0 5.55 3.84 10 8 10s8-4.45 8-10V7l-10-5z"></path>
+              </svg>
+              <div class="model-info">
+                <div class="model-name">Yappify 1.0</div>
+                <div class="model-desc">RAG</div>
+              </div>
+            </div>
+            
+            <div class="model-option" data-model="qwen">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12l2 2 4-4"></path>
+              </svg>
+              <div class="model-info">
+                <div class="model-name">Qwen 2.5</div>
+                <div class="model-desc">LLM</div>
+              </div>
+            </div>
+            
+            <div class="model-option disabled" data-model="gpt4">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8" cy="8" r="2"></circle>
+                <path d="M21 15l-5-5-7 7"></path>
+              </svg>
+              <div class="model-info">
+                <div class="model-name">GPT-4</div>
+                <div class="model-desc">Coming Soon</div>
+              </div>
+            </div>
+            
+            <div class="model-option disabled" data-model="claude">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <div class="model-info">
+                <div class="model-name">Claude</div>
+                <div class="model-desc">Coming Soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools Selector -->
+        <div class="tools-selector">
+          <button type="button" class="tools-selector-btn" id="toolsSelectorBtn">
+            <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            <span>Tools</span>
+            <svg class="dropdown-arrow" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="tools-dropdown" id="toolsDropdown">
+            <div class="tool-option" data-action="new-chat">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+              <div class="tool-info">
+                <div class="tool-name">New Chat</div>
+                <div class="tool-desc">Start a fresh conversation</div>
+              </div>
+            </div>
+            
+            <!-- Updated Export Tool Option with Professional Submenu -->
+            <div class="tool-option" data-action="export-chat">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <div class="tool-info">
+                <div class="tool-name">Export Chat</div>
+                <div class="tool-desc">Download conversation</div>
+              </div>
+              
+              <!-- Professional Export Submenu -->
+              <div class="export-submenu">
+                <div class="export-format" data-format="json">
+                  <div class="format-icon json-icon">JSON</div>
+                  <div class="format-details">
+                    <div class="format-name">JSON Format</div>
+                    <div class="format-description">Structured data for developers</div>
+                  </div>
+                </div>
+                
+                <div class="export-format" data-format="xlsx">
+                  <div class="format-icon xlsx-icon">XLSX</div>
+                  <div class="format-details">
+                    <div class="format-name">Excel Format</div>
+                    <div class="format-description">Spreadsheet with formatting</div>
+                  </div>
+                </div>
+                
+                <div class="export-format" data-format="csv">
+                  <div class="format-icon csv-icon">CSV</div>
+                  <div class="format-details">
+                    <div class="format-name">CSV Format</div>
+                    <div class="format-description">Simple comma-separated data</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tool-option disabled" data-action="search-website">
+              <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <div class="tool-info">
+                <div class="tool-name">Search Website</div>
+                <div class="tool-desc">Coming Soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Button -->
+        <button type="button" class="info-btn" id="infoBtn" title="Model Information">
+          <!-- Custom "i" icon created with CSS pseudo-elements -->
         </button>
       </div>
+      
+      <!-- Close Button -->
       <button id="closeChat" aria-label="Close Chat">
-        <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-    </header>
-    <main id="chatLog"></main>
+    </div>
+
+    <!-- Chat Log -->
+    <div id="chatLog">
+      <!-- Messages will be added here dynamically -->
+    </div>
+
+    <!-- Chat Input Form -->
     <form id="chatForm">
       <div class="input-container">
-        <textarea id="chatInput" rows="1" placeholder="Ask Yappify anything about Brian's work…" maxlength="1000"></textarea>
-        <button type="submit" id="sendButton" aria-label="Send message">
-          <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <textarea id="chatInput" placeholder="Type your message..." rows="1" maxlength="1000" required=""></textarea>
+        <button type="submit" id="sendButton" aria-label="Send Message">
+          <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
           </svg>
         </button>
       </div>
-      <div class="disclaimer" style="text-align: center; font-size: 0.75rem; color: rgba(0,0,0,0.5); margin-top: 0.5rem; padding: 0 1rem;">
-        Yappify can make mistakes. Please double-check responses.
-      </div>
+      <!-- Warning text will be added dynamically -->
     </form>
+
+    <!-- Chat Footer -->
+    <div id="chatFooter">
+      Yappify can make mistakes. Please double-check responses.
+    </div>
+
   </div>
 </div>
 
-
-<!-- 2) Chat Styles -->
+<!-- Chat Styles -->
 <link rel="stylesheet" href="../../../assets/llm/chat.css">
 
-<!-- 3) JavaScript - Clean and Working -->
-<script type="module">
-  // Load Web-LLM library
-  import * as webllm from "https://esm.run/@mlc-ai/web-llm";
-
-  // Variables
-  let engine = null;
-  let isLoading = false;
-  let currentModel = "qwen";
-  let vectors = [];
-
-  // Load RAG vectors
-  try {
-    fetch("/assets/llm/vectors.json")
-      .then(r => r.json())
-      .then(data => {
-        vectors = data.map(v => ({
-          id: v.id,
-          text: v.text,
-          embeddings: v.vector || v.embeddings,
-          metadata: v.metadata || {}
-        }));
-        console.log("✅ Vectors loaded:", vectors.length);
-      })
-      .catch(e => console.log("ℹ️ No vectors found, continuing without RAG"));
-  } catch (e) {
-    console.log("ℹ️ No vectors found, continuing without RAG");
-  }
-
-  // UI Elements
-  const openBtn = document.getElementById("openChat");
-  const closeBtn = document.getElementById("closeChat");
-  const overlay = document.getElementById("chatOverlay");
-  const form = document.getElementById("chatForm");
-  const input = document.getElementById("chatInput");
-  const sendButton = document.getElementById("sendButton");
-  const log = document.getElementById("chatLog");
-  const modelTabs = document.querySelectorAll(".model-tab");
-
-  // Helper functions
-  function addMessage(who, txt) {
-    const messageEl = document.createElement("div");
-    messageEl.className = `message ${who}`;
-    
-    const content = document.createElement("div");
-    content.className = "message-content";
-    content.textContent = txt;
-    
-    messageEl.appendChild(content);
-    log.appendChild(messageEl);
-    log.scrollTop = log.scrollHeight;
-    
-    return { element: messageEl, content: content };
-  }
-
-  function addTypingIndicator() {
-    const messageEl = document.createElement("div");
-    messageEl.className = "message bot";
-    
-    const content = document.createElement("div");
-    content.className = "typing-indicator";
-    content.innerHTML = `
-      <span>Thinking</span>
-      <div class="typing-dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    `;
-    
-    messageEl.appendChild(content);
-    log.appendChild(messageEl);
-    log.scrollTop = log.scrollHeight;
-    
-    return messageEl;
-  }
-
-  function removeTypingIndicator(indicator) {
-    if (indicator && indicator.parentNode) {
-      indicator.parentNode.removeChild(indicator);
-    }
-  }
-
-  // Track used questions
-  let usedQuestions = new Set();
-
-  // Function to handle question click
-  function selectQuestion(questionText, questionElement) {
-    input.value = questionText;
-    input.focus();
-    
-    // Mark as used
-    usedQuestions.add(questionText);
-    questionElement.classList.add('used');
-    
-    // Auto-resize the input
-    input.style.height = "auto";
-    input.style.height = Math.min(input.scrollHeight, 120) + "px";
-  }
-
-  // Function to show guiding questions
-  function showGuidingQuestions() {
-    const guidingQuestions = [
-      "What is Brian's educational background?",
-      "What programming languages does Brian specialize in?", 
-      "Can you tell me about Brian's Shiny applications?",
-      "What kind of data visualization projects has Brian worked on?",
-      "What is Brian's experience with machine learning?",
-      "Tell me about Brian's Master's degree in Statistics",
-      "What interactive learning tools has Brian created?",
-      "What are some of Brian's notable data science projects?",
-      "How does Brian approach statistical analysis?",
-      "What makes Brian's work in R programming unique?"
-    ];
-    
-    const questionsEl = document.createElement("div");
-    questionsEl.className = "message system";
-    questionsEl.style.marginTop = "1rem";
-    
-    const questionsContent = document.createElement("div");
-    questionsContent.className = "message-content guiding-questions";
-    questionsContent.innerHTML = `
-      <div style="font-weight: 600; margin-bottom: 0.5rem;">💡 Try asking me:</div>
-      <div id="questions-container"></div>
-    `;
-    
-    questionsEl.appendChild(questionsContent);
-    log.appendChild(questionsEl);
-    
-    // Add questions with click handlers
-    const container = questionsContent.querySelector('#questions-container');
-    guidingQuestions.forEach(question => {
-      const questionDiv = document.createElement('div');
-      questionDiv.className = `question-item ${usedQuestions.has(question) ? 'used' : ''}`;
-      questionDiv.textContent = question;
-      questionDiv.addEventListener('click', () => selectQuestion(question, questionDiv));
-      container.appendChild(questionDiv);
-    });
-    
-    log.scrollTop = log.scrollHeight;
-  }
-
-  // FIXED: Streaming text function (faster, no cursor during typing)
-  function streamText(element, text, speed = 20) { // Increased speed by 50% (35 -> 20)
-    return new Promise((resolve) => {
-      let i = 0;
-      element.textContent = "";
-      
-      function typeChar() {
-        if (i < text.length) {
-          // Add character directly (no cursor during typing)
-          element.textContent += text.charAt(i);
-          i++;
-          
-          // Auto-scroll to follow typing
-          log.scrollTop = log.scrollHeight;
-          
-          // Variable speed for realistic typing
-          const char = text.charAt(i - 1);
-          const delay = char === ' ' ? speed * 0.3 : 
-                       char === ',' || char === '.' ? speed * 2 :
-                       speed;
-          
-          setTimeout(typeChar, delay);
-        } else {
-          // All done - no cursor needed
-          resolve();
-        }
-      }
-      
-      typeChar();
-    });
-  }
-
-  // Search functions
-  async function search(q, k = 3) {
-    if (vectors.length === 0) return [];
-    
-    try {
-      const queryLower = q.toLowerCase();
-      const scoredVectors = vectors.map(v => {
-        const score = calculateSimilarity(queryLower, v.text.toLowerCase());
-        return { ...v, score };
-      });
-      
-      return scoredVectors
-        .sort((a, b) => b.score - a.score)
-        .slice(0, k)
-        .filter(v => v.score > 0.1);
-    } catch (error) {
-      console.error("Search error:", error);
-      return [];
-    }
-  }
-
-  function calculateSimilarity(query, text) {
-    const queryWords = query.split(/\s+/).filter(w => w.length > 2);
-    const textWords = text.split(/\s+/);
-    
-    let exactMatches = 0;
-    let partialMatches = 0;
-    
-    queryWords.forEach(qWord => {
-      if (textWords.includes(qWord)) {
-        exactMatches++;
-      } else if (textWords.some(tWord => tWord.includes(qWord) || qWord.includes(tWord))) {
-        partialMatches += 0.5;
-      }
-    });
-    
-    return (exactMatches * 2.0 + partialMatches) / queryWords.length;
-  }
-
-  // FIXED: Main chat handler
-  async function ask(text) {
-    if (!engine) {
-      console.log("Engine not initialized");
-      return;
-    }
-
-    input.disabled = true;
-    sendButton.disabled = true;
-
-    addMessage("you", text);
-    const typingIndicator = addTypingIndicator();
-
-    try {
-      // Build system message with RAG context
-      let systemContent = `You are Yappify, Brian's knowledgeable data-science assistant powered by Qwen2.5-1.5B-Instruct running locally in the browser via WebGPU. Brian Cervantes Alvarez is a data scientist and analyst who works on various machine learning and analytics projects.
-
-Be helpful, concise, and professional. When users ask about Brian or his work, draw on the provided context. Always remember you are Yappify, Brian's AI assistant.`;
-
-      // Add RAG context
-      try {
-        const docs = await search(text, 3);
-        if (docs.length > 0) {
-          const context = docs.map(d => d.text).join('\n\n');
-          systemContent += `\n\nContext from Brian's work:\n\n${context}\n\nUse this context to provide accurate information.`;
-          console.log("✅ RAG context added from", docs.length, "documents");
-        }
-      } catch (e) {
-        console.log("Could not add RAG context:", e);
-      }
-
-      const messages = [
-        { role: "system", content: systemContent },
-        { role: "user", content: text }
-      ];
-
-      // Get response
-      const response = await engine.chatCompletion({
-        messages: messages,
-        temperature: 0.7,
-        max_tokens: 1000
-      });
-
-      // Remove typing indicator
-      removeTypingIndicator(typingIndicator);
-
-      const reply = response.choices[0]?.message?.content || "Sorry, I couldn't generate a response.";
-      
-      // Create message and stream the text
-      const { content: messageContent } = addMessage("bot", "");
-      await streamText(messageContent, reply, 30);
-
-    } catch (error) {
-      removeTypingIndicator(typingIndicator);
-      console.error("Chat error:", error);
-      addMessage("system", "⚠️ Sorry, I encountered an error. Please try again.");
-    } finally {
-      input.disabled = false;
-      sendButton.disabled = false;
-      input.focus();
-    }
-  }
-
-  if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
-    document.getElementById("openChat").style.display = "none";
-  }
-
-
-  async function initializeChat() {
-    console.log("✅ Chat system initialized with Web-LLM");
-
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-    
-    if (!navigator.gpu || isMobile) {
-      console.warn("🚫 WebGPU not supported or mobile device detected. Skipping model download.");
-      
-      addMessage("system", "⚠️ Yappify doesn't currently support mobile devices or browsers without WebGPU. Please try again on a desktop browser like Chrome or Edge.");
-      
-      // Optionally disable the input UI
-      document.getElementById("chatForm").style.display = "none";
-      return;
-    }
-
-    // If device passes the check, proceed with model load
-    try {
-      engine = new webllm.MLCEngine();
-      console.log("✅ Using prebuilt Web-LLM model: Qwen2.5-1.5B-Instruct-q4f16_1-MLC");
-
-      isLoading = true;
-      addMessage("system", "Initializing AI assistant...");
-
-      await engine.reload("Qwen2.5-1.5B-Instruct-q4f16_1-MLC", {
-        initProgressCallback: (progress) => {
-          console.log(`Loading model: ${Math.round(progress.progress * 100)}% - ${progress.text}`);
-        }
-      });
-
-      isLoading = false;
-      console.log("✅ Engine initialized successfully");
-
-      addMessage("system", "Hi there! I'm Yappify, your AI assistant. I'll do my best to help you answer your questions about my creator Brian! Would you like some guiding questions?");
-
-      setTimeout(() => showGuidingQuestions(), 1000);
-
-    } catch (error) {
-      isLoading = false;
-      console.error("❌ Failed to initialize:", error);
-      addMessage("system", "⚠️ Failed to initialize AI. Please refresh and try again.");
-    }
-  }
-
-
-  // Event Listeners
-  modelTabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      if (tab.classList.contains("disabled")) {
-        addMessage("system", "This model is coming soon! Currently using Yappify locally via WebGPU.");
-        return;
-      }
-      
-      modelTabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      
-      currentModel = tab.dataset.model;
-      addMessage("system", `Switched to ${tab.textContent.split(' ')[0]} model.`);
-    });
-  });
-
-  // Add command to show questions again
-  function handleSpecialCommands(text) {
-    const lowerText = text.toLowerCase().trim();
-    
-    if (lowerText === "show questions" || lowerText === "help" || lowerText === "questions") {
-      showGuidingQuestions();
-      
-      // Add helpful tip
-      setTimeout(() => {
-        const tipEl = document.createElement("div");
-        tipEl.className = "message system";
-        tipEl.style.marginTop = "0.5rem";
-        
-        const tipContent = document.createElement("div");
-        tipContent.className = "message-content";
-        tipContent.innerHTML = `💡 <strong>Tip:</strong> Type "show questions" anytime to see these guiding questions again! Questions with ✓ are ones you've already tried.`;
-        
-        tipEl.appendChild(tipContent);
-        log.appendChild(tipEl);
-        log.scrollTop = log.scrollHeight;
-      }, 500);
-      
-      return true; // Handled
-    }
-    
-    return false; // Not handled
-  }
-
-  openBtn.addEventListener("click", async () => {
-    overlay.classList.add("open");
-    input.focus();
-    
-    if (!engine && !isLoading) {
-      await initializeChat();
-    }
-  });
-
-  closeBtn.addEventListener("click", () => {
-    overlay.classList.remove("open");
-  });
-
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-      overlay.classList.remove("open");
-    }
-  });
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const text = input.value.trim();
-    if (!text || isLoading) return;
-    
-    input.value = "";
-    input.style.height = "auto";
-    
-    // Check for special commands first
-    if (handleSpecialCommands(text)) {
-      return; // Don't process through AI if it's a command
-    }
-    
-    await ask(text);
-  });
-
-  // Auto-resize textarea and handle Enter key
-  input.addEventListener("input", () => {
-    input.style.height = "auto";
-    input.style.height = Math.min(input.scrollHeight, 120) + "px";
-  });
-
-  // Handle Enter key behavior
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      if (e.shiftKey) {
-        // Shift+Enter: Allow new line (default behavior)
-        return;
-      } else {
-        // Enter: Send message
-        e.preventDefault();
-        form.dispatchEvent(new Event('submit'));
-      }
-    }
-  });
-
-  // Initialize when page loads
-  console.log("🚀 Chat system ready");
-</script>
+<!-- Modular JavaScript -->
+<script type="module" src="../../../assets/llm/chat-config.js"></script>
+<script type="module" src="../../../assets/llm/chat-ui.js"></script>
+<script type="module" src="../../../assets/llm/chat-local.js"></script>
+<script type="module" src="../../../assets/llm/chat-qwen.js"></script>
+<script type="module" src="../../../assets/llm/chat-rag.js"></script>
+<script type="module" src="../../../assets/llm/chat-main.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

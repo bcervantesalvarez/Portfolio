@@ -1,0 +1,2896 @@
+/*-- scss:defaults --*/
+
+$theme: "MainThemeBCA" !default;
+
+// ========================================
+// GLASSMORPHISM MIXINS (Must be defined first)
+// ========================================
+
+// Apple-style liquid glass mixin
+@mixin liquid-glass($opacity: 0.15, $blur: 20px, $border-opacity: 0.25, $shadow-opacity: 0.12) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(180%) brightness(110%);
+  -webkit-backdrop-filter: blur($blur) saturate(180%) brightness(110%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, $shadow-opacity),
+    0 2px 8px rgba(31, 38, 135, $shadow-opacity * 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+// Apple-style dark liquid glass
+@mixin liquid-glass-dark($opacity: 0.2, $blur: 20px, $border-opacity: 0.15, $shadow-opacity: 0.18) {
+  background: rgba(30, 41, 59, $opacity);
+  backdrop-filter: blur($blur) saturate(180%) brightness(110%);
+  -webkit-backdrop-filter: blur($blur) saturate(180%) brightness(110%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, $shadow-opacity),
+    0 2px 8px rgba(0, 0, 0, $shadow-opacity * 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Professional glassmorphism mixin with better contrast
+@mixin glassmorphism($opacity: 0.08, $blur: 16px, $border-opacity: 0.15, $shadow-opacity: 0.1) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(120%);
+  -webkit-backdrop-filter: blur($blur) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, $shadow-opacity),
+    0 2px 8px rgba(31, 38, 135, $shadow-opacity * 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+// Professional dark glassmorphism
+@mixin glassmorphism-dark($opacity: 0.12, $blur: 16px, $border-opacity: 0.1, $shadow-opacity: 0.15) {
+  background: rgba(15, 23, 42, $opacity);
+  backdrop-filter: blur($blur) saturate(120%);
+  -webkit-backdrop-filter: blur($blur) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, $shadow-opacity),
+    0 2px 8px rgba(0, 0, 0, $shadow-opacity * 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+// Enhanced Color system with better balance
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #f7f7f9 !default;
+$gray-300: #eceeef !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #919aa1 !default;
+$gray-700: #55595c !default;
+$gray-800: #343a40 !default;
+$gray-900: #1a1a1a !default;
+$black: #000 !default;
+
+// More balanced color palette
+$blue: #2563eb !default;           // Less saturated blue
+$indigo: #4f46e5 !default;
+$purple: #7c3aed !default;
+$pink: #ec4899 !default;
+$red: #dc2626 !default;
+$orange: #ea580c !default;
+$yellow: #d97706 !default;
+$green: #059669 !default;
+$teal: #0d9488 !default;
+$cyan: #0891b2 !default;           // Less prominent cyan
+
+$primary: $gray-900 !default;
+$secondary: $white !default;
+$success: $green !default;
+$info: $gray-600 !default;         // Changed from cyan to gray
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $white !default;
+$dark: $gray-400 !default;
+
+$min-contrast-ratio: 2.25 !default;
+
+// Options
+$enable-rounded: true !default;
+
+// Professional gradient background
+$background-color: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.9) 100%) !default;
+
+// Title Banner
+$title-banner: true !default;
+
+// Body
+$body-color: $gray-800 !default;
+
+// Fonts
+$font-family-sans-serif: "Inter", "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$body-font-size: 1.1rem !default;
+$font-size-sm: 0.875rem !default;
+$h1-font-size: 1.8rem !default;
+$h2-font-size: 1.6rem !default;
+$h3-font-size: 1.3rem !default;
+$h4-font-size: 1.2rem !default;
+$h5-font-size: 1.1rem !default;
+$h6-font-size: 0.9rem !default;
+$headings-font-weight: 700 !default;
+$headings-color: $primary !default;
+
+// Word Spacing
+$body-line-stretch: 1.5rem !default;
+
+// Tables
+$table-border-color: rgba(0, 2, 0, 0.05) !default;
+
+// Buttons
+$btn-line-height: 1.5rem !default;
+$input-btn-padding-y: 0.75rem !default;
+$input-btn-padding-x: 1.5rem !default;
+$input-btn-padding-y-sm: 0.5rem !default;
+$input-btn-padding-x-sm: 1rem !default;
+$input-btn-padding-y-lg: 2rem !default;
+$input-btn-padding-x-lg: 2rem !default;
+$btn-font-weight: 600 !default;
+
+// Forms
+$input-line-height: 1.5 !default;
+$input-bg: $gray-200 !default;
+$input-disabled-bg: $gray-300 !default;
+$input-group-addon-bg: $gray-300 !default;
+
+// Navbar
+$navbar-padding-y: 1.5rem !default;
+$navbar-dark-hover-color: $secondary !default;
+$navbar-light-color: rgba($black, 0.3) !default;
+$navbar-light-hover-color: $primary !default;
+$navbar-light-active-color: $primary !default;
+
+// Pagination
+$pagination-color: $blue !default;
+$pagination-hover-color: color-contrast($blue) !default;
+$pagination-border-color: transparent !default;
+$pagination-hover-border-color: $pagination-border-color !default;
+$pagination-disabled-border-color: $pagination-border-color !default;
+
+/*-- scss:rules --*/
+
+// Enhanced Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
+
+// PROFESSIONAL BUTTONS & FORMS
+// ========================================
+
+.cta-button {
+  @include glassmorphism(0.1, 16px, 0.25, 0.08);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(255,255,255,.25);
+    box-shadow: 0 8px 32px rgba(31,38,135,.08),0 2px 8px rgba(31,38,135,.04),inset 0 1px 0 rgba(255,255,255,.4);
+    background: linear-gradient(135deg, #2563eb 0%, #641ae4 100%);
+    color: #fff !important;
+    padding: 12px 28px;
+    border-radius: 20px;
+    text-decoration: none;
+    /* margin: 1rem 0; */
+    /* display: inline-block; */
+    font-weight: 600;
+    /* font-size: .9rem; */
+    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid rgba(255,255,255,.2); */
+    letter-spacing: .025em;
+
+
+  &:hover {
+    @include glassmorphism(0.15, 20px, 0.3, 0.12);
+    color: $gray-800 !important;
+    border: 1px solid rgba(255,255,255,.75);
+  }
+}
+
+.btn {
+  @include liquid-glass(0.08, 14px, 0.2, 0.08);
+  font-size: 0.875rem;
+  text-transform: none;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-decoration: none !important;
+
+  &:hover {
+    @include liquid-glass(0.15, 18px, 0.3, 0.12);
+    transform: translateY(-2px);
+    text-decoration: none !important;
+  }
+
+  &-sm {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+  }
+}
+
+.badge {
+  @include glassmorphism(0.08, 10px, 0.2, 0.06);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  
+  &-pill {
+    border-radius: 20px;
+  }
+}
+
+// Enhanced form inputs
+.policy-form-input {
+  @include glassmorphism(0.06, 12px, 0.15, 0.04);
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: $gray-700;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  font-weight: 400;
+
+  &:focus {
+    @include glassmorphism(0.1, 16px, 0.25, 0.08);
+    outline: none;
+    transform: scale(1.01);
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
+  &::placeholder {
+    color: rgba(107, 114, 128, 0.7);
+  }
+}
+
+// ========================================
+// PROFESSIONAL SIDEBAR & TOC
+// ========================================
+
+.sidebar nav[role="doc-toc"] {
+  @include glassmorphism(0.06, 16px, 0.15, 0.05);
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  color: $gray-800 !important;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.sidebar nav[role="doc-toc"] .nav-link:hover {
+  @include glassmorphism(0.08, 12px, 0.18, 0.06);
+  border-left: 2px solid $blue !important;
+  border-radius: 0 6px 6px 0;
+  transform: translateX(3px);
+  color: $blue !important;
+}
+
+.sidebar nav[role=doc-toc]>ul li a {
+  line-height: 1.3;
+  padding: 6px 10px;
+  color: inherit;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+// ========================================
+// ENHANCED TYPOGRAPHY
+// ========================================
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1.5rem;
+  font-weight: $headings-font-weight;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-weight: 300;
+  display: inline-block;
+  min-height: 1.5em;
+  color: $gray-600;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $gray-700;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+hr {
+  margin: 2rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.6;
+}
+
+b, strong {
+  font-weight: 700 !important;
+  color: $gray-900;
+}
+
+a {
+  color: $blue;
+  text-decoration: none !important;
+  
+  &:hover {
+    color: $purple;
+    text-decoration: none !important;
+  }
+}
+
+// Specific override for navbar links
+.navbar a,
+.nav-link,
+nav a {
+  text-decoration: none !important;
+  
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+code {
+  @include glassmorphism(0.06, 8px, 0.15, 0.04);
+  color: $purple;
+  padding: 0.25em 0.5em;
+  border-radius: 6px;
+  font-size: 0.875em;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+}
+
+// ========================================
+// PROFESSIONAL TITLE BLOCKS
+// ========================================
+
+header#title-block-header {
+  @include glassmorphism(0.08, 20px, 0.18, 0.06);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+
+  .quarto-title {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 100%;
+
+    h1.title {
+      margin: 0;
+      font-size: 2rem;
+      text-align: baseline;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+  }
+}
+
+.quarto-title .quarto-categories {
+  display: none;
+}
+
+#title-block-header.quarto-title-block.default .description {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: $gray-600;
+  font-size: 1.1rem;
+}
+
+#title-block-header.quarto-title-block.default .quarto-title-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  margin-top: 1rem;
+}
+
+// ========================================
+// PROFESSIONAL ABOUT PAGE ENHANCEMENTS
+// ========================================
+
+.about-contents .quarto-title {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-contents h3 {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  color: $gray-900;
+  font-size: 1.4rem;
+  margin: 1rem 0 1.5rem 0;
+  letter-spacing: -0.025em;
+}
+
+.about-contents .level3 h3 {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1rem 0;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: $gray-900;
+  font-family: $font-family-sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  z-index: 1;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  background: rgba(37, 99, 235, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+// ========================================
+// PROFESSIONAL ABOUT LINKS - APPLE STYLE
+// ========================================
+
+.about-links .about-link {
+  @include liquid-glass(0.1, 16px, 0.2, 0.08);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 12px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  i {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+    color: $blue;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .about-link-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $gray-700;
+    text-align: center;
+    line-height: 1;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  &:hover {
+    @include liquid-glass(0.15, 20px, 0.3, 0.12);
+    transform: translateY(-4px) scale(1.08);
+    text-decoration: none !important;
+
+    &::before {
+      opacity: 1;
+    }
+
+    i {
+      color: $purple;
+      transform: scale(1.1);
+    }
+
+    .about-link-text {
+      color: $gray-900;
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.05);
+  }
+}// ========================================
+// ENHANCED MOBILE RESPONSIVENESS - APPLE STYLE
+// ========================================
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    @include liquid-glass(0.1, 18px, 0.25, 0.08);
+    padding: 0.5rem !important;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .nav-link {
+    @include liquid-glass(0.06, 10px, 0.15, 0.06);
+    padding: 10px 14px;
+    margin: 3px;
+    font-size: 0.875rem;
+    border-radius: 10px;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+
+  .hero-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+
+  .about-entity {
+    @include liquid-glass(0.1, 18px, 0.25, 0.08);
+    position: static !important;
+    float: none !important;
+    margin: 0 auto 1rem auto;
+    width: 300px !important;
+    height: 400px !important;
+    margin-top: 2rem;
+    border-radius: 20px;
+  }
+
+  .about-contents {
+    margin-top: 1rem !important;
+  }
+
+  .about-links .about-link {
+    width: 70px;
+    height: 70px;
+    margin: 8px;
+
+    i {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+
+    .about-link-text {
+      font-size: 0.65rem;
+    }
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 0.875rem;
+    border-radius: 20px;
+  }
+
+  .icon-button,
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+
+    i {
+      font-size: 1.3rem;
+    }
+  }
+
+  div.quarto-post {
+    @include liquid-glass(0.08, 14px, 0.2, 0.08);
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem;
+    transform: none !important;
+    transition: none !important;
+    padding: 1rem;
+    border-radius: 16px;
+
+    .thumbnail {
+      order: 2 !important;
+      align-items: center !important;
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+    }
+
+    .body {
+      order: 1 !important;
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem;
+    }
+
+    .metadata {
+      order: 3 !important;
+      width: 100%;
+      margin: 0;
+    }
+
+    &:hover {
+      transform: none !important;
+      @include liquid-glass(0.12, 18px, 0.25, 0.1);
+    }
+  }
+
+  .portfolio-card {
+    @include liquid-glass(0.1, 18px, 0.25, 0.08);
+    margin: 0.5rem;
+    padding: 1.5rem;
+    min-height: auto;
+    border-radius: 16px;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    img {
+      height: 150px;
+    }
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  transition: none;
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.08),
+    0 4px 12px rgba(31, 38, 135, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+
+  border-left: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0)
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+
+  .cta-deco {
+    display: none;
+  }
+
+  .AI-Summary {
+    margin: 2rem 1rem;
+
+    .mini-banner {
+      padding: 0.75rem 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+
+      .left-banner {
+        font-size: 0.9rem;
+      }
+
+      .right-banner {
+        font-size: 0.8rem;
+      }
+    }
+
+    p {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .travel-card {
+    height: 400px;
+    margin: 1rem;
+  }
+
+  .quarto-listing-container-table {
+    margin: 1rem;
+
+    .quarto-listing-table {
+      thead tr th {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      tbody tr td {
+        padding: 0.5rem 0.75rem;
+      }
+
+      a.title.listing-title {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  header#title-block-header {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .quarto-title h1.title {
+      font-size: 1.5rem;
+    }
+  }
+
+  #title-block-header.quarto-title-block.default .quarto-title-meta {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    @include liquid-glass(0.08, 16px, 0.2, 0.06);
+    padding: 0.4rem !important;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .nav-link {
+    @include liquid-glass(0.05, 8px, 0.12, 0.05);
+    padding: 8px 12px;
+    margin: 2px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+
+  .hero-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.1),
+        0 4px 16px rgba(31, 38, 135, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+
+    // subtle glass shine gradient
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+        ellipse at top left,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 60%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    // optional subtle inner edge gradient for realism
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0)
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    }
+
+
+  .hero-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-entity {
+    width: 270px !important;
+    height: 320px !important;
+    border-radius: 16px;
+  }
+
+  .portfolio-card {
+    padding: 1rem;
+    min-height: auto;
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+
+    img {
+      height: 120px;
+    }
+  }
+
+  .skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    transition: none;
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.08),
+        0 4px 12px rgba(31, 38, 135, 0.04),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+
+    border-left: none;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -40%;
+        width: 180%;
+        height: 180%;
+        background: radial-gradient(
+        ellipse at top left,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0) 60%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0)
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    }
+
+
+
+
+
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+
+  .about-links .about-link {
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+
+    i {
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+    }
+
+    .about-link-text {
+      font-size: 0.6rem;
+    }
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    border-radius: 18px;
+  }
+
+  .icon-button,
+  .social-icon {
+    width: 45px;
+    height: 45px;
+    margin: 4px;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+
+  .AI-Summary {
+    margin: 1.5rem 0.5rem;
+
+    .mini-banner {
+      padding: 0.625rem 0.875rem;
+
+      .left-banner {
+        font-size: 0.8rem;
+      }
+
+      .right-banner {
+        font-size: 0.7rem;
+      }
+
+      .openai-logo {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    p {
+      padding: 0.875rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .travel-card {
+    height: 350px;
+    margin: 0.75rem;
+  }
+
+  .testimonial {
+    padding: 1.5rem;
+    margin: 2rem 0.5rem;
+  }
+
+  #contact {
+    padding: 1.5rem;
+    margin: 2rem 0.5rem;
+  }
+}
+
+// ========================================
+// APPLE-STYLE UTILITY CLASSES
+// ========================================
+
+.liquid-glass-light {
+  @include liquid-glass(0.08, 16px, 0.2, 0.08);
+}
+
+.liquid-glass-medium {
+  @include liquid-glass(0.12, 20px, 0.25, 0.1);
+}
+
+.liquid-glass-heavy {
+  @include liquid-glass(0.18, 24px, 0.3, 0.15);
+}
+
+.liquid-glass-dark {
+  @include liquid-glass-dark(0.15, 20px, 0.2, 0.12);
+}
+
+.liquid-glass-dark-heavy {
+  @include liquid-glass-dark(0.22, 24px, 0.25, 0.18);
+}
+
+.liquid-glass-interactive {
+  @include liquid-glass(0.1, 18px, 0.22, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+
+  &:hover {
+    @include liquid-glass(0.15, 22px, 0.3, 0.12);
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.liquid-glass-button {
+  @include liquid-glass(0.12, 18px, 0.25, 0.1);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  &:hover {
+    @include liquid-glass(0.18, 22px, 0.35, 0.15);
+    transform: translateY(-3px) scale(1.05);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+}
+
+// ========================================
+// FINAL APPLE-STYLE POLISH
+// ========================================
+
+// Smooth scrolling for better UX
+html {
+  scroll-behavior: smooth;
+}
+
+// Enhanced focus visibility - Apple style
+*:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+// Remove outline for mouse users
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Apple-style selection styling
+::selection {
+  background: rgba(37, 99, 235, 0.25);
+  color: $gray-900;
+}
+
+::-moz-selection {
+  background: rgba(37, 99, 235, 0.25);
+  color: $gray-900;
+}
+
+// Apple-style scrollbar styling
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+  border-radius: 5px;
+  transition: background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
+
+// Professional print styles
+@media print {
+  .navbar,
+  .nav-footer,
+  .cta-button,
+  .read-more-btn,
+  .icon-button,
+  .liquid-glass-button {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .portfolio-card,
+  .skill-card,
+  .about-contents .level3,
+  div.quarto-post {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+// ========================================
+// PROFESSIONAL TESTIMONIALS
+// ========================================
+
+.testimonial {
+  @include glassmorphism(0.08, 20px, 0.18, 0.06);
+  background: transparent;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 16px;
+  max-width: 800px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    @include glassmorphism(0.12, 24px, 0.25, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+// ========================================
+// PROFESSIONAL CTA SECTIONS
+// ========================================
+
+#contact {
+  @include glassmorphism(0.08, 20px, 0.18, 0.06);
+  background: transparent;
+  border-radius: 20px;
+  margin: 3rem 0;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.cta-deco {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(37, 99, 235, 0.08);
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.cta-deco--1 {
+  top: -50px;
+  left: -50px;
+  background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), transparent);
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+.cta-deco--2 {
+  bottom: -50px;
+  right: -50px;
+  background: linear-gradient(-45deg, rgba(124, 58, 237, 0.1), transparent);
+  animation: gentle-float 8s ease-in-out infinite reverse;
+}
+
+// ========================================
+// PROFESSIONAL TRAVEL CARDS
+// ========================================
+
+.travel-card {
+  @include glassmorphism(0.08, 20px, 0.18, 0.06);
+  background-color: transparent;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  height: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    @include glassmorphism(0.15, 28px, 0.25, 0.1);
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.travel-details {
+  @include glassmorphism-dark(0.08, 12px, 0.15, 0.06);
+  height: 25%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.travel-location {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+}
+
+.travel-date {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+// ========================================
+// PROFESSIONAL POLICY SECTIONS
+// ========================================
+
+.policy-block, .license-block {
+  @include glassmorphism(0.08, 18px, 0.18, 0.06);
+  margin: 3rem auto;
+  padding: 2rem;
+  max-width: 70ch;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    @include glassmorphism(0.12, 22px, 0.22, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.policy-section, .license-section {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: $gray-900;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    color: $gray-600;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.policy-form-section {
+  @include glassmorphism(0.06, 16px, 0.15, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.policy-form-submit {
+  @include glassmorphism(0.08, 14px, 0.2, 0.06);
+  cursor: pointer;
+  background: linear-gradient(135deg, $blue, $purple);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    @include glassmorphism(0.12, 18px, 0.25, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// ========================================
+// PROFESSIONAL MISC ELEMENTS
+// ========================================
+
+.new-banner {
+  @include glassmorphism(0.1, 14px, 0.2, 0.08);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: $gray-700;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 1;
+  border-radius: 0 0 0 10px;
+
+  &:hover {
+    @include glassmorphism(0.15, 18px, 0.25, 0.12);
+    transform: scale(1.02);
+  }
+}
+
+/* Hide heading anchors */
+h1 .header-anchor,
+h2 .header-anchor,
+h3 .header-anchor,
+h4 .header-anchor,
+h5 .header-anchor,
+h6 .header-anchor {
+  display: none;
+}
+
+.anchorjs-link {
+  display: none !important;
+}
+
+// ========================================
+// ENHANCED MOBILE RESPONSIVENESS
+// ========================================
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    @include glassmorphism(0.08, 16px, 0.18, 0.06);
+    padding: 0.5rem !important;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .nav-link {
+    @include glassmorphism(0.04, 8px, 0.12, 0.04);
+    padding: 8px 12px;
+    margin: 2px;
+    font-size: 0.875rem;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+
+  .hero-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+
+  .about-entity {
+    @include glassmorphism(0.08, 16px, 0.18, 0.06);
+    position: static !important;
+    float: none !important;
+    margin: 0 auto 1rem auto;
+    width: 300px !important;
+    height: 400px !important;
+    margin-top: 2rem;
+  }
+
+  .about-contents {
+    margin-top: 1rem !important;
+  }
+
+  .about-links .about-link {
+    padding: 1rem;
+    margin: 0.25rem;
+
+    i {
+      font-size: 1.25rem;
+    }
+
+    .about-link-text {
+      font-size: 0.8rem;
+    }
+  }
+
+  div.quarto-post {
+    @include glassmorphism(0.06, 12px, 0.15, 0.05);
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem;
+    transform: none !important;
+    transition: none !important;
+    padding: 1rem;
+
+    .thumbnail {
+      order: 2 !important;
+      align-items: center !important;
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+      }
+    }
+
+    .body {
+      order: 1 !important;
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem;
+    }
+
+    .metadata {
+      order: 3 !important;
+      width: 100%;
+      margin: 0;
+    }
+
+    &:hover {
+      transform: none !important;
+      @include glassmorphism(0.1, 16px, 0.2, 0.08);
+    }
+  }
+
+  .portfolio-card {
+    @include glassmorphism(0.08, 16px, 0.18, 0.06);
+    margin: 0.5rem;
+    padding: 1.5rem;
+    min-height: auto;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    img {
+      height: 150px;
+    }
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    min-height: auto;
+    padding: 1.25rem;
+
+    &--wide {
+      grid-column: span 1;
+      margin: 1rem 0;
+    }
+  }
+
+  .cta-deco {
+    display: none;
+  }
+
+  .AI-Summary {
+    margin: 2rem 1rem;
+
+    .mini-banner {
+      padding: 0.75rem 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+
+      .left-banner {
+        font-size: 0.9rem;
+      }
+
+      .right-banner {
+        font-size: 0.8rem;
+      }
+    }
+
+    p {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .travel-card {
+    height: 400px;
+    margin: 1rem;
+  }
+
+  .quarto-listing-container-table {
+    margin: 1rem;
+
+    .quarto-listing-table {
+      thead tr th {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      tbody tr td {
+        padding: 0.5rem 0.75rem;
+      }
+
+      a.title.listing-title {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  header#title-block-header {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .quarto-title h1.title {
+      font-size: 1.5rem;
+    }
+  }
+
+  #title-block-header.quarto-title-block.default .quarto-title-meta {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.fullcontent .page-columns {
+    display: grid;
+    gap: 0;
+    grid-template-columns:
+      [screen-start] 1em
+      [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start]
+      minmax(0px, 1fr)
+      [body-content-end body-end body-end-outset page-end-inset page-end screen-end-inset] 1em
+      [screen-end];
+  }
+}
+
+// ========================================
+// PROFESSIONAL UTILITY CLASSES
+// ========================================
+
+.glass-light {
+  @include glassmorphism(0.04, 12px, 0.12, 0.04);
+}
+
+.glass-medium {
+  @include glassmorphism(0.08, 16px, 0.18, 0.06);
+}
+
+.glass-heavy {
+  @include glassmorphism(0.15, 24px, 0.25, 0.1);
+}
+
+.glass-dark {
+  @include glassmorphism-dark(0.1, 16px, 0.15, 0.08);
+}
+
+.glass-dark-heavy {
+  @include glassmorphism-dark(0.18, 24px, 0.25, 0.12);
+}
+
+.glass-interactive {
+  @include glassmorphism(0.06, 14px, 0.15, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &:hover {
+    @include glassmorphism(0.12, 18px, 0.22, 0.08);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.glass-float {
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+.glass-shimmer {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.8s;
+  }
+
+  &:hover::before {
+    left: 200%;
+  }
+}
+
+// ========================================
+// PROFESSIONAL CAROUSEL ENHANCEMENTS
+// ========================================
+
+/* Enhanced Carousel Navigation with Glassmorphism */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  @include glassmorphism-dark(0.15, 16px, 0.2, 0.1);
+  background-color: transparent;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 1.5l7 6.5-7 6.5'/%3E%3C/svg%3E");
+  mask-size: 60%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 1.5l7 6.5-7 6.5'/%3E%3C/svg%3E");
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(124, 58, 237, 0.8));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-control-prev-icon {
+  transform: rotate(180deg);
+}
+
+.carousel-control-next-icon {
+  transform: rotate(0deg);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: -3rem;
+}
+
+.carousel-control-next {
+  right: -3rem;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  @include glassmorphism-dark(0.25, 20px, 0.3, 0.15);
+  transform: scale(1.1);
+  background: linear-gradient(135deg, $blue, $purple);
+}
+
+/* Enhanced Badge Tag with Professional Styling */
+.badge-tag {
+  @include glassmorphism(0.12, 16px, 0.25, 0.08);
+  position: absolute;
+  right: 15px;
+  z-index: 10;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(124, 58, 237, 0.9));
+  color: $white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transform: scale(0) rotate(12deg);
+  transform-origin: top right;
+  opacity: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item.active .badge-tag {
+  animation: professional-pop 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes professional-pop {
+  0% {
+    transform: scale(0) rotate(12deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+// ========================================
+// ENHANCED TABLE STYLING
+// ========================================
+
+.table {
+  @include glassmorphism(0.06, 16px, 0.15, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  border: none;
+  
+  th, td {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    vertical-align: middle;
+  }
+  
+  th {
+    @include glassmorphism-dark(0.08, 12px, 0.15, 0.06);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+  }
+
+  tbody tr {
+    transition: all 0.3s ease;
+
+    &:hover {
+      @include glassmorphism(0.1, 14px, 0.2, 0.08);
+      transform: scale(1.002);
+    }
+  }
+  
+  &-sm th, &-sm td {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.dropdown-menu {
+  @include glassmorphism(0.12, 18px, 0.2, 0.08);
+  font-size: 0.875rem;
+  text-transform: none;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+// ========================================
+// PROFESSIONAL BACKGROUND SYSTEM
+// ========================================
+
+.bg-primary {
+  @include glassmorphism-dark(0.12, 18px, 0.2, 0.08);
+  background-color: transparent !important;
+}
+
+.bg-light {
+  @include glassmorphism(0.08, 15px, 0.18, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  
+  &.navbar-fixed-top { 
+    border-width: 0 0 1px; 
+    border-radius: 0 0 16px 16px;
+  }
+  &.navbar-bottom-top { 
+    border-width: 1px 0 0; 
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+.nav-item {
+  margin-right: 1.5rem;
+}
+
+.nav-footer-left .footer-items .nav-link, 
+.nav-footer-center .footer-items .nav-link, 
+.nav-footer-right .footer-items .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// ========================================
+// ENHANCED BUTTON SYSTEM
+// ========================================
+
+.btn-outline-secondary {
+  @include glassmorphism(0.04, 12px, 0.15, 0.04);
+  border-color: rgba(145, 154, 161, 0.5);
+  color: $gray-600;
+  background: transparent;
+  
+  &:not([disabled]):not(.disabled):hover,
+  &:not([disabled]):not(.disabled):focus,
+  &:not([disabled]):not(.disabled):active {
+    @include glassmorphism(0.1, 16px, 0.25, 0.08);
+    background-color: transparent;
+    border-color: rgba(145, 154, 161, 0.7);
+    color: $gray-700;
+    transform: translateY(-1px);
+  }
+  
+  &:not([disabled]):not(.disabled):focus {
+    box-shadow: 0 0 0 0.2rem rgba(145, 154, 161, 0.25);
+  }
+}
+
+[class*="btn-outline-"] {
+  border-width: 1px;
+}
+
+.border-secondary {
+  border: 1px solid rgba(206, 212, 218, 0.3) !important;
+}
+
+// ========================================
+// RESPONSIVE GRID SYSTEM
+// ========================================
+
+@media (min-width: 1200px) {
+  body.fullcontent .page-columns {
+    display: grid;
+    gap: 0;
+    grid-template-columns:
+      [screen-start] 1em
+      [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start]
+      minmax(0px, 1fr)
+      [body-content-end body-end body-end-outset page-end-inset page-end screen-end-inset] 1em
+      [screen-end];
+  }
+}
+
+// ========================================
+// ENHANCED FORM COMPONENTS
+// ========================================
+
+.policy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.policy-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.policy-form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: $gray-800;
+  font-size: 0.9rem;
+  letter-spacing: 0.025em;
+}
+
+.policy-form-heading {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $gray-900;
+  letter-spacing: -0.025em;
+}
+
+.policy-form-lead {
+  margin-bottom: 1.5rem;
+  color: $gray-600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+// ========================================
+// PROFESSIONAL QUARTO COMPONENTS
+// ========================================
+
+.quarto-post.image-right {
+  flex-direction: row;
+  align-items: center;
+}
+
+// Remove any remaining redundant styling and ensure mobile compatibility
+@media (max-width: 480px) {
+  .navbar {
+    @include glassmorphism(0.06, 14px, 0.15, 0.05);
+    padding: 0.4rem !important;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .nav-link {
+    @include glassmorphism(0.03, 8px, 0.1, 0.03);
+    padding: 6px 10px;
+    margin: 1px;
+    font-size: 0.8rem;
+  }
+
+  .hero-section {
+    padding: 1.5rem 0.75rem;
+    margin: 0.75rem 0;
+  }
+
+  .hero-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-entity {
+    width: 270px !important;
+    height: 320px !important;
+    border-radius: 16px;
+  }
+
+  .portfolio-card {
+    padding: 1rem;
+    min-height: auto;
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+
+    img {
+      height: 120px;
+    }
+  }
+
+  .skill-card {
+    padding: 1rem;
+  }
+
+  .skill-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+
+  .AI-Summary {
+    margin: 1.5rem 0.5rem;
+
+    .mini-banner {
+      padding: 0.625rem 0.875rem;
+
+      .left-banner {
+        font-size: 0.8rem;
+      }
+
+      .right-banner {
+        font-size: 0.7rem;
+      }
+
+      .openai-logo {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    p {
+      padding: 0.875rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .travel-card {
+    height: 350px;
+    margin: 0.75rem;
+  }
+
+  .testimonial {
+    padding: 1.5rem;
+    margin: 2rem 0.5rem;
+  }
+
+  #contact {
+    padding: 1.5rem;
+    margin: 2rem 0.5rem;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+// ========================================
+// FINAL PROFESSIONAL TOUCHES
+// ========================================
+
+// Smooth scrolling for better UX
+html {
+  scroll-behavior: smooth;
+}
+
+// Enhanced focus visibility
+*:focus {
+  outline: 2px solid $blue;
+  outline-offset: 2px;
+}
+
+// Remove outline for mouse users
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Professional selection styling
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: $gray-900;
+}
+
+::-moz-selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: $gray-900;
+}
+
+// Enhanced scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+// Professional print styles
+@media print {
+  .navbar,
+  .nav-footer,
+  .cta-button,
+  .read-more-btn {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .portfolio-card,
+  .skill-card,
+  .about-contents .level3,
+  div.quarto-post {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+// PROFESSIONAL GLASSMORPHISM CORE UTILITIES
+// ========================================
+
+// Professional glassmorphism mixin with better contrast
+@mixin glassmorphism($opacity: 0.08, $blur: 16px, $border-opacity: 0.15, $shadow-opacity: 0.1) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(120%);
+  -webkit-backdrop-filter: blur($blur) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, $shadow-opacity),
+    0 2px 8px rgba(31, 38, 135, $shadow-opacity * 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+// Professional dark glassmorphism
+@mixin glassmorphism-dark($opacity: 0.12, $blur: 16px, $border-opacity: 0.1, $shadow-opacity: 0.15) {
+  background: rgba(15, 23, 42, $opacity);
+  backdrop-filter: blur($blur) saturate(120%);
+  -webkit-backdrop-filter: blur($blur) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, $shadow-opacity),
+    0 2px 8px rgba(0, 0, 0, $shadow-opacity * 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+// Subtle floating animation
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+// Professional shimmer effect
+@keyframes professional-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+// ========================================
+// ENHANCED BODY & BACKGROUND
+// ========================================
+
+body {
+  background: $background-color;
+  background-attachment: fixed;
+  font-size: $body-font-size;
+  line-height: $body-line-stretch;
+  color: $gray-800;
+  touch-action: pan-y;
+  overflow-x: hidden;
+  font-weight: 400;
+  position: relative;
+  font-family: $font-family-sans-serif;
+}
+
+// Subtle background texture
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  z-index: -1;
+  animation: gentle-float 12s ease-in-out infinite;
+}
+
+// ========================================
+// APPLE-STYLE LIQUID GLASS NAVBAR
+// ========================================
+
+.navbar {
+  @include liquid-glass(0.12, 24px, 0.3, 0.1);
+  padding: 0.7em !important;
+  border-radius: 0 0 20px 20px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(24px) saturate(200%) brightness(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%) brightness(120%);
+}
+
+.navbar:hover {
+  @include liquid-glass(0.18, 28px, 0.35, 0.15);
+}
+
+#quarto-search {
+  @include liquid-glass(0.08, 16px, 0.2, 0.08);
+  min-width: 50px;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 10px 14px;
+}
+
+#quarto-search:focus-within {
+  @include liquid-glass(0.15, 20px, 0.3, 0.12);
+  transform: scale(1.02);
+}
+
+/* Apple-style Navigation Links - NO UNDERLINES */
+nav a {
+  position: relative;
+  display: inline-block;
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 10px 18px;
+  border-radius: 12px;
+  margin: 0 6px;
+  font-weight: 500;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: -1;
+}
+
+nav a:hover::before,
+nav a.active::before {
+  opacity: 1;
+}
+
+nav a:hover,
+nav a.active {
+  color: $gray-900 !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+.nav-link {
+  @include liquid-glass(0.06, 12px, 0.15, 0.06);
+  display: block;
+  padding: 12px 18px;
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: 500;
+  text-decoration: none !important;
+  background: transparent;
+  border-radius: 12px;
+  margin: 6px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-link:hover {
+  @include liquid-glass(0.12, 16px, 0.25, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+.nav-link .menu-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.025em;
+}
+
+.quarto-navbar-tools {
+  @include liquid-glass(0.08, 14px, 0.2, 0.08);
+  position: sticky;
+  transform: translateX(-50%);
+  border-radius: 16px;
+  padding: 8px;
+}
+
+// ========================================
+// APPLE-STYLE LIQUID GLASS FOOTER
+// ========================================
+
+.nav-footer {
+  @include liquid-glass-dark(0.15, 24px, 0.2, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 2.5rem;
+  background-color: transparent;
+  font-weight: 300;
+  font-size: 1rem;
+  border-radius: 20px 20px 0 0;
+  margin-top: 4rem;
+
+  .nav-item, .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-link {
+    @include liquid-glass-dark(0.1, 14px, 0.15, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    display: inline-block;
+    text-decoration: none !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: auto;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin: 0 8px;
+    font-weight: 400;
+
+    p {
+      font-size: 0.875rem;
+      letter-spacing: 0.025em;
+      margin: 0;
+    }
+
+    &:hover {
+      @include liquid-glass-dark(0.18, 18px, 0.25, 0.12);
+      color: rgba(255, 255, 255, 0.95);
+      transform: translateY(-3px);
+      text-decoration: none !important;
+    }
+  }
+
+  i {
+    margin-right: 8px;
+    font-size: 1rem;
+  }
+}
+
+.nav-footer .nav-footer-center {
+  font-size: .825em;
+  display: none;
+}
+
+// ========================================
+// PROFESSIONAL AI SUMMARY
+// ========================================
+
+.AI-Summary {
+  @include glassmorphism(0.1, 24px, 0.2, 0.08);
+  margin: 3rem auto;
+  padding: 0;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.mini-banner {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0;
+  font-family: $font-family-sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+  border-radius: 16px 16px 0 0;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: professional-shimmer 4s infinite;
+  }
+
+  .left-banner {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .right-banner {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  .openai-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    opacity: 0.9;
+  }
+}
+
+.AI-Summary p {
+  margin: 0;
+  padding: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $gray-700;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+// ========================================
+// PROFESSIONAL CARDS & SECTIONS
+// ========================================
+
+.portfolio-card {
+  @include glassmorphism(0.08, 20px, 0.18, 0.06);
+  position: relative;
+  background-color: transparent;
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 16px;
+  min-height: 480px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    @include glassmorphism(0.15, 28px, 0.25, 0.12);
+    transform: translateY(-8px) scale(1.01);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin: 1rem 0;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $gray-600;
+    margin: 0.5rem 0;
+    text-align: left;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  a {
+    @include glassmorphism(0.08, 12px, 0.2, 0.06);
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 12px 24px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 20px;
+    color: $blue;
+    transition: all 0.3s ease;
+
+    &:hover {
+      @include glassmorphism(0.12, 16px, 0.3, 0.1);
+      transform: translateY(-2px);
+      color: $blue;
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+  }
+
+  img {
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.portfolio-card .badge-tag {
+  @include glassmorphism(0.1, 16px, 0.25, 0.08);
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  background: linear-gradient(135deg, $blue, $purple);
+  color: $white;
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transform: rotate(2deg);
+}
+
+// ========================================
+// PROFESSIONAL SKILLS GRID
+// ========================================
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  @include glassmorphism(0.08, 18px, 0.18, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: none;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, $blue, $purple);
+    border-radius: 0 8px 8px 0;
+  }
+
+  &:hover {
+    @include glassmorphism(0.15, 24px, 0.25, 0.1);
+    transform: translateY(-6px) scale(1.01);
+  }
+}
+
+.skill-card--wide {
+  grid-column: span 2;
+  min-height: auto;
+  margin: 2rem 0;
+}
+
+.skill-icon {
+  @include glassmorphism(0.06, 12px, 0.15, 0.04);
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: $blue;
+  transition: all 0.3s ease;
+}
+
+.skill-icon:hover {
+  @include glassmorphism(0.1, 16px, 0.25, 0.08);
+  transform: scale(1.05);
+}
+
+.skill-experience {
+  @include glassmorphism(0.06, 10px, 0.15, 0.04);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 6px 14px;
+  border-radius: 16px;
+  color: $blue;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+// ========================================
+// PROFESSIONAL BLOG POSTS
+// ========================================
+
+div.quarto-post {
+  @include glassmorphism(0.08, 18px, 0.18, 0.06);
+  display: flex;
+  gap: 0;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  border-radius: 16px;
+  min-height: 200px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    @include glassmorphism(0.15, 24px, 0.25, 0.1);
+    transform: translateY(-6px) scale(1.01);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .body {
+    flex-basis: 65%;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .metadata {
+    position: relative;
+    z-index: 1;
+  }
+
+  .thumbnail {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-basis: 35%;
+    margin-right: 1rem;
+    flex-direction: row-reverse;
+    position: relative;
+    z-index: 1;
+  }
+
+  .thumbnail img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    z-index: 1;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover .thumbnail img {
+    transform: scale(1.03);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// ========================================
+// PROFESSIONAL ABOUT SECTIONS
+// ========================================
+
+.about-entity {
+  @include glassmorphism(0.1, 24px, 0.2, 0.08);
+  width: 500px !important;
+  height: 500px !important;
+  border-radius: 24px;
+  position: sticky;
+  top: 150px;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about-contents .level3 {
+  @include glassmorphism(0.08, 18px, 0.18, 0.06);
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+// ========================================
+// PROFESSIONAL TABLES
+// ========================================
+
+.quarto-listing-container-table {
+  @include glassmorphism(0.08, 20px, 0.18, 0.06);
+  max-width: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 0;
+  margin: 2rem auto;
+
+  .quarto-listing-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    background: transparent;
+
+    thead tr th {
+      @include glassmorphism-dark(0.08, 12px, 0.15, 0.06);
+      font-weight: 600;
+      padding: 1rem;
+      text-align: left;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.025em;
+    }
+
+    tbody tr {
+      @include glassmorphism(0.04, 8px, 0.1, 0.03);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        @include glassmorphism(0.1, 14px, 0.2, 0.08);
+        transform: scale(1.005);
+      }
+
+      td {
+        padding: 0.875rem 1rem;
+        vertical-align: middle;
+        background: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    a.title.listing-title {
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: $blue;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $purple;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ========================================
+// PROFESSIONAL HERO SECTION
+// ========================================
+
+.hero-section {
+  @include glassmorphism(0.1, 24px, 0.2, 0.08);
+  padding: 4rem 2rem;
+  text-align: center;
+  background: transparent;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: gentle-float 8s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    right: -120px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: gentle-float 10s ease-in-out infinite reverse;
+  }
+}
+
+.hero-img {
+  @include glassmorphism(0.08, 16px, 0.2, 0.06);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 2rem auto;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img:hover {
+  @include glassmorphism(0.12, 20px, 0.3, 0.1);
+  transform: scale(1.03);
+}
+
+// ========================================

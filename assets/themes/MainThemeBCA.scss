@@ -428,6 +428,7 @@ header#title-block-header {
   float: right;
   margin-left: 1rem;
   margin-bottom: 1rem;
+  z-index: 1 !important; /* Much lower than chat */
 }
 
 
@@ -452,7 +453,7 @@ header#title-block-header {
   left: 0;
   bottom: 0;
   background: rgb(219, 228, 237);
-  z-index: -1;
+  z-index: 1 !important; /* Much lower than chat */
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.4s ease;
@@ -500,7 +501,7 @@ header#title-block-header {
   font-size: 24px;
   font-weight: 600;
   transition: color 0.5s;
-  z-index: 1;
+  z-index: 1 !important; /* Much lower than chat */
   cursor: pointer;
 }
 
@@ -515,7 +516,7 @@ header#title-block-header {
   width: 100%;
   height: 100%;
   transition: transform 0.3s, opacity 0.3s;
-  z-index: -1;
+  z-index: 1 !important; /* Much lower than chat */
   border-radius: 5px;
 }
 
@@ -564,6 +565,7 @@ header#title-block-header {
   transform: scale(1);
   opacity: 1;
 }
+
 
 /* -------------------------------------------------------------
    ABOUT LINKS

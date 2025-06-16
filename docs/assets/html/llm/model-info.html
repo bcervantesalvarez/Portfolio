@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yappify Models - Technical Information</title>
+    <link rel="stylesheet" href="/assets/themes/model-info.css">
+</head>
+<body>
+    <!-- Liquid-Glass SVG Filter Definition -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
+        <defs>
+            <filter id="glass-distortion">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+            </filter>
+        </defs>
+    </svg>
+
+    <button class="close-btn" onclick="window.close()" title="Close">×</button>
+    
+    <div class="container">
+        <h1>Yappify Models</h1>
+        <p class="subtitle">Technical information about Brian's AI chat models</p>
+
+        <!-- Yappify 1.0 Local -->
+        <div class="model-card">
+            <div class="model-header">
+                <div class="model-icon yappify-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Yappify Custom Icon -->
+                        <path d="M14 2C7.373 2 2 7.373 2 14s5.373 12 12 12 12-5.373 12-12S20.627 2 14 2z" fill="url(#yappifyGradient1)"/>
+                        <path d="M8.5 10.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5zm8 0c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5z" fill="white"/>
+                        <path d="M8 17c0-1.5 1-3 3-4s4-1 6 0 3 2.5 3 4c0 .5-.5 1-1 1s-1-.5-1-1c0-.5-.5-1.5-1.5-2s-2.5-.5-3.5 0-1.5 1.5-1.5 2c0 .5-.5 1-1 1s-1-.5-1-1z" fill="white" fill-opacity="0.8"/>
+                        <path d="M12 6.5L14 4.5L16 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <defs>
+                            <linearGradient id="yappifyGradient1" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#34d399"/>
+                                <stop offset="1" stop-color="#10b981"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="model-title">Yappify 1.0</h3>
+                    <div class="model-type">Local RAG Model</div>
+                </div>
+            </div>
+            
+            <p class="model-description">
+                A lightweight, pattern-based response system that runs entirely in your browser. 
+                Uses Retrieval-Augmented Generation (RAG) with pre-computed embeddings to provide 
+                fast responses about Brian's background and projects.
+            </p>
+
+            <ul class="feature-list">
+                <li>Instant responses with no model download required</li>
+                <li>Works offline after initial page load</li>
+                <li>Pattern matching with contextual responses</li>
+                <li>RAG integration with Brian's portfolio data</li>
+                <li>Privacy-first: all processing happens locally</li>
+            </ul>
+
+            <div class="tech-specs">
+                <h4>Technical Specifications</h4>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Architecture</span>
+                        <span class="spec-value">Rule-based + RAG</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Response Time</span>
+                        <span class="spec-value">~500ms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Memory Usage</span>
+                        <span class="spec-value">< 5MB</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Vector Database</span>
+                        <span class="spec-value">JSON embeddings</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-badge status-active">
+                <span class="status-indicator"></span>
+                Production Ready
+            </div>
+        </div>
+
+        <!-- Qwen 2.5 -->
+        <div class="model-card">
+            <div class="model-header">
+                <div class="model-icon qwen-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Neural Network Brain Icon -->
+                        <circle cx="14" cy="8" r="2" fill="white"/>
+                        <circle cx="8" cy="14" r="1.5" fill="white"/>
+                        <circle cx="20" cy="14" r="1.5" fill="white"/>
+                        <circle cx="10" cy="20" r="1.5" fill="white"/>
+                        <circle cx="18" cy="20" r="1.5" fill="white"/>
+                        <circle cx="14" cy="22" r="1" fill="white"/>
+                        
+                        <!-- Neural connections -->
+                        <path d="M14 10L8 14M14 10L20 14M8 14L10 20M20 14L18 20M10 20L14 22M18 20L14 22" 
+                              stroke="white" stroke-width="1.5" stroke-opacity="0.7" stroke-linecap="round"/>
+                        
+                        <!-- Outer brain outline -->
+                        <path d="M14 4C18.5 4 22 7.5 22 12C22 14 21.5 15.5 20.5 16.5C21 17.5 21 18.5 20 19.5C19.5 20.5 18.5 21 17 21H11C9.5 21 8.5 20.5 8 19.5C7 18.5 7 17.5 7.5 16.5C6.5 15.5 6 14 6 12C6 7.5 9.5 4 14 4Z" 
+                              stroke="white" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="model-title">Qwen 2.5-1.5B-Instruct</h3>
+                    <div class="model-type">Large Language Model</div>
+                </div>
+            </div>
+            
+            <p class="model-description">
+                A state-of-the-art 1.5 billion parameter language model from Alibaba Cloud, 
+                running locally via WebLLM and WebGPU. Provides sophisticated conversational AI 
+                with deep understanding of Brian's work and general knowledge.
+            </p>
+
+            <ul class="feature-list">
+                <li>1.5B parameter transformer model</li>
+                <li>Advanced reasoning and conversation abilities</li>
+                <li>Integrated with Brian's knowledge base via RAG</li>
+                <li>WebGPU acceleration for fast inference</li>
+                <li>Quantized to 4-bit for efficient browser deployment</li>
+            </ul>
+
+            <div class="tech-specs">
+                <h4>Technical Specifications</h4>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Parameters</span>
+                        <span class="spec-value">1.5B</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Quantization</span>
+                        <span class="spec-value">4-bit (q4f16_1)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Model Size</span>
+                        <span class="spec-value">~900MB</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Context Length</span>
+                        <span class="spec-value">32K tokens</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Acceleration</span>
+                        <span class="spec-value">WebGPU</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Framework</span>
+                        <span class="spec-value">MLC-AI WebLLM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-badge status-beta">
+                <span class="status-indicator"></span>
+                Beta Release
+            </div>
+        </div>
+
+        <!-- Coming Soon Models -->
+        <div class="model-card">
+            <div class="model-header">
+                <div class="model-icon coming-soon-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cloud API Icon -->
+                        <path d="M20.5 18H8.5C6.5 18 5 16.5 5 14.5C5 12.8 6.2 11.4 7.8 11.1C8.3 8.4 10.7 6.5 13.5 6.5C16.8 6.5 19.5 9.2 19.5 12.5V13H20.5C22.2 13 23.5 14.3 23.5 16S22.2 18 20.5 18Z" 
+                              fill="white" fill-opacity="0.9"/>
+                        
+                        <!-- Lightning bolt for API speed -->
+                        <path d="M16 10L12.5 14H15L13 17L16.5 13H14L16 10Z" 
+                              fill="white" fill-opacity="0.7"/>
+                        
+                        <!-- Connection dots -->
+                        <circle cx="7" cy="21" r="1" fill="white" fill-opacity="0.6"/>
+                        <circle cx="14" cy="22" r="1" fill="white" fill-opacity="0.6"/>
+                        <circle cx="21" cy="21" r="1" fill="white" fill-opacity="0.6"/>
+                        
+                        <!-- Connection lines -->
+                        <path d="M8 21H13M15 22H20" stroke="white" stroke-width="1" stroke-opacity="0.5"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="model-title">GPT-4 & Claude Integration</h3>
+                    <div class="model-type">Cloud API Models</div>
+                </div>
+            </div>
+            
+            <p class="model-description">
+                Future integration with OpenAI's GPT-4 and Anthropic's Claude models via secure API connections. 
+                These will provide access to the most advanced AI capabilities while maintaining privacy and security.
+            </p>
+
+            <ul class="feature-list">
+                <li>State-of-the-art reasoning capabilities</li>
+                <li>Multimodal understanding (text, images, documents)</li>
+                <li>Advanced code generation and analysis</li>
+                <li>Real-time web search integration</li>
+                <li>Secure API key management</li>
+            </ul>
+
+            <div class="status-badge status-coming-soon">
+                <span class="status-indicator"></span>
+                Coming Soon
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>All models are designed to showcase Brian's technical expertise while providing helpful assistance.</p>
+            <p><strong>Privacy Note:</strong> Local models process all data in your browser. No data is sent to external servers.</p>
+        </div>
+    </div>
+</body>
+</html>
