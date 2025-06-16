@@ -169,6 +169,8 @@ $RECYCLE.BIN/
 
 assets/html/home
 
+assets/datasets/
+
 ./assets/datasets/amazonProducts.csv
 assets/datasets/amazonProducts.csv
 
