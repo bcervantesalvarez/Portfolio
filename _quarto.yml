@@ -52,6 +52,9 @@ format:
     footnotes-hover: true
     theme: assets/themes/MainThemeBCA.scss
     highlight-style: github-dark
+    include-in-header:
+            - text: |
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4365518179705452" crossorigin="anonymous"></script>
     include-after-body:
       - assets/html/cookies/custom-cookie-consent.html
       - assets/llm/chat.html  
