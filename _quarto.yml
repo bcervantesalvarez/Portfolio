@@ -2,7 +2,16 @@ project:
   type: website
   output-dir: docs
   resources:
-    - assets/**
+    - assets/documents/**
+    - assets/extensions/**
+    - assets/html/**
+    - assets/images/**
+    - assets/llm/**
+    - assets/lua/**
+    - assets/scripts/**
+    - assets/templates/**
+    - assets/themes/**
+
   #post-render: 
   #  - tools/generate_vectors.py
   #  - tools/cleanup.py
