@@ -18,6 +18,9 @@ import {
 } from './chat-ui.js';
 import { generateLocalResponse, simulateThinking } from './chat-local.js';
 import { initializeQwen, generateQwenResponse, isQwenReady } from './chat-qwen.js';
+import { ingestCurrentPage } from "./chat-rag.js";
+
+document.addEventListener("DOMContentLoaded", () => ingestCurrentPage());
 
 // Main chat handler
 async function ask(text) {
@@ -30,43 +33,41 @@ async function ask(text) {
   try {
     let reply;
 
+    /* ── LOCAL (Yappify 1.0) ───────────────────────────────────── */
     if (chatState.currentModel === "local") {
-      // Use local YappifyGPT
-      reply = generateLocalResponse(text);
-      await simulateThinking();
-      
-    } else if (chatState.currentModel === "qwen") {
-      // Use Qwen model
-      if (!isQwenReady()) {
-        removeTypingIndicator(typingIndicator);
-        addMessage("system", "Qwen model not loaded. Initializing now...", "loading");
-        const success = await initializeQwen();
-        if (!success) {
-          elements.input.disabled = false;
-          elements.sendButton.disabled = false;
-          return;
-        }
-        // Continue with the original question
-        return ask(text);
-      }
+      reply = await generateLocalResponse(text);   // ← await the Promise
+      await simulateThinking();                    // optional typing delay
+    }
 
+    /* ── Qwen (remote-size) ───────────────────────────────────── */
+    else if (chatState.currentModel === "qwen") {
+      if (!await isQwenReady()) {
+        addMessage("system", "Qwen model is loading…", "loading");
+        const ok = await initializeQwen();
+        if (!ok) { enableInput(); return; }
+        return ask(text);                          // rerun with Qwen ready
+      }
       reply = await generateQwenResponse(text);
     }
 
-    // Remove typing indicator and show response
+    /* ── stream the assistant reply ───────────────────────────── */
     removeTypingIndicator(typingIndicator);
-    const { content: messageContent } = addMessage("bot", "");
-    await streamText(messageContent, reply, 30);
+    const { content } = addMessage("bot", "");
+    await streamText(content, reply, 30);
 
-  } catch (error) {
+  } catch (err) {
     removeTypingIndicator(typingIndicator);
-    console.error("Chat error:", error);
-    addMessage("system", "⚠️ Sorry, I encountered an error. Please try again.", "warning");
+    console.error(err);
+    addMessage("system", "⚠️ Error. Please try again.", "warning");
   } finally {
-    elements.input.disabled = false;
-    elements.sendButton.disabled = false;
-    elements.input.focus();
+    enableInput();
   }
+}
+
+/* helper so we don’t repeat two lines */
+function enableInput() {
+  elements.input.disabled = false;
+  elements.sendButton.disabled = false;
 }
 
 // Initialize chat interface

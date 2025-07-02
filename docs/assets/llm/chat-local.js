@@ -1,141 +1,115 @@
 // assets/llm/chat-local.js
 /**
- * YappifyGPT Local Response Generator
- * Fast, pattern-based responses without model downloads
+ * YappifyGPT – lightweight, deterministic fallback that runs entirely client‑side.
+ * Pattern‑match simple queries, otherwise pull the best paragraph from the local
+ * RAG index.  Every export is now async‑safe so nothing breaks when we await.
  */
 
 import { chatState } from './chat-config.js';
-import { calculateSimilarity } from './chat-rag.js';
+import { search as ragSearch } from './chat-rag.js';
 
-// Response patterns for YappifyGPT Local
+/********************************************************************
+ * Hand‑crafted reply templates
+ *******************************************************************/
 const responses = {
   greeting: [
-    "Hello! I'm YappifyGPT, Brian's local AI assistant. I can help you learn about Brian's work in data science and analytics.",
-    "Hi there! Welcome to Brian's portfolio. I'm here to help you explore his projects and background.",
-    "Hey! I'm YappifyGPT, running locally in your browser. Ask me anything about Brian's data science work!"
+    "Hello! I'm YappifyGPT, Brian's on‑device assistant. Ask me anything about his data‑science work!",
+    "Hi there – welcome to Brian's portfolio. I'm here to guide you through his projects and skills.",
+    "Hey! I'm YappifyGPT running locally in your browser. How can I help?"
   ],
-  
+
   education: [
-    "Brian holds a Master's degree in Statistics and has strong foundations in mathematical modeling and statistical analysis.",
-    "Brian's educational background includes advanced studies in Statistics with focus on applied analytics and machine learning.",
-    "Brian completed his Master's in Statistics, which provided him with deep expertise in statistical modeling and data analysis methodologies."
+    "Brian holds a B.S. in Mathematics (Linfield), an M.S. in Data Science (Willamette) and an M.S. in Statistics (Oregon State).",
+    "Academic track: Mathematics → Data Science → Statistics. That triple foundation powers his modelling work.",
+    "Linfield Mathematics, Willamette Data Science, OSU Statistics – three degrees, one data‑driven career."
   ],
-  
+
   programming: [
-    "Brian specializes in R programming, particularly for data analysis and visualization. He's also experienced with Python, SQL, and web technologies.",
-    "Brian's main programming languages include R (his specialty), Python for machine learning, SQL for databases, and JavaScript for interactive web applications.",
-    "Brian is highly skilled in R programming and has extensive experience with data manipulation, statistical modeling, and creating interactive visualizations."
+    "Primary stack: R (tidyverse, Shiny) and Python (pandas, scikit‑learn).  He also ships TypeScript for the web and writes SQL every day.",
+    "Brian codes fluidly in R and Python, builds dashboards with Shiny/Altair, and sprinkles JS/TS when front‑end polish is needed.",
+    "Favourite tools: R for stats, Python for ML, SQL for data plumbing, plus JavaScript for interactive UIs."
   ],
-  
+
   projects: [
-    "Brian has worked on various data science projects including interactive Shiny applications, machine learning models, and data visualization dashboards.",
-    "Brian's portfolio includes statistical analysis projects, predictive modeling work, and interactive web applications built with R Shiny.",
-    "Brian creates engaging data science projects ranging from exploratory data analysis to machine learning applications and interactive learning tools."
+    "From interactive Shiny apps to XNN‑based deep‑learning explainers, Brian's projects span visualization, ML and statistical research.",
+    "Highlights: a browser‑only AI assistant (this site), explainable CNNs, and cost‑of‑living dashboards built in R Shiny.",
+    "He’s shipped machine‑learning models, interactive dashboards and an R package (xnnR) that visualises concept heat‑maps."
   ],
-  
+
   shiny: [
-    "Brian has developed several interactive Shiny applications for data exploration and statistical learning. These apps make complex concepts accessible through interactive interfaces.",
-    "Brian specializes in creating R Shiny applications that transform complex data analysis into user-friendly, interactive experiences.",
-    "Brian's Shiny applications demonstrate his ability to create engaging, interactive tools for data analysis and statistical education."
+    "Brian builds Shiny apps that turn complex analyses into point‑and‑click stories – see the UK accident dashboard and stream‑temperature explorer.",
+    "Shiny is his go‑to for rapid prototypes; he pairs tidyverse wrangling with modular UI components for clean, reactive apps.",
+    "Every Shiny project Brian ships is mobile‑responsive and accessible – he’s big on UX as well as stats."
   ],
-  
+
   skills: [
-    "Brian's core skills include statistical analysis, data visualization, machine learning, R programming, and creating interactive web applications.",
-    "Brian excels in data science, statistical modeling, R programming, Python, SQL, and building interactive dashboards and applications.",
-    "Brian combines statistical expertise with programming skills to create comprehensive data solutions, specializing in R, analytics, and visualization."
+    "Core skills: statistical modelling, machine learning, data wrangling, R/Python programming, interactive visualization, and teaching.",
+    "He blends classical statistics (GLMs, Bayesian methods) with modern ML (XGBoost, neural nets) and communicates results with clear visuals.",
+    "Strengths: making messy data usable, picking the right model, and explaining the findings to non‑technical stakeholders."
   ],
-  
+
   visualization: [
-    "Brian creates compelling data visualizations using R's ggplot2, plotly, and other visualization libraries to tell stories with data.",
-    "Brian's visualization work focuses on making complex data insights accessible through interactive charts, dashboards, and web applications.",
-    "Brian excels at transforming raw data into meaningful visual narratives that help stakeholders understand key insights and trends."
+    "Brian tells data stories with ggplot2, plotly and Altair – always clean aesthetics, colour‑blind‑safe palettes and clear annotations.",
+    "He teaches data‑viz: students learn idea generation, visual discovery and everyday dataviz through his courses.",
+    "Interactive dashboards, static infographics, animated explainers – visualization is Brian’s favourite communication tool."
   ],
-  
+
   statistics: [
-    "Brian applies advanced statistical methods including regression analysis, hypothesis testing, and experimental design to solve real-world problems.",
-    "Brian's statistical expertise covers descriptive and inferential statistics, probability theory, and applied statistical modeling techniques.",
-    "Brian uses statistical analysis to extract meaningful insights from data, helping organizations make data-driven decisions."
+    "Regression, hypothesis testing, design of experiments, Bayesian inference – Brian uses the whole statistical toolbox.",
+    "Need a p‑value or a posterior distribution?  He’s comfortable in both frequentist and Bayesian camps.",
+    "He models everything from student success to retail returns, always validating assumptions and quantifying uncertainty."  
   ],
-  
+
   fallback: [
-    "That's an interesting question about Brian's work. For the most detailed and accurate information, I'd recommend switching to the Qwen model which has access to Brian's complete portfolio data.",
-    "I'm a lightweight local assistant. For comprehensive answers about Brian's specific projects and detailed background, try using the Qwen model which has full access to his portfolio content.",
-    "While I can provide general information about Brian, the Qwen model has deeper knowledge of his specific projects and work. You might want to switch models for more detailed answers."
+    "I'm a lightweight helper.  For a deep dive, switch to the Qwen model which has the full text of Brian's portfolio indexed.",
+    "Not sure yet – try the larger Qwen engine for a more detailed answer pulled directly from Brian's articles and code."
   ]
 };
 
-// Helper function to get random response
-function getRandomResponse(responseArray) {
-  return responseArray[Math.floor(Math.random() * responseArray.length)];
+function randomPick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+/********************************************************************
+ * Tiny RAG helper – lexical only for speed
+ *******************************************************************/
+async function searchDocs(query, k=2){
+  return await ragSearch(query, k, { minScore:0.20, alpha:0.0 });
 }
 
-// Synchronous search for local responses
-function searchSync(query, k = 2) {
-  if (chatState.vectors.length === 0) return [];
-  
-  const queryLower = query.toLowerCase();
-  const scoredVectors = chatState.vectors.map(v => {
-    const score = calculateSimilarity(queryLower, v.text.toLowerCase());
-    return { ...v, score };
-  });
-  
-  return scoredVectors
-    .sort((a, b) => b.score - a.score)
-    .slice(0, k)
-    .filter(v => v.score > 0.2);
-}
+/********************************************************************
+ * Main generator – now async because we may await RAG
+ *******************************************************************/
+export async function generateLocalResponse(userMessage){
+  const msg = userMessage.toLowerCase();
 
-// Main local response generator
-export function generateLocalResponse(userMessage) {
-  const message = userMessage.toLowerCase();
-  
-  // Pattern matching with more comprehensive coverage
-  if (message.includes('hello') || message.includes('hi') || message.includes('hey') || message.includes('greet')) {
-    return getRandomResponse(responses.greeting);
-  }
-  
-  if (message.includes('education') || message.includes('degree') || message.includes('study') || message.includes('master') || message.includes('school') || message.includes('university')) {
-    return getRandomResponse(responses.education);
-  }
-  
-  if (message.includes('programming') || message.includes('language') || message.includes('code') || message.includes('python') || message.includes('sql') || message.includes('javascript')) {
-    return getRandomResponse(responses.programming);
-  }
-  
-  if (message.includes('shiny') || message.includes('app') || message.includes('application') || message.includes('interactive')) {
-    return getRandomResponse(responses.shiny);
-  }
-  
-  if (message.includes('project') || message.includes('work') || message.includes('portfolio') || message.includes('experience')) {
-    return getRandomResponse(responses.projects);
-  }
-  
-  if (message.includes('skill') || message.includes('expertise') || message.includes('specializ') || message.includes('talent')) {
-    return getRandomResponse(responses.skills);
-  }
-  
-  if (message.includes('visualization') || message.includes('chart') || message.includes('graph') || message.includes('plot') || message.includes('dashboard')) {
-    return getRandomResponse(responses.visualization);
-  }
-  
-  if (message.includes('statistic') || message.includes('analysis') || message.includes('analytic') || message.includes('modeling') || message.includes('model')) {
-    return getRandomResponse(responses.statistics);
-  }
-  
-  // Enhanced RAG-like responses if we have context
-  if (chatState.vectors.length > 0) {
-    const docs = searchSync(message, 2);
-    if (docs.length > 0) {
-      const context = docs[0].text.substring(0, 250);
-      return `Based on Brian's work: ${context}... For more detailed information, try the Qwen model!`;
+  if (/\b(hello|hi|hey|greet)\b/.test(msg))               return randomPick(responses.greeting);
+  if (/\b(education|degree|study|master|school|university)/.test(msg))
+                                                           return randomPick(responses.education);
+  if (/\b(programming|language|code|python|sql|javascript)/.test(msg))
+                                                           return randomPick(responses.programming);
+  if (/\b(shiny|interactive|app(?:lication)?)\b/.test(msg))return randomPick(responses.shiny);
+  if (/\b(project|portfolio|work|experience)\b/.test(msg)) return randomPick(responses.projects);
+  if (/\b(skill|expertise|speciali[sz]e?|talent)\b/.test(msg))
+                                                           return randomPick(responses.skills);
+  if (/\b(visuali[sz]ation|chart|graph|plot|dashboard)\b/.test(msg))
+                                                           return randomPick(responses.visualization);
+  if (/\b(statistic|analysis|analytic|model(?:ing)?)\b/.test(msg))
+                                                           return randomPick(responses.statistics);
+
+  /* RAG fallback – best matching paragraph from local vectors */
+  if (chatState.vectors.length){
+    const docs = await searchDocs(msg, 2);
+    if (docs.length){
+      const snippet = docs[0].text.slice(0, 220).trim();
+      return `According to Brian's portfolio: “${snippet} …”  (Switch to the Qwen model for full context.)`;
     }
   }
-  
-  return getRandomResponse(responses.fallback);
+
+  return randomPick(responses.fallback);
 }
 
-// Simulate thinking time for better UX
-export async function simulateThinking() {
-  const thinkingTime = 500 + Math.random() * 1000;
-  await new Promise(resolve => setTimeout(resolve, thinkingTime));
+/********************************************************************
+ * Simulated typing delay so UI feels natural
+ *******************************************************************/
+export async function simulateThinking(){
+  await new Promise(r => setTimeout(r, 400 + Math.random()*700));
 }

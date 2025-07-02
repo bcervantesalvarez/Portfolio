@@ -178,6 +178,28 @@ warning: false
 <div class="container">
   <h2 class="text-center mb-5">Data Science Toolkit</h2>
   <div class="skills-grid">
+    <!-- Generative AI Section -->
+    <div class="skill-card skill-card--wide" data-category="ai">
+      <div class="skill-icon">
+        <i class="bi bi-diagram-3" style="font-size: 2.5rem;"></i>
+      </div>
+      <h3>Generative AI & Workflow Automation</h3>
+      <div class="skill-meta">
+        <span class="skill-experience">3+ Years Experience</span>
+      </div>
+      <div class="skill-desc">
+        <div class="skill-columns">
+          <div>
+            <h4>Core Capabilities</h4>
+            <ul class="skill-list">
+              <li>AI-assisted code generation</li>
+              <li>Prompt engineering for technical docs</li>
+              <li>Workflow automation scripts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- R/Shiny Development -->
     <div class="skill-card" data-category="development">
       <div class="skill-icon">
@@ -185,7 +207,7 @@ warning: false
       </div>
       <h3>R/Shiny Development</h3>
       <div class="skill-meta">
-        <span class="skill-experience">4+ Years Experience</span>
+        <span class="skill-experience">5+ Years Experience</span>
       </div>
       <div class="skill-desc">
         Building production-grade dashboards, statistical packages, and interactive educational tools
@@ -199,7 +221,7 @@ warning: false
       </div>
       <h3>Python</h3>
       <div class="skill-meta">
-        <span class="skill-experience">3+ Years Experience</span>
+        <span class="skill-experience">4+ Years Experience</span>
       </div>
       <div class="skill-desc">
         Developing machine learning pipelines, automation scripts, and data analysis workflows
@@ -213,7 +235,7 @@ warning: false
       </div>
       <h3>Statistical Analysis</h3>
       <div class="skill-meta">
-        <span class="skill-experience">2+ Years Experience</span>
+        <span class="skill-experience">4+ Years Experience</span>
       </div>
       <div class="skill-desc">
         Hypothesis testing, regression analysis, and experimental design implementation
@@ -227,7 +249,7 @@ warning: false
       </div>
       <h3>SQL Databases</h3>
       <div class="skill-meta">
-        <span class="skill-experience">1+ Year Experience</span>
+        <span class="skill-experience">2+ Year Experience</span>
       </div>
       <div class="skill-desc">
         Designing optimized schemas, writing complex queries, and managing large datasets
@@ -241,7 +263,7 @@ warning: false
       </div>
       <h3>Statistical Consulting</h3>
       <div class="skill-meta">
-        <span class="skill-experience">1+ Year Experience</span>
+        <span class="skill-experience">2+ Year Experience</span>
       </div>
       <div class="skill-desc">
         Translating business problems into statistical solutions with actionable insights
@@ -255,32 +277,10 @@ warning: false
       </div>
       <h3>Cloud Computing</h3>
       <div class="skill-meta">
-        <span class="skill-experience">1+ Year Experience</span>
+        <span class="skill-experience">2+ Year Experience</span>
       </div>
       <div class="skill-desc">
         Developing and deploying scalable data solutions on Google Cloud and AWS platforms.
-      </div>
-    </div>
-  </div>
-  <!-- Generative AI Section -->
-  <div class="skill-card skill-card--wide" data-category="ai">
-    <div class="skill-icon">
-      <i class="bi bi-diagram-3" style="font-size: 2.5rem;"></i>
-    </div>
-    <h3>Generative AI & Workflow Automation</h3>
-    <div class="skill-meta">
-      <span class="skill-experience">2+ Years Experience</span>
-    </div>
-    <div class="skill-desc">
-      <div class="skill-columns">
-        <div>
-          <h4>Core Capabilities</h4>
-          <ul class="skill-list">
-            <li>AI-assisted code generation</li>
-            <li>Prompt engineering for technical docs</li>
-            <li>Workflow automation scripts</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>

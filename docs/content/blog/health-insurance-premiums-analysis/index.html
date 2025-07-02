@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-07-14">
 <meta name="description" content="In this investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining nuanced differences between genders, including both smokers and non-smokers.">
 
-<title>The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs – Home</title>
+<title>The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,8 +24,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +37,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -68,15 +69,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
 <link href="../../../assets/images/preview.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0348920b7671f696dc9078d39bff215e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-75c91d674f8ede43d73913a99c854db1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,7 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4365518179705452" crossorigin="anonymous"></script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
@@ -152,25 +157,24 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs – Home">
+<meta property="og:title" content="The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs">
 <meta property="og:description" content="In this investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining nuanced differences between genders, including both smokers and non-smokers.">
 <meta property="og:image" content="https://datascienceyapper.com/assets/images/insurance.jpeg">
-<meta property="og:site_name" content="Home">
-<meta name="twitter:title" content="The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs – Home">
+<meta name="twitter:title" content="The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs">
 <meta name="twitter:description" content="In this investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining nuanced differences between genders, including both smokers and non-smokers.">
 <meta name="twitter:image" content="https://datascienceyapper.com/assets/images/insurance.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Home</span>
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/images/home/datascienceyapper-logo-v2.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -275,7 +279,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">June 16, 2025</p>
+      <p class="date-modified">July 2, 2025</p>
     </div>
   </div>
     
@@ -336,7 +340,7 @@ window.Quarto = {
   <p>I analyzed a health insurance dataset by importing and cleaning the data, performing exploratory analysis, and creating detailed visualizations—such as histograms, boxplots, and correlation heatmaps—to compare insurance premiums between smokers and non-smokers. My analysis revealed that among smokers, male premiums increased by 52% (amounting to roughly 408.57% more than non-smokers) and female premiums increased by 49% (approximately 350.12% higher than non-smokers). Additionally, I examined the roles of BMI, age, and family size on premium costs, illustrating that these lifestyle factors further contribute to escalating health insurance expenses.</p>
 </div>
 
-<p><img src="../../../assets/images/insurance.jpeg" class="img-fluid"></p>
+<p><img src="../../..\assets/images/insurance.jpeg" class="img-fluid"></p>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <p>This study confirms the significant impact of smoking on the escalation of health insurance premiums. Male and female smokers with a body mass index (BMI) of 30 or higher face additional charges, compounding their financial burden. Male smokers experience a 52% increase, while female smokers face a 49% rise in insurance charges, in addition to the base premium for smokers.</p>
@@ -946,624 +950,959 @@ Female Non-smoker Avg: $8762.3</code></pre>
 
 </main> <!-- /main -->
 <!-- Assets/HTML/Cookies/custom-cookie-consent.html -->
+
 <style>
+
     /* Cookie Consent Banner Styling */
+
     .cookie-consent-banner {
+
       position: fixed;
+
       bottom: 0;
+
       width: 100%;
+
       background-color: #f7f7f9; /* Using $gray-200 from your theme */
+
       color: #1a1a1a; /* Using $primary ($gray-900) for contrast */
+
       padding: 1rem;
+
       text-align: center;
+
       z-index: 1000;
+
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
     }
+
     
+
     .cookie-consent-banner button {
+
       margin-left: 1rem;
+
       background-color: #0073cf; /* Using $blue */
+
       color: #fff;
+
       border: none;
+
       padding: 0.5rem 1rem;
+
       border-radius: 0.25rem;
+
       cursor: pointer;
+
       font-size: 1rem;
+
       transition: background-color 0.3s ease;
+
     }
+
     
+
     /* Styling for the Deny button */
+
     .cookie-consent-banner button#deny-cookies {
+
       margin-left: 0.5rem;
+
       background-color: #ced4da; /* Using a gray tone similar to $gray-400 */
+
       color: #1a1a1a;
+
     }
+
     
+
     /* Optional hover effects */
+
     .cookie-consent-banner button:hover {
+
       opacity: 0.9;
+
     }
+
   </style>
+
   
+
   <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
+
     <span>This website uses Google Analytics to improve its functionality.</span>
+
     <button id="accept-cookies">Accept</button>
+
     <button id="deny-cookies">Deny</button>
+
   </div>
+
   
+
   <script>
+
     (function() {
+
       // Function to dynamically load Google Analytics and update consent mode.
+
       function loadGoogleAnalytics() {
+
         const gaScript = document.createElement('script');
+
         gaScript.async = true;
+
         gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN44V7BZHS";
+
         document.head.appendChild(gaScript);
+
         
+
         gaScript.onload = function() {
+
           window.dataLayer = window.dataLayer || [];
+
           function gtag(){ dataLayer.push(arguments); }
+
           
+
           // Update consent mode to grant storage upon acceptance.
+
           gtag('consent', 'update', {
+
             'analytics_storage': 'granted',
+
             'ad_storage': 'granted'
+
           });
+
           
+
           gtag('js', new Date());
+
           gtag('config', 'G-HN44V7BZHS');
+
         };
+
       }
+
     
+
       // Helper functions to get and set cookies.
+
       function getCookie(name) {
+
         const value = "; " + document.cookie;
+
         const parts = value.split("; " + name + "=");
+
         if (parts.length === 2) return parts.pop().split(";").shift();
+
       }
+
     
+
       function setCookie(name, value, days) {
+
         let expires = "";
+
         if (days) {
+
           const date = new Date();
+
           date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+
           expires = "; expires=" + date.toUTCString();
+
         }
+
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
       }
+
     
+
       document.addEventListener("DOMContentLoaded", function() {
+
         const consent = getCookie("cookie_consent");
+
         
+
         // If consent was previously given, load GA immediately; otherwise, show the banner.
+
         if (consent === "accepted") {
+
           loadGoogleAnalytics();
+
         } else {
+
           document.getElementById("cookie-consent-banner").style.display = "block";
+
         }
+
     
+
         // When the user accepts cookies...
+
         document.getElementById("accept-cookies").addEventListener("click", function() {
+
           setCookie("cookie_consent", "accepted", 365);
+
           document.getElementById("cookie-consent-banner").style.display = "none";
+
           loadGoogleAnalytics();
+
         });
+
     
+
         // When the user denies cookies...
+
         document.getElementById("deny-cookies").addEventListener("click", function() {
+
           setCookie("cookie_consent", "denied", 365);
+
           document.getElementById("cookie-consent-banner").style.display = "none";
+
           // Optionally, add logic to disable tracking.
+
         });
+
       });
+
     })();
+
   </script>
+
   
 <!-- assets/html/chat.html -->
 
+
+
 <!-- 1) Liquid-Glass SVG Filter Definition -->
+
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; width:0; height:0;">
+
   <defs>
+
     <filter id="glass-distortion">
+
       <feturbulence type="fractalNoise" basefrequency="0.015" numoctaves="2" result="noise"></feturbulence>
+
       <fedisplacementmap in="SourceGraphic" in2="noise" scale="4" xchannelselector="R" ychannelselector="G"></fedisplacementmap>
+
     </filter>
+
   </defs>
+
 </svg>
 
+
+
 <!-- Chat Button -->
+
 <button id="openChat" aria-label="Open Chat">
+
   <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+
   </svg>
+
 </button>
 
+
+
 <!-- Chat Overlay -->
+
 <div id="chatOverlay">
+
   <div id="chatContainer">
+
     <!-- Header -->
+
     <div id="chatHeader">
+
       <h2>
+
         <span class="status-indicator"></span>
+
         Yappify Chat Assistant
+
       </h2>
+
       
+
       <!-- Header Controls Row -->
+
       <div class="header-controls">
+
         <!-- Model Selector -->
+
         <div class="model-selector">
+
           <button type="button" class="model-selector-btn" id="modelSelectorBtn">
+
             <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
               <path d="M12 2L2 7v10c0 5.55 3.84 10 8 10s8-4.45 8-10V7l-10-5z"></path>
+
             </svg>
+
             <span id="currentModelName">Yappify 1.0</span>
+
             <svg class="dropdown-arrow" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+
               <polyline points="6,9 12,15 18,9"></polyline>
+
             </svg>
+
           </button>
+
           
+
           <div class="model-dropdown" id="modelDropdown">
+
             <div class="model-option active" data-model="local">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <path d="M12 2L2 7v10c0 5.55 3.84 10 8 10s8-4.45 8-10V7l-10-5z"></path>
+
               </svg>
+
               <div class="model-info">
+
                 <div class="model-name">Yappify 1.0</div>
+
                 <div class="model-desc">RAG</div>
+
               </div>
+
             </div>
+
             
+
             <div class="model-option" data-model="qwen">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <circle cx="12" cy="12" r="10"></circle>
+
                 <path d="M8 12l2 2 4-4"></path>
+
               </svg>
+
               <div class="model-info">
+
                 <div class="model-name">Qwen 2.5</div>
+
                 <div class="model-desc">LLM</div>
+
               </div>
+
             </div>
+
             
+
             <div class="model-option disabled" data-model="gpt4">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+
                 <circle cx="8" cy="8" r="2"></circle>
+
                 <path d="M21 15l-5-5-7 7"></path>
+
               </svg>
+
               <div class="model-info">
+
                 <div class="model-name">GPT-4</div>
+
                 <div class="model-desc">Coming Soon</div>
+
               </div>
+
             </div>
+
             
+
             <div class="model-option disabled" data-model="claude">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+
                 <circle cx="12" cy="7" r="4"></circle>
+
               </svg>
+
               <div class="model-info">
+
                 <div class="model-name">Claude</div>
+
                 <div class="model-desc">Coming Soon</div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
+
 
         <!-- Tools Selector -->
+
         <div class="tools-selector">
+
           <button type="button" class="tools-selector-btn" id="toolsSelectorBtn">
+
             <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+
             </svg>
+
             <span>Tools</span>
+
             <svg class="dropdown-arrow" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+
               <polyline points="6,9 12,15 18,9"></polyline>
+
             </svg>
+
           </button>
+
           
+
           <div class="tools-dropdown" id="toolsDropdown">
+
             <div class="tool-option" data-action="new-chat">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+
                 <line x1="12" y1="8" x2="12" y2="16"></line>
+
                 <line x1="8" y1="12" x2="16" y2="12"></line>
+
               </svg>
+
               <div class="tool-info">
+
                 <div class="tool-name">New Chat</div>
+
                 <div class="tool-desc">Start a fresh conversation</div>
+
               </div>
+
             </div>
+
             
+
             <!-- Updated Export Tool Option with Professional Submenu -->
+
             <div class="tool-option" data-action="export-chat">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+
                 <polyline points="7 10 12 15 17 10"></polyline>
+
                 <line x1="12" y1="15" x2="12" y2="3"></line>
+
               </svg>
+
               <div class="tool-info">
+
                 <div class="tool-name">Export Chat</div>
+
                 <div class="tool-desc">Download conversation</div>
+
               </div>
+
               
+
               <!-- Professional Export Submenu -->
+
               <div class="export-submenu">
+
                 <div class="export-format" data-format="json">
+
                   <div class="format-icon json-icon">JSON</div>
+
                   <div class="format-details">
+
                     <div class="format-name">JSON Format</div>
+
                     <div class="format-description">Structured data for developers</div>
+
                   </div>
+
                 </div>
+
                 
+
                 <div class="export-format" data-format="xlsx">
+
                   <div class="format-icon xlsx-icon">XLSX</div>
+
                   <div class="format-details">
+
                     <div class="format-name">Excel Format</div>
+
                     <div class="format-description">Spreadsheet with formatting</div>
+
                   </div>
+
                 </div>
+
                 
+
                 <div class="export-format" data-format="csv">
+
                   <div class="format-icon csv-icon">CSV</div>
+
                   <div class="format-details">
+
                     <div class="format-name">CSV Format</div>
+
                     <div class="format-description">Simple comma-separated data</div>
+
                   </div>
+
                 </div>
+
               </div>
+
             </div>
+
             
+
             <div class="tool-option disabled" data-action="search-website">
+
               <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
                 <circle cx="11" cy="11" r="8"></circle>
+
                 <path d="m21 21-4.35-4.35"></path>
+
               </svg>
+
               <div class="tool-info">
+
                 <div class="tool-name">Search Website</div>
+
                 <div class="tool-desc">Coming Soon</div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
 
+
+
         <!-- Info Button -->
+
         <button type="button" class="info-btn" id="infoBtn" title="Model Information">
+
           <!-- Custom "i" icon created with CSS pseudo-elements -->
+
         </button>
+
       </div>
+
       
+
       <!-- Close Button -->
+
       <button id="closeChat" aria-label="Close Chat">
+
         <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+
           <line x1="18" y1="6" x2="6" y2="18"></line>
+
           <line x1="6" y1="6" x2="18" y2="18"></line>
+
         </svg>
+
       </button>
+
     </div>
+
+
 
     <!-- Chat Log -->
+
     <div id="chatLog">
+
       <!-- Messages will be added here dynamically -->
+
     </div>
+
+
 
     <!-- Chat Input Form -->
+
     <form id="chatForm">
+
       <div class="input-container">
+
         <textarea id="chatInput" placeholder="Type your message..." rows="1" maxlength="1000" required=""></textarea>
+
         <button type="submit" id="sendButton" aria-label="Send Message">
+
           <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
             <line x1="22" y1="2" x2="11" y2="13"></line>
+
             <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+
           </svg>
+
         </button>
+
       </div>
+
       <!-- Warning text will be added dynamically -->
+
     </form>
 
+
+
     <!-- Chat Footer -->
+
     <div id="chatFooter">
+
       Yappify can make mistakes. Please double-check responses.
+
     </div>
 
+
+
   </div>
+
 </div>
 
+
+
 <!-- Chat Styles -->
+
 <link rel="stylesheet" href="../../../assets/llm/chat.css">
 
+
+
 <!-- Modular JavaScript -->
+
 <script type="module" src="../../../assets/llm/chat-config.js"></script>
+
 <script type="module" src="../../../assets/llm/chat-ui.js"></script>
+
 <script type="module" src="../../../assets/llm/chat-local.js"></script>
+
 <script type="module" src="../../../assets/llm/chat-qwen.js"></script>
+
 <script type="module" src="../../../assets/llm/chat-rag.js"></script>
+
 <script type="module" src="../../../assets/llm/chat-main.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/datascienceyapper\.com");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
         }
-        return container.innerHTML
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/datascienceyapper\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1571,185 +1910,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs"</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "In this investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining nuanced differences between genders, including both smokers and non-smokers."</span></span>
@@ -1825,20 +2140,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distribution of Smokers vs. Non-Smokers</span></span>
 <span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="in"># Count the number of smokers vs. non-smokers</span></span>
-<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a><span class="in">num_smokers = (df["smoker"] == "yes").sum()</span></span>
-<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a><span class="in">num_nonsmokers = (df["smoker"] == "no").sum()</span></span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of smokers vs. non-smokers</span></span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a>num_smokers <span class="op">=</span> (df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"yes"</span>).<span class="bu">sum</span>()</span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>num_nonsmokers <span class="op">=</span> (df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"no"</span>).<span class="bu">sum</span>()</span>
 <span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a><span class="in">print(f"Number of smokers: {num_smokers}")</span></span>
-<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a><span class="in">print(f"Number of nonsmokers: {num_nonsmokers}")</span></span>
+<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of smokers: </span><span class="sc">{</span>num_smokers<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of nonsmokers: </span><span class="sc">{</span>num_nonsmokers<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a><span class="in">plt.figure(figsize=(6, 4))</span></span>
-<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a><span class="in">sns.countplot(x="smoker", data=df)</span></span>
-<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a><span class="in">plt.title("Count of Smokers vs. Non-smokers")</span></span>
-<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a><span class="in">plt.xlabel("Smoking Status")</span></span>
-<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a><span class="in">plt.ylabel("Count")</span></span>
-<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a><span class="in">plt.tight_layout()</span></span>
-<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"smoker"</span>, data<span class="op">=</span>df)</span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Count of Smokers vs. Non-smokers"</span>)</span>
+<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Smoking Status"</span>)</span>
+<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>---</span>
@@ -1858,20 +2173,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Boxplot and Histogram</span></span>
 <span id="cb22-113"><a href="#cb22-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a><span class="in">df_smokers = df[df["smoker"] == "yes"]</span></span>
+<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a>df_smokers <span class="op">=</span> df[df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"yes"</span>]</span>
 <span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a><span class="in">fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))</span></span>
+<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a><span class="in">sns.boxplot(y="charges", data=df_smokers, ax=ax1)</span></span>
-<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a><span class="in">ax1.set_title("Insurance Cost Boxplot (Smokers)")</span></span>
-<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a><span class="in">ax1.set_ylabel("Insurance Cost (USD)")</span></span>
+<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y<span class="op">=</span><span class="st">"charges"</span>, data<span class="op">=</span>df_smokers, ax<span class="op">=</span>ax1)</span>
+<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Insurance Cost Boxplot (Smokers)"</span>)</span>
+<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Insurance Cost (USD)"</span>)</span>
 <span id="cb22-122"><a href="#cb22-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a><span class="in">sns.histplot(df_smokers["charges"], bins=40, kde=True, ax=ax2)</span></span>
-<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a><span class="in">ax2.set_title("Insurance Cost Distribution (Smokers)")</span></span>
-<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a><span class="in">ax2.set_xlabel("Insurance Cost (USD)")</span></span>
+<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_smokers[<span class="st">"charges"</span>], bins<span class="op">=</span><span class="dv">40</span>, kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax2)</span>
+<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Insurance Cost Distribution (Smokers)"</span>)</span>
+<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Insurance Cost (USD)"</span>)</span>
 <span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a><span class="in">plt.tight_layout()</span></span>
-<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Summary Statistics (Smokers)</span></span>
@@ -1897,68 +2212,68 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-153"><a href="#cb22-153" aria-hidden="true" tabindex="-1"></a>Below we compare male smokers and female smokers, highlighting BMI and how it affects insurance cost.</span>
 <span id="cb22-154"><a href="#cb22-154" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-155"><a href="#cb22-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a><span class="in">df_male_smoker = df_smokers[df_smokers["sex"] == "male"]</span></span>
-<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a><span class="in">df_female_smoker = df_smokers[df_smokers["sex"] == "female"]</span></span>
+<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a>df_male_smoker <span class="op">=</span> df_smokers[df_smokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"male"</span>]</span>
+<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a>df_female_smoker <span class="op">=</span> df_smokers[df_smokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"female"</span>]</span>
 <span id="cb22-158"><a href="#cb22-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-159"><a href="#cb22-159" aria-hidden="true" tabindex="-1"></a><span class="in"># Plot multiple subplots for male smokers</span></span>
-<span id="cb22-160"><a href="#cb22-160" aria-hidden="true" tabindex="-1"></a><span class="in">fig, ax = plt.subplots(2, 3, figsize=(14, 8))</span></span>
-<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a><span class="in">sns.set(font_scale=0.9)</span></span>
+<span id="cb22-159"><a href="#cb22-159" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot multiple subplots for male smokers</span></span>
+<span id="cb22-160"><a href="#cb22-160" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
+<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale<span class="op">=</span><span class="fl">0.9</span>)</span>
 <span id="cb22-162"><a href="#cb22-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a><span class="in"># 1) Histogram of charges (male smokers)</span></span>
-<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a><span class="in">sns.histplot(df_male_smoker["charges"], bins=40, ax=ax[0,0], color="navy")</span></span>
-<span id="cb22-165"><a href="#cb22-165" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,0].set_title("Male Smoker Cost Dist.")</span></span>
-<span id="cb22-166"><a href="#cb22-166" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,0].set_xlabel("Cost (USD)")</span></span>
+<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Histogram of charges (male smokers)</span></span>
+<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_male_smoker[<span class="st">"charges"</span>], bins<span class="op">=</span><span class="dv">40</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">0</span>], color<span class="op">=</span><span class="st">"navy"</span>)</span>
+<span id="cb22-165"><a href="#cb22-165" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">"Male Smoker Cost Dist."</span>)</span>
+<span id="cb22-166"><a href="#cb22-166" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-167"><a href="#cb22-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a><span class="in"># 2) Bar plot of average charges by children</span></span>
-<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a><span class="in">df_children_m = (</span></span>
-<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a><span class="in">    df_male_smoker</span></span>
-<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a><span class="in">    .groupby("children")["charges"]</span></span>
-<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a><span class="in">    .mean()</span></span>
-<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a><span class="in">    .reset_index()</span></span>
-<span id="cb22-174"><a href="#cb22-174" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-175"><a href="#cb22-175" aria-hidden="true" tabindex="-1"></a><span class="in">sns.barplot(data=df_children_m, x="children", y="charges", ax=ax[0,1], color="teal")</span></span>
-<span id="cb22-176"><a href="#cb22-176" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,1].set_title("Avg. Male Smoker Cost by # of Children")</span></span>
-<span id="cb22-177"><a href="#cb22-177" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,1].set_xlabel("Number of Children")</span></span>
-<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,1].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Bar plot of average charges by children</span></span>
+<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a>df_children_m <span class="op">=</span> (</span>
+<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a>    df_male_smoker</span>
+<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"children"</span>)[<span class="st">"charges"</span>]</span>
+<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb22-174"><a href="#cb22-174" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-175"><a href="#cb22-175" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df_children_m, x<span class="op">=</span><span class="st">"children"</span>, y<span class="op">=</span><span class="st">"charges"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">1</span>], color<span class="op">=</span><span class="st">"teal"</span>)</span>
+<span id="cb22-176"><a href="#cb22-176" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"Avg. Male Smoker Cost by # of Children"</span>)</span>
+<span id="cb22-177"><a href="#cb22-177" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Number of Children"</span>)</span>
+<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-179"><a href="#cb22-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a><span class="in"># 3) Scatterplot charges vs BMI</span></span>
-<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a><span class="in">sns.scatterplot(</span></span>
-<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a><span class="in">    data=df_male_smoker, x="bmi", y="charges",</span></span>
-<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a><span class="in">    hue="region", ax=ax[0,2]</span></span>
-<span id="cb22-184"><a href="#cb22-184" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-185"><a href="#cb22-185" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].axvline(x=30, color="gray", linestyle="--", label="BMI = 30")</span></span>
-<span id="cb22-186"><a href="#cb22-186" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].set_title("Male Smoker: Cost vs. BMI")</span></span>
-<span id="cb22-187"><a href="#cb22-187" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].set_xlabel("BMI")</span></span>
-<span id="cb22-188"><a href="#cb22-188" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Scatterplot charges vs BMI</span></span>
+<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_male_smoker, x<span class="op">=</span><span class="st">"bmi"</span>, y<span class="op">=</span><span class="st">"charges"</span>,</span>
+<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"region"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">2</span>]</span>
+<span id="cb22-184"><a href="#cb22-184" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-185"><a href="#cb22-185" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"gray"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"BMI = 30"</span>)</span>
+<span id="cb22-186"><a href="#cb22-186" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">"Male Smoker: Cost vs. BMI"</span>)</span>
+<span id="cb22-187"><a href="#cb22-187" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">"BMI"</span>)</span>
+<span id="cb22-188"><a href="#cb22-188" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-189"><a href="#cb22-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a><span class="in"># 4) Scatterplot charges vs age</span></span>
-<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a><span class="in">sns.scatterplot(</span></span>
-<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a><span class="in">    data=df_male_smoker, x="age", y="charges",</span></span>
-<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a><span class="in">    hue="children", ax=ax[1,0]</span></span>
-<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,0].set_title("Male Smoker: Cost vs. Age")</span></span>
-<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,0].set_xlabel("Age")</span></span>
-<span id="cb22-197"><a href="#cb22-197" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,0].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Scatterplot charges vs age</span></span>
+<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_male_smoker, x<span class="op">=</span><span class="st">"age"</span>, y<span class="op">=</span><span class="st">"charges"</span>,</span>
+<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"children"</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">0</span>]</span>
+<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">"Male Smoker: Cost vs. Age"</span>)</span>
+<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Age"</span>)</span>
+<span id="cb22-197"><a href="#cb22-197" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-198"><a href="#cb22-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-199"><a href="#cb22-199" aria-hidden="true" tabindex="-1"></a><span class="in"># 5) Barplot average cost by region</span></span>
-<span id="cb22-200"><a href="#cb22-200" aria-hidden="true" tabindex="-1"></a><span class="in">df_region_m = (</span></span>
-<span id="cb22-201"><a href="#cb22-201" aria-hidden="true" tabindex="-1"></a><span class="in">    df_male_smoker</span></span>
-<span id="cb22-202"><a href="#cb22-202" aria-hidden="true" tabindex="-1"></a><span class="in">    .groupby("region")["charges"]</span></span>
-<span id="cb22-203"><a href="#cb22-203" aria-hidden="true" tabindex="-1"></a><span class="in">    .mean()</span></span>
-<span id="cb22-204"><a href="#cb22-204" aria-hidden="true" tabindex="-1"></a><span class="in">    .reset_index()</span></span>
-<span id="cb22-205"><a href="#cb22-205" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-206"><a href="#cb22-206" aria-hidden="true" tabindex="-1"></a><span class="in">sns.barplot(data=df_region_m, x="region", y="charges", ax=ax[1,1], palette="viridis")</span></span>
-<span id="cb22-207"><a href="#cb22-207" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,1].set_title("Male Smoker Cost by Region")</span></span>
-<span id="cb22-208"><a href="#cb22-208" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,1].set_xlabel("Region")</span></span>
-<span id="cb22-209"><a href="#cb22-209" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,1].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-199"><a href="#cb22-199" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Barplot average cost by region</span></span>
+<span id="cb22-200"><a href="#cb22-200" aria-hidden="true" tabindex="-1"></a>df_region_m <span class="op">=</span> (</span>
+<span id="cb22-201"><a href="#cb22-201" aria-hidden="true" tabindex="-1"></a>    df_male_smoker</span>
+<span id="cb22-202"><a href="#cb22-202" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"region"</span>)[<span class="st">"charges"</span>]</span>
+<span id="cb22-203"><a href="#cb22-203" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb22-204"><a href="#cb22-204" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb22-205"><a href="#cb22-205" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-206"><a href="#cb22-206" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df_region_m, x<span class="op">=</span><span class="st">"region"</span>, y<span class="op">=</span><span class="st">"charges"</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">1</span>], palette<span class="op">=</span><span class="st">"viridis"</span>)</span>
+<span id="cb22-207"><a href="#cb22-207" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">"Male Smoker Cost by Region"</span>)</span>
+<span id="cb22-208"><a href="#cb22-208" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Region"</span>)</span>
+<span id="cb22-209"><a href="#cb22-209" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-210"><a href="#cb22-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-211"><a href="#cb22-211" aria-hidden="true" tabindex="-1"></a><span class="in"># 6) Boxplot</span></span>
-<span id="cb22-212"><a href="#cb22-212" aria-hidden="true" tabindex="-1"></a><span class="in">sns.boxplot(x=df_male_smoker["charges"], ax=ax[1,2], color="lightblue")</span></span>
-<span id="cb22-213"><a href="#cb22-213" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,2].set_title("Male Smoker: Boxplot of Charges")</span></span>
-<span id="cb22-214"><a href="#cb22-214" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,2].set_xlabel("Cost (USD)")</span></span>
+<span id="cb22-211"><a href="#cb22-211" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Boxplot</span></span>
+<span id="cb22-212"><a href="#cb22-212" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span>df_male_smoker[<span class="st">"charges"</span>], ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">2</span>], color<span class="op">=</span><span class="st">"lightblue"</span>)</span>
+<span id="cb22-213"><a href="#cb22-213" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">"Male Smoker: Boxplot of Charges"</span>)</span>
+<span id="cb22-214"><a href="#cb22-214" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a><span class="in">plt.tight_layout()</span></span>
-<span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-218"><a href="#cb22-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-219"><a href="#cb22-219" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-220"><a href="#cb22-220" aria-hidden="true" tabindex="-1"></a><span class="fu">#### BMI &lt; 30 vs. BMI &gt;= 30 (Male Smokers)</span></span>
@@ -1981,64 +2296,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-239"><a href="#cb22-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### Female Smokers</span></span>
 <span id="cb22-240"><a href="#cb22-240" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-241"><a href="#cb22-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-242"><a href="#cb22-242" aria-hidden="true" tabindex="-1"></a><span class="in">fig, ax = plt.subplots(2, 3, figsize=(14, 8))</span></span>
-<span id="cb22-243"><a href="#cb22-243" aria-hidden="true" tabindex="-1"></a><span class="in">sns.set(font_scale=0.9)</span></span>
+<span id="cb22-242"><a href="#cb22-242" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
+<span id="cb22-243"><a href="#cb22-243" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(font_scale<span class="op">=</span><span class="fl">0.9</span>)</span>
 <span id="cb22-244"><a href="#cb22-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-245"><a href="#cb22-245" aria-hidden="true" tabindex="-1"></a><span class="in"># 1) Histogram</span></span>
-<span id="cb22-246"><a href="#cb22-246" aria-hidden="true" tabindex="-1"></a><span class="in">sns.histplot(df_female_smoker["charges"], bins=40, ax=ax[0,0], color="purple")</span></span>
-<span id="cb22-247"><a href="#cb22-247" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,0].set_title("Female Smoker Cost Dist.")</span></span>
-<span id="cb22-248"><a href="#cb22-248" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,0].set_xlabel("Cost (USD)")</span></span>
+<span id="cb22-245"><a href="#cb22-245" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Histogram</span></span>
+<span id="cb22-246"><a href="#cb22-246" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_female_smoker[<span class="st">"charges"</span>], bins<span class="op">=</span><span class="dv">40</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">0</span>], color<span class="op">=</span><span class="st">"purple"</span>)</span>
+<span id="cb22-247"><a href="#cb22-247" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">"Female Smoker Cost Dist."</span>)</span>
+<span id="cb22-248"><a href="#cb22-248" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-249"><a href="#cb22-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-250"><a href="#cb22-250" aria-hidden="true" tabindex="-1"></a><span class="in"># 2) Barplot average cost by children</span></span>
-<span id="cb22-251"><a href="#cb22-251" aria-hidden="true" tabindex="-1"></a><span class="in">df_children_f = (</span></span>
-<span id="cb22-252"><a href="#cb22-252" aria-hidden="true" tabindex="-1"></a><span class="in">    df_female_smoker</span></span>
-<span id="cb22-253"><a href="#cb22-253" aria-hidden="true" tabindex="-1"></a><span class="in">    .groupby("children")["charges"]</span></span>
-<span id="cb22-254"><a href="#cb22-254" aria-hidden="true" tabindex="-1"></a><span class="in">    .mean()</span></span>
-<span id="cb22-255"><a href="#cb22-255" aria-hidden="true" tabindex="-1"></a><span class="in">    .reset_index()</span></span>
-<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a><span class="in">sns.barplot(data=df_children_f, x="children", y="charges", ax=ax[0,1], color="violet")</span></span>
-<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,1].set_title("Avg. Female Smoker Cost by # of Children")</span></span>
-<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,1].set_xlabel("Number of Children")</span></span>
-<span id="cb22-260"><a href="#cb22-260" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,1].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-250"><a href="#cb22-250" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Barplot average cost by children</span></span>
+<span id="cb22-251"><a href="#cb22-251" aria-hidden="true" tabindex="-1"></a>df_children_f <span class="op">=</span> (</span>
+<span id="cb22-252"><a href="#cb22-252" aria-hidden="true" tabindex="-1"></a>    df_female_smoker</span>
+<span id="cb22-253"><a href="#cb22-253" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"children"</span>)[<span class="st">"charges"</span>]</span>
+<span id="cb22-254"><a href="#cb22-254" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb22-255"><a href="#cb22-255" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df_children_f, x<span class="op">=</span><span class="st">"children"</span>, y<span class="op">=</span><span class="st">"charges"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">1</span>], color<span class="op">=</span><span class="st">"violet"</span>)</span>
+<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"Avg. Female Smoker Cost by # of Children"</span>)</span>
+<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Number of Children"</span>)</span>
+<span id="cb22-260"><a href="#cb22-260" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-261"><a href="#cb22-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a><span class="in"># 3) Scatterplot cost vs BMI</span></span>
-<span id="cb22-263"><a href="#cb22-263" aria-hidden="true" tabindex="-1"></a><span class="in">sns.scatterplot(</span></span>
-<span id="cb22-264"><a href="#cb22-264" aria-hidden="true" tabindex="-1"></a><span class="in">    data=df_female_smoker, x="bmi", y="charges",</span></span>
-<span id="cb22-265"><a href="#cb22-265" aria-hidden="true" tabindex="-1"></a><span class="in">    hue="region", ax=ax[0,2]</span></span>
-<span id="cb22-266"><a href="#cb22-266" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-267"><a href="#cb22-267" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].axvline(x=30, color="gray", linestyle="--")</span></span>
-<span id="cb22-268"><a href="#cb22-268" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].set_title("Female Smoker: Cost vs. BMI")</span></span>
-<span id="cb22-269"><a href="#cb22-269" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].set_xlabel("BMI")</span></span>
-<span id="cb22-270"><a href="#cb22-270" aria-hidden="true" tabindex="-1"></a><span class="in">ax[0,2].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Scatterplot cost vs BMI</span></span>
+<span id="cb22-263"><a href="#cb22-263" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb22-264"><a href="#cb22-264" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_female_smoker, x<span class="op">=</span><span class="st">"bmi"</span>, y<span class="op">=</span><span class="st">"charges"</span>,</span>
+<span id="cb22-265"><a href="#cb22-265" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"region"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">2</span>]</span>
+<span id="cb22-266"><a href="#cb22-266" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-267"><a href="#cb22-267" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].axvline(x<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"gray"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb22-268"><a href="#cb22-268" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_title(<span class="st">"Female Smoker: Cost vs. BMI"</span>)</span>
+<span id="cb22-269"><a href="#cb22-269" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_xlabel(<span class="st">"BMI"</span>)</span>
+<span id="cb22-270"><a href="#cb22-270" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">2</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-271"><a href="#cb22-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-272"><a href="#cb22-272" aria-hidden="true" tabindex="-1"></a><span class="in"># 4) Scatterplot cost vs age</span></span>
-<span id="cb22-273"><a href="#cb22-273" aria-hidden="true" tabindex="-1"></a><span class="in">sns.scatterplot(</span></span>
-<span id="cb22-274"><a href="#cb22-274" aria-hidden="true" tabindex="-1"></a><span class="in">    data=df_female_smoker, x="age", y="charges",</span></span>
-<span id="cb22-275"><a href="#cb22-275" aria-hidden="true" tabindex="-1"></a><span class="in">    hue="children", ax=ax[1,0]</span></span>
-<span id="cb22-276"><a href="#cb22-276" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-277"><a href="#cb22-277" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,0].set_title("Female Smoker: Cost vs. Age")</span></span>
-<span id="cb22-278"><a href="#cb22-278" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,0].set_xlabel("Age")</span></span>
-<span id="cb22-279"><a href="#cb22-279" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,0].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-272"><a href="#cb22-272" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Scatterplot cost vs age</span></span>
+<span id="cb22-273"><a href="#cb22-273" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb22-274"><a href="#cb22-274" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_female_smoker, x<span class="op">=</span><span class="st">"age"</span>, y<span class="op">=</span><span class="st">"charges"</span>,</span>
+<span id="cb22-275"><a href="#cb22-275" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"children"</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">0</span>]</span>
+<span id="cb22-276"><a href="#cb22-276" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-277"><a href="#cb22-277" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">"Female Smoker: Cost vs. Age"</span>)</span>
+<span id="cb22-278"><a href="#cb22-278" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Age"</span>)</span>
+<span id="cb22-279"><a href="#cb22-279" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-280"><a href="#cb22-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-281"><a href="#cb22-281" aria-hidden="true" tabindex="-1"></a><span class="in"># 5) Barplot by region</span></span>
-<span id="cb22-282"><a href="#cb22-282" aria-hidden="true" tabindex="-1"></a><span class="in">df_region_f = (</span></span>
-<span id="cb22-283"><a href="#cb22-283" aria-hidden="true" tabindex="-1"></a><span class="in">    df_female_smoker</span></span>
-<span id="cb22-284"><a href="#cb22-284" aria-hidden="true" tabindex="-1"></a><span class="in">    .groupby("region")["charges"]</span></span>
-<span id="cb22-285"><a href="#cb22-285" aria-hidden="true" tabindex="-1"></a><span class="in">    .mean()</span></span>
-<span id="cb22-286"><a href="#cb22-286" aria-hidden="true" tabindex="-1"></a><span class="in">    .reset_index()</span></span>
-<span id="cb22-287"><a href="#cb22-287" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb22-288"><a href="#cb22-288" aria-hidden="true" tabindex="-1"></a><span class="in">sns.barplot(data=df_region_f, x="region", y="charges", ax=ax[1,1], palette="rocket")</span></span>
-<span id="cb22-289"><a href="#cb22-289" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,1].set_title("Female Smoker Cost by Region")</span></span>
-<span id="cb22-290"><a href="#cb22-290" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,1].set_xlabel("Region")</span></span>
-<span id="cb22-291"><a href="#cb22-291" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,1].set_ylabel("Cost (USD)")</span></span>
+<span id="cb22-281"><a href="#cb22-281" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Barplot by region</span></span>
+<span id="cb22-282"><a href="#cb22-282" aria-hidden="true" tabindex="-1"></a>df_region_f <span class="op">=</span> (</span>
+<span id="cb22-283"><a href="#cb22-283" aria-hidden="true" tabindex="-1"></a>    df_female_smoker</span>
+<span id="cb22-284"><a href="#cb22-284" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"region"</span>)[<span class="st">"charges"</span>]</span>
+<span id="cb22-285"><a href="#cb22-285" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb22-286"><a href="#cb22-286" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb22-287"><a href="#cb22-287" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-288"><a href="#cb22-288" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df_region_f, x<span class="op">=</span><span class="st">"region"</span>, y<span class="op">=</span><span class="st">"charges"</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">1</span>], palette<span class="op">=</span><span class="st">"rocket"</span>)</span>
+<span id="cb22-289"><a href="#cb22-289" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">"Female Smoker Cost by Region"</span>)</span>
+<span id="cb22-290"><a href="#cb22-290" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Region"</span>)</span>
+<span id="cb22-291"><a href="#cb22-291" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-292"><a href="#cb22-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-293"><a href="#cb22-293" aria-hidden="true" tabindex="-1"></a><span class="in"># 6) Boxplot</span></span>
-<span id="cb22-294"><a href="#cb22-294" aria-hidden="true" tabindex="-1"></a><span class="in">sns.boxplot(x=df_female_smoker["charges"], ax=ax[1,2], color="pink")</span></span>
-<span id="cb22-295"><a href="#cb22-295" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,2].set_title("Female Smoker: Boxplot of Charges")</span></span>
-<span id="cb22-296"><a href="#cb22-296" aria-hidden="true" tabindex="-1"></a><span class="in">ax[1,2].set_xlabel("Cost (USD)")</span></span>
+<span id="cb22-293"><a href="#cb22-293" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Boxplot</span></span>
+<span id="cb22-294"><a href="#cb22-294" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span>df_female_smoker[<span class="st">"charges"</span>], ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">2</span>], color<span class="op">=</span><span class="st">"pink"</span>)</span>
+<span id="cb22-295"><a href="#cb22-295" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_title(<span class="st">"Female Smoker: Boxplot of Charges"</span>)</span>
+<span id="cb22-296"><a href="#cb22-296" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">2</span>].set_xlabel(<span class="st">"Cost (USD)"</span>)</span>
 <span id="cb22-297"><a href="#cb22-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-298"><a href="#cb22-298" aria-hidden="true" tabindex="-1"></a><span class="in">plt.tight_layout()</span></span>
-<span id="cb22-299"><a href="#cb22-299" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-298"><a href="#cb22-298" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-299"><a href="#cb22-299" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-300"><a href="#cb22-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-301"><a href="#cb22-301" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-304"><a href="#cb22-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -2059,47 +2374,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-319"><a href="#cb22-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Smokers vs. Non-Smokers</span></span>
 <span id="cb22-320"><a href="#cb22-320" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-321"><a href="#cb22-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-322"><a href="#cb22-322" aria-hidden="true" tabindex="-1"></a><span class="in">df_nonsmokers = df[df["smoker"] == "no"]</span></span>
+<span id="cb22-322"><a href="#cb22-322" aria-hidden="true" tabindex="-1"></a>df_nonsmokers <span class="op">=</span> df[df[<span class="st">"smoker"</span>] <span class="op">==</span> <span class="st">"no"</span>]</span>
 <span id="cb22-323"><a href="#cb22-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-324"><a href="#cb22-324" aria-hidden="true" tabindex="-1"></a><span class="in">nonsmoker_mean = round(df_nonsmokers["charges"].mean(), 2)</span></span>
-<span id="cb22-325"><a href="#cb22-325" aria-hidden="true" tabindex="-1"></a><span class="in">nonsmoker_median = round(df_nonsmokers["charges"].median(), 2)</span></span>
+<span id="cb22-324"><a href="#cb22-324" aria-hidden="true" tabindex="-1"></a>nonsmoker_mean <span class="op">=</span> <span class="bu">round</span>(df_nonsmokers[<span class="st">"charges"</span>].mean(), <span class="dv">2</span>)</span>
+<span id="cb22-325"><a href="#cb22-325" aria-hidden="true" tabindex="-1"></a>nonsmoker_median <span class="op">=</span> <span class="bu">round</span>(df_nonsmokers[<span class="st">"charges"</span>].median(), <span class="dv">2</span>)</span>
 <span id="cb22-326"><a href="#cb22-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-327"><a href="#cb22-327" aria-hidden="true" tabindex="-1"></a><span class="in">print(f"Non-smoker Mean: ${nonsmoker_mean}")</span></span>
-<span id="cb22-328"><a href="#cb22-328" aria-hidden="true" tabindex="-1"></a><span class="in">print(f"Non-smoker Median: ${nonsmoker_median}")</span></span>
+<span id="cb22-327"><a href="#cb22-327" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Non-smoker Mean: $</span><span class="sc">{</span>nonsmoker_mean<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-328"><a href="#cb22-328" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Non-smoker Median: $</span><span class="sc">{</span>nonsmoker_median<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb22-329"><a href="#cb22-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-330"><a href="#cb22-330" aria-hidden="true" tabindex="-1"></a><span class="in">fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))</span></span>
-<span id="cb22-331"><a href="#cb22-331" aria-hidden="true" tabindex="-1"></a><span class="in">sns.boxplot(y="charges", data=df_nonsmokers, ax=ax1, color="green")</span></span>
-<span id="cb22-332"><a href="#cb22-332" aria-hidden="true" tabindex="-1"></a><span class="in">ax1.set_title("Cost Boxplot (Non-smokers)")</span></span>
+<span id="cb22-330"><a href="#cb22-330" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb22-331"><a href="#cb22-331" aria-hidden="true" tabindex="-1"></a>sns.boxplot(y<span class="op">=</span><span class="st">"charges"</span>, data<span class="op">=</span>df_nonsmokers, ax<span class="op">=</span>ax1, color<span class="op">=</span><span class="st">"green"</span>)</span>
+<span id="cb22-332"><a href="#cb22-332" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Cost Boxplot (Non-smokers)"</span>)</span>
 <span id="cb22-333"><a href="#cb22-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-334"><a href="#cb22-334" aria-hidden="true" tabindex="-1"></a><span class="in">sns.histplot(df_nonsmokers["charges"], bins=40, kde=True, ax=ax2, color="green")</span></span>
-<span id="cb22-335"><a href="#cb22-335" aria-hidden="true" tabindex="-1"></a><span class="in">ax2.set_title("Cost Distribution (Non-smokers)")</span></span>
-<span id="cb22-336"><a href="#cb22-336" aria-hidden="true" tabindex="-1"></a><span class="in">ax2.set_xlabel("Insurance Cost (USD)")</span></span>
+<span id="cb22-334"><a href="#cb22-334" aria-hidden="true" tabindex="-1"></a>sns.histplot(df_nonsmokers[<span class="st">"charges"</span>], bins<span class="op">=</span><span class="dv">40</span>, kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax2, color<span class="op">=</span><span class="st">"green"</span>)</span>
+<span id="cb22-335"><a href="#cb22-335" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Cost Distribution (Non-smokers)"</span>)</span>
+<span id="cb22-336"><a href="#cb22-336" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Insurance Cost (USD)"</span>)</span>
 <span id="cb22-337"><a href="#cb22-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-338"><a href="#cb22-338" aria-hidden="true" tabindex="-1"></a><span class="in">plt.tight_layout()</span></span>
-<span id="cb22-339"><a href="#cb22-339" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-338"><a href="#cb22-338" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-339"><a href="#cb22-339" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-340"><a href="#cb22-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-341"><a href="#cb22-341" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-342"><a href="#cb22-342" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Comparison by Gender (Non-Smokers)</span></span>
 <span id="cb22-343"><a href="#cb22-343" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-344"><a href="#cb22-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-345"><a href="#cb22-345" aria-hidden="true" tabindex="-1"></a><span class="in">df_male_nonsmoker = df_nonsmokers[df_nonsmokers["sex"] == "male"]</span></span>
-<span id="cb22-346"><a href="#cb22-346" aria-hidden="true" tabindex="-1"></a><span class="in">df_female_nonsmoker = df_nonsmokers[df_nonsmokers["sex"] == "female"]</span></span>
+<span id="cb22-345"><a href="#cb22-345" aria-hidden="true" tabindex="-1"></a>df_male_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"male"</span>]</span>
+<span id="cb22-346"><a href="#cb22-346" aria-hidden="true" tabindex="-1"></a>df_female_nonsmoker <span class="op">=</span> df_nonsmokers[df_nonsmokers[<span class="st">"sex"</span>] <span class="op">==</span> <span class="st">"female"</span>]</span>
 <span id="cb22-347"><a href="#cb22-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-348"><a href="#cb22-348" aria-hidden="true" tabindex="-1"></a><span class="in">avg_male_nonsmoker = round(df_male_nonsmoker["charges"].mean(), 2)</span></span>
-<span id="cb22-349"><a href="#cb22-349" aria-hidden="true" tabindex="-1"></a><span class="in">avg_female_nonsmoker = round(df_female_nonsmoker["charges"].mean(), 2)</span></span>
-<span id="cb22-350"><a href="#cb22-350" aria-hidden="true" tabindex="-1"></a><span class="in">print(f"Male Non-smoker Avg: ${avg_male_nonsmoker}")</span></span>
-<span id="cb22-351"><a href="#cb22-351" aria-hidden="true" tabindex="-1"></a><span class="in">print(f"Female Non-smoker Avg: ${avg_female_nonsmoker}")</span></span>
+<span id="cb22-348"><a href="#cb22-348" aria-hidden="true" tabindex="-1"></a>avg_male_nonsmoker <span class="op">=</span> <span class="bu">round</span>(df_male_nonsmoker[<span class="st">"charges"</span>].mean(), <span class="dv">2</span>)</span>
+<span id="cb22-349"><a href="#cb22-349" aria-hidden="true" tabindex="-1"></a>avg_female_nonsmoker <span class="op">=</span> <span class="bu">round</span>(df_female_nonsmoker[<span class="st">"charges"</span>].mean(), <span class="dv">2</span>)</span>
+<span id="cb22-350"><a href="#cb22-350" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Male Non-smoker Avg: $</span><span class="sc">{</span>avg_male_nonsmoker<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-351"><a href="#cb22-351" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Female Non-smoker Avg: $</span><span class="sc">{</span>avg_female_nonsmoker<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb22-352"><a href="#cb22-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-353"><a href="#cb22-353" aria-hidden="true" tabindex="-1"></a><span class="in">df_both_means = pd.DataFrame({</span></span>
-<span id="cb22-354"><a href="#cb22-354" aria-hidden="true" tabindex="-1"></a><span class="in">    'Sex': ['Male', 'Female'],</span></span>
-<span id="cb22-355"><a href="#cb22-355" aria-hidden="true" tabindex="-1"></a><span class="in">    'AvgCharges': [avg_male_nonsmoker, avg_female_nonsmoker]</span></span>
-<span id="cb22-356"><a href="#cb22-356" aria-hidden="true" tabindex="-1"></a><span class="in">})</span></span>
+<span id="cb22-353"><a href="#cb22-353" aria-hidden="true" tabindex="-1"></a>df_both_means <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb22-354"><a href="#cb22-354" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Sex'</span>: [<span class="st">'Male'</span>, <span class="st">'Female'</span>],</span>
+<span id="cb22-355"><a href="#cb22-355" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AvgCharges'</span>: [avg_male_nonsmoker, avg_female_nonsmoker]</span>
+<span id="cb22-356"><a href="#cb22-356" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb22-357"><a href="#cb22-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-358"><a href="#cb22-358" aria-hidden="true" tabindex="-1"></a><span class="in">plt.figure(figsize=(5,4))</span></span>
-<span id="cb22-359"><a href="#cb22-359" aria-hidden="true" tabindex="-1"></a><span class="in">sns.barplot(data=df_both_means, x='Sex', y='AvgCharges', palette='Set2')</span></span>
-<span id="cb22-360"><a href="#cb22-360" aria-hidden="true" tabindex="-1"></a><span class="in">plt.title("Non-smoker Avg Charges by Sex")</span></span>
-<span id="cb22-361"><a href="#cb22-361" aria-hidden="true" tabindex="-1"></a><span class="in">plt.ylabel("Average Insurance Cost (USD)")</span></span>
-<span id="cb22-362"><a href="#cb22-362" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-358"><a href="#cb22-358" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb22-359"><a href="#cb22-359" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df_both_means, x<span class="op">=</span><span class="st">'Sex'</span>, y<span class="op">=</span><span class="st">'AvgCharges'</span>, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
+<span id="cb22-360"><a href="#cb22-360" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Non-smoker Avg Charges by Sex"</span>)</span>
+<span id="cb22-361"><a href="#cb22-361" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Insurance Cost (USD)"</span>)</span>
+<span id="cb22-362"><a href="#cb22-362" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-363"><a href="#cb22-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-364"><a href="#cb22-364" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-365"><a href="#cb22-365" aria-hidden="true" tabindex="-1"></a>---</span>
@@ -2109,14 +2424,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-369"><a href="#cb22-369" aria-hidden="true" tabindex="-1"></a>To quickly see how numeric variables (like *age, bmi, children, charges*) relate to each other, we can look at a correlation heatmap. </span>
 <span id="cb22-370"><a href="#cb22-370" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-371"><a href="#cb22-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{python, fig.height= 10, fig.width = 12}</span></span>
-<span id="cb22-372"><a href="#cb22-372" aria-hidden="true" tabindex="-1"></a><span class="in"># Select only numeric columns</span></span>
-<span id="cb22-373"><a href="#cb22-373" aria-hidden="true" tabindex="-1"></a><span class="in">df_numeric = df[["age", "bmi", "children", "charges"]].copy()</span></span>
+<span id="cb22-372"><a href="#cb22-372" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only numeric columns</span></span>
+<span id="cb22-373"><a href="#cb22-373" aria-hidden="true" tabindex="-1"></a>df_numeric <span class="op">=</span> df[[<span class="st">"age"</span>, <span class="st">"bmi"</span>, <span class="st">"children"</span>, <span class="st">"charges"</span>]].copy()</span>
 <span id="cb22-374"><a href="#cb22-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-375"><a href="#cb22-375" aria-hidden="true" tabindex="-1"></a><span class="in">corr_matrix = df_numeric.corr()</span></span>
-<span id="cb22-376"><a href="#cb22-376" aria-hidden="true" tabindex="-1"></a><span class="in">plt.figure(figsize=(6,5))</span></span>
-<span id="cb22-377"><a href="#cb22-377" aria-hidden="true" tabindex="-1"></a><span class="in">sns.heatmap(corr_matrix, annot=True, cmap="magma", fmt=".2f")</span></span>
-<span id="cb22-378"><a href="#cb22-378" aria-hidden="true" tabindex="-1"></a><span class="in">plt.title("Correlation Heatmap of Numeric Features")</span></span>
-<span id="cb22-379"><a href="#cb22-379" aria-hidden="true" tabindex="-1"></a><span class="in">plt.show()</span></span>
+<span id="cb22-375"><a href="#cb22-375" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> df_numeric.corr()</span>
+<span id="cb22-376"><a href="#cb22-376" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">5</span>))</span>
+<span id="cb22-377"><a href="#cb22-377" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"magma"</span>, fmt<span class="op">=</span><span class="st">".2f"</span>)</span>
+<span id="cb22-378"><a href="#cb22-378" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Correlation Heatmap of Numeric Features"</span>)</span>
+<span id="cb22-379"><a href="#cb22-379" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-380"><a href="#cb22-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb22-381"><a href="#cb22-381" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-382"><a href="#cb22-382" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Takeaways**: </span></span>

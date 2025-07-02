@@ -2,16 +2,9 @@ project:
   type: website
   output-dir: docs
   resources:
-    - assets/documents/**
-    - assets/extensions/**
-    - assets/html/**
-    - assets/images/**
     - assets/llm/**
-    - assets/lua/**
-    - assets/scripts/**
-    - assets/templates/**
+    - assets/html/llm/model-info.html
     - assets/themes/**
-
   #post-render: 
   #  - tools/generate_vectors.py
   #  - tools/cleanup.py
@@ -23,8 +16,8 @@ website:
     location: navbar
     type: overlay
   open-graph: true
-  title: "Home"
   navbar:
+    logo: assets/images/home/datascienceyapper-logo-v2.png
     right:
       - text: "About"
         href: content/about/index.qmd

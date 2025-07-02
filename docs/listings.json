@@ -1,5 +1,16 @@
 [
   {
+    "listing": "/content/talks/index.html",
+    "items": [
+      "/content/talks/building-professional-portfolio-via-quarto/index.html",
+      "/content/talks/loan-application-statistical-analysis/index.html",
+      "/content/talks/missing-data-with-mice-statistical-analysis/index.html",
+      "/content/talks/teaching-with-webr/index.html",
+      "/content/talks/understanding-quarto/index.html",
+      "/content/talks/water-parasites-survival-analysis/index.html"
+    ]
+  },
+  {
     "listing": "/content/projects/index.html",
     "items": [
       "/content/projects/wine-multivariate-statistical-analysis/index.html",
@@ -11,17 +22,6 @@
       "/content/projects/predicting-patient-severity-machine-learning/index.html",
       "/content/projects/united-kingdom-car-accident-shiny-app/index.html",
       "/content/projects/yelp-business-reviews-shiny-app/index.html"
-    ]
-  },
-  {
-    "listing": "/content/talks/index.html",
-    "items": [
-      "/content/talks/building-professional-portfolio-via-quarto/index.html",
-      "/content/talks/loan-application-statistical-analysis/index.html",
-      "/content/talks/missing-data-with-mice-statistical-analysis/index.html",
-      "/content/talks/teaching-with-webr/index.html",
-      "/content/talks/understanding-quarto/index.html",
-      "/content/talks/water-parasites-survival-analysis/index.html"
     ]
   },
   {

@@ -344,17 +344,11 @@ export function streamText(element, text, baseSpeed = 20) {
 }
 
 // Question handling
-export function selectQuestion(questionText, questionElement) {
-  elements.input.value = questionText;
-  elements.input.focus();
-  
-  // Mark as used
-  chatState.usedQuestions.add(questionText);
-  questionElement.classList.add('used');
-  
-  // Auto-resize the input
-  elements.input.style.height = "auto";
-  elements.input.style.height = Math.min(elements.input.scrollHeight, 100) + "px";
+export function selectQuestion(q, el){
+  elements.input.value = q;
+  chatState.usedQuestions.add(q);
+  el.classList.add('used');
+  elements.form.dispatchEvent(new Event('submit')); // fire immediately
 }
 
 export function showGuidingQuestions() {
