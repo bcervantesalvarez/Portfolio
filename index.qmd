@@ -10,340 +10,315 @@ warning: false
 
 ```{=html}
 <!-- =========================
-       Hero Section
+     Hero Section
 ========================= -->
-<div class="hero-section">
+<div class="hero-section" id="top">
   <div class="container">
-    <img src="/assets/images/profile2.JPG" alt="Brian Cervantes Alvarez" class="hero-img">
-    <h1 class="display-4 mb-3">Brian Cervantes Alvarez</h1>
-    <h3 class="mb-4" style="color: var(--primary-color);">
-      Storytelling Statistics with Data Science
-    </h3>
-    <p class="lead" style="max-width: 700px; margin: 0 auto 2rem auto;">
-      Building tools that simplify complex data and empower learners through interactive education
+    <img src="/assets/images/profile2.JPG" alt="Portrait of Brian Cervantes Alvarez" class="hero-img" loading="eager">
+    <h1 class="display-4 mb-2">Brian Cervantes Alvarez</h1>
+    <p class="hero-subtitle">Statistician & Data Scientist • R/Shiny • Python • SQL • Educator</p>
+
+    <p class="lead hero-value">
+      I design explainable ML and decision-ready analytics, ship interactive tools teams actually use,
+      and teach the concepts clearly enough that adoption sticks.
     </p>
-    <a href="#contact" class="cta-button">Let's Collaborate →</a>
+
+    <div class="hero-cta-row">
+      <a href="#contact" class="cta-button" aria-label="Contact Brian">Hire Me →</a>
+      <a href="assets/documents/resume/BCA-Resume.pdf" class="cta-button cta-button--ghost" download aria-label="Download Resume">
+        Download Resume
+      </a>
+    </div>
+
+    <div class="quick-links" aria-label="Recruiter quick links">
+      <a class="quick-link" href="#featured">Featured Projects</a>
+      <span class="sep">•</span>
+      <a class="quick-link" href="https://linkedin.com/in/bcervantesalvarez" target="_blank" rel="noreferrer">LinkedIn</a>
+      <span class="sep">•</span>
+      <a class="quick-link" href="/#toolkit">Skills</a>
+    </div>
   </div>
 </div>
 
 <!-- =========================
-       How I Drive Impact
+     How I Deliver Results
 ========================= -->
 <div class="container">
-  <h2 class="text-center mb-5">How I Drive Impact</h2>
+  <h2 class="section-title text-center mb-4">How I Deliver Results</h2>
+  <p class="section-blurb text-center mb-5">Clear problem framing, rigorous validation, and production-minded delivery.</p>
   <div class="skills-grid">
 
     <!-- Impact 1 -->
     <div class="skill-card">
-      <div class="skill-icon">
-        <i class="bi bi-bar-chart-line"></i>
-      </div>
-      <h3>Analytics Aligned to Business Goals</h3>
+      <div class="skill-icon"><i class="bi bi-bullseye"></i></div>
+      <h3>Decision-Focused Analytics</h3>
       <div class="skill-desc">
-        Translate strategic objectives into clear KPIs and measurable outcomes to directly support business growth.
+        Translate goals into crisp KPIs and hypotheses; design analyses that answer “What should we do next?” not just “What happened?”.
       </div>
     </div>
 
     <!-- Impact 2 -->
     <div class="skill-card">
-      <div class="skill-icon">
-        <i class="bi bi-database-check"></i>
-      </div>
-      <h3>Scalable Data Engineering</h3>
+      <div class="skill-icon"><i class="bi bi-database-gear"></i></div>
+      <h3>Reliable Data Plumbing</h3>
       <div class="skill-desc">
-        Build reliable ETL pipelines and data infrastructure in R, Python, SQL, and cloud platforms, ensuring accuracy and audit readiness.
+        Build auditable R/Python/SQL pipelines with documented assumptions, reproducible runs, and failure-aware checks.
       </div>
     </div>
 
     <!-- Impact 3 -->
     <div class="skill-card">
-      <div class="skill-icon">
-        <i class="bi bi-graph-up-arrow"></i>
-      </div>
-      <h3>High-Performance Predictive Models</h3>
+      <div class="skill-icon"><i class="bi bi-cpu"></i></div>
+      <h3>Explainable Models</h3>
       <div class="skill-desc">
-        Deliver predictive analytics with proven accuracy (>90%) using advanced machine-learning methods (Random Forest, Bayesian models, GBM).
+        Train and validate with holdout/CV, emphasize interpretability (GLMs, trees, SHAP-style diagnostics) so stakeholders trust results.
       </div>
     </div>
 
     <!-- Impact 4 -->
     <div class="skill-card">
-      <div class="skill-icon">
-        <i class="bi bi-easel2"></i>
-      </div>
-      <h3>Insightful Visual Communication</h3>
+      <div class="skill-icon"><i class="bi bi-bar-chart-line"></i></div>
+      <h3>Executive-Ready Visuals</h3>
       <div class="skill-desc">
-        Craft engaging, interactive dashboards and visualizations to simplify complex insights for technical and non-technical audiences.
+        Ship interactive dashboards and reports that are readable at a glance and defensible in detail.
       </div>
     </div>
 
     <!-- Impact 5 -->
     <div class="skill-card">
-      <div class="skill-icon">
-        <i class="bi bi-cloud-check"></i>
-      </div>
-      <h3>Continuous Improvement & Deployment</h3>
+      <div class="skill-icon"><i class="bi bi-cloud-check"></i></div>
+      <h3>Production & Iteration</h3>
       <div class="skill-desc">
-        Deploy solutions to cloud infrastructure with real-time monitoring, enabling iterative improvement and sustained business impact.
+        Deploy lightweight apps, instrument usage, and iterate based on real-world feedback to sustain impact.
       </div>
     </div>
 
   </div>
 </div>
 
-
-
-
-
 <!-- =========================
-       Featured Projects
+     Featured Projects
 ========================= -->
-<div class="container">
-  <h2 class="text-center mb-5">Featured Projects</h2>
+<div class="container" id="featured">
+  <h2 class="section-title text-center mb-4">Featured Projects</h2>
+  <p class="section-blurb text-center mb-5">Each case highlights a problem, my approach, and what it shows about how I work.</p>
+
   <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 
       <!-- Slide 1 -->
       <div class="carousel-item active">
-        <div class="portfolio-card mx-auto" style="max-width: 800px;">
-          <div class="badge-tag">Education!</div>
-          <img src="/assets/images/webR.png" 
-               class="img-fluid mb-4" 
-               alt="Interactive Teaching with webR">
-          <h3 class="mb-3">Interactive Teaching with webR</h3>
-          <p class="px-3">
-            Created interactive lessons using <strong>webR</strong> that
-            <span style="color: var(--primary-color); font-weight: bold;">
-              improves student attention
-            </span>
-            for complex statistical concepts.
-          </p>
-          <a href="https://www.datascienceyapper.com/content/blog/interactive-teaching-with-webr/" 
-             class="cta-button mt-auto">See Project →</a>
+        <div class="portfolio-card mx-auto">
+          <div class="badge-tag">Teaching & Adoption</div>
+          <img src="/assets/images/webR.png" class="img-fluid mb-4" alt="Interactive Teaching with webR">
+          <h3 class="mb-2">Interactive Teaching with webR</h3>
+          <p class="proj-meta"><strong>Problem:</strong> Static lecture materials slow down comprehension of statistical ideas.</p>
+          <p class="proj-meta"><strong>Approach:</strong> Built browser-native, no-install lessons using webR and Quarto so students can run code inline.</p>
+          <p class="proj-meta"><strong>Demonstrates:</strong> Education UX, reproducibility, R/Quarto integration, and clear pedagogy.</p>
+          <a href="https://www.datascienceyapper.com/content/blog/interactive-teaching-with-webr/" class="cta-button cta-button--ghost">See Project →</a>
         </div>
       </div>
 
       <!-- Slide 2 -->
       <div class="carousel-item">
-        <div class="portfolio-card mx-auto" style="max-width: 800px;">
-          <div class="badge-tag">Data Science!</div>
-          <img src="/assets/images/ukCarAccident.webp" 
-               class="img-fluid mb-4" 
-               alt="Shiny Application for UK Accident Data">
-          <h3 class="mb-3">Shiny Application for UK Accident Data</h3>
-          <p class="px-3">
-            Developed a Shiny app to 
-            explore <strong>UK traffic accident trends</strong> with dynamic dashboards and an intuitive design.
-          </p>
-          <a href="https://www.datascienceyapper.com/content/projects/united-kingdom-car-accident-shiny-app/" 
-             class="cta-button mt-auto">See Project →</a>
+        <div class="portfolio-card mx-auto">
+          <div class="badge-tag">Analytics App</div>
+          <img src="/assets/images/ukCarAccident.webp" class="img-fluid mb-4" alt="Shiny Application for UK Accident Data">
+          <h3 class="mb-2">Shiny App: UK Traffic Accident Trends</h3>
+          <p class="proj-meta"><strong>Problem:</strong> Stakeholders need to explore incident patterns without wrangling data.</p>
+          <p class="proj-meta"><strong>Approach:</strong> Delivered an intuitive R/Shiny app with filters, dynamic views, and sensible defaults.</p>
+          <p class="proj-meta"><strong>Demonstrates:</strong> R/Shiny engineering, data modeling, thoughtful IA, and visual best practices.</p>
+          <a href="https://www.datascienceyapper.com/content/projects/united-kingdom-car-accident-shiny-app/" class="cta-button cta-button--ghost">See Project →</a>
         </div>
       </div>
 
       <!-- Slide 3 -->
       <div class="carousel-item">
-        <div class="portfolio-card mx-auto" style="max-width: 800px;">
-          <div class="badge-tag">Statistics!</div>
-          <img src="/assets/images/redwhite.jpeg" 
-               class="img-fluid mb-4" 
-               alt="Applied Multivariate Analysis on Wine Data">
-          <h3 class="mb-3">Applied Multivariate Analysis on Wine Data</h3>
-          <p class="px-3">
-            Detailed multivariate analysis on 
-            <strong>wine quality data</strong>, offering insights and recommendations based on observed relationships.
-          </p>
-          <a href="https://www.datascienceyapper.com/content/projects/wine-multivariate-statistical-analysis/" 
-             class="cta-button mt-auto">See Project →</a>
+        <div class="portfolio-card mx-auto">
+          <div class="badge-tag">Statistical Modeling</div>
+          <img src="/assets/images/redwhite.jpeg" class="img-fluid mb-4" alt="Applied Multivariate Analysis on Wine Data">
+          <h3 class="mb-2">Multivariate Analysis: Wine Quality</h3>
+          <p class="proj-meta"><strong>Problem:</strong> Identify drivers of perceived wine quality across correlated features.</p>
+          <p class="proj-meta"><strong>Approach:</strong> Applied PCA and supervised models with diagnostics to separate signal from noise.</p>
+          <p class="proj-meta"><strong>Demonstrates:</strong> Sound inference workflow, feature interpretation, and model validation.</p>
+          <a href="https://www.datascienceyapper.com/content/projects/wine-multivariate-statistical-analysis/" class="cta-button cta-button--ghost">See Project →</a>
+        </div>
+      </div>
+
+      <!-- Slide 4  -->
+      <div class="carousel-item">
+        <div class="portfolio-card mx-auto">
+          <div class="badge-tag">LLM + RAG</div>
+          <img src="/assets/images/home/chatbot-banner.png" class="img-fluid mb-4" alt="DataScienceYapper RAG chatbot">
+          <h3 class="mb-2">DataScienceYapper (Client-side LLM + RAG)</h3>
+          <p class="proj-meta"><strong>Problem:</strong> Visitors need fast, private answers about my work without server costs.</p>
+          <p class="proj-meta"><strong>Approach:</strong> Implemented in-browser LLM with retrieval over site content; no data leaves the client.</p>
+          <p class="proj-meta"><strong>Demonstrates:</strong> Modern web ML, RAG design, UX, and performance-minded engineering.</p>
+          <a href="#openChat" class="cta-button cta-button--ghost">Open Chat →</a>
         </div>
       </div>
 
     </div>
+
     <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" 
-            data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev" aria-label="Previous">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" 
-            data-bs-target="#portfolioCarousel" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next" aria-label="Next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
     </button>
   </div>
 </div>
 
 <!-- =========================
-       Skills Grid
+     Toolkit
 ========================= -->
-<div class="container">
-  <h2 class="text-center mb-5">Data Science Toolkit</h2>
+<div class="container" id="toolkit">
+  <h2 class="section-title text-center mb-4">Data Science Toolkit</h2>
+  <p class="section-blurb text-center mb-5">Core languages, frameworks, and workflows I use on real projects.</p>
+
   <div class="skills-grid">
-    <!-- Generative AI Section -->
-    <div class="skill-card skill-card--wide" data-category="ai">
-      <div class="skill-icon">
-        <i class="bi bi-diagram-3" style="font-size: 2.5rem;"></i>
-      </div>
-      <h3>Generative AI & Workflow Automation</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">3+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        <div class="skill-columns">
-          <div>
-            <h4>Core Capabilities</h4>
-            <ul class="skill-list">
-              <li>AI-assisted code generation</li>
-              <li>Prompt engineering for technical docs</li>
-              <li>Workflow automation scripts</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- R/Shiny Development -->
     <div class="skill-card" data-category="development">
-      <div class="skill-icon">
-        <img src="https://www.r-project.org/logo/Rlogo.svg" alt="R Logo">
-      </div>
-      <h3>R/Shiny Development</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">5+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        Building production-grade dashboards, statistical packages, and interactive educational tools
-      </div>
+      <div class="skill-icon"><img src="https://www.r-project.org/logo/Rlogo.svg" alt="R logo"></div>
+      <h3>R / Shiny</h3>
+      <div class="skill-meta"><span class="skill-experience">5+ yrs</span></div>
+      <div class="skill-desc">Production dashboards, tidyverse pipelines, teaching materials, and packages.</div>
     </div>
 
-    <!-- Python -->
     <div class="skill-card" data-category="data-science">
-      <div class="skill-icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
-      </div>
+      <div class="skill-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python logo"></div>
       <h3>Python</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">4+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        Developing machine learning pipelines, automation scripts, and data analysis workflows
-      </div>
+      <div class="skill-meta"><span class="skill-experience">4+ yrs</span></div>
+      <div class="skill-desc">ETL, scikit-learn pipelines, automation, data apps.</div>
     </div>
 
-    <!-- Statistical Analysis -->
     <div class="skill-card" data-category="analytics">
-      <div class="skill-icon">
-        <i class="bi bi-clipboard-data"></i>
-      </div>
+      <div class="skill-icon"><i class="bi bi-clipboard-data"></i></div>
       <h3>Statistical Analysis</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">4+ Years Experience</span>
-      </div>
-      <div class="skill-desc">
-        Hypothesis testing, regression analysis, and experimental design implementation
-      </div>
+      <div class="skill-meta"><span class="skill-experience">4+ yrs</span></div>
+      <div class="skill-desc">Experimental design, GLMs, uncertainty communication, and diagnostics.</div>
     </div>
 
-    <!-- Database Management -->
     <div class="skill-card" data-category="data-engineering">
-      <div class="skill-icon">
-        <i class="bi bi-database"></i>
-      </div>
-      <h3>SQL Databases</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">2+ Year Experience</span>
-      </div>
-      <div class="skill-desc">
-        Designing optimized schemas, writing complex queries, and managing large datasets
-      </div>
+      <div class="skill-icon"><i class="bi bi-database"></i></div>
+      <h3>SQL</h3>
+      <div class="skill-meta"><span class="skill-experience">2+ yrs</span></div>
+      <div class="skill-desc">Schema design, window functions, performance-minded queries.</div>
     </div>
 
-    <!-- Statistical Consulting -->
     <div class="skill-card" data-category="consulting">
-      <div class="skill-icon">
-        <i class="bi bi-people"></i>
-      </div>
-      <h3>Statistical Consulting</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">2+ Year Experience</span>
-      </div>
-      <div class="skill-desc">
-        Translating business problems into statistical solutions with actionable insights
-      </div>
+      <div class="skill-icon"><i class="bi bi-people"></i></div>
+      <h3>Consulting</h3>
+      <div class="skill-meta"><span class="skill-experience">2+ yrs</span></div>
+      <div class="skill-desc">Scope, plan, and deliver projects with clear tradeoffs and documented assumptions.</div>
     </div>
 
-    <!-- Cloud Computing -->
     <div class="skill-card" data-category="cloud-computing">
-      <div class="skill-icon">
-        <i class="bi bi-cloud"></i> <!-- Changed to cloud icon -->
-      </div>
-      <h3>Cloud Computing</h3>
-      <div class="skill-meta">
-        <span class="skill-experience">2+ Year Experience</span>
-      </div>
-      <div class="skill-desc">
-        Developing and deploying scalable data solutions on Google Cloud and AWS platforms.
-      </div>
+      <div class="skill-icon"><i class="bi bi-cloud"></i></div>
+      <h3>Cloud</h3>
+      <div class="skill-meta"><span class="skill-experience">2+ yrs</span></div>
+      <div class="skill-desc">Deploy lightweight services on GCP/AWS; CI-friendly, cost-aware setups.</div>
     </div>
   </div>
 </div>
 
-
-
 <!-- =========================
-       Testimonial
-========================= -->
-<div class="container">
-  <div class="testimonial text-center">
-    <blockquote class="mb-4" style="font-size: 1.25rem;">
-      "You miss 100% of the shots you don't take. -Wayne Gretzky"
-    </blockquote>
-    <p class="h5" style="color: var(--primary-color);">
-      — Michael Scott
-    </p>
-  </div>
-</div>
-
-<!-- =========================
-       Final CTA / Contact
+     Final CTA / Contact
 ========================= -->
 <div class="container">
   <div id="contact" class="text-center py-5 position-relative overflow-hidden">
-    <!-- Decorative Elements -->
     <div class="cta-deco cta-deco--1"></div>
     <div class="cta-deco cta-deco--2"></div>
-    
-    <h2 class="mb-4 position-relative">Ready to Solve Problems with Data?</h2>
-    <p class="lead mb-5 position-relative">
-      Let's discuss how I can contribute to your team or project.
+
+    <h2 class="mb-3 position-relative">Ready to discuss your data problem?</h2>
+    <p class="lead mb-4 position-relative">
+      Send a note with context and timelines; I’ll reply with a concrete next step.
     </p>
-    
-    <div class="d-flex justify-content-center gap-3 mb-4 position-relative">
-      <!-- Email Button -->
-      <a href="mailto:briancervantesalvarez@gmail.com" class="cta-button cta-button--main">
-        <svg style="width:1.3em; height:1.5em; vertical-align: top; margin-right: 0.4rem;" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+
+    <div class="d-flex justify-content-center gap-3 mb-3 position-relative">
+      <a href="mailto:briancervantesalvarez@gmail.com"
+         class="cta-button cta-button--main"
+         aria-label="Email Brian">
+        <svg style="width:1.3em;height:1.5em;vertical-align:top;margin-right:0.4rem"
+             viewBox="0 0 24 24"
+             aria-hidden="true">
+          <path> fill="currentColor"
+                d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
         </svg>
         Email Me
       </a>
 
-      <!-- LinkedIn Button -->
       <a href="https://linkedin.com/in/bcervantesalvarez"
          class="cta-button cta-button--linkedin"
          target="_blank"
-         rel="noreferrer">
-        <i class="bi bi-linkedin" style="margin-right: 0.4rem;"></i>
+         rel="noreferrer"
+         aria-label="Open LinkedIn">
+        <i class="bi bi-linkedin" style="margin-right:0.4rem" aria-hidden="true"></i>
         LinkedIn
       </a>
     </div>
 
-    <!-- Download Resume -->
-    <a href="assets/documents/resume/BCA-Resume.pdf" download 
-       class="download-link resume-download position-relative">
-      <i class="bi bi-file-earmark-arrow-down" 
-         style="font-size: 1.2rem; margin-right: 0.4rem;"></i>
+    <a href="assets/documents/resume/BCA-Resume.pdf"
+       download
+       class="download-link resume-download position-relative"
+       aria-label="Download full resume">
+      <i class="bi bi-file-earmark-arrow-down"
+         style="font-size:1.2rem;margin-right:0.4rem"
+         aria-hidden="true"></i>
       Download Full Resume
     </a>
   </div>
 </div>
+
+<!-- =========================
+     Resume Preview
+========================= -->
+<section id="resume" class="container resume-section" aria-labelledby="resumeTitle">
+  <h2 id="resumeTitle" class="section-title text-center mb-3">Resume</h2>
+  <p class="section-blurb text-center mb-4">Preview inline or download a copy.</p>
+
+  <div class="resume-frame">
+    <div class="resume-toolbar" role="toolbar" aria-label="Resume actions">
+      <a class="btn-resume"
+         href="/assets/documents/resume/BCA-Resume.pdf"
+         target="_blank"
+         rel="noreferrer">
+        Open in new tab
+      </a>
+      <a class="btn-resume btn-primary"
+         href="/assets/documents/resume/BCA-Resume.pdf"
+         download="Brian-Cervantes-Alvarez-Resume.pdf">
+        Download PDF
+      </a>
+      <button class="btn-resume" id="printResumeBtn" type="button">Print</button>
+    </div>
+
+    <iframe id="resumeViewer"
+            class="resume-iframe"
+            src="/assets/documents/resume/BCA-Resume.pdf#view=FitH&zoom=page-width&toolbar=0&navpanes=0&scrollbar=0"
+            title="Resume PDF preview"
+            loading="lazy">
+    </iframe>
+
+    <div class="resume-fallback">
+      <p>Your browser can’t display the PDF.
+         You can <a href="/assets/documents/resume/BCA-Resume.pdf" download>download it here</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('printResumeBtn')?.addEventListener('click', () => {
+    const iframe = document.getElementById('resumeViewer');
+    try {
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+    } catch (e) {
+      window.open('/assets/documents/resume/BCA-Resume.pdf', '_blank', 'noopener');
+    }
+  });
+</script>
 ```
 
 
