@@ -4,13 +4,14 @@
  * Enhanced with chat history, transitions, and modern features
  */
 
-import { chatState, guidingQuestions } from './chat-config.js';
+import { chatState } from './chat-config.js';
+import MarkdownIt from 'https://cdn.skypack.dev/markdown-it@13.0.1/dist/markdown-it.min.js';
+const md = new MarkdownIt({ html: true });
 
 // Export the setupModelDropdown function that will be called from chat-main.js
 export function setupDropdowns() {
   setupModelDropdown();
   setupToolsDropdown();
-  setupInfoButton();
 }
 
 // UI Elements
@@ -30,7 +31,7 @@ export const elements = {
   toolsDropdown: document.getElementById("toolsDropdown"),
   toolOptions: document.querySelectorAll(".tool-option"),
   infoBtn: document.getElementById("infoBtn"),
-  warningText: null // Will be created dynamically
+  warningText: null
 };
 
 // Chat History Management with Sessions
@@ -228,7 +229,7 @@ export function addMessage(who, txt, messageType = 'default') {
     content.classList.add(messageType);
   }
   
-  content.textContent = txt;
+  content.innerHTML = md.render(txt);
   
   messageEl.appendChild(content);
   elements.log.appendChild(messageEl);
@@ -252,6 +253,13 @@ export function addMessage(who, txt, messageType = 'default') {
   }
   
   return { element: messageEl, content: content };
+}
+
+
+export function addHTMLMessage(who, html, messageType='default') {
+  const { element, content } = addMessage(who,'',messageType);
+  content.innerHTML = html;
+  return { element, content };
 }
 
 export function addTypingIndicator() {
@@ -343,63 +351,6 @@ export function streamText(element, text, baseSpeed = 20) {
   });
 }
 
-// Question handling
-export function selectQuestion(q, el){
-  elements.input.value = q;
-  chatState.usedQuestions.add(q);
-  el.classList.add('used');
-  elements.form.dispatchEvent(new Event('submit')); // fire immediately
-}
-
-export function showGuidingQuestions() {
-  const questionsEl = document.createElement("div");
-  questionsEl.className = "message system";
-  questionsEl.style.marginTop = "0.75rem";
-  
-  const questionsContent = document.createElement("div");
-  questionsContent.className = "message-content guiding-questions";
-  questionsContent.innerHTML = `
-    <div style="font-weight: 600; margin-bottom: 0.5rem;">💡 Try asking me:</div>
-    <div id="questions-container"></div>
-  `;
-  
-  questionsEl.appendChild(questionsContent);
-  elements.log.appendChild(questionsEl);
-  
-  // Add questions with click handlers
-  const container = questionsContent.querySelector('#questions-container');
-  guidingQuestions.forEach(question => {
-    const questionDiv = document.createElement('div');
-    questionDiv.className = `question-item ${chatState.usedQuestions.has(question) ? 'used' : ''}`;
-    questionDiv.textContent = question;
-    questionDiv.addEventListener('click', () => selectQuestion(question, questionDiv));
-    container.appendChild(questionDiv);
-  });
-  
-  requestAnimationFrame(() => {
-    elements.log.scrollTo({
-      top: elements.log.scrollHeight,
-      behavior: 'smooth'
-    });
-  });
-}
-
-// Special commands handler
-export function handleSpecialCommands(text) {
-  const lowerText = text.toLowerCase().trim();
-  
-  if (lowerText === "show questions" || lowerText === "help" || lowerText === "questions") {
-    showGuidingQuestions();
-    
-    setTimeout(() => {
-      addMessage("system", "💡 Tip: Type 'show questions' anytime to see these guiding questions again! Questions with ✓ are ones you've already tried.", "info");
-    }, 500);
-    
-    return true;
-  }
-  
-  return false;
-}
 
 // Input auto-resize functionality
 export function setupInputResize() {
@@ -504,18 +455,6 @@ function setupExportListeners() {
   });
 }
 
-// Info button functionality
-export function setupInfoButton() {
-  if (!elements.infoBtn) {
-    console.error("Info button element not found");
-    return;
-  }
-
-  elements.infoBtn.addEventListener('click', () => {
-    // Open info page in new tab/window
-    window.open('/assets/html/llm/model-info.html', '_blank');
-  });
-}
 
 function handleModelDropdownClick(e) {
   e.preventDefault();
@@ -574,30 +513,18 @@ function handleAction(action) {
     case 'new-chat':
       newChat();
       break;
-    case 'export-chat':
-      // This is now handled by the submenu - do nothing
-      break;
     case 'search-website':
       addMessage("system", "Website search feature is coming soon!", "info");
       break;
   }
 }
 
+
 function newChat() {
-  // Clear the chat log immediately - no confirmation popup
   elements.log.innerHTML = '';
-  
-  // Clear current session
   chatHistory.clear();
-  
-  // Clear persistence
   chatPersistence.clearState();
-  
-  // Show welcome message
   addMessage("system", "New chat started. How can I help you today?", "success");
-  
-  // Show guiding questions
-  setTimeout(() => showGuidingQuestions(), 500);
 }
 
 // Handle specific format exports
@@ -619,10 +546,6 @@ function exportChatFormat(format) {
       case 'json':
         console.log('Exporting as JSON');
         exportAsJSON(exportData);
-        break;
-      case 'xlsx':
-        console.log('Exporting as XLSX');
-        exportAsXLSX(exportData);
         break;
       case 'csv':
         console.log('Exporting as CSV');
@@ -666,46 +589,6 @@ function exportAsJSON(exportData) {
     showExportSuccess(`Exported ${enhancedData.conversation.length} messages as JSON`);
   } catch (error) {
     console.error('JSON export error:', error);
-    throw error;
-  }
-}
-
-// Export as XLSX (Excel-compatible)
-function exportAsXLSX(exportData) {
-  try {
-    // Create Excel-compatible CSV with UTF-8 BOM for proper encoding
-    const BOM = '\uFEFF';
-    const headers = ['Timestamp', 'Role', 'Model', 'Content'];
-    
-    const csvRows = [
-      // Session metadata header
-      ['=== YAPPIFY CHAT EXPORT ===', '', '', ''],
-      ['Session ID', exportData.session.id, '', ''],
-      ['Export Date', new Date().toLocaleString(), '', ''],
-      ['Messages', exportData.messages.length.toString(), '', ''],
-      ['', '', '', ''], // Empty row
-      
-      // Column headers
-      headers,
-      
-      // Message data
-      ...exportData.messages.map(msg => [
-        new Date(msg.timestamp).toLocaleString(),
-        msg.who === 'you' ? 'User' : 'Assistant',
-        msg.model || 'Unknown',
-        `"${(msg.message || '').replace(/"/g, '""').replace(/\n/g, ' ')}"` // Clean line breaks
-      ])
-    ];
-    
-    const csvContent = BOM + csvRows.map(row => row.join(',')).join('\n');
-    const blob = new Blob([csvContent], { 
-      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' 
-    });
-    
-    downloadFile(blob, `yappify-chat-${getTimestamp()}.xlsx`);
-    showExportSuccess(`Exported ${exportData.messages.length} messages as Excel`);
-  } catch (error) {
-    console.error('XLSX export error:', error);
     throw error;
   }
 }
@@ -821,97 +704,85 @@ function closeToolsDropdown() {
 }
 
 function selectModel(option) {
-  // Remove active class from all options
+   // 1) Toggle active class
   elements.modelOptions.forEach(opt => opt.classList.remove('active'));
-  
-  // Add active class to selected option
   option.classList.add('active');
-  
-  // Update button text (more compact format)
+
+  // 2) Read name + optional desc
   const modelName = option.querySelector('.model-name').textContent;
-  const modelDesc = option.querySelector('.model-desc').textContent;
-  elements.currentModelName.textContent = `${modelName} (${modelDesc})`;
-  
+  const descElem  = option.querySelector('.model-desc');
+  const modelDesc = descElem ? descElem.textContent.trim() : '';
+
+  // 3) Update the button label
+  elements.currentModelName.textContent =
+    modelDesc
+      ? `${modelName} (${modelDesc})`
+      : modelName;
+
   // Close dropdown
   closeModelDropdown();
   
   // Return the selected model data
   return {
-    model: option.dataset.model,
-    name: modelName,
+    model:       option.dataset.model,
+    name:        modelName,
     description: modelDesc
   };
 }
 
 // Load chat history on startup - ENHANCED VERSION
 export function loadChatHistory() {
-  // First try to restore from persistence
   const savedState = chatPersistence.loadState();
-  
-  if (savedState && savedState.messages && savedState.messages.length > 0) {
-    const restore = confirm('Would you like to continue your previous conversation?');
-    
-    if (restore) {
-      // Restore messages
+  if (savedState && savedState.messages.length) {
+    if (confirm('Restore previous conversation?')) {
       savedState.messages.forEach(msg => {
-        if (msg.who === 'system' && msg.message.includes('Try asking me:')) {
-          return; // Skip guiding questions
-        }
         const { element, content } = addMessage(msg.who, "", msg.messageType);
         content.textContent = msg.message;
       });
-      
-      // Restore model if different
-      if (savedState.model && savedState.model !== chatState.currentModel) {
-        const modelOption = document.querySelector(`.model-option[data-model="${savedState.model}"]`);
-        if (modelOption && !modelOption.classList.contains('disabled')) {
-          modelOption.click();
-        }
+      if (savedState.model !== chatState.currentModel) {
+        const opt = document.querySelector(`.model-option[data-model="${savedState.model}"]`);
+        if (opt) opt.click();
       }
-      
       addMessage("system", "—— Previous session restored ——", "info");
     } else {
       chatPersistence.clearState();
       chatHistory.initSession();
-      showGuidingQuestions();
     }
   } else {
-    // Fall back to old history loading
-    const history = chatHistory.load();
-    
-    if (history.length > 0) {
-      addMessage("system", "—— Previous conversation restored ——", "info");
-      const recentHistory = history.slice(-20);
-      recentHistory.forEach(item => {
-        const { element, content } = addMessage(item.who, "", item.messageType);
-        content.textContent = item.message;
-      });
-      addMessage("system", "—— Continuing conversation ——", "info");
-    } else {
-      chatHistory.initSession();
-      showGuidingQuestions();
-    }
+    chatHistory.initSession();
   }
-  
-  // Start auto-save
   chatPersistence.startAutoSave();
-  
-  // Save on important events
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      chatPersistence.saveState();
-    }
+    if (document.hidden) chatPersistence.saveState();
   });
-  
-  window.addEventListener('beforeunload', () => {
-    chatPersistence.saveState();
-  });
+  window.addEventListener('beforeunload', () => chatPersistence.saveState());
 }
 
 // Manual test helper
 if (typeof window !== 'undefined') {
   window.testExport = function(format) {
-    console.log('Manual test export:', format);
     exportChatFormat(format || 'json');
   };
+}
+
+
+/**
+ * Show a system message that disappears after `delay` ms.
+ * @param {string} text     — the message HTML/text
+ * @param {'loading'|'success'|'warning'|'info'} type
+ * @param {number} delay    — ms before auto-remove
+ */
+export function showTemporaryMessage(text, type = 'info', delay = 3000, fadeDuration = 600) {
+  // 1) Add the message
+  const { element } = addMessage('system', text, type);
+
+  // 2) Schedule the float-away class
+  setTimeout(() => {
+    element.classList.add('float-away');
+  }, delay - fadeDuration);
+
+  // 3) Remove it from the DOM after the full delay
+  setTimeout(() => {
+    if (element.parentNode) element.parentNode.removeChild(element);
+  }, delay);
 }

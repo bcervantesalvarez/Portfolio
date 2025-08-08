@@ -6,41 +6,94 @@
 
 // Load Web-LLM library
 import * as webllm from "https://esm.run/@mlc-ai/web-llm";
-
 // Export webllm for other modules
 export { webllm };
 
 // Global state variables
 export const chatState = {
-  engine: null,
+  // will hold MLCEngine instances by model name
+  engines: {},
   isLoading: false,
-  currentModel: "local", // Start with local model
+  currentModel: "local",
+  history: [],
   vectors: [],
-  usedQuestions: new Set()
+  usedQuestions: new Set(),
 };
 
-// Configuration constants
+// Base URLs / versions
+export const modelVersion = "v0_2_48";
+export const modelLibURLPrefix =
+  "https://raw.githubusercontent.com/mlc-ai/binary-mlc-llm-libs/main/web-llm-models/";
+
+// Where your RAG vectors live
 export const config = {
-  modelName: "Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
-  vectorsPath: "/assets/llm/vectors.json",
-  streamSpeed: 25,
-  thinkingTimeMin: 500,
-  thinkingTimeMax: 1500
+  vectorsPath: "/assets/llm/vectors.json"
 };
 
-// Guiding questions
-export const guidingQuestions = [
-  "What is Brian's educational background?",
-  "What programming languages does Brian specialize in?", 
-  "Can you tell me about Brian's Shiny applications?",
-  "What kind of data visualization projects has Brian worked on?",
-  "What is Brian's experience with machine learning?",
-  "Tell me about Brian's Master's degree in Statistics",
-  "What interactive learning tools has Brian created?",
-  "What are some of Brian's notable data science projects?",
-  "How does Brian approach statistical analysis?",
-  "What makes Brian's work in R programming unique?"
-];
+export const modelConfigs = {
+  local: {
+    type: "local",
+    description: "YappifyGPT 1.0 (Local)",
+  },
+
+  // Qwen 2.5 – 1.5B
+  "qwen2.5-1.5B": {
+    type: "remote",
+    model:    "https://huggingface.co/mlc-ai/Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+    model_id: "Qwen2.5-1.5B-Instruct-q4f16_1-MLC",
+    model_lib:`${modelLibURLPrefix}${modelVersion}/Qwen2-1.5B-Instruct-q4f16_1-ctx4k_cs1k-webgpu.wasm`,
+    overrides:{ context_window_size: 4096 },
+    description:"Qwen 2.5 (1.5 B)",
+  },
+
+  // Qwen 3 – 0.6B
+  "qwen3-0.6B": {
+    type: "remote",
+    model:    "https://huggingface.co/mlc-ai/Qwen3-0.6B-q4f16_1-MLC",
+    model_id: "Qwen3-0.6B-q4f16_1-MLC",
+    model_lib:`${modelLibURLPrefix}${modelVersion}/Qwen3-0.6B-q4f16_1-ctx4k_cs1k-webgpu.wasm`,
+    overrides:{ context_window_size: 4096 },
+    description:"Qwen 3 (0.6 B)",
+  },
+
+  // Llama 3.2 – 1 B
+  "llama-3.2-1B": {
+    type: "remote",
+    model:    "https://huggingface.co/mlc-ai/Llama-3.2-1B-Instruct-q4f32_1-MLC",
+    model_id: "Llama-3.2-1B-Instruct-q4f32_1-MLC",
+    model_lib:`${modelLibURLPrefix}${modelVersion}/Llama-3.2-1B-Instruct-q4f32_1-ctx4k_cs1k-webgpu.wasm`,
+    overrides:{ context_window_size: 4096 },
+    description:"Llama 3.2 1 B",
+  },
+
+  // Phi 3.5 – Mini
+  "phi-3.5-mini": {
+    type: "remote",
+    model:    "https://huggingface.co/mlc-ai/Phi-3.5-mini-instruct-q4f16_1-MLC",
+    model_id: "Phi-3.5-mini-instruct-q4f16_1-MLC",
+    model_lib:`${modelLibURLPrefix}${modelVersion}/Phi-3.5-mini-instruct-q4f16_1-ctx4k_cs1k-webgpu.wasm`,
+    overrides:{ context_window_size: 4096 },
+    description:"Phi 3.5 Mini",
+  },
+
+  // SmolLM2 – 360 M
+  "smollm2-360M": {
+    type: "remote",
+    model:    "https://huggingface.co/mlc-ai/SmolLM2-360M-Instruct-q0f16-MLC",
+    model_id: "SmolLM2-360M-Instruct-q0f16-MLC",
+    model_lib:`${modelLibURLPrefix}${modelVersion}/SmolLM2-360M-Instruct-q0f16-ctx4k_cs1k-webgpu.wasm`,
+    overrides:{ context_window_size: 4096 },
+    description:"SmolLM2 360 M",
+  },
+};
+
+// UI-friendly aliases
+modelConfigs.qwen   = modelConfigs["qwen2.5-1.5B"];
+modelConfigs.qwen3  = modelConfigs["qwen3-0.6B"];
+modelConfigs.llama  = modelConfigs["llama-3.2-1B"];
+modelConfigs.phi    = modelConfigs["phi-3.5-mini"];
+modelConfigs.smol   = modelConfigs["smollm2-360M"];
+
 
 // Canned replies for the 10 preset buttons
 export const guidingAnswers = {
@@ -75,26 +128,21 @@ export const guidingAnswers = {
     "He combines tidyverse fluency with pedagogy, writing reproducible Quarto notebooks, package-quality functions, and polished Shiny apps that hide code complexity behind sleek UI."
 };
 
-
 // Initialize vectors loading
 export function initializeVectors() {
-  try {
-    fetch(config.vectorsPath)
-      .then(r => r.json())
-      .then(data => {
-        chatState.vectors = data.map(v => ({
-          id: v.id,
-          text: v.text,
-          embedding : v.embedding || v.vector || v.embeddings,
-          metadata: v.metadata || {}
-        }));
-        console.log("✅ Vectors loaded:", chatState.vectors.length);
-      })
-      .catch(e => console.log("ℹ️ No vectors found, continuing without RAG"));
-  } catch (e) {
-    console.log("ℹ️ No vectors found, continuing without RAG");
-  }
+  fetch(config.vectorsPath)
+    .then((r) => r.json())
+    .then((data) => {
+      chatState.vectors = data.map((v) => ({
+        id: v.id,
+        text: v.text,
+        embedding: v.embedding || v.vector || v.embeddings,
+        metadata: v.metadata || {},
+      }));
+      console.log("✅ Vectors loaded:", chatState.vectors.length);
+    })
+    .catch(() => console.log("ℹ️ No vectors found, continuing without RAG"));
 }
 
-// Initialize on import
+// Kick off RAG loading on import
 initializeVectors();

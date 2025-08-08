@@ -66,19 +66,13 @@ function lexicalScore(query, text) {
 /********************************************************************
  * Core search
  *******************************************************************/
-export async function search(query, k = 3, {minScore = 0.15, alpha = 0.85, scope = "global"} = {}) {
+export async function search(query, k = 3, { minScore = 0.15, alpha = 0.85 } = {}) {
   if (!query || chatState.vectors.length === 0) return [];
 
-  //  restrict to current page when requested
-  const pool = (scope === "page")
-    ? chatState.vectors.filter(v =>
-        v.metadata?.page === location.pathname)
-    : chatState.vectors;
-
+  const pool = chatState.vectors;
   const qEmbed = await getEmbedding(query.toLowerCase());
 
   const scored = await Promise.all(pool.map(async v => {
-    if (!v.embedding) v.embedding = await getEmbedding(v.text);
     const sem = cosineSimilarity(qEmbed, v.embedding);
     const lex = lexicalScore(query, v.text.toLowerCase());
     return { ...v, score: alpha * sem + (1 - alpha) * lex };
