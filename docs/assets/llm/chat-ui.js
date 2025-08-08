@@ -5,7 +5,7 @@
  */
 
 import { chatState } from './chat-config.js';
-import MarkdownIt from 'markdown-it';
+import MarkdownIt from 'https://cdn.skypack.dev/markdown-it@13.0.1/dist/markdown-it.min.js';
 const md = new MarkdownIt({ html: true });
 
 // Export the setupModelDropdown function that will be called from chat-main.js

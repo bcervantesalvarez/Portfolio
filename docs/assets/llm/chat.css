@@ -13,7 +13,7 @@ html {
   --overlay-bg: rgba(0, 0, 0, 0.1);
 
   /* Container */
-  --container-bg: rgba(250, 250, 250, 1);
+  --container-bg: rgba(250, 250, 250, 1); 
   --container-border: rgba(255, 255, 255, 0.4);
 
   /* Header */
@@ -39,8 +39,12 @@ html {
 
   /* Input */
   --input-bg: rgba(255, 255, 255, 0.7);
+  --container-bg: rgba(250, 250, 250, 1); 
   --input-text: #1a1a1a;
   --input-placeholder: #717171;
+
+  /* Send button */
+  --container-bg: rgba(250, 250, 250, 1); 
 }
 
 /* 2) Chat Button */
@@ -626,8 +630,7 @@ html {
   }
 }
 
-/* The .message.float-away class is used to animate temporary messages out of view.
-   It triggers the floatAway animation when a message should be removed from the chat log. */
+/* when this class is added, the message will play the floatAway animation */
 .message.float-away {
   animation: floatAway 0.6s ease-out forwards;
 }

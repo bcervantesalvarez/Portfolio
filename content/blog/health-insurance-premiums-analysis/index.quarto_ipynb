@@ -49,7 +49,7 @@
         "\n",
         "## Data Setup and Import"
       ],
-      "id": "b1880181"
+      "id": "19adfbdc"
     },
     {
       "cell_type": "code",
@@ -69,7 +69,7 @@
         "\n",
         "df.head()"
       ],
-      "id": "a5b4569c",
+      "id": "7bf559d5",
       "execution_count": null,
       "outputs": []
     },
@@ -81,7 +81,7 @@
         "\n",
         "We start by exploring the dataset at a high level: checking for missing data, data types, and general statistics."
       ],
-      "id": "7533250b"
+      "id": "f1fef0af"
     },
     {
       "cell_type": "code",
@@ -92,7 +92,7 @@
         "print(\"\\nBasic Description:\")\n",
         "print(df.describe(include='all'))"
       ],
-      "id": "72f525c9",
+      "id": "563d1b13",
       "execution_count": null,
       "outputs": []
     },
@@ -102,7 +102,7 @@
       "source": [
         "### Distribution of Smokers vs. Non-Smokers"
       ],
-      "id": "db122580"
+      "id": "5d6e6fa3"
     },
     {
       "cell_type": "code",
@@ -123,7 +123,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "517a1cc5",
+      "id": "43f76bcc",
       "execution_count": null,
       "outputs": []
     },
@@ -137,7 +137,7 @@
         "\n",
         "We now focus on identifying the relationship between smoking status and insurance charges. We also investigate gender differences, BMI (Body Mass Index), age, and other features."
       ],
-      "id": "0024b858"
+      "id": "d21cf4c4"
     },
     {
       "cell_type": "code",
@@ -147,7 +147,7 @@
         "print(\"Overall median charges:\", round(df['charges'].median(), 2))\n",
         "print(\"Overall standard deviation:\", round(df['charges'].std(), 2))"
       ],
-      "id": "ea53928f",
+      "id": "1da2b7b1",
       "execution_count": null,
       "outputs": []
     },
@@ -159,7 +159,7 @@
         "\n",
         "#### Boxplot and Histogram"
       ],
-      "id": "d67d6838"
+      "id": "7e898991"
     },
     {
       "cell_type": "code",
@@ -180,7 +180,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "0bb5bdc3",
+      "id": "086c734b",
       "execution_count": null,
       "outputs": []
     },
@@ -190,7 +190,7 @@
       "source": [
         "#### Summary Statistics (Smokers)"
       ],
-      "id": "03fe144d"
+      "id": "683587c3"
     },
     {
       "cell_type": "code",
@@ -210,7 +210,7 @@
         "print(f\"Smoker Std: ${smoker_std}\")\n",
         "print(f\"Smoker Var: {smoker_var}\")"
       ],
-      "id": "beed4019",
+      "id": "71b7cf0c",
       "execution_count": null,
       "outputs": []
     },
@@ -222,7 +222,7 @@
         "\n",
         "Below we compare male smokers and female smokers, highlighting BMI and how it affects insurance cost."
       ],
-      "id": "141c91ec"
+      "id": "370d2b1a"
     },
     {
       "cell_type": "code",
@@ -291,7 +291,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "321239e3",
+      "id": "4e127d51",
       "execution_count": null,
       "outputs": []
     },
@@ -301,7 +301,7 @@
       "source": [
         "#### BMI < 30 vs. BMI >= 30 (Male Smokers)"
       ],
-      "id": "d47877d5"
+      "id": "82fa7892"
     },
     {
       "cell_type": "code",
@@ -320,7 +320,7 @@
         "print(f\"Absolute Difference: ${diff_male}\")\n",
         "print(f\"Relative Increase: ~{rel_increase_male}% higher cost\")"
       ],
-      "id": "9213f941",
+      "id": "ff84be0d",
       "execution_count": null,
       "outputs": []
     },
@@ -330,7 +330,7 @@
       "source": [
         "### Female Smokers"
       ],
-      "id": "8d9b80c4"
+      "id": "bb6f5d57"
     },
     {
       "cell_type": "code",
@@ -395,7 +395,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "67f9d234",
+      "id": "a8d37735",
       "execution_count": null,
       "outputs": []
     },
@@ -416,7 +416,7 @@
         "print(f\"Absolute Difference: ${diff_female}\")\n",
         "print(f\"Relative Increase: ~{rel_increase_female}% higher cost\")"
       ],
-      "id": "ac29b213",
+      "id": "50adfbb7",
       "execution_count": null,
       "outputs": []
     },
@@ -426,7 +426,7 @@
       "source": [
         "### Smokers vs. Non-Smokers"
       ],
-      "id": "b6b4d260"
+      "id": "8aa26bd9"
     },
     {
       "cell_type": "code",
@@ -451,7 +451,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "2cdb8ea8",
+      "id": "077d0ada",
       "execution_count": null,
       "outputs": []
     },
@@ -461,7 +461,7 @@
       "source": [
         "#### Comparison by Gender (Non-Smokers)"
       ],
-      "id": "43951f0b"
+      "id": "57f57d27"
     },
     {
       "cell_type": "code",
@@ -486,7 +486,7 @@
         "plt.ylabel(\"Average Insurance Cost (USD)\")\n",
         "plt.show()"
       ],
-      "id": "42c83fc7",
+      "id": "a2c45a17",
       "execution_count": null,
       "outputs": []
     },
@@ -500,7 +500,7 @@
         "\n",
         "To quickly see how numeric variables (like *age, bmi, children, charges*) relate to each other, we can look at a correlation heatmap. "
       ],
-      "id": "fb2dc24a"
+      "id": "54238f59"
     },
     {
       "cell_type": "code",
@@ -515,7 +515,7 @@
         "plt.title(\"Correlation Heatmap of Numeric Features\")\n",
         "plt.show()"
       ],
-      "id": "ccbaf5de",
+      "id": "8010f324",
       "execution_count": null,
       "outputs": []
     },
@@ -550,7 +550,7 @@
         "- [Medical News Today: BMI (body mass index): What is it and is it useful?](https://www.medicalnewstoday.com/articles/265215)  \n",
         "- [HealthMarkets: Smoking and Health Insurance](https://www.healthmarkets.com/content/smoking-and-health-insurance)\n"
       ],
-      "id": "e28e7e80"
+      "id": "8175b40e"
     }
   ],
   "metadata": {
