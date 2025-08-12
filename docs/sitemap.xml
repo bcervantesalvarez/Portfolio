@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://datascienceyapper.com/index.html</loc>
-    <lastmod>2025-08-08T05:48:07.152Z</lastmod>
+    <lastmod>2025-08-12T04:32:57.586Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/talks/understanding-quarto/index.html</loc>
@@ -134,7 +134,7 @@
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/privacy/index.html</loc>
-    <lastmod>2025-07-01T23:28:02.152Z</lastmod>
+    <lastmod>2025-08-12T06:00:51.056Z</lastmod>
   </url>
   <url>
     <loc>https://datascienceyapper.com/content/projects/olympic-dashboard-posit-2024/index.html</loc>
@@ -171,9 +171,5 @@
   <url>
     <loc>https://datascienceyapper.com/content/talks/water-parasites-survival-analysis/index.html</loc>
     <lastmod>2025-07-01T23:28:02.178Z</lastmod>
-  </url>
-  <url>
-    <loc>https://datascienceyapper.com/content/talks/talks-row.html</loc>
-    <lastmod>2025-08-08T06:19:53.300Z</lastmod>
   </url>
 </urlset>

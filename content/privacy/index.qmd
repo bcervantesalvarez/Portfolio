@@ -3,7 +3,7 @@ title: "Privacy Policy"
 format: 
   html:
     code-tools: true
-    include-in-header: 
+    include-in-header:
       - text: |
           <script type="text/javascript" src="/assets/scripts/privacy/privacyForm.js"></script>
 ai-summary:
@@ -168,12 +168,17 @@ ai-summary:
   </p>
 
   <!-- Form with submission handled by external JavaScript -->
-  <form id="policyForm" class="policy-form">
-    <input
-      type="hidden"
-      name="_next"
-      value="https://www.datascienceyapper.com/content/forms/thank-you/"
-    />
+  <iframe id="policyFormTarget" name="policyFormTarget" style="display:none;"></iframe>
+
+  <form id="policyForm" target="policyFormTarget"
+      action="https://script.google.com/macros/s/AKfycbwgvahSl92clLNtOoVs2yGhfninvTex3DbRFvOTDy9TSWVFuIgJ1L3BduhLu4EemVQ/exec"
+      method="POST">
+    <input type="hidden" name="_next" value="https://www.datascienceyapper.com/content/forms/thank-you/">
+    <input type="hidden" name="referrer" value="">
+    <input type="hidden" name="userAgent" value="">
+    <!-- Honeypot (keep hidden with CSS) -->
+    <input type="text" name="hp_field" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+
 
     <!-- First Name Field -->
     <div class="policy-form-group">

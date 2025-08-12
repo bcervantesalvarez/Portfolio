@@ -1,0 +1,566 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"The Impact of Smoking on Health Insurance Premiums: Unveiling the True Costs\"\n",
+        "description: \"In this investigation, we dive deep into the impact of smoking habits on medical insurance expenses, carefully examining nuanced differences between genders, including both smokers and non-smokers.\"\n",
+        "author: \"Brian Cervantes Alvarez\"\n",
+        "date: \"2022-07-14\"\n",
+        "date-modified: today\n",
+        "image: /assets/images/insurance.jpeg\n",
+        "format:\n",
+        "  html:\n",
+        "    code-tools: true\n",
+        "    code-fold: true\n",
+        "    page-layout: article\n",
+        "    toc: true\n",
+        "    toc-location: right\n",
+        "    html-math-method: katex\n",
+        "execute:\n",
+        "  message: false\n",
+        "  warning: false\n",
+        "categories:\n",
+        "  - Python\n",
+        "  - Statistics\n",
+        "  - Jupyter Notebook\n",
+        "  - Data Visualization\n",
+        "jupyter: python3\n",
+        "ai-summary:\n",
+        "  banner-title: \"Yapper Labs | AI Summary\"\n",
+        "  model-title: \"Model: ChatGPT o3-mini-high\"\n",
+        "  model-img: \"/assets/images/OpenAI-white-monoblossom.svg\"\n",
+        "  summary: \"I analyzed a health insurance dataset by importing and cleaning the data, performing exploratory analysis, and creating detailed visualizations—such as histograms, boxplots, and correlation heatmaps—to compare insurance premiums between smokers and non-smokers. My analysis revealed that among smokers, male premiums increased by 52% (amounting to roughly 408.57% more than non-smokers) and female premiums increased by 49% (approximately 350.12% higher than non-smokers). Additionally, I examined the roles of BMI, age, and family size on premium costs, illustrating that these lifestyle factors further contribute to escalating health insurance expenses.\"\n",
+        "---\n",
+        "\n",
+        "![](/assets/images/insurance.jpeg)\n",
+        "\n",
+        "## Abstract\n",
+        "\n",
+        "This study confirms the significant impact of smoking on the escalation of health insurance premiums. Male and female smokers with a body mass index (BMI) of 30 or higher face additional charges, compounding their financial burden. Male smokers experience a 52% increase, while female smokers face a 49% rise in insurance charges, in addition to the base premium for smokers.\n",
+        "\n",
+        "Moreover, male smokers pay $408.57\\%$ more than non-smokers, while female smokers pay $350.12\\%$ more. The data unequivocally supports the idea that unhealthy lifestyle choices, such as smoking and high BMI, result in higher health insurance premiums. It is also evident that premiums increase gradually with age.\n",
+        "\n",
+        "While this project provides valuable insights, further exploration opportunities include applying machine learning techniques to assess the representativeness of the sample, which could enhance the accuracy of conclusions and drive advancements in health insurance research.\n",
+        "\n",
+        "---\n",
+        "\n",
+        "## Data Setup and Import"
+      ],
+      "id": "34d350c9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "from scipy import stats\n",
+        "\n",
+        "sns.set_style('darkgrid')\n",
+        "sns.set(font_scale=1.2)\n",
+        "\n",
+        "# Read the CSV file\n",
+        "df = pd.read_csv(\"../../../assets/datasets/insurance.csv\")\n",
+        "\n",
+        "df.head()"
+      ],
+      "id": "ae1d2748",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## High-Level Exploratory Analysis\n",
+        "\n",
+        "We start by exploring the dataset at a high level: checking for missing data, data types, and general statistics."
+      ],
+      "id": "d98b9d31"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(\"Dataset Info:\")\n",
+        "print(df.info())\n",
+        "print(\"\\nBasic Description:\")\n",
+        "print(df.describe(include='all'))"
+      ],
+      "id": "ca3912fd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Distribution of Smokers vs. Non-Smokers"
+      ],
+      "id": "e31cda1d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Count the number of smokers vs. non-smokers\n",
+        "num_smokers = (df[\"smoker\"] == \"yes\").sum()\n",
+        "num_nonsmokers = (df[\"smoker\"] == \"no\").sum()\n",
+        "\n",
+        "print(f\"Number of smokers: {num_smokers}\")\n",
+        "print(f\"Number of nonsmokers: {num_nonsmokers}\")\n",
+        "\n",
+        "plt.figure(figsize=(6, 4))\n",
+        "sns.countplot(x=\"smoker\", data=df)\n",
+        "plt.title(\"Count of Smokers vs. Non-smokers\")\n",
+        "plt.xlabel(\"Smoking Status\")\n",
+        "plt.ylabel(\"Count\")\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "8b8d1f48",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "## Analysis of Factors Affecting Insurance Costs\n",
+        "\n",
+        "We now focus on identifying the relationship between smoking status and insurance charges. We also investigate gender differences, BMI (Body Mass Index), age, and other features."
+      ],
+      "id": "17572ef3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(\"Overall mean charges:\", round(df['charges'].mean(), 2))\n",
+        "print(\"Overall median charges:\", round(df['charges'].median(), 2))\n",
+        "print(\"Overall standard deviation:\", round(df['charges'].std(), 2))"
+      ],
+      "id": "04267e62",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Insurance Costs: Smokers Only\n",
+        "\n",
+        "#### Boxplot and Histogram"
+      ],
+      "id": "86977c54"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_smokers = df[df[\"smoker\"] == \"yes\"]\n",
+        "\n",
+        "fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))\n",
+        "\n",
+        "sns.boxplot(y=\"charges\", data=df_smokers, ax=ax1)\n",
+        "ax1.set_title(\"Insurance Cost Boxplot (Smokers)\")\n",
+        "ax1.set_ylabel(\"Insurance Cost (USD)\")\n",
+        "\n",
+        "sns.histplot(df_smokers[\"charges\"], bins=40, kde=True, ax=ax2)\n",
+        "ax2.set_title(\"Insurance Cost Distribution (Smokers)\")\n",
+        "ax2.set_xlabel(\"Insurance Cost (USD)\")\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "a1447a88",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "#### Summary Statistics (Smokers)"
+      ],
+      "id": "91e3fb76"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "smoker_mean = round(df_smokers[\"charges\"].mean(), 2)\n",
+        "smoker_median = round(df_smokers[\"charges\"].median(), 2)\n",
+        "smoker_std = round(df_smokers[\"charges\"].std(), 2)\n",
+        "smoker_var = round(df_smokers[\"charges\"].var(), 2)\n",
+        "smoker_max = round(df_smokers[\"charges\"].max(), 2)\n",
+        "smoker_min = round(df_smokers[\"charges\"].min(), 2)\n",
+        "\n",
+        "print(f\"Smoker Mean: ${smoker_mean}\")\n",
+        "print(f\"Smoker Median: ${smoker_median}\")\n",
+        "print(f\"Smoker Max: ${smoker_max}\")\n",
+        "print(f\"Smoker Min: ${smoker_min}\")\n",
+        "print(f\"Smoker Std: ${smoker_std}\")\n",
+        "print(f\"Smoker Var: {smoker_var}\")"
+      ],
+      "id": "95dda6b4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Male vs. Female Smokers\n",
+        "\n",
+        "Below we compare male smokers and female smokers, highlighting BMI and how it affects insurance cost."
+      ],
+      "id": "c0e79dea"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_male_smoker = df_smokers[df_smokers[\"sex\"] == \"male\"]\n",
+        "df_female_smoker = df_smokers[df_smokers[\"sex\"] == \"female\"]\n",
+        "\n",
+        "# Plot multiple subplots for male smokers\n",
+        "fig, ax = plt.subplots(2, 3, figsize=(14, 8))\n",
+        "sns.set(font_scale=0.9)\n",
+        "\n",
+        "# 1) Histogram of charges (male smokers)\n",
+        "sns.histplot(df_male_smoker[\"charges\"], bins=40, ax=ax[0,0], color=\"navy\")\n",
+        "ax[0,0].set_title(\"Male Smoker Cost Dist.\")\n",
+        "ax[0,0].set_xlabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 2) Bar plot of average charges by children\n",
+        "df_children_m = (\n",
+        "    df_male_smoker\n",
+        "    .groupby(\"children\")[\"charges\"]\n",
+        "    .mean()\n",
+        "    .reset_index()\n",
+        ")\n",
+        "sns.barplot(data=df_children_m, x=\"children\", y=\"charges\", ax=ax[0,1], color=\"teal\")\n",
+        "ax[0,1].set_title(\"Avg. Male Smoker Cost by # of Children\")\n",
+        "ax[0,1].set_xlabel(\"Number of Children\")\n",
+        "ax[0,1].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 3) Scatterplot charges vs BMI\n",
+        "sns.scatterplot(\n",
+        "    data=df_male_smoker, x=\"bmi\", y=\"charges\",\n",
+        "    hue=\"region\", ax=ax[0,2]\n",
+        ")\n",
+        "ax[0,2].axvline(x=30, color=\"gray\", linestyle=\"--\", label=\"BMI = 30\")\n",
+        "ax[0,2].set_title(\"Male Smoker: Cost vs. BMI\")\n",
+        "ax[0,2].set_xlabel(\"BMI\")\n",
+        "ax[0,2].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 4) Scatterplot charges vs age\n",
+        "sns.scatterplot(\n",
+        "    data=df_male_smoker, x=\"age\", y=\"charges\",\n",
+        "    hue=\"children\", ax=ax[1,0]\n",
+        ")\n",
+        "ax[1,0].set_title(\"Male Smoker: Cost vs. Age\")\n",
+        "ax[1,0].set_xlabel(\"Age\")\n",
+        "ax[1,0].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 5) Barplot average cost by region\n",
+        "df_region_m = (\n",
+        "    df_male_smoker\n",
+        "    .groupby(\"region\")[\"charges\"]\n",
+        "    .mean()\n",
+        "    .reset_index()\n",
+        ")\n",
+        "sns.barplot(data=df_region_m, x=\"region\", y=\"charges\", ax=ax[1,1], palette=\"viridis\")\n",
+        "ax[1,1].set_title(\"Male Smoker Cost by Region\")\n",
+        "ax[1,1].set_xlabel(\"Region\")\n",
+        "ax[1,1].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 6) Boxplot\n",
+        "sns.boxplot(x=df_male_smoker[\"charges\"], ax=ax[1,2], color=\"lightblue\")\n",
+        "ax[1,2].set_title(\"Male Smoker: Boxplot of Charges\")\n",
+        "ax[1,2].set_xlabel(\"Cost (USD)\")\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "539126da",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "#### BMI < 30 vs. BMI >= 30 (Male Smokers)"
+      ],
+      "id": "b3657667"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "male_bmi_under_30 = df_male_smoker[df_male_smoker[\"bmi\"] < 30]\n",
+        "male_bmi_over_30 = df_male_smoker[df_male_smoker[\"bmi\"] >= 30]\n",
+        "\n",
+        "avg_under_30 = round(male_bmi_under_30[\"charges\"].mean(), 2)\n",
+        "avg_over_30 = round(male_bmi_over_30[\"charges\"].mean(), 2)\n",
+        "diff_male = round(avg_over_30 - avg_under_30, 2)\n",
+        "rel_increase_male = 100 * round(diff_male / avg_under_30, 2)\n",
+        "\n",
+        "print(f\"Male Smoker <30 BMI Avg. Cost: ${avg_under_30}\")\n",
+        "print(f\"Male Smoker >=30 BMI Avg. Cost: ${avg_over_30}\")\n",
+        "print(f\"Absolute Difference: ${diff_male}\")\n",
+        "print(f\"Relative Increase: ~{rel_increase_male}% higher cost\")"
+      ],
+      "id": "a5c1aa02",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Female Smokers"
+      ],
+      "id": "222e96ee"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "fig, ax = plt.subplots(2, 3, figsize=(14, 8))\n",
+        "sns.set(font_scale=0.9)\n",
+        "\n",
+        "# 1) Histogram\n",
+        "sns.histplot(df_female_smoker[\"charges\"], bins=40, ax=ax[0,0], color=\"purple\")\n",
+        "ax[0,0].set_title(\"Female Smoker Cost Dist.\")\n",
+        "ax[0,0].set_xlabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 2) Barplot average cost by children\n",
+        "df_children_f = (\n",
+        "    df_female_smoker\n",
+        "    .groupby(\"children\")[\"charges\"]\n",
+        "    .mean()\n",
+        "    .reset_index()\n",
+        ")\n",
+        "sns.barplot(data=df_children_f, x=\"children\", y=\"charges\", ax=ax[0,1], color=\"violet\")\n",
+        "ax[0,1].set_title(\"Avg. Female Smoker Cost by # of Children\")\n",
+        "ax[0,1].set_xlabel(\"Number of Children\")\n",
+        "ax[0,1].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 3) Scatterplot cost vs BMI\n",
+        "sns.scatterplot(\n",
+        "    data=df_female_smoker, x=\"bmi\", y=\"charges\",\n",
+        "    hue=\"region\", ax=ax[0,2]\n",
+        ")\n",
+        "ax[0,2].axvline(x=30, color=\"gray\", linestyle=\"--\")\n",
+        "ax[0,2].set_title(\"Female Smoker: Cost vs. BMI\")\n",
+        "ax[0,2].set_xlabel(\"BMI\")\n",
+        "ax[0,2].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 4) Scatterplot cost vs age\n",
+        "sns.scatterplot(\n",
+        "    data=df_female_smoker, x=\"age\", y=\"charges\",\n",
+        "    hue=\"children\", ax=ax[1,0]\n",
+        ")\n",
+        "ax[1,0].set_title(\"Female Smoker: Cost vs. Age\")\n",
+        "ax[1,0].set_xlabel(\"Age\")\n",
+        "ax[1,0].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 5) Barplot by region\n",
+        "df_region_f = (\n",
+        "    df_female_smoker\n",
+        "    .groupby(\"region\")[\"charges\"]\n",
+        "    .mean()\n",
+        "    .reset_index()\n",
+        ")\n",
+        "sns.barplot(data=df_region_f, x=\"region\", y=\"charges\", ax=ax[1,1], palette=\"rocket\")\n",
+        "ax[1,1].set_title(\"Female Smoker Cost by Region\")\n",
+        "ax[1,1].set_xlabel(\"Region\")\n",
+        "ax[1,1].set_ylabel(\"Cost (USD)\")\n",
+        "\n",
+        "# 6) Boxplot\n",
+        "sns.boxplot(x=df_female_smoker[\"charges\"], ax=ax[1,2], color=\"pink\")\n",
+        "ax[1,2].set_title(\"Female Smoker: Boxplot of Charges\")\n",
+        "ax[1,2].set_xlabel(\"Cost (USD)\")\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "fa50b761",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "female_bmi_under_30 = df_female_smoker[df_female_smoker[\"bmi\"] < 30]\n",
+        "female_bmi_over_30 = df_female_smoker[df_female_smoker[\"bmi\"] >= 30]\n",
+        "\n",
+        "avg_under_30_f = round(female_bmi_under_30[\"charges\"].mean(), 2)\n",
+        "avg_over_30_f = round(female_bmi_over_30[\"charges\"].mean(), 2)\n",
+        "diff_female = round(avg_over_30_f - avg_under_30_f, 2)\n",
+        "rel_increase_female = 100 * round(diff_female / avg_under_30_f, 2)\n",
+        "\n",
+        "print(f\"Female Smoker <30 BMI Avg. Cost: ${avg_under_30_f}\")\n",
+        "print(f\"Female Smoker >=30 BMI Avg. Cost: ${avg_over_30_f}\")\n",
+        "print(f\"Absolute Difference: ${diff_female}\")\n",
+        "print(f\"Relative Increase: ~{rel_increase_female}% higher cost\")"
+      ],
+      "id": "366ecafb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Smokers vs. Non-Smokers"
+      ],
+      "id": "736ae5a4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_nonsmokers = df[df[\"smoker\"] == \"no\"]\n",
+        "\n",
+        "nonsmoker_mean = round(df_nonsmokers[\"charges\"].mean(), 2)\n",
+        "nonsmoker_median = round(df_nonsmokers[\"charges\"].median(), 2)\n",
+        "\n",
+        "print(f\"Non-smoker Mean: ${nonsmoker_mean}\")\n",
+        "print(f\"Non-smoker Median: ${nonsmoker_median}\")\n",
+        "\n",
+        "fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))\n",
+        "sns.boxplot(y=\"charges\", data=df_nonsmokers, ax=ax1, color=\"green\")\n",
+        "ax1.set_title(\"Cost Boxplot (Non-smokers)\")\n",
+        "\n",
+        "sns.histplot(df_nonsmokers[\"charges\"], bins=40, kde=True, ax=ax2, color=\"green\")\n",
+        "ax2.set_title(\"Cost Distribution (Non-smokers)\")\n",
+        "ax2.set_xlabel(\"Insurance Cost (USD)\")\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "7e577d81",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "#### Comparison by Gender (Non-Smokers)"
+      ],
+      "id": "927cde37"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_male_nonsmoker = df_nonsmokers[df_nonsmokers[\"sex\"] == \"male\"]\n",
+        "df_female_nonsmoker = df_nonsmokers[df_nonsmokers[\"sex\"] == \"female\"]\n",
+        "\n",
+        "avg_male_nonsmoker = round(df_male_nonsmoker[\"charges\"].mean(), 2)\n",
+        "avg_female_nonsmoker = round(df_female_nonsmoker[\"charges\"].mean(), 2)\n",
+        "print(f\"Male Non-smoker Avg: ${avg_male_nonsmoker}\")\n",
+        "print(f\"Female Non-smoker Avg: ${avg_female_nonsmoker}\")\n",
+        "\n",
+        "df_both_means = pd.DataFrame({\n",
+        "    'Sex': ['Male', 'Female'],\n",
+        "    'AvgCharges': [avg_male_nonsmoker, avg_female_nonsmoker]\n",
+        "})\n",
+        "\n",
+        "plt.figure(figsize=(5,4))\n",
+        "sns.barplot(data=df_both_means, x='Sex', y='AvgCharges', palette='Set2')\n",
+        "plt.title(\"Non-smoker Avg Charges by Sex\")\n",
+        "plt.ylabel(\"Average Insurance Cost (USD)\")\n",
+        "plt.show()"
+      ],
+      "id": "238decbe",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "## Correlation Heatmap\n",
+        "\n",
+        "To quickly see how numeric variables (like *age, bmi, children, charges*) relate to each other, we can look at a correlation heatmap. "
+      ],
+      "id": "b8682afb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Select only numeric columns\n",
+        "df_numeric = df[[\"age\", \"bmi\", \"children\", \"charges\"]].copy()\n",
+        "\n",
+        "corr_matrix = df_numeric.corr()\n",
+        "plt.figure(figsize=(6,5))\n",
+        "sns.heatmap(corr_matrix, annot=True, cmap=\"magma\", fmt=\".2f\")\n",
+        "plt.title(\"Correlation Heatmap of Numeric Features\")\n",
+        "plt.show()"
+      ],
+      "id": "cc32516d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "> **Takeaways**: \n",
+        "> - There's a moderate positive correlation between age and charges, as well as bmi and charges.  \n",
+        "> - Children has a mild correlation with charges.  \n",
+        "> - This quick analysis suggests that age and BMI might be strong predictors of insurance cost (which also aligns with the earlier analyses).\n",
+        "\n",
+        "---\n",
+        "\n",
+        "## Results\n",
+        "\n",
+        "1. **Smoking Impact**: Male and female smokers have significantly higher costs than non-smokers. Once BMI reaches 30 or higher, that cost inflates further.  \n",
+        "2. **Gender Differences**: Among smokers with BMI < 30, men pay slightly more on average. For those with BMI >= 30, women pay marginally more.  \n",
+        "3. **Age and Children**: Costs generally rise with age; having more children is associated with higher costs among non-smokers, though there are some nuances.  \n",
+        "4. **Correlation**: A heatmap reveals that age, BMI, and number of children all have positive associations with charges, with age and BMI showing the strongest correlation.\n",
+        "\n",
+        "## Conclusion\n",
+        "\n",
+        "Our analysis demonstrates the profound impact of smoking and high BMI on health insurance costs. Age is a steady contributor to increased premiums, while having multiple children also shows mild cost elevations for non-smokers. These findings highlight the importance of preventive healthcare and lifestyle interventions. \n",
+        "\n",
+        "Moving forward, applying machine learning methods or deeper statistical modeling (e.g., linear or logistic regression) could refine these conclusions and more accurately predict costs. This lays groundwork for broader health insurance strategies, encouraging healthier choices while clarifying how demographic and lifestyle factors compound to drive premiums upward.\n",
+        "\n",
+        "---\n",
+        "\n",
+        "## References\n",
+        "\n",
+        "- [Medical News Today: BMI (body mass index): What is it and is it useful?](https://www.medicalnewstoday.com/articles/265215)  \n",
+        "- [HealthMarkets: Smoking and Health Insurance](https://www.healthmarkets.com/content/smoking-and-health-insurance)\n"
+      ],
+      "id": "edc19296"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\Brian\\AppData\\Local\\Programs\\Python\\Python311\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
