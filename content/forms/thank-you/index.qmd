@@ -4,56 +4,81 @@ format:
     page-layout: full
 ---
 
+
 ```{=html}
-<!-- Centered container for the thank-you message -->
-<div style="
-  max-width: 600px;
-  margin: 4rem auto; 
-  text-align: center; 
-  font-family: sans-serif;
-">
-  <h1 style="font-size: 2rem; margin-bottom: 1rem;">
-    Thank You!
-  </h1>
-  <p style="font-size: 1.125rem; color: #555;">
-    I've received your submission and will get back to you soon!
+<!-- Container -->
+<section id="ty-page" style="max-width:760px;margin:6rem auto;padding:0 1rem;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a;text-align:center">
+
+  <!-- Success icon -->
+  <div style="display:inline-block;width:88px;height:88px;margin-bottom:1rem">
+    <svg viewBox="-2 -2 56 56" width="88" height="88">
+      <circle cx="26" cy="26" r="25" fill="none" stroke="#16a34a" stroke-width="3" style="opacity:.15"></circle>
+      <circle cx="26" cy="26" r="25" fill="none" stroke="#16a34a" stroke-width="3"
+              style="stroke-dasharray:157;stroke-dashoffset:157;animation:ty-ring .8s ease-out forwards"></circle>
+      <polyline points="14,28 23,36 38,18" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+                style="stroke-dasharray:40;stroke-dashoffset:40;animation:ty-tick .6s .3s ease-out forwards"></polyline>
+    </svg>
+  </div>
+
+  <h1 style="font-size:2rem;line-height:1.2;margin:.25rem 0 0">I got your message! Thank you 😎 </h1>
+  <p style="font-size:1.125rem;color:#334155;margin:.5rem 0 1.25rem">
+    I’ll review and respond as soon as possible. You’ll be redirected to the homepage in
+    <span id="ty-sec">30</span>s.
   </p>
-</div>
 
-<!-- Confetti JS library from a CDN -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <!-- Actions -->
+  <div class="ty-actions">
+    <a href="https://www.datascienceyapper.com/" class="ty-btn ty-btn-primary">Go to Homepage</a>
+  </div>
 
-<!-- Inline Script to trigger confetti -->
+  <!-- Destinations -->
+  <div class="ty-grid">
+    <a class="ty-card" href="https://www.datascienceyapper.com/content/projects/">
+      <div class="ty-card-title">Projects</div>
+      <div class="ty-card-body">Case studies, notebooks, and production ML work.</div>
+    </a>
+    <a class="ty-card" href="https://www.datascienceyapper.com/content/blog/">
+      <div class="ty-card-title">Articles</div>
+      <div class="ty-card-body">Short, practical pieces on DS/ML workflows.</div>
+    </a>
+    <a class="ty-card" href="https://www.datascienceyapper.com/content/about/">
+      <div class="ty-card-title">About</div>
+      <div class="ty-card-body">Who I am, what I teach, how I work.</div>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* All styles scoped under #ty-page to avoid collisions with Quarto/theme */
+  #ty-page .ty-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
+  #ty-page .ty-btn{font-weight:600;padding:.75rem 1.1rem;border-radius:.75rem;display:inline-block;text-decoration:none;border:0;cursor:pointer;transition:filter .15s ease}
+  #ty-page .ty-btn-primary{background:#0ea5e9;color:#fff}
+  #ty-page .ty-btn-primary:hover{filter:brightness(.95)}
+  #ty-page .ty-btn-ghost{background:#e2e8f0;color:#0f172a}
+  #ty-page .ty-btn-ghost:hover{filter:brightness(.97)}
+
+  #ty-page .ty-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:1.25rem;text-align:left}
+  #ty-page .ty-card{display:block;border:1px solid #e5e7eb;border-radius:16px;padding:14px 16px;background:#fff;color:#0f172a;text-decoration:none;
+                    transition:transform .12s ease, box-shadow .12s ease; box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  #ty-page .ty-card:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(15,23,42,.08)}
+  #ty-page .ty-card-title{font-weight:800;margin-bottom:.25rem}
+  #ty-page .ty-card-body{color:#475569;font-size:.95rem}
+
+  @keyframes ty-ring{to{stroke-dashoffset:0}}
+  @keyframes ty-tick{to{stroke-dashoffset:0}}
+</style>
+
 <script>
-(function() {
-  // Duration for the confetti in milliseconds
-  const duration = 3000; 
-  const animationEnd = Date.now() + duration;
-
-  const colors = ['#00bfff', '#ff6f61', '#ffc107', '#4caf50', '#ff4081'];
-
-  (function frame() {
-    // Launch a few confetti from the left edge
-    confetti({
-      particleCount: 3,
-      angle: 60,
-      spread: 55,
-      origin: { x: 0 },
-      colors: colors
+  (function(){
+    var target = "https://www.datascienceyapper.com/";
+    var secs = 30, el = document.getElementById('ty-sec');
+    var timer = setInterval(function(){
+      secs--; if (el) el.textContent = secs;
+      if (secs <= 0){ clearInterval(timer); window.location.href = target; }
+    }, 1000);
+    document.getElementById('ty-skip')?.addEventListener('click', function(){
+      clearInterval(timer); window.location.href = target;
     });
-    // Launch a few confetti from the right edge
-    confetti({
-      particleCount: 3,
-      angle: 120,
-      spread: 55,
-      origin: { x: 1 },
-      colors: colors
-    });
-    // Keep going until we hit our end time
-    if (Date.now() < animationEnd) {
-      requestAnimationFrame(frame);
-    }
   })();
-})();
 </script>
 ```

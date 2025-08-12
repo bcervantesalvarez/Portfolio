@@ -48,7 +48,7 @@
         "\n",
         "# Methodology"
       ],
-      "id": "ec451a83"
+      "id": "fa6db547"
     },
     {
       "cell_type": "code",
@@ -84,7 +84,7 @@
         "ds = pd.read_csv(\"../../../assets/datasets/severityLevels.csv\")  \n",
         "ds.head(10)  # Display the first 10 rows of the dataset"
       ],
-      "id": "7659d919",
+      "id": "f97e9f38",
       "execution_count": null,
       "outputs": []
     },
@@ -94,7 +94,7 @@
       "source": [
         "## Exploratory Data Analysis"
       ],
-      "id": "ba11a001"
+      "id": "4a4b4d39"
     },
     {
       "cell_type": "code",
@@ -103,7 +103,7 @@
         "# Display basic statistics of the dataset\n",
         "ds.describe()"
       ],
-      "id": "a19cfaec",
+      "id": "c8d49c5a",
       "execution_count": null,
       "outputs": []
     },
@@ -123,7 +123,7 @@
         "plt.close()\n",
         "plt.show()"
       ],
-      "id": "d96ee430",
+      "id": "fa83929c",
       "execution_count": null,
       "outputs": []
     },
@@ -145,7 +145,7 @@
         "plt.xticks(rotation=45)\n",
         "plt.show()"
       ],
-      "id": "8df57e26",
+      "id": "13b7d3a3",
       "execution_count": null,
       "outputs": []
     },
@@ -175,7 +175,7 @@
         "\n",
         "Overall, this code prepares the data by transforming categorical data into a suitable format and identifies the top features that contribute to predicting different categories. This sets the stage for further analysis and building the final machine learning model based on these selected features.\n"
       ],
-      "id": "c6f223a5"
+      "id": "d49430c1"
     },
     {
       "cell_type": "code",
@@ -195,7 +195,7 @@
         "\n",
         "ds.head(10)"
       ],
-      "id": "9d3e8811",
+      "id": "48a5140b",
       "execution_count": null,
       "outputs": []
     },
@@ -243,7 +243,7 @@
         "    print(features)\n",
         "    print()"
       ],
-      "id": "da23acc5",
+      "id": "5b402cf3",
       "execution_count": null,
       "outputs": []
     },
@@ -330,7 +330,7 @@
         "\n",
         "Overall, this code builds a Random Forest model using selected features, evaluates its performance through cross-validation, and provides insights into the model's predictive capabilities using various evaluation metrics. The goal is to understand how well the model can predict the categories in the target variable based on the selected features."
       ],
-      "id": "620dd516"
+      "id": "5021dc19"
     },
     {
       "cell_type": "code",
@@ -370,7 +370,7 @@
         "print(\"Mean CV Score:\", cv_scores.mean())\n",
         "print()"
       ],
-      "id": "68da09ae",
+      "id": "25065d52",
       "execution_count": null,
       "outputs": []
     },
@@ -412,7 +412,7 @@
         "print(\"Kappa:\", kappa)\n",
         "print()"
       ],
-      "id": "6733fd90",
+      "id": "5d10841a",
       "execution_count": null,
       "outputs": []
     },
@@ -450,7 +450,7 @@
         "\n",
         "Now, the ROC AUC (Receiver Operating Characteristic Area Under the Curve) is a measure of the model's ability to distinguish between different severity ratings. It represents the overall performance of the model across all severity levels. The value of 0.948 indicates a high level of performance, close to 1, suggesting that the model has good predictive capability for distinguishing between severity ratings."
       ],
-      "id": "fcfdf9ce"
+      "id": "5d12d8c0"
     },
     {
       "cell_type": "code",
@@ -497,7 +497,7 @@
         "plt.close()\n",
         "plt.show()"
       ],
-      "id": "d7fd3c25",
+      "id": "a3031ab3",
       "execution_count": null,
       "outputs": []
     },
@@ -511,7 +511,7 @@
         "\n",
         "Precision measures the proportion of instances that the model predicted correctly as positive (patients with a particular severity rating) out of all instances it predicted as positive. A precision value of 0.913 indicates that out of all the patients the model identified as having a specific severity rating, 91.3% of them were correct.\n"
       ],
-      "id": "be5571c6"
+      "id": "39ca7744"
     },
     {
       "cell_type": "code",
@@ -532,7 +532,7 @@
         "plt.close()\n",
         "plt.show()"
       ],
-      "id": "18c9893a",
+      "id": "4b2fdd7b",
       "execution_count": null,
       "outputs": []
     },
@@ -549,7 +549,7 @@
         "\n",
         "## Visualizing Random Forest's Best Decision Tree"
       ],
-      "id": "a5940fa0"
+      "id": "36b4a393"
     },
     {
       "cell_type": "code",
@@ -570,7 +570,7 @@
         "\n",
         "plt.show()"
       ],
-      "id": "ac05d0da",
+      "id": "4d7515a2",
       "execution_count": null,
       "outputs": []
     },
@@ -617,7 +617,7 @@
         "**Scikit-learn:**\n",
         "Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830. [Link: https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html]"
       ],
-      "id": "a518ce6d"
+      "id": "8ee6f3bc"
     }
   ],
   "metadata": {
